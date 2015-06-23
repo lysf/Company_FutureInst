@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_margin="@dimen/margin_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="@dimen/margin_15"
+        android:paddingRight="@dimen/margin_15"
+        android:paddingBottom="@dimen/margin_15"
+        android:background="@drawable/view_shap">
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="right">
+            <TextView 
+                android:id="@+id/tv_cancel"
+                android:paddingTop="@dimen/activity_login_margin_10"
+                android:paddingBottom="@dimen/activity_login_margin_10"
+                android:paddingLeft="@dimen/activity_login_margin_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel"
+                android:textColor="@color/text_color_6"
+                android:textSize="@dimen/text_size_large"/>
+        </LinearLayout>
+        <TextView 
+            android:id="@+id/tv_configMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_6"
+            android:textSize="@dimen/text_size_large"
+            android:paddingTop="@dimen/margin_15"
+            android:paddingBottom="@dimen/margin_15"
+            />
+        <Button 
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_white"
+            android:background="@drawable/btn_buy_back"
+            android:text="@string/ok"
+            android:minWidth="80dip"
+            android:minHeight="@dimen/widget_height_45"
+            android:layout_marginTop="@dimen/margin_5"
+            />
+    </LinearLayout>
+
+</LinearLayout>

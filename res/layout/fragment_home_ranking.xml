@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/a_hp_1_bg_yuan"
+    android:orientation="vertical">
+    <LinearLayout 
+        android:layout_marginBottom="@dimen/widget_height_50"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/text_color_e"
+        >
+        <include 
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        layout="@layout/pull_listview"/>
+	<View 
+	    android:layout_marginLeft="@dimen/activity_login_margin_10"
+	    android:layout_marginRight="@dimen/activity_login_margin_10"
+	    android:background="@color/text_color_9"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/line_height"/>
+    <include 
+	    layout="@layout/item_ranking"/>
+    </LinearLayout>
+</LinearLayout>

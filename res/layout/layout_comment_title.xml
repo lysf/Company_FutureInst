@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.futureinst.widget.TitleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_title"
+    android:layout_width="fill_parent"
+    android:layout_height="48dp"
+    android:background="@drawable/a_hp_1_bg_yuan"
+    style="?android:attr/windowTitleBackgroundStyle"
+    android:gravity="center" >
+
+    <!-- 左边的title -->
+
+    <com.futureinst.widget.TitleButton
+        android:id="@+id/btn_left_base"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="48dp"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:background="@null"
+        android:layout_gravity="left|center_vertical"
+        android:contentDescription="@string/app_name"
+        android:visibility="gone" />
+
+     <ImageView 
+        android:id="@+id/iv_left"
+        android:layout_width="48dp"
+        android:scaleType="centerInside"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|center_vertical"
+        android:contentDescription="@null"/>
+    
+    <!-- 中间的title -->
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+		
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+	        <TextView
+	            android:id="@+id/txt_title_base"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:ellipsize="end"
+	            android:gravity="center"
+	            android:singleLine="true"
+	            android:textSize="18sp"
+	            android:textColor="#ffffff"
+	            />
+		</LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <!-- 右边的btn -->
+
+    <com.futureinst.widget.TitleButton
+        android:id="@+id/btn_right_base"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="48dp"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:background="@null"
+        android:layout_gravity="right|center_vertical"
+        android:visibility="gone"/>
+    <ImageView 
+        android:id="@+id/iv_right"
+        android:layout_width="48dp"
+        android:scaleType="centerInside"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center_vertical"
+        android:contentDescription="@null"
+        android:visibility="gone"/>
+</com.futureinst.widget.TitleLayout>

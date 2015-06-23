@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/widget_height_45"
+    android:background="#E8E8F4"
+    android:gravity="center"
+    android:orientation="horizontal" >
+    <TextView 
+        android:layout_width="0dip"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:layout_height="@dimen/widget_height_45"
+        android:text="用户名"
+        android:textColor="@color/text_color_top_ranking"
+       	android:textSize="@dimen/text_size_normal"/>
+    <View 
+        android:layout_width="@dimen/line_height"
+        android:layout_height="match_parent"
+        android:background="@color/text_color_top_ranking"/>
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="先知指数"
+        android:textColor="@color/text_color_top_ranking"
+        android:textSize="@dimen/text_size_normal" />
+
+    <View 
+        android:layout_width="@dimen/line_height"
+        android:layout_height="match_parent"
+        android:background="@color/text_color_top_ranking"/>
+    <TextView 
+        android:layout_width="0dip"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:text="排名"
+        android:textColor="@color/text_color_top_ranking"
+       	android:textSize="@dimen/text_size_normal"/>
+
+</LinearLayout>

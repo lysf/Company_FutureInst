@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array 
+        name="regist_keyword">
+        <item >体育</item>
+        <item >财经</item>
+        <item >娱乐</item>
+        <item >民生</item>
+        <item >科技</item>
+        <item >国际</item>
+        <item >城市</item>
+        <item >新奇</item>
+        <item >随机</item>
+    </string-array>
+    <string-array 
+        name="home_title">
+        <item >推荐</item>
+        <item >体育</item>
+        <item >财经</item>
+        <item >娱乐</item>
+        <item >民生</item>
+        <item >科技</item>
+        <item >国际</item>
+        <item >城市</item>
+        <item >新奇</item>
+    </string-array>
+    <string-array 
+        name="home_second_title">
+        <item >缘分</item>
+        <item >快到期</item>
+        <item >量大</item>
+        <item >昂贵</item>
+        <item >扎堆</item>
+    </string-array>
+    <string-array name="home_seond_title_order">
+        <item >new</item>
+        <item >dead</item>
+        <item >trade</item>
+        <item >price</item>
+        <item >involve</item>
+    </string-array>
+   
+</resources>
