@@ -213,7 +213,7 @@ public class PathView extends View {
 				continue;
 			}
 			xPoint.add(leftSpace);
-			canvas.drawText(defaultDay[j - 1], leftSpace, this.getHeight(),
+			canvas.drawText(data[j - 1]+"", leftSpace, this.getHeight(),
 					textPaint);
 
 		}

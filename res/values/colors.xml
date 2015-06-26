@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    	<color name="background">#1E266E</color>
    		 <color name="bg">#F5F5F5</color>
     	<color name="login_title_layout_back">#081448</color>
     	<color name="login_btn_login">#6B7191</color>

@@ -1,8 +1,7 @@
 ﻿package com.futureinst.baseui;
 
-
-
 import java.io.File;
+
 import android.app.Application;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -12,7 +11,7 @@ import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiscCache;
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -51,13 +50,15 @@ public class BaseApplication extends Application {
 				.threadPriority(Thread.NORM_PRIORITY - 2)
 				.memoryCache(new WeakMemoryCache())
 				.denyCacheImageMultipleSizesInMemory()
-				.discCacheFileNameGenerator(new Md5FileNameGenerator())
+				.diskCacheFileNameGenerator(new Md5FileNameGenerator())
+				.diskCacheExtraOptions(600, 800, null)
 				// 将保存的时候的URI名称用MD5 加密
 				.tasksProcessingOrder(QueueProcessingType.LIFO)
-				.discCache(new UnlimitedDiscCache(cacheDir))// 自定义缓存路径
+				.diskCache(new UnlimitedDiskCache(cacheDir))// 自定义缓存路径
 				// .defaultDisplayImageOptions(DisplayImageOptions.createSimple())
 				.writeDebugLogs() // Remove for release app
 				.build();
+		
 		// Initialize ImageLoader with configuration.
 		ImageLoader.getInstance().init(config);// 全局初始化此配置
 	}

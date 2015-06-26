@@ -1,5 +1,6 @@
 package com.futureinst.home;
 
+
 import org.json.JSONException;
 
 import android.content.BroadcastReceiver;
@@ -9,7 +10,6 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -34,7 +34,7 @@ import com.igexin.sdk.PushManager;
 
 
 public class HomeActivity extends BaseActivity {
-	private FragmentTransaction fragmentTransaction;
+//	private FragmentTransaction fragmentTransaction;
 	private BroadcastReceiver receiver;
 	private int primaryTitle = 0;
 	private int secondTitle = 0;
@@ -51,19 +51,25 @@ public class HomeActivity extends BaseActivity {
 	private String cid;
 	private LinearLayout ll_ranking_1,ll_ranking_2;
 	private TextView tv_message_count_1,tv_message_count_2;
-	
+	private FragmentTransaction fragmentTransaction;
+	private HomeTypeFragment homeTypeFragment;
+	private SearchFragment searchFragment ;
+	private HoldingFragment holdingFragment;
+	private UserInfoFragment userInfoFragment;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		//初始化推送
 		PushManager.getInstance().initialize(this.getApplicationContext());
 		initVeiw();
+		initFragment();
 		receiver = new BroadcastReceiver() {
 			@Override
 			public void onReceive(Context context, Intent intent) {
 				if (intent.getAction().equals("titleType")) {
 					primaryTitle = intent.getIntExtra("primaryTitle", 0);
 					secondTitle = intent.getIntExtra("secondTitle", 0);
-					initFragment();
+//					initFragment();
+					homeTypeFragment.setPrimaryAndSecondTitle(primaryTitle, secondTitle);
 					showBottomView(primaryTitle);
 				}else if(intent.getAction().equals("newPushMessage")){
 					getMessageCount();
@@ -92,6 +98,7 @@ public class HomeActivity extends BaseActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 		PushManager.getInstance().stopService(this.getApplicationContext());
+		SystemTimeUtile.getInstance(0L).setFlag(false);
 		if (receiver != null)
 			unregisterReceiver(receiver);
 	}
@@ -138,12 +145,14 @@ public class HomeActivity extends BaseActivity {
 		tv_unlogin_2 = (TextView) findViewById(R.id.tv_unLogin_2);
 		tv_unlogin_2.setOnClickListener(clickListener);
 		
+		
+		homeTypeFragment = new HomeTypeFragment();
 		showBottomView(primaryTitle);
-		initFragment();
+//		initFragment();
 		
 		iv_home_type.setSelected(true);
 	}
-
+	
 	// 判断是否登录
 	private void judgeIsLogin() {
 		if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
@@ -177,7 +186,7 @@ public class HomeActivity extends BaseActivity {
 
 	private void initFragment() {
 		fragmentTransaction = getSupportFragmentManager().beginTransaction();
-		HomeTypeFragment homeTypeFragment = new HomeTypeFragment();
+		homeTypeFragment = new HomeTypeFragment();
 		Bundle bundle = new Bundle();
 		bundle.putInt("primaryTitle", primaryTitle);
 		bundle.putInt("secondTitle", secondTitle);
@@ -204,7 +213,7 @@ public class HomeActivity extends BaseActivity {
 				iv_home_type.setSelected(true);
 				if (currentPosition == 0)
 					return;
-				HomeTypeFragment homeTypeFragment = new HomeTypeFragment();
+				homeTypeFragment = new HomeTypeFragment();
 				Bundle bundle = new Bundle();
 				bundle.putInt("primaryTitle", 0);
 				bundle.putInt("secondTitle", 0);
@@ -213,7 +222,6 @@ public class HomeActivity extends BaseActivity {
 				fragmentTransaction.commitAllowingStateLoss();
 				tv_ranking.setAlpha(0.3f);
 				tv_ranking_2.setAlpha(0.3f);
-//				tv_ranking_2.setTextColor(getResources().getColor(R.color.text_color_e));
 				currentPosition = 0;
 				break;
 			case R.id.iv_home_search:// 搜索
@@ -221,7 +229,7 @@ public class HomeActivity extends BaseActivity {
 				iv_home_search.setSelected(true);
 				if (currentPosition == 1)
 					return;
-				SearchFragment searchFragment = new SearchFragment();
+				searchFragment = new SearchFragment();
 				fragmentTransaction.replace(R.id.container, searchFragment);
 				fragmentTransaction.commitAllowingStateLoss();
 				currentPosition = 1;
@@ -229,20 +237,16 @@ public class HomeActivity extends BaseActivity {
 			case R.id.iv_home_cc:// 持仓
 			case R.id.iv_home_cc_2:
 				if(TextUtils.isEmpty(preferenceUtil.getUUid())){
-//					ToastUtils.showToast(HomeActivity.this, "您还未登录，请登录后查看！", 2000, Style.ALERT);
 					startActivity(new Intent(HomeActivity.this, LoginActivity.class));
 					return;
 				}
 				iv_home_cc.setSelected(true);
-				
-//				tv_ranking.setTextColor(getResources().getColor(R.color.text_color_e));
-//				tv_ranking_2.setTextColor(getResources().getColor(R.color.text_color_e));
 				if (currentPosition == 2)
 					return;
 				tv_ranking.setAlpha(0.3f);
 				tv_ranking_2.setAlpha(0.3f);
-				fragmentTransaction.replace(R.id.container,
-						new HoldingFragment());
+				holdingFragment = new HoldingFragment();
+				fragmentTransaction.replace(R.id.container,holdingFragment);
 				fragmentTransaction.commitAllowingStateLoss();
 				currentPosition = 2;
 				break;
@@ -251,12 +255,9 @@ public class HomeActivity extends BaseActivity {
 				iv_login.setSelected(true);
 				if (currentPosition == 3)
 					return;
-				UserInfoFragment userInfoFragment = new UserInfoFragment();
-//				userInfoFragment.setUserVisibleHint(true);
+				 userInfoFragment = new UserInfoFragment();
 				fragmentTransaction.replace(R.id.container,userInfoFragment);
 				fragmentTransaction.commitAllowingStateLoss();
-//				tv_ranking.setTextColor(getResources().getColor(R.color.text_color_e));
-//				tv_ranking_2.setTextColor(getResources().getColor(R.color.text_color_e));
 				tv_ranking.setAlpha(0.3f);
 				tv_ranking_2.setAlpha(0.3f);
 				currentPosition = 3;
@@ -268,8 +269,6 @@ public class HomeActivity extends BaseActivity {
 				fragmentTransaction.replace(R.id.container,
 						new RankingFragment());
 				fragmentTransaction.commitAllowingStateLoss();
-//				tv_ranking.setTextColor(getResources().getColor(R.color.text_color_white));
-//				tv_ranking_2.setTextColor(getResources().getColor(R.color.text_color_white));
 				tv_ranking.setAlpha(1f);
 				tv_ranking_2.setAlpha(1f);
 				currentPosition = 4;
@@ -299,9 +298,6 @@ public class HomeActivity extends BaseActivity {
 			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
 			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
 		}
-		
-//		iv_ranking_status.setImageDrawable(drawable)
-//		iv_ranking_status_2.setImageDrawable()
 	}
 	// 获取个人信息
 	private void query_user_record() {
@@ -350,4 +346,5 @@ public class HomeActivity extends BaseActivity {
 				tv_message_count_2.setVisibility(View.INVISIBLE);
 			}
 		}
+	
 }

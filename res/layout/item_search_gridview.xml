@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="130dip"
         android:scaleType="centerCrop"
-        android:src="@drawable/a_hp_1_bg_yuan"/>
+        android:src="@color/background"/>
     <LinearLayout 
        android:layout_alignParentRight="true"
        android:layout_marginRight="@dimen/activity_login_margin_10"

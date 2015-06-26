@@ -1,23 +1,31 @@
 package com.futureinst.home;
 
+import java.util.List;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.View;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.ViewGroup;
 
-public class VerticalPagerAdapter extends FragmentPagerAdapter{
+public class VerticalPagerAdapter extends FragmentStatePagerAdapter{
 
 	private int secondTitle;
 	public VerticalPagerAdapter(FragmentManager fm) {
 		super(fm);
 	}
+	public VerticalPagerAdapter(FragmentManager fm,List<Fragment> fragments){
+		super(fm);
+	}
+	@Override
+	public void destroyItem(ViewGroup container, int position, Object object) {
+		
+		super.destroyItem(container, position, object);
+	}
 	@Override
 	public Fragment getItem(int position) {
-		// TODO Auto-generated method stub
-		return HomeTypeContainerFragment.getInstance(position, secondTitle);
+		
+		return new HomeTypeContainerFragment(position, secondTitle);
 	}
-	
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -27,15 +35,6 @@ public class VerticalPagerAdapter extends FragmentPagerAdapter{
 	public int getItemPosition(Object object) {
 		// TODO Auto-generated method stub
 		return super.getItemPosition(object);
-	}
-//	 @Override  
-//     public boolean isViewFromObject(View arg0, Object arg1) {  
-//         return arg0 == (arg1);  
-//     } 
-	@Override
-	public void destroyItem(View container, int position, Object object) {
-		// TODO Auto-generated method stub
-		((ViewPager) container).removeView((View)object);  
 	}
 	public void setSecondTitle(int secondTitle){
 		this.secondTitle = secondTitle;

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/a_hp_1_bg_yuan"
+    android:background="@color/background"
     android:orientation="vertical"
     android:paddingBottom="@dimen/widget_height_50" >
 

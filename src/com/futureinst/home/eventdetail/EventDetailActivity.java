@@ -7,6 +7,7 @@ import org.json.JSONException;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -42,16 +43,17 @@ import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageLoadOptions;
+import com.futureinst.utils.ImageUtils;
 import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.MyProgressDialog;
-import com.futureinst.utils.ToastUtils;
+import com.futureinst.utils.MyToast;
 import com.futureinst.widget.path.PathView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 @SuppressLint("HandlerLeak")
 public class EventDetailActivity extends BaseActivity {
+	private ImageLoader imageLoader;
 	private Long currentTime;
 	private MyProgressDialog progressDialog;
 	private String event_id;
@@ -101,6 +103,7 @@ public class EventDetailActivity extends BaseActivity {
 		getEvetnRealted();
 	}
 	private void initView() {
+		imageLoader = ImageLoader.getInstance();
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
 		progressDialog = MyProgressDialog.getInstance(this);
 		event_id = event.getId()+"";
@@ -208,13 +211,11 @@ public class EventDetailActivity extends BaseActivity {
 		btn_buy.setSelected(true);
 		btn_sell.setSelected(false);
 		et_price.setText(String.format("%.1f", event.getCurrPrice()));
-//		et_price.setFocusable(false);
-//		et_price.setAlpha(0.3f);
 	}
 	//初始化数据
 	private void initData(QueryEventDAO event){
 		tv_title.setText(event.getTitle());
-		ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.view_shap));
+		imageLoader.displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.view_shap));
 		tv_description.setText(event.getDescription());
 		tv_current_price.setText(String.format("%.1f", event.getCurrPrice()));
 		if(event.getPriceChange() <0){
@@ -226,9 +227,7 @@ public class EventDetailActivity extends BaseActivity {
 		}
 		tv_involve.setText(event.getInvolve()+"");
 		tv_status.setText(event.getStatusStr());
-		if(event.getStatusStr().equals("交易中")){
-			
-		}
+		
 		if(event.getInvolve()>99999)
 			tv_involve.setText(99999+"+");
 		btn_easy.setSelected(true);
@@ -488,8 +487,7 @@ public class EventDetailActivity extends BaseActivity {
 				progressDialog.cancleProgress();
 				if(response == null) return;
 				//交易成功
-				
-				ToastUtils.showToast(EventDetailActivity.this, "正在为您撮合订单，请到我的持仓查看订单状态。", 2000, Style.INFO);
+				MyToast.showToast(EventDetailActivity.this, "正在为您撮合订单，请到我的持仓查看订单状态。",1);
 			}
 		});
 	}
@@ -549,7 +547,6 @@ public class EventDetailActivity extends BaseActivity {
 	//判断是否已登录
 	private boolean judgeIsLogin(){
 		if(TextUtils.isEmpty(preferenceUtil.getUUid())){
-//			ToastUtils.showToast(this, "您还未登录，请登录后查看！", 2000, Style.ALERT);
 			Intent intent = new Intent(EventDetailActivity.this, LoginActivity.class);
 			intent.putExtra("login", true);
 			startActivity(intent);
@@ -557,11 +554,33 @@ public class EventDetailActivity extends BaseActivity {
 		}
 		return true;
 	}
+	MyThread thread;
 	//倒计时
 	private void setCountDown(Long currentTime){
 		if(event.getStatusStr().equals("交易中")){
 			tv_status.setText(LongTimeUtil.longTimeUtil(event.getTradeTime() - currentTime));
-			new Thread(new MyThread(tv_status, event.getTradeTime() - currentTime, 1, handler)).start();
+			thread = new MyThread(tv_status, event.getTradeTime() - currentTime, 1, handler);
+			thread.start();
 		}
+	}
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if(thread!=null){
+			thread.stopThread();
+			thread = null;
+		}
+		if(imageLoader !=null){
+			imageLoader.clearMemoryCache();
+			imageLoader.cancelDisplayTask(iv_image);
+		}
+		imageLoader = null;
+		Bitmap bitmap = iv_image.getDrawingCache();
+		if(bitmap!=null && !bitmap.isRecycled()){
+			bitmap.recycle();
+			bitmap = null;
+		}
+		iv_image = null;
+		System.gc();
 	}
 }

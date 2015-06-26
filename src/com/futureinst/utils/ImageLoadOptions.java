@@ -2,6 +2,7 @@ package com.futureinst.utils;
 
 import android.graphics.Bitmap;
 
+import com.futureinst.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
@@ -9,24 +10,23 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 public class ImageLoadOptions {
 
-	/** 新闻列表中用到的图片加载配置 */
 	public static DisplayImageOptions getOptions(int defaultPicture) {
 		DisplayImageOptions options = new DisplayImageOptions.Builder()
 				// // 设置图片在下载期间显示的图片
-				 .showImageOnLoading(defaultPicture)
+				 .showImageOnLoading(R.drawable.image_top_default)
 				// 设置图片Uri为空或是错误的时候显示的图片
-				 .showImageForEmptyUri(defaultPicture)
+				 .showImageForEmptyUri(R.drawable.image_top_default)
 				// // 设置图片加载/解码过程中错误时候显示的图片
-				 .showImageOnFail(defaultPicture)
-				.cacheInMemory(true)
+				 .showImageOnFail(R.drawable.image_top_default)
+				.cacheInMemory(false)
 				// 设置下载的图片是否缓存在内存中
 				.cacheOnDisc(true)
 				// 设置下载的图片是否缓存在SD卡中
 				.considerExifParams(true)
 				.imageScaleType(ImageScaleType.EXACTLY)// 设置图片以如何的编码方式显示
 				.bitmapConfig(Bitmap.Config.RGB_565)// 设置图片的解码类型
-				// .decodingOptions(android.graphics.BitmapFactory.Options
-				// decodingOptions)//设置图片的解码配置
+//				 .decodingOptions(android.graphics.BitmapFactory.Options
+//				 decodingOptions)//设置图片的解码配置
 				.considerExifParams(true)
 				// 设置图片下载前的延迟
 				// .delayBeforeLoading(int delayInMillis)//int

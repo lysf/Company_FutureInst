@@ -20,9 +20,6 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.utils.MyToast;
-import com.futureinst.utils.ToastUtils;
-
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class RegistActivity_3 extends BaseActivity {
 	private GridView gridView;
@@ -74,7 +71,7 @@ public class RegistActivity_3 extends BaseActivity {
 	}
 	private void update_user(String interest){
 		if(TextUtils.isEmpty(interest)){
-			ToastUtils.showToast(this, "您至少选择一项！", 3000, Style.ALERT);
+			MyToast.showToast(this, "您至少选择一项！", 0);
 			return;
 		}
 		progressDialog.progressDialog();

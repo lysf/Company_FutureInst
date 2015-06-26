@@ -1,5 +1,6 @@
 package com.futureinst.utils;
 
+import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,6 +9,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.Display;
@@ -260,4 +263,32 @@ public class Utils {
 //        int width = view.getMeasuredWidth();
         
 	}
+	/**
+
+     * 以最省内存的方式读取本地资源的图片
+
+     * @param context
+
+     * @param resId
+
+     * @return
+
+     */
+    public static Bitmap readBitMap(Context context, int resId){ 
+
+        BitmapFactory.Options opt = new BitmapFactory.Options();
+
+        opt.inPreferredConfig = Bitmap.Config.RGB_565;
+
+        opt.inPurgeable = true;
+
+        opt.inInputShareable = true;
+
+        // 获取资源图片
+
+        InputStream is = context.getResources().openRawResource(resId);
+
+        return BitmapFactory.decodeStream(is, null, opt);
+
+        }
 }

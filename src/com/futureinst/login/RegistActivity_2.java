@@ -22,10 +22,8 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.utils.ChooseSexUtil;
+import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TimePickUtil;
-import com.futureinst.utils.ToastUtils;
-
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class RegistActivity_2 extends BaseActivity {
 	private EditText et_userName;
@@ -61,7 +59,7 @@ public class RegistActivity_2 extends BaseActivity {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				try {
 					if(s.toString().getBytes("GB2312").length > 14){
-						ToastUtils.showToast(RegistActivity_2.this, getResources().getString(R.string.regist_userName_tip), 2000, Style.ALERT);
+						MyToast.showToast(RegistActivity_2.this, getResources().getString(R.string.regist_userName_tip), 0);
 						et_userName.setText("");
 						return;
 					}
@@ -112,15 +110,15 @@ public class RegistActivity_2 extends BaseActivity {
 	private boolean judgeData(String userName,String gender,String birthday){
 		boolean flag = true;
 		if(TextUtils.isEmpty(userName)){
-			ToastUtils.showToast(this, "请输入昵称！", 3000, Style.ALERT);
+			MyToast.showToast(this, "请输入昵称！", 0);
 			flag = false;
 		}
 		if(TextUtils.isEmpty(gender)){
-			ToastUtils.showToast(this, "请选择性别！", 3000, Style.ALERT);
+			MyToast.showToast(this, "请选择性别！", 0);
 			flag = false;
 		}
 		if(TextUtils.isEmpty(birthday)){
-			ToastUtils.showToast(this, "请选择生日！", 3000, Style.ALERT);
+			MyToast.showToast(this, "请选择生日！", 0);
 			flag = false;
 		}
 		return flag;

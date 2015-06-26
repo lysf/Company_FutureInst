@@ -8,54 +8,39 @@ import org.json.JSONException;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.view.PagerAdapter;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
-import com.futureinst.home.eventdetail.EventDetailActivity;
-import com.futureinst.home.eventdetail.MyThread;
 import com.futureinst.home.groupevent.GroupEventActivity;
 import com.futureinst.home.title.PrimaryTitleActivity;
 import com.futureinst.home.title.SecondTitleActivity;
 import com.futureinst.model.homeeventmodel.EventGroupDAO;
 import com.futureinst.model.homeeventmodel.EventGroupInfo;
-import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.homeeventmodel.QueryEventInfoDAO;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
-import com.futureinst.utils.ImageLoadOptions;
-import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.widget.WheelView.OnItemSelectListener;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 @SuppressLint({ "ValidFragment", "HandlerLeak" })
 public class HomeTypeContainerFragment extends BaseFragment {
 	
 	private com.futureinst.widget.WheelView wheelView2;
-	private Long currentTime;
 	private int position = 0;
 	private int position_second = 0; 
 	private String[] title_1;
@@ -64,38 +49,17 @@ public class HomeTypeContainerFragment extends BaseFragment {
 	private TextView tv_title_1,tv_title_2,tv_company;
 	private LinearLayout ll_container,ll_back;
 	private ViewPager viewPager;
-	private List<View> list;
-	private ListView lv_groupEvents;
 	private int[] picIds;
-	private HomeTitleListViewAdapter adapter;
-	private List<QueryEventDAO> events;
 	private List<EventGroupDAO> groupEvents;
-	
-	private Handler handler = new Handler(){
-		@Override
-		public void handleMessage(android.os.Message msg) {
-			for(int i = 0;i<events.size();i++){
-				if(msg.what == i){
-					Long time = msg.getData().getLong("time");
-					TextView tv_time = (TextView)msg.obj;
-					tv_time.setText(LongTimeUtil.longTimeUtil(time));
-				}
-			}
-		};
-	};
-	private  HomeTypeContainerFragment (int position,int position_second){
+	public  HomeTypeContainerFragment (int position,int position_second){
 		this.position = position;
 		this.position_second = position_second;
-	}
-	public static HomeTypeContainerFragment getInstance(int position,int position_second){
-		return new HomeTypeContainerFragment(position, position_second);
 	}
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		picIds = new int[]{R.drawable.a_hp_1_bg_yuan,R.drawable.a_hp_2_bg_yuan,R.drawable.a_hp_3_bg_yuan,R.drawable.a_hp_4_bg_yuan,
 				R.drawable.a_hp_5_bg_yuan,R.drawable.a_hp_6_bg_yuan,R.drawable.a_hp_7_bg_yuan,R.drawable.a_hp_8_bg_yuan,R.drawable.a_hp_9_bg_yuan};
-		events = new ArrayList<QueryEventDAO>(); 
 		
 		title_1 = getActivity().getResources().getStringArray(R.array.home_title);
 		title_2 = getActivity().getResources().getStringArray(R.array.home_second_title);
@@ -113,7 +77,6 @@ public class HomeTypeContainerFragment extends BaseFragment {
 	private void initView() {
 		wheelView2 = (com.futureinst.widget.WheelView) findViewById(R.id.wheelView_1);
 		wheelView2.setOffset(1);
-		
 		 wheelView2.setOnItemSelectListener(new OnItemSelectListener() {
 				@Override
 				public void onItemSelect(int position) {
@@ -124,20 +87,6 @@ public class HomeTypeContainerFragment extends BaseFragment {
 				}
 			});
 		
-		lv_groupEvents  = (ListView) findViewById(R.id.lv_groupEvents);
-		adapter = new HomeTitleListViewAdapter(getActivity(),position);
-		lv_groupEvents.setAdapter(adapter);
-		lv_groupEvents.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-			EventGroupDAO item = (EventGroupDAO) adapter.getItem(arg2);
-				Intent intent = new Intent(getActivity(), GroupEventActivity.class);
-				intent.putExtra("groupId", item.getId()+"");
-				intent.putExtra("groupEventTitle", item.getTitle());
-				startActivity(intent);
-			}
-		});
 		
 		ll_back = (LinearLayout)findViewById(R.id.ll_back);
 		ll_container = (LinearLayout) findViewById(R.id.ll_container);
@@ -157,7 +106,6 @@ public class HomeTypeContainerFragment extends BaseFragment {
 		        return viewPager.dispatchTouchEvent(event);  
 		    } 
 		});
-		list  = new ArrayList<View>();
 		
 		viewPager.setOnPageChangeListener(new MyOnPageChangeListener());
 		tv_title_1.setText(title_1[position]);
@@ -187,99 +135,60 @@ public class HomeTypeContainerFragment extends BaseFragment {
 		}
 	};
 	//初始化viewpager
-	private void initViewPager(List<QueryEventDAO> events){
-		list.clear();
-		for(int i = 0;i<events.size();i++){
-			final QueryEventDAO item = events.get(i);
-			View view = LayoutInflater.from(getContext()).inflate(R.layout.item_home_pager, null, false);
-			ImageView imageView = (ImageView) view.findViewById(R.id.image);
-			TextView tv_time = (TextView) view.findViewById(R.id.tv_time);
-			TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
-			TextView tv_currPrice = (TextView) view.findViewById(R.id.tv_currPrice);
-			TextView tv_priceChange = (TextView) view.findViewById(R.id.tv_priceChange);
-			TextView tv_involve = (TextView) view.findViewById(R.id.tv_involve);
-			Button btn_forecast = (Button) view.findViewById(R.id.btn_forecast);
-			ImageLoader.getInstance().displayImage(item.getImgsrc(), imageView, ImageLoadOptions.getOptions(R.drawable.view_shap));
-			tv_title.setText(item.getTitle());
-			tv_currPrice.setText(String.format("%.1f", item.getCurrPrice()));
-			if(item.getPriceChange() >= 0){
-				tv_priceChange.setText("+"+String.format("%.1f", item.getPriceChange()));
-				tv_priceChange.setBackgroundColor(getResources().getColor(R.color.gain_red));
-			}else{
-				tv_priceChange.setText("-"+String.format("%.1f", Math.abs(item.getPriceChange())));
-				tv_priceChange.setBackgroundColor(getResources().getColor(R.color.gain_blue));
-			}
-			tv_involve.setText(item.getInvolve()+"");
-			tv_time.setText(item.getStatusStr());
-			//倒计时
-			if(item.getStatusStr().equals("交易中")){
-				 Long time = item.getTradeTime() - currentTime;
-				tv_time.setText(LongTimeUtil.longTimeUtil(time));
-				new Thread(new MyThread(tv_time, time, i,handler)).start();
-				
-			}
-			imageView.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					//预测
-					Intent intent = new Intent(getActivity(), EventDetailActivity.class);
-					intent.putExtra("event", item);
-					startActivity(intent);
-				}
-			});
-			btn_forecast.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					//预测
-					Intent intent = new Intent(getActivity(), EventDetailActivity.class);
-					intent.putExtra("event", item);
-					startActivity(intent);
-				}
-			});
-			list.add(view);
-		}
-		ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(list);
+	private void initViewPager(QueryEventInfoDAO queryEventInfoDAO){
+		ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(),queryEventInfoDAO);
 		viewPager.setAdapter(viewPagerAdapter);
 		viewPager.setVisibility(View.VISIBLE);
+		
+	}
+	//更新第二条目
+	public void upData(int secondTitle){
+		this.position_second = secondTitle;
+		tv_title_2.setText(title_2[position_second]);
+		getData(position+1+"", orders[position_second]);
 	}
 	//viewpager适配
-	private class ViewPagerAdapter extends PagerAdapter{ 
-	    private List<View> list;  
-	  
-	    public ViewPagerAdapter(List<View> list) {  
-	        this.list = list;  
-	    }  
-	    @Override  
+	private class ViewPagerAdapter extends FragmentStatePagerAdapter{ 
+		QueryEventInfoDAO queryEventInfoDAO;
+	    public ViewPagerAdapter(FragmentManager fm) {
+			super(fm);
+		}
+	    public ViewPagerAdapter(FragmentManager fm,QueryEventInfoDAO queryEventInfoDAO) {
+	    	super(fm);
+	    	this.queryEventInfoDAO = queryEventInfoDAO;
+	    }
+		@Override   
 	    public int getCount() {  
-	  
-	        if (list != null && list.size() > 0) {  
-	            return list.size();  
-	        } else {  
-	            return 0;  
-	        }  
+	    	if(queryEventInfoDAO.getEvents()!=null || queryEventInfoDAO.getEvents().size()>0){
+	    		return queryEventInfoDAO.getEvents().size();
+	    	}else{
+	    		return 0;
+	    	}
+	    	
 	    }  
-	    @Override  
-	    public boolean isViewFromObject(View arg0, Object arg1) {  
-	        return arg0 == arg1;  
-	    }  
-	    @Override  
-	    public void destroyItem(ViewGroup container, int position, Object object) {  
-	        container.removeView((View) object);  
-	    }  
-	    @Override  
-	    public Object instantiateItem(ViewGroup container, int position) {  
-	        container.addView(list.get(position));  
-	        return list.get(position);  
-	    }  
-	  
+	   @Override
+	   public void destroyItem(View container, int position, Object object) {
+		  ((EventsFragment)getItem(position)).onDestroyView();
+	   }
 	    @Override  
 	    public int getItemPosition(Object object) {  
 	        return POSITION_NONE;  
-	    }  
+	    }
+		@Override
+		public Fragment getItem(int arg0) {
+			EventsFragment eventsFragment = new EventsFragment();
+			Bundle bundle = new Bundle();
+			bundle.putSerializable("event", queryEventInfoDAO.getEvents().get(arg0));
+			bundle.putLong("time", queryEventInfoDAO.getCurr_time());
+			eventsFragment.setArguments(bundle);
+			return eventsFragment;
+		}  
 	}
 	 public class MyOnPageChangeListener implements OnPageChangeListener {
 	        @Override
-	        public void onPageSelected(int position) {}
+	        public void onPageSelected(int position) {
+	        	
+	        }
 	        @Override
 	        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 	            // to refresh frameLayout
@@ -301,9 +210,8 @@ public class HomeTypeContainerFragment extends BaseFragment {
 					public void requestCompleted(Object response) throws JSONException {
 						if(response == null) return;
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
-						currentTime = queryEventInfoDAO.getCurr_time();
-						events = queryEventInfoDAO.getEvents();
-						initViewPager(events);
+						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time());
+						initViewPager(queryEventInfoDAO);
 					}
 				});
 	 }
@@ -317,7 +225,6 @@ public class HomeTypeContainerFragment extends BaseFragment {
 					 public void requestCompleted(Object response) throws JSONException {
 						 if(response == null) return;
 						 EventGroupInfo eventGroupInfo = (EventGroupInfo) response;
-						 adapter.setList(eventGroupInfo.getGroups());
 						 groupEvents = eventGroupInfo.getGroups();
 						 List<String> items = new ArrayList<String>();
 						 for(EventGroupDAO dao : eventGroupInfo.getGroups()){
@@ -341,21 +248,18 @@ public class HomeTypeContainerFragment extends BaseFragment {
 			 wheelView2.setTextColorID(R.color.text_color_3);
 		 }
 	 }
-	 Bitmap bitmap;
 	//设置背景
 	private void setBackGround(int primaryTitle){
-		 BitmapFactory.Options opts = new BitmapFactory.Options();    
-		 opts.inSampleSize = 2;    //这个的值压缩的倍数（2的整数倍），数值越小，压缩率越小，图片越清晰    
-		 //返回原图解码之后的bitmap对象    
-		  bitmap = BitmapFactory.decodeResource(getContext().getResources(), picIds[primaryTitle], opts);
-			ll_back.setBackground(new BitmapDrawable(bitmap));
+		ll_back.setBackgroundResource(picIds[primaryTitle]);
 		}
 		@Override
 	public void onDestroy() {
 			super.onDestroy();
-		if(bitmap!=null && !bitmap.isRecycled()){
-			bitmap.recycle();
-		}
+			viewPager.removeAllViews();
+			viewPager = null;
+			ll_back.setBackground(null);
+		ll_back =null;
 		System.gc();
 	}
+	
 }

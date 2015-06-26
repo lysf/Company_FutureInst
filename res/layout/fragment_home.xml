@@ -63,7 +63,7 @@
     android:clipChildren="false">
 	<android.support.v4.view.ViewPager
 	    android:id="@+id/viewpager"
-	    android:visibility="invisible"
+	    android:visibility="visible"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
 	    android:layout_marginLeft="10dip"
@@ -71,21 +71,7 @@
 	    android:clipChildren="false" >
 	</android.support.v4.view.ViewPager>
   </LinearLayout>
-  <ListView 
-      android:id="@+id/lv_groupEvents"
-      android:visibility="gone"
-       android:layout_marginLeft="10dip"
-	   android:layout_marginRight="50dip" 
-	   android:layout_marginTop="@dimen/widget_height_35"
-      android:layout_width="match_parent"
-      android:layout_height="0dip"
-      android:layout_weight="0.3"
-      android:scrollbars="none"
-      android:divider="@android:color/transparent"
-      android:dividerHeight="0dip"
-      android:listSelector="@android:color/transparent"
-      >
-  </ListView>
+  
   <LinearLayout 
      android:layout_marginLeft="10dip"
 	   android:layout_marginRight="50dip"

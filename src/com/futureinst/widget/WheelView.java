@@ -108,9 +108,11 @@ public class WheelView extends ScrollView {
         this.addView(views);
 
         scrollerTask = new Runnable() {
-
+        	
             public void run() {
-
+            	if(items == null ||items.size() == 0){
+            		return;
+            	}
                 int newY = getScrollY();
                 if (initialY - newY == 0) { // stopped
                     final int remainder = initialY % itemHeight;
@@ -253,6 +255,9 @@ public class WheelView extends ScrollView {
     }
 
     private void refreshItemView(int y) {
+    	if(items == null || items.size() == 0){
+    		return;
+    	}
         int position = y / itemHeight + offset;
         int remainder = y % itemHeight;
         int divided = y / itemHeight;

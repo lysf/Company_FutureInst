@@ -9,12 +9,12 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.futureinst.model.global.Content;
 import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.push.PushMessageInfo;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 
 import android.content.Context;
-import android.os.Environment;
 
 public class PushMessageUtils {
 	private SharePreferenceUtil preferenceUtil;
@@ -24,7 +24,7 @@ public class PushMessageUtils {
 	private static PushMessageUtils pushMessageUtils;
 	private PushMessageUtils(Context context){
 		preferenceUtil = SharePreferenceUtil.getInstance(context);
-		path = Environment.getExternalStorageDirectory().getAbsolutePath()+"/FutureInst/"+preferenceUtil.getID()+"download.obj";
+		path = Content.DIR + preferenceUtil.getID()+"download.obj";
 	}
 	public static PushMessageUtils getInstance(Context context){
 		if(pushMessageUtils == null)

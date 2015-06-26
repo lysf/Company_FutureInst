@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
@@ -19,11 +18,8 @@ import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
-import com.futureinst.utils.ToastUtils;
+import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
-
-import de.keyboardsurfer.android.widget.crouton.Configuration;
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 public class ForgetPasswordActivity extends BaseActivity {
 	private EditText et_mobile, et_authCode, et_newPassword;
@@ -115,19 +111,19 @@ public class ForgetPasswordActivity extends BaseActivity {
 	//检测输入数据
 	private boolean checkData(String mobile, String authCode, String new_pwd){
 		if(TextUtils.isEmpty(mobile)){
-			ToastUtils.showToast(this, getResources().getString(R.string.empty_phone), Configuration.DURATION_SHORT, Style.ALERT);
+			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
 		}
 		if(!Utils.checkMobilePhoneNo(mobile)){
-			ToastUtils.showToast(this, getResources().getString(R.string.wrong_phone), Configuration.DURATION_SHORT, Style.ALERT);
+			MyToast.showToast(this, getResources().getString(R.string.wrong_phone), 0);
 			return false;
 		}
 		if(TextUtils.isEmpty(new_pwd)){
-			ToastUtils.showToast(this, getResources().getString(R.string.empty_new_pwd), Configuration.DURATION_SHORT, Style.ALERT);
+			MyToast.showToast(this, getResources().getString(R.string.empty_new_pwd), 0);
 			return false;
 		}
 		if(TextUtils.isEmpty(authCode)){
-			ToastUtils.showToast(this, getResources().getString(R.string.empty_authCode), Configuration.DURATION_SHORT, Style.ALERT);
+			MyToast.showToast(this, getResources().getString(R.string.empty_authCode), 0);
 			return false;
 		}
 		

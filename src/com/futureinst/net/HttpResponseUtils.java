@@ -32,11 +32,8 @@ import com.futureinst.fileupload.MultiPartStack;
 import com.futureinst.fileupload.MultiPartStringRequest;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.utils.MyToast;
-import com.futureinst.utils.ToastUtils;
 import com.futureinst.utils.Utils;
 
-import de.keyboardsurfer.android.widget.crouton.Configuration;
-import de.keyboardsurfer.android.widget.crouton.Style;
 public class HttpResponseUtils {
 	private static HttpResponseUtils httpUtils;
 	private Activity activity;
@@ -60,8 +57,8 @@ public class HttpResponseUtils {
 	public synchronized <T> void postJson(final Map<String, String> params, final Class<T> clz,
 			final PostCommentResponseListener commentResponseListener) {
 		if(!Utils.checkNetkworkState(activity)){
-			ToastUtils.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 
-					Configuration.DURATION_SHORT, Style.ALERT);
+			MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+			
 			return;
 		}
 		StringRequest postRequest = new StringRequest(Request.Method.POST, HttpPath.URL,
@@ -106,8 +103,7 @@ public class HttpResponseUtils {
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
-						ToastUtils.showToast(activity, activity.getResources().getString(R.string.client_no_response), 
-								Configuration.DURATION_SHORT, Style.ALERT);
+						MyToast.showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
 					}
 				}) {
 			@Override

@@ -10,11 +10,8 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
-import com.futureinst.utils.ToastUtils;
+import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
-
-import de.keyboardsurfer.android.widget.crouton.Configuration;
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -94,15 +91,15 @@ public class LoginActivity extends BaseActivity {
 	//检测登录数据
 	private boolean checkLoginData(String phoneNummber, String pwd){
 		if(TextUtils.isEmpty(phoneNummber)){
-			ToastUtils.showToast(this, getResources().getString(R.string.empty_phone), Configuration.DURATION_SHORT, Style.ALERT);
+			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
 		}
 		if(TextUtils.isEmpty(pwd)){
-			ToastUtils.showToast(this, getResources().getString(R.string.empty_pwd), Configuration.DURATION_SHORT, Style.ALERT);
+			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
 		}
 		if(!Utils.checkMobilePhoneNo(phoneNummber)){
-			ToastUtils.showToast(this, getResources().getString(R.string.wrong_phone), Configuration.DURATION_SHORT, Style.ALERT);
+			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
 		}
 		return true;

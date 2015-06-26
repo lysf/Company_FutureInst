@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.home.eventdetail.EventDetailActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.model.usermodel.UserInformationDAO;
@@ -36,9 +37,7 @@ import com.futureinst.push.PushMessageUtils;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.MyProgressDialog;
-import com.futureinst.utils.ToastUtils;
-
-import de.keyboardsurfer.android.widget.crouton.Style;
+import com.futureinst.utils.MyToast;
 
 public class UserInfoFragment extends BaseFragment {
 	private UserInformationDAO userInformationDAO;
@@ -139,7 +138,7 @@ public class UserInfoFragment extends BaseFragment {
 				startActivity(new Intent(getActivity(), UserCheckActivity.class));
 				break;
 			case R.id.btn_store://未币商城
-				ToastUtils.showToast(getActivity(), "即将上线，敬请期待！", 3000, Style.CONFIRM);
+				MyToast.showToast(getActivity(), "即将上线，敬请期待！",1);
 				break;
 			case R.id.btn_question://常见问题
 				startActivity(new Intent(getActivity(), FAQActivity.class));
@@ -203,7 +202,7 @@ public class UserInfoFragment extends BaseFragment {
 			public void onClick(View v) {
 				String description = et_description.getText().toString().trim();
 				if(TextUtils.isEmpty(description))
-					ToastUtils.showToast(getActivity(), "请输入内容！", 3000, Style.ALERT);
+					MyToast.showToast(getActivity(), "请输入内容！", 1);
 				update_user(userInformationDAO.getUser().getName(),description);
 				dialog.dismiss();
 			}
@@ -225,7 +224,7 @@ public class UserInfoFragment extends BaseFragment {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				try {
 					if(s.toString().getBytes("GB2312").length > 14){
-						ToastUtils.showToast(getActivity(), getResources().getString(R.string.regist_userName_tip), 2000, Style.ALERT);
+						MyToast.showToast(getActivity(), getResources().getString(R.string.regist_userName_tip), 1);
 						et_name.setText("");
 						return;
 					}
@@ -251,7 +250,7 @@ public class UserInfoFragment extends BaseFragment {
 			public void onClick(View v) {
 				String name = et_name.getText().toString().trim();
 				if(TextUtils.isEmpty(name))
-					ToastUtils.showToast(getActivity(), "请输入姓名！", 3000, Style.ALERT);
+					MyToast.showToast(getActivity(), "请输入姓名！", 0);
 				update_user(name,userInformationDAO.getUser().getDescription());
 				dialog.dismiss();
 			}

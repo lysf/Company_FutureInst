@@ -33,6 +33,7 @@ public class SharePreferenceUtil {
 	private String DESCRIPTION = "DESCRIPTION";// 用户描述
 	private String CLIENTID = "CLIENTID";//推送的cid
 	private String ISFIRSTLOGIN = "ISFIRSTLOGIN";//是否第一次登陆
+	private String UPDATE = "UPDATE";//是否第一次登陆
 	
 	private String CID = "CID";
 	private String CTYPE = "CTYPE";
@@ -139,6 +140,14 @@ public class SharePreferenceUtil {
 	}
 	public void setStatus(String status){
 		editor.putString(STATUS, status);
+		editor.commit();
+	}
+	//update
+	public boolean getUpdate(){
+		return mSharedPreferences.getBoolean(UPDATE, false);
+	}
+	public void setUpdate(boolean upDate) {
+		editor.putBoolean(UPDATE, upDate);
 		editor.commit();
 	}
 }

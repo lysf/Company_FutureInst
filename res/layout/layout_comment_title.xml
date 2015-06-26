@@ -3,7 +3,7 @@
     android:id="@+id/layout_title"
     android:layout_width="fill_parent"
     android:layout_height="48dp"
-    android:background="@drawable/a_hp_1_bg_yuan"
+    android:background="@color/background"
     style="?android:attr/windowTitleBackgroundStyle"
     android:gravity="center" >
 

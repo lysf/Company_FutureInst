@@ -67,7 +67,7 @@ public class PrimaryTitleListAdapter extends BaseAdapter{
 				notifyDataSetChanged();
 				Intent intent = new Intent("titleType");
 				intent.putExtra("primaryTitle", primaryTitle);
-				intent.putExtra("secondTitle", target);
+				intent.putExtra("secondTitle", 0);
 				context.sendBroadcast(intent);
 				context.finish();
 			}

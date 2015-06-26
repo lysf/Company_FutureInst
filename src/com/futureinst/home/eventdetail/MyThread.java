@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
 
-public class MyThread implements Runnable {
+public class MyThread extends Thread {
 	private TextView tv_time;
 	private Long time;
 	private int what;
@@ -17,7 +17,9 @@ public class MyThread implements Runnable {
 		this.what = what;
 		this.handler = handler;
 	}
-
+	public void stopThread(){
+		time = 0L;
+	}
 	@Override
 	public void run() {
 		while (time > 0) {

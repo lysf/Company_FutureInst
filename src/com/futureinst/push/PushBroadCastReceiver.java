@@ -1,11 +1,16 @@
 package com.futureinst.push;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.futureinst.R;
+import com.futureinst.home.HomeActivity;
 import com.futureinst.model.push.PushMessageDAO;
 import com.igexin.sdk.PushConsts;
 import com.igexin.sdk.PushManager;
@@ -16,7 +21,6 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 	 * 应用未启动, 个推 service已经被唤醒,保存在该时间段内离线消息(此时 GetuiSdkDemoActivity.tLogView ==
 	 * null)
 	 */
-//	public static StringBuilder payloadData = new StringBuilder();
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
@@ -40,6 +44,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			if (payload != null) {
 				PushMessageUtils pushMessageUtils = PushMessageUtils.getInstance(context);
 				String data = new String(payload);
+				setNotify(context, data);
 				Log.d("GetuiSdkDemo", "receiver payload : " + data);
 				PushMessageDAO pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
 				pushMessageUtils.addObject(pushMessageDAO);
@@ -51,7 +56,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 		case PushConsts.GET_CLIENTID:
 			// 获取ClientID(CID)
 			// 第三方应用需要将CID上传到第三方服务器，并且将当前用户帐号和CID进行关联，以便日后通过用户帐号查找CID进行消息推送
-			String cid = bundle.getString("clientid");
+//			String cid = bundle.getString("clientid");
 			
 			break;
 
@@ -73,5 +78,21 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 		default:
 			break;
 		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	private void setNotify(Context context,String content){
+		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+		Intent notifyIntent = new Intent(context, HomeActivity.class);
+		PendingIntent appIntent = PendingIntent.getActivity(context, 0,
+				notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		Notification myNoti = new Notification();
+		myNoti.flags = Notification.FLAG_AUTO_CANCEL;
+		myNoti.icon = R.drawable.logo;
+		myNoti.tickerText = "未来研究所";
+		myNoti.defaults |= Notification.DEFAULT_SOUND;
+		myNoti.defaults |= Notification.DEFAULT_VIBRATE;
+		myNoti.setLatestEventInfo(context, "未来研究所", content, appIntent);
+		notificationManager.notify(0, myNoti);
 	}
 }

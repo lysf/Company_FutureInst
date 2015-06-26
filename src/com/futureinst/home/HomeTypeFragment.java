@@ -16,7 +16,7 @@ public class HomeTypeFragment extends BaseFragment {
 	private int primaryTitle = 0;
 	private int secondTitle = 0;
 	private Context context;
-
+	private VerticalPagerAdapter adapter;
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -31,17 +31,23 @@ public class HomeTypeFragment extends BaseFragment {
 	protected void localOnCreate(Bundle savedInstanceState) {
 		initView();
 	}
-
 	private void initView() {
 		setContentView(R.layout.activity_home);
 		verticalViewPager = (VerticalViewPager) findViewById(R.id.pager);
-		VerticalPagerAdapter adapter = new VerticalPagerAdapter(getChildFragmentManager());
+		adapter = new VerticalPagerAdapter(getChildFragmentManager());
 		adapter.setSecondTitle(secondTitle);
 		verticalViewPager.setAdapter(adapter);
 		verticalViewPager.setOnPageChangeListener(changeListener);
 		verticalViewPager.setCurrentItem(primaryTitle);
 	}
-
+	public void setPrimaryAndSecondTitle(int primaryTitle,int secondTitle ){
+		this.primaryTitle = primaryTitle;
+		this.secondTitle = secondTitle;
+		adapter = new VerticalPagerAdapter(getChildFragmentManager());
+		adapter.setSecondTitle(secondTitle);
+		verticalViewPager.setAdapter(adapter);
+		verticalViewPager.setCurrentItem(primaryTitle);
+	}
 
 	OnPageChangeListener changeListener = new OnPageChangeListener() {
 
@@ -60,4 +66,12 @@ public class HomeTypeFragment extends BaseFragment {
 		public void onPageScrollStateChanged(int state) {
 		}
 	};
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		if(verticalViewPager !=null){
+			verticalViewPager.removeAllViews();
+			verticalViewPager = null;
+		}
+	}
 }

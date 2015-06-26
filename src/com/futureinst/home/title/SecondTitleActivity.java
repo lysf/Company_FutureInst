@@ -50,25 +50,29 @@ public class SecondTitleActivity extends BaseActivity {
 		});
 	}
 
-	// 设置背景
-	Bitmap bitmap;
+	// 设置背景	
+//	Bitmap bitmap;
 
 	// 设置背景
 	private void setBackGround(int primaryTitle) {
-		BitmapFactory.Options opts = new BitmapFactory.Options();
-		opts.inSampleSize = 2; // 这个的值压缩的倍数（2的整数倍），数值越小，压缩率越小，图片越清晰
-		// 返回原图解码之后的bitmap对象
-		bitmap = BitmapFactory.decodeResource(getResources(),
-				picIds[primaryTitle], opts);
-		ll_second_title.setBackground(new BitmapDrawable(bitmap));
+//		BitmapFactory.Options opts = new BitmapFactory.Options();
+//		opts.inSampleSize = 1; // 这个的值压缩的倍数（2的整数倍），数值越小，压缩率越小，图片越清晰
+//		// 返回原图解码之后的bitmap对象
+//		bitmap = BitmapFactory.decodeResource(getResources(),
+//				picIds[primaryTitle], opts);
+//		bitmap = BitmapFactory.decodeStream(getResources().openRawResource(picIds[primaryTitle]), null, opts);
+//		ll_second_title.setBackground(new BitmapDrawable(bitmap));
+		ll_second_title.setBackgroundResource(picIds[primaryTitle]);
 	}
-
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		if (bitmap != null && !bitmap.isRecycled()) {
-			bitmap.recycle();
-		}
+		ll_second_title.setBackground(null);
+		ll_second_title = null;
+//		if (bitmap != null && !bitmap.isRecycled()) {
+//			bitmap.recycle();
+//			bitmap = null;
+//		}
 		System.gc();
 	}
 }

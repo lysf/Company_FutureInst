@@ -30,11 +30,9 @@ import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.MyProgressDialog;
-import com.futureinst.utils.ToastUtils;
 import com.futureinst.widget.TitleButton;
 import com.futureinst.widget.TitleLayout;
 
-import de.keyboardsurfer.android.widget.crouton.Style;
 
 @SuppressLint("HandlerLeak")
 public abstract class BaseActivity extends BaseFragmentActivity {
@@ -412,7 +410,5 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 		super.onBackPressed();
 		finish();
 	}
-	public void toastShow(String message,Style style){
-		ToastUtils.showToast(this, message, 3000, style);
-	}
+	
 }
