@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_e"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_marginTop="@dimen/widget_height_30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView 
+             android:layout_marginLeft="@dimen/widget_height_40"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="价格："
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_6"/>
+        <EditText 
+        android:id="@+id/et_price"
+        android:layout_marginLeft="@dimen/activity_login_margin_10"
+        android:layout_marginRight="@dimen/widget_height_40"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="@color/text_color_3"
+        android:background="@drawable/edit_back"/>
+         </LinearLayout>
+    <LinearLayout 
+        android:layout_marginTop="@dimen/widget_height_30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView 
+             android:layout_marginLeft="@dimen/widget_height_40"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="数量："
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_6"/>
+        <EditText 
+        android:id="@+id/et_num"
+        android:layout_marginLeft="@dimen/activity_login_margin_10"
+        android:layout_marginRight="@dimen/widget_height_40"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="@color/text_color_3"
+        android:background="@drawable/edit_back"/>
+        
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_type"
+        
+        android:layout_width="wrap_content"
+        android:minWidth="100dip"
+        android:paddingLeft="@dimen/margin_15"
+        android:paddingRight="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_height="@dimen/widget_height_45"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/text_size_large"
+        android:gravity="center"
+        android:background="@drawable/item_select"
+        android:text="看好" />
+    
+</LinearLayout>

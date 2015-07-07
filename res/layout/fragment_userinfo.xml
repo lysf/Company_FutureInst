@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+<com.futureinst.widget.scrollview.OverScrollView
+   
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@drawable/a_hp_1_bg_yuan"
+    android:paddingBottom="@dimen/widget_height_50"
+    >
+    </com.futureinst.widget.scrollview.OverScrollView>
+     -->
+   <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/a_hp_1_bg_yuan"
+    android:paddingBottom="@dimen/widget_height_50"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <include layout="@layout/top_userinfo"/>
+	<include 
+	    layout="@layout/bottom_userinfo"/>
+	
+</LinearLayout>
+
+
