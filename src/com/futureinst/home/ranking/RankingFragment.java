@@ -51,7 +51,7 @@ public class RankingFragment extends BaseFragment {
 	}
 	private void initListViewHeader(){
 		View head = LayoutInflater.from(getContext()).inflate(R.layout.item_ranking_top, null, false);
-		pullListView.addHeaderView(head);
+//		pullListView.addHeaderView(head);
 		pullListView.setAdapter(adapter);
 		
 	}

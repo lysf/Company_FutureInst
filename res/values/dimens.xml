@@ -10,6 +10,7 @@
     <dimen name="text_size_large_22">22sp</dimen>
     <dimen name="text_size_large_28">28sp</dimen>
     
+	<dimen name="widget_height_30">30dip</dimen>
 	<dimen name="widget_height_35">35dip</dimen>
 	<dimen name="widget_height_40">40dip</dimen>
 	<dimen name="widget_height_45">45dip</dimen>

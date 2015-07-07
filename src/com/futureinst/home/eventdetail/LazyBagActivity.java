@@ -13,21 +13,19 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
-import com.futureinst.widget.list.PullListView;
+import com.futureinst.widget.scrollview.OverListView;
 
 public class LazyBagActivity extends BaseActivity {
-	private PullListView pullListView;
+	private OverListView overListView;
 	private LazyBagAdapter adapter;
 	private QueryEventDAO event;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.pull_listview);
+		setContentView(R.layout.view_over_listview);
 		setTitle(getResources().getString(R.string.lazy_bag));
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
-//		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
 		initView();
 		getLazyBagData(event.getId()+"");
-//		getLazyBagData("1003");
 	}
 	@Override
 	protected void onLeftImageViewClick(View view) {
@@ -36,12 +34,11 @@ public class LazyBagActivity extends BaseActivity {
 	}
 	private void initView() {
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
-		pullListView = (PullListView) findViewById(R.id.pull_listView);
-		pullListView.setDividerHeight(0);
+		overListView =  (OverListView) findViewById(R.id.overListView);
+		overListView.setDividerHeight(0);
+
 		adapter = new LazyBagAdapter(this);
-		pullListView.setAdapter(adapter);
-		pullListView.setRefresh(false);
-		pullListView.setLoadMore(false);
+		overListView.setAdapter(adapter);
 		
 	}
 	//获取懒人包数据

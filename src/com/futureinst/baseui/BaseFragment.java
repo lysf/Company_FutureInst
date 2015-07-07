@@ -269,11 +269,6 @@ public abstract class BaseFragment extends Fragment {
         return mContentView.findViewById(id);
     }
     
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    	super.onActivityResult(requestCode, resultCode, data);
-    }
-    
     protected void closeInput() {
     	InputMethodManager inputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
 		if (inputMethodManager != null && getContext().getCurrentFocus() != null) {

@@ -18,8 +18,22 @@ public class QueryEventDAO implements Serializable{
 	private float priceChange;
 	private int clearPrice;
 	private Long involve;
+	private int sug;
+	private String lead;
 	private Long ctime;
 	private String statusStr;
+	public int getSug() {
+		return sug;
+	}
+	public void setSug(int sug) {
+		this.sug = sug;
+	}
+	public String getLead() {
+		return lead;
+	}
+	public void setLead(String lead) {
+		this.lead = lead;
+	}
 	public String getRule() {
 		return rule;
 	}

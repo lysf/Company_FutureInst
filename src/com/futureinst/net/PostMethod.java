@@ -15,5 +15,10 @@ public enum PostMethod {
 	get_rank,//获取排名
 	get_faq,//常见问题
 	query_user_check,//对账单
+	update_order,//撤销订单
+	query_comment,//查询评论
+	add_comment,//添加评论
+	query_follow,//查询我的关注
+	operate_follow,//关注操作
 	query_user_record ;//查询个人资产战绩等
 }

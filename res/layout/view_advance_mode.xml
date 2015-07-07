@@ -6,7 +6,57 @@
     android:paddingTop="@dimen/margin_20"
     android:paddingBottom="@dimen/margin_20"
     android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button 
+            android:id="@+id/steep_1"
+            android:paddingTop="@dimen/dimen_3"
+            android:paddingBottom="@dimen/dimen_3"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:background="@drawable/btn_buy_in"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color_white"
+            android:text="选态度"/>
+        <Button 
+            android:id="@+id/steep_2"
+            android:paddingTop="@dimen/dimen_3"
+            android:paddingBottom="@dimen/dimen_3"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:background="@drawable/btn_sell_all"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color_white"
+            android:text="出价格"/>
+        <Button 
+            android:id="@+id/steep_3"
+            android:paddingTop="@dimen/dimen_3"
+            android:paddingBottom="@dimen/dimen_3"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:background="@drawable/btn_buy_in"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color_white"
+            android:text="来几份？"/>
+    </LinearLayout>
+    <FrameLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+      <include  
+          layout="@layout/view_advance_steep_3"/>
+      <include  layout="@layout/view_advance_steep_2"/>
+      <include  layout="@layout/view_advance_steep_1"/>
+    </FrameLayout>
+      
+      
+      <!--  
     <RelativeLayout 
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -46,6 +96,7 @@
         	    android:src="@drawable/a_et_07_5s_icon"/>
     </RelativeLayout>
 	<LinearLayout 
+	    android:visibility="gone"
 	    android:layout_marginTop="@dimen/margin_15"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
@@ -155,6 +206,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="match_parent"
 	        android:orientation="vertical"
+	        android:visibility="gone"
 	        android:gravity="center">
 	        <Button 
 	            android:id="@+id/btn_submit"
@@ -168,4 +220,5 @@
 	        android:minWidth="90dip"/>
 	    </LinearLayout>
 	</LinearLayout>
+	-->
 </LinearLayout>

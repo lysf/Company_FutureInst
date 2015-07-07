@@ -22,6 +22,7 @@ import com.futureinst.home.hold.HoldingFragment;
 import com.futureinst.home.ranking.RankingFragment;
 import com.futureinst.home.search.SearchFragment;
 import com.futureinst.home.userinfo.UserInfoFragment;
+import com.futureinst.home.userinfo.UserInfoFragment2;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.model.usermodel.UserInformationDAO;
@@ -80,12 +81,8 @@ public class HomeActivity extends BaseActivity {
 		filter.addAction("titleType");
 		filter.addAction("newPushMessage");
 		registerReceiver(receiver, filter);
-		if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
-			cid = PushManager.getInstance().getClientid(this);
-			preferenceUtil.setCLIENTID(cid);
-		}else{
-			cid = preferenceUtil.getCLIENTID();
-		}
+		
+		
 	}
 
 	@Override
@@ -161,6 +158,12 @@ public class HomeActivity extends BaseActivity {
 			ll_unlogin_2.setVisibility(View.VISIBLE);
 			ll_login_2.setVisibility(View.INVISIBLE);
 		} else {
+			if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
+				cid = PushManager.getInstance().getClientid(this);
+				preferenceUtil.setCLIENTID(cid);
+			}else{
+				cid = preferenceUtil.getCLIENTID();
+			}
 			ll_unlogin.setVisibility(View.INVISIBLE);
 			ll_login.setVisibility(View.VISIBLE);
 			ll_unlogin_2.setVisibility(View.INVISIBLE);
@@ -256,7 +259,8 @@ public class HomeActivity extends BaseActivity {
 				if (currentPosition == 3)
 					return;
 				 userInfoFragment = new UserInfoFragment();
-				fragmentTransaction.replace(R.id.container,userInfoFragment);
+//				fragmentTransaction.replace(R.id.container,userInfoFragment);
+				fragmentTransaction.replace(R.id.container,new UserInfoFragment2());
 				fragmentTransaction.commitAllowingStateLoss();
 				tv_ranking.setAlpha(0.3f);
 				tv_ranking_2.setAlpha(0.3f);

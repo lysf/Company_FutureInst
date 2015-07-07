@@ -9,6 +9,13 @@ public class BaseModel implements Serializable{
 	private String method;
 	private String type;
 	private Long curr_time;
+	private String info;
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
 	public Long getCurr_time() {
 		return curr_time;
 	}

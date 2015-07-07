@@ -195,7 +195,27 @@ public class Utils {
 		}
 		return versionCode;
 	}
-
+	/**
+	 * 
+	 * @Title: checkIsNumber   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param s
+	 * @param: @return      
+	 * @return: boolean      
+	 * @throws
+	 */
+	public static boolean checkIsNumber(String s){
+		boolean flag;
+		try{
+			Pattern pattern = Pattern.compile("^[0-9]*$");
+			Matcher m = pattern.matcher(s);
+			flag = m.matches();
+		}catch (Exception e) {
+			flag = false;
+		}
+		return flag;
+	}
 	/**
 	 * 
 	 * @Title: checkMobilePhoneNo

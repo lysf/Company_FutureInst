@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HoldUnDealAdapter extends BaseAdapter {
@@ -26,6 +27,10 @@ public class HoldUnDealAdapter extends BaseAdapter {
 	}
 	public void setList(List<UnDealOrderDAO> list){
 		this.list = list;
+		notifyDataSetChanged();
+	}
+	public void removeIten(UnDealOrderDAO unDealOrderDAO){
+		list.remove(unDealOrderDAO);
 		notifyDataSetChanged();
 	}
 	@Override
@@ -48,33 +53,32 @@ public class HoldUnDealAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
 		if(convertView == null)
-			convertView = LayoutInflater.from(context).inflate(R.layout.item_unhold_order, null, false);
-		if(position%2==0){
-			convertView.setBackgroundColor(context.getResources().getColor(R.color.text_color_white));
-		}else{
-			convertView.setBackgroundColor(context.getResources().getColor(R.color.text_color_e));
-		}
+			convertView = LayoutInflater.from(context).inflate(R.layout.item_unhold, null);
 		UnDealOrderDAO item = list.get(position);
-		TextView tv_event_name = ViewHolder.get(convertView, R.id.tv_event_name);
-		TextView tv_event_type = ViewHolder.get(convertView, R.id.tv_event_type);
-		TextView tv_limit_price = ViewHolder.get(convertView, R.id.tv_limit_price);
-		TextView tv_current_price = ViewHolder.get(convertView, R.id.tv_current_price);
-		TextView tv_orderNum = ViewHolder.get(convertView, R.id.tv_orderNum);
-		TextView tv_residue = ViewHolder.get(convertView, R.id.tv_residue);
-		TextView tv_dead_time = ViewHolder.get(convertView, R.id.tv_dead_time);
-		
-		tv_event_name.setText(item.getEvent().getTitle());
-		tv_event_type.setText(types[item.getType()-1]);
-		tv_limit_price.setText(String.format("%.1f", item.getPrice()));;
-		if(item.getType() == 2 || item.getType() == 4){
-			tv_limit_price.setText("——");
+		TextView tv_time = ViewHolder.get(convertView, R.id.tv_time);
+		tv_time.setText(context.getResources().getString(R.string.point)+TimeUtil.longToString(item.getCtime(), TimeUtil.FORMAT_DATE_TIME_SECOND));
+		TextView tv_price = ViewHolder.get(convertView, R.id.tv_price);
+		tv_price.setText(String.format("%.1f", item.getEvent().getCurrPrice()));
+		TextView tv_title = ViewHolder.get(convertView, R.id.tv_title);
+		tv_title.setText(item.getEvent().getTitle());
+		TextView tv_hold_buy = ViewHolder.get(convertView, R.id.tv_hold_buy);
+		String hold_buy = "";
+		if(item.getType() == 1 || item.getType() == 2){//买
+			hold_buy = context.getResources().getString(R.string.unhold_1)+"\t"+item.getNum()+"份\t\t以"+String.format("%.1f", item.getPrice())+"\t";
+		}else{
+			hold_buy = context.getResources().getString(R.string.unhold_2)+"\t"+item.getNum()+"份\t\t以"+String.format("%.1f", item.getPrice())+"\t";
 		}
-		tv_current_price.setText(String.format("%.1f", item.getEvent().getCurrPrice()));
-		tv_orderNum.setText(item.getNum()+"");
-		tv_residue.setText(item.getNum()-item.getDealNum()+"");
-		tv_dead_time.setText(TimeUtil.longToString(item.getDeadTime(), TimeUtil.FORMAT_DATE_TIME_SECOND_point));
+		tv_hold_buy.setText(hold_buy);
+		TextView tv_residue = ViewHolder.get(convertView, R.id.tv_residue);
+		tv_residue.setText(context.getResources().getString(R.string.unhold_3)+"\t"+(item.getNum()-item.getDealNum())+"份\t\t未成交");
+		if(item.getNum()-item.getDealNum() ==0)
+			tv_residue.setVisibility(View.GONE);
+		TextView tv_tip = ViewHolder.get(convertView, R.id.tv_tip);
+		tv_tip.setText("未成交预测于"+TimeUtil.longToString(item.getDeadTime(), TimeUtil.FORMAT_DATE_TIME_SECOND)+"自动取消");
+		
+		TextView tv_unfit = ViewHolder.get(convertView, R.id.tv_unfit);//保证金不足
+		ImageView iv_cancel = ViewHolder.get(convertView, R.id.iv_cancel);
 		
 		return convertView;
 	}

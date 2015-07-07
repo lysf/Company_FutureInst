@@ -2,9 +2,14 @@ package com.futureinst.home.hold;
 
 import org.json.JSONException;
 
+import android.app.Dialog;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
@@ -15,6 +20,7 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.sharepreference.SharePreferenceUtil;
+import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
@@ -26,7 +32,7 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	private SharePreferenceUtil preferenceUtil;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.pull_listview);
+		setContentView(R.layout.fragment_hold_deal);
 		initView();
 		initListHeader();
 		progressDialog.progressDialog();
@@ -36,12 +42,10 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	private void initView() {
 		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		progressDialog = MyProgressDialog.getInstance(getContext());
-		pullListView = (PullListView) findViewById(R.id.pull_listView);
+		pullListView = (PullListView) findViewById(R.id.hold_pull_listView);
 		adapter = new HoldDealAdapter(getContext());
 	}
 	private void initListHeader(){
-		View head = LayoutInflater.from(getContext()).inflate(R.layout.hold_order_top, null, false);
-		pullListView.addHeaderView(head);
 		pullListView.setLoadMore(false);
 		pullListView.setonRefreshListener(this);
 		pullListView.setAdapter(adapter);
@@ -67,5 +71,28 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 		if(isTop){
 			getData();
 		}
+	}
+	//删除已清算预测
+	private void delete(){
+		View view = LayoutInflater.from(getContext()).inflate(R.layout.view_hold_delete_tip, null, false);
+		final Dialog dialog = DialogShow.showDialog(getActivity(), view, Gravity.CENTER);
+		TextView tv_tips = (TextView) view.findViewById(R.id.tv_tips);
+		tv_tips.setText(getResources().getString(R.string.hold_delete));
+		Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
+		Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
+		btn_cancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+		btn_submit.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//删除
+				
+			}
+		});
+		dialog.show();
 	}
 }

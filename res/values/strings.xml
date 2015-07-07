@@ -82,4 +82,16 @@
 	
 	<string name="regist_sucess_tip">欢迎您成为未来研究所的预言家，<u>50000个未币请笑纳</u>，可到【用户中心】查看。</string>
 	
+	<string name="hold_delete">确定清空所有已清算的预测记录？</string>
+	<string name="unhold_delete">确定清空所有已失效的预测记录？</string>
+	<string name="unhold_revoke">确定撤销该预测订单？</string>
+	<string name="point">● </string>
+	<string name="buy_tip_1">● 若事件发生<font color = "red">【看好】</font>则盈利 | 事件不发生<font color = "red">【不看好】</font>则盈利</string>
+	<string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
+	<string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
+	<string name="steep3_price_tip">● 此次预测将用</string>
+	<string name="hold_1">又不看好&#160;</string>
+	<string name="unhold_1">你看好&#160;&#160;&#160;&#160;&#160;</string>
+	<string name="unhold_2">你不看好&#160;</string>
+	<string name="unhold_3">剩余&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
 </resources>

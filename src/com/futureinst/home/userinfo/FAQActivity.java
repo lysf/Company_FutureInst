@@ -15,17 +15,16 @@ import com.futureinst.model.usermodel.FaqInfoDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
-import com.futureinst.widget.list.PullListView;
+import com.futureinst.widget.scrollview.OverListView;
 
 public class FAQActivity extends BaseActivity {
-	private PullListView pullListView;
+	private OverListView overListView;
 	private FAQAdapter adapter;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.pull_listview_2);
+		setContentView(R.layout.view_over_listview);
 		setTitle(R.string.FAQ);
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
-//		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
 		initView();
 		getFAQ();
 	}
@@ -35,16 +34,15 @@ public class FAQActivity extends BaseActivity {
 		finish();
 	}
 	private void initView() {
-		pullListView = (PullListView) findViewById(R.id.pull_listView);
-		pullListView.setRefresh(false);
-		pullListView.setLoadMore(false);
+		overListView = (OverListView) findViewById(R.id.overListView);
+		overListView.setDividerHeight(1);
 		adapter = new FAQAdapter(this);
-		pullListView.setAdapter(adapter);
-		pullListView.setOnItemClickListener(new OnItemClickListener() {
+		overListView.setAdapter(adapter);
+		overListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long id) {
-				FaqDAO item = (FaqDAO) adapter.getItem(position-1);
+				FaqDAO item = (FaqDAO) adapter.getItem(position);
 				Intent intent = new Intent(FAQActivity.this, FAQDetailActivity.class);
 				intent.putExtra("faq", item);
 				startActivity(intent);

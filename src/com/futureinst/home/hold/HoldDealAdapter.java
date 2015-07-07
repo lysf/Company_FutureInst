@@ -9,6 +9,7 @@ import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.ViewHolder;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,33 +48,52 @@ public class HoldDealAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup arg2) {
 		if(convertView == null)
-			convertView = LayoutInflater.from(context).inflate(R.layout.item_holder_order, null, false);
-		if(position%2==0){
-			convertView.setBackgroundColor(context.getResources().getColor(R.color.text_color_white));
-		}else{
-			convertView.setBackgroundColor(context.getResources().getColor(R.color.text_color_e));
-		}
-		DealOrderDAO item = list.get(position);
-			TextView tv_name = ViewHolder.get(convertView, R.id.tv_name);
-			TextView tv_buy_price = ViewHolder.get(convertView, R.id.tv_buy_price);
-			TextView tv_sell_price = ViewHolder.get(convertView, R.id.tv_sell_price);
-			TextView tv_buy_num = ViewHolder.get(convertView, R.id.tv_buy_num);
-			TextView tv_sell_num = ViewHolder.get(convertView, R.id.tv_sell_num);
+			convertView = LayoutInflater.from(context).inflate(R.layout.item_hold, null, false);
+			
+			DealOrderDAO item = list.get(position);
+			TextView tv_status = ViewHolder.get(convertView, R.id.tv_status);
+			String sttaus = "此预测于"+TimeUtil.longToString(item.getEvent().getClearTime(), TimeUtil.FORMAT_DATE_TIME_SECOND)+"清算盈亏";
+			tv_status.setText(sttaus);
+			TextView tv_currentPrice = ViewHolder.get(convertView, R.id.tv_price);
 			TextView tv_gain = ViewHolder.get(convertView, R.id.tv_gain);
-			TextView tv_time = ViewHolder.get(convertView, R.id.tv_time);
-			tv_name.setText(item.getEvent().getTitle());
-			tv_buy_price.setText(String.format("%.1f", item.getBuyPrice()));
-			tv_sell_price.setText(String.format("%.1f", item.getSellPrice()));
-			tv_buy_num.setText(item.getBuyNum()+"");
-			tv_sell_num.setText(item.getSellNum()+"");
-			if(item.getGain()<0){
-				tv_gain.setText("-" + String.format("%.1f", Math.abs(item.getGain())));
-				tv_gain.setBackgroundColor(context.getResources().getColor(R.color.gain_blue));
+			tv_currentPrice.setText(String.format("%.1f", item.getEvent().getCurrPrice()));
+			TextView tv_title = ViewHolder.get(convertView, R.id.tv_title);
+			tv_title.setText(item.getEvent().getTitle());
+			TextView tv_buy = ViewHolder.get(convertView, R.id.tv_hold_buy);
+			String buy = context.getResources().getString(R.string.unhold_1)+"\t"+item.getBuyNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getBuyPrice()))+"\t";
+			tv_buy.setText(buy);
+			TextView tv_sell = ViewHolder.get(convertView, R.id.tv_hold_sell);
+			TextView tv_think = ViewHolder.get(convertView, R.id.tv_think);
+			String sell = context.getResources().getString(R.string.hold_1)+"\t"+item.getSellNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getSellPrice()))+"\t";
+			tv_sell.setText(sell);
+			if(item.getBuyNum() == 0){
+				sell = context.getResources().getString(R.string.unhold_2)+"\t"+item.getSellNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getSellPrice()))+"\t";
+				tv_sell.setText(sell);
+				tv_sell.setVisibility(View.VISIBLE);
+				tv_buy.setVisibility(View.GONE);
+				tv_think.setVisibility(View.GONE);
 			}else{
-				tv_gain.setText("+" + String.format("%.1f", Math.abs(item.getGain())));
-				tv_gain.setBackgroundColor(context.getResources().getColor(R.color.gain_red));
+				if(item.getSellPrice()!=0){
+					tv_sell.setVisibility(View.VISIBLE);
+					tv_think.setVisibility(View.VISIBLE);
+				}else{
+					tv_think.setVisibility(View.GONE);
+					tv_sell.setVisibility(View.GONE);
+				}
 			}
-			tv_time.setText(TimeUtil.longToString(item.getEvent().getClearTime(), TimeUtil.FORMAT_DATE_TIME_SECOND_point));
+			if(item.getEvent().getStatusStr() !=null && item.getEvent().getStatusStr().equals("已清算")){
+				tv_status.setText("已清算");
+				tv_gain.setBackgroundColor(Color.WHITE);
+				String gain = "";
+				if(item.getGain() < 0){
+					gain = " - "+String.format("%.1f", item.getGain());
+					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_blue));
+				}else{
+					gain = " + "+String.format("%.1f", item.getGain());
+					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_red));
+				}
+				tv_gain.setText(gain);
+			}
 		return convertView;
 	}
 

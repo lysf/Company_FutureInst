@@ -20,10 +20,10 @@ public class PathView extends View {
 	public static final int OTHER = 4;
 	
 
-	public String[] days = { "����һ", "���ڶ�", "������", "������", "������", "������", "������" };
-	public String[] weeks = { "��һ��", "�ڶ���", "������", "������" };
-	public String[] mouths = { "һ��", "����", "����", "����", "����", "����", "����", "����",
-			"����", "ʮ��", "ʮһ��", "ʮ����", };
+	public String[] days = { "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日" };
+	public String[] weeks = { "第一周", "第二周", "第三周", "第四周" };
+	public String[] mouths = { "一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月",
+			"九月", "十月", "十一月", "十二月", };
 	public String[] days_month = { "1", "2", "3", "4", "5", "6", "7", "8", "9",
 			"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 			"21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
@@ -31,17 +31,17 @@ public class PathView extends View {
 
 	public int defaultType = DAY_WEEK;
 	public String[] defaultDay = days;
-
+	// x,y轴的线条数量
 	private int xLineCount = 10;
 	private int yLineCount = 10;
 	private Paint paintLine, paintPoint, textPaint, linkPaint;
 	private int[] data;
-
+	// 靠左侧，底部的距离
 	private float left;
 	private float bottom;
-
+	// x,y轴上显示的值
 	private float xMaxValue, yMaxValue;
-
+	// 间距
 	private float xInterval, yInterval;
 
 	public PathView(Context context, AttributeSet attrs, int defStyle) {
@@ -66,7 +66,7 @@ public class PathView extends View {
 	private void init(Context cont) {
 		paintLine = new Paint();
 		paintLine.setAntiAlias(true);
-		paintLine.setColor(Color.WHITE);
+		paintLine.setColor(Color.BLACK);
 		paintLine.setFakeBoldText(true);
 		paintLine.setStrokeWidth(1.5f);
 
@@ -76,7 +76,7 @@ public class PathView extends View {
 		paintPoint.setStrokeWidth(20);
 
 		textPaint = new Paint();
-		textPaint.setColor(Color.WHITE);
+		textPaint.setColor(Color.BLACK);
 		textPaint.setFakeBoldText(true);
 		textPaint.setTextSize(15);
 
@@ -125,7 +125,7 @@ public class PathView extends View {
 			break;
 		case OTHER:
 			yLineCount = data.length + 1;
-			defaultDay = days_month;
+//			defaultDay = days_month;
 			break;
 		}
 
@@ -192,29 +192,29 @@ public class PathView extends View {
 	private void drawFrame(Canvas canvas) {
 		calculateLeft();
 
-		for (int i = 0; i <= xLineCount; i++) {
-			float startY = i * xInterval + xInterval;
-			canvas.drawLine(left + 5, startY, getWidth(), startY, paintLine);
-			textPaint.setTextAlign(Align.RIGHT);
-			canvas.drawText(
-					Math.round(xMaxValue / xLineCount * (xLineCount - i) - 0.5)
-							+ "", left, startY + bottom / 4, textPaint);
-		}
+//		for (int i = 0; i <= xLineCount; i++) {
+//			float startY = i * xInterval + xInterval;
+//			canvas.drawLine(left + 5, startY, getWidth(), startY, paintLine);
+//			textPaint.setTextAlign(Align.RIGHT);
+//			canvas.drawText(
+//					Math.round(xMaxValue / xLineCount * (xLineCount - i) - 0.5)
+//							+ "", left, startY + bottom / 4, textPaint);
+//		}
 
 		for (int j = 0; j < yLineCount; j++) {
 
 			float leftSpace = yInterval * j + left + 5;
 
-			canvas.drawLine(leftSpace, bottom, leftSpace, this.getHeight()
-					- bottom, paintLine);
-			textPaint.setTextAlign(Align.CENTER);
+//			canvas.drawLine(leftSpace, bottom, leftSpace, this.getHeight()
+//					- bottom, paintLine);
+//			textPaint.setTextAlign(Align.CENTER);
 
 			if (j == 0) {
 				continue;
 			}
 			xPoint.add(leftSpace);
-			canvas.drawText(data[j - 1]+"", leftSpace, this.getHeight(),
-					textPaint);
+//			canvas.drawText(data[j - 1]+"", leftSpace, this.getHeight(),
+//					textPaint);
 
 		}
 	}

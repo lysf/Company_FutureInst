@@ -7,5 +7,7 @@ public enum PostType {
 	event_clear,//清算单
 	order,//订单
 	common ,//排名
+	comment,//评论
+	follow,//关注
 	user_info ,//查询个人资产战绩等
 }

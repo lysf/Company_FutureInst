@@ -23,6 +23,7 @@
                 android:id="@+id/iv_headImg"
                 android:layout_width="80dip"
                 android:layout_height="80dip"
+                android:scaleType="centerCrop"
                 android:src="@drawable/logo" />
 
             <LinearLayout

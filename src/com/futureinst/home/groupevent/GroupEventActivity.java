@@ -36,7 +36,6 @@ public class GroupEventActivity extends BaseActivity {
 		id = getIntent().getStringExtra("groupId");
 		String title = getIntent().getStringExtra("groupEventTitle");
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
-//		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
 		setTitle(title);
 		gv_groupEvent = (GridView) findViewById(R.id.gv_group_event);
 		adapter = new SearchAdapter(this);

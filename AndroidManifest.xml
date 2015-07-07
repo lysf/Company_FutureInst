@@ -2,12 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.futureinst"
     
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.1" >
 
     <uses-sdk
         
-        android:minSdkVersion="12"
+        android:minSdkVersion="16"
         android:targetSdkVersion="17" />
 
     <supports-screens
@@ -28,6 +28,7 @@
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 <uses-permission android:name="getui.permission.GetuiService.com.futureinst"/>
 <uses-permission android:name="android.permission.GET_TASKS"/>
+ <uses-permission android:name="android.permission.CAMERA" />
 <!--自定义权限-->
 <permission
     android:name="getui.permission.GetuiService.com.futureinst"
@@ -54,7 +55,6 @@
         
          <activity
             android:name=".home.HomeActivity"
-            android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
             android:name=".login.LoginActivity"
@@ -82,7 +82,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.eventdetail.EventDetailActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.eventdetail.MyHoldActivity"
@@ -107,6 +107,18 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.eventdetail.RefrenceNewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.home.userinfo.MyAseetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.home.eventdetail.EventBuyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.comment.CommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.home.attention.MyAttention"
             android:screenOrientation="portrait" />
        
 		

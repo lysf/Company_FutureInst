@@ -83,7 +83,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 	@SuppressWarnings("deprecation")
 	private void setNotify(Context context,String content){
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		Intent notifyIntent = new Intent(context, HomeActivity.class);
+		Intent notifyIntent = new Intent();
 		PendingIntent appIntent = PendingIntent.getActivity(context, 0,
 				notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 		Notification myNoti = new Notification();

@@ -209,4 +209,95 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
+	//撤销订单
+	public String update_order(String user_id,String uuid,String order_id,String operation){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("order_id", order_id);
+		map.put("operation", operation);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询评论
+	 * @Title: query_comment   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param event_id
+	 * @param: @param attitude 1 表示支持， 2 表示反对
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String query_comment(String event_id,int attitude){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("event_id", event_id);
+		map.put("attitude", attitude+"");
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 添加订单
+	 * @Title: add_comment   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param user_id
+	 * @param: @param uuid
+	 * @param: @param event_id
+	 * @param: @param attitude
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String add_comment(String user_id,String uuid,String event_id,int attitude,String content){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("event_id", event_id);
+		map.put("attitude", attitude+"");
+		map.put("content",content);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询我的关注
+	 * @Title: query_follow   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param user_id
+	 * @param: @param uuid
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String query_follow(String user_id,String uuid){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 操作关注
+	 * @Title: operate_follow   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param user_id
+	 * @param: @param uuid
+	 * @param: @param event_id
+	 * @param: @param operation  follow
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String operate_follow(String user_id,String uuid,Long event_id,String operation){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("event_id", event_id+"");
+		map.put("operation", operation);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
 }

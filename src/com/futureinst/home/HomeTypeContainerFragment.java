@@ -12,7 +12,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -179,7 +178,6 @@ public class HomeTypeContainerFragment extends BaseFragment {
 			EventsFragment eventsFragment = new EventsFragment();
 			Bundle bundle = new Bundle();
 			bundle.putSerializable("event", queryEventInfoDAO.getEvents().get(arg0));
-			bundle.putLong("time", queryEventInfoDAO.getCurr_time());
 			eventsFragment.setArguments(bundle);
 			return eventsFragment;
 		}  
@@ -210,7 +208,7 @@ public class HomeTypeContainerFragment extends BaseFragment {
 					public void requestCompleted(Object response) throws JSONException {
 						if(response == null) return;
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
-						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time());
+						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
 						initViewPager(queryEventInfoDAO);
 					}
 				});

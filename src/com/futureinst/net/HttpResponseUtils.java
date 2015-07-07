@@ -11,7 +11,6 @@ import org.json.JSONException;
 import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
@@ -72,10 +71,7 @@ public class HttpResponseUtils {
 							int status = baseModel.getStatus();
 							final String message = baseModel.getErrinfo();
 							if(status!=0){
-//								ToastUtils.showToast(activity, message, 
-//										Configuration.DURATION_SHORT, Style.ALERT);
 								MyToast.showToast(activity, message, 0);
-//								Toast.makeText(activity, message,0).show();
 								try {
 									commentResponseListener
 											.requestCompleted(null);
@@ -197,40 +193,18 @@ public class HttpResponseUtils {
 							Log.i("json", "----------response-->>" + response);
 							BaseModel baseModel = GsonUtils.json2Bean(response,
 									BaseModel.class);
-//							int status = baseModel.getStatus();
-							// String message = baseModel.getMsg();
-//							switch (status) {
-//							case -1:// 异地登录或登录超时
-//								Toast.makeText(activity, "异地登录或登录超时",
-//										Toast.LENGTH_SHORT).show();
-//
-//								 Intent intent = new Intent(activity,
-//								 LoginActivity.class);
-//								 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//								 activity.startActivity(intent);
-//								 ActivityManagerUtil.finishActivity();
-//								try {
-//									commentResponseListener
-//											.requestCompleted(null);
-//								} catch (JSONException e1) {
-//									// TODO Auto-generated catch block
-//									e1.printStackTrace();
-//								}
-//								return;
-//							case 1:
-//							case 2:// 1：请求失败
-//							case 3:// 500： 服务器内部错误
-//								Toast.makeText(activity, baseModel.getMsg(),
-//										Toast.LENGTH_LONG).show();
-//								try {
-//									commentResponseListener
-//											.requestCompleted(null);
-//								} catch (JSONException e1) {
-//									// TODO Auto-generated catch block
-//									e1.printStackTrace();
-//								}
-//								return;
-//							}
+							int status = baseModel.getStatus();
+							final String message = baseModel.getErrinfo();
+							if(status!=0){
+								MyToast.showToast(activity, message, 0);
+								try {
+									commentResponseListener
+											.requestCompleted(null);
+								} catch (JSONException e1) {
+									e1.printStackTrace();
+								}
+								return;
+							}
 							try {
 								commentResponseListener
 										.requestCompleted(GsonUtils.json2Bean(
