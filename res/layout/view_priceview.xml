@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/text_color_white"
+    android:layout_height="wrap_content"
+     android:paddingTop="@dimen/margin_5"
     android:orientation="vertical" >
 
     <TableLayout
@@ -20,7 +20,7 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:text="买进"
+                android:text="看好"
                 
                 android:textSize="@dimen/text_size_small"/>
             <ImageView 
@@ -34,7 +34,7 @@
                 android:gravity="center"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_blue"
-                android:text="卖空"
+                android:text="不看好"
                 android:textSize="@dimen/text_size_small"/>
         </TableRow>
 

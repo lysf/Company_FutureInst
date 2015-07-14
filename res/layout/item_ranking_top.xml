@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/widget_height_45"
-    android:background="#E8E8F4"
+    android:background="#D7E7FF"
     android:gravity="center"
     android:orientation="horizontal" >
     <TextView 
@@ -16,7 +16,7 @@
     <View 
         android:layout_width="@dimen/line_height"
         android:layout_height="match_parent"
-        android:background="@color/text_color_top_ranking"/>
+        android:background="@color/text_color_white"/>
 
     <TextView
         android:layout_width="0dip"
@@ -30,7 +30,7 @@
     <View 
         android:layout_width="@dimen/line_height"
         android:layout_height="match_parent"
-        android:background="@color/text_color_top_ranking"/>
+        android:background="@color/text_color_white"/>
     <TextView 
         android:layout_width="0dip"
         android:layout_weight="3"

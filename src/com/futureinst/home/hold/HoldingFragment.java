@@ -28,8 +28,8 @@ public class HoldingFragment extends BaseFragment {
 	private void initView() {
 		btns = new Button[2];
 		fragments = new ArrayList<Fragment>();
-		fragments.add(new HoldDealFragment());
 		fragments.add(new HoldUnDealFragment());
+		fragments.add(new HoldDealFragment());
 		btns[0] = (Button) findViewById(R.id.btn_deal);
 		btns[1] = (Button) findViewById(R.id.btn_undeal);
 		container = (ViewPager) findViewById(R.id.container);

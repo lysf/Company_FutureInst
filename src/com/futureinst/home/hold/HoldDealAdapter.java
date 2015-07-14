@@ -29,7 +29,6 @@ public class HoldDealAdapter extends BaseAdapter {
 	}
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return list!=null?list.size():0;
 	}
 
@@ -41,7 +40,6 @@ public class HoldDealAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
 		return arg0;
 	}
 
@@ -63,7 +61,7 @@ public class HoldDealAdapter extends BaseAdapter {
 			String buy = context.getResources().getString(R.string.unhold_1)+"\t"+item.getBuyNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getBuyPrice()))+"\t";
 			tv_buy.setText(buy);
 			TextView tv_sell = ViewHolder.get(convertView, R.id.tv_hold_sell);
-			TextView tv_think = ViewHolder.get(convertView, R.id.tv_think);
+//			TextView tv_think = ViewHolder.get(convertView, R.id.tv_think);
 			String sell = context.getResources().getString(R.string.hold_1)+"\t"+item.getSellNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getSellPrice()))+"\t";
 			tv_sell.setText(sell);
 			if(item.getBuyNum() == 0){
@@ -71,13 +69,13 @@ public class HoldDealAdapter extends BaseAdapter {
 				tv_sell.setText(sell);
 				tv_sell.setVisibility(View.VISIBLE);
 				tv_buy.setVisibility(View.GONE);
-				tv_think.setVisibility(View.GONE);
+//				tv_think.setVisibility(View.GONE);
 			}else{
 				if(item.getSellPrice()!=0){
 					tv_sell.setVisibility(View.VISIBLE);
-					tv_think.setVisibility(View.VISIBLE);
+//					tv_think.setVisibility(View.VISIBLE);
 				}else{
-					tv_think.setVisibility(View.GONE);
+//					tv_think.setVisibility(View.GONE);
 					tv_sell.setVisibility(View.GONE);
 				}
 			}

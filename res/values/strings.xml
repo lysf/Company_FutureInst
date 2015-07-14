@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">未来研究所</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -47,6 +46,7 @@
 	<string name="keyword">请选择先知关键词\n（至少选一个）</string>
 	<!-- HomeFragment -->
 	<string name="forecast">我要预测</string>
+	 <string name="myAttention">我的关注</string>
 	<!-- HoldFragment -->
 	<string name="hold_deal">已成交订单</string>
 	<string name="hold_undeal">未成交订单</string>
@@ -86,12 +86,23 @@
 	<string name="unhold_delete">确定清空所有已失效的预测记录？</string>
 	<string name="unhold_revoke">确定撤销该预测订单？</string>
 	<string name="point">● </string>
-	<string name="buy_tip_1">● 若事件发生<font color = "red">【看好】</font>则盈利 | 事件不发生<font color = "red">【不看好】</font>则盈利</string>
+	<string name="buy_tip_1">● 若事件发生则<font color = "red"> 看好 </font>盈利 | 事件不发生则<font color = "green"> 不看好 </font>盈利</string>
 	<string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
 	<string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
 	<string name="steep3_price_tip">● 此次预测将用</string>
+	<string name="event_detail_gain">● 若事件发生你将<font color = "red">*</font>\t|\t若事件不发生你将<font color = "green">#</font></string>
 	<string name="hold_1">又不看好&#160;</string>
 	<string name="unhold_1">你看好&#160;&#160;&#160;&#160;&#160;</string>
 	<string name="unhold_2">你不看好&#160;</string>
 	<string name="unhold_3">剩余&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+	<string name="event_detail_deal">其中&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+	
+	
+	<string name="event_detail_depend">清算依据</string>
+	<string name="event_detail_focus">关注该事件</string>
+	<string name="event_detail_unfocus">取消关注该事件</string>
+	<string name="event_detail_share">分享该事件</string>
+	
+	<string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>
+	<string name="order_look_bad">此次预测，如果事件不发生，则你获利 P*Q=$，若事件发生，则你亏损（100-P）*Q=￥</string>
 </resources>

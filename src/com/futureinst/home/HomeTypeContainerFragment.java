@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,33 +24,35 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
-import com.futureinst.home.groupevent.GroupEventActivity;
+import com.futureinst.home.attention.MyAttentionActivity;
+import com.futureinst.home.eventdetail.EventDetailActivity;
 import com.futureinst.home.title.PrimaryTitleActivity;
 import com.futureinst.home.title.SecondTitleActivity;
-import com.futureinst.model.homeeventmodel.EventGroupDAO;
-import com.futureinst.model.homeeventmodel.EventGroupInfo;
+import com.futureinst.login.LoginActivity;
+import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.homeeventmodel.QueryEventInfoDAO;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.widget.WheelView.OnItemSelectListener;
 
 @SuppressLint({ "ValidFragment", "HandlerLeak" })
 public class HomeTypeContainerFragment extends BaseFragment {
-	
+	private SharePreferenceUtil preferenceUtil;
 	private com.futureinst.widget.WheelView wheelView2;
 	private int position = 0;
 	private int position_second = 0; 
 	private String[] title_1;
 	private String[] title_2;
 	private String[] orders;
-	private TextView tv_title_1,tv_title_2,tv_company;
+	private TextView tv_title_1,tv_title_2,tv_attention;
 	private LinearLayout ll_container,ll_back;
 	private ViewPager viewPager;
 	private int[] picIds;
-	private List<EventGroupDAO> groupEvents;
+	private List<QueryEventDAO> eventDAOs;
 	public  HomeTypeContainerFragment (int position,int position_second){
 		this.position = position;
 		this.position_second = position_second;
@@ -63,6 +66,7 @@ public class HomeTypeContainerFragment extends BaseFragment {
 		title_1 = getActivity().getResources().getStringArray(R.array.home_title);
 		title_2 = getActivity().getResources().getStringArray(R.array.home_second_title);
 		orders = getActivity().getResources().getStringArray(R.array.home_seond_title_order);
+		preferenceUtil = SharePreferenceUtil.getInstance(activity);
 	}
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -71,7 +75,7 @@ public class HomeTypeContainerFragment extends BaseFragment {
 		setBackGround(position);
 		setTextColor(position);
 		getData(position+1+"", orders[position_second]);
-		getEventGroupData();
+//		getEventGroupData();
 	}
 	private void initView() {
 		wheelView2 = (com.futureinst.widget.WheelView) findViewById(R.id.wheelView_1);
@@ -79,9 +83,13 @@ public class HomeTypeContainerFragment extends BaseFragment {
 		 wheelView2.setOnItemSelectListener(new OnItemSelectListener() {
 				@Override
 				public void onItemSelect(int position) {
-					Intent intent = new Intent(getActivity(), GroupEventActivity.class);
-					intent.putExtra("groupId", groupEvents.get(position).getId()+"");
-					intent.putExtra("groupEventTitle", groupEvents.get(position).getTitle());
+//					Intent intent = new Intent(getActivity(), GroupEventActivity.class);
+//					intent.putExtra("groupId", groupEvents.get(position).getId()+"");
+//					intent.putExtra("groupEventTitle", groupEvents.get(position).getTitle());
+//					startActivity(intent);
+					QueryEventDAO item = eventDAOs.get(position);
+					Intent intent = new Intent(getActivity(), EventDetailActivity.class);
+					intent.putExtra("event", item);
 					startActivity(intent);
 				}
 			});
@@ -91,7 +99,7 @@ public class HomeTypeContainerFragment extends BaseFragment {
 		ll_container = (LinearLayout) findViewById(R.id.ll_container);
 		tv_title_1 = (TextView) findViewById(R.id.tv_title_1);
 		tv_title_2 = (TextView) findViewById(R.id.tv_title_2);
-		tv_company = (TextView) findViewById(R.id.tv_company);
+		tv_attention = (TextView) findViewById(R.id.tv_company);
 		viewPager = (ViewPager) findViewById(R.id.viewpager);
 		viewPager.setClickable(false);
 		// 1.设置幕后item的缓存数目  
@@ -111,6 +119,7 @@ public class HomeTypeContainerFragment extends BaseFragment {
 		tv_title_2.setText(title_2[position_second]);
 		tv_title_1.setOnClickListener(clickListener);
 		tv_title_2.setOnClickListener(clickListener);
+		tv_attention.setOnClickListener(clickListener);
 		
 	}
 	OnClickListener clickListener = new OnClickListener() {
@@ -128,6 +137,11 @@ public class HomeTypeContainerFragment extends BaseFragment {
 				intent.putExtra("primaryTitle", position);
 				intent.putExtra("target", position_second);
 				startActivity(intent);
+				break;
+			case R.id.tv_company://我的关注
+				if(judgeIsLogin()){
+					startActivity(new Intent(getActivity(), MyAttentionActivity.class));
+				}
 				break;
 			}
 			
@@ -208,31 +222,34 @@ public class HomeTypeContainerFragment extends BaseFragment {
 					public void requestCompleted(Object response) throws JSONException {
 						if(response == null) return;
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
+						eventDAOs = queryEventInfoDAO.getEvents();
 						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
 						initViewPager(queryEventInfoDAO);
+						List<String> items = new ArrayList<String>();
+						 for(QueryEventDAO dao : eventDAOs){
+							 items.add(dao.getTitle());
+						 }
+						 wheelView2.setItems(items);
 					}
 				});
 	 }
 	 //获取事件组数据
-	 private void getEventGroupData(){
-		 HttpResponseUtils.getInstace(getActivity()).postJson(
-				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_group.name(), PostType.event_group.name(), HttpPostParams.getInstace().query_event_group("")), 
-				 EventGroupInfo.class, 
-				 new PostCommentResponseListener() {
-					 @Override
-					 public void requestCompleted(Object response) throws JSONException {
-						 if(response == null) return;
-						 EventGroupInfo eventGroupInfo = (EventGroupInfo) response;
-						 groupEvents = eventGroupInfo.getGroups();
-						 List<String> items = new ArrayList<String>();
-						 for(EventGroupDAO dao : eventGroupInfo.getGroups()){
-							 items.add(dao.getTitle());
-						 }
-						 wheelView2.setItems(items);
-						
-					 }
-				 });
-	 }
+//	 private void getEventGroupData(){
+//		 HttpResponseUtils.getInstace(getActivity()).postJson(
+//				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_group.name(), PostType.event_group.name(), HttpPostParams.getInstace().query_event_group("")), 
+//				 EventGroupInfo.class, 
+//				 new PostCommentResponseListener() {
+//					 @Override
+//					 public void requestCompleted(Object response) throws JSONException {
+//						 if(response == null) return;
+//						 EventGroupInfo eventGroupInfo = (EventGroupInfo) response;
+//						 groupEvents = eventGroupInfo.getGroups();
+//						 
+//						 
+//						
+//					 }
+//				 });
+//	 }
 	 private void setTextColor(int position){
 		 if(position == 4 || position == 6 || position == 7 || position == 8){
 			 tv_title_1.setTextColor(getResources().getColor(R.color.text_color_3));
@@ -241,7 +258,7 @@ public class HomeTypeContainerFragment extends BaseFragment {
 			 tv_title_1.setCompoundDrawables(null, null, drawable, null);
 			 tv_title_2.setCompoundDrawables(null, null, drawable, null);
 			 tv_title_2.setTextColor(getResources().getColor(R.color.text_color_3));
-			 tv_company.setTextColor(getResources().getColor(R.color.text_color_3));
+			 tv_attention.setTextColor(getResources().getColor(R.color.text_color_3));
 			 drawable = null;
 			 wheelView2.setTextColorID(R.color.text_color_3);
 		 }
@@ -259,5 +276,15 @@ public class HomeTypeContainerFragment extends BaseFragment {
 		ll_back =null;
 		System.gc();
 	}
+		//判断是否已登录
+		private boolean judgeIsLogin(){
+			if(TextUtils.isEmpty(preferenceUtil.getUUid())){
+				Intent intent = new Intent(getActivity(), LoginActivity.class);
+				intent.putExtra("login", true);
+				startActivity(intent);
+				return false;
+			}
+			return true;
+		}
 	
 }

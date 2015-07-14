@@ -28,6 +28,11 @@ public class SearchAdapter extends BaseAdapter {
 		this.list = list;
 		notifyDataSetChanged();
 	}
+	//清空数据
+	public void clearList(){
+		this.list.clear();
+		notifyDataSetChanged();
+	}
 	@Override
 	public int getCount() {
 		

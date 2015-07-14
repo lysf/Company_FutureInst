@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:background="@color/text_color_e"
+    android:paddingTop="@dimen/margin_20"
+    android:paddingBottom="@dimen/margin_20">
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@color/text_color_white"
             android:padding="@dimen/activity_login_margin_10" >
-
+	
             <ImageView
                 android:id="@+id/iv_headImg"
                 android:layout_width="80dip"
@@ -31,33 +37,11 @@
                         android:layout_height="@dimen/widget_height_45"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
-                        android:hint="@string/userNmae_hint"
+                        android:hint="昵称"
                         android:textColor="@color/text_color_3"
                         android:textSize="@dimen/text_size_large" />
 
-                    <RelativeLayout
-                        android:layout_width="@dimen/widget_height_35"
-                        android:layout_height="@dimen/widget_height_35" >
-
-                        <ImageView
-                            android:id="@+id/iv_message"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/user_info_message" />
-
-                        <TextView
-                            android:id="@+id/tv_message_count"
-                            android:layout_width="@dimen/margin_15"
-                            android:layout_height="@dimen/margin_15"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/margin_5"
-                            android:layout_marginTop="@dimen/margin_5"
-                            android:background="@drawable/point_red"
-                            android:gravity="center"
-                            android:textColor="@color/text_color_white"
-                            android:textSize="9sp"
-                            android:visibility="invisible" />
-                    </RelativeLayout>
+                    
                 </LinearLayout>
 
                 <LinearLayout
@@ -85,3 +69,4 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+	</LinearLayout>

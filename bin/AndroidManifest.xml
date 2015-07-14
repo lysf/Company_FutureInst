@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.futureinst"
+ 	 package="com.futureinst"
     
     android:versionCode="2"
     android:versionName="1.1" >
@@ -82,7 +82,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.eventdetail.EventDetailActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.eventdetail.MyHoldActivity"
@@ -118,10 +118,15 @@
             android:name="com.futureinst.comment.CommentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.attention.MyAttention"
+            android:name="com.futureinst.home.attention.MyAttentionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.comment.AddCommentActivity"
             android:screenOrientation="portrait" />
        
 		
+        <service 
+            android:name="com.futureinst.service.UpdateService"/>
         
          <receiver
             android:name="com.futureinst.push.PushBroadCastReceiver"
@@ -132,7 +137,7 @@
         </receiver>
         
         <!-- 个推SDK配置开始 -->
-        <!-- 配置第三方应用参数属性 -->
+        <!-- 配置第三方应用参数属性 -->  
         <meta-data
             android:name="PUSH_APPID"
             android:value="zr7geZUP3o8ryY1XQCIpN9" /> <!-- 替换为第三方应用的APPID -->
@@ -218,6 +223,64 @@
             android:authorities="downloads.com.futureinst"
             android:process=":pushservice" /> <!-- 替换为downloads.第三方包名 -->
         <!-- =========================================================================== -->
+        
+        
+        <!-- ShareSDKUIShell -->
+        <activity
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent1104767082" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+		</activity>
+        
+        <activity
+            android:name="cn.sharesdk.framework.AuthorizeActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+        </activity>
+        <!-- 微信分享回调 -->
+        <activity
+            android:name="cn.sharesdk.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 调用新浪原生SDK，需要注册的activity -->
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+
+        <!-- 调用新浪原生SDK，需要注册的回调activity -->
+        <activity
+            android:name="cn.sharesdk.sina.weibo.SinaActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

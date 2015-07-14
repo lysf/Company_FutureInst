@@ -88,7 +88,7 @@ public class EventsFragment extends BaseFragment {
 		tv_involve.setText(item.getInvolve()+"");
 		tv_time.setText(item.getStatusStr());
 		//倒计时
-		if(item.getStatusStr().equals("交易中")){
+		if(item.getStatusStr()!=null && item.getStatusStr().equals("交易中")){
 			 Long time = item.getTradeTime() - SystemTimeUtile.getInstance(0L).getSystemTime();;
 			tv_time.setText(LongTimeUtil.longTimeUtil(time));
 			myThread = new MyThread(tv_time, time, 1,handler);

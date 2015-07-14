@@ -62,7 +62,7 @@ public class UserInfoFragment2 extends BaseFragment {
 	private ImageView iv_message, iv_edit_description;
 	private TableRow[] tableRows;
 	private PushMessageUtils pushMessageUtils;
-	private Button btn_loginOut;
+	private TextView tv_useableIcon,tv_depositCash;
 
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -104,7 +104,8 @@ public class UserInfoFragment2 extends BaseFragment {
 		tableRows[2] = (TableRow) findViewById(R.id.tableRow2);
 		tableRows[3] = (TableRow) findViewById(R.id.tableRow3);
 		tableRows[4] = (TableRow) findViewById(R.id.tableRow4);
-		btn_loginOut = (Button) findViewById(R.id.btn_log_out);
+		tv_useableIcon = (TextView) findViewById(R.id.tv_useableIcon);
+		tv_depositCash = (TextView) findViewById(R.id.tv_depositCash);
 
 	}
 
@@ -116,6 +117,8 @@ public class UserInfoFragment2 extends BaseFragment {
 		if (!TextUtils.isEmpty(userInfo.getUser().getDescription())) {
 			tv_description.setText(userInfo.getUser().getDescription());
 		}
+		tv_useableIcon.setText(String.format("%.1f", userInfo.getAsset()));
+		tv_depositCash.setText(String.format("%.1f", userInfo.getAssure()));
 	}
 
 	private void setClickListener() {
@@ -127,7 +130,6 @@ public class UserInfoFragment2 extends BaseFragment {
 		tableRows[2].setOnClickListener(clickListener);
 		tableRows[3].setOnClickListener(clickListener);
 		tableRows[4].setOnClickListener(clickListener);
-		btn_loginOut.setOnClickListener(clickListener);
 		iv_headImag.setOnClickListener(clickListener);
 	}
 
@@ -136,7 +138,7 @@ public class UserInfoFragment2 extends BaseFragment {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.iv_headImg:// 头像
-				showPicDialog();
+//				showPicDialog();
 				break;
 			case R.id.tv_userName:// 用户名
 				showEditName();
@@ -148,24 +150,24 @@ public class UserInfoFragment2 extends BaseFragment {
 				startActivity(new Intent(getActivity(), PushMessageActivity.class));
 				tv_message_count.setVisibility(View.INVISIBLE);
 				break;
-			case R.id.tableRow0://我的资产
-				Intent intentAseet = new Intent(getActivity(), MyAseetActivity.class);
-				intentAseet.putExtra("userInfo", userInformationDAO);
-				startActivity(intentAseet);
-				break;
-			case R.id.tableRow1:// 对账单
+//			case R.id.tableRow0://我的资产
+//				Intent intentAseet = new Intent(getActivity(), MyAseetActivity.class);
+//				intentAseet.putExtra("userInfo", userInformationDAO);
+//				startActivity(intentAseet);
+//				break;
+			case R.id.tableRow0:// 对账单
 				startActivity(new Intent(getActivity(), UserCheckActivity.class));
 				break;
-			case R.id.tableRow2:// 未币商城
+			case R.id.tableRow1:// 未币商城
 				MyToast.showToast(getActivity(), "即将上线，敬请期待！", 1);
 				break;
-			case R.id.tableRow3:// 常见问题
+			case R.id.tableRow2:// 常见问题
 				startActivity(new Intent(getActivity(), FAQActivity.class));
 				break;
-			case R.id.tableRow4:// 关于我们
+			case R.id.tableRow3:// 关于我们
 				startActivity(new Intent(getActivity(), AboutUsActivity.class));
 				break;
-			case R.id.btn_log_out:// 退出登录
+			case R.id.tableRow4:// 退出登录
 				Intent intent = new Intent(getActivity(), LoginActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				preferenceUtil.setUUid("");

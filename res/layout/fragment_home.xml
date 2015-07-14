@@ -22,21 +22,21 @@
            android:paddingLeft="@dimen/margin_5"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:textSize="@dimen/text_size_large_22"
-           android:textColor="@color/text_color_white"
+           android:textSize="@dimen/text_size_large"
+           android:textColor="@drawable/text_color_white"
             android:drawableRight="@drawable/home_down_1"
            />
        <TextView 
            android:id="@+id/tv_company"
-           android:layout_width="match_parent"
+           android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           android:padding="@dimen/margin_5"
            android:layout_alignParentRight="true"
            android:layout_alignParentTop="true"
-           android:layout_toRightOf="@+id/tv_title_1"
            android:gravity="right|bottom"
            android:textSize="@dimen/text_size_large"
-           android:textColor="@color/text_color_white"
-           android:text="@string/company_name"/>
+           android:textColor="@drawable/text_color_white"
+           android:text="@string/myAttention"/>
        
 
        <TextView
@@ -48,7 +48,7 @@
            android:padding="@dimen/margin_5"
            android:gravity="center"
            android:drawableRight="@drawable/home_down_1"
-           android:textColor="@color/text_color_white"
+           android:textColor="@drawable/text_color_white"
            android:textSize="@dimen/text_size_large" />
 
    </RelativeLayout>

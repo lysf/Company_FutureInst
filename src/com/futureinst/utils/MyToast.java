@@ -49,7 +49,7 @@ public class MyToast {
 	    Toast toast = new Toast(activity);
 //	    float hOffset = activity.getResources().getDimension(R.dimen.widget_height_35);
 	    toast.setGravity(Gravity.TOP, 0, 0);
-	    toast.setDuration(Toast.LENGTH_LONG);
+	    toast.setDuration(Toast.LENGTH_SHORT);
 	    toast.setView(toastView);
 	    toast.show();
 	}

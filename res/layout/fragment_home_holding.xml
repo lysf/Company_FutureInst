@@ -4,9 +4,11 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:paddingBottom="@dimen/widget_height_50"
+    android:gravity="center_horizontal"
     android:orientation="vertical" >
     <LinearLayout 
-        android:layout_width="match_parent"
+        android:layout_width="260dip"
+        android:padding="@dimen/activity_login_margin_10"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button 
@@ -14,19 +16,19 @@
             android:layout_width="0dip"
             android:layout_weight="1"
             android:textSize="@dimen/text_size_normal"
-            android:text="@string/hold_deal"
-            android:background="@drawable/btn_hold"
-            android:textColor="@color/text_color_white"
-            android:layout_height="@dimen/widget_height_45"/>
+           	android:text="@string/hold_undeal"
+            android:background="@drawable/view_left_select"
+            android:textColor="@drawable/text_color_white_black"
+            android:layout_height="@dimen/widget_height_35"/>
         <Button 
             android:id="@+id/btn_undeal"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:textSize="@dimen/text_size_normal"
-            android:text="@string/hold_undeal"
-            android:background="@drawable/btn_hold"
-            android:textColor="@color/text_color_white"
-            android:layout_height="@dimen/widget_height_45"/>
+             android:text="@string/hold_deal"
+            android:background="@drawable/view_right_select"
+            android:textColor="@drawable/text_color_white_black"
+            android:layout_height="@dimen/widget_height_35"/>
     </LinearLayout>
     <!-- 
 	<LinearLayout

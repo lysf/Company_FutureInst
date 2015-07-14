@@ -1,27 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!-- 
-<com.futureinst.widget.scrollview.OverScrollView
-   
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:background="@drawable/a_hp_1_bg_yuan"
-    android:paddingBottom="@dimen/widget_height_50"
-    >
-    </com.futureinst.widget.scrollview.OverScrollView>
-     -->
-   <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/a_hp_1_bg_yuan"
-    android:paddingBottom="@dimen/widget_height_50"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/a_hp_1_bg_yuan"
     android:orientation="vertical" >
-    
-    <include layout="@layout/top_userinfo"/>
-	<include 
-	    layout="@layout/bottom_userinfo"/>
-	
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="个人中心"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/text_size_large" />
+
+        <RelativeLayout
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimen_3"
+            android:layout_width="@dimen/widget_height_45"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+             >
+
+            <ImageView
+                android:id="@+id/iv_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/iv_personal_message" />
+
+            <TextView
+                android:id="@+id/tv_message_count"
+                android:layout_width="@dimen/margin_15"
+                android:layout_height="@dimen/margin_15"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginTop="@dimen/margin_5"
+                android:background="@drawable/point_red"
+                android:gravity="center"
+                android:textColor="@color/text_color_white"
+                android:textSize="9sp"
+              />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <com.futureinst.widget.scrollview.OverScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/widget_height_50" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <include layout="@layout/top_userinfo" />
+
+            <include layout="@layout/bottom_userinfo" />
+        </LinearLayout>
+    </com.futureinst.widget.scrollview.OverScrollView>
+
 </LinearLayout>
-
-

@@ -6,7 +6,7 @@
     
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_normal">15sp</dimen>
-    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_large">19sp</dimen>
     <dimen name="text_size_large_22">22sp</dimen>
     <dimen name="text_size_large_28">28sp</dimen>
     
@@ -15,7 +15,7 @@
 	<dimen name="widget_height_40">40dip</dimen>
 	<dimen name="widget_height_45">45dip</dimen>
 	<dimen name="widget_height_50">50dip</dimen>
-	<dimen name="line_height">1dip</dimen>
+	<dimen name="line_height">1px</dimen>
 	
 	<dimen name="activity_login_padding">30dip</dimen>
 	<dimen name="activity_login_margin_10">10dip</dimen>

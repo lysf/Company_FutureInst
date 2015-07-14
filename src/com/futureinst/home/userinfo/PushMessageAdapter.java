@@ -44,9 +44,8 @@ public class PushMessageAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup arg2) {
-		// TODO Auto-generated method stub
 		if(convertView == null)
-			convertView = LayoutInflater.from(context).inflate(R.layout.item_push_message, null, false);
+			convertView = LayoutInflater.from(context).inflate(R.layout.item_push_message, arg2, false);
 		PushMessageDAO item = list.get(position);
 		ImageView iv_status = ViewHolder.get(convertView, R.id.iv_type);
 		TextView tv_time = ViewHolder.get(convertView, R.id.tv_time);
@@ -57,7 +56,7 @@ public class PushMessageAdapter extends BaseAdapter {
 		}else{
 			iv_status.setImageDrawable(context.getResources().getDrawable(R.drawable.point_red));
 		}
-		tv_message.setText(item.getMessage());
+		tv_message.setText(item.getText());
 		return convertView;
 	}
 

@@ -4,7 +4,9 @@ import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.home.eventdetail.EventDetailActivity;
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.order.UnDealOrderDAO;
 import com.futureinst.model.order.UnDealOrderInfo;
 import com.futureinst.net.HttpPostParams;
@@ -20,12 +22,14 @@ import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.TextView;
@@ -48,6 +52,17 @@ public class HoldUnDealFragment extends BaseFragment implements OnRefreshListene
 		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		pullListView = (PullListView) findViewById(R.id.hold_pull_listView);
 		adapter = new HoldUnDealAdapter(getContext());
+		pullListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(position == 0) return;
+				QueryEventDAO item = ((UnDealOrderDAO)adapter.getItem(position-1)).getEvent();
+				Intent intent = new Intent(getActivity(), EventDetailActivity.class);
+				intent.putExtra("event", item);
+				startActivity(intent);
+				
+			}
+		});
 	}
 	private void initListHeader(){
 		pullListView.setAdapter(adapter);
@@ -58,7 +73,7 @@ public class HoldUnDealFragment extends BaseFragment implements OnRefreshListene
 			@Override
 			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				revoke_order(((UnDealOrderDAO)adapter.getItem(position-1)));
-				return false;
+				return true;
 			}
 		});
 	}

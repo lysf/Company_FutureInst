@@ -4,6 +4,7 @@ import org.json.JSONException;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
@@ -16,7 +17,7 @@ import com.futureinst.net.SingleEventScope;
 import com.futureinst.widget.scrollview.OverListView;
 
 public class LazyBagActivity extends BaseActivity {
-	private OverListView overListView;
+	private ListView overListView;
 	private LazyBagAdapter adapter;
 	private QueryEventDAO event;
 	@Override
@@ -34,7 +35,7 @@ public class LazyBagActivity extends BaseActivity {
 	}
 	private void initView() {
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
-		overListView =  (OverListView) findViewById(R.id.overListView);
+		overListView =  (ListView) findViewById(R.id.overListView);
 		overListView.setDividerHeight(0);
 
 		adapter = new LazyBagAdapter(this);

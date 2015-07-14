@@ -40,11 +40,11 @@ public class UpdateService extends Service {
 	private SharePreferenceUtil preferenceUtil;
 	// 通知栏跳转Intent
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-
 		preferenceUtil = SharePreferenceUtil.getInstance(getApplicationContext());
-		url = Content.UPDATE_URL;
+		url = intent.getStringExtra("url");
 		appName = getApplication().getResources().getText(R.string.app_name)
 				.toString();
 		if (url != null) {

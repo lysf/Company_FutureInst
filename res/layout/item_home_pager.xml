@@ -62,10 +62,11 @@
 
             <ImageView
                 android:id="@+id/iv_logo"
+                android:layout_marginTop="@dimen/dimen_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/a_hp_1_icon_02" />
+                android:src="@drawable/home_icon" />
             <View 
                 android:layout_marginLeft="@dimen/activity_login_margin_10"
                 android:layout_marginRight="@dimen/activity_login_margin_10"

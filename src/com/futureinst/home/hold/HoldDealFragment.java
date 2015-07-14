@@ -2,17 +2,11 @@ package com.futureinst.home.hold;
 
 import org.json.JSONException;
 
-import android.app.Dialog;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
-
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.model.homeeventmodel.QueryEventDAO;
+import com.futureinst.model.order.DealOrderDAO;
 import com.futureinst.model.order.DealOrderInfo;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
@@ -24,6 +18,18 @@ import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
+
+import android.app.Dialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	private PullListView pullListView;
@@ -44,6 +50,17 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 		progressDialog = MyProgressDialog.getInstance(getContext());
 		pullListView = (PullListView) findViewById(R.id.hold_pull_listView);
 		adapter = new HoldDealAdapter(getContext());
+		pullListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(position == 0) return;
+				QueryEventDAO item = ((DealOrderDAO)adapter.getItem(position-1)).getEvent();
+				Intent intent = new Intent(getActivity(), EventDetailActivity.class);
+				intent.putExtra("event", item);
+				startActivity(intent);
+				
+			}
+		});
 	}
 	private void initListHeader(){
 		pullListView.setLoadMore(false);

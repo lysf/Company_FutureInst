@@ -136,6 +136,13 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
+	//根据关键字搜索事件
+	public String search_event(String search_str){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("search_str", search_str);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
 	//首页查询事件组
 	public String query_event_group(String key){
 		Map<String, String> map = new HashMap<String, String>();
@@ -147,6 +154,15 @@ public class HttpPostParams {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", user_id);
 		map.put("uuid", uuid);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	//查询单个事件的未成交订单
+	public String query_order(String user_id,String uuid,String event_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("event_id", event_id);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
@@ -181,6 +197,15 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
+	public String query_single_event (String user_id,String uuid,String event_id,String scope){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("event_id", event_id);
+		map.put("scope", scope);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
 	//查询排名
 	public String get_rank(){
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -189,6 +214,14 @@ public class HttpPostParams {
 	}
 	//查询个人资产战绩等
 	public String query_user_record(String user_id,String uuid){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("uuid", uuid);
+		map.put("user_id", user_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	//查询个人分类战绩
+	public String query_user_tag_record(String user_id,String uuid){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("uuid", uuid);
 		map.put("user_id", user_id);
@@ -291,12 +324,37 @@ public class HttpPostParams {
 	 * @return: String      
 	 * @throws
 	 */
-	public String operate_follow(String user_id,String uuid,Long event_id,String operation){
+	public String operate_follow(String user_id,String uuid,String event_id,String operation){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", user_id);
 		map.put("uuid", uuid);
-		map.put("event_id", event_id+"");
+		map.put("event_id", event_id);
 		map.put("operation", operation);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询单个事件的清算单
+	 * @Title: query_single_event_clear   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param user_id
+	 * @param: @param uuid
+	 * @param: @param event_id
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String query_single_event_clear (String user_id,String uuid,String event_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("event_id", event_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	public String get_android_version(){
+		Map<String, String> map = new HashMap<String, String>();
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}

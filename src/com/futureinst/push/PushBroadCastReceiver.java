@@ -9,9 +9,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.futureinst.R;
-import com.futureinst.home.HomeActivity;
 import com.futureinst.model.push.PushMessageDAO;
+import com.futureinst.net.GsonUtils;
+import com.google.gson.JsonObject;
 import com.igexin.sdk.PushConsts;
 import com.igexin.sdk.PushManager;
 
@@ -43,10 +47,20 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 
 			if (payload != null) {
 				PushMessageUtils pushMessageUtils = PushMessageUtils.getInstance(context);
+				PushMessageDAO pushMessageDAO = null;
 				String data = new String(payload);
-				setNotify(context, data);
 				Log.d("GetuiSdkDemo", "receiver payload : " + data);
-				PushMessageDAO pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
+				if(data.contains("{") && data.contains("}")){
+						pushMessageDAO = GsonUtils.json2Bean(data, PushMessageDAO.class);
+						pushMessageDAO.setId(taskid);
+						pushMessageDAO.setRead(false);
+						pushMessageDAO.setTime(System.currentTimeMillis());
+				}else{
+					pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
+				}
+				setNotify(context, data);
+				
+				
 				pushMessageUtils.addObject(pushMessageDAO);
 				Intent intent2 = new Intent("newPushMessage");
 				context.sendBroadcast(intent2);

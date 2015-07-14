@@ -25,11 +25,8 @@ import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageCompressUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
-import com.futureinst.utils.ShowPicDialog;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources.NotFoundException;
 import android.database.Cursor;
@@ -69,7 +66,8 @@ public class UserInfoFragment extends BaseFragment {
 	private Button btn_aboutUs;// 关于我们
 	private PushMessageUtils pushMessageUtils;
 	private Button btn_loginOut;
-
+	
+	private TextView tv_useableIcon,tv_depositCash;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_user_info);
@@ -104,7 +102,9 @@ public class UserInfoFragment extends BaseFragment {
 		iv_message = (ImageView) findViewById(R.id.iv_message);
 		iv_edit_description = (ImageView) findViewById(R.id.iv_edit_description);
 		iv_headImag = (ImageView) findViewById(R.id.iv_headImg);
-
+		
+		tv_useableIcon = (TextView) findViewById(R.id.tv_useableIcon);
+		tv_depositCash = (TextView) findViewById(R.id.tv_depositCash);
 		
 
 		btn_bill = (Button) findViewById(R.id.btn_bill);
@@ -117,13 +117,15 @@ public class UserInfoFragment extends BaseFragment {
 
 	// 初始化视图
 	private void initData(UserInformationDAO userInfo) {
+		tv_useableIcon.setText(String.format("%.1f", userInfo.getAsset()));
+		tv_depositCash.setText(String.format("%.1f", userInfo.getAssure()));
+		Log.i("icon", "-------------------------->>"+String.format("%.1f", userInfo.getAsset()));
 		if (!TextUtils.isEmpty(userInfo.getUser().getName())) {
 			tv_userName.setText(userInfo.getUser().getName());
 		}
 		if (!TextUtils.isEmpty(userInfo.getUser().getDescription())) {
 			tv_description.setText(userInfo.getUser().getDescription());
 		}
-		
 	}
 
 	private void setClickListener() {

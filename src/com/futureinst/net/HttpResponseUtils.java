@@ -55,29 +55,25 @@ public class HttpResponseUtils {
 	// volley使用post上传数据
 	public synchronized <T> void postJson(final Map<String, String> params, final Class<T> clz,
 			final PostCommentResponseListener commentResponseListener) {
-		if(!Utils.checkNetkworkState(activity)){
-			MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
-			
-			return;
-		}
+		
 		StringRequest postRequest = new StringRequest(Request.Method.POST, HttpPath.URL,
 				new Response.Listener<String>() {
 					@Override
 					public void onResponse(String response) {
 						if (!TextUtils.isEmpty(response)) {
-							Log.i("RESPONSE", "----------response-->>" + response);
+							Log.i(clz.getName(), "----------"+clz.getName()+"-->>" + response);
 							BaseModel baseModel = GsonUtils.json2Bean(response,
 									BaseModel.class);
 							int status = baseModel.getStatus();
 							final String message = baseModel.getErrinfo();
 							if(status!=0){
-								MyToast.showToast(activity, message, 0);
 								try {
 									commentResponseListener
 											.requestCompleted(null);
 								} catch (JSONException e1) {
 									e1.printStackTrace();
 								}
+								MyToast.showToast(activity, message, 0);
 								return;
 							}
 							try {
@@ -99,6 +95,10 @@ public class HttpResponseUtils {
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
+						if(!Utils.checkNetkworkState(activity)){
+							MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+							return;
+						}
 						MyToast.showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
 					}
 				}) {
@@ -111,6 +111,71 @@ public class HttpResponseUtils {
 		postRequest.setRetryPolicy(new DefaultRetryPolicy(
 						6*1000, DefaultRetryPolicy.DEFAULT_TIMEOUT_MS,
 						DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+		mQueue.add(postRequest);
+		
+	}
+	public synchronized <T> void postJson_1(final Map<String, String> params, final Class<T> clz,
+			final PostCommentResponseListener commentResponseListener) {
+		if(!Utils.checkNetkworkState(activity)){
+			MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+			return;
+		}
+		StringRequest postRequest = new StringRequest(Request.Method.POST, HttpPath.URL,
+				new Response.Listener<String>() {
+			@Override
+			public void onResponse(String response) {
+				if (!TextUtils.isEmpty(response)) {
+					Log.i(clz.getName(), "----------"+clz.getName()+"-->>" + response);
+					BaseModel baseModel = GsonUtils.json2Bean(response,
+							BaseModel.class);
+					int status = baseModel.getStatus();
+					final String message = baseModel.getErrinfo();
+					if(status!=0){
+						try {
+							commentResponseListener
+							.requestCompleted(null);
+						} catch (JSONException e1) {
+							e1.printStackTrace();
+						}
+						if(status == -3) return;
+						MyToast.showToast(activity, message, 0);
+						return;
+					}
+					try {
+						commentResponseListener
+						.requestCompleted(GsonUtils.json2Bean(
+								response, clz));
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				Log.i("-----VolleyError---", "-----client error--->>"
+						+ error.toString());
+				try {
+					commentResponseListener.requestCompleted(null);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				if(!Utils.checkNetkworkState(activity)){
+					MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+					return;
+				}
+				MyToast.showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
+			}
+		}) {
+			@Override
+			protected Map<String, String> getParams() {
+				return params;
+			}
+			
+		};
+		postRequest.setRetryPolicy(new DefaultRetryPolicy(
+				6*1000, DefaultRetryPolicy.DEFAULT_TIMEOUT_MS,
+				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 		mQueue.add(postRequest);
 		
 	}

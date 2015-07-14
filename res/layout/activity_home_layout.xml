@@ -29,6 +29,13 @@
             android:layout_gravity="center"
             layout="@layout/home_bottom_2"
             android:minHeight="@dimen/widget_height_50" />
+        <include
+            android:id="@+id/view_bottom_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            layout="@layout/home_bottom_3"
+            android:minHeight="@dimen/widget_height_50" />
     </FrameLayout>
 
 </RelativeLayout>

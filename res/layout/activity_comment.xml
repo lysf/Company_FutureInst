@@ -4,13 +4,36 @@
     android:layout_height="match_parent"
     android:background="@color/text_color_white"
     android:orientation="vertical" >
-    <com.futureinst.widget.list.PullListView 
-        android:id="@+id/listView_comment"
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_40"
+        android:orientation="horizontal">
+        <Button 
+            android:id="@+id/btn_good_comment"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/gain_red"
+            android:background="@drawable/btn_coment_select"
+            android:text="看好"/>
+        <Button 
+            android:id="@+id/btn_bad_comment"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/gain_blue"
+            android:background="@drawable/btn_coment_select"
+            android:text="不看好"/>
+    </LinearLayout>
+    <FrameLayout 
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        >
+        ></FrameLayout>
+   
+    
         
-    </com.futureinst.widget.list.PullListView>
 
 </LinearLayout>

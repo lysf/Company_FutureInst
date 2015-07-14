@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     	<color name="background">#1E266E</color>
+    	<color name="background5">#6069B7</color>
    		 <color name="bg">#F5F5F5</color>
     	<color name="login_title_layout_back">#081448</color>
     	<color name="login_btn_login">#6B7191</color>
     	<color name="text_color_pink">#FF80AB</color>
-    	<color name="text_color_white">#FCFDFD</color>
+    	<color name="text_color_white">#FfFfFf</color>
+    	<color name="text_color_white_b">#bbffffff</color>
     	<color name="text_color_e">#eeeeee</color>
     	<color name="text_color_b">#B8B8B8</color>
     	<color name="text_color_b0">#B0BDB4</color>
@@ -42,4 +44,18 @@
     	<color name="hold_line">#1e266e</color>
     	<color name="hold_item_top">#3853ad</color>
     	<color name="hold_back">#283887</color>
+    	<color name="publish_comment">#3991EB</color>
+    	<color name="refrence">#E5EEFF</color>
+    	
+    	<color name="comment_select">#ebf4fd</color>
+    	
+    	<color name="type_1">#1E266E</color>
+    	<color name="type_2">#F97F5F</color>
+    	<color name="type_3">#CE131A</color>
+    	<color name="type_4">#FA82AA</color>
+    	<color name="type_5">#67FED6</color>
+    	<color name="type_6">#3F9AF4</color>
+    	<color name="type_7">#E1DBCE</color>
+    	<color name="type_8">#FFBDAD</color>
+    	<color name="type_9">#FCFB68</color>
 </resources>

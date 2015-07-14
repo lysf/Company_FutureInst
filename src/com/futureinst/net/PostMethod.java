@@ -20,5 +20,9 @@ public enum PostMethod {
 	add_comment,//添加评论
 	query_follow,//查询我的关注
 	operate_follow,//关注操作
-	query_user_record ;//查询个人资产战绩等
+	search_event,//事件搜索
+	query_single_event_clear,//查询单个事件的清算单
+	query_user_record ,//查询个人资产战绩等
+	get_android_version,//安卓获取版本号
+	query_user_tag_record ;//查询分类战绩
 }

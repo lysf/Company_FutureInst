@@ -7,7 +7,7 @@
         android:id="@+id/tvTitleToast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:minHeight="@dimen/widget_height_35"
         android:textSize="@dimen/text_size_normal"
         android:textColor="@color/text_color_white"
