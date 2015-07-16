@@ -11,6 +11,7 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.global.Content;
+import com.futureinst.model.order.UnDealOrderDAO;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.model.usermodel.UserInformationDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
@@ -168,16 +169,38 @@ public class UserInfoFragment2 extends BaseFragment {
 				startActivity(new Intent(getActivity(), AboutUsActivity.class));
 				break;
 			case R.id.tableRow4:// 退出登录
+				loginOut();
+				break;
+			}
+		}
+	};
+	private void loginOut(){
+		View view = LayoutInflater.from(getContext()).inflate(R.layout.view_hold_delete_tip, null, false);
+		final Dialog dialog = DialogShow.showDialog(getActivity(), view, Gravity.CENTER);
+		TextView tv_tips = (TextView) view.findViewById(R.id.tv_tips);
+		tv_tips.setText(getResources().getString(R.string.unhold_revoke));
+		Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
+		Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
+		tv_tips.setText(getResources().getString(R.string.login_out_tip));
+		btn_cancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			} 
+		});
+		btn_submit.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
 				Intent intent = new Intent(getActivity(), LoginActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				preferenceUtil.setUUid("");
 				startActivity(intent);
 				getActivity().finish();
-				break;
+				dialog.dismiss();
 			}
-		}
-	};
-
+		});
+		dialog.show();
+	}
 	// 修改用户信息
 	private void update_user(final String userName, final String description) {
 		progressDialog.progressDialog();
@@ -200,7 +223,7 @@ public class UserInfoFragment2 extends BaseFragment {
 
 	// 获取用户信息
 	private void query_user_record() {
-		progressDialog.progressDialog();
+//		progressDialog.progressDialog();
 		httpResponseUtils
 				.postJson(
 						httpPostParams.getPostParams(PostMethod.query_user_record.name(), PostType.user_info.name(),

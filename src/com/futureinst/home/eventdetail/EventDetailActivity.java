@@ -9,7 +9,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -42,7 +41,6 @@ import com.futureinst.net.SingleEventScope;
 import com.futureinst.share.OneKeyShareUtil;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.FragmentActivityTabAdapter;
-import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
 
@@ -69,7 +67,7 @@ public class EventDetailActivity extends BaseActivity {
 	private View view_single_event;
 	private TextView tv_buy_1,tv_buy_2;
 	private TextView tv_sell_1,tv_sell_2;
-	private TextView tv_eventdetail_gain;
+	private TextView tv_eventdetail_gain_good,tv_eventdetail_gain_bad;
 	
 	private LinearLayout ll_scroll;
 	
@@ -104,6 +102,7 @@ public class EventDetailActivity extends BaseActivity {
 		if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
 			query_single_event_clear();
 			commentFragment.upDate();
+			revokeFragment.setUserVisibleHint(true);
 		}else{
 			view_single_event.setVisibility(View.GONE);
 		}
@@ -132,7 +131,8 @@ public class EventDetailActivity extends BaseActivity {
 		tv_sell_2 = (TextView) findViewById(R.id.tv_event_sell_2);
 		iv_operate = (ImageView) findViewById(R.id.iv_operate);
 		iv_operate.setOnClickListener(clickListener);
-		tv_eventdetail_gain = (TextView) findViewById(R.id.tv_eventdetail_gain);
+		tv_eventdetail_gain_good = (TextView) findViewById(R.id.tv_eventdetail_gain_good);
+		tv_eventdetail_gain_bad = (TextView) findViewById(R.id.tv_eventdetail_gain_bad);
 		
 //		tv_myHold = (TextView) findViewById(R.id.tv_myHode);
 		ll_scroll = (LinearLayout) findViewById(R.id.ll_scroll);
@@ -178,10 +178,14 @@ public class EventDetailActivity extends BaseActivity {
 			view_single_event.setVisibility(View.GONE);
 			return;
 		}
-		String gain = getResources().getString(R.string.event_detail_gain);
-		gain = gain.replace("*",String.format("%.1f",  singleEventInfo.getUser().getIf_yes()));
-		gain = gain.replace("#", String.format("%.1f",  singleEventInfo.getUser().getIf_no()));
-		tv_eventdetail_gain.setText(gain);
+		view_single_event.setVisibility(View.VISIBLE);
+		String gain_good = String.format("%.1f",  singleEventInfo.getUser().getIf_yes());
+		String gain_bad = String.format("%.1f",  singleEventInfo.getUser().getIf_no());
+		tv_eventdetail_gain_good.setText(gain_good);
+		tv_eventdetail_gain_bad.setText(gain_bad);
+//		if(singleEventInfo.getUser().getIf_yes()>=0){
+//			tv_eventdetail_gain_good
+//		}
 		tv_buy_1.setText(getResources().getString(R.string.unhold_1)+"\t"+item.getAllBuyNum()+"\t份");
 		tv_buy_2.setText(getResources().getString(R.string.event_detail_deal)+"\t"+item.getBuyNum()+"\t份\t已成交\t\t均价\t"+String.format("%.1f", item.getBuyPrice()));
 		tv_sell_1.setText(getResources().getString(R.string.unhold_2)+"\t"+item.getAllSellNum()+"\t份");
@@ -301,7 +305,7 @@ public class EventDetailActivity extends BaseActivity {
 	}
 	//获取事件的价格走势
 	private void getPrice(){
-		progressDialog.progressDialog();
+//		progressDialog.progressDialog();
 		httpResponseUtils.postJson(httpPostParams.getPostParams(
 				PostMethod.query_single_event.name(), PostType.event.name(), 
 				httpPostParams.query_single_event(event_id, SingleEventScope.price.name())), 
@@ -397,7 +401,7 @@ public class EventDetailActivity extends BaseActivity {
 	}
 	//查询单个事件
 	private void query_single_event_clear(){
-		progressDialog.progressDialog();
+//		progressDialog.progressDialog();
 		httpResponseUtils.postJson_1(httpPostParams.getPostParams(
 				PostMethod.query_single_event.name(), PostType.event.name(), 
 				httpPostParams.query_single_event(preferenceUtil.getID()+"", preferenceUtil.getUUid(), event_id,"user")), 

@@ -49,6 +49,7 @@
          
          </LinearLayout>
          <TextView 
+             android:id="@+id/tv_tip"
              android:layout_marginLeft="@dimen/activity_login_margin_10"
              android:layout_marginTop="@dimen/margin_20"
              android:layout_marginBottom="@dimen/activity_login_margin_10"
@@ -106,6 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/activity_login_margin_10"
+        android:layout_marginRight="@dimen/activity_login_margin_10"
              android:layout_marginTop="@dimen/margin_20"
              android:layout_marginBottom="@dimen/activity_login_margin_10"
              android:orientation="horizontal">

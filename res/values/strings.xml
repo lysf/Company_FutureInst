@@ -15,6 +15,7 @@
     <string name="unLogin">未登录</string>
     <string name="new_password">新密码</string>
     <string name="reset_pwd">找回密码</string>
+    <string name="login_out_tip">您确定退出当前账户？</string>
 	<!-- LoginActiivty -->
 	<string name="login_login">登录</string>
 	<string name="login_cancel">取消</string>
@@ -48,8 +49,8 @@
 	<string name="forecast">我要预测</string>
 	 <string name="myAttention">我的关注</string>
 	<!-- HoldFragment -->
-	<string name="hold_deal">已成交订单</string>
-	<string name="hold_undeal">未成交订单</string>
+	<string name="hold_deal">已成交预测</string>
+	<string name="hold_undeal">未成交预测</string>
 	<!-- RankingFragment -->
 	<string name="ranking_fragment_title">排行榜</string>
 	<!-- EventDetailActivity -->
@@ -86,11 +87,12 @@
 	<string name="unhold_delete">确定清空所有已失效的预测记录？</string>
 	<string name="unhold_revoke">确定撤销该预测订单？</string>
 	<string name="point">● </string>
-	<string name="buy_tip_1">● 若事件发生则<font color = "red"> 看好 </font>盈利 | 事件不发生则<font color = "green"> 不看好 </font>盈利</string>
+	<string name="buy_tip_1">● 若事件发生则<font color = "#CB232B"> 看好 </font>盈利 | 事件不发生则<font color = "#008842"> 不看好 </font>盈利</string>
 	<string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
 	<string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
 	<string name="steep3_price_tip">● 此次预测将用</string>
-	<string name="event_detail_gain">● 若事件发生你将<font color = "red">*</font>\t|\t若事件不发生你将<font color = "green">#</font></string>
+	<string name="event_detail_good">● 若事件发生你将 \t</string>
+	<string name="event_detail_bad">|\t若事件不发生你将</string>
 	<string name="hold_1">又不看好&#160;</string>
 	<string name="unhold_1">你看好&#160;&#160;&#160;&#160;&#160;</string>
 	<string name="unhold_2">你不看好&#160;</string>

@@ -51,12 +51,50 @@
 	        android:layout_marginRight="40dip"
 	       />
 	</LinearLayout>
-	<TextView 
-        android:layout_width="match_parent"
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    <TextView 
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/buy_tip_1"
+        android:text="若事件发生则"
         android:gravity="center_vertical"
         android:minHeight="@dimen/widget_height_35"
         android:textColor="@color/text_color_9"
         android:textSize="@dimen/text_size_small"/>
+	    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="看好"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/widget_height_35"
+        android:textColor="@color/gain_red"
+        android:textSize="@dimen/text_size_small"/>
+	    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="盈利 | 事件不发生则"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/widget_height_35"
+        android:textColor="@color/text_color_9"
+        android:textSize="@dimen/text_size_small"/>
+	    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="不看好"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/widget_height_35"
+        android:textColor="@color/gain_blue"
+        android:textSize="@dimen/text_size_small"/>
+	    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="盈利"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/widget_height_35"
+        android:textColor="@color/text_color_9"
+        android:textSize="@dimen/text_size_small"/>
+	</LinearLayout>
+	
 </LinearLayout>

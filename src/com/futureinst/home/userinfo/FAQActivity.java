@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
@@ -15,10 +16,9 @@ import com.futureinst.model.usermodel.FaqInfoDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
-import com.futureinst.widget.scrollview.OverListView;
 
 public class FAQActivity extends BaseActivity {
-	private OverListView overListView;
+	private ListView overListView;
 	private FAQAdapter adapter;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class FAQActivity extends BaseActivity {
 		finish();
 	}
 	private void initView() {
-		overListView = (OverListView) findViewById(R.id.overListView);
+		overListView = (ListView) findViewById(R.id.overListView);
 		overListView.setDividerHeight(1);
 		adapter = new FAQAdapter(this);
 		overListView.setAdapter(adapter);

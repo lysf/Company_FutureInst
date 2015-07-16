@@ -55,11 +55,11 @@ public class LazyBagAdapter extends BaseAdapter {
 			TextView tv_time = ViewHolder.get(convertView, R.id.tv_time);
 			TextView tv_title = ViewHolder.get(convertView, R.id.tv_title);
 			TextView tv_content = ViewHolder.get(convertView, R.id.tv_content);
-			if(position == 0){
+//			if(position == 0){
 				iv_type.setImageDrawable(context.getResources().getDrawable(R.drawable.point_red));
-			}else{
-				iv_type.setImageDrawable(context.getResources().getDrawable(R.drawable.point_gray));
-			}
+//			}else{
+//				iv_type.setImageDrawable(context.getResources().getDrawable(R.drawable.point_gray));
+//			}
 			tv_time.setText(TimeUtil.longToString(item.getCtime(), TimeUtil.FORMAT_DATE_TIME_SECOND));
 			tv_title.setText(item.getTitle());
 			tv_content.setText(item.getContent());

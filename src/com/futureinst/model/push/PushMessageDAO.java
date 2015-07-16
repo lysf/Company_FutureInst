@@ -7,6 +7,8 @@ public class PushMessageDAO implements Serializable{
 	private String id;
 	private Long time;
 	private String text;
+	private String title;
+	private String type;
 	private boolean isRead;
 	
 	public PushMessageDAO() {
@@ -20,6 +22,18 @@ public class PushMessageDAO implements Serializable{
 		this.time = time;
 	}
 	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public Long getTime() {
 		return time;
 	}

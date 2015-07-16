@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.futureinst.R;
+import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.net.GsonUtils;
 import com.google.gson.JsonObject;
@@ -58,7 +59,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 				}else{
 					pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
 				}
-				setNotify(context, data);
+				setNotify(context, pushMessageDAO.getTitle());
 				
 				
 				pushMessageUtils.addObject(pushMessageDAO);
@@ -88,7 +89,6 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			 * Log.d("GetuiSdkDemo", "timestamp = " + timestamp);
 			 */
 			break;
-
 		default:
 			break;
 		}
@@ -97,7 +97,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 	@SuppressWarnings("deprecation")
 	private void setNotify(Context context,String content){
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		Intent notifyIntent = new Intent();
+		Intent notifyIntent = new Intent(context, PushMessageActivity.class);
 		PendingIntent appIntent = PendingIntent.getActivity(context, 0,
 				notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 		Notification myNoti = new Notification();

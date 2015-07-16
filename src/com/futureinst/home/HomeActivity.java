@@ -256,7 +256,7 @@ public class HomeActivity extends BaseActivity {
 			iv_home_search.setSelected(false);
 			iv_home_cc.setSelected(false);
 			iv_login.setSelected(false);
-//			setRankingSelect(userInformationDAO, false);
+			setRankingSelect(userInformationDAO, false);
 			switch (v.getId()) {
 			case R.id.iv_home_type:// 主题分类
 			case R.id.iv_home_type_2:
@@ -316,7 +316,6 @@ public class HomeActivity extends BaseActivity {
 					return;
 				iv_login.setSelected(true);
 				 userInfoFragment = new UserInfoFragment();
-//				fragmentTransaction.replace(R.id.container,userInfoFragment);
 				fragmentTransaction.replace(R.id.container,new UserInfoFragment2());
 				fragmentTransaction.commitAllowingStateLoss();
 				tv_ranking.setAlpha(0.3f);
@@ -329,7 +328,7 @@ public class HomeActivity extends BaseActivity {
 			case R.id.ll_ranking_3:
 				if (currentPosition == 4)
 					return;
-//				setRankingSelect(userInformationDAO, true);
+				setRankingSelect(userInformationDAO, true);
 				fragmentTransaction.replace(R.id.container,
 						new RankAndRecordFragment());
 				fragmentTransaction.commitAllowingStateLoss();
@@ -370,30 +369,30 @@ public class HomeActivity extends BaseActivity {
 			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
 		}
 	}
-//	private void setRankingSelect(UserInformationDAO userInformationDAO,boolean isSelect){
-//		if(userInformationDAO == null){
-//			return ;
-//		}
-//		if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
-//			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
-//			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
-//			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
-//		}else if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
-//			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
-//			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
-//			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
-//		}else{
-//			if(isSelect){
-//				iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
-//				iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
-//				iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
-//			}else{
-//				iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
-//				iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
-//				iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
-//			}
-//		}
-//	}
+	private void setRankingSelect(UserInformationDAO userInformationDAO,boolean isSelect){
+		if(userInformationDAO == null){
+			return ;
+		}
+		if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
+			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
+			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
+			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
+		}else if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
+			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
+			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
+			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
+		}else{
+			if(isSelect){
+				iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
+				iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
+				iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
+			}else{
+				iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
+				iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
+				iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
+			}
+		}
+	}
 	// 获取个人信息
 	private void query_user_record() {
 		httpResponseUtils.postJson(

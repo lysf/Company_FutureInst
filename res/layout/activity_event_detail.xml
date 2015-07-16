@@ -155,7 +155,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/app_name"
-                        android:src="@drawable/a_hp_1_icon_02" />
+                        android:src="@drawable/a_sh_1_icon" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -259,6 +259,7 @@
         </FrameLayout>
 		<include 
 		    android:id="@+id/view_singlev_event"
+		    android:visibility="gone"
 		    layout="@layout/view_event_detail_11"/>
         
 		<LinearLayout 

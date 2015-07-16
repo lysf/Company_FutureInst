@@ -46,6 +46,7 @@ public class EventBuyActivity extends BaseActivity {
 	private ImageView iv_price_sub,iv_price_add;
 	private ImageView iv_number_sub,iv_number_add;
 	private String price,num;
+	private TextView tv_tip;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -66,12 +67,12 @@ public class EventBuyActivity extends BaseActivity {
 		int num = Integer.valueOf(et_num.getText().toString());
 	
 		if(isBuy){
-			order_tips = "你选择的是看好，也即看涨。如果事件发生，价格涨至100，则你获利（100-"+String.format("%.1f", price)+
-					"）*"+num+"="+String.format("%.1f", (100-price)*num)+
-					"；若事件不发生，价格跌至0，则你亏损 "+String.format("%.1f", price)+"*"+num+"="+String.format("%.1f", price*num)+"。";
+			order_tips = "你选择的是看好，也即看涨。\n如果事件发生，价格涨至100，则你获利（100 - "+String.format("%.1f", price)+
+					"）*"+num+" = "+String.format("%.1f", (100-price)*num)+
+					"；\n若事件不发生，价格跌至0，则你亏损 "+String.format("%.1f", price)+" * "+num+" = "+String.format("%.1f", price*num)+"。";
 		}else{
-			order_tips = "你选择的是不看好，也即看跌。如果事件不发生，价格跌至0，则你获利"+String.format("%.1f", price)+"*"+num+"="+String.format("%.1f", price*num)
-		+"；若事件发生，价格涨至100，则你亏损（100-"+String.format("%.1f", price)+"）*"+num+"="+String.format("%.1f", (100-price)*num)+"。";
+			order_tips = "你选择的是不看好，也即看跌。\n如果事件不发生，价格跌至0，则你获利 "+String.format("%.1f", price)+" * "+num+" = "+String.format("%.1f", price*num)
+		+"；\n若事件发生，价格涨至100，则你亏损 （100-"+String.format("%.1f", price)+"） * "+num+" = "+String.format("%.1f", (100-price)*num)+"。";
 		}
 				
 		tv_total.setText(order_tips);
@@ -93,17 +94,20 @@ public class EventBuyActivity extends BaseActivity {
 		iv_price_add = (ImageView) findViewById(R.id.price_add);
 		iv_number_sub = (ImageView) findViewById(R.id.number_sub);
 		iv_number_add = (ImageView) findViewById(R.id.number_add);
+		tv_tip = (TextView) findViewById(R.id.tv_tip);
 		
 //		et_price.setText(String.format("%.1f", event.getCurrPrice()));
 		et_num.setText("10");
 		if(isBuy){
 			submit.setText("看好");
 			submit.setBackground(getResources().getDrawable(R.drawable.btn_buy_back));
+			tv_tip.setText(getResources().getString(R.string.buy_tip_buy));
 			tv_total.setTextColor(getResources().getColor(R.color.gain_red));
 //			order_tips = getResources().getString(R.string.order_look_good);
 		}else{
 			submit.setText("不看好");
 			submit.setBackground(getResources().getDrawable(R.drawable.btn_sell_back));
+			tv_tip.setText(getResources().getString(R.string.buy_tip_sell));
 			tv_total.setTextColor(getResources().getColor(R.color.gain_blue));
 //			order_tips = getResources().getString(R.string.order_look_bad);
 		}

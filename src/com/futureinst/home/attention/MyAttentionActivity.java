@@ -11,10 +11,10 @@ import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
-import com.futureinst.widget.scrollview.OverListView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -29,7 +29,6 @@ public class MyAttentionActivity extends BaseActivity {
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		setContentView(R.layout.activity_attention);
 		initView();
-		getMyAttention();
 	}
 	
 	private void initView() {
@@ -46,7 +45,11 @@ public class MyAttentionActivity extends BaseActivity {
 			}
 		});
 	}
-
+	@Override
+	protected void onResume() {
+		super.onResume();
+		getMyAttention();
+	}
 	//获取我的关注
 	private void getMyAttention(){
 		progressDialog.progressDialog();
@@ -61,8 +64,40 @@ public class MyAttentionActivity extends BaseActivity {
 				if(response == null) return;
 				AttentionInfoDAO attentionInfoDAO = (AttentionInfoDAO) response;
 				adapter.setList(attentionInfoDAO.getFollows());
-				adapter.start();
+				notifyDate();
 			}
 		});
+	}
+	Handler handler = new Handler(){
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			case 1:
+				adapter.notifyDataSetChanged();
+				break;
+			default:
+				break;
+			}
+		};
+	};
+	boolean flag = false;
+	public void notifyDate(){
+		flag = true;
+		new Thread(new Runnable() {
+			public void run() {
+				while(flag){
+					try {
+						handler.sendEmptyMessage(1);
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}).start();
+	}
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		flag = false;
 	}
 }

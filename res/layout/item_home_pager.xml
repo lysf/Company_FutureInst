@@ -18,11 +18,13 @@
 	        android:id="@+id/tv_time"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_marginRight="@dimen/margin_20"
-	        android:layout_marginTop="@dimen/margin_15"
+	        android:minWidth="80dip"
+	        android:padding="@dimen/margin_5"
 	        android:layout_alignParentRight="true"
-	        android:textSize="@dimen/text_size_normal"
-	        android:textColor="@color/text_color_white"/>
+	        android:textSize="@dimen/text_size_small"
+	        android:gravity="center"
+	        android:background="#98ffffff"
+	        android:textColor="@color/text_color_3"/>
 	</RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +53,14 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="horizontal" >
-
+		<LinearLayout 
+		    android:layout_width="0dip"
+		    android:layout_weight="1"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:gravity="center_horizontal">
+		    
+		
             <TextView
                 android:id="@+id/tv_currPrice"
                 android:layout_width="wrap_content"
@@ -67,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/home_icon" />
+            </LinearLayout>
             <View 
                 android:layout_marginLeft="@dimen/activity_login_margin_10"
                 android:layout_marginRight="@dimen/activity_login_margin_10"
@@ -75,8 +85,10 @@
                 android:background="@color/text_color_b"/>
             <LinearLayout 
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
                 <TextView 
                     android:id="@+id/tv_priceChange"
                     android:gravity="center"
@@ -92,7 +104,7 @@
                     android:layout_marginTop="@dimen/margin_5"
                     android:gravity="center_vertical"
                     android:drawableLeft="@drawable/a_hp_1_icon_03"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_size_normal"
                     android:textColor="@color/text_color_9"/>
