@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <TextView 
+        android:id="@+id/tv_refrence"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_login_margin_10"
+  		  android:paddingRight="@dimen/activity_login_margin_10"
+  		  android:paddingTop="@dimen/margin_5"
+   		 android:paddingBottom="@dimen/margin_5"
+   		 android:background="@drawable/item_refrence"
+        android:minHeight="@dimen/widget_height_50"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="@color/text_color_6"/>
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_color_9"
+    android:orientation="vertical" >
+    <Button 
+        android:id="@+id/btn_tips"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/text_size_normal"
+        android:background="@drawable/item_select"
+        android:text="@string/event_detail_depend"/>
+    <Button 
+        android:id="@+id/btn_attention"
+        android:layout_marginTop="1px"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/text_size_normal"
+        android:background="@drawable/item_select"
+        android:text="@string/event_detail_focus"/>
+    <Button 
+        android:id="@+id/btn_share"
+        android:visibility="gone"
+        android:layout_marginTop="1px"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/text_size_normal"
+        android:background="@drawable/item_select"
+        android:text="@string/event_detail_share"/>
+    <Button 
+        android:id="@+id/btn_cancel"
+        android:layout_marginTop="1px"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/text_size_normal"
+        android:background="@drawable/item_select"
+        android:text="@string/cancel"/>
+
+</LinearLayout>
