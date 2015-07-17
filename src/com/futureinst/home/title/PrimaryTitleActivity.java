@@ -22,6 +22,7 @@ public class PrimaryTitleActivity extends BaseActivity {
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_primary_title);
 		initView();
+		setBackGround(primaryTitle);
 	}
 
 	private void initView() {
@@ -37,7 +38,7 @@ public class PrimaryTitleActivity extends BaseActivity {
 		PrimaryTitleListAdapter adapter = new PrimaryTitleListAdapter(this,
 				primaryTitle, target);
 		listView.setAdapter(adapter);
-		setBackGround(primaryTitle);
+		
 		iv_cancel = (ImageView) findViewById(R.id.iv_cancel);
 		iv_cancel.setOnClickListener(new OnClickListener() {
 			@Override
@@ -59,6 +60,12 @@ public class PrimaryTitleActivity extends BaseActivity {
 //		bitmap = BitmapFactory.decodeStream(getResources().openRawResource(picIds[primaryTitle]), null, opts);
 //		ll_primary_title.setBackground(new BitmapDrawable(bitmap));
 		ll_primary_title.setBackgroundResource(picIds[primaryTitle]);
+		if (primaryTitle == 4 || primaryTitle == 6 || primaryTitle == 7
+				|| primaryTitle == 8) {
+			iv_cancel.setImageDrawable(getResources().getDrawable(R.drawable.cancel_01));
+		}else{
+			iv_cancel.setImageDrawable(getResources().getDrawable(R.drawable.cancel));
+		}
 	}
 
 	@Override

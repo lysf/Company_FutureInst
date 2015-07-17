@@ -227,7 +227,7 @@ public class HomeTypeContainerFragment extends BaseFragment {
 						initViewPager(queryEventInfoDAO);
 						List<String> items = new ArrayList<String>();
 						 for(QueryEventDAO dao : eventDAOs){
-							 items.add(dao.getTitle());
+							 items.add(dao.getLead());
 						 }
 						 wheelView2.setItems(items);
 					}

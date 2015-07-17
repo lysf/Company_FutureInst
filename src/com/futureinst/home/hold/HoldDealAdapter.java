@@ -60,10 +60,12 @@ public class HoldDealAdapter extends BaseAdapter {
 			TextView tv_buy = ViewHolder.get(convertView, R.id.tv_hold_buy);
 			String buy = context.getResources().getString(R.string.unhold_1)+"\t"+item.getBuyNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getBuyPrice()))+"\t";
 			tv_buy.setText(buy);
+			tv_buy.setVisibility(View.VISIBLE);
 			TextView tv_sell = ViewHolder.get(convertView, R.id.tv_hold_sell);
 //			TextView tv_think = ViewHolder.get(convertView, R.id.tv_think);
 			String sell = context.getResources().getString(R.string.hold_1)+"\t"+item.getSellNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getSellPrice()))+"\t";
 			tv_sell.setText(sell);
+			tv_sell.setVisibility(View.VISIBLE);
 			if(item.getBuyNum() == 0){
 				sell = context.getResources().getString(R.string.unhold_2)+"\t"+item.getSellNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getSellPrice()))+"\t";
 				tv_sell.setText(sell);
@@ -84,10 +86,10 @@ public class HoldDealAdapter extends BaseAdapter {
 				tv_gain.setBackgroundColor(Color.WHITE);
 				String gain = "";
 				if(item.getGain() < 0){
-					gain = " - "+String.format("%.1f", item.getGain());
+					gain = " - "+String.format("%.1f", Math.abs(item.getGain()));
 					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_blue));
 				}else{
-					gain = " + "+String.format("%.1f", item.getGain());
+					gain = " + "+String.format("%.1f", Math.abs(item.getGain()));
 					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_red));
 				}
 				tv_gain.setText(gain);

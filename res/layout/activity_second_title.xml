@@ -26,6 +26,7 @@
         android:layout_width="120dip"
         android:scrollbars="@null"
         android:listSelector="@android:color/transparent" 
+        android:layoutAnimation="@anim/list_anim_layout"
         android:layout_height="wrap_content" >
     </ListView>
 

@@ -32,7 +32,7 @@ public class MyAttentionAdapter extends BaseAdapter {
 	}
 	public void setList(List<AttentionDAO> list) {
 		this.list = list;
-		notifyDataSetChanged();
+//		notifyDataSetChanged();
 	}
 	@Override
 	public int getCount() {

@@ -13,6 +13,7 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
+import com.futureinst.utils.ListViewHeightUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -73,7 +74,7 @@ public class RefrenceFragment extends BaseFragment {
 							EventRelatedInfo eventRelatedInfo = (EventRelatedInfo) response;
 							
 							adapter.setList(eventRelatedInfo.getRelated().getRefer().getRefer());
-							
+							ListViewHeightUtil.setListViewHeightBasedOnChildren(lv_refrence);
 						}
 					});
 		}

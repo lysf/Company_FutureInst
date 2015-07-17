@@ -1,8 +1,5 @@
 package com.futureinst.home.title;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,6 +22,7 @@ public class SecondTitleActivity extends BaseActivity {
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_second_title);
 		initView();
+		setBackGround(primaryTitle);
 	}
 
 	private void initView() {
@@ -40,7 +38,7 @@ public class SecondTitleActivity extends BaseActivity {
 				primaryTitle, target);
 		listView.setAdapter(adapter);
 		ll_second_title = (LinearLayout) findViewById(R.id.ll_second_title);
-		setBackGround(primaryTitle);
+		
 		iv_cancel = (ImageView) findViewById(R.id.iv_cancel);
 		iv_cancel.setOnClickListener(new OnClickListener() {
 			@Override
@@ -63,6 +61,12 @@ public class SecondTitleActivity extends BaseActivity {
 //		bitmap = BitmapFactory.decodeStream(getResources().openRawResource(picIds[primaryTitle]), null, opts);
 //		ll_second_title.setBackground(new BitmapDrawable(bitmap));
 		ll_second_title.setBackgroundResource(picIds[primaryTitle]);
+		if (primaryTitle == 4 || primaryTitle == 6 || primaryTitle == 7
+				|| primaryTitle == 8) {
+			iv_cancel.setImageDrawable(getResources().getDrawable(R.drawable.cancel_01));
+		}else{
+			iv_cancel.setImageDrawable(getResources().getDrawable(R.drawable.cancel));
+		}
 	}
 	@Override
 	public void onDestroy() {

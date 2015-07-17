@@ -56,11 +56,11 @@ public class RankingFragment extends BaseFragment {
 		tv_prophet.setText(userInformationDAO.getForeIndex()+"");
 		tv_ranking.setText(userInformationDAO.getRank()+"");
 		if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
-			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
+			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up_2));
 		}else if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
-			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
+			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down_2));
 		}else{
-			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
+			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_2));
 		}
 	}
 	//获取排名

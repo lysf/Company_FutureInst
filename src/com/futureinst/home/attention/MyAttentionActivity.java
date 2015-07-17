@@ -71,10 +71,8 @@ public class MyAttentionActivity extends BaseActivity {
 	Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 1:
+			case 111:
 				adapter.notifyDataSetChanged();
-				break;
-			default:
 				break;
 			}
 		};
@@ -85,8 +83,8 @@ public class MyAttentionActivity extends BaseActivity {
 		new Thread(new Runnable() {
 			public void run() {
 				while(flag){
+					handler.sendEmptyMessage(111);
 					try {
-						handler.sendEmptyMessage(1);
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();

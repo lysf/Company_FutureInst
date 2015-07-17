@@ -183,9 +183,12 @@ public class EventDetailActivity extends BaseActivity {
 		String gain_bad = String.format("%.1f",  singleEventInfo.getUser().getIf_no());
 		tv_eventdetail_gain_good.setText(gain_good);
 		tv_eventdetail_gain_bad.setText(gain_bad);
-//		if(singleEventInfo.getUser().getIf_yes()>=0){
-//			tv_eventdetail_gain_good
-//		}
+		if(singleEventInfo.getUser().getIf_yes()>=0){
+			tv_eventdetail_gain_good.setText("+"+gain_bad);
+		}
+		if(singleEventInfo.getUser().getIf_no()>=0){
+			tv_eventdetail_gain_bad.setText("+"+gain_bad);
+		}
 		tv_buy_1.setText(getResources().getString(R.string.unhold_1)+"\t"+item.getAllBuyNum()+"\t份");
 		tv_buy_2.setText(getResources().getString(R.string.event_detail_deal)+"\t"+item.getBuyNum()+"\t份\t已成交\t\t均价\t"+String.format("%.1f", item.getBuyPrice()));
 		tv_sell_1.setText(getResources().getString(R.string.unhold_2)+"\t"+item.getAllSellNum()+"\t份");
@@ -247,7 +250,7 @@ public class EventDetailActivity extends BaseActivity {
 				break;
 			
 			case R.id.btn_buy://简易模式买入
-				if(!judgeIsLogin()) return;
+				if(!judgeIsLogin()) return;  
 //				showBuyConfig(2, String.format("%.1f", event.getCurrPrice()), 10);
 				
 				Intent intent1 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
@@ -329,7 +332,7 @@ public class EventDetailActivity extends BaseActivity {
 	private void showDialog(final String rule){
 		View view = LayoutInflater.from(this).inflate(R.layout.view_event_rule, null,false);
 		ImageView iv_cancel = (ImageView) view.findViewById(R.id.iv_event_rule_cancel);
-		TextView tv_rule = (TextView) view.findViewById(R.id.tv_rule);
+		TextView tv_rule = (TextView) view.findViewById(R.id.tv_rule); 
 		tv_rule.setText(rule);
 		final Dialog dialog = DialogShow.showDialog(this, view,Gravity.CENTER);
 		iv_cancel.setOnClickListener(new OnClickListener() {
