@@ -50,7 +50,7 @@ public class HoldDealAdapter extends BaseAdapter {
 			
 			DealOrderDAO item = list.get(position);
 			TextView tv_status = ViewHolder.get(convertView, R.id.tv_status);
-			String sttaus = "此预测于"+TimeUtil.longToString(item.getEvent().getClearTime(), TimeUtil.FORMAT_DATE_TIME_SECOND)+"清算盈亏";
+			String sttaus = "此预测将于"+TimeUtil.longToString(item.getEvent().getClearTime(), TimeUtil.FORMAT_DATE_TIME_SECOND)+"清算盈亏";
 			tv_status.setText(sttaus);
 			TextView tv_currentPrice = ViewHolder.get(convertView, R.id.tv_price);
 			TextView tv_gain = ViewHolder.get(convertView, R.id.tv_gain);
@@ -81,6 +81,7 @@ public class HoldDealAdapter extends BaseAdapter {
 					tv_sell.setVisibility(View.GONE);
 				}
 			}
+			tv_gain.setText("最新成交价");
 			if(item.getEvent().getStatusStr() !=null && item.getEvent().getStatusStr().equals("已清算")){
 				tv_status.setText("已清算");
 				tv_gain.setBackgroundColor(Color.WHITE);

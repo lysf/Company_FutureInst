@@ -184,7 +184,7 @@ public class EventDetailActivity extends BaseActivity {
 		tv_eventdetail_gain_good.setText(gain_good);
 		tv_eventdetail_gain_bad.setText(gain_bad);
 		if(singleEventInfo.getUser().getIf_yes()>=0){
-			tv_eventdetail_gain_good.setText("+"+gain_bad);
+			tv_eventdetail_gain_good.setText("+"+gain_good);
 		}
 		if(singleEventInfo.getUser().getIf_no()>=0){
 			tv_eventdetail_gain_bad.setText("+"+gain_bad);
