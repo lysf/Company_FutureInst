@@ -81,7 +81,7 @@ public class HoldDealAdapter extends BaseAdapter {
 					tv_sell.setVisibility(View.GONE);
 				}
 			}
-			tv_gain.setText("最新成交价");
+			
 			if(item.getEvent().getStatusStr() !=null && item.getEvent().getStatusStr().equals("已清算")){
 				tv_status.setText("已清算");
 				tv_gain.setBackgroundColor(Color.WHITE);
@@ -94,6 +94,10 @@ public class HoldDealAdapter extends BaseAdapter {
 					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_red));
 				}
 				tv_gain.setText(gain);
+			}else{
+				tv_gain.setText("最新成交价");
+				tv_gain.setBackground(null);
+				tv_gain.setTextColor(context.getResources().getColor(R.color.hold_status));
 			}
 		return convertView;
 	}

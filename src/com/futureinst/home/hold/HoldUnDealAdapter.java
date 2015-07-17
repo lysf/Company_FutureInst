@@ -75,7 +75,7 @@ public class HoldUnDealAdapter extends BaseAdapter {
 		if(item.getNum()-item.getDealNum() ==0)
 			tv_residue.setVisibility(View.GONE);
 		TextView tv_tip = ViewHolder.get(convertView, R.id.tv_tip);
-		tv_tip.setText("未成交预测于"+TimeUtil.longToString(item.getDeadTime(), TimeUtil.FORMAT_DATE_TIME_SECOND)+"自动取消");
+		tv_tip.setText("此预测于"+TimeUtil.longToString(item.getDeadTime(), TimeUtil.FORMAT_DATE_TIME_SECOND)+"自动取消");
 		
 		TextView tv_unfit = ViewHolder.get(convertView, R.id.tv_unfit);//保证金不足
 		ImageView iv_cancel = ViewHolder.get(convertView, R.id.iv_cancel);

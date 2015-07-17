@@ -1,5 +1,6 @@
 package com.futureinst.push;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -10,18 +11,22 @@ import android.os.Bundle;
 import android.util.Log;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.futureinst.R;
 import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.model.push.PushMessageDAO;
+import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.GsonUtils;
-import com.google.gson.JsonObject;
+import com.futureinst.net.HttpPostParams;
+import com.futureinst.net.HttpResponseUtils;
+import com.futureinst.net.PostCommentResponseListener;
+import com.futureinst.net.PostMethod;
+import com.futureinst.net.PostType;
+import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.igexin.sdk.PushConsts;
 import com.igexin.sdk.PushManager;
 
 public class PushBroadCastReceiver extends BroadcastReceiver {
-
 	/**
 	 * 应用未启动, 个推 service已经被唤醒,保存在该时间段内离线消息(此时 GetuiSdkDemoActivity.tLogView ==
 	 * null)
@@ -72,7 +77,6 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			// 获取ClientID(CID)
 			// 第三方应用需要将CID上传到第三方服务器，并且将当前用户帐号和CID进行关联，以便日后通过用户帐号查找CID进行消息推送
 //			String cid = bundle.getString("clientid");
-			
 			break;
 
 		case PushConsts.THIRDPART_FEEDBACK:
@@ -93,7 +97,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			break;
 		}
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	private void setNotify(Context context,String content){
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

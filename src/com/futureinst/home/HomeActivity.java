@@ -84,7 +84,6 @@ public class HomeActivity extends BaseActivity {
 				if (intent.getAction().equals("titleType")) {
 					primaryTitle = intent.getIntExtra("primaryTitle", 0);
 					secondTitle = intent.getIntExtra("secondTitle", 0);
-//					initFragment();
 					homeTypeFragment.setPrimaryAndSecondTitle(primaryTitle, secondTitle);
 					showBottomView(primaryTitle);
 				}else if(intent.getAction().equals("newPushMessage")){
@@ -96,6 +95,12 @@ public class HomeActivity extends BaseActivity {
 		filter.addAction("titleType");
 		filter.addAction("newPushMessage");
 		registerReceiver(receiver, filter);
+		if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
+			cid = PushManager.getInstance().getClientid(this);
+			preferenceUtil.setCLIENTID(cid);
+		}else{
+			cid = preferenceUtil.getCLIENTID();
+		}
 		get_android_version();
 		
 	}
@@ -140,7 +145,7 @@ public class HomeActivity extends BaseActivity {
 		ll_ranking_1 = (LinearLayout) findViewById(R.id.ll_ranking_1);
 		ll_ranking_1.setOnClickListener(clickListener);
 		tv_unlogin = (TextView) findViewById(R.id.tv_unLogin);
-		tv_unlogin.setOnClickListener(clickListener);
+		tv_unlogin.setOnClickListener(loginListener);
 
 		iv_home_type_2 = (ImageView) findViewById(R.id.iv_home_type_2);
 		iv_home_type_2.setOnClickListener(clickListener);
@@ -157,7 +162,7 @@ public class HomeActivity extends BaseActivity {
 		ll_ranking_2 = (LinearLayout) findViewById(R.id.ll_ranking_2);
 		ll_ranking_2.setOnClickListener(clickListener);
 		tv_unlogin_2 = (TextView) findViewById(R.id.tv_unLogin_2);
-		tv_unlogin_2.setOnClickListener(clickListener);
+		tv_unlogin_2.setOnClickListener(loginListener);
 		
 		iv_home_type_3 = (ImageView) findViewById(R.id.iv_home_type_3);
 		iv_home_type_3.setOnClickListener(clickListener);
@@ -176,7 +181,7 @@ public class HomeActivity extends BaseActivity {
 		ll_ranking_3 = (LinearLayout) findViewById(R.id.ll_ranking_3);
 		ll_ranking_3.setOnClickListener(clickListener);
 		tv_unlogin_3 = (TextView) findViewById(R.id.tv_unLogin_3);
-		tv_unlogin_3.setOnClickListener(clickListener);
+		tv_unlogin_3.setOnClickListener(loginListener);
 		
 		homeTypeFragment = new HomeTypeFragment();
 		showBottomView(primaryTitle);
@@ -195,12 +200,7 @@ public class HomeActivity extends BaseActivity {
 			ll_login_2.setVisibility(View.INVISIBLE);
 			ll_login_3.setVisibility(View.INVISIBLE);
 		} else {
-			if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
-				cid = PushManager.getInstance().getClientid(this);
-				preferenceUtil.setCLIENTID(cid);
-			}else{
-				cid = preferenceUtil.getCLIENTID();
-			}
+			
 			ll_unlogin.setVisibility(View.INVISIBLE);
 			ll_login.setVisibility(View.VISIBLE);
 			ll_unlogin_2.setVisibility(View.INVISIBLE);
@@ -255,16 +255,15 @@ public class HomeActivity extends BaseActivity {
 			iv_home_search.setSelected(false);
 			iv_home_cc.setSelected(false);
 			iv_login.setSelected(false);
-//			setRankingSelect(userInformationDAO, false);
 			iv_ranking_status.setSelected(false);
 			iv_ranking_status_2.setSelected(false);
 			switch (v.getId()) {
 			case R.id.iv_home_type:// 主题分类
 			case R.id.iv_home_type_2:
 			case R.id.iv_home_type_3:
+				iv_home_type.setSelected(true);
 				if (currentPosition == 0)
 					return;
-				iv_home_type.setSelected(true);
 				view_bottom_1.setVisibility(View.INVISIBLE);
 				view_bottom_2.setVisibility(View.INVISIBLE);
 				view_bottom_3.setVisibility(View.VISIBLE);
@@ -283,9 +282,9 @@ public class HomeActivity extends BaseActivity {
 			case R.id.iv_home_search:// 搜索
 			case R.id.iv_home_search_2:
 			case R.id.iv_home_search_3:
+				iv_home_search.setSelected(true);
 				if (currentPosition == 1)
 					return;
-				iv_home_search.setSelected(true);
 				searchFragment = new SearchFragment();
 				fragmentTransaction.replace(R.id.container, searchFragment);
 				fragmentTransaction.commitAllowingStateLoss();
@@ -298,9 +297,9 @@ public class HomeActivity extends BaseActivity {
 					startActivity(new Intent(HomeActivity.this, LoginActivity.class));
 					return;
 				}
+				iv_home_cc.setSelected(true);
 				if (currentPosition == 2)
 					return;
-				iv_home_cc.setSelected(true);
 				tv_ranking.setAlpha(0.3f);
 				tv_ranking_2.setAlpha(0.3f);
 				tv_ranking_3.setAlpha(0.3f);
@@ -313,9 +312,9 @@ public class HomeActivity extends BaseActivity {
 			case R.id.iv_login_2:
 			case R.id.iv_login_3:
 				
+				iv_login.setSelected(true);
 				if (currentPosition == 3)
 					return;
-				iv_login.setSelected(true);
 				 userInfoFragment = new UserInfoFragment();
 				fragmentTransaction.replace(R.id.container,new UserInfoFragment2());
 				fragmentTransaction.commitAllowingStateLoss();
@@ -327,11 +326,11 @@ public class HomeActivity extends BaseActivity {
 			case R.id.ll_ranking_1:// 排名
 			case R.id.ll_ranking_2:
 			case R.id.ll_ranking_3:
+				iv_ranking_status.setSelected(true);
+				iv_ranking_status_2.setSelected(true);
 				if (currentPosition == 4)
 					return;
 //				setRankingSelect(userInformationDAO, true);
-				iv_ranking_status.setSelected(true);
-				iv_ranking_status_2.setSelected(true);
 				fragmentTransaction.replace(R.id.container,
 						new RankAndRecordFragment());
 				fragmentTransaction.commitAllowingStateLoss();
@@ -340,6 +339,14 @@ public class HomeActivity extends BaseActivity {
 				tv_ranking_3.setAlpha(1f);
 				currentPosition = 4;
 				break;
+			
+			}
+		}
+	};
+	OnClickListener loginListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
 			case R.id.tv_unLogin:// 登录
 			case R.id.tv_unLogin_2:
 			case R.id.tv_unLogin_3:
@@ -348,6 +355,7 @@ public class HomeActivity extends BaseActivity {
 				startActivity(intent);
 				break;
 			}
+			
 		}
 	};
 	//设置用户的排名
