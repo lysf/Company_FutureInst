@@ -27,6 +27,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseApplication;
+import com.futureinst.db.DataCacheUtil;
 import com.futureinst.fileupload.MultiPartStack;
 import com.futureinst.fileupload.MultiPartStringRequest;
 import com.futureinst.model.basemodel.BaseModel;
@@ -38,11 +39,12 @@ public class HttpResponseUtils {
 	private Activity activity;
 	private RequestQueue mQueue;
 	private RequestQueue mSingleQueue;
-
+	private DataCacheUtil cacheUtil;
 	private HttpResponseUtils(Activity activity) {
 		mQueue = BaseApplication.getInstance().getRequestQueue();
 		this.activity = activity;
 		mSingleQueue = Volley.newRequestQueue(activity, new MultiPartStack());
+		cacheUtil = DataCacheUtil.getInstance(activity);
 	}
 
 	public static HttpResponseUtils getInstace(Activity activity) {
@@ -55,7 +57,14 @@ public class HttpResponseUtils {
 	// volley使用post上传数据
 	public synchronized <T> void postJson(final Map<String, String> params, final Class<T> clz,
 			final PostCommentResponseListener commentResponseListener) {
-		
+		final String path = HttpPath.URL + params.toString();
+		final String result = cacheUtil.getCache(path);
+		try {
+			commentResponseListener.requestCompleted(GsonUtils.json2Bean(
+					result, clz));
+		} catch (JSONException e2) {
+			e2.printStackTrace();
+		}
 		StringRequest postRequest = new StringRequest(Request.Method.POST, HttpPath.URL,
 				new Response.Listener<String>() {
 					@Override
@@ -76,6 +85,7 @@ public class HttpResponseUtils {
 								MyToast.showToast(activity, message, 0);
 								return;
 							}
+							cacheUtil.addOrReplaCecache(path, response);
 							try {
 								commentResponseListener
 										.requestCompleted(GsonUtils.json2Bean(
@@ -91,12 +101,14 @@ public class HttpResponseUtils {
 						Log.i("-----VolleyError---", "-----client error--->>"
 								+ error.toString());
 						try {
-							commentResponseListener.requestCompleted(null);
+							commentResponseListener.requestCompleted(GsonUtils.json2Bean(
+									result, clz));
 						} catch (JSONException e) {
 							e.printStackTrace();
 						}
 						if(!Utils.checkNetkworkState(activity)){
 							MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+							
 							return;
 						}
 						MyToast.showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);

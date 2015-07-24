@@ -56,9 +56,9 @@
     <SinaWeibo
         Id="1"
         SortId="1"
-        AppKey="2205249547"
-        AppSecret="89a00a2d48294439d622dc7d33d2e0b2"
-        RedirectUrl="http://www.schooledu.com.cn/"
+        AppKey="1754748385"
+        AppSecret="943229746e0da611dceeee4a9ebba730"
+        RedirectUrl="www.futureinst.com/"
         ShareByAppClient="true"
         Enable="true" />
 	
@@ -67,7 +67,7 @@
         SortId="2"
         AppKey="801307650"
         AppSecret="ae36f4ee3946e1cbb98d6965b0b2ff5c"
-        RedirectUri="http://sharesdk.cn"
+        RedirectUri="www.futureinst.com/"
         Enable="true" />
 
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
@@ -96,22 +96,22 @@
     <Wechat
         Id="4"
         SortId="4"
-        AppId="wx836bc3fece273c69"
-        BypassApproval="true"
+        AppId="wx9c996dbffb3e572c"
+        BypassApproval="false"
          ShareByAppClient="true"
         Enable="true" />
     
     <WechatMoments
         Id="5"
         SortId="5"
-        AppId="wx836bc3fece273c69"
-        BypassApproval="true"
+        AppId="wx9c996dbffb3e572c"
+        BypassApproval="false"
         Enable="true" />
         
 	<WechatFavorite
         Id="6"
         SortId="6"
-        AppId="wx836bc3fece273c69"
+        AppId="wx9c996dbffb3e572c"
         Enable="true" />
     
 	<QQ

@@ -64,7 +64,7 @@ public class UserInfoFragment2 extends BaseFragment {
 	private TableRow[] tableRows;
 	private PushMessageUtils pushMessageUtils;
 	private TextView tv_useableIcon,tv_depositCash;
-
+	private boolean isStart;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_userinfo);
@@ -72,8 +72,14 @@ public class UserInfoFragment2 extends BaseFragment {
 		setClickListener();
 		query_user_record();
 		getMessageCount();
+		isStart =true;
 	}
-
+	@Override
+	public void onResume() {
+		query_user_record();
+		getMessageCount();
+		super.onResume();
+	}
 	// 获取未读消息数量
 	private void getMessageCount() {
 		int count = pushMessageUtils.getUnReadMessageCount();
@@ -109,7 +115,7 @@ public class UserInfoFragment2 extends BaseFragment {
 		tv_depositCash = (TextView) findViewById(R.id.tv_depositCash);
 
 	}
-
+	
 	// 初始化视图
 	private void initData(UserInformationDAO userInfo) {
 		if (!TextUtils.isEmpty(userInfo.getUser().getName())) {

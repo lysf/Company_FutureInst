@@ -32,6 +32,7 @@ public class RecordFragment extends BaseFragment {
 	private TextView tv_type_record;
 	private ListView lv_record;
 	private RecordAdapter adapter;
+	private boolean isStart;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_record);
@@ -54,6 +55,15 @@ public class RecordFragment extends BaseFragment {
 		lv_record = (ListView) findViewById(R.id.lv_record);
 		adapter = new RecordAdapter(getContext());
 		lv_record.setAdapter(adapter);
+		isStart = true;
+	}
+	@Override
+	public void setUserVisibleHint(boolean isVisibleToUser) {
+		if(isVisibleToUser && isStart){
+			query_user_record();
+			query_user_tag_record();
+		}
+		super.setUserVisibleHint(isVisibleToUser);
 	}
 	private void initTotalRecordView(UserRecordDAO userRecord){
 		tv_gainTotal.setText(String.format("%.1f", userRecord.getAllGain()));

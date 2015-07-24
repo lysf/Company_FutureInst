@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f2f2f2"
+    android:paddingTop="@dimen/margin_20"
+    android:paddingBottom="@dimen/margin_20"
     android:orientation="vertical" >
     <LinearLayout 
+        android:background="@color/text_color_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/margin_5"
         android:paddingBottom="@dimen/margin_5"
-        android:layout_marginTop="@dimen/activity_login_margin_10"
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <ImageView 
@@ -26,10 +28,11 @@
             android:textColor="@color/text_color_6"/>
     </LinearLayout>
     <LinearLayout 
+        android:background="@color/text_color_white"
         android:layout_width="match_parent"
          android:layout_height="wrap_content"
         android:paddingTop="@dimen/margin_5"
-        android:paddingBottom="@dimen/margin_5"
+        android:paddingBottom="@dimen/margin_15"
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <ImageView 
@@ -46,16 +49,15 @@
             android:textColor="@color/background"/>
     </LinearLayout>
 <View 
-    android:layout_marginTop="@dimen/activity_login_margin_10"
-    android:layout_marginBottom="@dimen/activity_login_margin_10"
     android:layout_width="match_parent"
     android:layout_height="@dimen/line_height"
     android:background="@color/text_color_b"/>
 
 	 <LinearLayout 
+	     android:background="@color/text_color_white"
         android:layout_width="match_parent"
          android:layout_height="wrap_content"
-        android:paddingTop="@dimen/margin_5"
+        android:paddingTop="@dimen/margin_15"
         android:paddingBottom="@dimen/margin_5"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -73,6 +75,7 @@
             android:textColor="@color/text_color_6"/>
     </LinearLayout>
     <LinearLayout 
+        android:background="@color/text_color_white"
         android:layout_width="match_parent"
          android:layout_height="wrap_content"
         android:paddingTop="@dimen/margin_5"
@@ -93,6 +96,7 @@
             android:textColor="@color/background"/>
     </LinearLayout>
     <LinearLayout 
+        android:background="@color/text_color_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/margin_20"

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- hometable -->
+    <string name="tab_forecast">预测</string>
+    <string name="tab_revoke">订单</string>
+    <string name="tab_ranking">成就</string>
+    <string name="tab_personal">个人</string>
+    
+    <string name="userid_found">用户信息已存在，正在跳转登录操作…</string>
+    <string name="logining">使用%s帐号登录中…</string>
+    <string name="auth_cancel">授权操作已取消</string>
+    <string name="auth_error">授权操作遇到错误</string>
+    <string name="auth_complete">授权成功，正在跳转登录操作…</string>
+    
     <string name="app_name">未来研究所</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>

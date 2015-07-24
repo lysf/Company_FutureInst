@@ -12,7 +12,7 @@ import java.util.List;
 public class FragmentChildTabAdapter implements OnClickListener {
 	private List<Fragment> fragments; // 一个tab页面对应一个Fragment
 	// private RadioGroup rgs; // 用于切换tab
-	private Button[] btns; // 用于切换tab
+	private View[] btns; // 用于切换tab
 	private Fragment fragment; // Fragment
 	private int fragmentContentId; // Activity中所要被替换的区域的id
 
@@ -21,7 +21,7 @@ public class FragmentChildTabAdapter implements OnClickListener {
 	private OnRgsExtraCheckedChangedListener onRgsExtraCheckedChangedListener; // 用于让调用者在切换tab时候增加新的功能
 
 	public FragmentChildTabAdapter(Fragment fragment,
-			List<Fragment> fragments, int fragmentContentId, Button[] btns) {
+			List<Fragment> fragments, int fragmentContentId, View[] btns) {
 		this.fragments = fragments;
 		this.btns = btns;
 		this.fragment = fragment;
@@ -99,7 +99,7 @@ public class FragmentChildTabAdapter implements OnClickListener {
 	 * 切换tab额外功能功能接口
 	 */
 	static class OnRgsExtraCheckedChangedListener {
-		public void OnRgsExtraCheckedChanged(Button[] btns,
+		public void OnRgsExtraCheckedChanged(View[] btns,
 				int checkedId, int index) {
 
 		}

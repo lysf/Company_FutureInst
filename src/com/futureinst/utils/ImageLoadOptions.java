@@ -18,7 +18,7 @@ public class ImageLoadOptions {
 				 .showImageForEmptyUri(R.drawable.image_top_default)
 				// // 设置图片加载/解码过程中错误时候显示的图片
 				 .showImageOnFail(R.drawable.image_top_default)
-				.cacheInMemory(false)
+				.cacheInMemory(true)
 				// 设置下载的图片是否缓存在内存中
 				.cacheOnDisc(true)
 				// 设置下载的图片是否缓存在SD卡中
@@ -33,7 +33,7 @@ public class ImageLoadOptions {
 				// delayInMillis为你设置的延迟时间
 				// 设置图片加入缓存前，对bitmap进行设置
 				// 。preProcessor(BitmapProcessor preProcessor)
-				.resetViewBeforeLoading(true)// 设置图片在下载前是否重置，复位
+				.resetViewBeforeLoading(false)// 设置图片在下载前是否重置，复位
 				 .displayer(new RoundedBitmapDisplayer(8))//是否设置为圆角，弧度为多少
 				.displayer(new FadeInBitmapDisplayer(100))// 淡入
 				.build();

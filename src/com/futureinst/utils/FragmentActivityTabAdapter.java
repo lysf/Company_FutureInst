@@ -14,7 +14,8 @@ import android.widget.Button;
 public class FragmentActivityTabAdapter implements OnClickListener {
 	private List<Fragment> fragments; // 一个tab页面对应一个Fragment
 	// private RadioGroup rgs; // 用于切换tab
-	private Button[] btns; // 用于切换tab
+	private View[] btns; // 用于切换tab
+	private View[] lines; 
 	private FragmentActivity activity; // Fragment
 	private int fragmentContentId; // Activity中所要被替换的区域的id
 
@@ -23,7 +24,7 @@ public class FragmentActivityTabAdapter implements OnClickListener {
 	private OnRgsExtraCheckedChangedListener onRgsExtraCheckedChangedListener; // 用于让调用者在切换tab时候增加新的功能
 
 	public FragmentActivityTabAdapter(FragmentActivity activity,
-			List<Fragment> fragments, int fragmentContentId, Button[] btns) {
+			List<Fragment> fragments, int fragmentContentId, View[] btns) {
 		this.fragments = fragments;
 		this.btns = btns;
 		this.activity = activity;
@@ -39,6 +40,26 @@ public class FragmentActivityTabAdapter implements OnClickListener {
 			btns[i].setOnClickListener(this);
 		}
 
+	}
+	public FragmentActivityTabAdapter(FragmentActivity activity,
+			List<Fragment> fragments, int fragmentContentId, View[] btns,View[] lines) {
+		this.fragments = fragments;
+		this.btns = btns;
+		this.lines = lines;
+		this.activity = activity;
+		this.fragmentContentId = fragmentContentId;
+		
+		// 默认显示第一页
+		FragmentTransaction ft = activity.getSupportFragmentManager()
+				.beginTransaction();
+		ft.add(fragmentContentId, fragments.get(0));
+		ft.commit();
+		btns[0].setSelected(true);
+		lines[0].setSelected(true);
+		for (int i = 0; i < btns.length; i++) {
+			btns[i].setOnClickListener(this);
+		}
+		
 	}
 
 	/**
@@ -111,13 +132,17 @@ public class FragmentActivityTabAdapter implements OnClickListener {
 	public void onClick(View v) {
 		for (int i = 0; i < btns.length; i++) {
 			if (btns[i] == v ) {
-				btns[currentTab].setSelected(false);
-				//把当前tab设为选中状态
-				btns[i].setSelected(true);
 				// 如果设置了切换tab额外功能功能接口
 				if (null != onRgsExtraCheckedChangedListener && currentTab != i) {
 					onRgsExtraCheckedChangedListener.OnRgsExtraCheckedChanged(
 							btns, v.getId(), i);
+				}
+				btns[currentTab].setSelected(false);
+				//把当前tab设为选中状态
+				btns[i].setSelected(true);
+				if(lines!=null) {
+					lines[currentTab].setSelected(false);
+					lines[i].setSelected(true);
 				}
 				currentTab = i;
 				Fragment fragment = fragments.get(i);

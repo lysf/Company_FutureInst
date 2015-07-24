@@ -2,152 +2,16 @@
 
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_comment"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/text_color_white"
     android:orientation="vertical" >
-    <LinearLayout 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:minHeight="@dimen/widget_height_40">
-        <TextView 
-            android:layout_width="0dip"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="看好"
-            android:textColor="@color/gain_red"
-            android:textSize="@dimen/text_size_large"/>
-        <View 
-            android:layout_width="@dimen/line_height"
-            android:layout_height="match_parent"
-            android:background="#8E94CB"/>
-        <TextView 
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="不看好"
-            android:textColor="@color/gain_blue"
-            android:textSize="@dimen/text_size_large"/>
-    </LinearLayout>
-	<View 
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/line_height"
-            android:background="#8E94CB"/>
-	<RelativeLayout 
+   
+	<LinearLayout 
+	    android:id="@+id/ll_comment"
 	    android:layout_width="match_parent"
-	    android:layout_height="240dip"
-	    >
-	    <TextView 
-	        android:id="@+id/view_center"
-	        android:layout_width="20dip"
-	        android:layout_height="20dip"
-	        android:layout_centerInParent="true"
-	        android:text="VS"
-	        android:layout_margin="@dimen/margin_5"
-	        android:gravity="center"
-	        android:textSize="@dimen/text_size_small"
-	        android:textColor="@color/text_color_white"
-	        android:background="@drawable/btn_blue"/>
-	    <View 
-	        android:id="@+id/view_top"
-	        android:layout_width="@dimen/line_height"
-	        android:layout_height="100dip"
-	        android:layout_centerHorizontal="true"
-	        android:background="#8E94CB"
-	        />
-	    <View 
-	        android:id="@+id/view_bottom"
-	        android:layout_width="@dimen/line_height"
-	        android:layout_height="100dip"
-	        android:layout_alignParentBottom="true"
-	        android:layout_centerHorizontal="true"
-	        android:background="#8E94CB"
-	        android:layout_below="@+id/view_center"
-	        />
-	    <View 
-	        android:id="@+id/view_left"
-	        android:layout_width="@dimen/widget_height_50"
-	        android:layout_height="@dimen/line_height"
-	        android:background="#8E94CB"
-	        android:layout_centerVertical="true"
-	        android:layout_toLeftOf="@+id/view_center"/>
-	    <View 
-	        android:id="@+id/view_right"
-	        android:layout_width="@dimen/widget_height_50"
-	        android:layout_height="@dimen/line_height"
-	        android:background="#8E94CB"
-	        android:layout_centerVertical="true"
-	        android:layout_toRightOf="@+id/view_center"/>
-	    <LinearLayout 
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:orientation="vertical">
-	        <LinearLayout 
-	            android:layout_width="match_parent"
-	            android:layout_height="0dip"
-	            android:layout_weight="1"
-	            android:orientation="horizontal">
-	            <LinearLayout 
-	                android:id="@+id/ll_comment_1"
-	                android:paddingLeft="@dimen/activity_login_margin_10"
-	                android:paddingRight="@dimen/dimen_3"
-	                android:paddingTop="@dimen/margin_5"
-	                android:paddingBottom="@dimen/margin_20"
-	                android:layout_width="0dip"
-	                android:layout_weight="1"
-	                android:layout_height="match_parent"
-	                android:orientation="vertical">
-	               
-	            </LinearLayout>
-	            <LinearLayout 
-	                android:id="@+id/ll_comment_2"
-	                 android:paddingLeft="@dimen/activity_login_margin_10"
-	                android:paddingRight="@dimen/dimen_3"
-	                android:paddingTop="@dimen/margin_5"
-	                android:paddingBottom="@dimen/margin_20"
-	                android:layout_width="0dip"
-	                android:layout_weight="1"
-	                android:layout_height="match_parent"
-	                android:orientation="vertical">
-	                
-	            </LinearLayout>
-	        </LinearLayout>
-	        <LinearLayout 
-	            android:layout_width="match_parent"
-	            android:layout_height="0dip"
-	            android:layout_weight="1"
-	            android:orientation="horizontal">
-	            <LinearLayout 
-	                android:id="@+id/ll_comment_3"
-	                android:paddingLeft="@dimen/activity_login_margin_10"
-	                android:paddingRight="@dimen/dimen_3"
-	                android:paddingTop="@dimen/margin_5"
-	                android:paddingBottom="@dimen/margin_20"
-	                android:layout_width="0dip"
-	                android:layout_weight="1"
-	                android:layout_height="match_parent"
-	                android:orientation="vertical">
-	                
-	            </LinearLayout>
-	            <LinearLayout 
-	                android:id="@+id/ll_comment_4"
-	                 android:paddingLeft="@dimen/activity_login_margin_10"
-	                android:paddingRight="@dimen/dimen_3"
-	                android:paddingTop="@dimen/margin_5"
-	                android:paddingBottom="@dimen/margin_20"
-	                android:layout_width="0dip"
-	                android:layout_weight="1"
-	                android:layout_height="match_parent"
-	                android:orientation="vertical">
-	                
-	            </LinearLayout>
-	        </LinearLayout>
-	    </LinearLayout>
-	</RelativeLayout>
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"/>
 	<RelativeLayout 
 	    android:paddingLeft="@dimen/activity_login_margin_10"
 	    android:paddingRight="@dimen/activity_login_margin_10"
@@ -161,9 +25,9 @@
 	    android:gravity="right|center_vertical"
 	    android:layout_width="wrap_content"
 	    android:layout_height="@dimen/widget_height_40"
-	    android:textSize="@dimen/text_size_normal"
-	    android:textColor="@color/background"
-	    android:background="#E5EEFF"
+	    android:textSize="@dimen/text_size_large"
+	    android:textColor="@drawable/comment_text"
+	    android:drawableLeft="@drawable/comment_edit"
 	    android:text="写评论"/>
 	    <TextView 
 	    android:id="@+id/tv_moreComment"
@@ -173,78 +37,11 @@
 	    android:gravity="center_vertical"
 	    android:layout_width="wrap_content"
 	    android:layout_height="@dimen/widget_height_40"
-	    android:textSize="@dimen/text_size_normal"
-	    android:textColor="@color/background"
-	    android:background="#E5EEFF"
+	    android:textSize="@dimen/text_size_large"
+	    android:textColor="@drawable/comment_text"
 	    android:text="更多评论"
-	    android:drawableRight="@drawable/iv_event_detail_right"/>
+	    android:drawableRight="@drawable/comment_more"/>
 	</RelativeLayout>
 	
-	<LinearLayout 
-	    android:visibility="gone"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="horizontal"
-	    android:paddingLeft="@dimen/margin_15"
-	    android:paddingRight="@dimen/margin_15"
-	    android:paddingTop="@dimen/margin_5"
-	    android:paddingBottom="@dimen/margin_5">
-	    <Button 
-	        android:id="@+id/btn_attention_good"
-	        android:layout_width="80dip"
-	        android:layout_height="@dimen/widget_height_40"
-	        android:textSize="@dimen/text_size_normal"
-	        android:textColor="@color/text_color_white"
-	        android:background="@drawable/btn_buy_back"
-	        android:text="看好"/>
-	    <Button 
-	        android:id="@+id/btn_attention_bad"
-	        android:layout_marginLeft="@dimen/margin_20"
-	        android:layout_width="80dip"
-	        android:layout_height="@dimen/widget_height_40"
-	        android:textSize="@dimen/text_size_normal"
-	        android:textColor="@color/text_color_white"
-	        android:background="@drawable/btn_sell_back"
-	        android:text="看好"/>
-	    <TextView 
-	        android:layout_width="wrap_content"
-	        android:layout_height="match_parent"
-	        android:gravity="bottom"
-	        android:layout_marginLeft="@dimen/activity_login_margin_10"
-	        android:text="(评论请先选择态度)"
-	        android:textSize="@dimen/text_size_small"
-	        android:textColor="@color/text_color_6"/>
-	</LinearLayout>
-
-	<EditText 
-	    android:visibility="gone"
-	    android:layout_margin="@dimen/margin_5"
-	    android:id="@+id/et_comment"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:background="@drawable/edit_gray_back"
-	    android:textSize="@dimen/text_size_normal"
-	    android:lineSpacingExtra="2dip"
-	    android:hint="在这里添加评论（500字以内）"
-	    android:gravity="top"
-	    android:textColorHint="@color/text_color_9"
-	    android:textColor="@color/text_color_6"
-	    android:maxLength="500"
-	    android:focusableInTouchMode="true"
-	    android:minHeight="130dip"/>
-	<LinearLayout 
-	    android:visibility="gone"
-	    android:padding="@dimen/margin_15"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="right">
-	    <Button 
-	        android:id="@+id/btn_publish"
-	        android:layout_width="80dip"
-	        android:text="发布"
-	        android:background="@drawable/btn_publish"
-	        android:layout_height="@dimen/widget_height_40"
-	        android:textSize="@dimen/text_size_normal"
-	        android:textColor="@color/text_color_white"/>
-	</LinearLayout>
+	
 </LinearLayout>

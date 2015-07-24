@@ -21,7 +21,7 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.pull_listview);
+		setContentView(R.layout.activity_user_check);
 		setTitle(R.string.bill);
 		getLeftImageView().setImageDrawable(
 				getResources().getDrawable(R.drawable.back));

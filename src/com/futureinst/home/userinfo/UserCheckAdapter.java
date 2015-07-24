@@ -9,10 +9,7 @@ import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.ViewHolder;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.text.Spannable;
 import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,8 +54,9 @@ public class UserCheckAdapter extends BaseAdapter {
 		TextView tv_time = ViewHolder.get(convertView, R.id.tv_time);
 		TextView tv_detail = ViewHolder.get(convertView, R.id.tv_detail);
 		TextView tv_change = ViewHolder.get(convertView, R.id.tv_change);
+		View viewDiver = ViewHolder.get(convertView, R.id.view_diver);
 		TextView tv_current_balance = ViewHolder.get(convertView, R.id.tv_current_balance);
-		tv_time.setText(TimeUtil.longToString(item.getCtime(), TimeUtil.FORMAT_DATE_TIME_SECOND_point));
+		tv_time.setText(TimeUtil.longToString(item.getCtime(), TimeUtil.FORMAT_DATE_TIME_SECOND));
 		tv_detail.setText(item.getTitle());
 		String change = "";
 		SpannableStringBuilder stringBuilder;
@@ -77,6 +75,8 @@ public class UserCheckAdapter extends BaseAdapter {
 		}
 		tv_change.setText(stringBuilder);
 		tv_current_balance.setText(String.format("%.1f", item.getBalanceCurr()));
+		if(position == list.size() - 1) viewDiver.setVisibility(View.GONE);
+		else viewDiver.setVisibility(View.VISIBLE);
 		return convertView;
 	}
 

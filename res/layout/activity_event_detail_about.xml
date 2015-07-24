@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.futureinst.widget.scrollview.OverScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    android:scrollbars="none">
+     <LinearLayout
+        android:id="@+id/ll_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        <include 
+            layout="@layout/eventdetail_top"/>
+         <include
+             layout="@layout/view_priceview"/>
+         <include 
+		    android:id="@+id/view_singlev_event"
+		    android:visibility="gone"
+		    layout="@layout/view_event_detail_11"/>
+       <View android:layout_width="match_parent"
+           android:layout_height="@dimen/margin_5"
+           android:background="@color/text_color_e"/>
+         <include 
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:minHeight="200dip"
+             layout="@layout/forecast_bottom"/>
+      </LinearLayout>
+</com.futureinst.widget.scrollview.OverScrollView>

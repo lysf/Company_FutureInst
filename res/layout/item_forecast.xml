@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_select"
+    android:orientation="vertical"
+     >
+     <View 
+         android:id="@+id/diver"
+         android:layout_width="match_parent"
+         android:layout_height="@dimen/activity_login_margin_10"
+         android:background="@color/text_color_9"/>
+    <RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="250dip"
+    android:background="#F1F0F0">
+    <ImageView 
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="180dip"
+        android:scaleType="centerCrop"
+        />
+	<View 
+	    android:id="@+id/view_line"
+	    android:layout_width="match_parent"
+	    android:layout_height="4dip"
+	    />
+	<TextView 
+	    android:id="@+id/tv_time"
+	    android:layout_marginTop="4dip"
+	    android:layout_marginLeft="@dimen/activity_login_margin_10"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:padding="@dimen/margin_5"
+	    android:textSize="@dimen/text_size_normal"
+	    android:textColor="@color/text_color_white"
+	    android:drawableLeft="@drawable/iv_time"
+	    android:background="@color/tab_text_selected"
+	    />
+
+	<LinearLayout
+	    android:id="@+id/ll_circle"
+	    android:layout_width="200px"
+	    android:layout_height="140dip"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentRight="true"
+	    android:gravity="center_vertical"
+	    android:layout_marginRight="@dimen/margin_15"
+	    android:orientation="horizontal" >
+	</LinearLayout>
+
+	<TextView
+	    android:id="@+id/tv_title"
+	    android:paddingLeft="@dimen/margin_15"
+	    android:paddingRight="@dimen/margin_5"
+	    android:paddingTop="@dimen/activity_login_margin_10"
+	    android:lineSpacingExtra="@dimen/line_height"
+	    android:textSize="@dimen/text_size_large"
+	    android:textColor="@color/text_color_6"
+	    android:layout_width="match_parent"
+	    android:layout_height="70dip"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/iv_image"
+	    android:layout_toLeftOf="@id/ll_circle"
+	     />
+
+</RelativeLayout>
+</LinearLayout>
+

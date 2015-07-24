@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    	<color name="tab_text_unselected">#D2D2D2</color>
+    	<color name="tab_text_selected">#86BFFA</color>
     	<color name="background">#1E266E</color>
     	<color name="background5">#6069B7</color>
    		 <color name="bg">#F5F5F5</color>
@@ -59,4 +61,10 @@
     	<color name="type_7">#E1DBCE</color>
     	<color name="type_8">#FFBDAD</color>
     	<color name="type_9">#FCFB68</color>
+    	
+    	<color name="background_tab_pressed">#6633B5E5</color>
+    	<color name="forecast_deal">#F39800</color>
+    	<color name="forecast_bottom_line_select">#007BFF</color>
+    	<color name="comment_text_0">#5DA5FF</color>
+    	<color name="comment_text_1">#885DA5FF</color>
 </resources>

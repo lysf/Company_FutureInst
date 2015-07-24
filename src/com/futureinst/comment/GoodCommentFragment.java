@@ -43,6 +43,7 @@ public class GoodCommentFragment extends BaseFragment implements OnRefreshListen
 		lv_comment.setAdapter(adapter);
 		View emptyView = findViewById(R.id.view_empty);
 		lv_comment.setEmptyView(emptyView);
+		lv_comment.setonRefreshListener(this);
 	}
 	
 	/**

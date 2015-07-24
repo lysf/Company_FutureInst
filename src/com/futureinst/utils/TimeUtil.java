@@ -20,7 +20,6 @@ public class TimeUtil {
 	public final static String FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm";
 	public final static String FORMAT_DATE1_TIME = "yyyy/MM/dd HH:mm";
 	public final static String FORMAT_DATE_TIME_SECOND = "yyyy-MM-dd HH:mm:ss";
-	public final static String FORMAT_DATE_TIME_SECOND_point = "yyyy.MM.dd\nHH:mm:ss";
 	
 	private static SimpleDateFormat sdf = new SimpleDateFormat();
 	private static final int YEAR = 365 * 24 * 60 * 60;// 年
@@ -41,11 +40,14 @@ public class TimeUtil {
 		long timeGap = (currentTime - timestamp) / 1000;// 与现在时间相差秒数
 		System.out.println("timeGap: " + timeGap);
 		String timeStr = null;
-		if (timeGap > YEAR) {
-			timeStr = timeGap / YEAR + "年前";
-		} else if (timeGap > MONTH) {
-			timeStr = timeGap / MONTH + "个月前";
-		} else if (timeGap > DAY) {// 1天以上
+//		if (timeGap > YEAR) {
+//			timeStr = timeGap / YEAR + "年前";
+//		} else if (timeGap > MONTH) {
+//			timeStr = timeGap / MONTH + "个月前";
+//		} 
+		if(timeGap > 7*DAY){
+			timeStr = longToString(timestamp,FORMAT_DATE);
+		}else if (timeGap > DAY && timeGap < 7*DAY) {// 1天以上
 			timeStr = timeGap / DAY + "天前";
 		} else if (timeGap > HOUR) {// 1小时-24小时
 			timeStr = timeGap / HOUR + "小时前";

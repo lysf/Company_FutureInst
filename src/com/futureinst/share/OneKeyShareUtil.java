@@ -46,13 +46,13 @@ public class OneKeyShareUtil {
 			oks.setImageUrl(shareImageUrl);
 		}
 		// 微信和易信的分享的网络连接，如果没有可以不设置
-		oks.setUrl("http://cmcc.wapgw.cn"); 
+		oks.setUrl(shareTitleUrl); 
 		// 人人平台特有的评论字段，如果没有可以不设置
 		// oks.setComment("comment");
 		// 程序的名称或者是站点名称 
 		oks.setSite("未来研究所");
 		// 程序的名称或者是站点名称的链接地址
-		oks.setSiteUrl("http://www.schooledu.com.cn");
+		oks.setSiteUrl(shareTitleUrl);
 		// 设置纬度
 		// oks.setLatitude(23.122619f);
 		// 设置精度
@@ -61,7 +61,7 @@ public class OneKeyShareUtil {
 		oks.setSilent(true);
 //		 设置自定义的外部回调
 		 oks.setCallback(new OneKeyShareCallback());
-		 oks.setShareContentCustomizeCallback(new ShareContentCustomizeDemo(shareTitle, shareTitleUrl, shareImageUrl, shareContents));
+//		 oks.setShareContentCustomizeCallback(new ShareContentCustomizeDemo(shareTitle, shareTitleUrl, shareImageUrl, shareContents));
 		// 显示
 		// oks.disableSSOWhenAuthorize();
 		oks.show(context);

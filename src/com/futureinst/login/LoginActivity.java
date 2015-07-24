@@ -1,5 +1,7 @@
 package com.futureinst.login;
 
+import java.util.HashMap;
+
 import org.json.JSONException;
 
 import com.futureinst.R;
@@ -15,16 +17,37 @@ import com.futureinst.utils.Utils;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
+import android.os.Handler.Callback;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.framework.utils.UIHandler;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.wechat.friends.Wechat;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity implements Callback, PlatformActionListener {
+	private static final int MSG_USERID_FOUND = 1;
+	private static final int MSG_AUTH_CANCEL = 3;
+	private static final int MSG_AUTH_ERROR = 4;
+	private static final int MSG_AUTH_COMPLETE = 5;
 	private EditText et_phone,et_password;
 	private boolean loginTag;
+	private ImageView iv_wechat,iv_sina;
+	private String openId;
+	private String thirdName;
+	private String type;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
+		ShareSDK.initSDK(this);
 		initView();
 	}
 	@Override
@@ -44,6 +67,11 @@ public class LoginActivity extends BaseActivity {
 		et_password = (EditText) findViewById(R.id.et_password);
 		findViewById(R.id.btn_login).setOnClickListener(clickListener);
 		findViewById(R.id.tv_forgetPwd).setOnClickListener(clickListener);
+		
+		iv_wechat = (ImageView) findViewById(R.id.iv_wechat);
+		iv_sina = (ImageView) findViewById(R.id.iv_sina);
+		iv_wechat.setOnClickListener(clickListener);
+		iv_sina.setOnClickListener(clickListener);
 	}
 	
 	OnClickListener clickListener = new OnClickListener() {
@@ -57,6 +85,12 @@ public class LoginActivity extends BaseActivity {
 				break;
 			case R.id.tv_forgetPwd://忘记密码
 				startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
+				break;
+			case R.id.iv_wechat://微信
+				authorize(new Wechat(LoginActivity.this));
+				break;
+			case R.id.iv_sina://新浪
+				authorize(new SinaWeibo(LoginActivity.this));
 				break;
 			}
 		}
@@ -103,5 +137,92 @@ public class LoginActivity extends BaseActivity {
 			return false;
 		}
 		return true;
+	}
+	
+	// 授权
+		private void authorize(Platform plat) {
+			if (plat == null) {
+				return;
+			}
+			if (plat.isValid()) {
+				openId = plat.getDb().getUserId();
+				thirdName = plat.getDb().getUserName();
+				// plat.getDb().get
+				if (!TextUtils.isEmpty(openId)) {
+					//注册或登录
+//					bindOrRegistThirdAccount();
+					UIHandler.sendEmptyMessage(MSG_USERID_FOUND, this);
+					plat.removeAccount();
+					return;
+				}
+			}
+			plat.setPlatformActionListener(this);
+			// plat.SSOSetting(true);
+//			 plat.authorize();
+			plat.showUser(null);
+		}
+		@Override
+		public boolean handleMessage(Message msg) {
+			switch (msg.what) {
+			case MSG_USERID_FOUND: {
+				Toast.makeText(this, R.string.userid_found, Toast.LENGTH_SHORT).show();
+			}
+				break;
+			case MSG_AUTH_CANCEL: {
+				Toast.makeText(this, R.string.auth_cancel, Toast.LENGTH_SHORT).show();
+			}
+				break;
+			case MSG_AUTH_ERROR: {
+				Toast.makeText(this, R.string.auth_error, Toast.LENGTH_SHORT).show();
+			}
+				break;
+			case MSG_AUTH_COMPLETE: {
+				//注册
+//				bindOrRegistThirdAccount();
+				
+				Toast.makeText(this, R.string.auth_complete, Toast.LENGTH_SHORT).show();
+			}
+				break;
+			}
+			return false;
+		}
+
+		@Override
+		public void onCancel(Platform arg0, int action) {
+			if (action == Platform.ACTION_USER_INFOR) {
+				UIHandler.sendEmptyMessage(MSG_AUTH_CANCEL, this);
+			}
+		}
+
+		private String sex;
+
+		@Override
+		public void onComplete(Platform arg0, int action, HashMap<String, Object> arg2) {
+			if (action == Platform.ACTION_USER_INFOR) {
+				if (arg0.getName().equals(SinaWeibo.NAME)) {// 新浪微博
+					type = "1";
+				} else if (arg0.getName().equals(Wechat.NAME)) {// 微信
+					type = "2";
+				}
+				openId = arg0.getDb().getUserId();
+				thirdName = arg0.getDb().getUserName();
+				sex = (String) arg2.get("gender");
+				System.out.println("------------>" + arg0.getDb() + "--" + arg2.keySet().toString() + "---->>"
+						+ arg2.get("gender"));
+				UIHandler.sendEmptyMessage(MSG_AUTH_COMPLETE, this);
+			}
+		}
+
+		@Override
+		public void onError(Platform arg0, int action, Throwable t) {
+			if (action == Platform.ACTION_USER_INFOR) {
+				UIHandler.sendEmptyMessage(MSG_AUTH_ERROR, this);
+			}
+			t.printStackTrace();
+		}
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		ShareSDK.stopSDK(this);
 	}
 }

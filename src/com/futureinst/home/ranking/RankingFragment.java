@@ -3,8 +3,6 @@ package com.futureinst.home.ranking;
 import org.json.JSONException;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +29,7 @@ public class RankingFragment extends BaseFragment {
 	private ImageView iv_ranking;
 	private RankingAdapter adapter;
 	private Button[] buttons;
+	private boolean isStart;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_home_ranking);
@@ -49,7 +48,15 @@ public class RankingFragment extends BaseFragment {
 		tv_prophet = (TextView) findViewById(R.id.tv_prophet);
 		tv_ranking = (TextView) findViewById(R.id.tv_ranking);
 		iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
-		
+		isStart = true;
+	}
+	@Override
+	public void setUserVisibleHint(boolean isVisibleToUser) {
+		if(isVisibleToUser && isStart){
+			get_rank();
+			query_user_record();
+		}
+		super.setUserVisibleHint(isVisibleToUser);
 	}
 	private void initMyRanking(UserInformationDAO userInformationDAO){
 		tv_userName.setText(userInformationDAO.getUser().getName());

@@ -2,32 +2,38 @@ package com.futureinst.home;
 
 
 
-import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.json.JSONException;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.home.forecast.ForecastFragment;
 import com.futureinst.home.hold.HoldingFragment;
 import com.futureinst.home.ranking.RankAndRecordFragment;
-import com.futureinst.home.search.SearchFragment;
-import com.futureinst.home.userinfo.UserInfoFragment;
 import com.futureinst.home.userinfo.UserInfoFragment2;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.usermodel.UserInfo;
@@ -44,55 +50,49 @@ import com.futureinst.utils.Utils;
 import com.igexin.sdk.PushManager;
 
 
+@SuppressLint("ClickableViewAccessibility")
 public class HomeActivity extends BaseActivity {
-//	private FragmentTransaction fragmentTransaction;
-	private UserInformationDAO userInformationDAO;
+	private boolean isHide = false;  
+	private float lastX = 0;  
+	private float lastY = 0;  
+	private LinearLayout ll_home_tab;
 	private BroadcastReceiver receiver;
-	private int primaryTitle = 0;
-	private int secondTitle = 0;
-	private View view_bottom_1, view_bottom_2,view_bottom_3;
-	private ImageView iv_home_type, iv_home_search, iv_home_cc,
-			iv_ranking_status, iv_login;
-	private LinearLayout ll_login, ll_unlogin;
-	private TextView tv_ranking, tv_unlogin;
-	private ImageView iv_home_type_2, iv_home_search_2, iv_home_cc_2,
-			iv_ranking_status_2, iv_login_2;
-	private ImageView iv_home_type_3, iv_home_search_3, iv_home_cc_3,
-	iv_ranking_status_3,iv_login_3;
-	private LinearLayout ll_login_2, ll_unlogin_2;
-	private TextView tv_ranking_2, tv_unlogin_2;
-	private LinearLayout ll_login_3, ll_unlogin_3;
-	private TextView tv_ranking_3, tv_unlogin_3;
-	private int currentPosition = 0;
 	private String cid;
-	private LinearLayout ll_ranking_1,ll_ranking_2,ll_ranking_3;
-	private TextView tv_message_count_1,tv_message_count_2,tv_message_count_3;
-	private FragmentTransaction fragmentTransaction;
-	private HomeTypeFragment homeTypeFragment;
-	private SearchFragment searchFragment ;
-	private HoldingFragment holdingFragment;
-	private UserInfoFragment userInfoFragment;
+	private TextView tv_ranking,tv_messageCount;
+	private ImageView iv_ranking;
+	private View[] views;
+	private List<Fragment> fragments;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
+		setContentView(R.layout.activity_home2);
 		//初始化推送
 		PushManager.getInstance().initialize(this.getApplicationContext());
 		initVeiw();
 		initFragment();
+		get_android_version();
+	}
+	private void initVeiw() {
+		views = new View[4];
+		fragments = new ArrayList<Fragment>(); 
+		ll_home_tab = (LinearLayout) findViewById(R.id.ll_home_table);
+		tv_ranking = (TextView) findViewById(R.id.tv_ranking);
+		iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
+		tv_messageCount = (TextView) findViewById(R.id.tv_message_count);
+		
+		views[0] = (TextView) findViewById(R.id.tab_forecast);
+		views[1] = (TextView) findViewById(R.id.tab_revoke);
+		views[2] = (LinearLayout) findViewById(R.id.tab_ranking);
+		views[3] = (RelativeLayout) findViewById(R.id.tab_personal);
+		
 		receiver = new BroadcastReceiver() {
 			@Override
 			public void onReceive(Context context, Intent intent) {
-				if (intent.getAction().equals("titleType")) {
-					primaryTitle = intent.getIntExtra("primaryTitle", 0);
-					secondTitle = intent.getIntExtra("secondTitle", 0);
-					homeTypeFragment.setPrimaryAndSecondTitle(primaryTitle, secondTitle);
-					showBottomView(primaryTitle);
-				}else if(intent.getAction().equals("newPushMessage")){
+				if(intent.getAction().equals("newPushMessage")){
 					getMessageCount();
 				}
 			}
 		};
 		IntentFilter filter = new IntentFilter();
-		filter.addAction("titleType");
 		filter.addAction("newPushMessage");
 		registerReceiver(receiver, filter);
 		if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
@@ -101,309 +101,46 @@ public class HomeActivity extends BaseActivity {
 		}else{
 			cid = preferenceUtil.getCLIENTID();
 		}
-		get_android_version();
-		
 	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		judgeIsLogin();
+	private void initFragment(){
+		fragments.add(new ForecastFragment());
+		fragments.add(new HoldingFragment());
+		fragments.add(new RankAndRecordFragment());
+		fragments.add(new UserInfoFragment2());
+		new FragmentActivityTabAdapter(this, fragments, R.id.container, views);
 	}
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		PushManager.getInstance().stopService(this.getApplicationContext());
-		SystemTimeUtile.getInstance(0L).setFlag(false);
-		if (receiver != null)
-			unregisterReceiver(receiver);
+	private boolean isLogin(){
+		if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
+			Intent intent = new Intent(this, LoginActivity.class);
+			startActivity(intent);
+			return false;
+		} 
+		return true;
 	}
-
-	private void initVeiw() {
-		setContentView(R.layout.activity_home_layout);
-		view_bottom_1 = findViewById(R.id.view_bottom_1);
-		view_bottom_2 = findViewById(R.id.view_bottom_2);
-		view_bottom_3 = findViewById(R.id.view_bottom_3);
-		
-		tv_message_count_1 = (TextView) findViewById(R.id.tv_message_count_1);
-		tv_message_count_2 = (TextView) findViewById(R.id.tv_message_count_2);
-		tv_message_count_3 = (TextView) findViewById(R.id.tv_message_count_3);
-		
-		iv_home_type = (ImageView) findViewById(R.id.iv_home_type);
-		iv_home_type.setOnClickListener(clickListener);
-		iv_home_search = (ImageView) findViewById(R.id.iv_home_search);
-		iv_home_search.setOnClickListener(clickListener);
-		iv_home_cc = (ImageView) findViewById(R.id.iv_home_cc);
-		iv_home_cc.setOnClickListener(clickListener);
-		iv_ranking_status = (ImageView) findViewById(R.id.iv_ranking_status);
-		iv_login = (ImageView) findViewById(R.id.iv_login);
-		iv_login.setOnClickListener(clickListener);
-		ll_login = (LinearLayout) findViewById(R.id.ll_login);
-		ll_unlogin = (LinearLayout) findViewById(R.id.ll_unLogin);
-		tv_ranking = (TextView) findViewById(R.id.tv_ranking);
-		ll_ranking_1 = (LinearLayout) findViewById(R.id.ll_ranking_1);
-		ll_ranking_1.setOnClickListener(clickListener);
-		tv_unlogin = (TextView) findViewById(R.id.tv_unLogin);
-		tv_unlogin.setOnClickListener(loginListener);
-
-		iv_home_type_2 = (ImageView) findViewById(R.id.iv_home_type_2);
-		iv_home_type_2.setOnClickListener(clickListener);
-		iv_home_search_2 = (ImageView) findViewById(R.id.iv_home_search_2);
-		iv_home_search_2.setOnClickListener(clickListener);
-		iv_home_cc_2 = (ImageView) findViewById(R.id.iv_home_cc_2);
-		iv_home_cc_2.setOnClickListener(clickListener);
-		iv_ranking_status_2 = (ImageView) findViewById(R.id.iv_ranking_status_2);
-		iv_login_2 = (ImageView) findViewById(R.id.iv_login_2);
-		iv_login_2.setOnClickListener(clickListener);
-		ll_login_2 = (LinearLayout) findViewById(R.id.ll_login_2);
-		ll_unlogin_2 = (LinearLayout) findViewById(R.id.ll_unLogin_2);
-		tv_ranking_2 = (TextView) findViewById(R.id.tv_ranking_2);
-		ll_ranking_2 = (LinearLayout) findViewById(R.id.ll_ranking_2);
-		ll_ranking_2.setOnClickListener(clickListener);
-		tv_unlogin_2 = (TextView) findViewById(R.id.tv_unLogin_2);
-		tv_unlogin_2.setOnClickListener(loginListener);
-		
-		iv_home_type_3 = (ImageView) findViewById(R.id.iv_home_type_3);
-		iv_home_type_3.setOnClickListener(clickListener);
-		iv_home_search_3 = (ImageView) findViewById(R.id.iv_home_search_3);
-		iv_home_search_3.setOnClickListener(clickListener);
-		iv_home_cc_3 = (ImageView) findViewById(R.id.iv_home_cc_3);
-		iv_home_cc_3.setOnClickListener(clickListener);
-		iv_ranking_status_3 = (ImageView) findViewById(R.id.iv_ranking_status_3);
-		tv_ranking_3 = (TextView) findViewById(R.id.tv_ranking_3);
-		iv_login_3 = (ImageView) findViewById(R.id.iv_login_3);
-		iv_login_3.setOnClickListener(clickListener);
-		iv_login_3 = (ImageView) findViewById(R.id.iv_login_3);
-		iv_login_3.setOnClickListener(clickListener);
-		ll_login_3 = (LinearLayout) findViewById(R.id.ll_login_3);
-		ll_unlogin_3 = (LinearLayout) findViewById(R.id.ll_unLogin_3);
-		ll_ranking_3 = (LinearLayout) findViewById(R.id.ll_ranking_3);
-		ll_ranking_3.setOnClickListener(clickListener);
-		tv_unlogin_3 = (TextView) findViewById(R.id.tv_unLogin_3);
-		tv_unlogin_3.setOnClickListener(loginListener);
-		
-		homeTypeFragment = new HomeTypeFragment();
-		showBottomView(primaryTitle);
-//		initFragment();
-		
-		iv_home_type.setSelected(true);
-	}
-	
 	// 判断是否登录
 	private void judgeIsLogin() {
-		if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
-			ll_unlogin.setVisibility(View.VISIBLE);
-			ll_login.setVisibility(View.INVISIBLE);
-			ll_unlogin_2.setVisibility(View.VISIBLE);
-			ll_unlogin_3.setVisibility(View.VISIBLE);
-			ll_login_2.setVisibility(View.INVISIBLE);
-			ll_login_3.setVisibility(View.INVISIBLE);
-		} else {
-			
-			ll_unlogin.setVisibility(View.INVISIBLE);
-			ll_login.setVisibility(View.VISIBLE);
-			ll_unlogin_2.setVisibility(View.INVISIBLE);
-			ll_unlogin_3.setVisibility(View.INVISIBLE);
-			ll_login_2.setVisibility(View.VISIBLE);
-			ll_login_3.setVisibility(View.VISIBLE);
+		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
 			getMessageCount();
 			query_user_record();
 			update_user_cid(cid);
-		}
+		} 
 	}
-
-	// 显示底部view
-	public void showBottomView(int primaryTitle) {
-		if (primaryTitle == 4 || primaryTitle == 6 || primaryTitle == 7
-				|| primaryTitle == 8) {
-			view_bottom_1.setVisibility(View.INVISIBLE);
-			view_bottom_2.setVisibility(View.VISIBLE);
-			view_bottom_3.setVisibility(View.INVISIBLE);
-			tv_ranking.setTextColor(getResources().getColor(R.color.text_color_white));
-		} else if(primaryTitle == 0){
-			view_bottom_1.setVisibility(View.INVISIBLE);
-			view_bottom_2.setVisibility(View.INVISIBLE);
-			view_bottom_3.setVisibility(View.VISIBLE);
-		}else {
-			view_bottom_1.setVisibility(View.VISIBLE);
-			view_bottom_2.setVisibility(View.INVISIBLE);
-			view_bottom_3.setVisibility(View.INVISIBLE);
-		}
-	}
-
-	private void initFragment() {
-		fragmentTransaction = getSupportFragmentManager().beginTransaction();
-		homeTypeFragment = new HomeTypeFragment();
-		Bundle bundle = new Bundle();
-		bundle.putInt("primaryTitle", primaryTitle);
-		bundle.putInt("secondTitle", secondTitle);
-		homeTypeFragment.setArguments(bundle);
-		fragmentTransaction.replace(R.id.container, homeTypeFragment);
-		fragmentTransaction.commitAllowingStateLoss();
-	}
-
-	OnClickListener clickListener = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			fragmentTransaction = getSupportFragmentManager()
-					.beginTransaction();
-			view_bottom_1.setVisibility(View.VISIBLE);
-			view_bottom_2.setVisibility(View.INVISIBLE);
-			view_bottom_3.setVisibility(View.INVISIBLE);
-			iv_home_type.setSelected(false);
-			iv_home_search.setSelected(false);
-			iv_home_cc.setSelected(false);
-			iv_login.setSelected(false);
-			iv_ranking_status.setSelected(false);
-			iv_ranking_status_2.setSelected(false);
-			switch (v.getId()) {
-			case R.id.iv_home_type:// 主题分类
-			case R.id.iv_home_type_2:
-			case R.id.iv_home_type_3:
-				iv_home_type.setSelected(true);
-				if (currentPosition == 0)
-					return;
-				view_bottom_1.setVisibility(View.INVISIBLE);
-				view_bottom_2.setVisibility(View.INVISIBLE);
-				view_bottom_3.setVisibility(View.VISIBLE);
-				homeTypeFragment = new HomeTypeFragment();
-				Bundle bundle = new Bundle();
-				bundle.putInt("primaryTitle", 0);
-				bundle.putInt("secondTitle", 0);
-				homeTypeFragment.setArguments(bundle);
-				fragmentTransaction.replace(R.id.container, homeTypeFragment);
-				fragmentTransaction.commitAllowingStateLoss();
-				tv_ranking.setAlpha(0.3f);
-				tv_ranking_2.setAlpha(0.3f);
-				tv_ranking_3.setAlpha(0.3f);
-				currentPosition = 0;
-				break;
-			case R.id.iv_home_search:// 搜索
-			case R.id.iv_home_search_2:
-			case R.id.iv_home_search_3:
-				iv_home_search.setSelected(true);
-				if (currentPosition == 1)
-					return;
-				searchFragment = new SearchFragment();
-				fragmentTransaction.replace(R.id.container, searchFragment);
-				fragmentTransaction.commitAllowingStateLoss();
-				currentPosition = 1;
-				break;
-			case R.id.iv_home_cc:// 持仓
-			case R.id.iv_home_cc_2:
-			case R.id.iv_home_cc_3:
-				if(TextUtils.isEmpty(preferenceUtil.getUUid())){
-					startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-					return;
-				}
-				iv_home_cc.setSelected(true);
-				if (currentPosition == 2)
-					return;
-				tv_ranking.setAlpha(0.3f);
-				tv_ranking_2.setAlpha(0.3f);
-				tv_ranking_3.setAlpha(0.3f);
-				holdingFragment = new HoldingFragment();
-				fragmentTransaction.replace(R.id.container,holdingFragment);
-				fragmentTransaction.commitAllowingStateLoss();
-				currentPosition = 2;
-				break;
-			case R.id.iv_login:// 用户
-			case R.id.iv_login_2:
-			case R.id.iv_login_3:
-				
-				iv_login.setSelected(true);
-				if (currentPosition == 3)
-					return;
-				 userInfoFragment = new UserInfoFragment();
-				fragmentTransaction.replace(R.id.container,new UserInfoFragment2());
-				fragmentTransaction.commitAllowingStateLoss();
-				tv_ranking.setAlpha(0.3f);
-				tv_ranking_2.setAlpha(0.3f);
-				tv_ranking_3.setAlpha(0.3f);
-				currentPosition = 3;
-				break;
-			case R.id.ll_ranking_1:// 排名
-			case R.id.ll_ranking_2:
-			case R.id.ll_ranking_3:
-				iv_ranking_status.setSelected(true);
-				iv_ranking_status_2.setSelected(true);
-				if (currentPosition == 4)
-					return;
-//				setRankingSelect(userInformationDAO, true);
-				fragmentTransaction.replace(R.id.container,
-						new RankAndRecordFragment());
-				fragmentTransaction.commitAllowingStateLoss();
-				tv_ranking.setAlpha(1f);
-				tv_ranking_2.setAlpha(1f);
-				tv_ranking_3.setAlpha(1f);
-				currentPosition = 4;
-				break;
-			
-			}
-		}
-	};
-	OnClickListener loginListener = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			switch (v.getId()) {
-			case R.id.tv_unLogin:// 登录
-			case R.id.tv_unLogin_2:
-			case R.id.tv_unLogin_3:
-				Intent intent = new Intent(HomeActivity.this,
-						LoginActivity.class);
-				startActivity(intent);
-				break;
-			}
-			
-		}
-	};
+	
+	
 	//设置用户的排名
 	private void setRanking(UserInformationDAO userInformationDAO){
 		tv_ranking.setText(userInformationDAO.getRank()+"");
-		tv_ranking_2.setText(userInformationDAO.getRank()+"");
-		tv_ranking_3.setText(userInformationDAO.getRank()+"");
 		tv_ranking.setAlpha(0.3f);
-		tv_ranking_2.setAlpha(0.3f);
-		tv_ranking_3.setAlpha(0.3f);
+		
 		if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
-			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
-			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
-			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
+			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_up));
 		}else if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
-			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
-			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
-			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
+			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_down));
 		}else{
-			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance));
-			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance));
-			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_3));
+			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_balance));
 		}
 	}
-//	private void setRankingSelect(UserInformationDAO userInformationDAO,boolean isSelect){
-//		if(userInformationDAO == null){
-//			return ;
-//		}
-//		if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
-//			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
-//			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
-//			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up));
-//		}else if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
-//			iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
-//			iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
-//			iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_down));
-//		}else{
-//			if(isSelect){
-//				iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
-//				iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
-//				iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.ranking_balance_un));
-//			}else{
-//				iv_ranking_status.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
-//				iv_ranking_status_2.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
-//				iv_ranking_status_3.setImageDrawable(getResources().getDrawable(R.drawable.rank_balance_1));
-//			}
-//		}
-//	}
+
 	// 获取个人信息
 	private void query_user_record() {
 		httpResponseUtils.postJson(
@@ -419,7 +156,6 @@ public class HomeActivity extends BaseActivity {
 						if (response == null)
 							return;
 						UserInformationInfo userInformationInfo = (UserInformationInfo) response;
-						userInformationDAO = userInformationInfo.getUser_record();
 						setRanking(userInformationInfo.getUser_record());
 					}
 				});
@@ -440,19 +176,11 @@ public class HomeActivity extends BaseActivity {
 		private void getMessageCount(){
 			int count =  PushMessageUtils.getInstance(this).getUnReadMessageCount();
 			if(count>0){
-				tv_message_count_1.setText(count+"");
-				tv_message_count_1.setVisibility(View.VISIBLE);
-				tv_message_count_2.setText(count+"");
-				tv_message_count_2.setVisibility(View.VISIBLE);
-				tv_message_count_3.setText(count+"");
-				tv_message_count_3.setVisibility(View.VISIBLE);
+				tv_messageCount.setText(count+"");
+				tv_messageCount.setVisibility(View.VISIBLE);
 			}else{
-				tv_message_count_1.setText("0");
-				tv_message_count_1.setVisibility(View.INVISIBLE);
-				tv_message_count_2.setText("0");
-				tv_message_count_2.setVisibility(View.INVISIBLE);
-				tv_message_count_3.setText("0");
-				tv_message_count_3.setVisibility(View.INVISIBLE);
+				tv_messageCount.setText("0");
+				tv_messageCount.setVisibility(View.INVISIBLE);
 			}
 		}
 	//获取版本信息
@@ -497,23 +225,160 @@ public class HomeActivity extends BaseActivity {
 				Log.i(TAG, "path : ");
 				dialog.dismiss();
 				// 下载新版本
-//				if (new File(Content.downloadPath).exists()) {
-//					try {
-						// sPreferences.edit().putLong("refernece",
-						// 10L).commit();
 						Intent intent = new Intent(HomeActivity.this, UpdateService.class);
 						intent.putExtra("url", url);
 						startService(intent);
-						// downloadAPK(Contents.UPDATE_URL);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//						Log.i(TAG, "下载异常：" + e.getMessage());
-//					}
-
-//				}
-				// }
 			}
 		});
 	
+	}
+	
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		super.onTouchEvent(event);
+		
+		return true;
+	}
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent event) {
+		float x = event.getX();
+		float y = event.getY();
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			lastY = y;  
+			lastX = x;  
+			break;
+		case MotionEvent.ACTION_MOVE:
+			float dy = Math.abs(y - lastY);
+			float dx = Math.abs(x - lastX);
+			Log.i(TAG, "---------dx="+dx+",dy="+dy);
+			boolean down = y > lastY ? true : false;
+			lastY = y;
+			lastX = x;
+			if(dx< 8 && dy > 8&& !isHide && !down){
+				ll_home_tab.setVisibility(View.INVISIBLE);
+			}else if(dx < 8 && dy > 8 && isHide && down){
+				ll_home_tab.setVisibility(View.VISIBLE);
+			}else{
+				break;
+			}
+			isHide = !isHide;  
+			break;
+		}
+		return super.dispatchTouchEvent(event);
+	}
+	@Override
+	protected void onResume() {
+		super.onResume();
+		judgeIsLogin();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		PushManager.getInstance().stopService(this.getApplicationContext());
+		SystemTimeUtile.getInstance(0L).setFlag(false);
+		if (receiver != null)
+			unregisterReceiver(receiver);
+	}
+	
+	
+	class FragmentActivityTabAdapter implements OnClickListener {
+		private List<Fragment> fragments; // 一个tab页面对应一个Fragment
+		private View[] btns; // 用于切换tab
+		private FragmentActivity activity; // Fragment
+		private int fragmentContentId; // Activity中所要被替换的区域的id
+		private int currentTab; // 当前Tab页面索引
+		public FragmentActivityTabAdapter(FragmentActivity activity,
+				List<Fragment> fragments, int fragmentContentId, View[] btns) {
+			this.fragments = fragments;
+			this.btns = btns;
+			this.activity = activity;
+			this.fragmentContentId = fragmentContentId;
+
+			// 默认显示第一页
+			FragmentTransaction ft = activity.getSupportFragmentManager()
+					.beginTransaction();
+			ft.add(fragmentContentId, fragments.get(0));
+			ft.commit();
+			btns[0].setSelected(true);
+			for (int i = 0; i < btns.length; i++) {
+				btns[i].setOnClickListener(this);
+			}
+		}
+
+		/**
+		 * 切换tab
+		 * 
+		 * @param idx
+		 */
+		private void showTab(int idx) {
+			for (int i = 0; i < fragments.size(); i++) {
+				Fragment fragment = fragments.get(i);
+				FragmentTransaction ft = obtainFragmentTransaction(idx);
+
+				if (idx == i) {
+					ft.show(fragment);
+				} else {
+					ft.hide(fragment);
+				}
+				ft.commit();
+			}
+			currentTab = idx; // 更新目标tab为当前tab
+		}
+		private FragmentTransaction obtainFragmentTransaction(int index) {
+			FragmentTransaction ft = activity.getSupportFragmentManager()
+					.beginTransaction();
+			// 设置切换动画
+			// if(index > currentTab){
+			// ft.setCustomAnimations(R.anim.slide_left_in, R.anim.slide_left_out);
+			// }else{
+			// ft.setCustomAnimations(R.anim.slide_right_in,
+			// R.anim.slide_right_out);
+			// }
+			return ft;
+		}
+
+		public int getCurrentTab() {
+			return currentTab;
+		}
+
+		public Fragment getCurrentFragment() {
+			return fragments.get(currentTab);
+		}
+		@Override
+		public void onClick(View v) {
+			for (int i = 0; i < btns.length; i++) {
+				if (btns[i] == v ) {
+					if(i!=0 && !isLogin()){
+						return;
+					}
+					if(i == 2){
+						iv_ranking.setSelected(true);
+						tv_ranking.setSelected(true);
+					}else{
+						iv_ranking.setSelected(false);
+						tv_ranking.setSelected(false);
+					}
+					
+					btns[currentTab].setSelected(false);
+					//把当前tab设为选中状态
+					btns[i].setSelected(true);
+					currentTab = i;
+					Fragment fragment = fragments.get(i);
+					FragmentTransaction ft = obtainFragmentTransaction(i);
+
+					if (fragment.isAdded()) {
+						fragment.onResume(); // 启动目标tab的onResume()
+					} else {
+						ft.add(fragmentContentId, fragment);
+					}
+					showTab(i); // 显示目标tab
+					ft.commit();
+					
+				}
+			}
+		}
+
 	}
 }

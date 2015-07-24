@@ -47,6 +47,7 @@ public class EventBuyActivity extends BaseActivity {
 	private ImageView iv_number_sub,iv_number_add;
 	private String price,num;
 	private TextView tv_tip;
+	private Button btn_lood_good,btn_lood_bad;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -96,6 +97,11 @@ public class EventBuyActivity extends BaseActivity {
 		iv_number_add = (ImageView) findViewById(R.id.number_add);
 		tv_tip = (TextView) findViewById(R.id.tv_tip);
 		
+		
+		btn_lood_good = (Button) findViewById(R.id.btn_lood_good);
+		btn_lood_bad = (Button) findViewById(R.id.btn_lood_bad);
+		btn_lood_good.setVisibility(View.GONE);
+		btn_lood_bad.setVisibility(View.GONE);
 //		et_price.setText(String.format("%.1f", event.getCurrPrice()));
 		et_num.setText("10");
 		if(isBuy){

@@ -8,31 +8,67 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_height_40"
         android:orientation="horizontal">
-        <Button 
-            android:id="@+id/btn_good_comment"
-            android:layout_width="0dip"
+        <LinearLayout 
+           	android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button 
+            android:id="@+id/btn_good_comment"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dip"
             android:textSize="@dimen/text_size_normal"
             android:textColor="@color/gain_red"
-            android:background="@drawable/btn_coment_select"
+            android:background="@color/text_color_white"
             android:text="看好"/>
-        <Button 
-            android:id="@+id/btn_bad_comment"
-            android:layout_width="0dip"
+            <View 
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="3dip"
+                android:layout_marginLeft="@dimen/margin_5"
+		        android:layout_marginRight="@dimen/margin_5"
+		        android:background="@drawable/forecast_botom_line"/>
+        </LinearLayout>
+        <LinearLayout 
+           	android:layout_width="0dip"
             android:layout_weight="1"
             android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button 
+            android:id="@+id/btn_bad_comment"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dip"
             android:textSize="@dimen/text_size_normal"
             android:textColor="@color/gain_blue"
-            android:background="@drawable/btn_coment_select"
+            android:background="@color/text_color_white"
             android:text="不看好"/>
+            <View 
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="3dip"
+                android:layout_marginLeft="@dimen/margin_5"
+		        android:layout_marginRight="@dimen/margin_5"
+		        android:background="@drawable/forecast_botom_line"/>
+        </LinearLayout>
     </LinearLayout>
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/forecast_bottom_line_select"/>
+    <!-- 
     <FrameLayout 
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        ></FrameLayout>
-   
+        />
+         -->
+        <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
     
         
 

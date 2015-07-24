@@ -88,9 +88,6 @@
             android:name=".home.eventdetail.MyHoldActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".home.eventdetail.LazyBagActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".home.userinfo.FAQActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -207,21 +204,7 @@
         <service
             android:name="com.igexin.getuiext.service.GetuiExtService"
             android:process=":pushservice" />
-        <!-- 个推download模块配置 -->
-        <service
-            android:name="com.igexin.download.DownloadService"
-            android:process=":pushservice" />
-
-        <receiver android:name="com.igexin.download.DownloadReceiver" >
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-            </intent-filter>
-        </receiver>
-
-        <provider
-            android:name="com.igexin.download.DownloadProvider"
-            android:authorities="downloads.com.futureinst"
-            android:process=":pushservice" /> <!-- 替换为downloads.第三方包名 -->
+       
         <!-- =========================================================================== -->
         
         

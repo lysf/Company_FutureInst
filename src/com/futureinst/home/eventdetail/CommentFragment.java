@@ -17,12 +17,24 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
+import com.futureinst.roundimageutils.RoundedImageView;
+import com.futureinst.utils.ImageLoadOptions;
+import com.futureinst.utils.TimeUtil;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,10 +45,17 @@ public class CommentFragment extends BaseFragment {
 	private String event_id;
 	private TextView tv_addComment;
 	private TextView tv_moreComment;
-	private LinearLayout[] ll_goodComments;
-	private LinearLayout[] ll_badComments;
 	private List<CommentDAO> list;
 	private boolean isVisiable;
+	private Animation animation;
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+		event_id = getArguments().getString("eventId");
+		httpResponseUtils = HttpResponseUtils.getInstace(activity);
+		httpPostParams = HttpPostParams.getInstace();
+		animation = AnimationUtils.loadAnimation(activity, R.anim.comment_prise);
+	}
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_comment);
@@ -52,33 +71,17 @@ public class CommentFragment extends BaseFragment {
 		}
 	}
 	private void initView() {
-		event_id = getArguments().getString("eventId");
-
-		httpResponseUtils = HttpResponseUtils.getInstace(getActivity());
-		httpPostParams = HttpPostParams.getInstace();
-
 		ll_comment = (LinearLayout) findViewById(R.id.ll_comment);
-		ll_comment.setOnClickListener(clickListener);
 		tv_addComment = (TextView) findViewById(R.id.tv_addComment);
 		tv_addComment.setOnClickListener(clickListener);
 		tv_moreComment = (TextView)findViewById(R.id.tv_moreComment);
 		tv_moreComment.setOnClickListener(clickListener);
-		
-		ll_goodComments = new LinearLayout[2];
-		ll_badComments = new LinearLayout[2];
-		ll_goodComments[0] = (LinearLayout) findViewById(R.id.ll_comment_1);
-		ll_goodComments[1] = (LinearLayout) findViewById(R.id.ll_comment_3);
-		ll_badComments[0] = (LinearLayout) findViewById(R.id.ll_comment_2);
-		ll_badComments[1] = (LinearLayout) findViewById(R.id.ll_comment_4);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.ll_comment:
-				closeInput();
-				break;
 			case R.id.tv_addComment:
 				Intent intent = new Intent(getActivity(), AddCommentActivity.class);
 				intent.putExtra("eventId", event_id);
@@ -113,6 +116,8 @@ public class CommentFragment extends BaseFragment {
 	private void formatCommentList(List<CommentDAO> list){
 		List<CommentDAO> goodList = new ArrayList<CommentDAO>();
 		List<CommentDAO> badList = new ArrayList<CommentDAO>();
+		List<CommentDAO> commentList = new ArrayList<CommentDAO>();
+		
 		for(CommentDAO comment : list){
 			if(comment.getAttitude() == 1){//看好
 				goodList.add(comment);
@@ -120,28 +125,56 @@ public class CommentFragment extends BaseFragment {
 				badList.add(comment);
 			}
 		}
-		for(int i = 0;i<goodList.size();i++){
-			if(i>=2) return;
-			ll_goodComments[i].removeAllViews();
+		for(int i = 0;i < list.size();i++){
+			if(goodList.size()> i) commentList.add(goodList.get(i));
+			if(badList.size() > i) commentList.add(badList.get(i));
+		}
+		ll_comment.removeAllViews();
+		for(int i = 0; i<commentList.size();i++){
+			if(i>3) return;
+			CommentDAO item = commentList.get(i);
 			View view = LayoutInflater.from(getContext()).inflate(R.layout.view_comment, null);
+			View view1 = view.findViewById(R.id.view_1);
+			View view2 = view.findViewById(R.id.view_2);
+			RoundedImageView imageView = (RoundedImageView) view.findViewById(R.id.headImage);
 			TextView tv_name = (TextView) view.findViewById(R.id.tv_name);
 			TextView tv_comment = (TextView) view.findViewById(R.id.tv_comment);
-			tv_name.setText("@"+goodList.get(i).getUser().getName());
-			tv_comment.setText(goodList.get(i).getContent());
-			ll_goodComments[i].addView(view);
+			TextView tv_time = (TextView) view.findViewById(R.id.tv_time);
+			TextView tv_prise = (TextView) view.findViewById(R.id.tv_prise);
+			final TextView tv_prise_add = (TextView) view.findViewById(R.id.tv_prise_add);
+			ImageView iv_prise = (ImageView) view.findViewById(R.id.iv_prise);
+			String comment = item.getContent();
+			int color = 0;
+			if(item.getAttitude() == 1){
+				comment = "[看好]"+comment;
+				color = getResources().getColor(R.color.gain_red);
+				view1.setBackgroundColor(color);
+				view2.setBackgroundColor(color);
+			}else{
+				comment = "[不看好]"+comment;
+				color = getResources().getColor(R.color.gain_blue);
+				view1.setBackgroundColor(color);
+				view2.setBackgroundColor(color);
+			}
+			tv_name.setText(item.getUser().getName());
+			ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+			tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getCtime()));
+			SpannableStringBuilder stringBuilder = new SpannableStringBuilder(comment);
+			stringBuilder.setSpan(new ForegroundColorSpan(color), 0, comment.indexOf("]")+1, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
+			tv_comment.setText(stringBuilder);
+			iv_prise.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					tv_prise_add.setVisibility(View.VISIBLE);
+					tv_prise_add.startAnimation(animation);
+					new Handler().postDelayed(new  Runnable() {
+						public void run() {
+							tv_prise_add.setVisibility(View.GONE);
+						}
+					}, 1000);
+				}
+			});
+			ll_comment.addView(view,i);
 		}
-		for(int i = 0;i<badList.size();i++){
-			if(i>=2) return;
-			ll_badComments[i].removeAllViews();
-			View view = LayoutInflater.from(getContext()).inflate(R.layout.view_comment, null);
-			TextView tv_name = (TextView) view.findViewById(R.id.tv_name);
-			TextView tv_comment = (TextView) view.findViewById(R.id.tv_comment);
-			tv_name.setText("@"+badList.get(i).getUser().getName());
-			tv_comment.setText(badList.get(i).getContent());
-			ll_badComments[i].addView(view);
-		}
-	}
-	public void upDate() {
-		getEvetnRealted();
 	}
 }
