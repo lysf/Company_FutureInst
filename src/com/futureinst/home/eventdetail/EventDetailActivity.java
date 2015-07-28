@@ -27,7 +27,6 @@ import android.widget.LinearLayout.LayoutParams;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.home.SystemTimeUtile;
-import com.futureinst.home.forecast.BottomViewpagerAdapter;
 import com.futureinst.interfaces.OnRgsExtraCheckedChangedListener;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
@@ -51,6 +50,7 @@ import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
 import com.futureinst.widget.CircleView;
+import com.futureinst.widget.WaterWaveView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 
@@ -62,6 +62,7 @@ public class EventDetailActivity extends BaseActivity {
 	private String event_id;
 	private QueryEventDAO event;
 	//头部
+	private WaterWaveView wav;
 	private ImageView iv_operate;
 	private ImageView iv_back;
 	private TextView tv_description,tv_event_title;
@@ -71,7 +72,6 @@ public class EventDetailActivity extends BaseActivity {
 	private ImageView iv_image;
 	private TextView tv_time;
 	
-	private LinearLayout ll_circle;
 	//单个事件账单 
 	private View view_single_event;
 	private TextView tv_buy_1,tv_buy_2;
@@ -135,10 +135,10 @@ public class EventDetailActivity extends BaseActivity {
 		tv_buys = new TextView[3];
 		tv_sells = new TextView[3];
 		
+		wav = (WaterWaveView) findViewById(R.id.wav);
 		view_line = findViewById(R.id.view_line);
 		tv_time = (TextView) findViewById(R.id.tv_time);
 		iv_image = (ImageView) findViewById(R.id.iv_image);
-		ll_circle = (LinearLayout) findViewById(R.id.ll_circle);
 		
 		view_single_event = findViewById(R.id.view_singlev_event);
 		tv_buy_1 = (TextView) findViewById(R.id.tv_event_buy_1);
@@ -198,9 +198,9 @@ public class EventDetailActivity extends BaseActivity {
 		bottom_btns = new Button[3];
 		bottom_views = new View[3];
 		viewPager =  (ViewPager) findViewById(R.id.event_detail_container);
-		bottom_btns[0] = (Button) findViewById(R.id.btn_comment);
+		bottom_btns[0] = (Button) findViewById(R.id.btn_revoke);
 		bottom_btns[1] = (Button) findViewById(R.id.btn_refrence);
-		bottom_btns[2] = (Button) findViewById(R.id.btn_revoke);
+		bottom_btns[2] = (Button) findViewById(R.id.btn_comment);
 		bottom_views[0] = findViewById(R.id.view1);
 		bottom_views[1] = findViewById(R.id.view2);
 		bottom_views[2] = findViewById(R.id.view3);
@@ -213,9 +213,9 @@ public class EventDetailActivity extends BaseActivity {
 		refrenceFragment.setArguments(bundle);
 		lazyBagFragment = new LazyBagFragment();
 		lazyBagFragment.setArguments(bundle);
-		fragments.add(commentFragment);
-		fragments.add(refrenceFragment);
 		fragments.add(lazyBagFragment);
+		fragments.add(refrenceFragment);
+		fragments.add(commentFragment);
 		FragmentActivityTabAdapter activityTabAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, bottom_btns,bottom_views);
 		activityTabAdapter.setOnRgsExtraCheckedChangedListener(new OnRgsExtraCheckedChangedListener() {
 			@Override
@@ -230,21 +230,22 @@ public class EventDetailActivity extends BaseActivity {
 	private void initData(QueryEventDAO event){
 		tv_event_title.setText(event.getTitle());
 		tv_description.setText(event.getDescription());
-		ll_circle.removeAllViews();
 		ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
-		CircleView circleView = new CircleView(this);
-		LayoutParams layoutParams = new LayoutParams(200, 200);
-		circleView.setLayoutParams(layoutParams);
-		circleView.setTopText(String.format("%.2f", event.getCurrPrice()));
+//		CircleView circleView = new CircleView(this);
+//		LayoutParams layoutParams = new LayoutParams(200, 200);
+//		circleView.setLayoutParams(layoutParams);
+		wav.setTextTop(String.format("%.2f", event.getCurrPrice()));
 		if(event.getPriceChange() >= 0){
-			circleView.setColor(getResources().getColor(R.color.gain_red));
-			circleView.setBottomText("+"+String.format("%.2f", event.getPriceChange()));
+			wav.setDown(false);
+			wav.setColor(getResources().getColor(R.color.gain_red));
+			wav.setTextBottom("+"+String.format("%.2f", event.getPriceChange()));
 		}else{
-			circleView.setColor(getResources().getColor(R.color.gain_blue));
-			circleView.setBottomText("-"+String.format("%.2f", Math.abs(event.getPriceChange())));
+			wav.setDown(true);
+			wav.setColor(getResources().getColor(R.color.gain_blue));
+			wav.setTextBottom("-"+String.format("%.2f", Math.abs(event.getPriceChange())));
 		}
-		circleView.setV(event.getCurrPrice()/100);
-		ll_circle.addView(circleView);
+		wav.startWave();
+		wav.setWaterLevel(event.getCurrPrice()/100);
 		tv_time.setText(event.getStatusStr());
 		showTimeStatus();
 	}
@@ -306,14 +307,14 @@ public class EventDetailActivity extends BaseActivity {
 		List<EventBuyDAO> buys = info.getBuys();
 		List<EventSellDAO> sells = info.getSells();
 		for(int i = 0;i<buys.size();i++){
-			tv_buys[i].setText(buys.get(i).getNum()+"  件  "+String.format("%.1f", buys.get(i).getPrice()));
+			tv_buys[i].setText(buys.get(i).getNum()+"  份  "+String.format("%.2f", buys.get(i).getPrice()));
 			if(buys.get(i).getNum() > 9999)
-				tv_buys[i].setText("9999+  件  "+String.format("%.1f", buys.get(i).getPrice()));
+				tv_buys[i].setText("9999+  份  "+String.format("%.2f", buys.get(i).getPrice()));
 		}
 		for(int j = 0;j<sells.size();j++){
-			tv_sells[j].setText(String.format("%.1f", sells.get(j).getPrice())+"  "+sells.get(j).getNum()+"  件  ");
+			tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  "+sells.get(j).getNum()+"  份  ");
 			if(sells.get(j).getNum() > 9999)
-				tv_sells[j].setText(String.format("%.1f", sells.get(j).getPrice())+"  9999+  件  ");
+				tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  9999+  份  ");
 		}
 		
 	}
@@ -512,6 +513,7 @@ public class EventDetailActivity extends BaseActivity {
 	protected void onDestroy() {
 		super.onDestroy();
 		timeIsStart = false;
+		wav.stop();
 		System.gc();
 	}
 }

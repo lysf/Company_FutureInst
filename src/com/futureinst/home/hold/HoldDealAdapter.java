@@ -54,20 +54,20 @@ public class HoldDealAdapter extends BaseAdapter {
 			tv_status.setText(sttaus);
 			TextView tv_currentPrice = ViewHolder.get(convertView, R.id.tv_price);
 			TextView tv_gain = ViewHolder.get(convertView, R.id.tv_gain);
-			tv_currentPrice.setText(String.format("%.1f", item.getEvent().getCurrPrice()));
+			tv_currentPrice.setText(String.format("%.2f", item.getEvent().getCurrPrice()));
 			TextView tv_title = ViewHolder.get(convertView, R.id.tv_title);
 			tv_title.setText(item.getEvent().getTitle());
 			TextView tv_buy = ViewHolder.get(convertView, R.id.tv_hold_buy);
-			String buy = context.getResources().getString(R.string.unhold_1)+"\t"+item.getBuyNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getBuyPrice()))+"\t";
+			String buy = context.getResources().getString(R.string.unhold_1)+item.getBuyNum()+"份     均价\t"+String.format("%.2f", Math.abs(item.getBuyPrice()))+"\t";
 			tv_buy.setText(buy);
 			tv_buy.setVisibility(View.VISIBLE);
 			TextView tv_sell = ViewHolder.get(convertView, R.id.tv_hold_sell);
 //			TextView tv_think = ViewHolder.get(convertView, R.id.tv_think);
-			String sell = context.getResources().getString(R.string.hold_1)+"\t"+item.getSellNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getSellPrice()))+"\t";
+			String sell = context.getResources().getString(R.string.hold_1)+item.getSellNum()+"份     均价\t"+String.format("%.2f", Math.abs(item.getSellPrice()))+"\t";
 			tv_sell.setText(sell);
 			tv_sell.setVisibility(View.VISIBLE);
 			if(item.getBuyNum() == 0){
-				sell = context.getResources().getString(R.string.unhold_2)+"\t"+item.getSellNum()+"份      以\t"+String.format("%.1f", Math.abs(item.getSellPrice()))+"\t";
+				sell = context.getResources().getString(R.string.unhold_2)+item.getSellNum()+"份     均价\t"+String.format("%.2f", Math.abs(item.getSellPrice()))+"\t";
 				tv_sell.setText(sell);
 				tv_sell.setVisibility(View.VISIBLE);
 				tv_buy.setVisibility(View.GONE);
@@ -84,7 +84,6 @@ public class HoldDealAdapter extends BaseAdapter {
 			
 			if(item.getEvent().getStatusStr() !=null && item.getEvent().getStatusStr().equals("已清算")){
 				tv_status.setText("已清算");
-				tv_gain.setBackgroundColor(Color.WHITE);
 				String gain = "";
 				if(item.getGain() < 0){
 					gain = " - "+String.format("%.1f", Math.abs(item.getGain()));
@@ -96,8 +95,7 @@ public class HoldDealAdapter extends BaseAdapter {
 				tv_gain.setText(gain);
 			}else{
 				tv_gain.setText("最新成交价");
-				tv_gain.setBackground(null);
-				tv_gain.setTextColor(context.getResources().getColor(R.color.hold_status));
+				tv_gain.setTextColor(context.getResources().getColor(R.color.text_color_3));
 			}
 		return convertView;
 	}

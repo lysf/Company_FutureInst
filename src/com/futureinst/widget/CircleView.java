@@ -123,7 +123,7 @@ public class CircleView extends View {
 	}
 	private void drawCircle(Canvas canvas){
 		Paint paint = new Paint();
-		paint.setAntiAlias(false);
+		paint.setAntiAlias(true);
 		paint.setStyle(Paint.Style.STROKE);
 		paint.setColor(getResources().getColor(R.color.text_color_9));
 		canvas.drawCircle(pointX, pointY, r, paint);

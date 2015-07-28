@@ -14,14 +14,14 @@
 		        android:layout_height="match_parent"
 		        android:orientation="vertical">
 		        <Button 
-		        android:id="@+id/btn_comment"
+		        android:id="@+id/btn_revoke"
 		        android:layout_width="match_parent"
 		        android:layout_weight="1"
 		        android:layout_height="0dip"
 		        android:background="@color/text_color_white"
 		        android:textSize="@dimen/text_size_large"
 		        android:textColor="@color/text_color_3"
-		        android:text="评论"/>
+		        android:text="事件始末"/>
 		        <View 
 		            android:id="@+id/view1"
 		            android:layout_width="match_parent"
@@ -60,14 +60,14 @@
 		        android:layout_height="match_parent"
 		        android:orientation="vertical">
 		       <Button 
-		        android:id="@+id/btn_revoke"
+		        android:id="@+id/btn_comment"
 		        android:layout_width="match_parent"
 		        android:layout_weight="1"
 		        android:layout_height="0dip"
 		        android:background="@color/text_color_white"
 		         android:textSize="@dimen/text_size_large"
 		        android:textColor="@color/text_color_3"
-		        android:text="事件始末"/>
+		        android:text="评论"/>
 		        <View 
 		            android:id="@+id/view3"
 		            android:layout_width="match_parent"

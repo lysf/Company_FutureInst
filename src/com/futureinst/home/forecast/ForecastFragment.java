@@ -15,7 +15,7 @@ public class ForecastFragment extends BaseFragment {
 	
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
-		setTitle(R.string.tab_forecast);
+//		setTitle(R.string.tab_forecast);
 		setContentView(R.layout.fragment_forecast);
 		initView();
 	}

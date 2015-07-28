@@ -18,6 +18,7 @@ import com.futureinst.baseui.BaseFragment;
 
 public class HoldingFragment extends BaseFragment {
 	private Button btns[];
+	private View[] views;
 	private List<Fragment> fragments;
 	private ViewPager container;
 	@Override
@@ -27,17 +28,20 @@ public class HoldingFragment extends BaseFragment {
 	}
 	private void initView() {
 		btns = new Button[2];
+		views = new View[2];
 		fragments = new ArrayList<Fragment>();
 		fragments.add(new HoldUnDealFragment());
 		fragments.add(new HoldDealFragment());
 		btns[0] = (Button) findViewById(R.id.btn_deal);
 		btns[1] = (Button) findViewById(R.id.btn_undeal);
+		views[0] = findViewById(R.id.view1);
+		views[1] = findViewById(R.id.view2);
 		container = (ViewPager) findViewById(R.id.container);
 		MyFragmentAdapter adapter = new MyFragmentAdapter(
 				getChildFragmentManager(), fragments);
 		container.setAdapter(adapter);
 		container.setOnPageChangeListener(changeListener);
-		btns[0].setSelected(true);
+		views[0].setSelected(true);
 		btns[0].setOnClickListener(clickListener);
 		btns[1].setOnClickListener(clickListener);
 		
@@ -46,15 +50,15 @@ public class HoldingFragment extends BaseFragment {
 	OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			btns[0].setSelected(false);
-			btns[1].setSelected(false);
+			views[0].setSelected(false);
+			views[1].setSelected(false);
 			switch (v.getId()) {
 			case R.id.btn_deal:
-				btns[0].setSelected(true);
+				views[0].setSelected(true);
 				container.setCurrentItem(0);
 				break;
 			case R.id.btn_undeal:
-				btns[1].setSelected(true);
+				views[1].setSelected(true);
 				container.setCurrentItem(1);
 				break;
 			}
@@ -64,9 +68,9 @@ public class HoldingFragment extends BaseFragment {
 	OnPageChangeListener changeListener = new OnPageChangeListener() {
 		@Override
 		public void onPageSelected(int position) {
-			btns[0].setSelected(false);
-			btns[1].setSelected(false);
-			btns[position].setSelected(true);
+			views[0].setSelected(false);
+			views[1].setSelected(false);
+			views[position].setSelected(true);
 		}
 		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {}

@@ -49,7 +49,7 @@ public class RefrenceAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_refrence, null,false);
 		ReferenceDAO item = list.get(position);
 		TextView tv_refrence = ViewHolder.get(convertView, R.id.tv_refrence);
-		tv_refrence.setText(position+1+"."+item.getTitle());
+		tv_refrence.setText(item.getTitle());
 		return convertView;
 	}
 

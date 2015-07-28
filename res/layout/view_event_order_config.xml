@@ -9,48 +9,60 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:paddingLeft="@dimen/margin_15"
-        android:paddingRight="@dimen/margin_15"
-        android:paddingBottom="@dimen/margin_15"
         android:background="@drawable/view_shap">
-        <LinearLayout 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="right">
-            <TextView 
-                android:id="@+id/tv_cancel"
-                android:paddingTop="@dimen/activity_login_margin_10"
-                android:paddingBottom="@dimen/activity_login_margin_10"
-                android:paddingLeft="@dimen/activity_login_margin_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/cancel"
-                android:textColor="@color/text_color_6"
-                android:textSize="@dimen/text_size_large"/>
-        </LinearLayout>
+        
         <TextView 
             android:id="@+id/tv_configMsg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="80dip"
             android:textColor="@color/text_color_6"
             android:textSize="@dimen/text_size_large"
-            android:paddingTop="@dimen/margin_15"
-            android:gravity="center_horizontal"
-            android:paddingBottom="@dimen/margin_15"
+            android:paddingTop="@dimen/margin_20"
+            android:gravity="center"
+            android:paddingBottom="@dimen/margin_20"
             />
-        <Button 
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/text_color_e"/>
+        
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/widget_height_45"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:gravity="center">
+            <Button 
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="@string/cancel"
+                android:background="@drawable/item_select"
+                android:textColor="#86BCFF"
+                android:textSize="@dimen/text_size_normal"/>
+            <View 
+            android:layout_width="@dimen/line_height"
+            android:layout_height="match_parent"
+            android:background="@color/text_color_e"/>
+             <Button 
             android:id="@+id/btn_submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+                android:layout_weight="1"
+            android:layout_height="match_parent"
             android:textSize="@dimen/text_size_normal"
-            android:textColor="@color/text_color_white"
-            android:background="@drawable/btn_buy_back"
+            android:textColor="#86BCFF"
+            android:background="@drawable/item_select"
             android:text="@string/ok"
             android:minWidth="80dip"
             android:minHeight="@dimen/widget_height_45"
             android:layout_marginTop="@dimen/margin_5"
             />
+        </LinearLayout>
+        
+       
     </LinearLayout>
 
 </LinearLayout>

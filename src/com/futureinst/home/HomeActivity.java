@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -23,6 +24,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -62,16 +65,17 @@ public class HomeActivity extends BaseActivity {
 	private ImageView iv_ranking;
 	private View[] views;
 	private List<Fragment> fragments;
+	private Animation animation;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
-		//初始化推送
-		PushManager.getInstance().initialize(this.getApplicationContext());
+		
 		initVeiw();
 		initFragment();
 		get_android_version();
 	}
 	private void initVeiw() {
+		
 		views = new View[4];
 		fragments = new ArrayList<Fragment>(); 
 		ll_home_tab = (LinearLayout) findViewById(R.id.ll_home_table);
@@ -120,6 +124,11 @@ public class HomeActivity extends BaseActivity {
 	// 判断是否登录
 	private void judgeIsLogin() {
 		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
+			if(!PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){
+				//初始化推送
+				PushManager.getInstance().initialize(this.getApplicationContext());
+			}
+			
 			getMessageCount();
 			query_user_record();
 			update_user_cid(cid);
@@ -233,12 +242,7 @@ public class HomeActivity extends BaseActivity {
 	
 	}
 	
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		super.onTouchEvent(event);
-		
-		return true;
-	}
+	
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {
 		float x = event.getX();
@@ -256,9 +260,23 @@ public class HomeActivity extends BaseActivity {
 			lastY = y;
 			lastX = x;
 			if(dx< 8 && dy > 8&& !isHide && !down){
-				ll_home_tab.setVisibility(View.INVISIBLE);
+				animation = AnimationUtils.loadAnimation(this, R.anim.push_out);
+				ll_home_tab.startAnimation(animation);
+				new Handler().postDelayed(new Runnable(){
+		            public void run() {
+		            	ll_home_tab.setVisibility(View.GONE);
+		            } 
+				}, 500);
 			}else if(dx < 8 && dy > 8 && isHide && down){
-				ll_home_tab.setVisibility(View.VISIBLE);
+				animation = AnimationUtils.loadAnimation(this, R.anim.push_in);
+//				ll_home_tab.setVisibility(View.VISIBLE);
+				ll_home_tab.startAnimation(animation);
+				new Handler().postDelayed(new Runnable(){
+		            public void run() {
+//		            	ll_home_tab.setVisibility(View.GONE);
+		            	ll_home_tab.setVisibility(View.VISIBLE);
+		            } 
+				}, 500);
 			}else{
 				break;
 			}
@@ -276,7 +294,9 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		PushManager.getInstance().stopService(this.getApplicationContext());
+		if(PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){
+			PushManager.getInstance().stopService(this.getApplicationContext());
+		}
 		SystemTimeUtile.getInstance(0L).setFlag(false);
 		if (receiver != null)
 			unregisterReceiver(receiver);

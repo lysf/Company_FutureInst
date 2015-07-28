@@ -1,6 +1,7 @@
 package com.futureinst.net;
 
 public enum PostMethod {
+	add_user_with_uuid,//微博微信注册用户
 	send_smscode,//发送验证码
 	add_user_by_phone,//添加用户
 	update_user,//修改用户信息

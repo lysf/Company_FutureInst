@@ -96,7 +96,7 @@
     <Wechat
         Id="4"
         SortId="4"
-        AppId="wx9c996dbffb3e572c"
+        AppId="wxd05c9fb4031495ad"
         BypassApproval="false"
          ShareByAppClient="true"
         Enable="true" />
@@ -104,14 +104,14 @@
     <WechatMoments
         Id="5"
         SortId="5"
-        AppId="wx9c996dbffb3e572c"
+        AppId="wxd05c9fb4031495ad"
         BypassApproval="false"
         Enable="true" />
         
 	<WechatFavorite
         Id="6"
         SortId="6"
-        AppId="wx9c996dbffb3e572c"
+        AppId="wxd05c9fb4031495ad"
         Enable="true" />
     
 	<QQ

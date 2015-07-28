@@ -353,9 +353,34 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
+	//获取版本号
 	public String get_android_version(){
 		Map<String, String> map = new HashMap<String, String>();
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
+	/**
+	 * 微博微信注册用户
+	 * @Title: add_user_with_uuid   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param name
+	 * @param: @param gender
+	 * @param: @param head_image
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String add_user_with_uuid(String uuid,String name,String gender,String head_image){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("uuid", uuid);
+		map.put("ctype", "android");
+		map.put("name", name);
+		map.put("gender", gender);
+//		map.put("head_image", head_image);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	
 }

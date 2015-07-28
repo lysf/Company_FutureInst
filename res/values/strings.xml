@@ -104,7 +104,7 @@
 	<string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
 	<string name="steep3_price_tip">● 此次预测将用</string>
 	<string name="event_detail_good">● 若事件发生你将 \t</string>
-	<string name="event_detail_bad">|\t若事件不发生你将</string>
+	<string name="event_detail_bad">\t若事件不发生你将</string>
 	<string name="hold_1">又不看好&#160;</string>
 	<string name="unhold_1">你看好&#160;&#160;&#160;&#160;&#160;</string>
 	<string name="unhold_2">你不看好&#160;</string>

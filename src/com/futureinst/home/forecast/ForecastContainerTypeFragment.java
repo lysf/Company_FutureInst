@@ -19,6 +19,7 @@ import com.futureinst.widget.list.PullListView.OnRefreshListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -76,6 +77,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 					@Override
 					public void requestCompleted(Object response) throws JSONException {
 						pullListView.onRefreshComplete();
+//						flag = false;
 						if(response == null) return;
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
 						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());

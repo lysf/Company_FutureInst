@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3853AD"
     android:orientation="vertical" >
     <com.futureinst.widget.list.PullListView
         android:id="@+id/hold_pull_listView"
@@ -10,7 +9,7 @@
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:dividerHeight="3dip"
-        android:divider="@android:color/transparent"
+        android:divider="@color/text_color_b"
         />
 
 </LinearLayout>

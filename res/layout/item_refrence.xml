@@ -2,16 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
+    <View 
+        android:layout_width="4dip"
+        android:layout_height="match_parent"
+        android:background="@color/forecast_bottom_line_select"
+        />
     <TextView 
         android:id="@+id/tv_refrence"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/activity_login_margin_10"
-  		  android:paddingRight="@dimen/activity_login_margin_10"
-  		  android:paddingTop="@dimen/margin_5"
-   		 android:paddingBottom="@dimen/margin_5"
+        android:padding="@dimen/activity_login_margin_10"
    		 android:background="@drawable/item_refrence"
         android:minHeight="@dimen/widget_height_50"
         android:textSize="@dimen/text_size_normal"

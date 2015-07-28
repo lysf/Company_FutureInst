@@ -20,18 +20,17 @@ import android.os.Bundle;
 import android.os.Message;
 import android.os.Handler.Callback;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.utils.UIHandler;
 import cn.sharesdk.sina.weibo.SinaWeibo;
-import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.wechat.friends.Wechat;
 
 public class LoginActivity extends BaseActivity implements Callback, PlatformActionListener {
@@ -43,7 +42,8 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 	private boolean loginTag;
 	private ImageView iv_wechat,iv_sina;
 	private String openId;
-	private String thirdName;
+	private String thirdName;//第三方昵称
+	private String gender;//性别
 	private String type;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -177,10 +177,9 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			}
 				break;
 			case MSG_AUTH_COMPLETE: {
-				//注册
-//				bindOrRegistThirdAccount();
-				
+			//第三方登录或注册
 				Toast.makeText(this, R.string.auth_complete, Toast.LENGTH_SHORT).show();
+				thirdLogin(type, thirdName, gender, "");	
 			}
 				break;
 			}
@@ -194,20 +193,25 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			}
 		}
 
-		private String sex;
 
 		@Override
 		public void onComplete(Platform arg0, int action, HashMap<String, Object> arg2) {
 			if (action == Platform.ACTION_USER_INFOR) {
-				if (arg0.getName().equals(SinaWeibo.NAME)) {// 新浪微博
-					type = "1";
-				} else if (arg0.getName().equals(Wechat.NAME)) {// 微信
-					type = "2";
-				}
+				
 				openId = arg0.getDb().getUserId();
+				if (arg0.getName().equals(SinaWeibo.NAME)) {// 新浪微博
+					type = "weibo"+openId;
+				} else if (arg0.getName().equals(Wechat.NAME)) {// 微信
+					type = "weixin"+openId;
+				}
 				thirdName = arg0.getDb().getUserName();
-				sex = (String) arg2.get("gender");
-				System.out.println("------------>" + arg0.getDb() + "--" + arg2.keySet().toString() + "---->>"
+				gender = (String) arg2.get("gender");
+				if(gender.equals("男")){
+					gender = "1";
+				}else if(gender.equals("女")){
+					gender = "2";
+				}
+				Log.i("third", "-------------->" + arg0.getDb() + "--" + arg2.keySet().toString() + "---->>"
 						+ arg2.get("gender"));
 				UIHandler.sendEmptyMessage(MSG_AUTH_COMPLETE, this);
 			}
@@ -220,6 +224,31 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			}
 			t.printStackTrace();
 		}
+		
+	private void thirdLogin(String uuid,String name,String gender,String head_image){	
+		progressDialog.progressDialog();
+		httpResponseUtils.postJson(
+				httpPostParams.getPostParams(PostMethod.add_user_with_uuid.name(), PostType.user.name(), 
+						httpPostParams.add_user_with_uuid(uuid, name, gender, head_image)), 
+				UserInfo.class,
+				new PostCommentResponseListener() {
+					@Override
+					public void requestCompleted(Object response) throws JSONException {
+						//登录成功
+						progressDialog.cancleProgress();
+						if(response == null) return;
+						UserInfo userInfo = (UserInfo) response;
+						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
+						if(!loginTag){
+							Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							startActivity(intent);
+						}
+						finish();
+					}
+				});
+	}
+		
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

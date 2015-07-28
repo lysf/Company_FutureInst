@@ -21,8 +21,11 @@ import com.futureinst.utils.Utils;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +34,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class EventBuyActivity extends BaseActivity {
@@ -41,13 +45,15 @@ public class EventBuyActivity extends BaseActivity {
 	private boolean isBuy;
 	private TextView[] tv_buys,tv_sells;
 	private LinearLayout ll_event_buy;
-	private TextView tv_total;
-	private String order_tips;
+	private TextView tv_total_1,tv_total_2,tv_total_3,tv_total_4;
+	private String order_tips_1,order_tips_2,order_tips_3,order_tips_4;
 	private ImageView iv_price_sub,iv_price_add;
 	private ImageView iv_number_sub,iv_number_add;
 	private String price,num;
 	private TextView tv_tip;
 	private Button btn_lood_good,btn_lood_bad;
+	private TableRow tableRow4;
+	private int color;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -61,31 +67,48 @@ public class EventBuyActivity extends BaseActivity {
 	}
 	private void getTotal(){
 		if(!judgeIsUse()){
-			tv_total.setVisibility(View.GONE);
+			tv_total_1.setVisibility(View.GONE);
+			tv_total_2.setVisibility(View.GONE);
+			tv_total_3.setVisibility(View.GONE);
+			tv_total_4.setVisibility(View.GONE);
 			return;
 		}
 		float price = Float.valueOf(et_price.getText().toString());
 		int num = Integer.valueOf(et_num.getText().toString());
-	
+	//你选择的是看好（看涨）/不看好（看跌），越低价成交赚越多/越高价成交赚越多，但不利于成交
+		
 		if(isBuy){
-			order_tips = "你选择的是看好，也即看涨。\n如果事件发生，价格涨至100，则你获利（100 - "+String.format("%.1f", price)+
-					"）*"+num+" = "+String.format("%.1f", (100-price)*num)+
-					"；\n若事件不发生，价格跌至0，则你亏损 "+String.format("%.1f", price)+" * "+num+" = "+String.format("%.1f", price*num)+"。";
+			order_tips_1 = "提示：\n1.你选择的是看好（看涨），越高价成交赚越多,但不利于成交\n"
+					+ "2.若事件发生（价格涨至100.00），则你获利：";
+			order_tips_2 = "  （100 - "+String.format("%.2f", price)+
+					"）*"+num+" = "+String.format("%.2f", (100-price)*num);
+			order_tips_3 = "3.若事件不发生（价格跌至0.00），则你亏损 :";
+			order_tips_4 = " 	"+String.format("%.2f", price)+" * "+num+" = "+String.format("%.2f", price*num);
 		}else{
-			order_tips = "你选择的是不看好，也即看跌。\n如果事件不发生，价格跌至0，则你获利 "+String.format("%.1f", price)+" * "+num+" = "+String.format("%.1f", price*num)
-		+"；\n若事件发生，价格涨至100，则你亏损 （100-"+String.format("%.1f", price)+"） * "+num+" = "+String.format("%.1f", (100-price)*num)+"。";
+			order_tips_1 = "提示：\n1.你选择的是不看好（看跌），越低价成交赚越多,但不利于成交。\n"
+					+ "2.若事件不发生（价格跌至0.00），则你获利：";
+			order_tips_2 = " 	" + String.format("%.2f", price)+" * "+num+" = "+String.format("%.2f", price*num);
+			order_tips_3 = "3.若事件发生（价格涨至100.00），则你亏损：";
+			order_tips_4 = "  （100-"+String.format("%.2f", price)+"） * "+num+" = "+String.format("%.2f", (100-price)*num);
 		}
-				
-		tv_total.setText(order_tips);
-		tv_total.invalidate();
-		tv_total.setVisibility(View.VISIBLE);
+		tv_total_1.setText(order_tips_1);
+		tv_total_2.setText(order_tips_2);
+		tv_total_3.setText(order_tips_3);
+		tv_total_4.setText(order_tips_4);
+		tv_total_1.setVisibility(View.VISIBLE);
+		tv_total_2.setVisibility(View.VISIBLE);
+		tv_total_3.setVisibility(View.VISIBLE);
+		tv_total_4.setVisibility(View.VISIBLE);
 	}
 	private void initView() {
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
 		priceDAOInfo = (EventPriceDAOInfo) getIntent().getSerializableExtra("price");
 		isBuy = getIntent().getBooleanExtra("buyOrSell", false);
 		ll_event_buy = (LinearLayout) findViewById(R.id.ll_event_buy);
-		tv_total = (TextView) findViewById(R.id.tv_total);
+		tv_total_1 = (TextView) findViewById(R.id.tv_total_1);
+		tv_total_2 = (TextView) findViewById(R.id.tv_total_2);
+		tv_total_3 = (TextView) findViewById(R.id.tv_total_3);
+		tv_total_4 = (TextView) findViewById(R.id.tv_total_4);
 		tv_buys = new TextView[3];
 		tv_sells = new TextView[3];
 		et_price = (EditText) findViewById(R.id.et_price);
@@ -97,7 +120,8 @@ public class EventBuyActivity extends BaseActivity {
 		iv_number_add = (ImageView) findViewById(R.id.number_add);
 		tv_tip = (TextView) findViewById(R.id.tv_tip);
 		
-		
+		tableRow4 = (TableRow) findViewById(R.id.tableRow4);
+		tableRow4.setVisibility(View.GONE);
 		btn_lood_good = (Button) findViewById(R.id.btn_lood_good);
 		btn_lood_bad = (Button) findViewById(R.id.btn_lood_bad);
 		btn_lood_good.setVisibility(View.GONE);
@@ -108,15 +132,18 @@ public class EventBuyActivity extends BaseActivity {
 			submit.setText("看好");
 			submit.setBackground(getResources().getDrawable(R.drawable.btn_buy_back));
 			tv_tip.setText(getResources().getString(R.string.buy_tip_buy));
-			tv_total.setTextColor(getResources().getColor(R.color.gain_red));
+//			tv_total.setTextColor();
+			color = getResources().getColor(R.color.gain_red);
 //			order_tips = getResources().getString(R.string.order_look_good);
 		}else{
 			submit.setText("不看好");
 			submit.setBackground(getResources().getDrawable(R.drawable.btn_sell_back));
 			tv_tip.setText(getResources().getString(R.string.buy_tip_sell));
-			tv_total.setTextColor(getResources().getColor(R.color.gain_blue));
+			color = getResources().getColor(R.color.gain_blue);
 //			order_tips = getResources().getString(R.string.order_look_bad);
 		}
+		tv_total_2.setTextColor(color);
+		tv_total_4.setTextColor(color);
 		et_price.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -253,14 +280,14 @@ public class EventBuyActivity extends BaseActivity {
 			List<EventBuyDAO> buys = info.getBuys();
 			List<EventSellDAO> sells = info.getSells();
 			for(int i = 0;i<buys.size();i++){
-				tv_buys[i].setText(buys.get(i).getNum()+"  件  "+String.format("%.1f", buys.get(i).getPrice()));
+				tv_buys[i].setText(buys.get(i).getNum()+"  份  "+String.format("%.2f", buys.get(i).getPrice()));
 				if(buys.get(i).getNum() > 9999)
-					tv_buys[i].setText("9999+  件  "+String.format("%.1f", buys.get(i).getPrice()));
+					tv_buys[i].setText("9999+  份  "+String.format("%.2f", buys.get(i).getPrice()));
 			}
 			for(int j = 0;j<sells.size();j++){
-				tv_sells[j].setText(String.format("%.1f", sells.get(j).getPrice())+"  "+sells.get(j).getNum()+"  件  ");
+				tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  "+sells.get(j).getNum()+"  份  ");
 				if(sells.get(j).getNum() > 9999)
-					tv_sells[j].setText(String.format("%.1f", sells.get(j).getPrice())+"  9999+  件  ");
+					tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  9999+  份  ");
 			}
 			
 		}
@@ -285,27 +312,27 @@ public class EventBuyActivity extends BaseActivity {
 		//事件购买确认提示
 		private void showBuyConfig(final int type,final String price,final int num){
 			View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
-			TextView tv_cancel = (TextView) view.findViewById(R.id.tv_cancel);
+			Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 			TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
 			String configMsg = "";
 			switch (type) {//type 1-限价买进 2-市价买进 3-限价卖空 4-市价卖空
 			case 1:
-				configMsg = "确定以价格" + price + "，看好" + num + "件";
+				configMsg = "确定以价格" + price + "，看好" + num + "份";
 				break;
 			case 2:
-				configMsg = "确定以市价" + "买进" + num + "件";
+				configMsg = "确定以市价" + "买进" + num + "份";
 				break;
 			case 3:
-				configMsg = "确定以价格" + price + "，不看好" + num + "件";
+				configMsg = "确定以价格" + price + "，不看好" + num + "份";
 				break;
 			case 4:
-				configMsg = "确定以市价" + "卖空" + num + "件";
+				configMsg = "确定以市价" + "卖空" + num + "份";
 				break;
 			}
 			tv_configMsg.setText(configMsg);
 			Button btn_config = (Button) view.findViewById(R.id.btn_submit);
-			final Dialog dialog = DialogShow.showDialog(this, view,Gravity.BOTTOM);
-			tv_cancel.setOnClickListener(new OnClickListener() {
+			final Dialog dialog = DialogShow.showDialog(this, view,Gravity.CENTER);
+			btn_cancel.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
 				dialog.cancel();

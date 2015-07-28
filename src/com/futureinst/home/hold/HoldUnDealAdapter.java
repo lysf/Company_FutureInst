@@ -57,17 +57,20 @@ public class HoldUnDealAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_unhold, null);
 		UnDealOrderDAO item = list.get(position);
 		TextView tv_time = ViewHolder.get(convertView, R.id.tv_time);
-		tv_time.setText(context.getResources().getString(R.string.point)+TimeUtil.longToString(item.getCtime(), TimeUtil.FORMAT_DATE_TIME_SECOND));
+//		tv_time.setText(context.getResources().getString(R.string.point)+TimeUtil.longToString(item.getCtime(), TimeUtil.FORMAT_DATE_TIME_SECOND));
+		tv_time.setText("下单时间"+TimeUtil.longToString(item.getCtime(), TimeUtil.FORMAT_DATE_TIME_SECOND));
 		TextView tv_price = ViewHolder.get(convertView, R.id.tv_price);
-		tv_price.setText(String.format("%.1f", item.getEvent().getCurrPrice()));
+		tv_price.setText(String.format("%.2f", item.getEvent().getCurrPrice()));
 		TextView tv_title = ViewHolder.get(convertView, R.id.tv_title);
 		tv_title.setText(item.getEvent().getTitle());
 		TextView tv_hold_buy = ViewHolder.get(convertView, R.id.tv_hold_buy);
 		String hold_buy = "";
 		if(item.getType() == 1 || item.getType() == 2){//买
-			hold_buy = context.getResources().getString(R.string.unhold_1)+"\t"+item.getNum()+"份\t\t以"+String.format("%.1f", item.getPrice())+"\t";
+			tv_hold_buy.setTextColor(context.getResources().getColor(R.color.gain_red));
+			hold_buy = context.getResources().getString(R.string.unhold_1)+"\t"+item.getNum()+"份\t\t出价"+String.format("%.2f", item.getPrice())+"\t";
 		}else{
-			hold_buy = context.getResources().getString(R.string.unhold_2)+"\t"+item.getNum()+"份\t\t以"+String.format("%.1f", item.getPrice())+"\t";
+			tv_hold_buy.setTextColor(context.getResources().getColor(R.color.gain_blue));
+			hold_buy = context.getResources().getString(R.string.unhold_2)+"\t"+item.getNum()+"份\t\t出价"+String.format("%.2f", item.getPrice())+"\t";
 		}
 		tv_hold_buy.setText(hold_buy);
 		TextView tv_residue = ViewHolder.get(convertView, R.id.tv_residue);

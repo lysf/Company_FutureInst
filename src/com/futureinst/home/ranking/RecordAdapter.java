@@ -69,7 +69,7 @@ public class RecordAdapter extends BaseAdapter {
 		if(item.getAllEvent() == 0){
 			tv_odds.setText("0");
 		}else{
-			tv_odds.setText((int)(item.getGainEvent()/item.getAllEvent())+"%");
+			tv_odds.setText((int)(item.getGainEvent()/item.getAllEvent()*100)+"%");
 		}
 		return convertView;
 	}
