@@ -21,11 +21,8 @@ import com.futureinst.utils.Utils;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -149,7 +146,7 @@ public class EventBuyActivity extends BaseActivity {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				if(!TextUtils.isEmpty(s)){
 					if(!Utils.checkIsNumber(s.subSequence(0, 1).toString())){
-//						et_price.setText(String.format("%.1f", event.getCurrPrice()));
+						et_price.setText(String.format("%.1f", event.getCurrPrice()));
 						return;
 					}
 					float price = Float.valueOf(s.toString());
@@ -172,7 +169,8 @@ public class EventBuyActivity extends BaseActivity {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				if(!TextUtils.isEmpty(s)){
 					if(!Utils.checkIsNumber(s.subSequence(0, 1).toString()) || s.subSequence(0, 1).toString().equals("0")){
-//						et_num.setText("1");
+						MyToast.showToast(EventBuyActivity.this, "件数不能为0", 0);
+						et_num.setText("1");
 						return;
 					}
 					int number = Integer.valueOf(s.toString());
@@ -348,7 +346,7 @@ public class EventBuyActivity extends BaseActivity {
 			dialog.show();
 		}
 		private boolean judgeData(){
-			if(TextUtils.isEmpty(et_price.getText().toString())){
+			if(TextUtils.isEmpty(et_price.getText().toString()) || et_price.getText().toString().equals("0")){
 				MyToast.showToast(this, "请输入价格", 0);
 				return false;
 			}

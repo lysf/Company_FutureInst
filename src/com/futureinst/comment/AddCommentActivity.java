@@ -22,13 +22,13 @@ public class AddCommentActivity extends BaseActivity {
 	private LinearLayout ll_add_comment;
 	private Button btn_good,btn_bad;
 	private EditText et_comment;
-	private Button btn_publish;
 	private int flag = 0;
 	String event_id;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setTitle("写评论");
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
+		setRight("发布");
 		setContentView(R.layout.activity_add_comment);
 		initView();
 	}
@@ -37,16 +37,21 @@ public class AddCommentActivity extends BaseActivity {
 		super.onLeftImageViewClick(view);
 		finish();
 	}
+	@Override
+	protected void onRightClick(View view) {
+		super.onRightClick(view);
+		if(judgeDate()){
+			addComment(flag, et_comment.getText().toString().trim());
+		}
+	}
 	private void initView() {
 		ll_add_comment = (LinearLayout) findViewById(R.id.ll_add_comment);
 		event_id = getIntent().getStringExtra("eventId");
 		btn_good = (Button) findViewById(R.id.btn_attention_good);
 		btn_bad = (Button) findViewById(R.id.btn_attention_bad);
 		et_comment = (EditText) findViewById(R.id.et_comment);
-		btn_publish = (Button) findViewById(R.id.btn_publish);
 		btn_good.setOnClickListener(clickListener);
 		btn_bad.setOnClickListener(clickListener);
-		btn_publish.setOnClickListener(clickListener);
 		ll_add_comment.setOnClickListener(clickListener);
 	}
 	OnClickListener clickListener = new OnClickListener() {
@@ -62,11 +67,6 @@ public class AddCommentActivity extends BaseActivity {
 				btn_bad.setAlpha(1.0f);
 				btn_good.setAlpha(0.3f);
 				flag = 2;
-				break;
-			case R.id.btn_publish:
-				if(judgeDate()){
-					addComment(flag, et_comment.getText().toString().trim());
-				}
 				break;
 			case R.id.ll_add_comment:
 				hideSoftInputView();

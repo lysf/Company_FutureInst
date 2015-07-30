@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.model.global.Content;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
@@ -93,6 +94,7 @@ public class RegistActivity_2 extends BaseActivity {
 		if(!judgeData(userName, gender, birthday)){
 			return;
 		}
+		Content.isPull = true;
 		progressDialog.progressDialog();
 		httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.update_user.name(), PostType.user.name(), 
 				httpPostParams.update_user(preferenceUtil.getUUid(), preferenceUtil.getID()+"", userName, gender, birthday, "", "")), 
@@ -101,6 +103,7 @@ public class RegistActivity_2 extends BaseActivity {
 					@Override
 					public void requestCompleted(Object response) throws JSONException {
 						progressDialog.cancleProgress();
+						Content.isPull = false;
 						if(response == null) return;
 						startActivity(new Intent(RegistActivity_2.this, RegistActivity_3.class));
 						

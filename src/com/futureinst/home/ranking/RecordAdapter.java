@@ -63,13 +63,13 @@ public class RecordAdapter extends BaseAdapter {
 		
 		view_type.setBackgroundColor(context.getResources().getColor(colors[item.getTag() - 1]));
 		tv_type.setText(types[item.getTag() - 1]);
-		tv_gainTotal.setText(String.format("%.1f", item.getAllGain()));
-		tv_avgGain.setText(String.format("%.1f", item.getAvgGain()));
+		tv_gainTotal.setText(String.format("%.2f", item.getAllGain()));
+		tv_avgGain.setText(String.format("%.2f", item.getAvgGain()));
 		tv_gainNumber.setText(item.getGainEvent()+"");
 		if(item.getAllEvent() == 0){
 			tv_odds.setText("0");
 		}else{
-			tv_odds.setText((int)(item.getGainEvent()/item.getAllEvent()*100)+"%");
+			tv_odds.setText((int)(item.getGainEvent()*1.0f/item.getAllEvent()*100)+"%");
 		}
 		return convertView;
 	}

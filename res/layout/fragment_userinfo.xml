@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/a_hp_1_bg_yuan"
+    android:background="@color/text_color_white"
     android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_height_45"
+        android:layout_height="@dimen/widget_height_50"
         android:orientation="horizontal" >
 
         <TextView
@@ -16,7 +16,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="个人中心"
-            android:textColor="@color/text_color_white"
+            android:textColor="@color/text_color_3"
             android:textSize="@dimen/text_size_large" />
 
         <RelativeLayout
@@ -51,7 +51,8 @@
     <com.futureinst.widget.scrollview.OverScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="@dimen/widget_height_50" >
+        android:background="@color/text_color_e"
+        android:paddingBottom="@dimen/margin_20" >
 
         <LinearLayout
             android:layout_width="match_parent"

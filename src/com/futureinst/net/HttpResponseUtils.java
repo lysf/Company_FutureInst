@@ -31,6 +31,7 @@ import com.futureinst.db.DataCacheUtil;
 import com.futureinst.fileupload.MultiPartStack;
 import com.futureinst.fileupload.MultiPartStringRequest;
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.model.global.Content;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
 
@@ -59,11 +60,13 @@ public class HttpResponseUtils {
 			final PostCommentResponseListener commentResponseListener) {
 		final String path = HttpPath.URL + params.toString();
 		final String result = cacheUtil.getCache(path);
-		try {
-			commentResponseListener.requestCompleted(GsonUtils.json2Bean(
-					result, clz));
-		} catch (JSONException e2) {
-			e2.printStackTrace();
+		if(!Content.isPull){
+			try {
+				commentResponseListener.requestCompleted(GsonUtils.json2Bean(
+						result, clz));
+			} catch (JSONException e2) {
+				e2.printStackTrace();
+			}
 		}
 		StringRequest postRequest = new StringRequest(Request.Method.POST, HttpPath.URL,
 				new Response.Listener<String>() {

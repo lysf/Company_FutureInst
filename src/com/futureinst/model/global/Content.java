@@ -10,4 +10,5 @@ public class Content {
 	
 	public static final int REQUESTCODE_TAKE_CAMERA = 0x000001;//拍照
 	public static final int REQUESTCODE_TAKE_LOCAL = 0x000002;//本地图片
+	public static boolean isPull = false;
 }

@@ -3,6 +3,7 @@ package com.futureinst.widget.list;
 import java.util.Date;
 
 import com.futureinst.R;
+import com.futureinst.model.global.Content;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -527,7 +528,7 @@ public class PullListView extends ListView implements OnScrollListener {
 			progressBar.setVisibility(View.GONE);
 			tipsTextview.setVisibility(View.VISIBLE);
 			lastUpdatedTextView.setVisibility(View.VISIBLE);
-
+			Content.isPull = true;
 			arrowImageView.clearAnimation();
 			arrowImageView.startAnimation(animation);
 
@@ -661,6 +662,7 @@ public class PullListView extends ListView implements OnScrollListener {
 	public void onRefreshComplete() {
 		state = DONE;
 		bottomstate = DONE;
+		Content.isPull = false;
 		lastUpdatedTextView.setText("最近更新:" + new Date().toLocaleString());
 		footlastUpdatedTextView.setText("最近更新:" + new Date().toLocaleString());
 		changeHeaderViewByState();

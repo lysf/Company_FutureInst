@@ -18,6 +18,7 @@ import android.widget.Button;
 
 public class RankAndRecordFragment extends BaseFragment {
 	private Button[] buttons;
+	private View[] views;
 	private List<Fragment> fragments;
 	private ViewPager container;
 	@Override
@@ -27,9 +28,13 @@ public class RankAndRecordFragment extends BaseFragment {
 	}
 	private void initView() {
 		buttons = new Button[2];
+		views = new View[2];
 		buttons[0] = (Button) findViewById(R.id.btn_ranking);
 		buttons[1] = (Button) findViewById(R.id.btn_record);
+		views[0] = findViewById(R.id.view1);
+		views[1] = findViewById(R.id.view2);
 		buttons[0].setSelected(true);
+		views[0].setSelected(true);
 		buttons[0].setOnClickListener(clickListener);
 		buttons[1].setOnClickListener(clickListener);
 		container = (ViewPager) findViewById(R.id.container);
@@ -44,15 +49,15 @@ public class RankAndRecordFragment extends BaseFragment {
 	OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			buttons[0].setSelected(false);
-			buttons[1].setSelected(false);
+			views[0].setSelected(false);
+			views[1].setSelected(false);
 			switch (v.getId()) {
 			case R.id.btn_ranking://排名
-				buttons[0].setSelected(true);
+				views[0].setSelected(true);
 				container.setCurrentItem(0);
 				break;
 			case R.id.btn_record://战绩
-				buttons[1].setSelected(true);
+				views[1].setSelected(true);
 				container.setCurrentItem(1);
 				break;
 			}
@@ -83,9 +88,9 @@ public class RankAndRecordFragment extends BaseFragment {
 		}
 		@Override
 		public void onPageSelected(int position) {
-			buttons[0].setSelected(false);
-			buttons[1].setSelected(false);
-			buttons[position].setSelected(true);
+			views[0].setSelected(false);
+			views[1].setSelected(false);
+			views[position].setSelected(true);
 		}
 		
 	}

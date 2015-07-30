@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/text_color_white"
@@ -12,5 +12,13 @@
         android:dividerHeight="@dimen/line_height"
         android:divider="#f2f2f2"
         />
-
-</LinearLayout>
+	<TextView 
+	    android:id="@+id/emptyView"
+	    android:visibility="gone"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:textSize="@dimen/text_size_large"
+	    android:textColor="@color/text_color_9"
+	    android:gravity="center"
+	    android:text="您还未登录，请登录后查看！"/>
+</RelativeLayout>

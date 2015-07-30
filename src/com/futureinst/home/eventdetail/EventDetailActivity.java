@@ -16,13 +16,14 @@ import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
@@ -49,7 +50,7 @@ import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
-import com.futureinst.widget.CircleView;
+import com.futureinst.widget.CardView;
 import com.futureinst.widget.WaterWaveView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -62,20 +63,22 @@ public class EventDetailActivity extends BaseActivity {
 	private String event_id;
 	private QueryEventDAO event;
 	//头部
-	private WaterWaveView wav;
 	private ImageView iv_operate;
 	private ImageView iv_back;
-	private TextView tv_description,tv_event_title;
+	private ImageView iv_image;
+	private TextView tv_time,tv_event_title;
+	
+	private WaterWaveView wav;
+	private TextView tv_description;
 	private Button btn_lood_good,btn_lood_bad;
 	private TextView[] tv_buys,tv_sells;
 	private View view_line;
-	private ImageView iv_image;
-	private TextView tv_time;
 	
 	//单个事件账单 
 	private View view_single_event;
-	private TextView tv_buy_1,tv_buy_2;
-	private TextView tv_sell_1,tv_sell_2;
+	private TextView tv_buy_2;
+	private TextView tv_sell_2;
+	private LinearLayout ll_event_buy,ll_event_sell;
 	private TextView tv_eventdetail_gain_good,tv_eventdetail_gain_bad;
 	
 	private LinearLayout ll_scroll;
@@ -141,10 +144,10 @@ public class EventDetailActivity extends BaseActivity {
 		iv_image = (ImageView) findViewById(R.id.iv_image);
 		
 		view_single_event = findViewById(R.id.view_singlev_event);
-		tv_buy_1 = (TextView) findViewById(R.id.tv_event_buy_1);
 		tv_buy_2 = (TextView) findViewById(R.id.tv_event_buy_2);
-		tv_sell_1 = (TextView) findViewById(R.id.tv_event_sell_1);
 		tv_sell_2 = (TextView) findViewById(R.id.tv_event_sell_2);
+		ll_event_buy = (LinearLayout) findViewById(R.id.ll_event_buy);
+		ll_event_sell = (LinearLayout) findViewById(R.id.ll_event_sell);
 		iv_operate = (ImageView) findViewById(R.id.iv_operate);
 		iv_operate.setOnClickListener(clickListener);
 		tv_eventdetail_gain_good = (TextView) findViewById(R.id.tv_eventdetail_gain_good);
@@ -189,10 +192,18 @@ public class EventDetailActivity extends BaseActivity {
 		if(singleEventInfo.getUser().getIf_no()>=0){
 			tv_eventdetail_gain_bad.setText("+"+gain_bad);
 		}
-		tv_buy_1.setText(getResources().getString(R.string.unhold_1)+"\t"+item.getAllBuyNum()+"\t份");
-		tv_buy_2.setText(getResources().getString(R.string.event_detail_deal)+"\t"+item.getBuyNum()+"\t份\t已成交\t\t均价\t"+String.format("%.1f", item.getBuyPrice()));
-		tv_sell_1.setText(getResources().getString(R.string.unhold_2)+"\t"+item.getAllSellNum()+"\t份");
-		tv_sell_2.setText(getResources().getString(R.string.event_detail_deal)+"\t"+item.getSellNum()+"\t份\t已成交\t\t均价\t"+String.format("%.1f", item.getSellPrice()));
+		if(item.getBuyNum() > 0){
+			tv_buy_2.setText(getResources().getString(R.string.unhold_1_1)+"\t"+item.getBuyNum()+"\t份\t\t\t均价\t"+String.format("%.2f", item.getBuyPrice()));
+			ll_event_buy.setVisibility(View.VISIBLE);
+		}else{
+			ll_event_buy.setVisibility(View.GONE);
+		}
+		if(item.getSellNum() > 0){
+			tv_sell_2.setText(getResources().getString(R.string.unhold_2)+"\t"+item.getSellNum()+"\t份\t\t\t均价\t"+String.format("%.2f", item.getSellPrice()));
+			ll_event_sell.setVisibility(View.VISIBLE);
+		}else{
+			ll_event_sell.setVisibility(View.GONE);
+		}
 	}
 	private void initBottomView(){
 		bottom_btns = new Button[3];
@@ -508,7 +519,6 @@ public class EventDetailActivity extends BaseActivity {
 		});
 		dialog.show();
 	}
-	
 	@Override 
 	protected void onDestroy() {
 		super.onDestroy();

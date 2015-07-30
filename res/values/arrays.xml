@@ -15,6 +15,7 @@
     <string-array 
         name="home_title">
         <item >推荐</item>
+        <item >关注</item>
         <item >体育</item>
         <item >财经</item>
         <item >娱乐</item>

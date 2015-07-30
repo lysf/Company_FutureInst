@@ -8,7 +8,7 @@
     	<color name="login_title_layout_back">#081448</color>
     	<color name="login_btn_login">#6B7191</color>
     	<color name="text_color_pink">#FF80AB</color>
-    	<color name="text_color_white">#FfFfFf</color>
+    	<color name="text_color_white">#FfFfFfff</color>
     	<color name="text_color_white_b">#bbffffff</color>
     	<color name="text_color_e">#e5e5e5</color>
     	<color name="text_color_b">#B8B8B8</color>

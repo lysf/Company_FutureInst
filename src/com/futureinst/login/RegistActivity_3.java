@@ -15,6 +15,7 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.home.HomeActivity;
 import com.futureinst.model.basemodel.RegistsKeywordDAO;
+import com.futureinst.model.global.Content;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
@@ -74,6 +75,7 @@ public class RegistActivity_3 extends BaseActivity {
 			MyToast.showToast(this, "您至少选择一项！", 0);
 			return;
 		}
+		Content.isPull = true;
 		progressDialog.progressDialog();
 		httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.update_user.name(), PostType.user.name(), 
 				httpPostParams.update_user(preferenceUtil.getUUid(), preferenceUtil.getID()+"",interest)), 
@@ -81,6 +83,7 @@ public class RegistActivity_3 extends BaseActivity {
 				new PostCommentResponseListener() {
 					@Override
 					public void requestCompleted(Object response) throws JSONException {
+						Content.isPull = false;
 						progressDialog.cancleProgress();
 						if(response == null) return;
 						MyToast.showToast(RegistActivity_3.this, getResources().getString(R.string.regist_sucess_tip), 1);

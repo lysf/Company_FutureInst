@@ -16,6 +16,7 @@ import android.widget.EditText;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.model.global.Content;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
@@ -72,6 +73,7 @@ public class RegistActiivty_1 extends BaseActivity {
 			return;
 		}
 		progressDialog.progressDialog();
+		Content.isPull = true;
 		httpResponseUtils.postJson(httpPostParams.getPostParams(
 				PostMethod.send_smscode.name(), PostType.user.name(), httpPostParams.getAuthCode(mobile)), 
 				BaseModel.class, 
@@ -80,6 +82,7 @@ public class RegistActiivty_1 extends BaseActivity {
 					public void requestCompleted(Object response) throws JSONException {
 						//获取验证码
 						progressDialog.cancleProgress();
+						Content.isPull = false;
 						if(response == null) return;
 						setDelay();
 						
@@ -92,6 +95,7 @@ public class RegistActiivty_1 extends BaseActivity {
 		if(!checkData(mobile, authCode, pwd)){
 			return;
 		}
+		Content.isPull = true;
 		progressDialog.progressDialog();
 		httpResponseUtils.postJson(httpPostParams.getPostParams(
 				PostMethod.add_user_by_phone.name(), PostType.user.name(), httpPostParams.regist(mobile, authCode, pwd)), 
@@ -100,6 +104,7 @@ public class RegistActiivty_1 extends BaseActivity {
 					@Override
 					public void requestCompleted(Object response) throws JSONException {
 						progressDialog.cancleProgress();
+						Content.isPull = false;
 						if(response == null) return;
 						UserInfo userInfo = (UserInfo) response;
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());

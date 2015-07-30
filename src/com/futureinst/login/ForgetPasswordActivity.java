@@ -15,6 +15,7 @@ import android.widget.EditText;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.model.global.Content;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
@@ -69,6 +70,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 		if(!checkData(mobile, "123456", "123456")){
 			return;
 		}
+		Content.isPull = true;
 		progressDialog.progressDialog();
 		httpResponseUtils.postJson(httpPostParams.getPostParams(
 				PostMethod.send_smscode.name(), PostType.user.name(),
@@ -78,6 +80,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 					public void requestCompleted(Object response)
 							throws JSONException {
 						//验证码发送成功
+						Content.isPull = false;
 						progressDialog.cancleProgress();
 						setDelay();
 					}
@@ -89,6 +92,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 			return;
 		}
 		progressDialog.progressDialog();
+		Content.isPull = true;
 		httpResponseUtils.postJson(httpPostParams.getPostParams(
 				PostMethod.update_pwd.name(), PostType.user.name(),
 				httpPostParams.resetPassword(mobile, new_pwd, authCode)), BaseModel.class,
@@ -97,6 +101,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 					public void requestCompleted(Object response)
 							throws JSONException {
 						//密码重置
+						Content.isPull = false;
 						progressDialog.cancleProgress();
 						if(response == null) return;
 							

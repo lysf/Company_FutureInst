@@ -66,13 +66,13 @@ public class RecordFragment extends BaseFragment {
 		super.setUserVisibleHint(isVisibleToUser);
 	}
 	private void initTotalRecordView(UserRecordDAO userRecord){
-		tv_gainTotal.setText(String.format("%.1f", userRecord.getAllGain()));
-		tv_avgGain.setText(String.format("%.1f", userRecord.getAvgGain()));
+		tv_gainTotal.setText(String.format("%.2f", userRecord.getAllGain()));
+		tv_avgGain.setText(String.format("%.2f", userRecord.getAvgGain()));
 		tv_gainNumber.setText(userRecord.getGainEvent()+"");
 		if(userRecord.getAllEvent() == 0){
 			tv_odds.setText("0");
 		}else{
-			tv_odds.setText((int)(userRecord.getGainEvent()/userRecord.getAllEvent())+"%");
+			tv_odds.setText((int)(userRecord.getGainEvent()*1.0f/userRecord.getAllEvent()*100)+"%");
 		}
 	}
 	private void initListView(List<RecordDAO> list){

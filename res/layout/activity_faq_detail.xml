@@ -9,13 +9,18 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/activity_login_margin_10"
+    
     android:orientation="vertical" >
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_e"/>
     <TextView 
         android:id="@+id/tv_detail"
+        android:padding="@dimen/activity_login_margin_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lineSpacingExtra="@dimen/line_height"
+        android:lineSpacingExtra="@dimen/dimen_3"
         android:textSize="@dimen/text_size_normal"
         android:textColor="@color/text_color_3"/>
 

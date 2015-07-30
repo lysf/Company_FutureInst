@@ -40,7 +40,7 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 	private void initView() {
 		pullListView = (PullListView) findViewById(R.id.pull_listView);
 		View heaed = LayoutInflater.from(this).inflate(R.layout.view_check_top, null);
-		pullListView.addHeaderView(heaed);
+//		pullListView.addHeaderView(heaed);
 		pullListView.setRefresh(true);
 		pullListView.setLoadMore(false);
 		adapter = new UserCheckAdapter(this);

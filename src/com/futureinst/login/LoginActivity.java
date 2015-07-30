@@ -7,6 +7,7 @@ import org.json.JSONException;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.home.HomeActivity;
+import com.futureinst.model.global.Content;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
@@ -101,6 +102,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 		if(!checkLoginData(phoneNummber, pwd)){
 			return;
 		}
+		Content.isPull = true;
 		progressDialog.progressDialog();
 		HttpResponseUtils.getInstace(this).postJson(httpPostParams.getPostParams(
 				PostMethod.sign_in_by_phone.name(), 
@@ -110,6 +112,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 					public void requestCompleted(Object response) throws JSONException {
 						//登录成功
 						progressDialog.cancleProgress();
+						Content.isPull = false;
 						if(response == null) return;
 						UserInfo userInfo = (UserInfo) response;
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
@@ -227,6 +230,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 		
 	private void thirdLogin(String uuid,String name,String gender,String head_image){	
 		progressDialog.progressDialog();
+		Content.isPull = true;
 		httpResponseUtils.postJson(
 				httpPostParams.getPostParams(PostMethod.add_user_with_uuid.name(), PostType.user.name(), 
 						httpPostParams.add_user_with_uuid(uuid, name, gender, head_image)), 
@@ -236,6 +240,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 					public void requestCompleted(Object response) throws JSONException {
 						//登录成功
 						progressDialog.cancleProgress();
+						Content.isPull = false;
 						if(response == null) return;
 						UserInfo userInfo = (UserInfo) response;
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());

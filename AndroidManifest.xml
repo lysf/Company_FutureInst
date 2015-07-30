@@ -120,6 +120,12 @@
         <activity
             android:name="com.futureinst.comment.AddCommentActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.home.userinfo.FeedBackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.home.userinfo.PrivacyActivity"
+            android:screenOrientation="portrait" />
        
 		
         <service 

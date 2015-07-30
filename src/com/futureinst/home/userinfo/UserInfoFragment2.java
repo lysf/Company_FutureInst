@@ -11,7 +11,6 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.global.Content;
-import com.futureinst.model.order.UnDealOrderDAO;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.model.usermodel.UserInformationDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
@@ -21,6 +20,7 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.push.PushMessageUtils;
+import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageCompressUtil;
@@ -57,7 +57,7 @@ public class UserInfoFragment2 extends BaseFragment {
 	private SharePreferenceUtil preferenceUtil;
 	private HttpPostParams httpPostParams;
 	private HttpResponseUtils httpResponseUtils;
-	private ImageView iv_headImag;
+	private RoundedImageView iv_headImag;
 	private TextView tv_userName, tv_description;
 	private TextView tv_message_count;
 	private ImageView iv_message, iv_edit_description;
@@ -104,13 +104,15 @@ public class UserInfoFragment2 extends BaseFragment {
 		tv_message_count = (TextView) findViewById(R.id.tv_message_count);
 		iv_message = (ImageView) findViewById(R.id.iv_message);
 		iv_edit_description = (ImageView) findViewById(R.id.iv_edit_description);
-		iv_headImag = (ImageView) findViewById(R.id.iv_headImg);
-		tableRows = new TableRow[5];
+		iv_headImag = (RoundedImageView) findViewById(R.id.iv_headImg);
+		tableRows = new TableRow[7];
 		tableRows[0] = (TableRow) findViewById(R.id.tableRow0);
 		tableRows[1] = (TableRow) findViewById(R.id.tableRow1);
 		tableRows[2] = (TableRow) findViewById(R.id.tableRow2);
 		tableRows[3] = (TableRow) findViewById(R.id.tableRow3);
 		tableRows[4] = (TableRow) findViewById(R.id.tableRow4);
+		tableRows[5] = (TableRow) findViewById(R.id.tableRow_feedback);
+		tableRows[6] = (TableRow) findViewById(R.id.tableRow_privacy);
 		tv_useableIcon = (TextView) findViewById(R.id.tv_useableIcon);
 		tv_depositCash = (TextView) findViewById(R.id.tv_depositCash);
 
@@ -137,6 +139,8 @@ public class UserInfoFragment2 extends BaseFragment {
 		tableRows[2].setOnClickListener(clickListener);
 		tableRows[3].setOnClickListener(clickListener);
 		tableRows[4].setOnClickListener(clickListener);
+		tableRows[5].setOnClickListener(clickListener);
+		tableRows[6].setOnClickListener(clickListener);
 		iv_headImag.setOnClickListener(clickListener);
 	}
 
@@ -145,7 +149,7 @@ public class UserInfoFragment2 extends BaseFragment {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.iv_headImg:// 头像
-//				showPicDialog();
+				showPicDialog();
 				break;
 			case R.id.tv_userName:// 用户名
 				showEditName();
@@ -174,17 +178,23 @@ public class UserInfoFragment2 extends BaseFragment {
 			case R.id.tableRow3:// 关于我们
 				startActivity(new Intent(getActivity(), AboutUsActivity.class));
 				break;
+			case R.id.tableRow_feedback:// 意见反馈
+				startActivity(new Intent(getActivity(), FeedBackActivity.class));
+				break;
+			case R.id.tableRow_privacy:// 隐私和服务条款
+				startActivity(new Intent(getActivity(), PrivacyActivity.class));
+				break;
 			case R.id.tableRow4:// 退出登录
 				loginOut();
 				break;
 			}
 		}
 	};
+	//退出
 	private void loginOut(){
-		View view = LayoutInflater.from(getContext()).inflate(R.layout.view_hold_delete_tip, null, false);
+		View view = LayoutInflater.from(getContext()).inflate(R.layout.view_event_order_config, null, false);
 		final Dialog dialog = DialogShow.showDialog(getActivity(), view, Gravity.CENTER);
-		TextView tv_tips = (TextView) view.findViewById(R.id.tv_tips);
-		tv_tips.setText(getResources().getString(R.string.unhold_revoke));
+		TextView tv_tips = (TextView) view.findViewById(R.id.tv_configMsg);
 		Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 		Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
 		tv_tips.setText(getResources().getString(R.string.login_out_tip));

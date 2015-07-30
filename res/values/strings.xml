@@ -27,7 +27,7 @@
     <string name="unLogin">未登录</string>
     <string name="new_password">新密码</string>
     <string name="reset_pwd">找回密码</string>
-    <string name="login_out_tip">您确定退出当前账户？</string>
+    <string name="login_out_tip">确定退出该账户</string>
 	<!-- LoginActiivty -->
 	<string name="login_login">登录</string>
 	<string name="login_cancel">取消</string>
@@ -84,9 +84,12 @@
 	<string name="asset">我的资产</string>
 	<string name="bill">对账单</string>
 	<string name="question">常见问题</string>
+	<string name="feedback">意见反馈</string>
+	<string name="privacy">隐私和服务条款</string>
 	<string name="about_us">关于我们</string>
 	<string name="store">未来福利社</string>
 	<string name="useableMoney">可交易未币</string>
+	<string name="useableIcon">可消费未币</string>
 	<string name="depositCash">保证金</string>
 	<string name="FAQ">常见问题</string>
 	<string name="media_report">媒体报道</string>
@@ -103,10 +106,11 @@
 	<string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
 	<string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
 	<string name="steep3_price_tip">● 此次预测将用</string>
-	<string name="event_detail_good">● 若事件发生你将 \t</string>
-	<string name="event_detail_bad">\t若事件不发生你将</string>
+	<string name="event_detail_good">● 若事件发生你将 </string>
+	<string name="event_detail_bad">\t|\t若事件不发生你将</string>
 	<string name="hold_1">又不看好&#160;</string>
 	<string name="unhold_1">你看好&#160;&#160;&#160;&#160;&#160;</string>
+	<string name="unhold_1_1">你已看好&#160;</string>
 	<string name="unhold_2">你不看好&#160;</string>
 	<string name="unhold_3">剩余&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
 	<string name="event_detail_deal">其中&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>

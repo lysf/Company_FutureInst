@@ -1,30 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.futureinst.widget.scrollview.OverScrollView 
+
+<com.futureinst.widget.PullLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    >
+   
+<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/text_color_white"
-    android:scrollbars="none">
+    >
+    <include 
+        android:id="@+id/view_top"
+        layout="@layout/eventdetail_top"/>
+    <FrameLayout
+            android:id="@+id/fl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/view_top"
+            android:background="@color/text_color_white" >
      <LinearLayout
         android:id="@+id/ll_scroll"
+        android:background="@color/text_color_white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
-        <include 
-            layout="@layout/eventdetail_top"/>
+        
+        <TextView 
+	    android:id="@+id/tv_description"
+	    android:layout_marginTop="@dimen/activity_login_margin_10"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="@dimen/margin_20"
+	    android:textSize="@dimen/text_size_normal"
+	    android:textColor="@color/text_color_6"
+	    android:lineSpacingExtra="3dip"
+	    />
+	<LinearLayout
+	    android:gravity="center"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+        
+        <com.futureinst.widget.WaterWaveView
+	    android:id="@+id/wav"
+	    android:layout_width="120dip"
+	    android:layout_height="120dip"
+	    android:gravity="center_vertical"
+	     />
+        </LinearLayout>
          <include
              layout="@layout/view_priceview"/>
          <include 
 		    android:id="@+id/view_singlev_event"
 		    android:visibility="gone"
 		    layout="@layout/view_event_detail_11"/>
-       <View android:layout_width="match_parent"
-           android:layout_height="@dimen/margin_5"
-           android:background="@color/text_color_e"/>
          <include 
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:minHeight="200dip"
              layout="@layout/forecast_bottom"/>
       </LinearLayout>
-</com.futureinst.widget.scrollview.OverScrollView>
+      </FrameLayout>
+      <TextView 
+            android:id="@+id/tv_event_title"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginBottom="@dimen/activity_login_margin_10"
+            android:layout_marginRight="@dimen/widget_height_50"
+            android:paddingBottom="@dimen/activity_login_margin_10"
+            android:layout_alignBottom="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_large"
+            />
+</RelativeLayout>
+</com.futureinst.widget.PullLayout>

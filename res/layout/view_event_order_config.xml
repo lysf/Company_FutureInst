@@ -42,7 +42,7 @@
                 android:text="@string/cancel"
                 android:background="@drawable/item_select"
                 android:textColor="#86BCFF"
-                android:textSize="@dimen/text_size_normal"/>
+                android:textSize="@dimen/text_size_large"/>
             <View 
             android:layout_width="@dimen/line_height"
             android:layout_height="match_parent"
@@ -52,7 +52,7 @@
             android:layout_width="0dip"
                 android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textSize="@dimen/text_size_normal"
+            android:textSize="@dimen/text_size_large"
             android:textColor="#86BCFF"
             android:background="@drawable/item_select"
             android:text="@string/ok"

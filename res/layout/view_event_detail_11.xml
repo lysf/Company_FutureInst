@@ -1,37 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#f2f2f2"
     android:paddingTop="@dimen/margin_20"
     android:paddingBottom="@dimen/margin_20"
     android:orientation="vertical" >
     <LinearLayout 
-        android:background="@color/text_color_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/margin_5"
-        android:paddingBottom="@dimen/margin_5"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-        <ImageView 
-            android:layout_marginRight="@dimen/margin_20"
-            android:layout_marginLeft="@dimen/margin_20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/iv_event_detail_1"/>
-        <TextView 
-            android:id="@+id/tv_event_buy_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size_normal"
-            android:textColor="@color/text_color_6"/>
-    </LinearLayout>
-    <LinearLayout 
         android:background="@color/text_color_white"
+        android:orientation="horizontal">
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/view_black"
+            android:layout_marginTop="@dimen/margin_20"
+            android:layout_marginBottom="@dimen/activity_login_margin_10"
+            android:layout_marginLeft="@dimen/margin_15"
+            android:layout_marginRight="@dimen/margin_15">
+            
+            <LinearLayout 
+                 android:id="@+id/ll_event_buy"
         android:layout_width="match_parent"
          android:layout_height="wrap_content"
-        android:paddingTop="@dimen/margin_5"
+        android:paddingTop="@dimen/margin_15"
         android:paddingBottom="@dimen/margin_15"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -46,40 +40,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_normal"
-            android:textColor="@color/background"/>
+            android:textColor="#86BCFF"/>
     </LinearLayout>
-<View 
+    <View 
+     android:id="@+id/view_line"
     android:layout_width="match_parent"
     android:layout_height="@dimen/line_height"
-    android:background="@color/text_color_b"/>
-
-	 <LinearLayout 
-	     android:background="@color/text_color_white"
+    android:background="@color/text_color_e"/>
+    <LinearLayout 
+        android:id="@+id/ll_event_sell"
         android:layout_width="match_parent"
          android:layout_height="wrap_content"
         android:paddingTop="@dimen/margin_15"
-        android:paddingBottom="@dimen/margin_5"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-        <ImageView 
-            android:layout_marginRight="@dimen/margin_20"
-            android:layout_marginLeft="@dimen/margin_20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/iv_event_detail_1"/>
-        <TextView 
-            android:id="@+id/tv_event_sell_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size_normal"
-            android:textColor="@color/text_color_6"/>
-    </LinearLayout>
-    <LinearLayout 
-        android:background="@color/text_color_white"
-        android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/margin_5"
-        android:paddingBottom="@dimen/margin_5"
+        android:paddingBottom="@dimen/margin_15"
         android:gravity="center_vertical"
         android:orientation="horizontal">
         <ImageView 
@@ -93,8 +66,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_normal"
-            android:textColor="@color/background"/>
+            android:textColor="#86BCFF"/>
     </LinearLayout>
+        </LinearLayout>
+        
+    </LinearLayout>
+    
     <LinearLayout 
         android:background="@color/text_color_white"
         android:layout_width="match_parent"

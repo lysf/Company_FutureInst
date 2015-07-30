@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/text_color_e"
     android:orientation="vertical" >
+    <include layout="@layout/view_check_top"/>
      <com.futureinst.widget.list.PullListView
         android:id="@+id/pull_listView"
         android:layout_width="match_parent"

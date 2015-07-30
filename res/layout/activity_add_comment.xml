@@ -7,30 +7,39 @@
     android:orientation="vertical" >
     <LinearLayout 
         android:id="@+id/ll_add_comment"
-        android:padding="@dimen/margin_20"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+         <TextView 
+             android:layout_margin="@dimen/activity_login_margin_10"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/text_color_6"
+	        android:textSize="@dimen/text_size_small"
+	        android:text="① 选择态度"/>
     <LinearLayout 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
-	    
-	    android:paddingTop="@dimen/margin_5"
-	    android:paddingBottom="@dimen/margin_5">
+	    android:gravity="center"
+	    android:background="@color/text_color_white"
+	    android:padding="@dimen/margin_20"
+	    >
+	   
 	    <Button 
 	        android:id="@+id/btn_attention_good"
-	        android:layout_width="80dip"
+	        android:layout_width="100dip"
 	        android:layout_height="@dimen/widget_height_40"
 	        android:textSize="@dimen/text_size_normal"
 	        android:textColor="@color/text_color_white"
 	        android:background="@drawable/btn_buy_back"
+	        android:layout_marginRight="@dimen/margin_20"
 	        android:alpha="0.3"
 	        android:text="看好"/>
 	    <Button 
 	        android:id="@+id/btn_attention_bad"
 	        android:layout_marginLeft="@dimen/margin_20"
-	        android:layout_width="80dip"
+	        android:layout_width="100dip"
 	        android:layout_height="@dimen/widget_height_40"
 	        android:textSize="@dimen/text_size_normal"
 	        android:textColor="@color/text_color_white"
@@ -38,6 +47,7 @@
 	        android:alpha="0.3"
 	        android:text="不看好"/>
 	    <TextView 
+	        android:visibility="gone"
 	        android:layout_width="wrap_content"
 	        android:layout_height="match_parent"
 	        android:gravity="bottom"
@@ -46,13 +56,19 @@
 	        android:textSize="@dimen/text_size_small"
 	        android:textColor="@color/text_color_6"/>
 	</LinearLayout>
-
+	<TextView 
+             android:layout_margin="@dimen/activity_login_margin_10"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:textColor="@color/text_color_6"
+	        android:textSize="@dimen/text_size_small"
+	        android:text="② 编写评论"/>
 	<EditText 
 	    android:id="@+id/et_comment"
-	    android:layout_marginTop="@dimen/margin_20"
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:background="@drawable/edit_gray_back"
+	    android:layout_height="match_parent"
+	    android:padding="@dimen/margin_5"
+	    android:background="@color/text_color_white"
 	    android:textSize="@dimen/text_size_normal"
 	    android:lineSpacingExtra="2dip"
 	    android:hint="在这里添加评论（500字以内）"
@@ -61,8 +77,10 @@
 	    android:textColor="@color/text_color_6"
 	    android:maxLength="500"
 	    android:focusableInTouchMode="true"
-	    android:minHeight="200dip"/>
+	    android:minHeight="400dip"
+	    />
 	<LinearLayout 
+	    android:visibility="gone"
 	    android:padding="@dimen/margin_15"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
