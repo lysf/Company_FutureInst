@@ -10,6 +10,13 @@ public class LazyBagDAO implements Serializable{
 	private String content;
 	private int status;
 	private Long ctime;
+	private String htime;
+	public String getHtime() {
+		return htime;
+	}
+	public void setHtime(String htime) {
+		this.htime = htime;
+	}
 	public Long getId() {
 		return id;
 	}

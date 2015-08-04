@@ -9,6 +9,7 @@ import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.ViewHolder;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +61,9 @@ public class LazyBagAdapter extends BaseAdapter {
 //			}else{
 //				iv_type.setImageDrawable(context.getResources().getDrawable(R.drawable.point_gray));
 //			}
-			tv_time.setText(TimeUtil.longToString(item.getCtime(), TimeUtil.FORMAT_DATE_TIME_SECOND));
+				if(!TextUtils.isEmpty(item.getHtime())){
+					tv_time.setText(item.getHtime());
+				}
 			tv_title.setText(item.getTitle());
 			tv_content.setText(item.getContent());
 		return convertView;

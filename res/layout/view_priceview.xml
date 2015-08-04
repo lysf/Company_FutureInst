@@ -73,7 +73,7 @@
             <ImageView 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/a_hp_1_icon_02"/>
+                android:src="@drawable/icon"/>
             <TextView 
                 android:id="@+id/tv_sell_1"
                 android:layout_width="0dip"
@@ -103,7 +103,7 @@
             <ImageView 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/a_hp_1_icon_02"/>
+                android:src="@drawable/icon"/>
             <TextView 
                 android:id="@+id/tv_sell_2"
                  android:text="--"
@@ -132,7 +132,7 @@
             <ImageView 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/a_hp_1_icon_02"/>
+                android:src="@drawable/icon"/>
             <TextView 
                 android:id="@+id/tv_sell_3"
                  android:text="--"

@@ -42,7 +42,7 @@
 	    <LinearLayout 
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:padding="@dimen/margin_15"
+	        android:padding="@dimen/widget_height_30"
 	        android:gravity="center_vertical"
 	        android:layout_marginRight="@dimen/activity_login_margin_10"
 	        android:background="@drawable/lazy_bag_back"

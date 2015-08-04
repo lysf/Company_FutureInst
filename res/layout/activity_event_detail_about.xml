@@ -67,7 +67,7 @@
             android:id="@+id/tv_event_title"
             android:layout_marginLeft="@dimen/margin_20"
             android:layout_marginBottom="@dimen/activity_login_margin_10"
-            android:layout_marginRight="@dimen/widget_height_50"
+            android:layout_marginRight="95dip"
             android:paddingBottom="@dimen/activity_login_margin_10"
             android:layout_alignBottom="@+id/view_top"
             android:layout_width="match_parent"

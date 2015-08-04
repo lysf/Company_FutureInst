@@ -58,9 +58,9 @@ public class OneKeyShareUtil {
 		// 设置精度
 		// oks.setLongitude(113.372338f);
 		// 设置是否是直接分享
-		oks.setSilent(true);
+		oks.setSilent(false);
 //		 设置自定义的外部回调
-		 oks.setCallback(new OneKeyShareCallback());
+		 oks.setCallback(new OneKeyShareCallback(context));
 //		 oks.setShareContentCustomizeCallback(new ShareContentCustomizeDemo(shareTitle, shareTitleUrl, shareImageUrl, shareContents));
 		// 显示
 		// oks.disableSSOWhenAuthorize();

@@ -139,7 +139,6 @@ public class HomeActivity extends BaseActivity {
 	//设置用户的排名
 	private void setRanking(UserInformationDAO userInformationDAO){
 		tv_ranking.setText(userInformationDAO.getRank()+"");
-		tv_ranking.setAlpha(0.3f);
 		
 		if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
 			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_up));

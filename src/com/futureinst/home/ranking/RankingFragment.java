@@ -61,7 +61,7 @@ public class RankingFragment extends BaseFragment {
 	private void initMyRanking(UserInformationDAO userInformationDAO){
 		tv_userName.setText(userInformationDAO.getUser().getName());
 		tv_prophet.setText(userInformationDAO.getForeIndex()+"");
-		tv_ranking.setText(userInformationDAO.getRank()+"");
+		tv_ranking.setText(userInformationDAO.getRank()+"  ");
 		if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
 			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up_2));
 		}else if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){

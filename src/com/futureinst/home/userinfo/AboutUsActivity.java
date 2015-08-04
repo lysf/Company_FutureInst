@@ -1,18 +1,30 @@
 package com.futureinst.home.userinfo;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.home.forecast.ForecastContainerTypeFragment;
+import com.futureinst.home.hold.HoldingFragment.MyFragmentAdapter;
 
 public class AboutUsActivity extends BaseActivity {
+	private List<Fragment> fragments;
 	private Button[] btns;
-	private WebView webView;
+	private View[] views;
+	private ViewPager container;
 	private int position = 0;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -28,44 +40,107 @@ public class AboutUsActivity extends BaseActivity {
 		finish();
 	}
 	private void initView(){
-		btns = new Button[3];
+		btns = new Button[4];
+		views = new View[4];
 		btns[0] = (Button) findViewById(R.id.btn_future);
 		btns[1] = (Button) findViewById(R.id.btn_media_report);
 		btns[2] = (Button) findViewById(R.id.btn_contact_us);
-		btns[0].setSelected(true);
+		btns[3] = (Button) findViewById(R.id.btn_guidang);
+		views[0] = findViewById(R.id.view1);
+		views[1] = findViewById(R.id.view2);
+		views[2] = findViewById(R.id.view3);
+		views[3] = findViewById(R.id.view4);
+		container = (ViewPager) findViewById(R.id.container);
+		views[0].setSelected(true);
 		btns[0].setOnClickListener(clickListener);
 		btns[1].setOnClickListener(clickListener);
 		btns[2].setOnClickListener(clickListener);
-		webView = (WebView) findViewById(R.id.webView);
-		WebSettings webSettings = webView.getSettings();
-		webSettings.setSupportZoom(false);
-		webSettings.setBuiltInZoomControls(false);
-		webView.loadUrl("file:///android_asset/about.html");
+		btns[3].setOnClickListener(clickListener);
+		fragments = new ArrayList<Fragment>();
+		for(int i=0;i<3;i++){
+			WebViewFragment fragment = new WebViewFragment();
+			Bundle bundle = new Bundle();
+			bundle.putInt("index", i);
+			fragment.setArguments(bundle);
+			fragments.add(fragment);
+		}
+		ForecastContainerTypeFragment forecastContainerTypeFragment = ForecastContainerTypeFragment.newInstance(-1);
+		fragments.add(forecastContainerTypeFragment);
+		MyFragmentAdapter adapter = new MyFragmentAdapter(
+			getSupportFragmentManager(), fragments);
+		container.setAdapter(adapter);
+		container.setOnPageChangeListener(changeListener);
+	}
+	
+	OnPageChangeListener changeListener = new OnPageChangeListener() {
+		@Override
+		public void onPageSelected(int position) {
+			views[0].setSelected(false);
+			views[1].setSelected(false);
+			views[2].setSelected(false);
+			views[3].setSelected(false);
+			views[position].setSelected(true);
+		}
+		@Override
+		public void onPageScrolled(int arg0, float arg1, int arg2) {}
+		
+		@Override
+		public void onPageScrollStateChanged(int arg0) {}
+	};
+	public class MyFragmentAdapter extends FragmentPagerAdapter{
+		private List<Fragment> fragments;
+		public MyFragmentAdapter(FragmentManager fm) {
+			super(fm);
+			// TODO Auto-generated constructor stub
+		}
+		public MyFragmentAdapter(FragmentManager fm,List<Fragment> oneListFragments){
+			super(fm);
+			this.fragments=oneListFragments;
+		}
+		@Override
+		public Fragment getItem(int arg0) {
+			// TODO Auto-generated method stub
+			return fragments.get(arg0);
+		}
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return fragments.size();
+		}
+		
 	}
 	OnClickListener clickListener = new OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			btns[0].setSelected(false);
-			btns[1].setSelected(false);
-			btns[2].setSelected(false);
+			views[0].setSelected(false);
+			views[1].setSelected(false);
+			views[2].setSelected(false);
+			views[3].setSelected(false);
 			switch (v.getId()) {
 			case R.id.btn_future://未来研究所
 				if(position == 0) return;
-				btns[0].setSelected(true);
-				webView.loadUrl("file:///android_asset/about.html");
+				views[0].setSelected(true);
+				container.setCurrentItem(0);
 				position = 0;
 				break;
 			case R.id.btn_media_report://媒体报道
 				if(position == 1) return;
-				btns[1].setSelected(true);
-				webView.loadUrl("file:///android_asset/media_about.html");
+				views[1].setSelected(true);
+				container.setCurrentItem(1);
 				position = 1;
 				break;
 			case R.id.btn_contact_us://联系我们
 				if(position == 2) return;
-				btns[2].setSelected(true);
-				webView.loadUrl("file:///android_asset/tell_us.html");
+				views[2].setSelected(true);
+				container.setCurrentItem(2);
 				position = 2;
+				break;
+			case R.id.btn_guidang://归档事件
+				if(position == 3) return;
+				views[3].setSelected(true);
+				container.setCurrentItem(3);
+				position = 3;
 				break;
 			}
 		}

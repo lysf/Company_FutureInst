@@ -25,7 +25,7 @@ import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
 
 public class RegistActiivty_1 extends BaseActivity {
-	private EditText et_phoneNumber,et_authCode,et_password;
+	private EditText et_phoneNumber,et_authCode,et_password,et_submit_password;
 	private Button btn_authCode;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -38,8 +38,9 @@ public class RegistActiivty_1 extends BaseActivity {
 		String phoneNumber = et_phoneNumber.getText().toString().trim();
 		String authCode = et_authCode.getText().toString().trim();
 		String password = et_password.getText().toString().trim();
+		String submit_pwd = et_submit_password.getText().toString().trim();
 //		startActivity(new Intent(RegistActiivty_1.this, RegistActivity_2.class));
-		regist(phoneNumber, authCode, password);
+		regist(phoneNumber, authCode, password,submit_pwd);
 		
 	}
 	private void initView() {
@@ -51,6 +52,7 @@ public class RegistActiivty_1 extends BaseActivity {
 		et_phoneNumber = (EditText) findViewById(R.id.et_phoneNumber);
 		et_authCode = (EditText) findViewById(R.id.et_authCode);
 		et_password = (EditText) findViewById(R.id.et_password);
+		et_submit_password = (EditText) findViewById(R.id.et_submit_password);
 		btn_authCode = (Button) findViewById(R.id.btn_auth);
 		btn_authCode.setOnClickListener(clickListener);
 	}
@@ -69,7 +71,7 @@ public class RegistActiivty_1 extends BaseActivity {
 	};
 	//获取验证码
 	protected void getAuthCode(String mobile) {
-		if(!checkData(mobile, "123456", "123456")){
+		if(!checkData(mobile, "123456", "123456","123456")){
 			return;
 		}
 		progressDialog.progressDialog();
@@ -91,8 +93,8 @@ public class RegistActiivty_1 extends BaseActivity {
 		
 	}
 	//注册
-	private void regist(String mobile, String authCode, String pwd){
-		if(!checkData(mobile, authCode, pwd)){
+	private void regist(String mobile, String authCode, String pwd,String submit_pwd){
+		if(!checkData(mobile, authCode, pwd,submit_pwd)){
 			return;
 		}
 		Content.isPull = true;
@@ -115,7 +117,7 @@ public class RegistActiivty_1 extends BaseActivity {
 	
 	}
 	//检测输入数据
-		private boolean checkData(String mobile, String authCode, String pwd){
+		private boolean checkData(String mobile, String authCode, String pwd,String submit_pwd){
 			if(TextUtils.isEmpty(mobile)){
 				MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
 				return false;
@@ -130,6 +132,14 @@ public class RegistActiivty_1 extends BaseActivity {
 			}
 			if(TextUtils.isEmpty(authCode)){
 				MyToast.showToast(this, getResources().getString(R.string.empty_authCode), 0);
+				return false;
+			}
+			if(TextUtils.isEmpty(submit_pwd)){
+				MyToast.showToast(this, "请输入确认密码", 0);
+				return false;
+			}
+			if(!pwd.equals(submit_pwd)){
+				MyToast.showToast(this, "两次密码不一致", 0);
 				return false;
 			}
 			return true;

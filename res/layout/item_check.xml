@@ -34,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
+            android:lineSpacingExtra="@dimen/dimen_3"
             android:textSize="@dimen/text_size_normal"
             android:textColor="@color/text_color_3"/>
         </LinearLayout>
@@ -66,7 +67,7 @@
     </LinearLayout>
     <View 
         android:id="@+id/view_diver"
-        android:layout_height="@dimen/activity_login_margin_10"
+        android:layout_height="@dimen/margin_5"
         android:layout_width="match_parent"
         android:background="@color/text_color_e"/>
  </LinearLayout>

@@ -2,6 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_a"/>
+    <LinearLayout 
+       android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/text_color_white"
     android:padding="@dimen/activity_login_padding"
     android:orientation="vertical" >
@@ -18,7 +26,7 @@
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:textSize="@dimen/text_size_small"
-	    android:textColor="@color/text_color_pink"
+	    android:textColor="@color/text_color_base"
 	    android:text="@string/regist_userName_tip"/>
 	<TextView 
 	    android:id="@+id/tv_sex"
@@ -37,4 +45,5 @@
         android:hint="@string/birthday_hint"
 	    />
 
+</LinearLayout>
 </LinearLayout>

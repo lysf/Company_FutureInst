@@ -26,6 +26,7 @@
     <string name="ok">确定</string>
     <string name="unLogin">未登录</string>
     <string name="new_password">新密码</string>
+    <string name="submit_new_password">确认密码</string>
     <string name="reset_pwd">找回密码</string>
     <string name="login_out_tip">确定退出该账户</string>
 	<!-- LoginActiivty -->
@@ -43,11 +44,11 @@
 	<!-- RegistActivity -->
 	<string name="regist_auth">获取验证码</string>
 	<string name="authCode">验证码</string>
-	<string name="regist_password_tip">需要包含字母数字，至少8个字符，区分大小写</string>
+	<string name="regist_password_tip"> （ 密码需要包含字母数字，至少8个字符，区分大小写 ） </string>
 	<string name="regist_userName">用户名</string>
-	<string name="regist_userName_tip">不多于14个英文字母或者7个汉字</string>
-	<string name="sex_hint">请选择性别</string>
-	<string name="birthday_hint">请选择生日</string>
+	<string name="regist_userName_tip">（ 不多于14个英文字母或者7个汉字 ）</string>
+	<string name="sex_hint">性别</string>
+	<string name="birthday_hint">生日</string>
 	<string name="sex">性别</string>
 	<string name="sex_male">男</string>
 	<string name="sex_female">女</string>
@@ -80,7 +81,7 @@
 	<string name="lazy_bag">懒人包</string>
 	<!-- UserInfoFragment -->
 	<string name="userNmae_hint">用户名</string>
-	<string name="description_hint">一句话表达"先知态度"，20字以内</string>
+	<string name="description_hint">一句话表达"先知态度"</string>
 	<string name="asset">我的资产</string>
 	<string name="bill">对账单</string>
 	<string name="question">常见问题</string>
@@ -94,6 +95,7 @@
 	<string name="FAQ">常见问题</string>
 	<string name="media_report">媒体报道</string>
 	<string name="contact_us">联系我们</string>
+	<string name="guidang">归档事件</string>
 	<string name="pushMessage">通知中心</string>
 	
 	<string name="regist_sucess_tip">欢迎您成为未来研究所的预言家，<u>50000个未币请笑纳</u>，可到【用户中心】查看。</string>
@@ -114,7 +116,7 @@
 	<string name="unhold_2">你不看好&#160;</string>
 	<string name="unhold_3">剩余&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
 	<string name="event_detail_deal">其中&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
-	
+	<string name="space">&#160;&#160;&#160;&#160;</string>
 	
 	<string name="event_detail_depend">清算依据</string>
 	<string name="event_detail_focus">关注该事件</string>

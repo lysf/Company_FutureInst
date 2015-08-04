@@ -18,12 +18,12 @@
             android:id="@+id/btn_deal"
             android:layout_width="match_parent"
             android:textSize="@dimen/text_size_normal"
-           	android:text="@string/hold_undeal"
+             android:text="@string/hold_deal"
             android:background="@null"
             android:textColor="@color/text_color_3"
             android:layout_height="@dimen/widget_height_45"/>
             <View 
-                android:id="@+id/view1"
+                android:id="@+id/view0"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_3"
                 android:layout_marginLeft="@dimen/margin_5"
@@ -39,12 +39,13 @@
             android:id="@+id/btn_undeal"
             android:layout_width="match_parent"
             android:textSize="@dimen/text_size_normal"
-             android:text="@string/hold_deal"
+           	android:text="@string/hold_undeal"
             android:background="@null"
             android:textColor="@color/text_color_3"
             android:layout_height="@dimen/widget_height_45"/>
+            
             <View 
-                android:id="@+id/view2"
+                android:id="@+id/view1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_3"
                 android:layout_marginLeft="@dimen/margin_5"

@@ -5,6 +5,10 @@
     android:background="@color/text_color_white"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_a"/>
     <TextView 
          android:paddingLeft="@dimen/activity_login_padding"
          android:paddingTop="@dimen/activity_login_padding"

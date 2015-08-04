@@ -24,7 +24,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#77000000"
+    android:background="@drawable/top_line"
     android:minHeight="@dimen/widget_height_50">
     <TextView 
         android:id="@+id/tab_forecast"

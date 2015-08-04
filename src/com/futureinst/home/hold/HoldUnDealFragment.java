@@ -39,14 +39,22 @@ public class HoldUnDealFragment extends BaseFragment implements OnRefreshListene
 	private PullListView pullListView;
 	private HoldUnDealAdapter adapter;
 	private SharePreferenceUtil preferenceUtil;
+	private boolean isStart;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_hold_deal);
 		initView();
 		initListHeader();
 		getData();
+		isStart = true;
 	}
-
+	@Override
+	public void setUserVisibleHint(boolean isVisibleToUser) {
+		if(isVisibleToUser && isStart){
+			getData();
+		}
+		super.setUserVisibleHint(isVisibleToUser);
+	}
 	private void initView() {
 		progressDialog = MyProgressDialog.getInstance(getContext());
 		preferenceUtil = SharePreferenceUtil.getInstance(getContext());

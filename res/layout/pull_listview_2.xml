@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:scrollbars="none"
         android:dividerHeight="@dimen/line_height"
-        android:divider="#f2f2f2"
+        android:divider="@color/text_color_9"
         />
 	<TextView 
 	    android:id="@+id/emptyView"

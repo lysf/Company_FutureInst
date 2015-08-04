@@ -22,7 +22,7 @@
             android:textSize="@dimen/text_size_normal"
             android:textColor="@color/text_color_3"
             android:background="@color/text_color_white"
-            android:text="我的排名"/>
+            android:text="排行榜"/>
             <View 
                 android:id="@+id/view1"
                 android:layout_width="match_parent"

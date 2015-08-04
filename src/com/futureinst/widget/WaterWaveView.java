@@ -28,7 +28,7 @@ public class WaterWaveView extends View
 	private final float f = 0.033F;
 	private int mAlpha = 70;//透明度
 	private int mColor = Color.BLUE;
-	private float mAmplitude = 4.0F; // 振幅
+	private float mAmplitude = 2.0F; // 振幅
 	private final Paint mPaint = new Paint();
 	private float mWateLevel = 0.5F;//水高(0~1)
 	private float autoLevel = 0F;//渐变水高(autoLevel<=mWateLevel)

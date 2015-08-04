@@ -54,22 +54,20 @@ public class RecordAdapter extends BaseAdapter {
 		if(convertView == null)
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_record, null);
 		RecordDAO item = list.get(position);
-		View view_type = ViewHolder.get(convertView, R.id.view_type);
 		TextView tv_type = ViewHolder.get(convertView, R.id.tv_type);
 		TextView tv_gainTotal = ViewHolder.get(convertView, R.id.tv_gainTotal);
 		TextView tv_avgGain = ViewHolder.get(convertView, R.id.tv_avgGain);
 		TextView tv_gainNumber = ViewHolder.get(convertView, R.id.tv_gainNumber);
 		TextView tv_odds = ViewHolder.get(convertView, R.id.tv_odds);
 		
-		view_type.setBackgroundColor(context.getResources().getColor(colors[item.getTag() - 1]));
-		tv_type.setText(types[item.getTag() - 1]);
+		tv_type.setText(types[item.getTag() - 1]+context.getResources().getString(R.string.space));
 		tv_gainTotal.setText(String.format("%.2f", item.getAllGain()));
 		tv_avgGain.setText(String.format("%.2f", item.getAvgGain()));
 		tv_gainNumber.setText(item.getGainEvent()+"");
 		if(item.getAllEvent() == 0){
 			tv_odds.setText("0");
 		}else{
-			tv_odds.setText((int)(item.getGainEvent()*1.0f/item.getAllEvent()*100)+"%");
+			tv_odds.setText(String.format("%3d", (int)(item.getGainEvent()*1.0f/item.getAllEvent()*100))+"%");
 		}
 		return convertView;
 	}

@@ -60,10 +60,10 @@ public class UserInfoFragment2 extends BaseFragment {
 	private RoundedImageView iv_headImag;
 	private TextView tv_userName, tv_description;
 	private TextView tv_message_count;
-	private ImageView iv_message, iv_edit_description;
+	private ImageView iv_message;
 	private TableRow[] tableRows;
 	private PushMessageUtils pushMessageUtils;
-	private TextView tv_useableIcon,tv_depositCash;
+	private TextView tv_useableIcon,tv_depositCash,tv_useableSaleIcon;
 	private boolean isStart;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -102,8 +102,8 @@ public class UserInfoFragment2 extends BaseFragment {
 		tv_userName = (TextView) findViewById(R.id.tv_userName);
 		tv_description = (TextView) findViewById(R.id.tv_description);
 		tv_message_count = (TextView) findViewById(R.id.tv_message_count);
+		tv_useableSaleIcon = (TextView) findViewById(R.id.tv_useableSaleIcon);
 		iv_message = (ImageView) findViewById(R.id.iv_message);
-		iv_edit_description = (ImageView) findViewById(R.id.iv_edit_description);
 		iv_headImag = (RoundedImageView) findViewById(R.id.iv_headImg);
 		tableRows = new TableRow[7];
 		tableRows[0] = (TableRow) findViewById(R.id.tableRow0);
@@ -126,13 +126,14 @@ public class UserInfoFragment2 extends BaseFragment {
 		if (!TextUtils.isEmpty(userInfo.getUser().getDescription())) {
 			tv_description.setText(userInfo.getUser().getDescription());
 		}
-		tv_useableIcon.setText(String.format("%.1f", userInfo.getAsset()));
-		tv_depositCash.setText(String.format("%.1f", userInfo.getAssure()));
+		tv_useableIcon.setText(String.format("%.2f", userInfo.getAsset()));
+		tv_depositCash.setText(String.format("%.2f", userInfo.getAssure()));
+		tv_useableSaleIcon.setText(String.format("%.2f", userInfo.getExchange()));
 	}
 
 	private void setClickListener() {
 		iv_message.setOnClickListener(clickListener);
-		iv_edit_description.setOnClickListener(clickListener);
+		tv_description.setOnClickListener(clickListener);
 		tv_userName.setOnClickListener(clickListener);
 		tableRows[0].setOnClickListener(clickListener);
 		tableRows[1].setOnClickListener(clickListener);
@@ -149,12 +150,12 @@ public class UserInfoFragment2 extends BaseFragment {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.iv_headImg:// 头像
-				showPicDialog();
+//				showPicDialog();
 				break;
 			case R.id.tv_userName:// 用户名
 				showEditName();
 				break;
-			case R.id.iv_edit_description:// 先知描述
+			case R.id.tv_description:// 先知描述
 				showEditDescription();
 				break;
 			case R.id.iv_message:// 消息

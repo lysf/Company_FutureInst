@@ -14,9 +14,16 @@ public class UserInformationDAO implements Serializable{
 	private int lastRank;
 	private float asset;
 	private float assure;
+	private float exchange;
 	private int status;
 	private UserDAO user;
 	
+	public float getExchange() {
+		return exchange;
+	}
+	public void setExchange(float exchange) {
+		this.exchange = exchange;
+	}
 	public int getLastRank() {
 		return lastRank;
 	}

@@ -16,13 +16,11 @@ import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.futureinst.R;
@@ -63,11 +61,13 @@ public class EventDetailActivity extends BaseActivity {
 	private String event_id;
 	private QueryEventDAO event;
 	//头部
+	private ImageView iv_share;
 	private ImageView iv_operate;
 	private ImageView iv_back;
 	private ImageView iv_image;
 	private TextView tv_time,tv_event_title;
 	
+	FragmentActivityTabAdapter activityTabAdapter;
 	private WaterWaveView wav;
 	private TextView tv_description;
 	private Button btn_lood_good,btn_lood_bad;
@@ -123,6 +123,7 @@ public class EventDetailActivity extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 		getPrice();
+		activityTabAdapter.getCurrentFragment().setUserVisibleHint(true);
 		if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
 			query_single_event_clear();
 			lazyBagFragment.setUserVisibleHint(true);
@@ -149,7 +150,9 @@ public class EventDetailActivity extends BaseActivity {
 		ll_event_buy = (LinearLayout) findViewById(R.id.ll_event_buy);
 		ll_event_sell = (LinearLayout) findViewById(R.id.ll_event_sell);
 		iv_operate = (ImageView) findViewById(R.id.iv_operate);
+		iv_share = (ImageView) findViewById(R.id.iv_share);
 		iv_operate.setOnClickListener(clickListener);
+		iv_share.setOnClickListener(clickListener);
 		tv_eventdetail_gain_good = (TextView) findViewById(R.id.tv_eventdetail_gain_good);
 		tv_eventdetail_gain_bad = (TextView) findViewById(R.id.tv_eventdetail_gain_bad);
 		
@@ -158,6 +161,7 @@ public class EventDetailActivity extends BaseActivity {
 		tv_event_title = (TextView) findViewById(R.id.tv_event_title);
 		tv_description = (TextView) findViewById(R.id.tv_description);
 		iv_back.setOnClickListener(clickListener);
+		iv_share.setOnClickListener(clickListener);
 		ll_scroll.setOnClickListener(clickListener);
 		initPriceView();
 		initBottomView();
@@ -227,7 +231,7 @@ public class EventDetailActivity extends BaseActivity {
 		fragments.add(lazyBagFragment);
 		fragments.add(refrenceFragment);
 		fragments.add(commentFragment);
-		FragmentActivityTabAdapter activityTabAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, bottom_btns,bottom_views);
+		activityTabAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, bottom_btns,bottom_views);
 		activityTabAdapter.setOnRgsExtraCheckedChangedListener(new OnRgsExtraCheckedChangedListener() {
 			@Override
 			public void OnRgsExtraCheckedChanged(View[] btns, int checkedId, int index) {
@@ -267,8 +271,11 @@ public class EventDetailActivity extends BaseActivity {
 			case R.id.iv_back:
 				finish();
 				break;
-			case R.id.iv_operate://关注、分享
+			case R.id.iv_operate://关注
 				showOperateDialog();
+				break;
+			case R.id.iv_share://分享
+				share();
 				break;
 			case R.id.tv_lanren://懒人包
 				Intent intentLazyBag = new Intent(EventDetailActivity.this, LazyBagFragment.class);
@@ -318,14 +325,14 @@ public class EventDetailActivity extends BaseActivity {
 		List<EventBuyDAO> buys = info.getBuys();
 		List<EventSellDAO> sells = info.getSells();
 		for(int i = 0;i<buys.size();i++){
-			tv_buys[i].setText(buys.get(i).getNum()+"  份  "+String.format("%.2f", buys.get(i).getPrice()));
+			tv_buys[i].setText(buys.get(i).getNum()+"  份  \t\t"+String.format("%.2f", buys.get(i).getPrice()));
 			if(buys.get(i).getNum() > 9999)
-				tv_buys[i].setText("9999+  份  "+String.format("%.2f", buys.get(i).getPrice()));
+				tv_buys[i].setText("9999+  份 \t\t "+String.format("%.2f", buys.get(i).getPrice()));
 		}
 		for(int j = 0;j<sells.size();j++){
-			tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  "+sells.get(j).getNum()+"  份  ");
+			tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  \t\t"+sells.get(j).getNum()+"  份  ");
 			if(sells.get(j).getNum() > 9999)
-				tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  9999+  份  ");
+				tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  \t\t9999+  份  ");
 		}
 		
 	}
@@ -354,11 +361,12 @@ public class EventDetailActivity extends BaseActivity {
 	//事件规则
 	private void showDialog(final String rule){
 		View view = LayoutInflater.from(this).inflate(R.layout.view_event_rule, null,false);
-		ImageView iv_cancel = (ImageView) view.findViewById(R.id.iv_event_rule_cancel);
+//		ImageView iv_cancel = (ImageView) view.findViewById(R.id.iv_event_rule_cancel);
+		Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
 		TextView tv_rule = (TextView) view.findViewById(R.id.tv_rule); 
 		tv_rule.setText(rule);
 		final Dialog dialog = DialogShow.showDialog(this, view,Gravity.CENTER);
-		iv_cancel.setOnClickListener(new OnClickListener() {
+		btn_submit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				dialog.cancel();
@@ -507,7 +515,7 @@ public class EventDetailActivity extends BaseActivity {
 		btn_share.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				share();
+				
 				dialog.dismiss();
 			}
 		});

@@ -50,13 +50,21 @@
         <ImageView 
             android:id="@+id/iv_operate"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginRight="@dimen/margin_5"
+            android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/margin_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/detail_operate"/>
-        
+        <ImageView 
+            android:id="@+id/iv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:src="@drawable/image_share"
+            android:layout_toLeftOf="@+id/iv_operate"
+            android:layout_marginRight="@dimen/margin_5"/>
     </RelativeLayout>
 	
 </LinearLayout>

@@ -77,6 +77,7 @@ public class HttpResponseUtils {
 							BaseModel baseModel = GsonUtils.json2Bean(response,
 									BaseModel.class);
 							int status = baseModel.getStatus();
+							String method = baseModel.getMethod();
 							final String message = baseModel.getErrinfo();
 							if(status!=0){
 								try {
@@ -85,7 +86,9 @@ public class HttpResponseUtils {
 								} catch (JSONException e1) {
 									e1.printStackTrace();
 								}
-								MyToast.showToast(activity, message, 0);
+								if(!method.equals("query_user_with_uuid")){
+									MyToast.showToast(activity, message, 0);
+								}
 								return;
 							}
 							cacheUtil.addOrReplaCecache(path, response);

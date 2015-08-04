@@ -2,11 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/text_color_e"
+    android:background="@drawable/item_select"
     android:orientation="vertical" >
     <TextView 
         android:id="@+id/tv_status"
-        android:background="@color/text_color_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_login_margin_10"
@@ -25,14 +24,21 @@
 	    android:paddingRight="@dimen/activity_login_margin_10"
 	    android:paddingTop="@dimen/margin_5"
 	    android:paddingBottom="@dimen/margin_5"
-	    android:background="@color/text_color_white"
 	    android:layout_marginBottom="0.3dip">
 	    <LinearLayout 
 	        android:layout_width="wrap_content"
 	        android:gravity="center"
 	        android:layout_height="wrap_content"
 	        android:orientation="vertical">
-	       
+	       		<TextView 
+	       		    android:id="@+id/tv_deal"
+	       		    android:visibility="gone"
+	       		    android:layout_width="match_parent" 
+	       		    android:layout_height="wrap_content"
+	       		    android:textColor="@color/text_color_9"
+	       		    android:textSize="@dimen/text_size_normal"
+	       		    android:layout_marginBottom="@dimen/margin_5"
+	       		    android:text="清算价"/>
 	            <TextView 
 	                android:id="@+id/tv_price"
 	                android:layout_width="wrap_content"
@@ -46,7 +52,6 @@
 	            android:layout_marginTop="@dimen/margin_5"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
-	            android:gravity="center"
 	            android:text="最新成交价"
 	            android:textColor="@color/text_color_3"
 	            android:textSize="@dimen/text_size_normal"/>
@@ -67,7 +72,7 @@
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
 	            android:textSize="@dimen/text_size_normal"
-	            android:textColor="@color/text_color_3"
+	            android:textColor="@color/text_color_0"
 	            android:text="NBA总冠军休斯顿火箭"
 	            android:maxLines="2"/>
 	        <TextView 

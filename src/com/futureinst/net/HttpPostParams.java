@@ -122,6 +122,13 @@ public class HttpPostParams {
 		return jsonObject.toString();
 	}
 	//首页查询事件
+	public String query_event(){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("check ", "-1");
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	//查询归档事件
 	public String query_event(String tag,String order){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("tag", tag);
@@ -378,7 +385,23 @@ public class HttpPostParams {
 		map.put("ctype", "android");
 		map.put("name", name);
 		map.put("gender", gender);
-//		map.put("head_image", head_image);
+		map.put("head_image", head_image);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 微博微信查询用户
+	 * @Title: query_user_with_uuid   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String query_user_with_uuid(String uuid){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("uuid", uuid);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}

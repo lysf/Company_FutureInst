@@ -3,18 +3,18 @@
      xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/text_color_white"
+    android:background="@drawable/item_select"
     android:orientation="vertical"
      >
      <View 
          android:id="@+id/diver"
          android:layout_width="match_parent"
          android:layout_height="@dimen/activity_login_margin_10"
-         android:background="#f2f2f2"/>
+         android:background="#D9D9D9"/>
     <RelativeLayout 
     android:layout_width="match_parent"
     android:layout_height="250dip"
-    android:background="@color/text_color_white">
+    >
     <ImageView 
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
@@ -28,7 +28,6 @@
 	    />
 	<TextView 
 	    android:id="@+id/tv_time"
-	    android:layout_marginTop="4dip"
 	    android:layout_marginLeft="@dimen/activity_login_margin_10"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
@@ -41,6 +40,12 @@
 	    android:drawableLeft="@drawable/iv_time"
 	    android:background="@color/tab_text_selected"
 	    />
+	<View 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_below="@+id/iv_image"
+	    android:background="#F1F0F0"
+	    />
 	<LinearLayout 
 	    android:id="@+id/ll_circle"
 	    android:layout_width="100dip"
@@ -50,14 +55,15 @@
 	    android:gravity="center_vertical"
 	    android:layout_marginRight="@dimen/margin_15"
 	    android:layout_marginBottom="@dimen/margin_20"
-	    android:orientation="horizontal">
+	    android:orientation="horizontal"/>
 	
-</LinearLayout>
 	<TextView
 	    android:id="@+id/tv_title"
 	    android:paddingLeft="@dimen/margin_15"
 	    android:paddingRight="@dimen/margin_5"
-	    android:paddingTop="@dimen/margin_20"
+	    android:paddingTop="@dimen/margin_5"
+	    android:paddingBottom="@dimen/margin_5"
+	    android:gravity="center_vertical"
 	    android:lineSpacingExtra="@dimen/line_height"
 	    android:textSize="@dimen/text_size_large"
 	    android:textColor="@color/text_color_6"

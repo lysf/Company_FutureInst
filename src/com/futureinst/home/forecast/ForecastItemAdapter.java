@@ -73,17 +73,22 @@ public class ForecastItemAdapter extends BaseAdapter {
 			ImageLoader.getInstance().displayImage(item.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
 			iv_image.setTag(item.getImgsrc());
 		}
-		tv_title.setText(item.getTitle());
+		tv_title.setText(item.getLead());
 		tv_time.setText(item.getStatusStr());
 		//倒计时
-		if(item.getStatusStr()!=null && item.getStatusStr().equals("交易中")){
+		if(item.getStatusStr()!=null){
+		if(item.getStatusStr().equals("交易中")){
 			Long time = item.getTradeTime() - SystemTimeUtile.getInstance(0L).getSystemTime();
 			tv_time.setText("剩余"+LongTimeUtil.longTimeUtil(time));
 			view_line.setBackgroundColor(context.getResources().getColor(R.color.forecast_deal));
 			tv_time.setBackgroundColor(context.getResources().getColor(R.color.forecast_deal));
+		}else if(item.getStatusStr().equals("已清算")){
+			view_line.setBackgroundColor(context.getResources().getColor(R.color.text_color_bf));
+			tv_time.setBackgroundColor(context.getResources().getColor(R.color.text_color_bf));
 		}else{
 			view_line.setBackgroundColor(context.getResources().getColor(R.color.tab_text_selected));
 			tv_time.setBackgroundColor(context.getResources().getColor(R.color.tab_text_selected));
+		}
 		}
 		WaterWaveView wav = new WaterWaveView(context);
 		wav.setTextTop(String.format("%.2f", item.getCurrPrice()));

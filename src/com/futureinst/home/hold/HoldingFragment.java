@@ -21,23 +21,30 @@ public class HoldingFragment extends BaseFragment {
 	private View[] views;
 	private List<Fragment> fragments;
 	private ViewPager container;
+	private MyFragmentAdapter adapter;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_home_holding);
 		initView();
 	}
+	@Override
+	public void onResume() {
+		super.onResume();
+		adapter.getItem(container.getCurrentItem()).setUserVisibleHint(true);
+		
+	}
 	private void initView() {
 		btns = new Button[2];
 		views = new View[2];
 		fragments = new ArrayList<Fragment>();
-		fragments.add(new HoldUnDealFragment());
 		fragments.add(new HoldDealFragment());
+		fragments.add(new HoldUnDealFragment());
 		btns[0] = (Button) findViewById(R.id.btn_deal);
 		btns[1] = (Button) findViewById(R.id.btn_undeal);
-		views[0] = findViewById(R.id.view1);
-		views[1] = findViewById(R.id.view2);
+		views[0] = findViewById(R.id.view0);
+		views[1] = findViewById(R.id.view1);
 		container = (ViewPager) findViewById(R.id.container);
-		MyFragmentAdapter adapter = new MyFragmentAdapter(
+		adapter = new MyFragmentAdapter(
 				getChildFragmentManager(), fragments);
 		container.setAdapter(adapter);
 		container.setOnPageChangeListener(changeListener);

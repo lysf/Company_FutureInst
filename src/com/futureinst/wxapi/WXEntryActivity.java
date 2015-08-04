@@ -6,7 +6,7 @@
  * Copyright (c) 2013年 mob.com. All rights reserved.
  */
 
-package cn.sharesdk.wxapi;
+package com.futureinst.wxapi;
 
 import android.content.Intent;
 import android.util.Log;

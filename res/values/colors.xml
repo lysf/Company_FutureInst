@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    	<color name="tab_text_unselected">#D2D2D2</color>
+    	<color name="status_bar">#f1f1f1</color>
+    	<color name="text_color_base">#86BFFA</color>
+    	<color name="tab_text_unselected">#ffffff</color>
     	<color name="tab_text_selected">#86BFFA</color>
     	<color name="background">#1E266E</color>
     	<color name="background5">#6069B7</color>
    		 <color name="bg">#F5F5F5</color>
     	<color name="login_title_layout_back">#081448</color>
-    	<color name="login_btn_login">#6B7191</color>
+    	<color name="login_btn_login">#86BFFA</color>
     	<color name="text_color_pink">#FF80AB</color>
     	<color name="text_color_white">#FfFfFfff</color>
+    	<color name="text_color_cb">#CBCBCB</color>
     	<color name="text_color_white_b">#bbffffff</color>
+    	<color name="text_color_bf">#bfbfbf</color>
     	<color name="text_color_e">#e5e5e5</color>
+    	<color name="text_color_a">#a5a5a5</color>
     	<color name="text_color_b">#B8B8B8</color>
     	<color name="text_color_b0">#B0BDB4</color>
     	<color name="text_color_0">#000000</color>
@@ -19,8 +24,8 @@
     	<color name="text_color_9">#999999</color>
     	<color name="text_color_top_ranking">#747493</color>
     	<color name="text_color_price_change">#C8171E</color>
-    	<color name="gain_red">#CB232B</color>
-    	<color name="gain_blue">#008842</color>
+    	<color name="gain_red">#CB141C</color>
+    	<color name="gain_blue">#008A41</color>
     	<color name="base_bg">#f4f6f6</color>
     	<color name="regist_keyword_1">#FE7D5E</color>
     	<color name="regist_keyword_2">#D7626A</color>

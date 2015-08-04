@@ -10,7 +10,7 @@
         android:background="@color/text_color_e"/>
     <LinearLayout 
         android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_height_40"
+        android:layout_height="@dimen/widget_height_45"
         android:orientation="horizontal">
         <LinearLayout 
            	android:layout_width="0dip"
@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:layout_height="0dip"
             android:textSize="@dimen/text_size_normal"
-            android:textColor="@color/gain_red"
+            android:textColor="@color/text_color_0"
             android:background="@color/text_color_white"
             android:text="看好"/>
             <View 
@@ -45,7 +45,7 @@
             android:layout_weight="1"
             android:layout_height="0dip"
             android:textSize="@dimen/text_size_normal"
-            android:textColor="@color/gain_blue"
+            android:textColor="@color/text_color_0"
             android:background="@color/text_color_white"
             android:text="不看好"/>
             <View 

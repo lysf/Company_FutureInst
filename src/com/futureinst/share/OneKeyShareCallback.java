@@ -10,7 +10,9 @@ package com.futureinst.share;
 
 import java.util.HashMap;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.onekeyshare.OnekeyShare;
@@ -22,9 +24,14 @@ import cn.sharesdk.onekeyshare.OnekeyShare;
  *回调到本类中来做自定义处理。
  */
 public class OneKeyShareCallback implements PlatformActionListener {
+	private Context context;
+	public OneKeyShareCallback(Context context){
+		this.context = context;
+	}
 	public void onComplete(Platform plat, int action, HashMap<String, Object> res) {
 		Log.d(getClass().getSimpleName(), res.toString());
 		// 在这里添加分享成功的处理代码
+		Toast.makeText(context, "分享成功", Toast.LENGTH_SHORT).show();
 	}
 
 	public void onError(Platform plat, int action, Throwable t) {

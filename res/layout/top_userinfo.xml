@@ -63,14 +63,9 @@
                         android:hint="@string/description_hint"
                         android:paddingBottom="@dimen/margin_5"
                         android:paddingTop="@dimen/margin_5"
-                        android:textColor="@color/text_color_6"
+                        android:textColor="@color/text_color_3"
                         android:textSize="@dimen/text_size_small" />
 
-                    <ImageView
-                        android:id="@+id/iv_edit_description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/user_info_edit_description" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

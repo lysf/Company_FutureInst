@@ -17,21 +17,23 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 
 import com.futureinst.R;
+import com.futureinst.baseui.BaseActivity;
 import com.futureinst.home.HomeActivity;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 
 
-public class IndexActivity extends Activity{
+public class IndexActivity extends BaseActivity{
 	private ViewPager viewPager;
 	private List<View> pagers;
 	private IndexViewPagerAdapter adapter;
 	private SharePreferenceUtil sharedPreferences;
 	private Button btn_skip;
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+	protected void localOnCreate(Bundle savedInstanceState) {
+
 		sharedPreferences = SharePreferenceUtil.getInstance(this);
 		if(!sharedPreferences.isFirstLogin()){
 			Intent intent = new Intent(IndexActivity.this, HomeActivity.class);
@@ -43,6 +45,9 @@ public class IndexActivity extends Activity{
 		initView();
 		for (int i = 0; i < pagers.size(); i++) {
 			ImageView child = new ImageView(this);
+			LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+			layoutParams.setMargins(20, 0, 20, 0);
+			child.setLayoutParams(layoutParams);
 			child.setImageResource(R.drawable.dot_1);
 			dot.addView(child);
 		}
@@ -177,4 +182,5 @@ public class IndexActivity extends Activity{
 	protected void onDestroy() {
 		super.onDestroy();
 	}
+	
 }

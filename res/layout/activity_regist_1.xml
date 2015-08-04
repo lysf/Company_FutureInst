@@ -2,9 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_a"/>
+    <LinearLayout 
+       android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/text_color_white"
     android:padding="@dimen/activity_login_padding"
     android:orientation="vertical" >
+        
+   
     <EditText 
         android:id="@+id/et_phoneNumber"
         android:maxLength="13"
@@ -35,8 +45,8 @@
 	        android:layout_height="match_parent"
 	        android:textColor="@color/text_color_white"
 	        android:text="@string/regist_auth"
-	        android:paddingLeft="@dimen/margin_5"
-	        android:paddingRight="@dimen/margin_5"
+	        android:paddingLeft="@dimen/activity_login_margin_10"
+	        android:paddingRight="@dimen/activity_login_margin_10"
 	        android:textSize="@dimen/text_size_normal"
 	        android:background="@drawable/login_btn_login"/>
 	</LinearLayout>
@@ -53,10 +63,17 @@
 	   android:layout_marginTop="@dimen/margin_5"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:textColor="@color/text_color_pink"
+	    android:textColor="#86BFFA"
 	    android:textSize="@dimen/text_size_small"
 	    android:text="@string/regist_password_tip" />
-
-	
+		<EditText 
+	    android:id="@+id/et_submit_password"
+	    android:layout_marginTop="@dimen/margin_5"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/widget_height_35"
+	    style="@style/BaseEditTextType"
+	    android:inputType="textPassword"
+	    android:hint="@string/submit_new_password"/>
+	 </LinearLayout>
 
 </LinearLayout>

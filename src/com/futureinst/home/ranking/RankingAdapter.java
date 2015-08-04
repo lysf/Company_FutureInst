@@ -56,7 +56,7 @@ public class RankingAdapter extends BaseAdapter {
 			ImageView iv_ranking = ViewHolder.get(convertView, R.id.iv_ranking);
 			tv_userName.setText(item.getName());
 			tv_prophet.setText(item.getForeIndex()+"");
-			tv_ranking.setText(item.getCurrRank()+"");
+			tv_ranking.setText(item.getCurrRank()+"  ");
 			if(item.getCurrRank() > item.getLastRank()){
 				iv_ranking.setImageDrawable(context.getResources().getDrawable(R.drawable.ranking_up_2));
 			}else if(item.getCurrRank() < item.getLastRank()){

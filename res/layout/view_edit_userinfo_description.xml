@@ -13,7 +13,7 @@
         <EditText 
             android:id="@+id/et_user_desccription"
             android:padding="@dimen/margin_5"
-            android:background="@drawable/edit_back"
+            android:background="@drawable/edit_back_squre"
             android:textSize="@dimen/text_size_normal"
             android:textColor="@color/text_color_6"
             android:layout_width="match_parent"

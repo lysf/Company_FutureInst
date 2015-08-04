@@ -11,6 +11,7 @@ import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.home.eventdetail.EventDetailActivity;
 import com.futureinst.model.attention.AttentionDAO;
 import com.futureinst.model.attention.AttentionInfoDAO;
+import com.futureinst.model.homeeventmodel.FilingInfoDAO;
 import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.homeeventmodel.QueryEventInfoDAO;
 import com.futureinst.net.HttpPostParams;
@@ -38,6 +39,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	private ForecastItemAdapter adapter;
 	private String[] orders;
 	private TextView emptyView;
+	private boolean isStart;
 	public static ForecastContainerTypeFragment newInstance(int position) {
 		ForecastContainerTypeFragment f = new ForecastContainerTypeFragment();
 		Bundle b = new Bundle();
@@ -65,9 +67,12 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			}
 		}else if(position == 0){
 			getData(position+1+"", orders[0]);
+		}else if(position == -1){
+			getData();
 		}else{
 			getData(position+"", orders[0]);
 		}
+		isStart = true;
 	}
 	private void initView(){
 		emptyView = (TextView) findViewById(R.id.emptyView);
@@ -88,7 +93,14 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			}
 		});
 	}
-	
+	@Override
+	public void setUserVisibleHint(boolean isVisibleToUser) {
+		super.setUserVisibleHint(isVisibleToUser);
+		if(isVisibleToUser && isStart){
+			pullListView.setSelection(0);
+			pullListView.onRefreshComplete();
+		}
+	}
 	//获取我的关注
 		private void getMyAttention(){
 			HttpResponseUtils.getInstace(getActivity()).postJson(
@@ -126,6 +138,23 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						notifyDate();
 					}
 				});
+	 }
+	 //查询归档事件数据
+	 private void getData(){
+		 HttpResponseUtils.getInstace(getActivity()).postJson(
+				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event.name(), PostType.event.name(), HttpPostParams.getInstace().query_event()), 
+				 FilingInfoDAO.class, 
+				 new PostCommentResponseListener() {
+					 @Override
+					 public void requestCompleted(Object response) throws JSONException {
+						 pullListView.onRefreshComplete();
+						 if(response == null) return;
+						 FilingInfoDAO filingInfoDAO = (FilingInfoDAO) response;
+						 SystemTimeUtile.getInstance(filingInfoDAO.getCurr_time()).setSystemTime(filingInfoDAO.getCurr_time());
+						 adapter.setList(filingInfoDAO.getEvents());
+						 notifyDate();
+					 }
+				 });
 	 }
 
 	@Override

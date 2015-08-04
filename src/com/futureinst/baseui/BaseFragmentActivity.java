@@ -11,7 +11,6 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.futureinst.R;
-import com.futureinst.utils.ActivityManagerUtil;
 
 
 
@@ -44,6 +43,8 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
 //		} else {
 //			setTheme(R.style.DingDingThemeNight);
 //		}
+        
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        ActivityManagerUtil.addActivity(this);
 //        mTintManager = new SystemBarTintManager(this);

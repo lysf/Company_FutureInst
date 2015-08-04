@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
@@ -39,12 +40,14 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 	private static final int MSG_AUTH_CANCEL = 3;
 	private static final int MSG_AUTH_ERROR = 4;
 	private static final int MSG_AUTH_COMPLETE = 5;
+	private static final int MSG_AUTH_LOGIN = 6;
 	private EditText et_phone,et_password;
 	private boolean loginTag;
-	private ImageView iv_wechat,iv_sina;
+	private TextView tv_wechat,tv_sina;
 	private String openId;
 	private String thirdName;//第三方昵称
 	private String gender;//性别
+	private String headImage = "";
 	private String type;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -69,10 +72,10 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 		findViewById(R.id.btn_login).setOnClickListener(clickListener);
 		findViewById(R.id.tv_forgetPwd).setOnClickListener(clickListener);
 		
-		iv_wechat = (ImageView) findViewById(R.id.iv_wechat);
-		iv_sina = (ImageView) findViewById(R.id.iv_sina);
-		iv_wechat.setOnClickListener(clickListener);
-		iv_sina.setOnClickListener(clickListener);
+		tv_wechat = (TextView) findViewById(R.id.tv_wechat);
+		tv_sina = (TextView) findViewById(R.id.tv_sina);
+		tv_wechat.setOnClickListener(clickListener);
+		tv_sina.setOnClickListener(clickListener);
 	}
 	
 	OnClickListener clickListener = new OnClickListener() {
@@ -87,10 +90,10 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			case R.id.tv_forgetPwd://忘记密码
 				startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
 				break;
-			case R.id.iv_wechat://微信
+			case R.id.tv_wechat://微信
 				authorize(new Wechat(LoginActivity.this));
 				break;
-			case R.id.iv_sina://新浪
+			case R.id.tv_sina://新浪
 				authorize(new SinaWeibo(LoginActivity.this));
 				break;
 			}
@@ -149,25 +152,36 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			}
 			if (plat.isValid()) {
 				openId = plat.getDb().getUserId();
-				thirdName = plat.getDb().getUserName();
-				// plat.getDb().get
+				Log.i("openid", "---------------openId------>>"+openId);
 				if (!TextUtils.isEmpty(openId)) {
-					//注册或登录
-//					bindOrRegistThirdAccount();
+					if (plat.getName().equals(SinaWeibo.NAME)) {// 新浪微博
+						type = "weibo"+openId;
+					} else if (plat.getName().equals(Wechat.NAME)) {// 微信
+						type = "weixin"+openId;
+					}
+					thirdName = plat.getDb().getUserName();
+					gender = (String) plat.getDb().get("gender");
+					if(gender.equals("m")){
+						gender = "1";
+					}else {
+						gender = "2";
+					}
 					UIHandler.sendEmptyMessage(MSG_USERID_FOUND, this);
-					plat.removeAccount();
-					return;
 				}
+				plat.removeAccount();
+				return;
 			}
 			plat.setPlatformActionListener(this);
-			// plat.SSOSetting(true);
-//			 plat.authorize();
-			plat.showUser(null);
+//			plat.SSOSetting(true);
+//			plat.showUser(null);
+			
+			plat.authorize();
 		}
 		@Override
 		public boolean handleMessage(Message msg) {
 			switch (msg.what) {
 			case MSG_USERID_FOUND: {
+				query_user_with_uuid(type);
 				Toast.makeText(this, R.string.userid_found, Toast.LENGTH_SHORT).show();
 			}
 				break;
@@ -182,8 +196,11 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			case MSG_AUTH_COMPLETE: {
 			//第三方登录或注册
 				Toast.makeText(this, R.string.auth_complete, Toast.LENGTH_SHORT).show();
-				thirdLogin(type, thirdName, gender, "");	
+				query_user_with_uuid(type);
 			}
+				break;
+			case MSG_AUTH_LOGIN:
+				thirdLogin(type, thirdName, gender,headImage);
 				break;
 			}
 			return false;
@@ -192,6 +209,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 		@Override
 		public void onCancel(Platform arg0, int action) {
 			if (action == Platform.ACTION_USER_INFOR) {
+				arg0.removeAccount();
 				UIHandler.sendEmptyMessage(MSG_AUTH_CANCEL, this);
 			}
 		}
@@ -199,7 +217,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 
 		@Override
 		public void onComplete(Platform arg0, int action, HashMap<String, Object> arg2) {
-			if (action == Platform.ACTION_USER_INFOR) {
+			Log.i("third", "---------------->" + arg0.getDb().getUserGender());
 				
 				openId = arg0.getDb().getUserId();
 				if (arg0.getName().equals(SinaWeibo.NAME)) {// 新浪微博
@@ -208,26 +226,26 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 					type = "weixin"+openId;
 				}
 				thirdName = arg0.getDb().getUserName();
-				gender = (String) arg2.get("gender");
-				if(gender.equals("男")){
+				gender = arg0.getDb().getUserGender();
+				headImage = arg0.getDb().getUserIcon();
+				if(gender.equals("m")){
 					gender = "1";
-				}else if(gender.equals("女")){
+				}else{
 					gender = "2";
 				}
-				Log.i("third", "-------------->" + arg0.getDb() + "--" + arg2.keySet().toString() + "---->>"
-						+ arg2.get("gender"));
+				
 				UIHandler.sendEmptyMessage(MSG_AUTH_COMPLETE, this);
-			}
 		}
 
 		@Override
 		public void onError(Platform arg0, int action, Throwable t) {
+			arg0.removeAccount();
 			if (action == Platform.ACTION_USER_INFOR) {
 				UIHandler.sendEmptyMessage(MSG_AUTH_ERROR, this);
 			}
 			t.printStackTrace();
 		}
-		
+	//第三方注册
 	private void thirdLogin(String uuid,String name,String gender,String head_image){	
 		progressDialog.progressDialog();
 		Content.isPull = true;
@@ -253,10 +271,39 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 					}
 				});
 	}
+	//判断是否已经注册
+	private void query_user_with_uuid(String uuid){	
+		progressDialog.progressDialog();
+		Content.isPull = true;
+		httpResponseUtils.postJson(
+				httpPostParams.getPostParams(PostMethod.query_user_with_uuid.name(), PostType.user.name(), 
+						httpPostParams.query_user_with_uuid(uuid)), 
+				UserInfo.class,
+				new PostCommentResponseListener() {
+					@Override
+					public void requestCompleted(Object response) throws JSONException {
+						//登录成功
+						progressDialog.cancleProgress();
+						Content.isPull = false;
+						if(response == null){ 
+							UIHandler.sendEmptyMessage(MSG_AUTH_LOGIN, LoginActivity.this );
+							return;
+						}
+						UserInfo userInfo = (UserInfo) response;
+						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
+						if(!loginTag){
+							Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							startActivity(intent);
+						}
+						finish();
+					}
+				});
+	}
 		
 	@Override
 	protected void onDestroy() {
-		super.onDestroy();
 		ShareSDK.stopSDK(this);
+		super.onDestroy();
 	}
 }

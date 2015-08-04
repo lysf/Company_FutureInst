@@ -31,6 +31,7 @@ public class PullLayout extends ScrollView{
 	
 	private View view_line;
 	private ImageView iv_operate;
+	private ImageView iv_share;
 	private ImageView iv_back;
 	private ImageView iv_image;
 	private TextView tv_time;
@@ -58,6 +59,7 @@ public class PullLayout extends ScrollView{
 		 tv_time = (TextView) findViewById(R.id.tv_time);
 		iv_image = (ImageView) findViewById(R.id.iv_image);
 		iv_operate = (ImageView) findViewById(R.id.iv_operate);
+		iv_share = (ImageView) findViewById(R.id.iv_share);
 		iv_back = (ImageView) findViewById(R.id.iv_back);
 		tv_event_title = (TextView) findViewById(R.id.tv_event_title);
 		view_line = findViewById(R.id.view_line);
@@ -162,6 +164,7 @@ public class PullLayout extends ScrollView{
         float percent = (float) t / range;
         ViewHelper.setTranslationY(rl_top, t);
         ViewHelper.setTranslationY(iv_operate, -t);
+        ViewHelper.setTranslationY(iv_share, -t);
         ViewHelper.setTranslationY(tv_event_title, -t);
         ViewHelper.setTranslationY(iv_image, -t/4);
         if(percent<=0.5){
@@ -169,6 +172,7 @@ public class PullLayout extends ScrollView{
         	iv_back.setAlpha(alpha);
         	tv_time.setAlpha(alpha);
         	iv_operate.setAlpha(alpha);
+        	iv_share.setAlpha(alpha);
         	view_line.setAlpha(alpha);
         }
 //        if(t >= range/2){
@@ -195,6 +199,7 @@ public class PullLayout extends ScrollView{
         iv_back.setAlpha(1-percent);
         tv_time.setAlpha(1-percent);
         iv_operate.setAlpha(1-percent);
+        iv_share.setAlpha(1-percent);
         view_line.setAlpha(1-percent);
 //        if(t >= range/2){
 //        	iv_back.setVisibility(View.VISIBLE);

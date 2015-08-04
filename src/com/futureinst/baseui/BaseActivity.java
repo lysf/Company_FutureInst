@@ -107,7 +107,21 @@ public abstract class BaseActivity extends BaseFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+        // 创建状态栏的管理实例  
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);  
+        // 激活状态栏设置  
+         tintManager.setStatusBarTintEnabled(true);  
+          // 激活导航栏设置  
+         tintManager.setNavigationBarTintEnabled(true); 
+      // 设置一个颜色给系统栏  
+//         tintManager.setTintColor(getResources().getColor(R.color.status_bar));  
+//         tintManager.setNavigationBarTintColor(getResources().getColor(R.color.text_color_3));
+         tintManager.setStatusBarTintColor(getResources().getColor(R.color.status_bar));
+//         tintManager.setStatusBarTintResource(R.color.text_color_3);
+         // 设置一个样式背景给导航栏  
+//         tintManager.setNavigationBarTintResource(R.drawable.my_tint);  
+         // 设置一个状态栏资源  
+//         tintManager.setStatusBarTintDrawable(MyDrawable);  
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (savedInstanceState != null && savedInstanceState.getBoolean(OVERIDE)) {
             return;

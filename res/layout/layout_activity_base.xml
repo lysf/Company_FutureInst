@@ -6,7 +6,7 @@
     android:clickable="true"
     android:orientation="vertical"
     android:id="@+id/ll_activity_container" >
-
+    
     <include
         android:id="@+id/title_bar"
         android:visibility="gone"

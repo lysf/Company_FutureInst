@@ -17,7 +17,8 @@ public class LongTimeUtil {
 		 if(days > 0) result = days+"天"+hours+"时";
 		 else if(hours > 0) result = hours+"时"+minus+"分";
 		 else if(minus > 0) result = minus + "分"+seconds+"秒";
-		 else result = seconds+"秒";
+		 else if(seconds > 0)result = seconds+"秒";
+		 else result = "已清算";
 		 return result;
 	}
 }

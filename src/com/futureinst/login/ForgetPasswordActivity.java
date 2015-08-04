@@ -23,7 +23,7 @@ import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
 
 public class ForgetPasswordActivity extends BaseActivity {
-	private EditText et_mobile, et_authCode, et_newPassword;
+	private EditText et_mobile, et_authCode, et_newPassword,et_submit_password;
 	private Button btn_authCode;
 
 	@Override
@@ -39,6 +39,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 		et_mobile = (EditText) findViewById(R.id.et_phoneNumber);
 		et_authCode = (EditText) findViewById(R.id.et_authCode);
 		et_newPassword = (EditText) findViewById(R.id.et_new_password);
+		et_submit_password = (EditText) findViewById(R.id.et_submit_password);
 		btn_authCode = (Button) findViewById(R.id.btn_auth);
 		btn_authCode.setOnClickListener(clickListener);
 		findViewById(R.id.btn_submit).setOnClickListener(clickListener);
@@ -59,7 +60,8 @@ public class ForgetPasswordActivity extends BaseActivity {
 				String mobile = et_mobile.getText().toString().trim();
 				String authCode = et_authCode.getText().toString().trim();
 				String new_pwd = et_newPassword.getText().toString().trim();
-				resetPassword(mobile,authCode,new_pwd);
+				String submit_pwd = et_submit_password.getText().toString().trim();
+				resetPassword(mobile,authCode,new_pwd,submit_pwd);
 				break;
 			}
 		}
@@ -67,7 +69,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 
 	// 获取验证码
 	protected void getAuthCode(String mobile) {
-		if(!checkData(mobile, "123456", "123456")){
+		if(!checkData(mobile, "123456", "123456","123456")){
 			return;
 		}
 		Content.isPull = true;
@@ -87,8 +89,8 @@ public class ForgetPasswordActivity extends BaseActivity {
 				});
 	}
 	//重置密码
-	protected void resetPassword(String mobile, String authCode, String new_pwd) {
-		if(!checkData(mobile, authCode, new_pwd)){
+	protected void resetPassword(String mobile, String authCode, String new_pwd,String submit_pwd) {
+		if(!checkData(mobile, authCode, new_pwd,submit_pwd)){
 			return;
 		}
 		progressDialog.progressDialog();
@@ -114,7 +116,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 				});
 	}
 	//检测输入数据
-	private boolean checkData(String mobile, String authCode, String new_pwd){
+	private boolean checkData(String mobile, String authCode, String new_pwd,String submit_pwd){
 		if(TextUtils.isEmpty(mobile)){
 			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
@@ -131,7 +133,14 @@ public class ForgetPasswordActivity extends BaseActivity {
 			MyToast.showToast(this, getResources().getString(R.string.empty_authCode), 0);
 			return false;
 		}
-		
+		if(TextUtils.isEmpty(submit_pwd)){
+			MyToast.showToast(this, "请输入确认密码", 0);
+			return false;
+		}
+		if(!new_pwd.equals(submit_pwd)){
+			MyToast.showToast(this, "两次密码不一致", 0);
+			return false;
+		}
 		return true;
 	}
 	//延时

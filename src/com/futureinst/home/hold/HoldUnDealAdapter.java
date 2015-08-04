@@ -67,14 +67,14 @@ public class HoldUnDealAdapter extends BaseAdapter {
 		String hold_buy = "";
 		if(item.getType() == 1 || item.getType() == 2){//买
 			tv_hold_buy.setTextColor(context.getResources().getColor(R.color.gain_red));
-			hold_buy = context.getResources().getString(R.string.unhold_1)+"\t"+item.getNum()+"份\t\t出价"+String.format("%.2f", item.getPrice())+"\t";
+			hold_buy = context.getResources().getString(R.string.unhold_1)+"\t"+String.format("%3d", item.getNum())+"份\t\t出价"+String.format("%.2f", item.getPrice())+"\t";
 		}else{
 			tv_hold_buy.setTextColor(context.getResources().getColor(R.color.gain_blue));
-			hold_buy = context.getResources().getString(R.string.unhold_2)+"\t"+item.getNum()+"份\t\t出价"+String.format("%.2f", item.getPrice())+"\t";
+			hold_buy = context.getResources().getString(R.string.unhold_2)+"\t"+String.format("%3d", item.getNum())+"份\t\t出价"+String.format("%.2f", item.getPrice())+"\t";
 		}
 		tv_hold_buy.setText(hold_buy);
 		TextView tv_residue = ViewHolder.get(convertView, R.id.tv_residue);
-		tv_residue.setText(context.getResources().getString(R.string.unhold_3)+"\t"+(item.getNum()-item.getDealNum())+"份\t\t未成交");
+		tv_residue.setText(context.getResources().getString(R.string.unhold_3)+"\t"+(String.format("%3d", item.getNum()-item.getDealNum()))+"份\t\t未成交");
 		if(item.getNum()-item.getDealNum() ==0)
 			tv_residue.setVisibility(View.GONE);
 		TextView tv_tip = ViewHolder.get(convertView, R.id.tv_tip);

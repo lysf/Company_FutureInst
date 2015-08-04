@@ -58,7 +58,7 @@
         SortId="1"
         AppKey="1754748385"
         AppSecret="943229746e0da611dceeee4a9ebba730"
-        RedirectUrl="www.futureinst.com/"
+        RedirectUrl="http://www.futureinst.com"
         ShareByAppClient="true"
         Enable="true" />
 	
@@ -97,6 +97,7 @@
         Id="4"
         SortId="4"
         AppId="wxd05c9fb4031495ad"
+        AppSecret="d23bc1d0218f050a897c06289af0f927"
         BypassApproval="false"
          ShareByAppClient="true"
         Enable="true" />
@@ -105,6 +106,7 @@
         Id="5"
         SortId="5"
         AppId="wxd05c9fb4031495ad"
+         AppSecret="d23bc1d0218f050a897c06289af0f927"
         BypassApproval="false"
         Enable="true" />
         
@@ -112,6 +114,7 @@
         Id="6"
         SortId="6"
         AppId="wxd05c9fb4031495ad"
+        AppSecret="d23bc1d0218f050a897c06289af0f927"
         Enable="true" />
     
 	<QQ
