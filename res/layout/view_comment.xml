@@ -26,6 +26,7 @@
             android:orientation="horizontal">
             <com.futureinst.roundimageutils.RoundedImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:visibility="gone"
                     android:id="@+id/headImage"
                     android:layout_width="50px"
                     android:layout_height="50px"

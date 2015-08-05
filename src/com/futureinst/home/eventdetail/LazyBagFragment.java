@@ -3,6 +3,7 @@ package com.futureinst.home.eventdetail;
 import org.json.JSONException;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.futureinst.R;
@@ -14,9 +15,11 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
+import com.futureinst.utils.ListViewHeightUtil;
+import com.futureinst.widget.list.MyListView;
 
 public class LazyBagFragment extends BaseFragment {
-	private ListView overListView;
+	private MyListView overListView;
 	private LazyBagAdapter adapter;
 	private String eventId;
 	private HttpResponseUtils httpResponseUtils;
@@ -34,11 +37,11 @@ public class LazyBagFragment extends BaseFragment {
 		httpResponseUtils = HttpResponseUtils.getInstace(getActivity());
 		httpPostParams = HttpPostParams.getInstace();
 		eventId = getArguments().getString("eventId");
-		overListView =  (ListView) findViewById(R.id.overListView);
-		overListView.setDividerHeight(0);
+		overListView =  (MyListView) findViewById(R.id.myList);
 
 		adapter = new LazyBagAdapter(getContext());
 		overListView.setAdapter(adapter);
+	
 		isStart = true;
 	}
 	@Override
@@ -62,6 +65,7 @@ public class LazyBagFragment extends BaseFragment {
 							if(response == null) return;
 							LazyBagInfo lazyBagInfo = (LazyBagInfo) response;
 							adapter.setList(lazyBagInfo.getLazybag().getBags());
+//							ListViewHeightUtil.setListViewHeightBasedOnChildren(overListView);
 						}
 					});
 		}

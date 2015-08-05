@@ -42,7 +42,8 @@
 	    <LinearLayout 
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:padding="@dimen/widget_height_30"
+	        android:padding="@dimen/margin_5"
+	        android:layout_marginBottom="@dimen/margin_5"
 	        android:gravity="center_vertical"
 	        android:layout_marginRight="@dimen/activity_login_margin_10"
 	        android:background="@drawable/lazy_bag_back"
@@ -52,15 +53,20 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:textColor="@color/text_color_3"
-	        android:layout_marginTop="@dimen/margin_5"
+	        android:layout_marginTop="@dimen/margin_20"
+	        android:layout_marginLeft="@dimen/margin_20"
+	        android:layout_marginRight="@dimen/margin_20"
 	        android:layout_marginBottom="@dimen/margin_5"
 	        android:textSize="@dimen/text_size_normal"/>
 	        <TextView 
 	        android:id="@+id/tv_content"
+	        android:layout_marginLeft="@dimen/margin_20"
+	        android:layout_marginRight="@dimen/margin_20"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:textColor="@color/text_color_3"
 	        android:lineSpacingExtra="2dip"
+	        android:paddingBottom="@dimen/margin_20"
 	        android:textSize="@dimen/text_size_small"/>
 	    </LinearLayout>
 	    

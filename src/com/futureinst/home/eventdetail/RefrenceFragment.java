@@ -51,6 +51,7 @@ public class RefrenceFragment extends BaseFragment {
 		lv_refrence = (ListView) findViewById(R.id.lv_refrence);
 		adapter = new RefrenceAdapter(getContext());
 		lv_refrence.setAdapter(adapter);
+		
 		lv_refrence.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

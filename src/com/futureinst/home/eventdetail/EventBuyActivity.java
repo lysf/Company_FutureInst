@@ -14,6 +14,8 @@ import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.newbieguide.GuideClickInterface;
+import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
@@ -61,6 +63,7 @@ public class EventBuyActivity extends BaseActivity {
 		initPriceView();
 		initPrice(priceDAOInfo);
 		getTotal();
+		showGuide();
 	}
 	private void getTotal(){
 		if(!judgeIsUse()){
@@ -75,14 +78,14 @@ public class EventBuyActivity extends BaseActivity {
 	//你选择的是看好（看涨）/不看好（看跌），越低价成交赚越多/越高价成交赚越多，但不利于成交
 		
 		if(isBuy){
-			order_tips_1 = "提示：\n1.你选择的是看好（看涨），越高价成交赚越多,但不利于成交\n"
+			order_tips_1 = "提示：\n1.成交价越低自然赚得越多，不过若定价太低当心会没人和你交易哦\n"
 					+ "2.若事件发生（价格涨至100.00），则你获利：";
 			order_tips_2 = "  （100 - "+String.format("%.2f", price)+
 					"）*"+num+" = "+String.format("%.2f", (100-price)*num);
 			order_tips_3 = "3.若事件不发生（价格跌至0.00），则你亏损 :";
 			order_tips_4 = " 	"+String.format("%.2f", price)+" * "+num+" = "+String.format("%.2f", price*num);
 		}else{
-			order_tips_1 = "提示：\n1.你选择的是不看好（看跌），越低价成交赚越多,但不利于成交。\n"
+			order_tips_1 = "提示：\n1.成交价越高自然赚得越多，不过若定价太高当心会没人和你交易哦\n"
 					+ "2.若事件不发生（价格跌至0.00），则你获利：";
 			order_tips_2 = " 	" + String.format("%.2f", price)+" * "+num+" = "+String.format("%.2f", price*num);
 			order_tips_3 = "3.若事件发生（价格涨至100.00），则你亏损：";
@@ -315,6 +318,7 @@ public class EventBuyActivity extends BaseActivity {
 			String configMsg = "";
 			switch (type) {//type 1-限价买进 2-市价买进 3-限价卖空 4-市价卖空
 			case 1:
+//				configMsg = "确定以" + price + "未币的价格看好" + num + "份事件（"+event.getTitle()+"）吗？";
 				configMsg = "确定以价格" + price + "，看好" + num + "份";
 				break;
 			case 2:
@@ -366,4 +370,17 @@ public class EventBuyActivity extends BaseActivity {
 			return true;
 		
 		}
+		
+		//显示新手引导
+		 private void showGuide(){
+			 if(preferenceUtil.getGuide8())
+				 return;
+			 new NewbieGuide(this, R.drawable.guide_8, new GuideClickInterface() {
+				@Override
+				public void guideClick() {
+					preferenceUtil.setGuide8();
+				}
+			});
+			 
+		 }
 }

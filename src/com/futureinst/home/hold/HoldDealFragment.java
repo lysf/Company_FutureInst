@@ -37,6 +37,7 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	private MyProgressDialog progressDialog;
 	private SharePreferenceUtil preferenceUtil;
 	private boolean isStart;
+	private TextView empty;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_hold_deal);
@@ -57,6 +58,7 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		progressDialog = MyProgressDialog.getInstance(getContext());
 		pullListView = (PullListView) findViewById(R.id.hold_pull_listView);
+		empty = (TextView) findViewById(R.id.empty);
 		adapter = new HoldDealAdapter(getContext());
 		pullListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -88,6 +90,7 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 						if(response == null) return;
 						DealOrderInfo dealOrderInfo = (DealOrderInfo) response;
 						adapter.setList(dealOrderInfo.getEventclears());
+						pullListView.setEmptyView(empty);
 					}
 				});
 	}

@@ -24,7 +24,7 @@ public class PrivacyActivity extends BaseActivity {
 		webSetting.setAppCacheEnabled(true);
 		webSetting.setSupportZoom(false);
 		webSetting.setBuiltInZoomControls(false);
-//		webView.loadUrl("file:///android_asset/about.html");
+		webView.loadUrl("file:///android_asset/privacy.html");
 		
 	}
 

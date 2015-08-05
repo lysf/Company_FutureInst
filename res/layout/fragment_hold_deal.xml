@@ -11,5 +11,14 @@
         android:dividerHeight="3dip"
         android:divider="@color/text_color_b"
         />
-
+	<TextView 
+	    android:id="@+id/empty"
+	    android:visibility="gone"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="center"
+	    android:textColor="@color/text_color_9"
+	    android:textSize="@dimen/text_size_normal"
+	    android:lineSpacingExtra="@dimen/dimen_3"
+	    android:text="@string/empty_hold"/>
 </LinearLayout>

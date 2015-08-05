@@ -71,7 +71,7 @@
 	    android:background="@color/text_color_white"
 	    android:textSize="@dimen/text_size_normal"
 	    android:lineSpacingExtra="2dip"
-	    android:hint="在这里添加评论（500字以内）"
+	    android:hint="在这里写下你的预言和吐槽吧（ 500字以内 ）"
 	    android:gravity="top"
 	    android:textColorHint="@color/text_color_9"
 	    android:textColor="@color/text_color_6"

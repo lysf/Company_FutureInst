@@ -34,10 +34,75 @@ public class SharePreferenceUtil {
 	private String CLIENTID = "CLIENTID";//推送的cid
 	private String ISFIRSTLOGIN = "ISFIRSTLOGIN";//是否第一次登陆
 	private String UPDATE = "UPDATE";//是否第一次登陆
+	private String GUIDE_1 = "GUIDE_1";
+	private String GUIDE_2 = "GUIDE_2";
+	private String GUIDE_3 = "GUIDE_3";
+	private String GUIDE_4 = "GUIDE_4";
+	private String GUIDE_5 = "GUIDE_5";
+	private String GUIDE_6 = "GUIDE_6";
+	private String GUIDE_7 = "GUIDE_7";
+	private String GUIDE_8 = "GUIDE_8";
 	
 	private String CID = "CID";
 	private String CTYPE = "CTYPE";
 	private String STATUS = "STATUS";
+	
+	public boolean getGuide1(){
+		return mSharedPreferences.getBoolean(GUIDE_1, false);
+	}
+	public void setGuide1(){
+		editor.putBoolean(GUIDE_1, true);
+		editor.commit();
+	}
+	public boolean getGuide2(){
+		return mSharedPreferences.getBoolean(GUIDE_2, false);
+	}
+	public void setGuide2(){
+		editor.putBoolean(GUIDE_2, true);
+		editor.commit();
+	}
+	public boolean getGuide3(){
+		return mSharedPreferences.getBoolean(GUIDE_3, false);
+	}
+	public void setGuide3(){
+		editor.putBoolean(GUIDE_3, true);
+		editor.commit();
+	}
+	public boolean getGuide4(){
+		return mSharedPreferences.getBoolean(GUIDE_4, false);
+	}
+	public void setGuide4(){
+		editor.putBoolean(GUIDE_4, true);
+		editor.commit();
+	}
+	public boolean getGuide5(){
+		return mSharedPreferences.getBoolean(GUIDE_5, false);
+	}
+	public void setGuide5(){
+		editor.putBoolean(GUIDE_5, true);
+		editor.commit();
+	}
+	public boolean getGuide6(){
+		return mSharedPreferences.getBoolean(GUIDE_6, false);
+	}
+	public void setGuide6(){
+		editor.putBoolean(GUIDE_6, true);
+		editor.commit();
+	}
+	public boolean getGuide7(){
+		return mSharedPreferences.getBoolean(GUIDE_7, false);
+	}
+	public void setGuide7(){
+		editor.putBoolean(GUIDE_7, true);
+		editor.commit();
+	}
+	public boolean getGuide8(){
+		return mSharedPreferences.getBoolean(GUIDE_8, false);
+	}
+	public void setGuide8(){
+		editor.putBoolean(GUIDE_8, true);
+		editor.commit();
+	}
 	
 	public boolean isFirstLogin(){
 		return mSharedPreferences.getBoolean(ISFIRSTLOGIN, true);

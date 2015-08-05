@@ -9,6 +9,7 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.login.LoginActivity;
 import com.futureinst.model.attention.AttentionDAO;
 import com.futureinst.model.attention.AttentionInfoDAO;
 import com.futureinst.model.homeeventmodel.FilingInfoDAO;
@@ -19,18 +20,26 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.newbieguide.GuideClickInterface;
+import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
+import android.text.Html.ImageGetter;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.LinearLayout;
 
 public class ForecastContainerTypeFragment extends BaseFragment implements OnRefreshListener{
 	private static final String ARG_POSITION = "position";
@@ -38,8 +47,12 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	private PullListView pullListView;
 	private ForecastItemAdapter adapter;
 	private String[] orders;
-	private TextView emptyView;
+	private LinearLayout ll_unlogin,ll_empty;
+	private TextView tv_empty;
 	private boolean isStart;
+	private Button btn_login;
+	private SharePreferenceUtil preferenceUtil;
+	private String empty = "快去点击事件进入事件详情页打开‘<img src=\""+R.drawable.attention_tip+"\" />’";
 	public static ForecastContainerTypeFragment newInstance(int position) {
 		ForecastContainerTypeFragment f = new ForecastContainerTypeFragment();
 		Bundle b = new Bundle();
@@ -51,6 +64,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		position = getArguments().getInt(ARG_POSITION);
 		orders = getActivity().getResources().getStringArray(R.array.home_seond_title_order);
 	}
@@ -63,7 +77,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())){
 				getMyAttention();
 			}else{
-				emptyView.setVisibility(View.VISIBLE);
+				ll_unlogin.setVisibility(View.VISIBLE);
 			}
 		}else if(position == 0){
 			getData(position+1+"", orders[0]);
@@ -75,20 +89,41 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		isStart = true;
 	}
 	private void initView(){
-		emptyView = (TextView) findViewById(R.id.emptyView);
-		emptyView.setVisibility(View.GONE);
+		ll_unlogin = (LinearLayout) findViewById(R.id.ll_unLogin);
+		ll_empty = (LinearLayout) findViewById(R.id.ll_empty);
+		tv_empty = (TextView) findViewById(R.id.tv_empty);
+		btn_login = (Button) findViewById(R.id.btn_login);
+		ImageGetter imageGetter = new ImageGetter() { 
+	         @Override 
+	         public Drawable getDrawable(String source) { 
+	             int id = Integer.parseInt(source); 
+	             Drawable drawable = getResources().getDrawable(id); 
+	             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),drawable.getIntrinsicHeight()); 
+	             return drawable; 
+	         } 
+	     }; 
+	     tv_empty.append(Html.fromHtml(empty, imageGetter, null));
 		pullListView = (PullListView) findViewById(R.id.pull_listView);
 		pullListView.setonRefreshListener(this);
 		adapter = new ForecastItemAdapter(getContext());
 		pullListView.setAdapter(adapter);
 		pullListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				if(position < 1) return;
-				QueryEventDAO item = (QueryEventDAO) adapter.getItem(position - 1);
+			public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
+				if(index < 1) return;
+				QueryEventDAO item = (QueryEventDAO) adapter.getItem(index - 1);
 				//预测
 				Intent intent = new Intent(getActivity(), EventDetailActivity.class);
 				intent.putExtra("event", item);
+				if(position == -1)
+					intent.putExtra("boolean", true);
+				startActivity(intent);
+			}
+		});
+		btn_login.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(), LoginActivity.class);
 				startActivity(intent);
 			}
 		});
@@ -97,7 +132,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		super.setUserVisibleHint(isVisibleToUser);
 		if(isVisibleToUser && isStart){
-			pullListView.setSelection(0);
+			onRefresh(true);
 			pullListView.onRefreshComplete();
 		}
 	}
@@ -118,6 +153,12 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						list.add(dao.getEvent());
 					}
 					adapter.setList(list);
+					if(list.size() == 0){
+						ll_empty.setVisibility(View.VISIBLE);
+						pullListView.setEmptyView(ll_empty);
+					}else{
+						ll_empty.setVisibility(View.GONE);
+					}
 					notifyDate();
 				}
 			});
@@ -135,9 +176,22 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
 						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
 						adapter.setList(queryEventInfoDAO.getEvents());
+						showGuide();
 						notifyDate();
 					}
 				});
+	 }
+	 //显示新手引导
+	 private void showGuide(){
+		 if(preferenceUtil.getGuide1())
+			 return;
+		 new NewbieGuide(getActivity(), R.drawable.guide_1, new GuideClickInterface() {
+			@Override
+			public void guideClick() {
+				preferenceUtil.setGuide1();
+			}
+		});
+		 
 	 }
 	 //查询归档事件数据
 	 private void getData(){
@@ -162,13 +216,14 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		if(isTop){
 			if(position == 1){
 				if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())){
-					emptyView.setVisibility(View.GONE);
 					getMyAttention();
 				}else{
-					emptyView.setVisibility(View.VISIBLE);
+					ll_unlogin.setVisibility(View.VISIBLE);
 				}
 			}else if(position == 0){
 				getData(position+1+"", orders[0]);
+			}else if(position == -1){
+				getData();
 			}else{
 				getData(position+"", orders[0]);
 			}
@@ -192,7 +247,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 				while(flag){
 					handler.sendEmptyMessage(111);
 					try {
-						Thread.sleep(1000);
+						Thread.sleep(10000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -200,7 +255,11 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			}
 		}).start();
 	}
-	
+	@Override
+	public void onPause() {
+		super.onPause();
+		
+	}
 	@Override
 	public void onDestroy() {
 		super.onDestroy();

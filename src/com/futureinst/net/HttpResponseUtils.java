@@ -199,7 +199,7 @@ public class HttpResponseUtils {
 	}
 
 	public <T> void postCookieJson(String url, final String cookie,
-			final Map<String, String> params, final Class<T> clz,
+			final Map<String, String> params, 
 			final PostCommentResponseListener commentResponseListener) {
 		CookieRequest postRequest = new CookieRequest(Request.Method.POST, url,
 				new Response.Listener<String>() {
@@ -209,8 +209,7 @@ public class HttpResponseUtils {
 							Log.i("json", "------------" + response);
 							try {
 								commentResponseListener
-										.requestCompleted(GsonUtils.json2Bean(
-												response, clz));
+										.requestCompleted(response);
 							} catch (JSONException e) {
 								e.printStackTrace();
 							}

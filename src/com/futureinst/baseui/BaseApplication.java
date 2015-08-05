@@ -51,7 +51,7 @@ public class BaseApplication extends Application {
 				.memoryCache(new WeakMemoryCache())
 				.denyCacheImageMultipleSizesInMemory()
 				.diskCacheFileNameGenerator(new Md5FileNameGenerator())
-				.diskCacheExtraOptions(600, 800, null)
+				.diskCacheExtraOptions(400, 600, null)
 				// 将保存的时候的URI名称用MD5 加密
 				.tasksProcessingOrder(QueueProcessingType.LIFO)
 				.diskCache(new UnlimitedDiskCache(cacheDir))// 自定义缓存路径

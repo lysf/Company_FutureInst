@@ -217,7 +217,7 @@ public class WaterWaveView extends View
 		float f1 = height * (1.0F - autoLevel);
 		int top = (int) (f1 + mAmplitude);
 		if(autoLevel > 0.5){
-			top = (int) (f1 - mAmplitude/2);
+			top = (int) (f1 - mAmplitude);
 		}
 		mPath.reset();
 		

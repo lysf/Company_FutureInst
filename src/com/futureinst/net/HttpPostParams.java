@@ -124,7 +124,7 @@ public class HttpPostParams {
 	//首页查询事件
 	public String query_event(){
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("check ", "-1");
+		map.put("check", "-1");
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
@@ -401,6 +401,33 @@ public class HttpPostParams {
 	 */
 	public String query_user_with_uuid(String uuid){
 		Map<String, String> map = new HashMap<String, String>();
+		map.put("uuid", uuid);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 添加反馈
+	 * @Title: add_feedback   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @param content
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String add_feedback(String uuid,String user_id,String content){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("uuid", uuid);
+		map.put("user_id", user_id);
+		map.put("content", content);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	public String getCookie(String uuid,String user_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
 		map.put("uuid", uuid);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();

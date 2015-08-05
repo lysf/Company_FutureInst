@@ -19,9 +19,17 @@ public class QueryEventDAO implements Serializable{
 	private int clearPrice;
 	private Long involve;
 	private int sug;
+	private String accord;
 	private String lead;
 	private Long ctime;
 	private String statusStr;
+	
+	public String getAccord() {
+		return accord;
+	}
+	public void setAccord(String accord) {
+		this.accord = accord;
+	}
 	public int getSug() {
 		return sug;
 	}

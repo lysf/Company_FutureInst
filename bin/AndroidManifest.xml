@@ -41,7 +41,7 @@
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/company_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         <activity
             android:name="com.futureinst.index.IndexActivity"
             android:label="@string/company_name"
@@ -125,6 +125,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.futureinst.home.userinfo.PrivacyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.home.userinfo.ShoopActivity"
             android:screenOrientation="portrait" />
        
 		

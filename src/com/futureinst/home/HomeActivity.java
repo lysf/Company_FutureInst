@@ -69,7 +69,8 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
-		
+		//初始化推送
+		PushManager.getInstance().initialize(this.getApplicationContext());
 		initVeiw();
 		initFragment();
 		get_android_version();
@@ -99,12 +100,7 @@ public class HomeActivity extends BaseActivity {
 		IntentFilter filter = new IntentFilter();
 		filter.addAction("newPushMessage");
 		registerReceiver(receiver, filter);
-		if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
-			cid = PushManager.getInstance().getClientid(this);
-			preferenceUtil.setCLIENTID(cid);
-		}else{
-			cid = preferenceUtil.getCLIENTID();
-		}
+		
 	}
 	private void initFragment(){
 		fragments.add(new ForecastFragment());
@@ -124,14 +120,19 @@ public class HomeActivity extends BaseActivity {
 	// 判断是否登录
 	private void judgeIsLogin() {
 		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
-			if(!PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){
-				//初始化推送
-				PushManager.getInstance().initialize(this.getApplicationContext());
-			}
-			
 			getMessageCount();
 			query_user_record();
+
+			
+			if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
+				cid = PushManager.getInstance().getClientid(this);
+				preferenceUtil.setCLIENTID(cid);
+			}else{
+				cid = preferenceUtil.getCLIENTID();
+			}
 			update_user_cid(cid);
+		
+//			if(!PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){}
 		} 
 	}
 	
@@ -293,9 +294,9 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if(PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){
-			PushManager.getInstance().stopService(this.getApplicationContext());
-		}
+		PushManager.getInstance().stopService(this.getApplicationContext());
+//		if(PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){
+//		}
 		SystemTimeUtile.getInstance(0L).setFlag(false);
 		if (receiver != null)
 			unregisterReceiver(receiver);

@@ -171,7 +171,8 @@ public class UserInfoFragment2 extends BaseFragment {
 				startActivity(new Intent(getActivity(), UserCheckActivity.class));
 				break;
 			case R.id.tableRow1:// 未币商城
-				MyToast.showToast(getActivity(), "即将上线，敬请期待！", 1);
+//				MyToast.showToast(getActivity(), "即将上线，敬请期待！", 1);
+				startActivity(new Intent(getActivity(), ShoopActivity.class));
 				break;
 			case R.id.tableRow2:// 常见问题
 				startActivity(new Intent(getActivity(), FAQActivity.class));

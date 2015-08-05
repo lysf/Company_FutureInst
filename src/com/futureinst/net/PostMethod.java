@@ -26,5 +26,6 @@ public enum PostMethod {
 	query_single_event_clear,//查询单个事件的清算单
 	query_user_record ,//查询个人资产战绩等
 	get_android_version,//安卓获取版本号
+	add_feedback,//添加意见反馈
 	query_user_tag_record ;//查询分类战绩
 }

@@ -2,13 +2,15 @@
 
 <com.futureinst.widget.PullLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_scroll"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
     >
    
 <RelativeLayout 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/text_color_white"
     >
     <include 
@@ -19,19 +21,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/view_top"
-            android:background="@color/text_color_white" >
+           	android:background="#f2f2f2"
+             >
      <LinearLayout
         android:id="@+id/ll_scroll"
-        android:background="@color/text_color_white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#f2f2f2"
         android:orientation="vertical" >
         
         <TextView 
 	    android:id="@+id/tv_description"
-	    android:layout_marginTop="@dimen/activity_login_margin_10"
+	    android:layout_marginTop="@dimen/margin_15"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
+	    android:background="#f2f2f2"
 	    android:padding="@dimen/margin_20"
 	    android:textSize="@dimen/text_size_normal"
 	    android:textColor="@color/text_color_6"
@@ -41,6 +45,7 @@
 	    android:gravity="center"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
+	    android:background="#f2f2f2"
 	    android:orientation="horizontal">
         
         <com.futureinst.widget.WaterWaveView
@@ -48,6 +53,7 @@
 	    android:layout_width="120dip"
 	    android:layout_height="120dip"
 	    android:gravity="center_vertical"
+	    
 	     />
         </LinearLayout>
          <include
@@ -57,9 +63,6 @@
 		    android:visibility="gone"
 		    layout="@layout/view_event_detail_11"/>
          <include 
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:minHeight="200dip"
              layout="@layout/forecast_bottom"/>
       </LinearLayout>
       </FrameLayout>

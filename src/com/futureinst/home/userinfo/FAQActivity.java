@@ -16,9 +16,10 @@ import com.futureinst.model.usermodel.FaqInfoDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.widget.list.MyListView;
 
 public class FAQActivity extends BaseActivity {
-	private ListView overListView;
+	private MyListView overListView;
 	private FAQAdapter adapter;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class FAQActivity extends BaseActivity {
 		finish();
 	}
 	private void initView() {
-		overListView = (ListView) findViewById(R.id.overListView);
+		overListView = (MyListView) findViewById(R.id.myList);
 		overListView.setDividerHeight(1);
 		adapter = new FAQAdapter(this);
 		overListView.setAdapter(adapter);

@@ -1,5 +1,6 @@
 package com.futureinst.home.eventdetail;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,15 +13,25 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewTreeObserver;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.futureinst.R;
@@ -41,6 +52,8 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
+import com.futureinst.newbieguide.GuideClickInterface;
+import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.share.OneKeyShareUtil;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.FragmentActivityTabAdapter;
@@ -48,18 +61,19 @@ import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
-import com.futureinst.widget.CardView;
 import com.futureinst.widget.WaterWaveView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 
 @SuppressLint({ "HandlerLeak", "DefaultLocale" })
 public class EventDetailActivity extends BaseActivity {
+	private ScrollView bottom_scroll;
 	private boolean isAttention;
 	private MyProgressDialog progressDialog;
 	private EventPriceDAOInfo priceDAOInfo;
 	private String event_id;
 	private QueryEventDAO event;
+	private boolean came;
 	//头部
 	private ImageView iv_share;
 	private ImageView iv_operate;
@@ -108,9 +122,61 @@ public class EventDetailActivity extends BaseActivity {
 					tv_time.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
 				}
 				break;
+			case 12:
+				showGuide(preferenceUtil.getGuide3(),R.drawable.guide_3, new GuideClickInterface() {
+					@Override
+					public void guideClick() {
+						preferenceUtil.setGuide3();
+						handler.sendEmptyMessage(13);
+					}
+				});
+				break;
+			case 13:
+				showGuide(preferenceUtil.getGuide4(),R.drawable.guide_4, new GuideClickInterface() {
+					@Override
+					public void guideClick() {
+						preferenceUtil.setGuide4();
+						handler.sendEmptyMessage(14);
+					}
+				});
+				break;
+			case 14:
+				showGuide(preferenceUtil.getGuide5(),R.drawable.guide_5, new GuideClickInterface() {
+					@Override
+					public void guideClick() {
+						preferenceUtil.setGuide5();
+						handler.sendEmptyMessage(15);
+					}
+				});
+				break;
+			case 15:
+				showGuide(preferenceUtil.getGuide6(),R.drawable.guide_6, new GuideClickInterface() {
+					@Override
+					public void guideClick() {
+						preferenceUtil.setGuide6();
+						if(view_single_event.getVisibility() == View.VISIBLE
+								&& !preferenceUtil.getGuide7()){
+							handler.sendEmptyMessage(16);
+						}
+					}
+				});
+			case 16:
+				showGuide(preferenceUtil.getGuide7(),R.drawable.guide_7, new GuideClickInterface() {
+					@Override
+					public void guideClick() {
+						preferenceUtil.setGuide7();
+					}
+				});
+				break;
 			}
 		};
 	};
+	//显示新手引导
+		 private void showGuide(boolean isShow,int drawable,GuideClickInterface clickInterface){
+			 if(isShow)
+				 return;
+			 new NewbieGuide(EventDetailActivity.this,drawable ,clickInterface);
+		 }
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -118,12 +184,24 @@ public class EventDetailActivity extends BaseActivity {
 		initView();
 		initData(event);
 		judgeIsClear();
+		if(preferenceUtil.getGuide2() && view_single_event.getVisibility() == View.VISIBLE
+				&& !preferenceUtil.getGuide7()){
+			handler.sendEmptyMessage(16);
+		}
+		showGuide(preferenceUtil.getGuide2(),R.drawable.guide_2, new GuideClickInterface() {
+			@Override
+			public void guideClick() {
+				preferenceUtil.setGuide2();
+				handler.sendEmptyMessage(12);
+			}
+		});
+		
 	}
 	@Override
 	protected void onResume() {
 		super.onResume();
 		getPrice();
-		activityTabAdapter.getCurrentFragment().setUserVisibleHint(true);
+//		activityTabAdapter.getCurrentFragment().setUserVisibleHint(true);
 		if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
 			query_single_event_clear();
 			lazyBagFragment.setUserVisibleHint(true);
@@ -133,12 +211,13 @@ public class EventDetailActivity extends BaseActivity {
 	}
 	private void initView() {
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
-		
+		came = getIntent().getBooleanExtra("boolean", false);
 		progressDialog = MyProgressDialog.getInstance(this);
 		event_id = event.getId()+"";
 		tv_buys = new TextView[3];
 		tv_sells = new TextView[3];
 		
+		bottom_scroll = (ScrollView) findViewById(R.id.bottom_scroll);
 		wav = (WaterWaveView) findViewById(R.id.wav);
 		view_line = findViewById(R.id.view_line);
 		tv_time = (TextView) findViewById(R.id.tv_time);
@@ -183,6 +262,7 @@ public class EventDetailActivity extends BaseActivity {
 		SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
 		if(item.getAllBuyNum() == 0 && item.getAllSellNum() == 0){
 			view_single_event.setVisibility(View.GONE);
+			
 			return;
 		}
 		view_single_event.setVisibility(View.VISIBLE);
@@ -231,6 +311,10 @@ public class EventDetailActivity extends BaseActivity {
 		fragments.add(lazyBagFragment);
 		fragments.add(refrenceFragment);
 		fragments.add(commentFragment);
+//		viewPager.setAdapter(new MyFragmentAdapter(getSupportFragmentManager(), fragments));
+//		viewPager.setOnPageChangeListener(changeListener);
+//		measure();
+		FrameLayout container = (FrameLayout) findViewById(R.id.container);
 		activityTabAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, bottom_btns,bottom_views);
 		activityTabAdapter.setOnRgsExtraCheckedChangedListener(new OnRgsExtraCheckedChangedListener() {
 			@Override
@@ -238,6 +322,16 @@ public class EventDetailActivity extends BaseActivity {
 				fragments.get(index).setUserVisibleHint(true);
 			}
 		});
+		Log.i(TAG, "================="+container.getChildCount());
+		View view = container.getChildAt(0);
+//		 int w = View.MeasureSpec.makeMeasureSpec(0,
+//                View.MeasureSpec.UNSPECIFIED);
+//         int h = View.MeasureSpec.makeMeasureSpec(0,
+//                View.MeasureSpec.UNSPECIFIED);
+//         view.measure(w, h);
+//         LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+//	       params.height = view.getMeasuredHeight();
+//	       container.setLayoutParams(params);
 	}
 	
 	
@@ -245,21 +339,27 @@ public class EventDetailActivity extends BaseActivity {
 	private void initData(QueryEventDAO event){
 		tv_event_title.setText(event.getTitle());
 		tv_description.setText(event.getDescription());
+		if(came || event.getStatusStr().equals("已清算")){
+			tv_description.setText(event.getAccord());
+			tv_description.setTextColor(getResources().getColor(R.color.forecast_bottom_line_select));
+		}
 		ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
 //		CircleView circleView = new CircleView(this);
 //		LayoutParams layoutParams = new LayoutParams(200, 200);
 //		circleView.setLayoutParams(layoutParams);
 		wav.setTextTop(String.format("%.2f", event.getCurrPrice()));
-		if(event.getPriceChange() >= 0){
-			wav.setDown(false);
-			wav.setColor(getResources().getColor(R.color.gain_red));
-			wav.setTextBottom("+"+String.format("%.2f", event.getPriceChange()));
-		}else{
-			wav.setDown(true);
-			wav.setColor(getResources().getColor(R.color.gain_blue));
-			wav.setTextBottom("-"+String.format("%.2f", Math.abs(event.getPriceChange())));
+		if(!came){
+			if(event.getPriceChange() >= 0){
+				wav.setDown(false);
+				wav.setColor(getResources().getColor(R.color.gain_red));
+				wav.setTextBottom("+"+String.format("%.2f", event.getPriceChange()));
+			}else{
+				wav.setDown(true);
+				wav.setColor(getResources().getColor(R.color.gain_blue));
+				wav.setTextBottom("-"+String.format("%.2f", Math.abs(event.getPriceChange())));
+			}
+			wav.startWave();
 		}
-		wav.startWave();
 		wav.setWaterLevel(event.getCurrPrice()/100);
 		tv_time.setText(event.getStatusStr());
 		showTimeStatus();
@@ -324,15 +424,16 @@ public class EventDetailActivity extends BaseActivity {
 		//价格三等对比
 		List<EventBuyDAO> buys = info.getBuys();
 		List<EventSellDAO> sells = info.getSells();
+		DecimalFormat df= new DecimalFormat("###.00");
 		for(int i = 0;i<buys.size();i++){
-			tv_buys[i].setText(buys.get(i).getNum()+"  份  \t\t"+String.format("%.2f", buys.get(i).getPrice()));
+			tv_buys[i].setText(String.format("%3d", buys.get(i).getNum())+"  份  \t\t"+df.format(buys.get(i).getPrice()));
 			if(buys.get(i).getNum() > 9999)
-				tv_buys[i].setText("9999+  份 \t\t "+String.format("%.2f", buys.get(i).getPrice()));
+				tv_buys[i].setText("9999+  份 \t\t "+df.format(buys.get(i).getPrice()));
 		}
 		for(int j = 0;j<sells.size();j++){
-			tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  \t\t"+sells.get(j).getNum()+"  份  ");
+			tv_sells[j].setText(df.format(sells.get(j).getPrice())+"  \t\t"+String.format("%3d", sells.get(j).getNum())+"  份  ");
 			if(sells.get(j).getNum() > 9999)
-				tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  \t\t9999+  份  ");
+				tv_sells[j].setText(df.format(sells.get(j).getPrice())+"  \t\t9999+  份  ");
 		}
 		
 	}
@@ -394,7 +495,11 @@ public class EventDetailActivity extends BaseActivity {
 			tv_time.setBackgroundColor(getResources().getColor(R.color.forecast_deal));
 			timeIsStart = true;
 			timeRunThread.start();
-		}else{
+		}else if(event.getStatusStr().equals("已清算")){
+			view_line.setBackgroundColor(getResources().getColor(R.color.text_color_bf));
+			tv_time.setBackgroundColor(getResources().getColor(R.color.text_color_bf));
+		}
+		else{
 			view_line.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
 			tv_time.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
 		}
@@ -493,7 +598,9 @@ public class EventDetailActivity extends BaseActivity {
 		btn_tips.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				showDialog(event.getRule());
+				String rule = getResources().getString(R.string.tip_rule);
+				rule = rule.replace("$",event.getRule());
+				showDialog(rule);
 				dialog.dismiss();
 			}
 		});
@@ -533,5 +640,62 @@ public class EventDetailActivity extends BaseActivity {
 		timeIsStart = false;
 		wav.stop();
 		System.gc();
+	}
+	
+	OnPageChangeListener changeListener = new OnPageChangeListener() {
+		@Override
+		public void onPageSelected(int position) {
+			bottom_views[0].setSelected(false);
+			bottom_views[1].setSelected(false);
+			bottom_views[2].setSelected(false);
+			bottom_views[position].setSelected(true);
+		}
+		@Override
+		public void onPageScrolled(int arg0, float arg1, int arg2) {}
+		
+		@Override
+		public void onPageScrollStateChanged(int arg0) {}
+	};
+	public class MyFragmentAdapter extends FragmentPagerAdapter{
+		private List<Fragment> fragments;
+		public MyFragmentAdapter(FragmentManager fm) {
+			super(fm);
+			// TODO Auto-generated constructor stub
+		}
+		public MyFragmentAdapter(FragmentManager fm,List<Fragment> oneListFragments){
+			super(fm);
+			this.fragments=oneListFragments;
+		}
+		@Override
+		public Fragment getItem(int arg0) {
+			// TODO Auto-generated method stub
+			return fragments.get(arg0);
+		}
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return fragments.size();
+		}
+		
+	}
+	public void measure(){
+		  final int w = View.MeasureSpec.makeMeasureSpec(0,
+	                 View.MeasureSpec.UNSPECIFIED);
+	         final int h = View.MeasureSpec.makeMeasureSpec(0,
+	                 View.MeasureSpec.UNSPECIFIED);
+	         ViewTreeObserver vto = viewPager.getViewTreeObserver();
+	         vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+
+	             public void onGlobalLayout() {
+	            	 viewPager.getViewTreeObserver()
+	               .removeGlobalOnLayoutListener(this);
+	       View view = viewPager.getChildAt(viewPager.getCurrentItem());
+	      	 view.measure(w, h);
+	       LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+	       params.height = view.getMeasuredHeight();
+	       viewPager.setLayoutParams(params);
+	             }
+	         });
 	}
 }
