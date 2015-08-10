@@ -4,10 +4,13 @@ import com.futureinst.R;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.FontMetrics;
@@ -36,6 +39,7 @@ public class WaterWaveView extends View
 	private String textTop = "50",textBottom = "+0";
 	private float d ;//圆心到所需图形的距离
 	private Long delayTime = 1L;
+	int tranColor = Color.WHITE;
 	public WaterWaveView(Context paramContext)
 	{
 		super(paramContext);
@@ -101,6 +105,7 @@ public class WaterWaveView extends View
 		mPaint.setColor(getResources().getColor(R.color.text_color_9));
 		canvas.drawCircle(getWidth()/2, getHeight() / 2, getWidth()/2, mPaint);
 		drawText(canvas);
+		drawPic(canvas);
 	}
 	private void drawUp(Canvas canvas){
 		// 得到控件的宽高
@@ -116,10 +121,10 @@ public class WaterWaveView extends View
 					d = r*(2*autoLevel-1);
 				}
 				RectF oval = new RectF(0, 0, width, height);
-				float startAngle = 0,sweepAngle = 0;
+				float startAngle = 0,sweepAngle = 0; 
 				mPaint.setStyle(Paint.Style.FILL);
 				if(autoLevel<=0.5){
-					mPaint.setColor(Color.WHITE);
+					mPaint.setColor(Color.parseColor("#00ffffff"));
 					canvas.drawCircle(width/2, height/2, r, mPaint);
 					 startAngle = (float) (Math.asin(d/r)/Math.PI*180);
 					sweepAngle = (float) (180 - 2*startAngle);
@@ -132,7 +137,7 @@ public class WaterWaveView extends View
 					float Q = (float) (Math.asin(2*autoLevel - 1)/Math.PI*180);
 					startAngle = 180 + Q;
 					sweepAngle = 180 -2*Q;
-					mPaint.setColor(Color.WHITE);
+					mPaint.setColor(tranColor);
 					canvas.drawArc(oval, startAngle, sweepAngle, false, mPaint);
 				}
 				mPaint.setStyle(Paint.Style.STROKE);
@@ -161,7 +166,7 @@ public class WaterWaveView extends View
 				{
 					int startY = (int) (f1 - mAmplitude* Math.sin(Math.PI* (2.0F * (startX + this.c * width * this.f))/ width));
 					if(autoLevel > 0.5){
-						mPaint.setColor(Color.WHITE);
+						mPaint.setColor(tranColor);
 						
 					}
 					canvas.drawLine(startX, startY, startX, top, mPaint);
@@ -186,7 +191,7 @@ public class WaterWaveView extends View
 		float startAngle = 0,sweepAngle = 0;
 		mPaint.setStyle(Paint.Style.FILL);
 		if(autoLevel<=0.5){
-			mPaint.setColor(Color.WHITE);
+			mPaint.setColor(tranColor);
 			canvas.drawCircle(width/2, height/2, r, mPaint);
 			startAngle = (float) (Math.asin(d/r)/Math.PI*180);
 			sweepAngle = (float) (180 - 2*startAngle);
@@ -199,7 +204,7 @@ public class WaterWaveView extends View
 			float Q = (float) (Math.asin(2*autoLevel - 1)/Math.PI*180);
 			startAngle = 180 + Q;
 			sweepAngle = 180 -2*Q;
-			mPaint.setColor(Color.WHITE);
+			mPaint.setColor(tranColor);
 			canvas.drawArc(oval, startAngle, sweepAngle, false, mPaint);
 		}
 		mPaint.setStyle(Paint.Style.STROKE);
@@ -228,7 +233,7 @@ public class WaterWaveView extends View
 		{
 			int startY = (int) (f1 - mAmplitude* Math.sin(Math.PI* (2.0F * (startX + this.c * width * this.f))/ width));
 			if(autoLevel > 0.5){
-				mPaint.setColor(Color.WHITE);
+				mPaint.setColor(tranColor);
 				
 			}
 			canvas.drawLine(startX, startY, startX, top, mPaint);
@@ -250,7 +255,7 @@ public class WaterWaveView extends View
 		float startAngle = 0,sweepAngle = 0;
 		mPaint.setStyle(Paint.Style.FILL);
 		if(mWateLevel<=0.5){
-			mPaint.setColor(Color.WHITE);
+			mPaint.setColor(tranColor);
 			canvas.drawCircle(width/2, height/2, r, mPaint);
 			startAngle = (float) (Math.asin(d/r)/Math.PI*180);
 			sweepAngle = (float) (180 - 2*startAngle);
@@ -263,7 +268,7 @@ public class WaterWaveView extends View
 			float Q = (float) (Math.asin(2*mWateLevel - 1)/Math.PI*180);
 			startAngle = 180 + Q;
 			sweepAngle = 180 -2*Q;
-			mPaint.setColor(Color.WHITE);
+			mPaint.setColor(tranColor);
 			canvas.drawArc(oval, startAngle, sweepAngle, false, mPaint);
 		}
 		mPaint.setStyle(Paint.Style.STROKE);
@@ -371,5 +376,11 @@ public class WaterWaveView extends View
 	}
 	public void stop(){
 		start = false;
+	}
+	private void drawPic(Canvas canvas){
+		int width = getWidth();
+		int height = getHeight();
+		Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ball);
+		canvas.drawBitmap(bitmap,null, new Rect(0, 0, width, height), null);
 	}
 }

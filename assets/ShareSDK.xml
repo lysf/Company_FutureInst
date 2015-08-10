@@ -115,7 +115,7 @@
         SortId="6"
         AppId="wxd05c9fb4031495ad"
         AppSecret="d23bc1d0218f050a897c06289af0f927"
-        Enable="true" />
+        Enable="false" />
     
 	<QQ
         Id="7"

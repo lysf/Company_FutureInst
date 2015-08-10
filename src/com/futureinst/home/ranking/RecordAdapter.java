@@ -22,7 +22,7 @@ public class RecordAdapter extends BaseAdapter {
 	public RecordAdapter(Context context) {
 		this.context = context;
 		list = new ArrayList<RecordDAO>();
-		types = context.getResources().getStringArray(R.array.home_title);
+		types = context.getResources().getStringArray(R.array.record_tag);
 		colors = new int[]{R.color.type_1,R.color.type_2,R.color.type_3,R.color.type_4,
 				R.color.type_5,R.color.type_6,R.color.type_7,R.color.type_8,R.color.type_9};
 	}

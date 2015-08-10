@@ -26,6 +26,18 @@
         <item >新奇</item>
     </string-array>
     <string-array 
+        name="record_tag">
+        <item >推荐</item>
+        <item >体育</item>
+        <item >财经</item>
+        <item >娱乐</item>
+        <item >民生</item>
+        <item >科技</item>
+        <item >国际</item>
+        <item >城市</item>
+        <item >新奇</item>
+    </string-array>
+    <string-array 
         name="home_second_title">
         <item >缘分</item>
         <item >快到期</item>

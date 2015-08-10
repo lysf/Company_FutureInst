@@ -54,6 +54,7 @@ import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
 import com.futureinst.newbieguide.GuideClickInterface;
 import com.futureinst.newbieguide.NewbieGuide;
+import com.futureinst.newbieguide.NewbieGuide2;
 import com.futureinst.share.OneKeyShareUtil;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.FragmentActivityTabAdapter;
@@ -122,60 +123,15 @@ public class EventDetailActivity extends BaseActivity {
 					tv_time.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
 				}
 				break;
-			case 12:
-				showGuide(preferenceUtil.getGuide3(),R.drawable.guide_3, new GuideClickInterface() {
-					@Override
-					public void guideClick() {
-						preferenceUtil.setGuide3();
-						handler.sendEmptyMessage(13);
-					}
-				});
-				break;
-			case 13:
-				showGuide(preferenceUtil.getGuide4(),R.drawable.guide_4, new GuideClickInterface() {
-					@Override
-					public void guideClick() {
-						preferenceUtil.setGuide4();
-						handler.sendEmptyMessage(14);
-					}
-				});
-				break;
-			case 14:
-				showGuide(preferenceUtil.getGuide5(),R.drawable.guide_5, new GuideClickInterface() {
-					@Override
-					public void guideClick() {
-						preferenceUtil.setGuide5();
-						handler.sendEmptyMessage(15);
-					}
-				});
-				break;
-			case 15:
-				showGuide(preferenceUtil.getGuide6(),R.drawable.guide_6, new GuideClickInterface() {
-					@Override
-					public void guideClick() {
-						preferenceUtil.setGuide6();
-						if(view_single_event.getVisibility() == View.VISIBLE
-								&& !preferenceUtil.getGuide7()){
-							handler.sendEmptyMessage(16);
-						}
-					}
-				});
-			case 16:
-				showGuide(preferenceUtil.getGuide7(),R.drawable.guide_7, new GuideClickInterface() {
-					@Override
-					public void guideClick() {
-						preferenceUtil.setGuide7();
-					}
-				});
-				break;
 			}
 		};
 	};
 	//显示新手引导
-		 private void showGuide(boolean isShow,int drawable,GuideClickInterface clickInterface){
-			 if(isShow)
+		 private void showGuide(){
+			 if(preferenceUtil.getGuide2())
 				 return;
-			 new NewbieGuide(EventDetailActivity.this,drawable ,clickInterface);
+			new NewbieGuide2(this, isHavaPrice);
+			preferenceUtil.setGuide2();
 		 }
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -184,30 +140,22 @@ public class EventDetailActivity extends BaseActivity {
 		initView();
 		initData(event);
 		judgeIsClear();
-		if(preferenceUtil.getGuide2() && view_single_event.getVisibility() == View.VISIBLE
-				&& !preferenceUtil.getGuide7()){
-			handler.sendEmptyMessage(16);
-		}
-		showGuide(preferenceUtil.getGuide2(),R.drawable.guide_2, new GuideClickInterface() {
-			@Override
-			public void guideClick() {
-				preferenceUtil.setGuide2();
-				handler.sendEmptyMessage(12);
-			}
-		});
+		
+		
 		
 	}
 	@Override
 	protected void onResume() {
 		super.onResume();
 		getPrice();
-//		activityTabAdapter.getCurrentFragment().setUserVisibleHint(true);
+		activityTabAdapter.getCurrentFragment().setUserVisibleHint(true);
 		if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
 			query_single_event_clear();
 			lazyBagFragment.setUserVisibleHint(true);
 		}else{
 			view_single_event.setVisibility(View.GONE);
 		}
+		showGuide();
 	}
 	private void initView() {
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
@@ -344,10 +292,8 @@ public class EventDetailActivity extends BaseActivity {
 			tv_description.setTextColor(getResources().getColor(R.color.forecast_bottom_line_select));
 		}
 		ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
-//		CircleView circleView = new CircleView(this);
-//		LayoutParams layoutParams = new LayoutParams(200, 200);
-//		circleView.setLayoutParams(layoutParams);
 		wav.setTextTop(String.format("%.2f", event.getCurrPrice()));
+		wav.setWaterLevel(event.getCurrPrice()/100);
 		if(!came){
 			if(event.getPriceChange() >= 0){
 				wav.setDown(false);
@@ -360,7 +306,7 @@ public class EventDetailActivity extends BaseActivity {
 			}
 			wav.startWave();
 		}
-		wav.setWaterLevel(event.getCurrPrice()/100);
+		
 		tv_time.setText(event.getStatusStr());
 		showTimeStatus();
 	}
@@ -424,7 +370,7 @@ public class EventDetailActivity extends BaseActivity {
 		//价格三等对比
 		List<EventBuyDAO> buys = info.getBuys();
 		List<EventSellDAO> sells = info.getSells();
-		DecimalFormat df= new DecimalFormat("###.00");
+		DecimalFormat df= new DecimalFormat("##0.00");
 		for(int i = 0;i<buys.size();i++){
 			tv_buys[i].setText(String.format("%3d", buys.get(i).getNum())+"  份  \t\t"+df.format(buys.get(i).getPrice()));
 			if(buys.get(i).getNum() > 9999)
@@ -462,7 +408,6 @@ public class EventDetailActivity extends BaseActivity {
 	//事件规则
 	private void showDialog(final String rule){
 		View view = LayoutInflater.from(this).inflate(R.layout.view_event_rule, null,false);
-//		ImageView iv_cancel = (ImageView) view.findViewById(R.id.iv_event_rule_cancel);
 		Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
 		TextView tv_rule = (TextView) view.findViewById(R.id.tv_rule); 
 		tv_rule.setText(rule);
@@ -549,6 +494,7 @@ public class EventDetailActivity extends BaseActivity {
 					}
 				});
 	}
+	private boolean isHavaPrice ;
 	//查询单个事件
 	private void query_single_event_clear(){
 //		progressDialog.progressDialog();
@@ -572,6 +518,16 @@ public class EventDetailActivity extends BaseActivity {
 				if(singleEventInfoDAO.getUser().getEvent_clear() == null){
 					view_single_event.setVisibility(View.GONE);
 					return;
+				}
+				isHavaPrice = true;
+				if(preferenceUtil.getGuide2() && isHavaPrice
+						&& !preferenceUtil.getGuide7()){
+					new  NewbieGuide(EventDetailActivity.this, R.drawable.guide_7, new GuideClickInterface() {
+						@Override
+						public void guideClick() {
+							preferenceUtil.setGuide7();
+						}
+					});
 				}
 				initSingleEvent(singleEventInfoDAO);
 			}
@@ -598,9 +554,9 @@ public class EventDetailActivity extends BaseActivity {
 		btn_tips.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				String rule = getResources().getString(R.string.tip_rule);
-				rule = rule.replace("$",event.getRule());
-				showDialog(rule);
+//				String rule = getResources().getString(R.string.tip_rule);
+//				rule = rule.replace("$",event.getRule());
+				showDialog(event.getRule());
 				dialog.dismiss();
 			}
 		});

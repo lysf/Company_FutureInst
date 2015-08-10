@@ -69,8 +69,7 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
-		//初始化推送
-		PushManager.getInstance().initialize(this.getApplicationContext());
+		
 		initVeiw();
 		initFragment();
 		get_android_version();
@@ -122,7 +121,8 @@ public class HomeActivity extends BaseActivity {
 		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
 			getMessageCount();
 			query_user_record();
-
+			//初始化推送
+			PushManager.getInstance().initialize(this.getApplicationContext());
 			
 			if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
 				cid = PushManager.getInstance().getClientid(this);

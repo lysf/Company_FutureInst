@@ -5,6 +5,7 @@ import com.futureinst.R;
 import android.content.Context;
 import android.text.TextUtils;
 import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.onekeyshare.OnekeyShareTheme;
 
 public class OneKeyShareUtil {
 	/**
@@ -24,8 +25,9 @@ public class OneKeyShareUtil {
 			String platform) {
 		// 实例化一个OnekeyShare对象
 		OnekeyShare oks = new OnekeyShare();
+		oks.setTheme(OnekeyShareTheme.CLASSIC);
 		// 设置Notification的显示图标和显示文字
-		oks.setNotification(R.drawable.logo, "未来研究所");
+//		oks.setNotification(R.drawable.logo, "未来研究所");
 		// 设置短信地址或者是邮箱地址，如果没有可以不设置
 		// oks.setAddress("12345678901");
 		// 分享内容的标题

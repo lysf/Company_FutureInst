@@ -9,6 +9,7 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.comment.AddCommentActivity;
 import com.futureinst.comment.CommentActivity;
+import com.futureinst.login.LoginActivity;
 import com.futureinst.model.comment.CommentDAO;
 import com.futureinst.model.homeeventmodel.EventRelatedInfo;
 import com.futureinst.net.HttpPostParams;
@@ -18,6 +19,7 @@ import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
 import com.futureinst.roundimageutils.RoundedImageView;
+import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.TimeUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -28,6 +30,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,10 +51,12 @@ public class CommentFragment extends BaseFragment {
 	private List<CommentDAO> list;
 	private boolean isVisiable;
 	private Animation animation;
+	private SharePreferenceUtil preferenceUtil;
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		event_id = getArguments().getString("eventId");
+		preferenceUtil = SharePreferenceUtil.getInstance(activity);
 		httpResponseUtils = HttpResponseUtils.getInstace(activity);
 		httpPostParams = HttpPostParams.getInstace();
 		animation = AnimationUtils.loadAnimation(activity, R.anim.comment_prise);
@@ -83,9 +88,11 @@ public class CommentFragment extends BaseFragment {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.tv_addComment:
-				Intent intent = new Intent(getActivity(), AddCommentActivity.class);
-				intent.putExtra("eventId", event_id);
-				startActivity(intent);
+				if(judgeIsLogin()){
+					Intent intent = new Intent(getActivity(), AddCommentActivity.class);
+					intent.putExtra("eventId", event_id);
+					startActivity(intent);
+				}
 				break;
 			case R.id.tv_moreComment://更多评论
 				Intent intent2 = new Intent(getActivity(), CommentActivity.class);
@@ -95,7 +102,16 @@ public class CommentFragment extends BaseFragment {
 			}
 		}
 	};
-
+	//判断是否已登录
+		private boolean judgeIsLogin(){
+			if(TextUtils.isEmpty(preferenceUtil.getUUid())){
+				Intent intent = new Intent(getActivity(), LoginActivity.class);
+				intent.putExtra("login", true);
+				startActivity(intent);
+				return false;
+			}
+			return true;
+		}
 	// 获取事件相关信息
 	private void getEvetnRealted() {
 		httpResponseUtils.postJson(

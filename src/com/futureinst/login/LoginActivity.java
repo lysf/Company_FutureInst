@@ -15,6 +15,7 @@ import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
+import com.mob.tools.utils.UIHandler;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,7 +32,6 @@ import android.widget.Toast;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.framework.utils.UIHandler;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.wechat.friends.Wechat;
 

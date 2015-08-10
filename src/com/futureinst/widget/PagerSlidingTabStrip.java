@@ -353,7 +353,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 	}
 
 	private class PageListener implements OnPageChangeListener {
-
+ 
 		@Override
 		public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -375,6 +375,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 				scrollToChild(pager.getCurrentItem(), 0);
 			}
 
+			
 			if (delegatePageListener != null) {
 				delegatePageListener.onPageScrollStateChanged(state);
 			}
