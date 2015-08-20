@@ -7,6 +7,7 @@ import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.global.Content;
 import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.home.eventdetail.EventDetailActivity;
 import com.futureinst.login.LoginActivity;
@@ -32,6 +33,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
 import android.text.Html.ImageGetter;
+import android.util.Log;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -87,6 +89,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			getData(position+"", orders[0]);
 		}
 		isStart = true;
+//		showGuide();
 	}
 	private void initView(){
 		ll_unlogin = (LinearLayout) findViewById(R.id.ll_unLogin);
@@ -132,9 +135,19 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		super.setUserVisibleHint(isVisibleToUser);
 		if(isVisibleToUser && isStart){
-			onRefresh(true);
-			pullListView.onRefreshComplete();
+			pullListView.hideHeader();
+			long currentTime = System.currentTimeMillis();
+			Log.i("time", "------------距离上次刷新-->>"+(currentTime - pullListView.getLastUpdatedTime())/1000+"秒"+"--"+pullListView.getLastUpdatedTime());
+			if(currentTime - pullListView.getLastUpdatedTime() > Content.main_list_fresh_interval*1000){
+				onRefresh(true);
+			}
 		}
+	}
+	@Override
+	public void onResume() {
+		super.onResume();
+		pullListView.hideHeader();
+//			onRefresh(true);
 	}
 	//获取我的关注
 		private void getMyAttention(){
@@ -176,23 +189,12 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
 						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
 						adapter.setList(queryEventInfoDAO.getEvents());
-						showGuide();
+					
 						notifyDate();
 					}
 				});
 	 }
-	 //显示新手引导
-	 private void showGuide(){
-		 if(preferenceUtil.getGuide1())
-			 return;
-		 new NewbieGuide(getActivity(), R.drawable.guide_1, new GuideClickInterface() {
-			@Override
-			public void guideClick() {
-				preferenceUtil.setGuide1();
-			}
-		});
-		 
-	 }
+	
 	 //查询归档事件数据
 	 private void getData(){
 		 HttpResponseUtils.getInstace(getActivity()).postJson(
@@ -214,10 +216,12 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void onRefresh(boolean isTop) {
 		if(isTop){
+//			pullListView.setSelection(0);
 			if(position == 1){
 				if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())){
 					getMyAttention();
 				}else{
+					pullListView.onRefreshComplete();
 					ll_unlogin.setVisibility(View.VISIBLE);
 				}
 			}else if(position == 0){
@@ -241,13 +245,16 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	};
 	boolean flag = false;
 	private void notifyDate(){
+		if(flag) return;
+		
+		Log.i(ARG_POSITION, "--------start refresh");
 		flag = true;
 		new Thread(new Runnable() {
 			public void run() {
 				while(flag){
 					handler.sendEmptyMessage(111);
 					try {
-						Thread.sleep(10000);
+						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -255,14 +262,31 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			}
 		}).start();
 	}
+	private Runnable delayLoad = new Runnable() {
+		@Override
+		public void run() {
+			onRefresh(true);
+		}
+	};
+	public void setIsHaveTop(boolean haveTop){
+		if(haveTop){
+			pullListView.setRefresh(true);
+		}else{
+			pullListView.setRefresh(false);
+		}
+	}
 	@Override
 	public void onPause() {
 		super.onPause();
-		
+		Log.i(ARG_POSITION, "--------stop refresh");
+		flag = false;
+		handler.removeCallbacks(delayLoad);
 	}
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
 		flag = false;
+		handler.removeCallbacks(delayLoad);
 	}
+	
 }

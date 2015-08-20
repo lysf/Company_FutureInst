@@ -62,7 +62,7 @@ public class OneKeyShareUtil {
 		// 设置是否是直接分享
 		oks.setSilent(false);
 //		 设置自定义的外部回调
-		 oks.setCallback(new OneKeyShareCallback(context));
+//		 oks.setCallback(new OneKeyShareCallback(context));
 //		 oks.setShareContentCustomizeCallback(new ShareContentCustomizeDemo(shareTitle, shareTitleUrl, shareImageUrl, shareContents));
 		// 显示
 		// oks.disableSSOWhenAuthorize();

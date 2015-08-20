@@ -13,9 +13,9 @@ import android.widget.GridView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.global.Content;
 import com.futureinst.home.HomeActivity;
 import com.futureinst.model.basemodel.RegistsKeywordDAO;
-import com.futureinst.model.global.Content;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;

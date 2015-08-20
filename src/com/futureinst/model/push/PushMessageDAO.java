@@ -2,15 +2,18 @@ package com.futureinst.model.push;
 
 import java.io.Serializable;
 
+import com.futureinst.model.homeeventmodel.QueryEventDAO;
+
 @SuppressWarnings("serial")
 public class PushMessageDAO implements Serializable{
 	private String id;
+	private String event_id;
 	private Long time;
 	private String text;
 	private String title;
 	private String type;
 	private boolean isRead;
-	
+	private QueryEventDAO event;
 	public PushMessageDAO() {
 		super();
 	}
@@ -22,6 +25,18 @@ public class PushMessageDAO implements Serializable{
 		this.time = time;
 	}
 	
+	public QueryEventDAO getEvent() {
+		return event;
+	}
+	public void setEvent(QueryEventDAO event) {
+		this.event = event;
+	}
+	public String getEvent_id() {
+		return event_id;
+	}
+	public void setEvent_id(String event_id) {
+		this.event_id = event_id;
+	}
 	public String getTitle() {
 		return title;
 	}

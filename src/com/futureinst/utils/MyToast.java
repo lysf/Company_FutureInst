@@ -56,7 +56,7 @@ public class MyToast {
 //	private  void calcScreenSize() {
 //	    DisplayMetrics dm = new DisplayMetrics();
 //	    activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-//	   int mScreenWidth = dm.widthPixels;
+//	   int mScreenWidth = dm.widthPixels;d1gh
 //	   int mScreenHeight = dm.heightPixels;
 //	   activity.mScreenWidth = mScreenWidth;
 //	    AppApplication.mScreenHeight = mScreenHeight;

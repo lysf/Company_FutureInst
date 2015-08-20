@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.widget.TitleButton;
+import com.umeng.analytics.MobclickAgent;
 
 public abstract class BaseFragment extends Fragment {
 
@@ -217,14 +218,17 @@ public abstract class BaseFragment extends Fragment {
 
 	@Override
 	public void onPause() {
+		 MobclickAgent.onPageEnd(getClass().getName()); 
 		super.onPause();
 		closeInput();
 	}
 
 	@Override
 	public void onResume() {
+		 MobclickAgent.onPageStart(getClass().getName()); 
 		super.onResume();
 		closeInput();
+		
 	}
 
 	protected String getPageName() {

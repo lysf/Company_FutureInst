@@ -23,6 +23,8 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.home.HomeActivity;
 import com.futureinst.sharepreference.SharePreferenceUtil;
+import com.umeng.analytics.AnalyticsConfig;
+import com.umeng.analytics.MobclickAgent;
 
 
 public class IndexActivity extends BaseActivity{
@@ -33,7 +35,8 @@ public class IndexActivity extends BaseActivity{
 	private Button btn_skip;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
-
+		AnalyticsConfig.enableEncrypt(true);
+		MobclickAgent.updateOnlineConfig(this);
 		sharedPreferences = SharePreferenceUtil.getInstance(this);
 		if(!sharedPreferences.isFirstLogin()){
 			Intent intent = new Intent(IndexActivity.this, HomeActivity.class);

@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import com.futureinst.R;
-import com.futureinst.model.global.Content;
+import com.futureinst.global.Content;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 
 import android.annotation.SuppressLint;
@@ -71,6 +71,7 @@ public class UpdateService extends Service {
 			updateNotificationManager.notify(101, updateNotification);
 			// 开启线程现在
 			new Thread(new updateRunnable()).start();
+			preferenceUtil.setIsUpdateVersion(true);
 		}
 		return super.onStartCommand(intent, 0, 0);
 	}
@@ -86,12 +87,14 @@ public class UpdateService extends Service {
 				if (downloadSize == 100) {
 					// 下载成功
 					updateHandler.sendMessage(message);
+					preferenceUtil.setIsUpdateVersion(false);
 				}
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				message.what = 1;
 				// 下载失败
 				updateHandler.sendMessage(message);
+				preferenceUtil.setIsUpdateVersion(false);
 			}
 		}
 	}
@@ -105,6 +108,7 @@ public class UpdateService extends Service {
 				installApk(updateDir + File.separator + fileName);
 				// 停止服务
 				preferenceUtil.setUpdate(false);
+				preferenceUtil.setIsUpdateVersion(false);
 				stopSelf();
 				break;
 			case 1:
@@ -117,6 +121,7 @@ public class UpdateService extends Service {
 				updateNotification.flags = Notification.FLAG_AUTO_CANCEL;
 				updateNotificationManager.notify(101, updateNotification);
 				preferenceUtil.setUpdate(false);
+				preferenceUtil.setIsUpdateVersion(false);
 				stopSelf();
 				break;
 			default:

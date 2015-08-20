@@ -33,7 +33,11 @@ public class SharePreferenceUtil {
 	private String DESCRIPTION = "DESCRIPTION";// 用户描述
 	private String CLIENTID = "CLIENTID";//推送的cid
 	private String ISFIRSTLOGIN = "ISFIRSTLOGIN";//是否第一次登陆
+	private String ISUPDATEVERSION = "ISUPDATEVERSION";//是否在下载新版本
 	private String UPDATE = "UPDATE";//是否第一次登陆
+	private String ASSET = "ASSET";//可交易未币
+	private String ASSURE = "ASSURE";//保证金;
+	private String EXCHANGE = "EXCHANGE";//可消费未币
 	private String GUIDE_1 = "GUIDE_1";
 	private String GUIDE_2 = "GUIDE_2";
 	private String GUIDE_3 = "GUIDE_3";
@@ -46,12 +50,34 @@ public class SharePreferenceUtil {
 	private String CID = "CID";
 	private String CTYPE = "CTYPE";
 	private String STATUS = "STATUS";
-	
+	//余额
+	public float getAsset(){
+		return mSharedPreferences.getFloat(ASSET, 0f);
+	}
+	public void setAsset(float asset){
+		editor.putFloat(ASSET, asset);
+		editor.commit();
+	}
+	//保证金
+	public float getAssure(){
+		return mSharedPreferences.getFloat(ASSURE, 0f);
+	}
+	public void setAssure(float assure){
+		editor.putFloat(ASSURE, assure);
+		editor.commit();
+	}
 	public boolean getGuide1(){
 		return mSharedPreferences.getBoolean(GUIDE_1, false);
 	}
 	public void setGuide1(){
 		editor.putBoolean(GUIDE_1, true);
+		editor.commit();
+	}
+	public boolean getIsUpdateVersion(){
+		return mSharedPreferences.getBoolean(ISUPDATEVERSION, false);
+	}
+	public void setIsUpdateVersion(boolean isUpdateVersion){
+		editor.putBoolean(ISUPDATEVERSION, isUpdateVersion);
 		editor.commit();
 	}
 	public boolean getGuide2(){

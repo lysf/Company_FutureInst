@@ -1,5 +1,6 @@
 package com.futureinst.home.eventdetail;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.json.JSONException;
@@ -11,6 +12,7 @@ import com.futureinst.model.homeeventmodel.EventBuyDAO;
 import com.futureinst.model.homeeventmodel.EventPriceDAOInfo;
 import com.futureinst.model.homeeventmodel.EventSellDAO;
 import com.futureinst.model.homeeventmodel.QueryEventDAO;
+import com.futureinst.model.order.SingleEventClearDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
@@ -25,6 +27,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,12 +40,14 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class EventBuyActivity extends BaseActivity {
+	private SingleEventClearDAO singleEventClearDAO;
+	private float asset;
 	private QueryEventDAO event;
 	private EventPriceDAOInfo priceDAOInfo;
 	private EditText et_price,et_num;
 	private Button submit;
 	private boolean isBuy;
-	private TextView[] tv_buys,tv_sells;
+	private TextView[] tv_buys_1,tv_buys_2,tv_buys_3,tv_sells_1,tv_sells_2,tv_sells_3;
 	private LinearLayout ll_event_buy;
 	private TextView tv_total_1,tv_total_2,tv_total_3,tv_total_4;
 	private String order_tips_1,order_tips_2,order_tips_3,order_tips_4;
@@ -101,6 +106,11 @@ public class EventBuyActivity extends BaseActivity {
 		tv_total_4.setVisibility(View.VISIBLE);
 	}
 	private void initView() {
+		asset = preferenceUtil.getAsset();
+		singleEventClearDAO = (SingleEventClearDAO) getIntent().getSerializableExtra("assure");
+		if(singleEventClearDAO == null){
+			singleEventClearDAO = new SingleEventClearDAO(0,0,0,0);
+		}
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
 		priceDAOInfo = (EventPriceDAOInfo) getIntent().getSerializableExtra("price");
 		isBuy = getIntent().getBooleanExtra("buyOrSell", false);
@@ -109,8 +119,12 @@ public class EventBuyActivity extends BaseActivity {
 		tv_total_2 = (TextView) findViewById(R.id.tv_total_2);
 		tv_total_3 = (TextView) findViewById(R.id.tv_total_3);
 		tv_total_4 = (TextView) findViewById(R.id.tv_total_4);
-		tv_buys = new TextView[3];
-		tv_sells = new TextView[3];
+		tv_buys_1 = new TextView[3];
+		tv_buys_2 = new TextView[3];
+		tv_buys_3 = new TextView[3];
+		tv_sells_1 = new TextView[3];
+		tv_sells_2 = new TextView[3];
+		tv_sells_3 = new TextView[3];
 		et_price = (EditText) findViewById(R.id.et_price);
 		et_num = (EditText) findViewById(R.id.et_num);
 		submit = (Button) findViewById(R.id.btn_type);
@@ -126,7 +140,7 @@ public class EventBuyActivity extends BaseActivity {
 		btn_lood_bad = (Button) findViewById(R.id.btn_lood_bad);
 		btn_lood_good.setVisibility(View.GONE);
 		btn_lood_bad.setVisibility(View.GONE);
-//		et_price.setText(String.format("%.1f", event.getCurrPrice()));
+		et_price.setText(String.format("%.2f", event.getCurrPrice()));
 		et_num.setText("10");
 		if(isBuy){
 			submit.setText("看好");
@@ -206,10 +220,19 @@ public class EventBuyActivity extends BaseActivity {
 			switch (v.getId()) {
 			case R.id.btn_type:
 				if(judgeData()){
+					String currPrice = et_price.getText().toString();
+					int currNum = Integer.valueOf(et_num.getText().toString());
+					float assure = CalculateAssureUtil.calculateNeedAssure(isBuy, currNum, Float.valueOf(currPrice), singleEventClearDAO.getAllBuyNum(), singleEventClearDAO.getBuyPrice(),
+							singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
+					Log.i(TAG, "--------------------assure="+assure+"-----asset="+asset);
+					if(assure > asset){
+						MyToast.showToast(EventBuyActivity.this, "保证金不足，无法下单", 0);
+						return;
+					}
 					if(isBuy){
-						showBuyConfig(1, et_price.getText().toString(), Integer.valueOf(et_num.getText().toString()));
+						showBuyConfig(1,currPrice , currNum);
 					}else{
-						showBuyConfig(3, et_price.getText().toString(), Integer.valueOf(et_num.getText().toString()));
+						showBuyConfig(3, currPrice, currNum);
 					}
 				}
 				break;
@@ -268,27 +291,49 @@ public class EventBuyActivity extends BaseActivity {
 		}
 	};
 	private void initPriceView(){
-		tv_buys[0] = (TextView) findViewById(R.id.tv_buy_1);
-		tv_buys[1] = (TextView) findViewById(R.id.tv_buy_2);
-		tv_buys[2] = (TextView) findViewById(R.id.tv_buy_3);
-		tv_sells[0] = (TextView) findViewById(R.id.tv_sell_1);
-		tv_sells[1] = (TextView) findViewById(R.id.tv_sell_2);
-		tv_sells[2] = (TextView) findViewById(R.id.tv_sell_3);
+		tv_buys_1[0] = (TextView) findViewById(R.id.tv_buy_1_1);
+		tv_buys_1[1] = (TextView) findViewById(R.id.tv_buy_2_1);
+		tv_buys_1[2] = (TextView) findViewById(R.id.tv_buy_3_1);
+		
+		tv_buys_2[0] = (TextView) findViewById(R.id.tv_buy_1_2);
+		tv_buys_2[1] = (TextView) findViewById(R.id.tv_buy_2_2);
+		tv_buys_2[2] = (TextView) findViewById(R.id.tv_buy_3_2);
+		
+		tv_buys_3[0] = (TextView) findViewById(R.id.tv_buy_1_3);
+		tv_buys_3[1] = (TextView) findViewById(R.id.tv_buy_2_3);
+		tv_buys_3[2] = (TextView) findViewById(R.id.tv_buy_3_3);
+		
+		tv_sells_1[0] = (TextView) findViewById(R.id.tv_sell_1_1);
+		tv_sells_1[1] = (TextView) findViewById(R.id.tv_sell_2_1);
+		tv_sells_1[2] = (TextView) findViewById(R.id.tv_sell_3_1);
+		
+		tv_sells_2[0] = (TextView) findViewById(R.id.tv_sell_1_2);
+		tv_sells_2[1] = (TextView) findViewById(R.id.tv_sell_2_2);
+		tv_sells_2[2] = (TextView) findViewById(R.id.tv_sell_3_2);
+		
+		tv_sells_3[0] = (TextView) findViewById(R.id.tv_sell_1_3);
+		tv_sells_3[1] = (TextView) findViewById(R.id.tv_sell_2_3);
+		tv_sells_3[2] = (TextView) findViewById(R.id.tv_sell_3_3);
 	}
 	//初始化价格数据
 		private void initPrice(EventPriceDAOInfo info){
 			//价格三等对比
 			List<EventBuyDAO> buys = info.getBuys();
 			List<EventSellDAO> sells = info.getSells();
+			DecimalFormat df= new DecimalFormat("##0.00");
 			for(int i = 0;i<buys.size();i++){
-				tv_buys[i].setText(buys.get(i).getNum()+"  份  "+String.format("%.2f", buys.get(i).getPrice()));
-				if(buys.get(i).getNum() > 9999)
-					tv_buys[i].setText("9999+  份  "+String.format("%.2f", buys.get(i).getPrice()));
+				tv_buys_1[i].setText(String.format("%3d", buys.get(i).getNum())+"  份");
+				tv_buys_2[i].setVisibility(View.INVISIBLE);
+				tv_buys_3[i].setText(df.format(buys.get(i).getPrice()));
+//				if(buys.get(i).getNum() > 9999)
+//					tv_buys[i].setText("9999+  份  "+String.format("%.2f", buys.get(i).getPrice()));
 			}
 			for(int j = 0;j<sells.size();j++){
-				tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  "+sells.get(j).getNum()+"  份  ");
-				if(sells.get(j).getNum() > 9999)
-					tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  9999+  份  ");
+				tv_sells_1[j].setText(df.format(sells.get(j).getPrice()));
+				tv_sells_2[j].setVisibility(View.INVISIBLE);
+				tv_sells_3[j].setText(String.format("%3d", sells.get(j).getNum())+"  份");
+//				if(sells.get(j).getNum() > 9999)
+//					tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  9999+  份  ");
 			}
 			
 		}

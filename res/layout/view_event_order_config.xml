@@ -56,9 +56,6 @@
             android:textColor="#86BCFF"
             android:background="@drawable/item_select"
             android:text="@string/ok"
-            android:minWidth="80dip"
-            android:minHeight="@dimen/widget_height_45"
-            android:layout_marginTop="@dimen/margin_5"
             />
         </LinearLayout>
         

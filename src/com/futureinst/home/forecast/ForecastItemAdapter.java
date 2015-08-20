@@ -13,6 +13,7 @@ import com.futureinst.widget.WaterWaveView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,14 +93,16 @@ public class ForecastItemAdapter extends BaseAdapter {
 		}
 		WaterWaveView wav = new WaterWaveView(context);
 		wav.setTextTop(String.format("%.2f", item.getCurrPrice()));
+		
 		if(item.getPriceChange() >= 0){
-//			wav.setDown(false);
 			wav.setColor(context.getResources().getColor(R.color.gain_red));
 			wav.setTextBottom("+"+String.format("%.2f", item.getPriceChange()));
 		}else{
-//			wav.setDown(true);
 			wav.setColor(context.getResources().getColor(R.color.gain_blue));
 			wav.setTextBottom("-"+String.format("%.2f", Math.abs(item.getPriceChange())));
+		}
+		if(item.getStatusStr().equals("已清算")){
+			wav.setColor(Color.GRAY);
 		}
 		wav.setWaterLevel(item.getCurrPrice()/100);
 		ll_circle.addView(wav);

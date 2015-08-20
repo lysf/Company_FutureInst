@@ -1,23 +1,32 @@
 package com.futureinst.utils;
 
 
+
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ProgressBar;
 
 public class CustomWebViewClient extends WebViewClient{
 //	private MyProgressDialog progressDialog;
 //	private ProgressBar progressBar;
+	private Context context;
 	public CustomWebViewClient(Context context){
+		this.context = context;
 //		progressDialog = MyProgressDialog.getInstance(context);
 //		this.progressBar = progressBar;
 	}
 	@Override
 	public boolean shouldOverrideUrlLoading(WebView view, String url) {
+		if(url.equals("js-callterminal://userLogin/userLoginCallback")){
+//			Intent intent = new Intent(context, LoginActivity.class);
+//			intent.putExtra("login", true);
+//			context.startActivity(intent);
+		}else{
 			view.loadUrl(url);
+		}
 		return true;
 	}
 

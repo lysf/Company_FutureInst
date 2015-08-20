@@ -27,6 +27,9 @@ public class HoldDealAdapter extends BaseAdapter {
 		this.list = list;
 		notifyDataSetChanged();
 	}
+	public List<DealOrderDAO> getList() {
+		return this.list;
+	}
 	@Override
 	public int getCount() {
 		return list!=null?list.size():0;
@@ -89,10 +92,10 @@ public class HoldDealAdapter extends BaseAdapter {
 				tv_deal.setVisibility(View.VISIBLE);
 				String gain = "";
 				if(item.getGain() < 0){
-					gain = " - "+String.format("%.1f", Math.abs(item.getGain()));
+					gain = " - "+String.format("%.2f", Math.abs(item.getGain()));
 					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_blue));
 				}else{
-					gain = " + "+String.format("%.1f", Math.abs(item.getGain()));
+					gain = " + "+String.format("%.2f", Math.abs(item.getGain()));
 					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_red));
 				}
 				tv_gain.setText(gain);

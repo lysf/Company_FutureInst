@@ -15,27 +15,20 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewTreeObserver;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.global.Content;
 import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.interfaces.OnRgsExtraCheckedChangedListener;
 import com.futureinst.login.LoginActivity;
@@ -68,7 +61,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 @SuppressLint({ "HandlerLeak", "DefaultLocale" })
 public class EventDetailActivity extends BaseActivity {
-	private ScrollView bottom_scroll;
+//	private float ASSURE ;
+	private SingleEventClearDAO singleEventClearDAO;
 	private boolean isAttention;
 	private MyProgressDialog progressDialog;
 	private EventPriceDAOInfo priceDAOInfo;
@@ -86,7 +80,7 @@ public class EventDetailActivity extends BaseActivity {
 	private WaterWaveView wav;
 	private TextView tv_description;
 	private Button btn_lood_good,btn_lood_bad;
-	private TextView[] tv_buys,tv_sells;
+	private TextView[] tv_buys_1,tv_buys_2,tv_buys_3,tv_sells_1,tv_sells_2,tv_sells_3;
 	private View view_line;
 	
 	//单个事件账单 
@@ -100,12 +94,12 @@ public class EventDetailActivity extends BaseActivity {
 	//底部
 	private Button[] bottom_btns;
 	private View[] bottom_views;
-	private ViewPager viewPager;
+//	private ViewPager viewPager;
 	private CommentFragment commentFragment;
 	private RefrenceFragment refrenceFragment;
 	private LazyBagFragment lazyBagFragment;
 	
-	private boolean timeIsStart;
+	private boolean timeIsStart,isDestroy;
 	private Handler handler = new Handler(){
 		@Override
 		public void handleMessage(android.os.Message msg) {
@@ -117,11 +111,14 @@ public class EventDetailActivity extends BaseActivity {
 					view_line.setBackgroundColor(getResources().getColor(R.color.forecast_deal));
 					tv_time.setBackgroundColor(getResources().getColor(R.color.forecast_deal));
 					
-				}else{
+				}else{  
 					timeIsStart = false;
 					view_line.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
 					tv_time.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
 				}
+				break;
+			case 2:
+				getPrice();
 				break;
 			}
 		};
@@ -141,31 +138,40 @@ public class EventDetailActivity extends BaseActivity {
 		initData(event);
 		judgeIsClear();
 		
-		
-		
 	}
 	@Override
 	protected void onResume() {
 		super.onResume();
-		getPrice();
-		activityTabAdapter.getCurrentFragment().setUserVisibleHint(true);
-		if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
-			query_single_event_clear();
-			lazyBagFragment.setUserVisibleHint(true);
-		}else{
-			view_single_event.setVisibility(View.GONE);
+		handler.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				getPrice();
+			}
+		}, 2000);
+		
+		if(!isPriceRefresh){
+			isPriceRefresh = true;
+			refreshPrice();
 		}
-		showGuide();
+//		if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
+//			query_single_event_clear();
+//		}else{
+//			view_single_event.setVisibility(View.GONE);
+//		}
+//		showGuide();
 	}
 	private void initView() {
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
 		came = getIntent().getBooleanExtra("boolean", false);
 		progressDialog = MyProgressDialog.getInstance(this);
 		event_id = event.getId()+"";
-		tv_buys = new TextView[3];
-		tv_sells = new TextView[3];
+		tv_buys_1 = new TextView[3];
+		tv_buys_2 = new TextView[3];
+		tv_buys_3 = new TextView[3];
+		tv_sells_1 = new TextView[3];
+		tv_sells_2 = new TextView[3];
+		tv_sells_3 = new TextView[3];
 		
-		bottom_scroll = (ScrollView) findViewById(R.id.bottom_scroll);
 		wav = (WaterWaveView) findViewById(R.id.wav);
 		view_line = findViewById(R.id.view_line);
 		tv_time = (TextView) findViewById(R.id.tv_time);
@@ -194,12 +200,29 @@ public class EventDetailActivity extends BaseActivity {
 		initBottomView();
 	}
 	private void initPriceView(){ 
-		tv_buys[0] = (TextView) findViewById(R.id.tv_buy_1);
-		tv_buys[1] = (TextView) findViewById(R.id.tv_buy_2);
-		tv_buys[2] = (TextView) findViewById(R.id.tv_buy_3);
-		tv_sells[0] = (TextView) findViewById(R.id.tv_sell_1);
-		tv_sells[1] = (TextView) findViewById(R.id.tv_sell_2);
-		tv_sells[2] = (TextView) findViewById(R.id.tv_sell_3);
+		tv_buys_1[0] = (TextView) findViewById(R.id.tv_buy_1_1);
+		tv_buys_1[1] = (TextView) findViewById(R.id.tv_buy_2_1);
+		tv_buys_1[2] = (TextView) findViewById(R.id.tv_buy_3_1);
+		
+		tv_buys_2[0] = (TextView) findViewById(R.id.tv_buy_1_2);
+		tv_buys_2[1] = (TextView) findViewById(R.id.tv_buy_2_2);
+		tv_buys_2[2] = (TextView) findViewById(R.id.tv_buy_3_2);
+		
+		tv_buys_3[0] = (TextView) findViewById(R.id.tv_buy_1_3);
+		tv_buys_3[1] = (TextView) findViewById(R.id.tv_buy_2_3);
+		tv_buys_3[2] = (TextView) findViewById(R.id.tv_buy_3_3);
+		
+		tv_sells_1[0] = (TextView) findViewById(R.id.tv_sell_1_1);
+		tv_sells_1[1] = (TextView) findViewById(R.id.tv_sell_2_1);
+		tv_sells_1[2] = (TextView) findViewById(R.id.tv_sell_3_1);
+		
+		tv_sells_2[0] = (TextView) findViewById(R.id.tv_sell_1_2);
+		tv_sells_2[1] = (TextView) findViewById(R.id.tv_sell_2_2);
+		tv_sells_2[2] = (TextView) findViewById(R.id.tv_sell_3_2);
+		
+		tv_sells_3[0] = (TextView) findViewById(R.id.tv_sell_1_3);
+		tv_sells_3[1] = (TextView) findViewById(R.id.tv_sell_2_3);
+		tv_sells_3[2] = (TextView) findViewById(R.id.tv_sell_3_3);
 		btn_lood_good = (Button) findViewById(R.id.btn_lood_good);
 		btn_lood_bad = (Button) findViewById(R.id.btn_lood_bad);
 		btn_lood_good.setOnClickListener(clickListener);
@@ -208,9 +231,9 @@ public class EventDetailActivity extends BaseActivity {
 	//单个事件的账单
 	private void initSingleEvent(SingleEventInfoDAO singleEventInfo){
 		SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
+		singleEventClearDAO = item;
 		if(item.getAllBuyNum() == 0 && item.getAllSellNum() == 0){
 			view_single_event.setVisibility(View.GONE);
-			
 			return;
 		}
 		view_single_event.setVisibility(View.VISIBLE);
@@ -238,9 +261,9 @@ public class EventDetailActivity extends BaseActivity {
 		}
 	}
 	private void initBottomView(){
-		bottom_btns = new Button[3];
+		bottom_btns = new Button[3]; 
 		bottom_views = new View[3];
-		viewPager =  (ViewPager) findViewById(R.id.event_detail_container);
+//		viewPager =  (ViewPager) findViewById(R.id.event_detail_container);
 		bottom_btns[0] = (Button) findViewById(R.id.btn_revoke);
 		bottom_btns[1] = (Button) findViewById(R.id.btn_refrence);
 		bottom_btns[2] = (Button) findViewById(R.id.btn_comment);
@@ -259,27 +282,15 @@ public class EventDetailActivity extends BaseActivity {
 		fragments.add(lazyBagFragment);
 		fragments.add(refrenceFragment);
 		fragments.add(commentFragment);
-//		viewPager.setAdapter(new MyFragmentAdapter(getSupportFragmentManager(), fragments));
-//		viewPager.setOnPageChangeListener(changeListener);
-//		measure();
-		FrameLayout container = (FrameLayout) findViewById(R.id.container);
 		activityTabAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, bottom_btns,bottom_views);
 		activityTabAdapter.setOnRgsExtraCheckedChangedListener(new OnRgsExtraCheckedChangedListener() {
 			@Override
 			public void OnRgsExtraCheckedChanged(View[] btns, int checkedId, int index) {
-				fragments.get(index).setUserVisibleHint(true);
+				if(index == 2){
+//					fragments.get(index).setUserVisibleHint(true);
+				}
 			}
 		});
-		Log.i(TAG, "================="+container.getChildCount());
-		View view = container.getChildAt(0);
-//		 int w = View.MeasureSpec.makeMeasureSpec(0,
-//                View.MeasureSpec.UNSPECIFIED);
-//         int h = View.MeasureSpec.makeMeasureSpec(0,
-//                View.MeasureSpec.UNSPECIFIED);
-//         view.measure(w, h);
-//         LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
-//	       params.height = view.getMeasuredHeight();
-//	       container.setLayoutParams(params);
 	}
 	
 	
@@ -291,10 +302,13 @@ public class EventDetailActivity extends BaseActivity {
 			tv_description.setText(event.getAccord());
 			tv_description.setTextColor(getResources().getColor(R.color.forecast_bottom_line_select));
 		}
-		ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+		if(iv_image.getTag()==null || !iv_image.getTag().equals(event.getImgsrc())){
+			ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+			iv_image.setTag(event.getImgsrc());
+		}
 		wav.setTextTop(String.format("%.2f", event.getCurrPrice()));
 		wav.setWaterLevel(event.getCurrPrice()/100);
-		if(!came){
+		if(!came && !event.getStatusStr().equals("已清算")){
 			if(event.getPriceChange() >= 0){
 				wav.setDown(false);
 				wav.setColor(getResources().getColor(R.color.gain_red));
@@ -333,6 +347,7 @@ public class EventDetailActivity extends BaseActivity {
 				if(!judgeIsLogin()) return;  
 				Intent intent1 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
 				intent1.putExtra("buyOrSell", true);
+				intent1.putExtra("assure", singleEventClearDAO);
 				intent1.putExtra("event", event);
 				intent1.putExtra("price", priceDAOInfo);
 				startActivity(intent1);
@@ -341,6 +356,7 @@ public class EventDetailActivity extends BaseActivity {
 				if(!judgeIsLogin()) return;
 				Intent intent2 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
 				intent2.putExtra("buyOrSell", false);
+				intent2.putExtra("assure", singleEventClearDAO);
 				intent2.putExtra("event", event);
 				intent2.putExtra("price", priceDAOInfo);
 				startActivity(intent2);
@@ -354,34 +370,35 @@ public class EventDetailActivity extends BaseActivity {
 
 	//初始化价格数据
 	private void initPrice(EventPriceDAOInfo info){
-		//价格图
-//		int[] pathData = new int[info.getPrices().size()];
-//		for(int i = 0;i<info.getPrices().size();i++){
-//			EventPriceDAO eventPriceDAO = info.getPrices().get(i);
-//			pathData[i] = (int) eventPriceDAO.getPrice();
-//		}
-//		ll_path.removeAllViews();
-//		View view = LayoutInflater.from(this).inflate(R.layout.view_pathview, null, false);
-//		PathView pathView = (PathView) view.findViewById(R.id.pathView);
-//		pathView.setXCount(100, 5);
-//		pathView.setType(PathView.OTHER);
-//		pathView.setDate(pathData);
-//		ll_path.addView(view);
 		//价格三等对比
 		List<EventBuyDAO> buys = info.getBuys();
 		List<EventSellDAO> sells = info.getSells();
 		DecimalFormat df= new DecimalFormat("##0.00");
+		priceViewReset();
 		for(int i = 0;i<buys.size();i++){
-			tv_buys[i].setText(String.format("%3d", buys.get(i).getNum())+"  份  \t\t"+df.format(buys.get(i).getPrice()));
-			if(buys.get(i).getNum() > 9999)
-				tv_buys[i].setText("9999+  份 \t\t "+df.format(buys.get(i).getPrice()));
+			tv_buys_1[i].setText(String.format("%3d", buys.get(i).getNum())+"  份");
+			tv_buys_2[i].setVisibility(View.INVISIBLE);
+			tv_buys_3[i].setText(df.format(buys.get(i).getPrice()));
+//			if(buys.get(i).getNum() > 9999)
+//				tv_buys[i].setText("9999+  份 \t\t "+df.format(buys.get(i).getPrice()));
 		}
 		for(int j = 0;j<sells.size();j++){
-			tv_sells[j].setText(df.format(sells.get(j).getPrice())+"  \t\t"+String.format("%3d", sells.get(j).getNum())+"  份  ");
-			if(sells.get(j).getNum() > 9999)
-				tv_sells[j].setText(df.format(sells.get(j).getPrice())+"  \t\t9999+  份  ");
+			tv_sells_1[j].setText(df.format(sells.get(j).getPrice()));
+			tv_sells_2[j].setVisibility(View.INVISIBLE);
+			tv_sells_3[j].setText(String.format("%3d", sells.get(j).getNum())+"  份");
+//			if(sells.get(j).getNum() > 9999)
+//				tv_sells[j].setText(df.format(sells.get(j).getPrice())+"  \t\t9999+  份  ");
 		}
-		
+	}
+	private void priceViewReset(){
+		for(int i = 0;i<tv_buys_1.length;i++){
+			tv_buys_1[i].setText("");
+			tv_buys_3[i].setText("");
+			tv_buys_2[i].setVisibility(View.VISIBLE);
+			tv_sells_1[i].setText("");
+			tv_sells_3[i].setText("");
+			tv_sells_2[i].setVisibility(View.VISIBLE);
+		}
 	}
 	//获取事件的价格走势
 	private void getPrice(){
@@ -396,6 +413,8 @@ public class EventDetailActivity extends BaseActivity {
 						progressDialog.cancleProgress();
 						if(response == null) return;
 						EventPriceInfo eventPriceInfo = (EventPriceInfo) response;
+						event = eventPriceInfo.getEvent();
+						initData(event);
 						initPrice(eventPriceInfo.getPrice());
 						priceDAOInfo = eventPriceInfo.getPrice();
 						SystemTimeUtile.getInstance(eventPriceInfo.getCurr_time()).setSystemTime(eventPriceInfo.getCurr_time());
@@ -414,7 +433,7 @@ public class EventDetailActivity extends BaseActivity {
 		final Dialog dialog = DialogShow.showDialog(this, view,Gravity.CENTER);
 		btn_submit.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v) { 
 				dialog.cancel();
 			}
 		});
@@ -438,8 +457,12 @@ public class EventDetailActivity extends BaseActivity {
 			tv_time.setText("剩余"+LongTimeUtil.longTimeUtil(time));
 			view_line.setBackgroundColor(getResources().getColor(R.color.forecast_deal));
 			tv_time.setBackgroundColor(getResources().getColor(R.color.forecast_deal));
-			timeIsStart = true;
-			timeRunThread.start();
+			
+			if(!timeIsStart && !isDestroy){
+				timeIsStart = true;
+				timeRunThread.start();
+			}
+				
 		}else if(event.getStatusStr().equals("已清算")){
 			view_line.setBackgroundColor(getResources().getColor(R.color.text_color_bf));
 			tv_time.setBackgroundColor(getResources().getColor(R.color.text_color_bf));
@@ -463,6 +486,38 @@ public class EventDetailActivity extends BaseActivity {
 			}
 		}
 	});
+	//刷新价格
+	private boolean isPriceRefresh = false;
+	private void refreshPrice(){
+		while (isPriceRefresh && Content.is_aoto_refresh_event_price) {
+			long delayTime = (long) (Math.random()*10 + Content.aoto_refresh_event_price_interval)*1000;
+			try {
+				Thread.sleep(delayTime);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			Message message = Message.obtain();
+			message.what = 2;
+		handler.sendMessage(message);
+		}
+	
+	}
+//	Thread priceRefreshThread = new Thread(new Runnable() {
+//		@Override
+//		public void run() {
+//			while (isPriceRefresh && Content.is_aoto_refresh_event_price) {
+//				long delayTime = (long) (Math.random()*10 + Content.aoto_refresh_event_price_interval)*1000;
+//				try {
+//					Thread.sleep(delayTime);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//				Message message = Message.obtain();
+//				message.what = 2;
+//			handler.sendMessage(message);
+//			}
+//		}
+//	});
 	//事件清算中不可下单
 	private void judgeIsClear(){
 		if(!event.getStatusStr().equals("交易中")){
@@ -494,10 +549,10 @@ public class EventDetailActivity extends BaseActivity {
 					}
 				});
 	}
+	
 	private boolean isHavaPrice ;
-	//查询单个事件
+	//查询用户对于该事件的操作结果，关注和清算单
 	private void query_single_event_clear(){
-//		progressDialog.progressDialog();
 		httpResponseUtils.postJson_1(httpPostParams.getPostParams(
 				PostMethod.query_single_event.name(), PostType.event.name(), 
 				httpPostParams.query_single_event(preferenceUtil.getID()+"", preferenceUtil.getUUid(), event_id,"user")), 
@@ -535,7 +590,7 @@ public class EventDetailActivity extends BaseActivity {
 	}
 	//分享
 	private void share(){
-		OneKeyShareUtil.showShare(this, event.getTitle(), HttpPath.SHARE_URL+event_id, event.getDescription(), null, event.getImgsrc(), true, null);
+		OneKeyShareUtil.showShare(this, event.getTitle(), HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), event.getDescription(), null, event.getImgsrc(), true, null);
 	}
 	private void showOperateDialog(){
 		View view = LayoutInflater.from(this).inflate(R.layout.view_event_operate, null);
@@ -554,8 +609,6 @@ public class EventDetailActivity extends BaseActivity {
 		btn_tips.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				String rule = getResources().getString(R.string.tip_rule);
-//				rule = rule.replace("$",event.getRule());
 				showDialog(event.getRule());
 				dialog.dismiss();
 			}
@@ -590,10 +643,18 @@ public class EventDetailActivity extends BaseActivity {
 		});
 		dialog.show();
 	}
+	@Override
+	protected void onPause() {
+		super.onPause();
+//		timeIsStart = false;
+		isPriceRefresh = false;
+	}
 	@Override 
 	protected void onDestroy() {
 		super.onDestroy();
 		timeIsStart = false;
+		isPriceRefresh = false;
+		isDestroy = true;
 		wav.stop();
 		System.gc();
 	}
@@ -624,7 +685,6 @@ public class EventDetailActivity extends BaseActivity {
 		}
 		@Override
 		public Fragment getItem(int arg0) {
-			// TODO Auto-generated method stub
 			return fragments.get(arg0);
 		}
 
@@ -634,24 +694,5 @@ public class EventDetailActivity extends BaseActivity {
 			return fragments.size();
 		}
 		
-	}
-	public void measure(){
-		  final int w = View.MeasureSpec.makeMeasureSpec(0,
-	                 View.MeasureSpec.UNSPECIFIED);
-	         final int h = View.MeasureSpec.makeMeasureSpec(0,
-	                 View.MeasureSpec.UNSPECIFIED);
-	         ViewTreeObserver vto = viewPager.getViewTreeObserver();
-	         vto.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-
-	             public void onGlobalLayout() {
-	            	 viewPager.getViewTreeObserver()
-	               .removeGlobalOnLayoutListener(this);
-	       View view = viewPager.getChildAt(viewPager.getCurrentItem());
-	      	 view.measure(w, h);
-	       LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
-	       params.height = view.getMeasuredHeight();
-	       viewPager.setLayoutParams(params);
-	             }
-	         });
 	}
 }

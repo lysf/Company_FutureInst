@@ -30,9 +30,10 @@ import com.futureinst.baseui.BaseApplication;
 import com.futureinst.db.DataCacheUtil;
 import com.futureinst.fileupload.MultiPartStack;
 import com.futureinst.fileupload.MultiPartStringRequest;
+import com.futureinst.global.Content;
 import com.futureinst.model.basemodel.BaseModel;
-import com.futureinst.model.global.Content;
 import com.futureinst.utils.MyToast;
+import com.futureinst.utils.NetstateToast;
 import com.futureinst.utils.Utils;
 
 public class HttpResponseUtils {
@@ -113,8 +114,8 @@ public class HttpResponseUtils {
 							e.printStackTrace();
 						}
 						if(!Utils.checkNetkworkState(activity)){
-							MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
-							
+//							MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+							NetstateToast.getInstance(activity, activity.getResources().getString(R.string.connection_interrupt)).showToast();
 							return;
 						}
 						MyToast.showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
@@ -179,7 +180,8 @@ public class HttpResponseUtils {
 					e.printStackTrace();
 				}
 				if(!Utils.checkNetkworkState(activity)){
-					MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+					NetstateToast.getInstance(activity, activity.getResources().getString(R.string.connection_interrupt)).showToast();
+//					MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
 					return;
 				}
 				MyToast.showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);

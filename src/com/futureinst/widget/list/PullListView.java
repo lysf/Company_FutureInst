@@ -3,9 +3,11 @@ package com.futureinst.widget.list;
 import java.util.Date;
 
 import com.futureinst.R;
-import com.futureinst.model.global.Content;
+import com.futureinst.global.Content;
+import com.futureinst.utils.TimeUtil;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -271,6 +273,8 @@ public class PullListView extends ListView implements OnScrollListener {
 		if (isRefreshable) {
 			switch (event.getAction()) {
 			case MotionEvent.ACTION_DOWN:
+				mDownX = event.getX();
+				mDownY = event.getY();
 				if (firstItemIndex == 0 && !isRecored) {
 					isRecored = true;
 					startY = (int) event.getY();
@@ -303,7 +307,7 @@ public class PullListView extends ListView implements OnScrollListener {
 						changeHeaderViewByState();
 
 						isTop = true;
-
+						
 						onRefresh(isTop);
 
 						Log.v(TAG, "由松开刷新状态，到done状态");
@@ -342,6 +346,12 @@ public class PullListView extends ListView implements OnScrollListener {
 				break;
 
 			case MotionEvent.ACTION_MOVE:
+//				if(Math.abs(event.getX() - mDownX) > Math.abs(event.getY() - mDownY)){
+//					
+//				}
+				if(Math.abs(event.getY() - mDownY) < 15){
+					break;
+				}
 				int tempY = (int) event.getY();
 
 				if (!isRecored && firstItemIndex == 0) {
@@ -518,6 +528,7 @@ public class PullListView extends ListView implements OnScrollListener {
 		}
 
 		return super.onTouchEvent(event);
+//		return true;
 	}
 
 	// 当状态改变时候，调用该方法，以更新界面
@@ -588,7 +599,19 @@ public class PullListView extends ListView implements OnScrollListener {
 			break;
 		}
 	}
+	//隐藏头部
+	public void hideHeader(){
+		headView.setPadding(0, -1 * headContentHeight, 0, 0);
 
+		progressBar.setVisibility(View.GONE);
+		arrowImageView.clearAnimation();
+		arrowImageView.setImageResource(upImageResources);
+		tipsTextview.setText("下拉刷新");
+		lastUpdatedTextView.setVisibility(View.VISIBLE);
+		
+		iv_refreshing.setVisibility(View.GONE);
+		iv_refreshStart.setVisibility(View.VISIBLE);
+	}
 	// 当状态改变时候，调用该方法，以更新界面
 	private void changeFootViewByState() {
 		switch (bottomstate) {
@@ -658,12 +681,28 @@ public class PullListView extends ListView implements OnScrollListener {
 	public interface OnRefreshListener {
 		public void onRefresh(boolean isTop);
 	}
-
+//	public boolean isStartRefresh(){
+//		if(!TextUtils.isEmpty(lastUpdatedTextView.getText().toString())){
+//			long currentTime = System.currentTimeMillis();
+//			String lastUpdatedText = lastUpdatedTextView.getText().toString().replace("最近更新:", "").replace("上午", "").replace("下午", "");
+//			long lastUpdatedTime = TimeUtil.stringToLong(lastUpdatedText, TimeUtil.FORMAT_DATE_TIME_SECOND);
+//			Log.i(TAG, "------------距离上次刷新-->>"+(currentTime - lastUpdatedTime)/1000/1000+"秒"+"------"+lastUpdatedTime+";"+currentTime+"--"+lastUpdatedText);
+//			if((currentTime - lastUpdatedTime) > 30*1000*1000){
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
+	public long getLastUpdatedTime(){
+		if(TextUtils.isEmpty(lastUpdatedTextView.getText().toString())) return 0L;
+		String lastUpdatedText = lastUpdatedTextView.getText().toString().replace("最近更新:", "");
+		return TimeUtil.stringToLong(lastUpdatedText, TimeUtil.FORMAT_DATE_TIME_SECOND);
+	}
 	public void onRefreshComplete() {
 		state = DONE;
 		bottomstate = DONE;
 		Content.isPull = false;
-		lastUpdatedTextView.setText("最近更新:" + new Date().toLocaleString());
+		lastUpdatedTextView.setText("最近更新:" + TimeUtil.getCurrentTime(TimeUtil.FORMAT_DATE_TIME_SECOND));
 		footlastUpdatedTextView.setText("最近更新:" + new Date().toLocaleString());
 		changeHeaderViewByState();
 		changeFootViewByState();
@@ -696,7 +735,7 @@ public class PullListView extends ListView implements OnScrollListener {
 	}
 
 	public void setAdapter(BaseAdapter adapter) {
-		lastUpdatedTextView.setText("最近更新:" + new Date().toLocaleString());
+		lastUpdatedTextView.setText("最近更新:" + TimeUtil.getCurrentTime(TimeUtil.FORMAT_DATE_TIME_SECOND));
 		super.setAdapter(adapter);
 	}
 
@@ -719,5 +758,29 @@ public class PullListView extends ListView implements OnScrollListener {
 	public void setLoadMore(boolean loadMore) {
 		this.loadMore = loadMore;
 	}
-	
+	private float mDownX,mDownY;
+//  @Override
+//  public boolean dispatchTouchEvent(MotionEvent ev) {
+//  	switch (ev.getAction()) {
+//		case MotionEvent.ACTION_DOWN:
+//			mDownX = ev.getX();
+//			mDownY = ev.getY();
+//			getParent().requestDisallowInterceptTouchEvent(true);
+//			break;
+//		case MotionEvent.ACTION_MOVE:
+//			if(Math.abs(ev.getX() - mDownX) > Math.abs(ev.getY() - mDownY)){
+//				getParent().requestDisallowInterceptTouchEvent(true);
+//			}else{
+//				getParent().requestDisallowInterceptTouchEvent(false);
+//			}
+//			
+//			break;
+//		case MotionEvent.ACTION_UP:
+//		case MotionEvent.ACTION_CANCEL:
+//			getParent().requestDisallowInterceptTouchEvent(false);
+//			break;
+//		}
+//  	
+//  	return super.dispatchTouchEvent(ev);
+//  }
 }

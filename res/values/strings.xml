@@ -30,6 +30,7 @@
     <string name="reset_pwd">找回密码</string>
     <string name="login_out_tip">确定退出该账户</string>
 	<!-- LoginActiivty -->
+	<string name="app_regist_tip">抱歉，未来研究所目前仅开放邀请注册。请关注微信公众号“鸭先知”，了解更多邀请码获取方式。</string>
 	<string name="login_login">登录</string>
 	<string name="login_cancel">取消</string>
 	<string name="login_regist">注册</string>

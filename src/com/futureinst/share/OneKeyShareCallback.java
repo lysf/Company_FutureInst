@@ -37,6 +37,16 @@ public class OneKeyShareCallback implements PlatformActionListener {
 	public void onError(Platform plat, int action, Throwable t) {
 		t.printStackTrace();
 		// 在这里添加分享失败的处理代码
+		// 操作失败的处理代码
+  	  String expName = t.getClass().getSimpleName();
+  	  //判断有没有安装客户端
+			if ("WechatClientNotExistException".equals(expName)
+					|| "WechatTimelineNotSupportedException".equals(expName)
+					|| "WechatFavoriteNotSupportedException".equals(expName))
+			{
+				Toast.makeText(context, "抱歉您未安装微信客端，无法进行分享！", Toast.LENGTH_SHORT).show();
+			}
+
 	}
 
 	public void onCancel(Platform plat, int action) {

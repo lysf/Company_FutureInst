@@ -40,7 +40,7 @@
          android:layout_height="42dip"
          />
     
-	<android.support.v4.view.ViewPager
+	<com.futureinst.widget.CustomViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

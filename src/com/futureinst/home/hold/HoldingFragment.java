@@ -71,7 +71,12 @@ public class HoldingFragment extends BaseFragment {
 			}
 		}
 	};
-	
+	public void setCurrentPosition(int position){
+		container.setCurrentItem(position);
+		views[0].setSelected(false);
+		views[1].setSelected(false);
+		views[position].setSelected(true);
+	}
 	OnPageChangeListener changeListener = new OnPageChangeListener() {
 		@Override
 		public void onPageSelected(int position) {

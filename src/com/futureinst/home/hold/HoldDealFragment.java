@@ -19,9 +19,16 @@ import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +45,25 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	private SharePreferenceUtil preferenceUtil;
 	private boolean isStart;
 	private TextView empty;
+//	private String actionId;
+//	private BroadcastReceiver receiver;
+	
+	@Override
+	public void onAttach(Activity activity) {
+		super.onAttach(activity);
+//		receiver = new BroadcastReceiver() {
+//			@Override
+//			public void onReceive(Context context, Intent intent) {
+//				if(intent.getAction().equals("pushAction")){
+//					actionId = intent.getStringExtra("messageId");
+//					Log.i("action", "--------------actionId---->>"+actionId);
+//				}
+//			}
+//		};
+//		IntentFilter filter = new IntentFilter();
+//		filter.addAction("pushAction");
+//		activity.registerReceiver(receiver, filter);
+	}
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_hold_deal);
@@ -46,6 +72,7 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 		progressDialog.progressDialog();
 		getData();
 		isStart = true;
+		
 	}
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -91,9 +118,26 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 						DealOrderInfo dealOrderInfo = (DealOrderInfo) response;
 						adapter.setList(dealOrderInfo.getEventclears());
 						pullListView.setEmptyView(empty);
+//						if(TextUtils.isEmpty(actionId)){
+//							setSelection();
+//						}
 					}
 				});
 	}
+//	private void setSelection(){
+//		if(actionId == null){
+//			return;
+//		}
+//		for(int i = 0;i < adapter.getCount();i++){
+//			DealOrderDAO item = (DealOrderDAO) adapter.getItem(i);
+//			if(actionId.equals(item.getEvent().getId()+"")){
+//				final int index = i+1;
+//				Log.i("index", "--------------actionId---->>-------"+index);
+//				pullListView.clearFocus();
+//				pullListView.smoothScrollToPosition(index);
+//			}
+//		}
+//	}
 	@Override
 	public void onRefresh(boolean isTop) {
 		if(isTop){

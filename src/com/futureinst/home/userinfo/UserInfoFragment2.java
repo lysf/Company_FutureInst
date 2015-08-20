@@ -9,8 +9,8 @@ import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.global.Content;
 import com.futureinst.login.LoginActivity;
-import com.futureinst.model.global.Content;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.model.usermodel.UserInformationDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
@@ -26,6 +26,7 @@ import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageCompressUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
+import com.futureinst.utils.Utils;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -65,6 +66,7 @@ public class UserInfoFragment2 extends BaseFragment {
 	private PushMessageUtils pushMessageUtils;
 	private TextView tv_useableIcon,tv_depositCash,tv_useableSaleIcon;
 	private boolean isStart;
+	private TextView tv_version;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_userinfo);
@@ -115,11 +117,13 @@ public class UserInfoFragment2 extends BaseFragment {
 		tableRows[6] = (TableRow) findViewById(R.id.tableRow_privacy);
 		tv_useableIcon = (TextView) findViewById(R.id.tv_useableIcon);
 		tv_depositCash = (TextView) findViewById(R.id.tv_depositCash);
-
+		tv_version = (TextView) findViewById(R.id.tv_version);
 	}
 	
 	// 初始化视图
 	private void initData(UserInformationDAO userInfo) {
+		String version = "V"+Utils.getVersionName(getContext())+"   Build("+Utils.getVersionCode(getContext())+")";
+		tv_version.setText(version);
 		if (!TextUtils.isEmpty(userInfo.getUser().getName())) {
 			tv_userName.setText(userInfo.getUser().getName());
 		}
@@ -212,6 +216,9 @@ public class UserInfoFragment2 extends BaseFragment {
 				Intent intent = new Intent(getActivity(), LoginActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				preferenceUtil.setUUid("");
+				preferenceUtil.setID(0L);
+				preferenceUtil.setName("");
+				preferenceUtil.setGender(0);
 				startActivity(intent);
 				getActivity().finish();
 				dialog.dismiss();
@@ -232,7 +239,9 @@ public class UserInfoFragment2 extends BaseFragment {
 						progressDialog.cancleProgress();
 						if (response == null)
 							return;
-						userInformationDAO.getUser().setName(userName);
+						if(!TextUtils.isEmpty(userName)){
+							userInformationDAO.getUser().setName(userName);
+						}
 						userInformationDAO.getUser().setDescription(description);
 						initData(userInformationDAO);
 					}
@@ -264,6 +273,7 @@ public class UserInfoFragment2 extends BaseFragment {
 	private void showEditDescription() {
 		View view = LayoutInflater.from(getContext()).inflate(R.layout.view_edit_userinfo_description, null, false);
 		final EditText et_description = (EditText) view.findViewById(R.id.et_user_desccription);
+		et_description.setText(userInformationDAO.getUser().getDescription());
 		Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
 		Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 		final Dialog dialog = DialogShow.showDialog(getActivity(), view, Gravity.CENTER);
@@ -273,7 +283,7 @@ public class UserInfoFragment2 extends BaseFragment {
 				String description = et_description.getText().toString().trim();
 				if (TextUtils.isEmpty(description))
 					MyToast.showToast(getActivity(), "请输入内容！", 1);
-				update_user(userInformationDAO.getUser().getName(), description);
+				update_user(null, description);
 				dialog.dismiss();
 			}
 		});
@@ -290,6 +300,7 @@ public class UserInfoFragment2 extends BaseFragment {
 	private void showEditName() {
 		View view = LayoutInflater.from(getContext()).inflate(R.layout.view_edit_user_name, null, false);
 		final EditText et_name = (EditText) view.findViewById(R.id.et_user_name);
+		et_name.setText(userInformationDAO.getUser().getName());
 		et_name.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {

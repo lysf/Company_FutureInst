@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
+import android.text.TextUtils;
+
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
 	public static HttpPostParams getInstace(){
@@ -90,7 +92,9 @@ public class HttpPostParams {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("uuid", uuid);
 		map.put("user_id", user_id);
-		map.put("name", name);
+		if(!TextUtils.isEmpty(name)){
+			map.put("name", name);
+		}
 		map.put("description", description);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();

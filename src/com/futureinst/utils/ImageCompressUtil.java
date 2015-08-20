@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.futureinst.model.global.Content;
+import com.futureinst.global.Content;
 
 import android.app.Activity;
 import android.content.Context;

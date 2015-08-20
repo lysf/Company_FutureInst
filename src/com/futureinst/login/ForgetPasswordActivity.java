@@ -14,8 +14,8 @@ import android.widget.EditText;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.global.Content;
 import com.futureinst.model.basemodel.BaseModel;
-import com.futureinst.model.global.Content;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;

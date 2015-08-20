@@ -3,6 +3,7 @@ package com.futureinst.home.forecast;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
 
 public class ForecastViewPagerAdapter extends FragmentPagerAdapter {
 	private String[] titles;
@@ -25,5 +26,8 @@ public class ForecastViewPagerAdapter extends FragmentPagerAdapter {
 		// TODO Auto-generated method stub
 		return titles.length;
 	}
-
+	@Override
+	public void destroyItem(ViewGroup container, int position, Object object) {
+//		super.destroyItem(container, position, object);
+	}
 }

@@ -3,6 +3,8 @@ package com.futureinst.baseui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -36,6 +38,7 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.widget.TitleButton;
+import com.umeng.analytics.MobclickAgent;
 
 
 @SuppressLint("HandlerLeak")
@@ -54,6 +57,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
     protected SharePreferenceUtil preferenceUtil;
     protected HttpResponseUtils httpResponseUtils;
     protected NotificationManager mNotificationManager;
+    protected boolean isActive = true;
     private OnClickListener mClickListener = new OnClickListener() {
 
         @Override
@@ -133,7 +137,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        connectXmpp(handler);
+        MobclickAgent.onResume(this);
     }
 
     /**
@@ -142,6 +146,13 @@ public abstract class BaseActivity extends BaseFragmentActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        MobclickAgent.onPause(this);
+    }
+    @Override
+    protected void onStop() {
+    	// TODO Auto-generated method stub
+    	super.onStop();
+    	
     }
 
     protected String getPageName() {
@@ -472,4 +483,23 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 	            }  
 	        }  
 	}  
+	   @Override
+	public void finish() {
+		   MobclickAgent.onKillProcess( this );
+		super.finish();
+	}
+	   private boolean isAppOnForeground(Context context) {   
+		      ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);   
+		      List<RunningAppProcessInfo> appProcesses = activityManager.getRunningAppProcesses();   
+		      if (appProcesses == null) {   
+		        return false;   
+		      }   
+		      final String packageName = context.getPackageName();   
+		      for (RunningAppProcessInfo appProcess : appProcesses) {   
+		        if (appProcess.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND && appProcess.processName.equals(packageName)) {   
+		          return true;   
+		        }   
+		      }   
+		      return false;   
+		  }  
 }

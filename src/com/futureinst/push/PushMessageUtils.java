@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.futureinst.model.global.Content;
+import com.futureinst.global.Content;
 import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.push.PushMessageInfo;
 import com.futureinst.sharepreference.SharePreferenceUtil;

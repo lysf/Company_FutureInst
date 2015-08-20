@@ -19,6 +19,16 @@ public class SingleEventClearDAO implements Serializable {
 	private Long ctime;
 	private Long mtime;
 	private int status;
+	public SingleEventClearDAO(){
+		super();
+	}
+	public SingleEventClearDAO(float buyPrice, int buyNum, float sellPrice, int sellNum) {
+		this.buyPrice = buyPrice;
+		this.buyNum = buyNum;
+		this.sellPrice = sellPrice;
+		this.sellNum = sellNum;
+	}
+
 	public String getUeid() {
 		return ueid;
 	}

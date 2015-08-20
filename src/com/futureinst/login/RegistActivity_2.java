@@ -17,7 +17,8 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
-import com.futureinst.model.global.Content;
+import com.futureinst.global.Content;
+import com.futureinst.home.HomeActivity;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
@@ -29,6 +30,7 @@ import com.futureinst.utils.TimePickUtil;
 public class RegistActivity_2 extends BaseActivity {
 	private EditText et_userName;
 	private TextView tv_sex,tv_birthday;
+	private boolean loginTag;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_regist_2);
@@ -45,10 +47,11 @@ public class RegistActivity_2 extends BaseActivity {
 		
 	}
 	private void initView() {
+		loginTag = getIntent().getBooleanExtra("loginTag", false);
 		setTitle(getResources().getString(R.string.login_regist));
-		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
+//		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
-		setRight(R.string.next);
+		setRight(R.string.ok);
 		et_userName = (EditText) findViewById(R.id.et_userName);
 		tv_sex = (TextView) findViewById(R.id.tv_sex);
 		tv_birthday = (TextView) findViewById(R.id.tv_birthday);
@@ -105,7 +108,16 @@ public class RegistActivity_2 extends BaseActivity {
 						progressDialog.cancleProgress();
 						Content.isPull = false;
 						if(response == null) return;
-						startActivity(new Intent(RegistActivity_2.this, RegistActivity_3.class));
+//						startActivity(new Intent(RegistActivity_2.this, RegistActivity_3.class));
+						
+							
+						
+						if(!loginTag){
+							Intent intent = new Intent(RegistActivity_2.this, HomeActivity.class);
+							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							startActivity(intent);
+						}
+						finish();
 						
 					}
 				});

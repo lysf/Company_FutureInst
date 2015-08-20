@@ -61,20 +61,20 @@ public class UserCheckAdapter extends BaseAdapter {
 		String change = "";
 		SpannableStringBuilder stringBuilder;
 		if(item.getBalanceChange() >= 0){
-			change = "+"+String.format("%.1f", item.getBalanceChange());
+			change = "+"+String.format("%.2f", item.getBalanceChange());
 			stringBuilder = new SpannableStringBuilder(change);
 //			stringBuilder.setSpan(new ForegroundColorSpan(Color.RED), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 //			tv_change.setBackgroundColor(context.getResources().getColor(R.color.gain_red));
 			tv_change.setTextColor(context.getResources().getColor(R.color.gain_red));
 		}else{
-			change = "-"+String.format("%.1f", Math.abs(item.getBalanceChange()));
+			change = "-"+String.format("%.2f", Math.abs(item.getBalanceChange()));
 			stringBuilder = new SpannableStringBuilder(change);
 //			stringBuilder.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.login_title_layout_back)), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 //			tv_change.setBackgroundColor(context.getResources().getColor(R.color.gain_blue));
 			tv_change.setTextColor(context.getResources().getColor(R.color.gain_blue));
 		}
 		tv_change.setText(stringBuilder);
-		tv_current_balance.setText(String.format("%.1f", item.getBalanceCurr()));
+		tv_current_balance.setText(String.format("%.2f", item.getBalanceCurr()));
 		if(position == list.size() - 1) viewDiver.setVisibility(View.GONE);
 		else viewDiver.setVisibility(View.VISIBLE);
 		return convertView;

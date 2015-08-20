@@ -6,8 +6,8 @@ import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.global.Content;
 import com.futureinst.home.HomeActivity;
-import com.futureinst.model.global.Content;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
@@ -58,7 +58,11 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 	protected void onRightClick(View view) {
 		super.onRightClick(view);
 		//注册
+		if(Content.disable_app_sign_in){
 		startActivity(new Intent(LoginActivity.this, RegistActiivty_1.class));
+		}else{
+			MyToast.showToast(LoginActivity.this, getResources().getString(R.string.app_regist_tip), 0);
+		}
 	}
 	private void initView() {
 		loginTag = getIntent().getBooleanExtra("login", false);
@@ -91,10 +95,10 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 				startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
 				break;
 			case R.id.tv_wechat://微信
-				authorize(new Wechat(LoginActivity.this));
+//				authorize(new Wechat(LoginActivity.this));
 				break;
 			case R.id.tv_sina://新浪
-				authorize(new SinaWeibo(LoginActivity.this));
+//				authorize(new SinaWeibo(LoginActivity.this));
 				break;
 			}
 		}
@@ -119,6 +123,9 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 						if(response == null) return;
 						UserInfo userInfo = (UserInfo) response;
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
+						if(judgeIsFirstLogin())
+							return;
+						
 						if(!loginTag){
 							Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
 							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -138,13 +145,23 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
 		}
-		if(!Utils.checkMobilePhoneNo(phoneNummber)){
-			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
-			return false;
-		}
+//		if(!Utils.checkMobilePhoneNo(phoneNummber)){
+//			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
+//			return false;
+//		}
 		return true;
 	}
-	
+	//判断用户是否是第一次登陆
+	private boolean judgeIsFirstLogin(){
+		if(TextUtils.isEmpty(preferenceUtil.getName())){
+			Intent intent = new Intent(this,RegistActivity_2.class);
+			intent.putExtra("loginTag", loginTag);
+			startActivity(intent);
+			finish();
+			return true;
+		}
+		return false;
+	}
 	// 授权
 		private void authorize(Platform plat) {
 			if (plat == null) {
@@ -218,7 +235,6 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 		@Override
 		public void onComplete(Platform arg0, int action, HashMap<String, Object> arg2) {
 			Log.i("third", "---------------->" + arg0.getDb().getUserGender());
-				
 				openId = arg0.getDb().getUserId();
 				if (arg0.getName().equals(SinaWeibo.NAME)) {// 新浪微博
 					type = "weibo"+openId;

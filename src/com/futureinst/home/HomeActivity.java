@@ -34,6 +34,7 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.global.Content;
 import com.futureinst.home.forecast.ForecastFragment;
 import com.futureinst.home.hold.HoldingFragment;
 import com.futureinst.home.ranking.RankAndRecordFragment;
@@ -46,15 +47,19 @@ import com.futureinst.model.version.VersionDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.newbieguide.GuideClickInterface;
+import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.push.PushMessageUtils;
 import com.futureinst.service.UpdateDialogShow;
 import com.futureinst.service.UpdateService;
+import com.futureinst.utils.BadgeUtil;
 import com.futureinst.utils.Utils;
 import com.igexin.sdk.PushManager;
 
 
 @SuppressLint("ClickableViewAccessibility")
 public class HomeActivity extends BaseActivity {
+	private boolean isUpdate;
 	private boolean isHide = false;  
 	private float lastX = 0;  
 	private float lastY = 0;  
@@ -66,16 +71,29 @@ public class HomeActivity extends BaseActivity {
 	private View[] views;
 	private List<Fragment> fragments;
 	private Animation animation;
+	private FragmentActivityTabAdapter activityAdapter;
+	private String actionId;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
-		
 		initVeiw();
 		initFragment();
 		get_android_version();
+		showGuide();
 	}
+	 //显示新手引导
+	 private void showGuide(){
+		 if(preferenceUtil.getGuide1())
+			 return;
+		 new NewbieGuide(this, R.drawable.guide_1, new GuideClickInterface() {
+			@Override
+			public void guideClick() {
+				preferenceUtil.setGuide1();
+			}
+		});
+		 
+	 }
 	private void initVeiw() {
-		
 		views = new View[4];
 		fragments = new ArrayList<Fragment>(); 
 		ll_home_tab = (LinearLayout) findViewById(R.id.ll_home_table);
@@ -94,10 +112,15 @@ public class HomeActivity extends BaseActivity {
 				if(intent.getAction().equals("newPushMessage")){
 					getMessageCount();
 				}
+//				else if(intent.getAction().equals("pushAction")){
+//					actionId = intent.getStringExtra("messageId");
+//					activityAdapter.setFragmentShow(1);
+//				}
 			}
 		};
 		IntentFilter filter = new IntentFilter();
 		filter.addAction("newPushMessage");
+//		filter.addAction("pushAction");
 		registerReceiver(receiver, filter);
 		
 	}
@@ -106,7 +129,7 @@ public class HomeActivity extends BaseActivity {
 		fragments.add(new HoldingFragment());
 		fragments.add(new RankAndRecordFragment());
 		fragments.add(new UserInfoFragment2());
-		new FragmentActivityTabAdapter(this, fragments, R.id.container, views);
+		activityAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, views);
 	}
 	private boolean isLogin(){
 		if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
@@ -118,7 +141,7 @@ public class HomeActivity extends BaseActivity {
 	}
 	// 判断是否登录
 	private void judgeIsLogin() {
-		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
+		if (!TextUtils.isEmpty(preferenceUtil.getUUid()) && isUpdate) {
 			getMessageCount();
 			query_user_record();
 			//初始化推送
@@ -131,7 +154,7 @@ public class HomeActivity extends BaseActivity {
 				cid = preferenceUtil.getCLIENTID();
 			}
 			update_user_cid(cid);
-		
+			isUpdate = true;
 //			if(!PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){}
 		} 
 	}
@@ -165,6 +188,8 @@ public class HomeActivity extends BaseActivity {
 						if (response == null)
 							return;
 						UserInformationInfo userInformationInfo = (UserInformationInfo) response;
+						preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
+						preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
 						setRanking(userInformationInfo.getUser_record());
 					}
 				});
@@ -183,12 +208,17 @@ public class HomeActivity extends BaseActivity {
 	}
 	//获取未读消息数量
 		private void getMessageCount(){
+			if(TextUtils.isEmpty(preferenceUtil.getUUid())){
+				return;
+			}
 			int count =  PushMessageUtils.getInstance(this).getUnReadMessageCount();
 			if(count>0){
+				BadgeUtil.setBadgeCount(getApplicationContext(), count);
 				tv_messageCount.setText(count+"");
 				tv_messageCount.setVisibility(View.VISIBLE);
 			}else{
 				tv_messageCount.setText("0");
+				BadgeUtil.resetBadgeCount(getApplicationContext());
 				tv_messageCount.setVisibility(View.INVISIBLE);
 			}
 		}
@@ -203,6 +233,16 @@ public class HomeActivity extends BaseActivity {
 					public void requestCompleted(Object response) throws JSONException {
 						if(response == null) return;
 						VersionDAO versionDAO = (VersionDAO) response;
+						if(versionDAO.getDisable_app_sign_in() == 1){
+							Content.disable_app_sign_in = false;
+						}else{
+							Content.disable_app_sign_in = true;
+						}
+						if(versionDAO.getAoto_refresh_event_price() == 1){
+							Content.is_aoto_refresh_event_price = true;
+							Content.aoto_refresh_event_price_interval = versionDAO.getAoto_refresh_event_price_interval();
+						}
+						Content.main_list_fresh_interval = versionDAO.getMain_list_fresh_interval();
 						int versionCode = Utils.getVersionCode(HomeActivity.this);
 						if(versionCode < versionDAO.getAndroid_version()){
 							update(versionDAO.getDownload_url());
@@ -288,7 +328,9 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
+		activityAdapter.getCurrentFragment().onResume();
 		judgeIsLogin();
+		getMessageCount();
 	}
 
 	@Override
@@ -320,7 +362,7 @@ public class HomeActivity extends BaseActivity {
 			FragmentTransaction ft = activity.getSupportFragmentManager()
 					.beginTransaction();
 			ft.add(fragmentContentId, fragments.get(0));
-			ft.commit();
+			ft.commitAllowingStateLoss();
 			btns[0].setSelected(true);
 			for (int i = 0; i < btns.length; i++) {
 				btns[i].setOnClickListener(this);
@@ -342,7 +384,7 @@ public class HomeActivity extends BaseActivity {
 				} else {
 					ft.hide(fragment);
 				}
-				ft.commit();
+				ft.commitAllowingStateLoss();
 			}
 			currentTab = idx; // 更新目标tab为当前tab
 		}
@@ -365,6 +407,36 @@ public class HomeActivity extends BaseActivity {
 
 		public Fragment getCurrentFragment() {
 			return fragments.get(currentTab);
+		}
+		public void setFragmentShow(int i){
+			if(i!=0 && !isLogin()){
+				return;
+			}
+			if(i == 2){
+				iv_ranking.setSelected(true);
+				tv_ranking.setSelected(true);
+			}else{
+				iv_ranking.setSelected(false);
+				tv_ranking.setSelected(false);
+			}
+			
+			btns[currentTab].setSelected(false);
+			//把当前tab设为选中状态
+			btns[i].setSelected(true);
+			currentTab = i;
+			Fragment fragment = fragments.get(i);
+			FragmentTransaction ft = obtainFragmentTransaction(i);
+			if(i == 1){
+				
+			}
+			if (fragment.isAdded()) {
+				fragment.onResume(); // 启动目标tab的onResume()
+			} else {
+				ft.add(fragmentContentId, fragment);
+			}
+			showTab(i); // 显示目标tab
+			ft.commitAllowingStateLoss();
+		
 		}
 		@Override
 		public void onClick(View v) {
@@ -394,7 +466,7 @@ public class HomeActivity extends BaseActivity {
 						ft.add(fragmentContentId, fragment);
 					}
 					showTab(i); // 显示目标tab
-					ft.commit();
+					ft.commitAllowingStateLoss();
 					
 				}
 			}

@@ -1,11 +1,17 @@
 package com.futureinst.home.userinfo;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.home.HomeActivity;
+import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.push.PushMessageInfo;
 import com.futureinst.push.PushMessageUtils;
 import com.futureinst.widget.list.PullListView;
@@ -43,6 +49,17 @@ public class PushMessageActivity extends BaseActivity {
 		pullListView.setAdapter(adapter);
 		if(pushMessageInfo!=null)
 			adapter.setList(pushMessageInfo.getList());
+		pullListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				PushMessageDAO item = (PushMessageDAO) adapter.getItem(position-1);
+				if(item.getEvent() != null){ 
+					Intent intent = new Intent(PushMessageActivity.this, EventDetailActivity.class);
+					intent.putExtra("event",item.getEvent());
+					startActivity(intent);
+				}
+			}
+		});
 	}
 	@Override
 	public void onBackPressed() {

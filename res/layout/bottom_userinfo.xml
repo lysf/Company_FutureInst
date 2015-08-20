@@ -287,7 +287,7 @@
             <TableRow
                 android:id="@+id/tableRow4"
                	android:layout_marginTop="@dimen/widget_height_30"
-               	android:layout_marginBottom="@dimen/widget_height_45"
+               	android:layout_marginBottom="@dimen/widget_height_30"
                 android:background="@drawable/item_select"
                 android:gravity="center_vertical"
                 android:paddingLeft="10dp"
@@ -332,5 +332,16 @@
 	    android:background="@drawable/btn_buy_back"
 	    android:text="@string/login_out"/>
         </LinearLayout>
+            <TextView 
+                android:id="@+id/tv_version"
+                android:padding="@dimen/activity_login_margin_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_marginRight="@dimen/margin_20"
+                android:layout_marginBottom="@dimen/margin_20"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/text_color_b"
+                />
 	
 </LinearLayout>

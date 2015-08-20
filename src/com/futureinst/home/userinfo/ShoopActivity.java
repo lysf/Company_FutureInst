@@ -78,6 +78,6 @@ public class ShoopActivity extends BaseActivity {
 	            super.onProgressChanged(view, newProgress); 
 
 	        } 
-
+	        
 	    }
 }

@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Toast;
 
 import com.futureinst.R;
+import com.umeng.analytics.MobclickAgent;
 
 
 
@@ -87,6 +88,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         if (isRoot() && event.getKeyCode() == KeyEvent.KEYCODE_BACK && mFragmentManager.getBackStackEntryCount() <= 0) {
             long second = System.currentTimeMillis();
             if (second - mClickTime < BaseApplication.EXIT_TIMEOUT) {
+            	MobclickAgent.onKillProcess( this );
                 finish();
                 return true;
             } else {
