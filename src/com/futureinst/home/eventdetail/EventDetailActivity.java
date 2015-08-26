@@ -55,13 +55,14 @@ import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
+import com.futureinst.widget.PullLayout;
 import com.futureinst.widget.WaterWaveView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 
 @SuppressLint({ "HandlerLeak", "DefaultLocale" })
 public class EventDetailActivity extends BaseActivity {
-//	private float ASSURE ;
+	private PullLayout pullLayout;
 	private SingleEventClearDAO singleEventClearDAO;
 	private boolean isAttention;
 	private MyProgressDialog progressDialog;
@@ -135,9 +136,10 @@ public class EventDetailActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_event_detail_about);
 		initView();
-		initData(event);
-		judgeIsClear();
-		
+//		initData(event);
+//		judgeIsClear(event);
+		progressDialog.progressDialog();
+		getPrice();
 	}
 	@Override
 	protected void onResume() {
@@ -153,18 +155,16 @@ public class EventDetailActivity extends BaseActivity {
 			isPriceRefresh = true;
 			refreshPrice();
 		}
-//		if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
-//			query_single_event_clear();
-//		}else{
-//			view_single_event.setVisibility(View.GONE);
-//		}
-//		showGuide();
+		
+		showGuide();
 	}
 	private void initView() {
-		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
+//		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
 		came = getIntent().getBooleanExtra("boolean", false);
 		progressDialog = MyProgressDialog.getInstance(this);
-		event_id = event.getId()+"";
+		event_id = getIntent().getStringExtra("eventId");
+		
+		pullLayout = (PullLayout) findViewById(R.id.bottom_scroll);
 		tv_buys_1 = new TextView[3];
 		tv_buys_2 = new TextView[3];
 		tv_buys_3 = new TextView[3];
@@ -272,7 +272,7 @@ public class EventDetailActivity extends BaseActivity {
 		bottom_views[2] = findViewById(R.id.view3);
 		final List<Fragment> fragments = new ArrayList<Fragment>();
 		Bundle bundle = new Bundle();
-		bundle.putCharSequence("eventId", event.getId()+"");
+		bundle.putCharSequence("eventId", event_id);
 		commentFragment = new CommentFragment();
 		commentFragment.setArguments(bundle);
 		refrenceFragment = new RefrenceFragment();
@@ -303,8 +303,8 @@ public class EventDetailActivity extends BaseActivity {
 			tv_description.setTextColor(getResources().getColor(R.color.forecast_bottom_line_select));
 		}
 		if(iv_image.getTag()==null || !iv_image.getTag().equals(event.getImgsrc())){
-			ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
 			iv_image.setTag(event.getImgsrc());
+			ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
 		}
 		wav.setTextTop(String.format("%.2f", event.getCurrPrice()));
 		wav.setWaterLevel(event.getCurrPrice()/100);
@@ -332,19 +332,22 @@ public class EventDetailActivity extends BaseActivity {
 				finish();
 				break;
 			case R.id.iv_operate://关注
-				showOperateDialog();
+				if(event == null) return;
+				showOperateDialog(event);
 				break;
 			case R.id.iv_share://分享
-				share();
+				if(event == null) return;
+				share(event);
 				break;
 			case R.id.tv_lanren://懒人包
+				if(event == null) return;
 				Intent intentLazyBag = new Intent(EventDetailActivity.this, LazyBagFragment.class);
 				intentLazyBag.putExtra("event", event);
 				startActivity(intentLazyBag);
 				break;
 			
 			case R.id.btn_lood_good://
-				if(!judgeIsLogin()) return;  
+				if(!judgeIsLogin() || event == null) return; 
 				Intent intent1 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
 				intent1.putExtra("buyOrSell", true);
 				intent1.putExtra("assure", singleEventClearDAO);
@@ -353,7 +356,7 @@ public class EventDetailActivity extends BaseActivity {
 				startActivity(intent1);
 				break;
 			case R.id.btn_lood_bad://
-				if(!judgeIsLogin()) return;
+				if(!judgeIsLogin() || event == null) return;
 				Intent intent2 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
 				intent2.putExtra("buyOrSell", false);
 				intent2.putExtra("assure", singleEventClearDAO);
@@ -415,9 +418,16 @@ public class EventDetailActivity extends BaseActivity {
 						EventPriceInfo eventPriceInfo = (EventPriceInfo) response;
 						event = eventPriceInfo.getEvent();
 						initData(event);
+						judgeIsClear(event);
 						initPrice(eventPriceInfo.getPrice());
 						priceDAOInfo = eventPriceInfo.getPrice();
 						SystemTimeUtile.getInstance(eventPriceInfo.getCurr_time()).setSystemTime(eventPriceInfo.getCurr_time());
+						if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
+							query_single_event_clear();
+						}else{
+							view_single_event.setVisibility(View.GONE);
+						}
+						pullLayout.setTitleHeight(tv_event_title.getHeight());
 //						setCountDown(eventPriceInfo.getCurr_time());
 					}
 				});
@@ -502,24 +512,8 @@ public class EventDetailActivity extends BaseActivity {
 		}
 	
 	}
-//	Thread priceRefreshThread = new Thread(new Runnable() {
-//		@Override
-//		public void run() {
-//			while (isPriceRefresh && Content.is_aoto_refresh_event_price) {
-//				long delayTime = (long) (Math.random()*10 + Content.aoto_refresh_event_price_interval)*1000;
-//				try {
-//					Thread.sleep(delayTime);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				Message message = Message.obtain();
-//				message.what = 2;
-//			handler.sendMessage(message);
-//			}
-//		}
-//	});
 	//事件清算中不可下单
-	private void judgeIsClear(){
+	private void judgeIsClear(QueryEventDAO event){
 		if(!event.getStatusStr().equals("交易中")){
 			btn_lood_good.setClickable(false);
 			btn_lood_bad.setClickable(false);
@@ -589,10 +583,11 @@ public class EventDetailActivity extends BaseActivity {
 		});
 	}
 	//分享
-	private void share(){
-		OneKeyShareUtil.showShare(this, event.getTitle(), HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), event.getDescription(), null, event.getImgsrc(), true, null);
+	private void share(QueryEventDAO event){
+		OneKeyShareUtil.showShare(this, event.getLead(), HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), event.getDescription(), null, event.getImgsrc(), true, null);
 	}
-	private void showOperateDialog(){
+	//其他操作
+	private void showOperateDialog(final QueryEventDAO event){
 		View view = LayoutInflater.from(this).inflate(R.layout.view_event_operate, null);
 		String attentionText = null;
 		if(isAttention){

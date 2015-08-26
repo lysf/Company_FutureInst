@@ -117,7 +117,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 				QueryEventDAO item = (QueryEventDAO) adapter.getItem(index - 1);
 				//预测
 				Intent intent = new Intent(getActivity(), EventDetailActivity.class);
-				intent.putExtra("event", item);
+				intent.putExtra("eventId", item.getId()+"");
 				if(position == -1)
 					intent.putExtra("boolean", true);
 				startActivity(intent);
@@ -147,6 +147,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	public void onResume() {
 		super.onResume();
 		pullListView.hideHeader();
+		setUserVisibleHint(true);
 //			onRefresh(true);
 	}
 	//获取我的关注

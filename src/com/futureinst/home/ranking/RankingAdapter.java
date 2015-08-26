@@ -57,9 +57,9 @@ public class RankingAdapter extends BaseAdapter {
 			tv_userName.setText(item.getName());
 			tv_prophet.setText(item.getForeIndex()+"");
 			tv_ranking.setText(item.getCurrRank()+"  ");
-			if(item.getCurrRank() > item.getLastRank()){
+			if(item.getCurrRank() < item.getLastRank()){
 				iv_ranking.setImageDrawable(context.getResources().getDrawable(R.drawable.ranking_up_2));
-			}else if(item.getCurrRank() < item.getLastRank()){
+			}else if(item.getCurrRank() > item.getLastRank()){
 				iv_ranking.setImageDrawable(context.getResources().getDrawable(R.drawable.ranking_down_2));
 			}else{
 				iv_ranking.setImageDrawable(context.getResources().getDrawable(R.drawable.ranking_balance_2));

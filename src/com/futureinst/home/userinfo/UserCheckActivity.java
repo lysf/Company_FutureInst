@@ -2,18 +2,23 @@ package com.futureinst.home.userinfo;
 
 import org.json.JSONException;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.model.usermodel.UserCheckDAO;
 import com.futureinst.model.usermodel.UserCheckInfo;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class UserCheckActivity extends BaseActivity implements OnRefreshListener{
 	private PullListView pullListView;
@@ -46,6 +51,16 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 		adapter = new UserCheckAdapter(this);
 		pullListView.setAdapter(adapter);
 		pullListView.setonRefreshListener(this);
+		pullListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(position < 1) return;
+				UserCheckDAO item = (UserCheckDAO) adapter.getItem(position-1);
+				Intent intent = new Intent(UserCheckActivity.this, EventDetailActivity.class);
+				intent.putExtra("eventId", item.getId()+"");
+//				startActivity(intent);
+			}
+		});
 	}
 
 	// 获取对账单

@@ -78,7 +78,7 @@ public class SearchFragment extends BaseFragment {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				QueryEventDAO item = (QueryEventDAO) adapter.getItem(position);
 				Intent intent = new Intent(getActivity(), EventDetailActivity.class);
-				intent.putExtra("event", item);
+				intent.putExtra("eventId", item.getId()+"");
 				startActivity(intent);
 			}
 		});

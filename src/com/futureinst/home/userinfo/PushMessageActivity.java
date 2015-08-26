@@ -55,7 +55,7 @@ public class PushMessageActivity extends BaseActivity {
 				PushMessageDAO item = (PushMessageDAO) adapter.getItem(position-1);
 				if(item.getEvent() != null){ 
 					Intent intent = new Intent(PushMessageActivity.this, EventDetailActivity.class);
-					intent.putExtra("event",item.getEvent());
+					intent.putExtra("eventId",item.getEvent().getId()+"");
 					startActivity(intent);
 				}
 			}

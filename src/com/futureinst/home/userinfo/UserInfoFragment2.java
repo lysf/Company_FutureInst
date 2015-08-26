@@ -215,7 +215,7 @@ public class UserInfoFragment2 extends BaseFragment {
 			public void onClick(View v) {
 				Intent intent = new Intent(getActivity(), LoginActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-				preferenceUtil.setUUid("");
+				preferenceUtil.setUUid(null);
 				preferenceUtil.setID(0L);
 				preferenceUtil.setName("");
 				preferenceUtil.setGender(0);

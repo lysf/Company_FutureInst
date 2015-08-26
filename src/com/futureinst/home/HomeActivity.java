@@ -59,7 +59,7 @@ import com.igexin.sdk.PushManager;
 
 @SuppressLint("ClickableViewAccessibility")
 public class HomeActivity extends BaseActivity {
-	private boolean isUpdate;
+	private boolean isUpdate = false;
 	private boolean isHide = false;  
 	private float lastX = 0;  
 	private float lastY = 0;  
@@ -141,21 +141,21 @@ public class HomeActivity extends BaseActivity {
 	}
 	// 判断是否登录
 	private void judgeIsLogin() {
-		if (!TextUtils.isEmpty(preferenceUtil.getUUid()) && isUpdate) {
+		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
 			getMessageCount();
-			query_user_record();
-			//初始化推送
-			PushManager.getInstance().initialize(this.getApplicationContext());
-			
-			if(TextUtils.isEmpty(preferenceUtil.getCLIENTID())){
+			if(!isUpdate){
+				//初始化推送
+				PushManager.getInstance().initialize(this.getApplicationContext());
+				query_user_record();
 				cid = PushManager.getInstance().getClientid(this);
 				preferenceUtil.setCLIENTID(cid);
-			}else{
-				cid = preferenceUtil.getCLIENTID();
+			Log.i("", "===================================cid=>>"+cid);
+			if(!TextUtils.isEmpty(cid)){
+				update_user_cid(cid);
+				isUpdate = true;
+				}
 			}
-			update_user_cid(cid);
-			isUpdate = true;
-//			if(!PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){}
+				
 		} 
 	}
 	
@@ -164,9 +164,9 @@ public class HomeActivity extends BaseActivity {
 	private void setRanking(UserInformationDAO userInformationDAO){
 		tv_ranking.setText(userInformationDAO.getRank()+"");
 		
-		if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
+		if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
 			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_up));
-		}else if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
+		}else if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
 			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_down));
 		}else{
 			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_balance));
@@ -328,8 +328,8 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		activityAdapter.getCurrentFragment().onResume();
 		judgeIsLogin();
+		activityAdapter.getCurrentFragment().onResume();
 		getMessageCount();
 	}
 

@@ -93,7 +93,7 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 				if(position == 0) return;
 				QueryEventDAO item = ((DealOrderDAO)adapter.getItem(position-1)).getEvent();
 				Intent intent = new Intent(getActivity(), EventDetailActivity.class);
-				intent.putExtra("event", item);
+				intent.putExtra("eventId", item.getId()+"");
 				startActivity(intent);
 				
 			}

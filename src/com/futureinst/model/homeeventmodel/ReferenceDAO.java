@@ -10,6 +10,13 @@ public class ReferenceDAO implements Serializable{
 	private String url;
 	private int status;
 	private Long ctime;
+	private String from;
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
+	}
 	public Long getId() {
 		return id;
 	}

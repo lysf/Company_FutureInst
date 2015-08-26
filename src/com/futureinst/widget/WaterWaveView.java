@@ -1,7 +1,6 @@
 package com.futureinst.widget;
 
 import com.futureinst.R;
-import com.futureinst.utils.Utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,7 +13,6 @@ import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.FontMetrics;
 import android.os.Handler;
@@ -274,6 +272,7 @@ public class WaterWaveView extends View
 	public void setWaterLevel(float paramFloat)
 	{
 		mWateLevel = paramFloat;
+		invalidate();
 	}
 	
 	@Override

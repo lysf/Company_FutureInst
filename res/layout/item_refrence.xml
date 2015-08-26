@@ -8,15 +8,27 @@
         android:layout_height="match_parent"
         android:background="@color/forecast_bottom_line_select"
         />
-    <TextView 
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_refrence"
+        android:orientation="vertical">
+         <TextView 
         android:id="@+id/tv_refrence"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_login_margin_10"
-   		 android:background="@drawable/item_refrence"
-        android:minHeight="@dimen/widget_height_50"
+        android:minHeight="40dip"
         android:textSize="@dimen/text_size_normal"
         android:textColor="@color/text_color_6"/>
-
+         <TextView 
+             android:id="@+id/tv_from"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="@dimen/activity_login_margin_10"
+             android:layout_marginBottom="@dimen/margin_5"
+             android:textSize="@dimen/text_size_small"
+             android:textColor="@color/text_color_6"/>
+    </LinearLayout>
 </LinearLayout>

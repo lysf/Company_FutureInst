@@ -8,14 +8,14 @@
     <uses-sdk
         
         android:minSdkVersion="16"
-        android:targetSdkVersion="19" />
-
+        android:targetSdkVersion="22" />
+ 
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
         android:smallScreens="true" />
-
+ 
 <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
@@ -170,6 +170,11 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.intent.action.USER_PRESENT" />
                 <action android:name="com.igexin.sdk.action.refreshls" />
+                 <!-- 以下三项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+            <action android:name="android.intent.action.MEDIA_MOUNTED" />
+            <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+            <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                
             </intent-filter>
         </receiver>
         <receiver
@@ -274,7 +279,7 @@
             </intent-filter>
         </activity>
      <meta-data android:value="55cd9c4767e58efccf003e3c" android:name="UMENG_APPKEY"></meta-data>
-	 <meta-data android:value="yingyongbao" android:name="UMENG_CHANNEL"/>
+	 <meta-data android:value="xiaomi" android:name="UMENG_CHANNEL"/>
         
     </application>
 

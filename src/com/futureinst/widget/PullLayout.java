@@ -166,7 +166,7 @@ public class PullLayout extends ScrollView{
         ViewHelper.setTranslationY(iv_operate, -t);
         ViewHelper.setTranslationY(iv_share, -t);
         ViewHelper.setTranslationY(tv_event_title, -t);
-        ViewHelper.setTranslationY(iv_image, -t/4);
+        ViewHelper.setTranslationY(iv_image, -t/3);
         if(percent<=0.5){
         	float alpha = 1-2*percent;
         	iv_back.setAlpha(alpha);
@@ -184,7 +184,7 @@ public class PullLayout extends ScrollView{
 //        ViewHelper.setScaleX(tv_event_title, 2 - percent);
 //        ViewHelper.setScaleY(tv_event_title, 2 - percent);
 //        ViewHelper.setTranslationX(tv_event_title, tvWidth * (1 - percent) / 2f);
-        ViewHelper.setTranslationY(tv_event_title, tvHeight*percent*1.6f);
+        ViewHelper.setTranslationY(tv_event_title, tvHeight*percent*1.5f);
 //        ViewHelper.setTranslationY(ev, -t / 2);
 //        ViewHelper.setTranslationY(ll_weather, -t / 2);
 //        ev.setRadius((int) (range * 0.25f * (1 - percent)));
@@ -319,5 +319,7 @@ public class PullLayout extends ScrollView{
         oa.setDuration(400);
         oa.start();
     }
-	
+	public void setTitleHeight(int height){
+		tvHeight = height;
+	}
 }

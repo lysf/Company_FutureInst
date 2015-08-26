@@ -17,5 +17,6 @@ public class SaveUserInfo {
 		preferenceUtil.setCID(user.getCid());
 		preferenceUtil.setCType(user.getCtype());
 		preferenceUtil.setStatus(user.getStatus());
+//		preferenceUtil.setAsset(user.geta);
 	}
 }

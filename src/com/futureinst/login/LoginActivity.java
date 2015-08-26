@@ -9,12 +9,13 @@ import com.futureinst.baseui.BaseActivity;
 import com.futureinst.global.Content;
 import com.futureinst.home.HomeActivity;
 import com.futureinst.model.usermodel.UserInfo;
+import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.utils.MyToast;
-import com.futureinst.utils.Utils;
+import com.igexin.sdk.PushManager;
 import com.mob.tools.utils.UIHandler;
 
 import android.content.Intent;
@@ -123,18 +124,61 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 						if(response == null) return;
 						UserInfo userInfo = (UserInfo) response;
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
-						if(judgeIsFirstLogin())
-							return;
-						
-						if(!loginTag){
-							Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-							startActivity(intent);
+						if(loginTag){
+							PushManager.getInstance().initialize(getApplicationContext());
+							String cid = PushManager.getInstance().getClientid(LoginActivity.this);
+							Log.i("", "===============>>"+cid+"-------"
+							+PushManager.getInstance().isPushTurnedOn(LoginActivity.this));
+							preferenceUtil.setCLIENTID(cid);
+							update_user_cid(cid);
 						}
-						finish();
+						query_user_record();
 					}
 				});
 	}
+	// 获取个人信息
+		private void query_user_record() {
+			progressDialog.progressDialog();
+			httpResponseUtils.postJson(
+					httpPostParams.getPostParams(
+							PostMethod.query_user_record.name(),
+							PostType.user_info.name(),
+							httpPostParams.query_user_record(preferenceUtil.getID() 
+									+ "", preferenceUtil.getUUid())),
+					UserInformationInfo.class, new PostCommentResponseListener() {
+						@Override
+						public void requestCompleted(Object response)
+								throws JSONException {
+							progressDialog.cancleProgress();
+							if (response == null)
+								return;
+							UserInformationInfo userInformationInfo = (UserInformationInfo) response;
+							preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
+							preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
+							if(judgeIsFirstLogin())
+								return;
+							
+							if(!loginTag){
+								Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+								intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+								startActivity(intent);
+							}
+							finish();
+						}
+					});
+		}
+	//上传clientid
+		private void update_user_cid(final String cid){
+			httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.update_user.name(), PostType.user.name(), 
+					httpPostParams.update_user_cid(preferenceUtil.getUUid(), preferenceUtil.getID()+"",cid)), 
+					UserInfo.class,
+					new PostCommentResponseListener() {
+						@Override
+						public void requestCompleted(Object response) throws JSONException {
+							if(response == null) return;
+						}
+					});
+		}
 	//检测登录数据
 	private boolean checkLoginData(String phoneNummber, String pwd){
 		if(TextUtils.isEmpty(phoneNummber)){

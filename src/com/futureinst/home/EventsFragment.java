@@ -21,7 +21,7 @@ import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LongTimeUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-
+//废弃无效的Fragment
 @SuppressLint("HandlerLeak")
 public class EventsFragment extends BaseFragment {
 	private ImageLoader imageLoader;

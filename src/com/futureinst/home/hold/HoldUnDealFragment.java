@@ -68,7 +68,7 @@ public class HoldUnDealFragment extends BaseFragment implements OnRefreshListene
 				if(position == 0) return;
 				QueryEventDAO item = ((UnDealOrderDAO)adapter.getItem(position-1)).getEvent();
 				Intent intent = new Intent(getActivity(), EventDetailActivity.class);
-				intent.putExtra("event", item);
+				intent.putExtra("eventId", item.getId()+"");
 				startActivity(intent);
 				
 			}

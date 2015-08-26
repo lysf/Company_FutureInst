@@ -46,7 +46,7 @@ public class GroupEventActivity extends BaseActivity {
 					long arg3) {
 				QueryEventDAO item = (QueryEventDAO) adapter.getItem(position);
 				Intent intent = new Intent(GroupEventActivity.this, EventDetailActivity.class);
-				intent.putExtra("event", item);
+				intent.putExtra("eventId", item.getId()+"");
 				startActivity(intent);
 				
 			}

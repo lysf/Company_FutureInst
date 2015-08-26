@@ -40,7 +40,7 @@ public class MyAttentionActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				QueryEventDAO item = ((AttentionDAO) adapter.getItem(position)).getEvent();
 				Intent intent = new Intent(MyAttentionActivity.this, EventDetailActivity.class);
-				intent.putExtra("event", item);
+				intent.putExtra("eventId", item.getId()+"");
 				startActivity(intent);
 			}
 		});
