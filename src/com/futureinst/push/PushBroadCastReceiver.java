@@ -12,6 +12,7 @@ import android.util.Log;
 import org.json.JSONException;
 
 import com.futureinst.R;
+import com.futureinst.home.HomeActivity;
 import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.usermodel.UserInfo;
@@ -75,7 +76,8 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			// 获取ClientID(CID)
 			// 第三方应用需要将CID上传到第三方服务器，并且将当前用户帐号和CID进行关联，以便日后通过用户帐号查找CID进行消息推送
 			String cid = bundle.getString("clientid");
-			Log.d("GetuiSdkDemo", "Got ClientID:" + cid);
+			HomeActivity.isUpdate = true;
+			Log.d("GetuiSdkDemo", "===========Got ClientID:" + cid);
 			update_user_cid(cid, context);
 			
 			break;

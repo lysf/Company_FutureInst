@@ -59,7 +59,7 @@ import com.igexin.sdk.PushManager;
 
 @SuppressLint("ClickableViewAccessibility")
 public class HomeActivity extends BaseActivity {
-	private boolean isUpdate = false;
+	public static boolean isUpdate = false;
 	private boolean isHide = false;  
 	private float lastX = 0;  
 	private float lastY = 0;  
@@ -147,10 +147,9 @@ public class HomeActivity extends BaseActivity {
 				//初始化推送
 				PushManager.getInstance().initialize(this.getApplicationContext());
 				query_user_record();
-				isUpdate = true;
 //				cid = PushManager.getInstance().getClientid(this);
 //				preferenceUtil.setCLIENTID(cid);
-//			Log.i("", "===================================cid=>>"+cid);
+			Log.i("", "===================================cid=>>"+cid);
 //			if(!TextUtils.isEmpty(cid)){
 //				update_user_cid(cid);
 //				isUpdate = true;

@@ -404,6 +404,7 @@ public class EventDetailActivity extends BaseActivity {
 		}
 	}
 	//获取事件的价格走势
+	private boolean priceClear;
 	private void getPrice(){
 //		progressDialog.progressDialog();
 		httpResponseUtils.postJson(httpPostParams.getPostParams(
@@ -422,7 +423,10 @@ public class EventDetailActivity extends BaseActivity {
 						initPrice(eventPriceInfo.getPrice());
 						priceDAOInfo = eventPriceInfo.getPrice();
 						SystemTimeUtile.getInstance(eventPriceInfo.getCurr_time()).setSystemTime(eventPriceInfo.getCurr_time());
-						if(!TextUtils.isEmpty(preferenceUtil.getUUid()) && event.getStatusStr()!=null && !event.getStatusStr().equals("清算中")){
+						if(!TextUtils.isEmpty(preferenceUtil.getUUid()) 
+								&& event.getStatusStr()!=null && 
+								!event.getStatusStr().equals("清算中")
+								&& !priceClear){
 							query_single_event_clear();
 						}else{
 							view_single_event.setVisibility(View.GONE);
@@ -559,6 +563,7 @@ public class EventDetailActivity extends BaseActivity {
 					view_single_event.setVisibility(View.GONE);
 					return;
 				}
+				priceClear = true;
 				SingleEventInfoDAO singleEventInfoDAO = (SingleEventInfoDAO) response;
 				if(singleEventInfoDAO.getUser().getFollow() == 1){
 					isAttention = true;
