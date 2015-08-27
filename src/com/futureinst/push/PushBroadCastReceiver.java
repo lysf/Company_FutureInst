@@ -1,6 +1,5 @@
 package com.futureinst.push;
 
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -18,7 +17,7 @@ import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.GsonUtils;
 import com.futureinst.net.HttpPostParams;
-import com.futureinst.net.HttpResponseUtils;
+import com.futureinst.net.HttpPushUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
@@ -31,12 +30,11 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 	 * 应用未启动, 个推 service已经被唤醒,保存在该时间段内离线消息(此时 GetuiSdkDemoActivity.tLogView ==
 	 * null)
 	 */
-
+	
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		Bundle bundle = intent.getExtras();
 		Log.d("GetuiSdkDemo", "onReceive() action=" + bundle.getInt("action"));
-
 		switch (bundle.getInt(PushConsts.CMD_ACTION)) {
 		case PushConsts.GET_MSG_DATA:
 			// 获取透传数据
@@ -76,7 +74,10 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 		case PushConsts.GET_CLIENTID:
 			// 获取ClientID(CID)
 			// 第三方应用需要将CID上传到第三方服务器，并且将当前用户帐号和CID进行关联，以便日后通过用户帐号查找CID进行消息推送
-//			String cid = bundle.getString("clientid");
+			String cid = bundle.getString("clientid");
+			Log.d("GetuiSdkDemo", "Got ClientID:" + cid);
+			update_user_cid(cid, context);
+			
 			break;
 
 		case PushConsts.THIRDPART_FEEDBACK:
@@ -113,4 +114,17 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 		myNoti.setLatestEventInfo(context, "未来研究所", content, appIntent);
 		notificationManager.notify(0, myNoti);
 	}
+	//上传clientid
+		private void update_user_cid(final String cid,Context context){
+			SharePreferenceUtil preferenceUtil = SharePreferenceUtil.getInstance(context);
+			HttpPushUtils.getInstace(context).postJson(HttpPostParams.getInstace().getPostParams(PostMethod.update_user.name(), PostType.user.name(), 
+					HttpPostParams.getInstace().update_user_cid(preferenceUtil.getUUid(), preferenceUtil.getID()+"",cid)), 
+					UserInfo.class,
+					new PostCommentResponseListener() {
+						@Override
+						public void requestCompleted(Object response) throws JSONException {
+							if(response == null) return;
+						}
+					});
+		}
 }

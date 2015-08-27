@@ -55,7 +55,7 @@ public class HttpResponseUtils {
 		}
 		return httpUtils;
 	}
-
+	
 	// volley使用post上传数据
 	public synchronized <T> void postJson(final Map<String, String> params, final Class<T> clz,
 			final PostCommentResponseListener commentResponseListener) {

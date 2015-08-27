@@ -126,11 +126,11 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
 						if(loginTag){
 							PushManager.getInstance().initialize(getApplicationContext());
-							String cid = PushManager.getInstance().getClientid(LoginActivity.this);
-							Log.i("", "===============>>"+cid+"-------"
-							+PushManager.getInstance().isPushTurnedOn(LoginActivity.this));
-							preferenceUtil.setCLIENTID(cid);
-							update_user_cid(cid);
+//							String cid = PushManager.getInstance().getClientid(LoginActivity.this);
+//							Log.i("", "===============>>"+cid+"-------"
+//							+PushManager.getInstance().isPushTurnedOn(LoginActivity.this));
+//							preferenceUtil.setCLIENTID(cid);
+//							update_user_cid(cid);
 						}
 						query_user_record();
 					}

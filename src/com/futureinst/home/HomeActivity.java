@@ -147,13 +147,14 @@ public class HomeActivity extends BaseActivity {
 				//初始化推送
 				PushManager.getInstance().initialize(this.getApplicationContext());
 				query_user_record();
-				cid = PushManager.getInstance().getClientid(this);
-				preferenceUtil.setCLIENTID(cid);
-			Log.i("", "===================================cid=>>"+cid);
-			if(!TextUtils.isEmpty(cid)){
-				update_user_cid(cid);
 				isUpdate = true;
-				}
+//				cid = PushManager.getInstance().getClientid(this);
+//				preferenceUtil.setCLIENTID(cid);
+//			Log.i("", "===================================cid=>>"+cid);
+//			if(!TextUtils.isEmpty(cid)){
+//				update_user_cid(cid);
+//				isUpdate = true;
+//				}
 			}
 				
 		} 
