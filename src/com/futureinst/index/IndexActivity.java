@@ -35,6 +35,7 @@ public class IndexActivity extends BaseActivity{
 	private Button btn_skip;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
+		MobclickAgent.openActivityDurationTrack(false); 
 		AnalyticsConfig.enableEncrypt(true);
 		MobclickAgent.updateOnlineConfig(this);
 		sharedPreferences = SharePreferenceUtil.getInstance(this);

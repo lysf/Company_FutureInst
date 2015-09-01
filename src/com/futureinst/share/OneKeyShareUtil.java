@@ -1,6 +1,5 @@
 package com.futureinst.share;
 
-import com.futureinst.R;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -19,13 +18,17 @@ public class OneKeyShareUtil {
 	 * @param silent
 	 * @param platform
 	 */
-	public static void showShare(Context context, String shareTitle,
+	public static void showShare(Context context, String event_id,int share_award,String shareTitle,
 			String shareTitleUrl, String shareContents,
 			String shareLocalImageUrl, String shareImageUrl, boolean silent,
 			String platform) {
 		// 实例化一个OnekeyShare对象
+//		shareContents = "来自未来研究所";
 		OnekeyShare oks = new OnekeyShare();
+		
 		oks.setTheme(OnekeyShareTheme.CLASSIC);
+		oks.setEventId(event_id);
+		oks.setShare_award(share_award);
 		// 设置Notification的显示图标和显示文字
 //		oks.setNotification(R.drawable.logo, "未来研究所");
 		// 设置短信地址或者是邮箱地址，如果没有可以不设置
@@ -61,6 +64,7 @@ public class OneKeyShareUtil {
 		// oks.setLongitude(113.372338f);
 		// 设置是否是直接分享
 		oks.setSilent(false);
+		oks.setPlatform(platform);
 //		 设置自定义的外部回调
 //		 oks.setCallback(new OneKeyShareCallback(context));
 //		 oks.setShareContentCustomizeCallback(new ShareContentCustomizeDemo(shareTitle, shareTitleUrl, shareImageUrl, shareContents));

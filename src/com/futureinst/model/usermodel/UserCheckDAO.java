@@ -6,10 +6,18 @@ import java.io.Serializable;
 public class UserCheckDAO implements Serializable{
 	private Long id;
 	private Long userId;
+	private Long eventId;
 	private String title;
 	private float balanceChange;
 	private float balanceCurr;
 	private Long ctime;
+	
+	public Long getEventId() {
+		return eventId;
+	}
+	public void setEventId(Long eventId) {
+		this.eventId = eventId;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -48,8 +56,8 @@ public class UserCheckDAO implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "UserCheckDAO [id=" + id + ", userId=" + userId + ", title="
-				+ title + ", balanceChange=" + balanceChange + ", balanceCurr="
-				+ balanceCurr + ", ctime=" + ctime + "]";
+		return "UserCheckDAO [id=" + id + ", userId=" + userId + ", eventId=" + eventId + ", title=" + title
+				+ ", balanceChange=" + balanceChange + ", balanceCurr=" + balanceCurr + ", ctime=" + ctime + "]";
 	}
+	
 }

@@ -9,6 +9,8 @@ import android.text.TextUtils;
 
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
+	//ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi
+	private String ctype = "android";
 	public static HttpPostParams getInstace(){
 		if(httpPostParams == null)
 			httpPostParams = new HttpPostParams();
@@ -21,6 +23,13 @@ public class HttpPostParams {
 		map.put("type", type);
 		map.put("query", json);
 		return map;
+	}
+	//添加渠道下载标记
+	public String add_download(){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("ctype", ctype);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
 	}
 	//登录
 	public String loginJson(String mobilePhoneNumber,String pwd){
@@ -37,12 +46,12 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
-	//注册
+	//注册 ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi
 	public String regist(String mobilePhoneNumber,String code,String pwd){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("mobilePhoneNumber", mobilePhoneNumber);
 		map.put("code", code);
-		map.put("ctype", "android");
+		map.put("ctype", ctype);
 		map.put("pwd", pwd);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
@@ -430,6 +439,14 @@ public class HttpPostParams {
 		return jsonObject.toString();
 	}
 	public String getCookie(String uuid,String user_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	
+	public String upLoadFile(String uuid,String user_id){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", user_id);
 		map.put("uuid", uuid);

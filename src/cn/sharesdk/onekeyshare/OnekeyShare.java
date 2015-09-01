@@ -29,6 +29,8 @@ import cn.sharesdk.framework.CustomPlatform;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
+
+import com.futureinst.share.ShareOperate;
 import com.mob.tools.utils.UIHandler;
 
 /**
@@ -40,7 +42,9 @@ public class OnekeyShare implements PlatformActionListener, Callback {
 	private static final int MSG_TOAST = 1;
 	private static final int MSG_ACTION_CCALLBACK = 2;
 	private static final int MSG_CANCEL_NOTIFY = 3;
-
+	
+	private String event_id;
+	private int share_award;
 	private HashMap<String, Object> shareParamsMap;
 	private ArrayList<CustomerLogo> customers;
 	private boolean silent;
@@ -510,6 +514,9 @@ public class OnekeyShare implements PlatformActionListener, Callback {
 				switch (msg.arg1) {
 					case 1: {
 						// 成功
+						if(share_award == 0){
+							ShareOperate.addMyAttention(context, event_id);
+						}
 						int resId = getStringRes(context, "share_completed");
 						if (resId > 0) {
 							showNotification(context.getString(resId));
@@ -597,4 +604,11 @@ public class OnekeyShare implements PlatformActionListener, Callback {
 	{
 		shareParamsMap.put("isShareTencentWeibo", shareFromQQLogin);
 	}
+	public void setEventId(String event_id){
+		this.event_id = event_id;
+	}
+	public void setShare_award(int share_award){
+		this.share_award = share_award;
+	}
+	
 }

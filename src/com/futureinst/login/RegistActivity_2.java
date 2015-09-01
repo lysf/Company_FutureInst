@@ -51,7 +51,7 @@ public class RegistActivity_2 extends BaseActivity {
 		setTitle(getResources().getString(R.string.login_regist));
 //		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
-		setRight(R.string.ok);
+		setRight(R.string.next);
 		et_userName = (EditText) findViewById(R.id.et_userName);
 		tv_sex = (TextView) findViewById(R.id.tv_sex);
 		tv_birthday = (TextView) findViewById(R.id.tv_birthday);
@@ -108,15 +108,15 @@ public class RegistActivity_2 extends BaseActivity {
 						progressDialog.cancleProgress();
 						Content.isPull = false;
 						if(response == null) return;
-//						startActivity(new Intent(RegistActivity_2.this, RegistActivity_3.class));
+						Intent intent = new Intent(RegistActivity_2.this, RegistActivity_3.class);
+						intent.putExtra("loginTag", loginTag);
+						startActivity(intent);
 						
-							
-						
-						if(!loginTag){
-							Intent intent = new Intent(RegistActivity_2.this, HomeActivity.class);
-							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-							startActivity(intent);
-						}
+//						if(!loginTag){
+//							Intent intent = new Intent(RegistActivity_2.this, HomeActivity.class);
+//							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//							startActivity(intent);
+//						}
 						finish();
 						
 					}

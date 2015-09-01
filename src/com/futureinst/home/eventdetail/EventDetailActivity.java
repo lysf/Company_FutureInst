@@ -25,6 +25,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import cn.sharesdk.sina.weibo.SinaWeibo;
+import cn.sharesdk.wechat.friends.Wechat;
+import cn.sharesdk.wechat.moments.WechatMoments;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
@@ -45,6 +48,7 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
+import com.futureinst.newbieguide.EventdetailGuide;
 import com.futureinst.newbieguide.GuideClickInterface;
 import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.newbieguide.NewbieGuide2;
@@ -70,6 +74,7 @@ public class EventDetailActivity extends BaseActivity {
 	private String event_id;
 	private QueryEventDAO event;
 	private boolean came;
+	private int share_award = 50;
 	//头部
 	private ImageView iv_share;
 	private ImageView iv_operate;
@@ -248,13 +253,13 @@ public class EventDetailActivity extends BaseActivity {
 			tv_eventdetail_gain_bad.setText("+"+gain_bad);
 		}
 		if(item.getBuyNum() > 0){
-			tv_buy_2.setText(getResources().getString(R.string.unhold_1_1)+"\t"+item.getBuyNum()+"\t份\t\t\t均价\t"+String.format("%.2f", item.getBuyPrice()));
+			tv_buy_2.setText(getResources().getString(R.string.unhold_1_1)+"\t"+String.format("%3d", item.getBuyNum())+"\t份\t\t\t均价\t"+String.format("%.2f", item.getBuyPrice()));
 			ll_event_buy.setVisibility(View.VISIBLE);
 		}else{
 			ll_event_buy.setVisibility(View.GONE);
 		}
 		if(item.getSellNum() > 0){
-			tv_sell_2.setText(getResources().getString(R.string.unhold_2)+"\t"+item.getSellNum()+"\t份\t\t\t均价\t"+String.format("%.2f", item.getSellPrice()));
+			tv_sell_2.setText(getResources().getString(R.string.unhold_2)+"\t"+String.format("%3d", item.getSellNum())+"\t份\t\t\t均价\t"+String.format("%.2f", item.getSellPrice()));
 			ll_event_sell.setVisibility(View.VISIBLE);
 		}else{
 			ll_event_sell.setVisibility(View.GONE);
@@ -337,7 +342,7 @@ public class EventDetailActivity extends BaseActivity {
 				break;
 			case R.id.iv_share://分享
 				if(event == null) return;
-				share(event);
+				showShareDialog(event);
 				break;
 			case R.id.tv_lanren://懒人包
 				if(event == null) return;
@@ -428,8 +433,6 @@ public class EventDetailActivity extends BaseActivity {
 								!event.getStatusStr().equals("清算中")
 								&& !priceClear){
 							query_single_event_clear();
-						}else{
-							view_single_event.setVisibility(View.GONE);
 						}
 						pullLayout.setTitleHeight(tv_event_title.getHeight());
 //						setCountDown(eventPriceInfo.getCurr_time());
@@ -568,7 +571,7 @@ public class EventDetailActivity extends BaseActivity {
 				if(singleEventInfoDAO.getUser().getFollow() == 1){
 					isAttention = true;
 				}
-				
+				share_award = singleEventInfoDAO.getUser().getShare_award();
 				if(singleEventInfoDAO.getUser().getEvent_clear() == null){
 					view_single_event.setVisibility(View.GONE);
 					return;
@@ -589,7 +592,50 @@ public class EventDetailActivity extends BaseActivity {
 	}
 	//分享
 	private void share(QueryEventDAO event){
-		OneKeyShareUtil.showShare(this, event.getLead(), HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), event.getDescription(), null, event.getImgsrc(), true, null);
+		String shareTitle = getResources().getString(R.string.shareTips);
+		shareTitle = shareTitle.replace("X", event.getCurrPrice()+"").replace("Y", event.getLead());
+		OneKeyShareUtil.showShare(this, event_id,share_award,shareTitle, HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), event.getDescription(), null, event.getImgsrc(), true, SinaWeibo.NAME);
+	}
+	private void showShareDialog(final QueryEventDAO event){
+		final String shareTitle = getResources().getString(R.string.shareTips).replace("X", event.getCurrPrice()+"").replace("Y", event.getLead());
+		final String content = "来自未来研究所";
+		View view = LayoutInflater.from(this).inflate(R.layout.view_share_gridview, null);
+		final Dialog dialog = DialogShow.showDialog(this, view, Gravity.BOTTOM);
+		TextView tv_sina = (TextView) view.findViewById(R.id.tv_sina);
+		TextView tv_wechat = (TextView) view.findViewById(R.id.tv_wechat);
+		TextView tv_wechatmonets = (TextView) view.findViewById(R.id.tv_wechatmoments);
+		TextView tv_cancel = (TextView) view.findViewById(R.id.tv_cancel);
+		tv_sina.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				OneKeyShareUtil.showShare(EventDetailActivity.this, event_id,share_award,shareTitle, HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), 
+						shareTitle, null, event.getImgsrc(), true, SinaWeibo.NAME);
+				dialog.dismiss();
+			}
+		});
+		tv_wechat.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				OneKeyShareUtil.showShare(EventDetailActivity.this, event_id,share_award,shareTitle, HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), 
+						content, null, event.getImgsrc(), true, Wechat.NAME);
+				dialog.dismiss();
+			}
+		});
+		tv_wechatmonets.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				OneKeyShareUtil.showShare(EventDetailActivity.this, event_id,share_award,shareTitle, HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), 
+						content, null, event.getImgsrc(), true, WechatMoments.NAME);
+				dialog.dismiss();
+			}
+		});
+		tv_cancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+		dialog.show();
 	}
 	//其他操作
 	private void showOperateDialog(final QueryEventDAO event){
@@ -604,7 +650,7 @@ public class EventDetailActivity extends BaseActivity {
 		Button btn_tips = (Button) view.findViewById(R.id.btn_tips);
 		Button btn_attention = (Button) view.findViewById(R.id.btn_attention);
 		btn_attention.setText(attentionText);
-		Button btn_share = (Button) view.findViewById(R.id.btn_share);
+		Button btn_guide = (Button) view.findViewById(R.id.btn_guide);
 		Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 		btn_tips.setOnClickListener(new OnClickListener() {
 			@Override
@@ -628,10 +674,10 @@ public class EventDetailActivity extends BaseActivity {
 				}
 			}
 		});
-		btn_share.setOnClickListener(new OnClickListener() {
+		btn_guide.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
+				new EventdetailGuide(EventDetailActivity.this);
 				dialog.dismiss();
 			}
 		});

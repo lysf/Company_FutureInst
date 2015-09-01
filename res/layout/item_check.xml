@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
      android:minHeight="80dip"
      android:gravity="center"
-     android:background="@color/text_color_white"
+     android:background="@drawable/item_select"
     android:orientation="vertical">
   	 
     <LinearLayout 

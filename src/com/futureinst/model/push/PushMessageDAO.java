@@ -11,7 +11,8 @@ public class PushMessageDAO implements Serializable{
 	private Long time;
 	private String text;
 	private String title;
-	private String type;
+	private String href;
+	private String type ;//event  表示事件详情页;comment 表示评论页;rank 表示排名页,type为url时，配合参数href，表示打开特定网页
 	private boolean isRead;
 	private QueryEventDAO event;
 	public PushMessageDAO() {
@@ -24,7 +25,12 @@ public class PushMessageDAO implements Serializable{
 		this.isRead = isRead;
 		this.time = time;
 	}
-	
+	public String getHref() {
+		return href;
+	}
+	public void setHref(String href) {
+		this.href = href;
+	}
 	public QueryEventDAO getEvent() {
 		return event;
 	}
@@ -56,11 +62,7 @@ public class PushMessageDAO implements Serializable{
 		this.time = time;
 	}
 	
-	@Override
-	public String toString() {
-		return "PushMessageDAO [id=" + id + ", time=" + time + ", text="
-				+ text + ", isRead=" + isRead + "]";
-	}
+	
 	public String getId() {
 		return id;
 	}
@@ -80,4 +82,10 @@ public class PushMessageDAO implements Serializable{
 	public void setRead(boolean isRead) {
 		this.isRead = isRead;
 	}
+	@Override
+	public String toString() {
+		return "PushMessageDAO [id=" + id + ", event_id=" + event_id + ", time=" + time + ", text=" + text + ", title="
+				+ title + ", href=" + href + ", type=" + type + ", isRead=" + isRead + ", event=" + event + "]";
+	}
+	
 }

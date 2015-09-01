@@ -25,6 +25,7 @@ public class ShoopActivity extends BaseActivity {
 	private ProgressBar progressbar;
 	private String cookie1,cookie2 ;
 	private String url ;
+	private String title;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setTitle("未来福利社");
@@ -33,7 +34,8 @@ public class ShoopActivity extends BaseActivity {
 		initView();
 	}
 	private void initView() {
-		url = HttpPath.SHOP;
+//		url = HttpPath.SHOP;
+		url = getIntent().getStringExtra("url");
 		webView = (WebView) findViewById(R.id.webView);
 		progressbar = (ProgressBar) findViewById(R.id.progress);
 		cookie1 = "user_id="+preferenceUtil.getID() + HttpPath.Cookie;
@@ -66,7 +68,6 @@ public class ShoopActivity extends BaseActivity {
 	 class ChromeClient extends WebChromeClient{ 
 	        @Override 
 	        public void onProgressChanged(WebView view, int newProgress) { 
-
 	            //动态在标题栏显示进度条 
 	        	if (newProgress == 100) {
 	                progressbar.setVisibility(View.GONE);
@@ -78,6 +79,10 @@ public class ShoopActivity extends BaseActivity {
 	            super.onProgressChanged(view, newProgress); 
 
 	        } 
-	        
+	        @Override
+	        public void onReceivedTitle(WebView view, String title) {
+	        super.onReceivedTitle(view, title);
+	        setTitle(title);
+	        }
 	    }
 }

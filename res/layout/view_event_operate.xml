@@ -5,7 +5,16 @@
     android:background="@color/text_color_9"
     android:orientation="vertical" >
     <Button 
+        android:id="@+id/btn_guide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/text_size_normal"
+        android:background="@drawable/item_select"
+        android:text="@string/event_detail_guide"/>
+    <Button 
         android:id="@+id/btn_tips"
+        android:layout_marginTop="1px"
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_height_45"
         android:textColor="@color/text_color_3"
@@ -21,16 +30,7 @@
         android:textSize="@dimen/text_size_normal"
         android:background="@drawable/item_select"
         android:text="@string/event_detail_focus"/>
-    <Button 
-        android:id="@+id/btn_share"
-        android:visibility="gone"
-        android:layout_marginTop="1px"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/widget_height_45"
-        android:textColor="@color/text_color_3"
-        android:textSize="@dimen/text_size_normal"
-        android:background="@drawable/item_select"
-        android:text="@string/event_detail_share"/>
+    
     <Button 
         android:id="@+id/btn_cancel"
         android:layout_marginTop="1px"

@@ -106,7 +106,7 @@ public class MultiPartStringRequest extends Request<String> implements MultiPart
     }
 
 	@Override
-	protected void deliverResponse(String response) {
+	protected void deliverResponse(String response) { 
 		if(mListener != null) {
 			mListener.onResponse(response);
 		}

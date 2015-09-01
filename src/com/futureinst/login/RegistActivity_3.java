@@ -5,11 +5,19 @@ import java.util.List;
 
 import org.json.JSONException;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
@@ -20,13 +28,17 @@ import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.utils.ActivityManagerUtil;
+import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.MyToast;
+import com.igexin.sdk.PushManager;
 
 public class RegistActivity_3 extends BaseActivity {
 	private GridView gridView;
 	private KeywordGridViewAdapter adapter;
 	private String keywords[];
 	private List<RegistsKeywordDAO > list;
+	private boolean loginTag;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		initView();
@@ -38,6 +50,7 @@ public class RegistActivity_3 extends BaseActivity {
 		update_user(adapter.getResult());
 	}
 	private void initView() {
+		loginTag = getIntent().getBooleanExtra("loginTag", false);
 		setTitle(R.string.login_regist);
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
@@ -86,11 +99,32 @@ public class RegistActivity_3 extends BaseActivity {
 						Content.isPull = false;
 						progressDialog.cancleProgress();
 						if(response == null) return;
-						MyToast.showToast(RegistActivity_3.this, getResources().getString(R.string.regist_sucess_tip), 1);
-						Intent intent = new Intent(RegistActivity_3.this,HomeActivity.class);
-						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						startActivity(intent);
+//						MyToast.showToast(RegistActivity_3.this, getResources().getString(R.string.regist_sucess_tip), 1);
+						showDialog(RegistActivity_3.this, getResources().getString(R.string.regist_sucess_tip));
+						
 					}
 				});
+	}
+	private void showDialog(Context context,final String message){
+		View view = LayoutInflater.from(context).inflate(R.layout.share_tip, null,false);
+		Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
+		TextView tv_message = (TextView) view.findViewById(R.id.tv_message); 
+		tv_message.setText(message);
+		final Dialog dialog = DialogShow.showDialog((Activity) context, view,Gravity.CENTER);
+		dialog.setCanceledOnTouchOutside(false);
+		btn_submit.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) { 
+				if(!loginTag){
+					Intent intent = new Intent(RegistActivity_3.this, HomeActivity.class);
+					intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivity(intent);
+					}
+				ActivityManagerUtil.finishActivity();
+				finish();
+				dialog.cancel();
+			}
+		});
+		dialog.show();
 	}
 }

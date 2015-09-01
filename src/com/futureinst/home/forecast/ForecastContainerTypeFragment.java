@@ -1,7 +1,9 @@
 package com.futureinst.home.forecast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONException;
 
@@ -24,6 +26,7 @@ import com.futureinst.net.PostType;
 import com.futureinst.newbieguide.GuideClickInterface;
 import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.sharepreference.SharePreferenceUtil;
+import com.futureinst.utils.CustomStatUtil;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
 
@@ -46,9 +49,10 @@ import android.widget.LinearLayout;
 public class ForecastContainerTypeFragment extends BaseFragment implements OnRefreshListener{
 	private static final String ARG_POSITION = "position";
 	private int position;
+	private long stayTime;
 	private PullListView pullListView;
 	private ForecastItemAdapter adapter;
-	private String[] orders;
+	private String[] orders,homeTitles;
 	private LinearLayout ll_unlogin,ll_empty;
 	private TextView tv_empty;
 	private boolean isStart;
@@ -69,6 +73,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		position = getArguments().getInt(ARG_POSITION);
 		orders = getActivity().getResources().getStringArray(R.array.home_seond_title_order);
+		homeTitles = getActivity().getResources().getStringArray(R.array.home_title);
 	}
 
 	@Override
@@ -88,6 +93,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		}else{
 			getData(position+"", orders[0]);
 		}
+		stayTime = System.currentTimeMillis();
 		isStart = true;
 //		showGuide();
 	}
@@ -134,13 +140,27 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		super.setUserVisibleHint(isVisibleToUser);
-		if(isVisibleToUser && isStart){
+		if(!isStart) return;
+		if(isVisibleToUser){
 			pullListView.hideHeader();
 			long currentTime = System.currentTimeMillis();
 			Log.i("time", "------------距离上次刷新-->>"+(currentTime - pullListView.getLastUpdatedTime())/1000+"秒"+"--"+pullListView.getLastUpdatedTime());
 			if(currentTime - pullListView.getLastUpdatedTime() > Content.main_list_fresh_interval*1000){
 				onRefresh(true);
 			}
+			stayTime = System.currentTimeMillis();
+		}else{
+			if(stayTime == 0) return;
+			String id = "channel"+position;
+			if(position == -1){
+				id = "channel_1";
+			}
+			stayTime = System.currentTimeMillis() - stayTime;
+			Log.i(ARG_POSITION, "--------stop refresh-"+position+"----"+stayTime/1000+"s");
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("delayTime", (stayTime/1000)+"s");
+			CustomStatUtil.onEvent(getContext(), id, map, (int)(stayTime/1000));
+			stayTime = 0;
 		}
 	}
 	@Override
@@ -150,6 +170,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		setUserVisibleHint(true);
 //			onRefresh(true);
 	}
+	
 	//获取我的关注
 		private void getMyAttention(){
 			HttpResponseUtils.getInstace(getActivity()).postJson(
@@ -279,9 +300,10 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void onPause() {
 		super.onPause();
-		Log.i(ARG_POSITION, "--------stop refresh");
+	
 		flag = false;
 		handler.removeCallbacks(delayLoad);
+		
 	}
 	@Override
 	public void onDestroy() {

@@ -10,10 +10,12 @@ import org.json.JSONException;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.global.Content;
+import com.futureinst.home.HomeActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.model.usermodel.UserInformationDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
+import com.futureinst.net.HttpPath;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
@@ -27,6 +29,7 @@ import com.futureinst.utils.ImageCompressUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
+import com.igexin.sdk.PushManager;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -95,7 +98,7 @@ public class UserInfoFragment2 extends BaseFragment {
 	}
 
 	private void initView() {
-		pushMessageUtils = PushMessageUtils.getInstance(getContext());
+		pushMessageUtils = new PushMessageUtils(getContext());
 		progressDialog = MyProgressDialog.getInstance(getContext());
 		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		httpResponseUtils = HttpResponseUtils.getInstace(getActivity());
@@ -176,7 +179,12 @@ public class UserInfoFragment2 extends BaseFragment {
 				break;
 			case R.id.tableRow1:// 未币商城
 //				MyToast.showToast(getActivity(), "即将上线，敬请期待！", 1);
-				startActivity(new Intent(getActivity(), ShoopActivity.class));
+				Intent intent = new Intent(getActivity(), ShoopActivity.class);
+//				String url = "http://qxu1142100261.my3w.com/index.html";
+				String url = HttpPath.SHOP;;
+				intent.putExtra("url", url);
+//				intent.putExtra("title", "未来福利社");
+				startActivity(intent);
 				break;
 			case R.id.tableRow2:// 常见问题
 				startActivity(new Intent(getActivity(), FAQActivity.class));
@@ -213,6 +221,8 @@ public class UserInfoFragment2 extends BaseFragment {
 		btn_submit.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				HomeActivity.isUpdate = false;
+				PushManager.getInstance().stopService(getContext().getApplicationContext());
 				Intent intent = new Intent(getActivity(), LoginActivity.class);
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 				preferenceUtil.setUUid(null);

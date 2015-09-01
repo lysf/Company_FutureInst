@@ -90,7 +90,7 @@ public class UserInfoFragment extends BaseFragment {
 	}
 
 	private void initView() {
-		pushMessageUtils = PushMessageUtils.getInstance(getContext());
+		pushMessageUtils = new PushMessageUtils(getContext());
 		progressDialog = MyProgressDialog.getInstance(getContext());
 		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		httpResponseUtils = HttpResponseUtils.getInstace(getActivity());

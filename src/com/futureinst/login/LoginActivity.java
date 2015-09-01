@@ -14,6 +14,7 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.MyToast;
 import com.igexin.sdk.PushManager;
 import com.mob.tools.utils.UIHandler;
@@ -53,6 +54,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		ShareSDK.initSDK(this);
+		ActivityManagerUtil.addActivity(this);
 		initView();
 	}
 	@Override
@@ -61,6 +63,9 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 		//注册
 		if(Content.disable_app_sign_in){
 		startActivity(new Intent(LoginActivity.this, RegistActiivty_1.class));
+		if(loginTag){
+			finish();
+		}
 		}else{
 			MyToast.showToast(LoginActivity.this, getResources().getString(R.string.app_regist_tip), 0);
 		}
@@ -126,13 +131,12 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
 						if(loginTag){
 							PushManager.getInstance().initialize(getApplicationContext());
-//							String cid = PushManager.getInstance().getClientid(LoginActivity.this);
-//							Log.i("", "===============>>"+cid+"-------"
-//							+PushManager.getInstance().isPushTurnedOn(LoginActivity.this));
-//							preferenceUtil.setCLIENTID(cid);
-//							update_user_cid(cid);
+							query_user_record();
+						}else{
+							Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+							startActivity(intent);
+							finish();
 						}
-						query_user_record();
 					}
 				});
 	}
@@ -157,12 +161,6 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 							preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
 							if(judgeIsFirstLogin())
 								return;
-							
-							if(!loginTag){
-								Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-								intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-								startActivity(intent);
-							}
 							finish();
 						}
 					});
@@ -360,10 +358,10 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 					}
 				});
 	}
-		
 	@Override
 	protected void onDestroy() {
 		ShareSDK.stopSDK(this);
+		ActivityManagerUtil.finishOtherZctivity(this);
 		super.onDestroy();
 	}
 }

@@ -21,16 +21,11 @@ public class PushMessageUtils {
 	public  String path ;
 	 PushMessageInfo messageInfo;
 	 boolean tag = false;
-	private static PushMessageUtils pushMessageUtils;
-	private PushMessageUtils(Context context){
+	public PushMessageUtils(Context context){
 		preferenceUtil = SharePreferenceUtil.getInstance(context);
 		path = Content.DIR + preferenceUtil.getID()+"download.obj";
 	}
-	public static PushMessageUtils getInstance(Context context){
-		if(pushMessageUtils == null)
-			pushMessageUtils = new PushMessageUtils(context);
-		return pushMessageUtils;
-	}
+	
 	
 	private void writeObject(Object o) throws Exception{
 

@@ -111,6 +111,7 @@ public class RegistActiivty_1 extends BaseActivity {
 						UserInfo userInfo = (UserInfo) response;
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
 						startActivity(new Intent(RegistActiivty_1.this, RegistActivity_2.class));
+						finish();
 					}
 				});
 		

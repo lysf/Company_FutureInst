@@ -22,7 +22,8 @@ public class SharePreferenceUtil {
 		}
 		return preferenceUtil;
 	}
-
+	
+	private String INSTALLTAG = "INSTALLTAG";//安装标记
 	private String MOBILEPHONE = "MOBILEPHONE";// 手机号
 	private String PASSWORD = "PASSWORD";// 密码
 	private String UUID = "UUID";// 用户标识
@@ -50,6 +51,16 @@ public class SharePreferenceUtil {
 	private String CID = "CID";
 	private String CTYPE = "CTYPE";
 	private String STATUS = "STATUS";
+	
+	//安装标记
+	public boolean getInstallTag(){
+		return mSharedPreferences.getBoolean(INSTALLTAG, false);
+	}
+	//设置已安装
+	public void setInstallTag(){
+		editor.putBoolean(INSTALLTAG, true);
+		editor.commit();
+	}
 	//余额
 	public float getAsset(){
 		return mSharedPreferences.getFloat(ASSET, 0f);

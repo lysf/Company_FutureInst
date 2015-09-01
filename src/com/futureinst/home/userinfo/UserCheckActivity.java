@@ -57,8 +57,8 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 				if(position < 1) return;
 				UserCheckDAO item = (UserCheckDAO) adapter.getItem(position-1);
 				Intent intent = new Intent(UserCheckActivity.this, EventDetailActivity.class);
-				intent.putExtra("eventId", item.getId()+"");
-//				startActivity(intent);
+				intent.putExtra("eventId", item.getEventId()+"");
+				startActivity(intent);
 			}
 		});
 	}

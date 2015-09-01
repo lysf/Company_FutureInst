@@ -45,7 +45,8 @@
 	                android:layout_height="wrap_content"
 	                android:textColor="@color/text_color_3"
 	                android:textSize="28sp"
-	                android:text="67.50"/>
+	                android:minEms="3"
+	                android:text="670.50"/>
 	           
 	        <TextView 
 	            android:id="@+id/tv_gain"

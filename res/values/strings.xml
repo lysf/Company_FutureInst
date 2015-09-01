@@ -99,7 +99,7 @@
 	<string name="guidang">归档事件</string>
 	<string name="pushMessage">通知中心</string>
 	
-	<string name="regist_sucess_tip">欢迎您成为未来研究所的预言家，<u>50000个未币请笑纳</u>，可到【用户中心】查看。</string>
+	<string name="regist_sucess_tip">欢迎进入未来研究所，5000点未币已送达你的账户，现在就去预测世界大展身手吧！</string>
 	
 	<string name="hold_delete">确定清空所有已清算的预测记录？</string>
 	<string name="unhold_delete">确定清空所有已失效的预测记录？</string>
@@ -123,6 +123,7 @@
 	<string name="event_detail_focus">关注该事件</string>
 	<string name="event_detail_unfocus">取消关注该事件</string>
 	<string name="event_detail_share">分享该事件</string>
+	<string name="event_detail_guide">新手说明</string>
 	
 	<string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>
 	<string name="order_look_bad">此次预测，如果事件不发生，则你获利 P*Q=$，若事件发生，则你亏损（100-P）*Q=￥</string>
@@ -133,4 +134,5 @@
 如果事件提前发生，鸭先知就只好提前关闭交易并清算啦。
 事件清算若出现了任何争议，本先知会送往仲裁委员会裁决，一定会给大家个公正的结果哒！</string>
 <string name="empty_hold">这里空空如也，鸭先知都能在这儿筑巢啦</string>
+<string name="shareTips">目前大家认为有X%的可能性会发生【Y】，你信吗？</string>
 </resources>

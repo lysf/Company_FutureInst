@@ -137,6 +137,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        MobclickAgent.onPageStart(this.getClass().getName());
         MobclickAgent.onResume(this);
     }
 
@@ -146,6 +147,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        MobclickAgent.onPageEnd(this.getClass().getName());
         MobclickAgent.onPause(this);
     }
     @Override

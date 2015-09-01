@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -40,7 +41,7 @@ import com.futureinst.home.hold.HoldingFragment;
 import com.futureinst.home.ranking.RankAndRecordFragment;
 import com.futureinst.home.userinfo.UserInfoFragment2;
 import com.futureinst.login.LoginActivity;
-import com.futureinst.model.usermodel.UserInfo;
+import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.usermodel.UserInformationDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.model.version.VersionDAO;
@@ -59,6 +60,7 @@ import com.igexin.sdk.PushManager;
 
 @SuppressLint("ClickableViewAccessibility")
 public class HomeActivity extends BaseActivity {
+	private PushMessageUtils pushMessageUtils;
 	public static boolean isUpdate = false;
 	private boolean isHide = false;  
 	private float lastX = 0;  
@@ -72,12 +74,26 @@ public class HomeActivity extends BaseActivity {
 	private List<Fragment> fragments;
 	private Animation animation;
 	private FragmentActivityTabAdapter activityAdapter;
-	private String actionId;
+	private Handler handler = new Handler(){
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			case 1:
+				UserInformationInfo userInformationInfo = (UserInformationInfo) msg.obj;
+				preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
+				preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
+				setRanking(userInformationInfo.getUser_record());
+				break;
+			}
+		};
+	};
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
 		initVeiw();
 		initFragment();
+		if(!preferenceUtil.getInstallTag()){
+			add_download();
+		}
 		get_android_version();
 		showGuide();
 	}
@@ -112,15 +128,14 @@ public class HomeActivity extends BaseActivity {
 				if(intent.getAction().equals("newPushMessage")){
 					getMessageCount();
 				}
-//				else if(intent.getAction().equals("pushAction")){
-//					actionId = intent.getStringExtra("messageId");
-//					activityAdapter.setFragmentShow(1);
-//				}
+				else if(intent.getAction().equals("rank")){
+					activityAdapter.setFragmentShow(2);
+				}
 			}
 		};
 		IntentFilter filter = new IntentFilter();
 		filter.addAction("newPushMessage");
-//		filter.addAction("pushAction");
+		filter.addAction("rank");
 		registerReceiver(receiver, filter);
 		
 	}
@@ -145,15 +160,10 @@ public class HomeActivity extends BaseActivity {
 			getMessageCount();
 			if(!isUpdate){
 				//初始化推送
-				PushManager.getInstance().initialize(this.getApplicationContext());
 				query_user_record();
-//				cid = PushManager.getInstance().getClientid(this);
-//				preferenceUtil.setCLIENTID(cid);
+				PushManager.getInstance().initialize(this.getApplicationContext());
 			Log.i("", "===================================cid=>>"+cid);
-//			if(!TextUtils.isEmpty(cid)){
-//				update_user_cid(cid);
-//				isUpdate = true;
-//				}
+//			isUpdate = true;
 			}
 				
 		} 
@@ -171,6 +181,9 @@ public class HomeActivity extends BaseActivity {
 		}else{
 			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_balance));
 		}
+		tv_ranking.postInvalidate();
+		iv_ranking.postInvalidate();
+		Log.i(TAG, "=============================>?"+userInformationDAO.getRank());
 	}
 
 	// 获取个人信息
@@ -188,21 +201,10 @@ public class HomeActivity extends BaseActivity {
 						if (response == null)
 							return;
 						UserInformationInfo userInformationInfo = (UserInformationInfo) response;
-						preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
-						preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
-						setRanking(userInformationInfo.getUser_record());
-					}
-				});
-	}
-	//上传clientid
-	private void update_user_cid(final String cid){
-		httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.update_user.name(), PostType.user.name(), 
-				httpPostParams.update_user_cid(preferenceUtil.getUUid(), preferenceUtil.getID()+"",cid)), 
-				UserInfo.class,
-				new PostCommentResponseListener() {
-					@Override
-					public void requestCompleted(Object response) throws JSONException {
-						if(response == null) return;
+						Message message =Message.obtain();
+						message.what = 1;
+						message.obj = userInformationInfo;
+						handler.sendMessage(message);
 					}
 				});
 	}
@@ -211,7 +213,8 @@ public class HomeActivity extends BaseActivity {
 			if(TextUtils.isEmpty(preferenceUtil.getUUid())){
 				return;
 			}
-			int count =  PushMessageUtils.getInstance(this).getUnReadMessageCount();
+			pushMessageUtils = new PushMessageUtils(getApplicationContext());
+			int count =  pushMessageUtils.getUnReadMessageCount();
 			if(count>0){
 				BadgeUtil.setBadgeCount(getApplicationContext(), count);
 				tv_messageCount.setText(count+"");
@@ -247,6 +250,20 @@ public class HomeActivity extends BaseActivity {
 						if(versionCode < versionDAO.getAndroid_version()){
 							update(versionDAO.getDownload_url());
 						}
+					}
+				});
+	}
+	//添加渠道下载标记
+	private void add_download(){
+		httpResponseUtils.postJson(
+				httpPostParams.getPostParams(PostMethod.add_download.name(), PostType.common.name(), 
+						httpPostParams.add_download()), 
+				BaseModel.class,
+				new PostCommentResponseListener() {
+					@Override
+					public void requestCompleted(Object response) throws JSONException {
+						if(response == null) return;
+						preferenceUtil.setInstallTag();
 					}
 				});
 	}
@@ -336,9 +353,8 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		isUpdate = false;
 		PushManager.getInstance().stopService(this.getApplicationContext());
-//		if(PushManager.getInstance().isPushTurnedOn(this.getApplicationContext())){
-//		}
 		SystemTimeUtile.getInstance(0L).setFlag(false);
 		if (receiver != null)
 			unregisterReceiver(receiver);
