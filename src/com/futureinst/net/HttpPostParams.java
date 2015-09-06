@@ -10,7 +10,7 @@ import android.text.TextUtils;
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
 	//ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi
-	private String ctype = "android";
+	private String ctype = "anzhi";
 	public static HttpPostParams getInstace(){
 		if(httpPostParams == null)
 			httpPostParams = new HttpPostParams();
