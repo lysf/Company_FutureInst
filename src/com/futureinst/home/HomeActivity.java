@@ -60,6 +60,7 @@ import com.igexin.sdk.PushManager;
 
 @SuppressLint("ClickableViewAccessibility")
 public class HomeActivity extends BaseActivity {
+	private boolean isCloseTab = true;
 	private PushMessageUtils pushMessageUtils;
 	public static boolean isUpdate = false;
 	private boolean isHide = false;  
@@ -79,9 +80,11 @@ public class HomeActivity extends BaseActivity {
 			switch (msg.what) {
 			case 1:
 				UserInformationInfo userInformationInfo = (UserInformationInfo) msg.obj;
-				preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
-				preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
-				setRanking(userInformationInfo.getUser_record());
+				if(userInformationInfo.getUser_record() != null){
+					preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
+					preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
+					setRanking(userInformationInfo.getUser_record());
+				}
 				break;
 			}
 		};
@@ -201,6 +204,7 @@ public class HomeActivity extends BaseActivity {
 						if (response == null)
 							return;
 						UserInformationInfo userInformationInfo = (UserInformationInfo) response;
+						
 						Message message =Message.obtain();
 						message.what = 1;
 						message.obj = userInformationInfo;
@@ -310,6 +314,7 @@ public class HomeActivity extends BaseActivity {
 			lastX = x;  
 			break;
 		case MotionEvent.ACTION_MOVE:
+			if(!isCloseTab) break;
 			float dy = Math.abs(y - lastY);
 			float dx = Math.abs(x - lastX);
 			Log.i(TAG, "---------dx="+dx+",dy="+dy);
@@ -319,25 +324,26 @@ public class HomeActivity extends BaseActivity {
 			if(dx< 8 && dy > 8&& !isHide && !down){
 				animation = AnimationUtils.loadAnimation(this, R.anim.push_out);
 				ll_home_tab.startAnimation(animation);
-				new Handler().postDelayed(new Runnable(){
+				handler.postDelayed(new Runnable(){
 		            public void run() {
-		            	ll_home_tab.setVisibility(View.GONE);
+		            	if(isCloseTab){
+		            		ll_home_tab.setVisibility(View.GONE);
+		            		isHide = true;
+		            	}
 		            } 
 				}, 500);
 			}else if(dx < 8 && dy > 8 && isHide && down){
 				animation = AnimationUtils.loadAnimation(this, R.anim.push_in);
-//				ll_home_tab.setVisibility(View.VISIBLE);
 				ll_home_tab.startAnimation(animation);
-				new Handler().postDelayed(new Runnable(){
+				handler.postDelayed(new Runnable(){
 		            public void run() {
-//		            	ll_home_tab.setVisibility(View.GONE);
 		            	ll_home_tab.setVisibility(View.VISIBLE);
+		            	isHide = false;
 		            } 
 				}, 500);
 			}else{
 				break;
 			}
-			isHide = !isHide;  
 			break;
 		}
 		return super.dispatchTouchEvent(event);
@@ -347,6 +353,10 @@ public class HomeActivity extends BaseActivity {
 		super.onResume();
 		judgeIsLogin();
 		activityAdapter.getCurrentFragment().onResume();
+		if(activityAdapter.getCurrentTab() != 0){
+			isCloseTab = false;
+			ll_home_tab.setVisibility(View.VISIBLE);
+		}
 		getMessageCount();
 	}
 
@@ -460,6 +470,12 @@ public class HomeActivity extends BaseActivity {
 				if (btns[i] == v ) {
 					if(i!=0 && !isLogin()){
 						return;
+					}
+					if(i!=0){
+						isCloseTab = false;
+						ll_home_tab.setVisibility(View.VISIBLE);
+					}else{
+						isCloseTab = true;
 					}
 					if(i == 2){
 						iv_ranking.setSelected(true);

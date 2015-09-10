@@ -68,6 +68,7 @@
 	<!-- RankingFragment -->
 	<string name="ranking_fragment_title">排行榜</string>
 	<!-- EventDetailActivity -->
+	<string name="event_detail">事件详情</string>
 	<string name="easy_model_tip">点击看好/不看好，即以市价买进/卖空10件该事件。</string>
 	<string name="easy_model">简易模式</string>
 	<string name="advance_model">高级模式</string>

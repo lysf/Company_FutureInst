@@ -26,6 +26,7 @@
             android:background="@color/tab_text_selected"/>
         <ImageView 
             android:id="@+id/iv_back"
+            android:visibility="gone"
             android:layout_below="@id/view_line"
             android:layout_marginLeft="@dimen/activity_login_margin_10"
             android:layout_width="wrap_content"
@@ -38,10 +39,10 @@
             android:paddingTop="@dimen/margin_5"
             android:paddingBottom="@dimen/margin_5"
             android:paddingLeft="@dimen/margin_5"
-            android:paddingRight="@dimen/activity_login_margin_10"
+            android:paddingRight="@dimen/activity_login_margin_10" 
             android:layout_below="@+id/view_line"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/activity_login_margin_10"
+            android:layout_alignParentRight="false"
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
             android:textSize="@dimen/text_size_normal"
             android:textColor="@color/text_color_white"
             android:background="@color/tab_text_selected"
@@ -49,6 +50,7 @@
             />
         <ImageView 
             android:id="@+id/iv_operate"
+            android:visibility="gone"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/margin_5"
             android:layout_alignParentBottom="true"
@@ -58,6 +60,7 @@
             android:src="@drawable/detail_operate"/>
         <ImageView 
             android:id="@+id/iv_share"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
              android:layout_alignParentBottom="true"
@@ -65,6 +68,16 @@
             android:src="@drawable/image_share"
             android:layout_toLeftOf="@+id/iv_operate"
             android:layout_marginRight="@dimen/margin_5"/>
+         <TextView 
+            android:id="@+id/tv_event_title"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginBottom="@dimen/activity_login_margin_10"
+            android:layout_marginRight="@dimen/margin_20"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_large"
+            />
     </RelativeLayout>
 	
 </LinearLayout>

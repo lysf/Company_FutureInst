@@ -69,7 +69,7 @@ public class HoldUnDealAdapter extends BaseAdapter {
 			tv_hold_buy.setTextColor(context.getResources().getColor(R.color.gain_red));
 			hold_buy = context.getResources().getString(R.string.unhold_1)+"\t"+String.format("%3d", item.getNum())+"份\t\t出价"+String.format("%.2f", item.getPrice())+"\t";
 		}else{
-			tv_hold_buy.setTextColor(context.getResources().getColor(R.color.gain_blue));
+			tv_hold_buy.setTextColor(context.getResources().getColor(R.color.text_blue));
 			hold_buy = context.getResources().getString(R.string.unhold_2)+"\t"+String.format("%3d", item.getNum())+"份\t\t出价"+String.format("%.2f", item.getPrice())+"\t";
 		}
 		tv_hold_buy.setText(hold_buy);

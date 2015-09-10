@@ -149,6 +149,13 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
+	//根据事件组ID查询事件
+	public String query_event(String group_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("group_id", group_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
 	//根据事件组id查询事件
 	public String query_event_by_group_id(String id){
 		Map<String, String> map = new HashMap<String, String>();

@@ -15,6 +15,7 @@
 	<dimen name="widget_height_40">40dip</dimen>
 	<dimen name="widget_height_45">45dip</dimen>
 	<dimen name="widget_height_50">50dip</dimen>
+	<dimen name="widget_height_55">55dip</dimen>
 	<dimen name="line_height">1px</dimen>
 	
 	<dimen name="activity_login_padding">30dip</dimen>

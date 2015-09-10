@@ -20,7 +20,7 @@
             android:id="@+id/fl_bottom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/view_top"
+            android:layout_below="@+id/rl_deal"
            	android:background="#f2f2f2"
              >
      <LinearLayout
@@ -32,11 +32,12 @@
         
         <TextView 
 	    android:id="@+id/tv_description"
-	    android:layout_marginTop="@dimen/margin_20"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:background="#f2f2f2"
-	    android:padding="@dimen/margin_20"
+	    android:paddingLeft="@dimen/margin_20"
+	    android:paddingRight="@dimen/margin_20"
+	    android:paddingBottom="@dimen/margin_20"
 	    android:textSize="@dimen/text_size_normal"
 	    android:textColor="@color/text_color_6"
 	    android:lineSpacingExtra="3dip"
@@ -48,7 +49,7 @@
 	    android:background="#f2f2f2"
 	    android:orientation="horizontal">
         
-        <com.futureinst.widget.WaterWaveView
+        <com.futureinst.widget.waterwave.WaterWaveView
 	    android:id="@+id/wav"
 	    android:layout_width="120dip"
 	    android:layout_height="120dip"
@@ -66,16 +67,17 @@
              layout="@layout/forecast_bottom"/>
       </LinearLayout>
       </FrameLayout>
-      <TextView 
-            android:id="@+id/tv_event_title"
-            android:layout_marginLeft="@dimen/margin_20"
-            android:layout_marginBottom="@dimen/activity_login_margin_10"
-            android:layout_marginRight="95dip"
-            android:paddingBottom="@dimen/activity_login_margin_10"
-            android:layout_alignBottom="@+id/view_top"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/text_size_large"
-            />
+     <include 
+         android:id="@+id/rl_deal"
+         android:layout_below="@+id/view_top"
+         android:layout_width="match_parent"
+         android:layout_height="60dip"
+         layout="@layout/eventdetail_deal_share"/>
+     <include 
+         android:id="@+id/rl_deal_float"
+         android:layout_below="@+id/view_top"
+         android:layout_width="match_parent"
+         android:layout_height="60dip"
+         layout="@layout/eventdetail_deal_share_float"/>
 </RelativeLayout>
 </com.futureinst.widget.PullLayout>

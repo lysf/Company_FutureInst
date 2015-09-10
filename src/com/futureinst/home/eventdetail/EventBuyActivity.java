@@ -144,16 +144,16 @@ public class EventBuyActivity extends BaseActivity {
 		et_num.setText("10");
 		if(isBuy){
 			submit.setText("看好");
-			submit.setBackground(getResources().getDrawable(R.drawable.btn_buy_back));
+			submit.setBackground(getResources().getDrawable(R.drawable.btn_detail_buy_back));
 			tv_tip.setText(getResources().getString(R.string.buy_tip_buy));
 //			tv_total.setTextColor();
 			color = getResources().getColor(R.color.gain_red);
 //			order_tips = getResources().getString(R.string.order_look_good);
 		}else{
 			submit.setText("不看好");
-			submit.setBackground(getResources().getDrawable(R.drawable.btn_sell_back));
+			submit.setBackground(getResources().getDrawable(R.drawable.btn_detail_sell_back));
 			tv_tip.setText(getResources().getString(R.string.buy_tip_sell));
-			color = getResources().getColor(R.color.gain_blue);
+			color = getResources().getColor(R.color.text_blue);
 //			order_tips = getResources().getString(R.string.order_look_bad);
 		}
 		tv_total_2.setTextColor(color);

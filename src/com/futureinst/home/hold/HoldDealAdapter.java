@@ -93,7 +93,7 @@ public class HoldDealAdapter extends BaseAdapter {
 				String gain = "";
 				if(item.getGain() < 0){
 					gain = " - "+String.format("%.2f", Math.abs(item.getGain()));
-					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_blue));
+					tv_gain.setTextColor(context.getResources().getColor(R.color.text_blue));
 				}else{
 					gain = " + "+String.format("%.2f", Math.abs(item.getGain()));
 					tv_gain.setTextColor(context.getResources().getColor(R.color.gain_red));

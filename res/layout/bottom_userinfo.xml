@@ -339,7 +339,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:layout_marginRight="@dimen/margin_20"
-                android:layout_marginBottom="@dimen/margin_20"
+                 android:layout_marginBottom="@dimen/widget_height_50"
                 android:textSize="@dimen/text_size_small"
                 android:textColor="@color/text_color_b"
                 />

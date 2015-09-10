@@ -1,6 +1,7 @@
-package com.futureinst.widget;
+package com.futureinst.widget.waterwave;
 
 import com.futureinst.R;
+import com.futureinst.widget.waterwave.MySersor.MySensorLisenter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PorterDuff;
@@ -15,6 +17,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.FontMetrics;
+import android.graphics.PorterDuff.Mode;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -23,9 +26,17 @@ import android.view.View;
  *波浪效果
  */
 @SuppressLint({ "DrawAllocation", "HandlerLeak" })
-public class WaterWaveView extends View
+public class WaterWaveView extends View implements MySensorLisenter
 {
 	private Handler mHandler;
+	private Matrix matrix;
+	private float myDegress=0;
+	/**
+	 * 要摆动，增加的偏移量
+	 * **/
+	private final int width_padding=50;  
+	private final int height_padding=20;  
+	
 	private long c = 0L;
 	private boolean down;
 	private boolean start;
@@ -41,7 +52,6 @@ public class WaterWaveView extends View
 	private float d ;//圆心到所需图形的距离
 	private float distanceY;
 	private Long delayTime = 1L;
-//	int tranColor = Color.WHITE;
 	int tranColor = Color.parseColor("#f1ffffff");
 	public WaterWaveView(Context paramContext) 
 	{
@@ -69,7 +79,7 @@ public class WaterWaveView extends View
 	
 	private void init(Context context)
 	{
-//		mAmplitude = Utils.dip2px(context, 2);
+		matrix = new Matrix();
 		mPaint.setColor(mColor);
 		mPaint.setAlpha(mAlpha);
 		mPath = new Path();
@@ -94,6 +104,12 @@ public class WaterWaveView extends View
 	protected void onDraw(Canvas canvas)
 	{
 		canvas.save();
+		mPaint.setXfermode(new PorterDuffXfermode(Mode.CLEAR)); 
+		canvas.drawPaint(mPaint);
+		mPaint.setXfermode(null); 
+		canvas.setMatrix(matrix);
+		
+		
         mPaint.setAlpha(mAlpha);
 		mPaint.setColor(mColor);
 		mPaint.setAntiAlias(true);
@@ -288,9 +304,6 @@ public class WaterWaveView extends View
 	}
 	public void setDown(boolean down) {
 		this.down = down;
-//		if(down){
-//			this.autoLevel = 1.0f;
-//		}
 	}
 	public String getTextTop() {
 		return textTop;
@@ -312,5 +325,24 @@ public class WaterWaveView extends View
 		int height = getHeight();
 		Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ball);
 		canvas.drawBitmap(bitmap,null, new Rect(0, 0, width, height), null);
+	}
+	@Override
+	public void doRotate(float x) {
+		if(!start){
+			return;
+		}
+		synchronized (this)
+		{
+			float degrees = (x / 10 )*90;    // 求出角度。 x的重力加速度最大值为10    90度
+			System.out.println("偏角:"+ degrees);
+				if(Math.abs(degrees) < 20){
+					
+					matrix.postRotate(degrees-myDegress,getWidth()/2,getHeight()/2);
+					myDegress = degrees;
+				}
+				
+			
+		}
+		
 	}
 }

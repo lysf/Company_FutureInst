@@ -47,11 +47,15 @@
               />
         </RelativeLayout>
     </RelativeLayout>
-
+	<View 
+	    android:layout_width="match_parent"
+	    android:layout_height="1px"
+	    android:background="@color/text_color_e"/>
     <com.futureinst.widget.scrollview.OverScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/text_color_e"
+       
          >
 
         <LinearLayout

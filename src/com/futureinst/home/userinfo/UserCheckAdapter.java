@@ -71,7 +71,7 @@ public class UserCheckAdapter extends BaseAdapter {
 			stringBuilder = new SpannableStringBuilder(change);
 //			stringBuilder.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.login_title_layout_back)), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 //			tv_change.setBackgroundColor(context.getResources().getColor(R.color.gain_blue));
-			tv_change.setTextColor(context.getResources().getColor(R.color.gain_blue));
+			tv_change.setTextColor(context.getResources().getColor(R.color.text_blue));
 		}
 		tv_change.setText(stringBuilder);
 		tv_current_balance.setText(String.format("%.2f", item.getBalanceCurr()));

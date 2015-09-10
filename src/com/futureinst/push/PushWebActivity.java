@@ -50,7 +50,6 @@ public class PushWebActivity extends BaseActivity {
 		webSettings.setBuiltInZoomControls(true);
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setLoadWithOverviewMode(true);
-		Map<String, String> cookie = new HashMap<String, String>();
 		webView.loadUrl(url);
 		webView.setWebViewClient(new CustomWebViewClient(this));
 		webView.setWebChromeClient(new ChromeClient());

@@ -3,7 +3,6 @@ package com.futureinst.home.forecast;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.json.JSONException;
 
@@ -12,6 +11,7 @@ import com.futureinst.baseui.BaseFragment;
 import com.futureinst.global.Content;
 import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.attention.AttentionDAO;
 import com.futureinst.model.attention.AttentionInfoDAO;
@@ -23,8 +23,7 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
-import com.futureinst.newbieguide.GuideClickInterface;
-import com.futureinst.newbieguide.NewbieGuide;
+import com.futureinst.push.PushWebActivity;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.CustomStatUtil;
 import com.futureinst.widget.list.PullListView;
@@ -52,12 +51,11 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	private long stayTime;
 	private PullListView pullListView;
 	private ForecastItemAdapter adapter;
-	private String[] orders,homeTitles;
+	private String[] orders;
 	private LinearLayout ll_unlogin,ll_empty;
 	private TextView tv_empty;
 	private boolean isStart;
 	private Button btn_login;
-	private SharePreferenceUtil preferenceUtil;
 	private String empty = "快去点击事件进入事件详情页打开‘<img src=\""+R.drawable.attention_tip+"\" />’";
 	public static ForecastContainerTypeFragment newInstance(int position) {
 		ForecastContainerTypeFragment f = new ForecastContainerTypeFragment();
@@ -70,10 +68,8 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		position = getArguments().getInt(ARG_POSITION);
 		orders = getActivity().getResources().getStringArray(R.array.home_seond_title_order);
-		homeTitles = getActivity().getResources().getStringArray(R.array.home_title);
 	}
 
 	@Override
@@ -121,12 +117,23 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
 				if(index < 1) return;
 				QueryEventDAO item = (QueryEventDAO) adapter.getItem(index - 1);
-				//预测
-				Intent intent = new Intent(getActivity(), EventDetailActivity.class);
-				intent.putExtra("eventId", item.getId()+"");
-				if(position == -1)
-					intent.putExtra("boolean", true);
-				startActivity(intent);
+				if(item.getGroupId() == 1){//专题
+					Intent intent = new Intent(getActivity(), ForecastGroupActivity.class);
+					intent.putExtra("group_id", item.getId()+"");
+					intent.putExtra("title", item.getLead());
+					startActivity(intent);
+				}else if(item.getGroupId() == 2){//广告
+					Intent intent = new Intent(getActivity(), PushWebActivity.class);
+					intent.putExtra("url", item.getLead());
+					startActivity(intent);
+				}else{
+					//预测
+					Intent intent = new Intent(getActivity(), EventDetailActivity.class);
+					intent.putExtra("eventId", item.getId()+"");
+					if(position == -1)
+						intent.putExtra("boolean", true);
+					startActivity(intent);
+				}
 			}
 		});
 		btn_login.setOnClickListener(new OnClickListener() {

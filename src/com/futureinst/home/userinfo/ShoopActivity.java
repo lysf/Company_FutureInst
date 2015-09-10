@@ -1,14 +1,13 @@
 package com.futureinst.home.userinfo;
 
-import java.util.HashMap;
-import java.util.Map;
 
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.net.HttpPath;
+import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.CustomWebViewClient;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -19,15 +18,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ProgressBar;
 
+@SuppressLint("SetJavaScriptEnabled")
 public class ShoopActivity extends BaseActivity {
 	private WebView webView;
 	private WebSettings webSettings;
 	private ProgressBar progressbar;
 	private String cookie1,cookie2 ;
 	private String url ;
-	private String title;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
+		ActivityManagerUtil.addActivity(this);
 		setTitle("未来福利社");
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		setContentView(R.layout.view_webview);
@@ -36,6 +36,7 @@ public class ShoopActivity extends BaseActivity {
 	private void initView() {
 //		url = HttpPath.SHOP;
 		url = getIntent().getStringExtra("url");
+//		url = "http://qxu1142100261.my3w.com/futureinst/src/main/webapp/mweb/gift/test_ad1.html";
 		webView = (WebView) findViewById(R.id.webView);
 		progressbar = (ProgressBar) findViewById(R.id.progress);
 		cookie1 = "user_id="+preferenceUtil.getID() + HttpPath.Cookie;
@@ -46,10 +47,8 @@ public class ShoopActivity extends BaseActivity {
 		webSettings.setUseWideViewPort(true);
 		webSettings.setBuiltInZoomControls(true);
 		webSettings.setJavaScriptEnabled(true);
+		webView.addJavascriptInterface(new JavaScriptObject(this), "obj");
 		webSettings.setLoadWithOverviewMode(true);
-		Map<String, String> cookie = new HashMap<String, String>();
-//		cookie.put("Cookie", cookie1);
-//		cookie.put("Cookie", cookie2);
 		webView.loadUrl(url);
 		webView.setWebViewClient(new CustomWebViewClient(this));
 		webView.setWebChromeClient(new ChromeClient());
@@ -85,4 +84,16 @@ public class ShoopActivity extends BaseActivity {
 	        setTitle(title);
 	        }
 	    }
+	 
+	 public class JavaScriptObject {
+		    Context mContxt;
+		    public JavaScriptObject(Context mContxt) {
+		        this.mContxt = mContxt;
+		    }
+		    public void testObjcCallback() {
+		    	ActivityManagerUtil.finishOthersActivity();
+		    	finish();
+		    }
+
+		}
 }

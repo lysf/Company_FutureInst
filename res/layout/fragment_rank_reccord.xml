@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/text_color_e"
     android:gravity="center_horizontal"
+    android:paddingBottom="@dimen/widget_height_55"
     android:orientation="vertical" >
    <LinearLayout 
        android:background="@color/text_color_white"

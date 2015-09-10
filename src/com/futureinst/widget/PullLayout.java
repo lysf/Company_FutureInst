@@ -8,6 +8,7 @@ import com.nineoldandroids.view.ViewHelper;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,7 +20,7 @@ import android.widget.TextView;
 
 public class PullLayout extends ScrollView{
 	 private View rl_top;
-	 private View ll_content;
+	 private PullLayout bottom_scroll;
 	 private ObjectAnimator oa;
 	 private float lastY = -1;
 	 private float detalY = -1;
@@ -36,6 +37,33 @@ public class PullLayout extends ScrollView{
 	private ImageView iv_image;
 	private TextView tv_time;
 	private TextView tv_event_title;
+	private View rl_deal;
+	
+	 private OnScrollListener onScrollListener;  
+	/** 
+     * 主要是用在用户手指离开MyScrollView，MyScrollView还在继续滑动，我们用来保存Y的距离，然后做比较 
+     */  
+    private int lastScrollY; 
+    
+    /** 
+     * 用于用户手指离开MyScrollView的时候获取MyScrollView滚动的Y距离，然后回调给onScroll方法中 
+     */  
+    private Handler handler = new Handler() {  
+  
+        public void handleMessage(android.os.Message msg) {  
+            int scrollY = PullLayout.this.getScrollY();  
+              
+            //此时的距离和记录下的距离不相等，在隔5毫秒给handler发送消息  
+            if(lastScrollY != scrollY){  
+                lastScrollY = scrollY;  
+                handler.sendMessageDelayed(handler.obtainMessage(), 5);    
+            }  
+            if(onScrollListener != null){  
+                onScrollListener.onScroll(scrollY);  
+            }
+        };  
+  
+    }; 
 	public PullLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		// TODO Auto-generated constructor stub
@@ -50,12 +78,21 @@ public class PullLayout extends ScrollView{
 		super(context);
 		// TODO Auto-generated constructor stub
 	}
+	
+	/** 
+     * 设置滚动接口 
+     * @param onScrollListener 
+     */  
+    public void setOnScrollListener(OnScrollListener onScrollListener) {  
+        this.onScrollListener = onScrollListener;  
+    }  
 	@Override
 	protected void onFinishInflate() {
 		super.onFinishInflate();
 		setVerticalScrollBarEnabled(false);
 		rl_top = findViewById(R.id.rl_top);
-        ll_content = findViewById(R.id.ll_scroll);
+		bottom_scroll = (PullLayout) findViewById(R.id.bottom_scroll);
+		rl_deal = findViewById(R.id.rl_deal);
 		 tv_time = (TextView) findViewById(R.id.tv_time);
 		iv_image = (ImageView) findViewById(R.id.iv_image);
 		iv_operate = (ImageView) findViewById(R.id.iv_operate);
@@ -73,6 +110,13 @@ public class PullLayout extends ScrollView{
                 rl_top.getLayoutParams().height = range;
             }
         });
+		bottom_scroll.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void onGlobalLayout() {
+				onScrollListener.onScroll(bottom_scroll.getScrollY());
+			}
+		});
 		open();
 		tv_event_title.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 	            @SuppressWarnings("deprecation")
@@ -81,7 +125,7 @@ public class PullLayout extends ScrollView{
 	            	tv_event_title.getViewTreeObserver().removeGlobalOnLayoutListener(this);
 	                tvHeight = tv_event_title.getHeight();
 	                tvWidth = tv_event_title.getWidth();
-	                ViewHelper.setTranslationY(ll_content, tvHeight);
+//	                ViewHelper.setTranslationY(ll_content, tvHeight);
 	            }
 	        });
 	}
@@ -100,6 +144,9 @@ public class PullLayout extends ScrollView{
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
+    	if(onScrollListener != null){  
+            onScrollListener.onScroll(lastScrollY = this.getScrollY());  
+        }
         if (oa != null && oa.isRunning()) {
             ev.setAction(MotionEvent.ACTION_UP);
             isActionCancel = true;
@@ -127,6 +174,7 @@ public class PullLayout extends ScrollView{
                 }
                 break;
             case MotionEvent.ACTION_UP:
+            	 handler.sendMessageDelayed(handler.obtainMessage(), 5);  
                 isTouchOrRunning = false;
                 if (getScrollY() < range) {
                     if (detalY != 0) {
@@ -140,10 +188,10 @@ public class PullLayout extends ScrollView{
         }
         return super.onTouchEvent(ev);
     }
-
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
+        onScrollListener.onScroll(t);
         if (t > range) {
             return;
         } else if (!isTouchOrRunning && t != range) {
@@ -163,6 +211,7 @@ public class PullLayout extends ScrollView{
     private void animateScroll(int t) {
         float percent = (float) t / range;
         ViewHelper.setTranslationY(rl_top, t);
+        
         ViewHelper.setTranslationY(iv_operate, -t);
         ViewHelper.setTranslationY(iv_share, -t);
         ViewHelper.setTranslationY(tv_event_title, -t);
@@ -174,20 +223,11 @@ public class PullLayout extends ScrollView{
         	iv_operate.setAlpha(alpha);
         	iv_share.setAlpha(alpha);
         	view_line.setAlpha(alpha);
+        	tv_event_title.setAlpha(alpha);
         }
-//        if(t >= range/2){
-//        	iv_back.setVisibility(View.INVISIBLE);
-//        	tv_time.setVisibility(View.INVISIBLE);
-//        	iv_operate.setVisibility(View.INVISIBLE);
-//        }
-        ViewHelper.setTranslationY(ll_content, tvHeight * percent);
-//        ViewHelper.setScaleX(tv_event_title, 2 - percent);
-//        ViewHelper.setScaleY(tv_event_title, 2 - percent);
-//        ViewHelper.setTranslationX(tv_event_title, tvWidth * (1 - percent) / 2f);
-        ViewHelper.setTranslationY(tv_event_title, tvHeight*percent*1.5f);
-//        ViewHelper.setTranslationY(ev, -t / 2);
-//        ViewHelper.setTranslationY(ll_weather, -t / 2);
-//        ev.setRadius((int) (range * 0.25f * (1 - percent)));
+//        ViewHelper.setTranslationY(ll_content, tvHeight * percent);
+//        ViewHelper.setTranslationY(tv_event_title, tvHeight*percent*1.5f);
+       
         tv_event_title.setTextColor(evaluate(percent, Color.WHITE, Color.BLACK));
     }
 
@@ -201,17 +241,7 @@ public class PullLayout extends ScrollView{
         iv_operate.setAlpha(1-percent);
         iv_share.setAlpha(1-percent);
         view_line.setAlpha(1-percent);
-//        if(t >= range/2){
-//        	iv_back.setVisibility(View.VISIBLE);
-//        	tv_time.setVisibility(View.VISIBLE);
-//        	iv_operate.setVisibility(View.VISIBLE);
-//        }
-//        ViewHelper.setScaleX(ev, 1 - percent);
-//        ViewHelper.setScaleY(ev, 1 - percent);
-//        ViewHelper.setScaleX(tv_event_title, 2 - percent);
-//        ViewHelper.setScaleY(tv_event_title, 2 - percent);
-//        ViewHelper.setTranslationX(tv_event_title, tvWidth * (1 - percent) / 2f);
-//        ViewHelper.setTranslationY(ll_weather, t / 2);
+        tv_event_title.setAlpha(1-percent);
     }
 
     private Integer evaluate(float fraction, Object startValue, Integer endValue) {
@@ -322,4 +352,15 @@ public class PullLayout extends ScrollView{
 	public void setTitleHeight(int height){
 		tvHeight = height;
 	}
+	 /** 
+     * 滚动的回调接口 
+     */  
+    public interface OnScrollListener{  
+        /** 
+         * 回调方法， 返回MyScrollView滑动的Y方向距离 
+         * @param scrollY 
+         *              、 
+         */  
+        public void onScroll(int scrollY);  
+    } 
 }

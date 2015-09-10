@@ -5,11 +5,13 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class QueryEventDAO implements Serializable{
 	private Long id;
+	private int groupId;
 	private String title;
 	private String description;
 	private String rule;
 	private String imgsrc;
 	private String videosrc;
+	private int tag;
 	private String tagstr;
 	private Long tradeTime;
 	private Long tradeNum;
@@ -24,6 +26,18 @@ public class QueryEventDAO implements Serializable{
 	private Long ctime;
 	private String statusStr;
 	
+	public int getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
+	}
+	public int getTag() {
+		return tag;
+	}
+	public void setTag(int tag) {
+		this.tag = tag;
+	}
 	public String getAccord() {
 		return accord;
 	}
@@ -142,13 +156,12 @@ public class QueryEventDAO implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "QueryEventDAO [id=" + id + ", title=" + title
-				+ ", description=" + description + ", imgsrc=" + imgsrc
-				+ ", videosrc=" + videosrc + ", tagstr=" + tagstr
-				+ ", tradeTime=" + tradeTime + ", tradeNum=" + tradeNum
-				+ ", clearTime=" + clearTime + ", currPrice=" + currPrice
-				+ ", priceChange=" + priceChange + ", clearPrice=" + clearPrice
-				+ ", involve=" + involve + ", ctime=" + ctime + ", statusStr="
-				+ statusStr + "]";
+		return "QueryEventDAO [id=" + id + ", groupId=" + groupId + ", title=" + title + ", description=" + description
+				+ ", rule=" + rule + ", imgsrc=" + imgsrc + ", videosrc=" + videosrc + ", tag=" + tag + ", tagstr="
+				+ tagstr + ", tradeTime=" + tradeTime + ", tradeNum=" + tradeNum + ", clearTime=" + clearTime
+				+ ", currPrice=" + currPrice + ", priceChange=" + priceChange + ", clearPrice=" + clearPrice
+				+ ", involve=" + involve + ", sug=" + sug + ", accord=" + accord + ", lead=" + lead + ", ctime=" + ctime
+				+ ", statusStr=" + statusStr + "]";
 	}
+	
 }

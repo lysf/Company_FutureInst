@@ -91,7 +91,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:textSize="@dimen/text_size_normal"
-	            android:textColor="@color/gain_blue"
+	            android:textColor="@color/text_blue"
 	            android:text="又不看好      30份      以45.5  "
 	            />
 	    </LinearLayout>

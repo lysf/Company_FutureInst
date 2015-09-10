@@ -173,7 +173,7 @@
         android:layout_height="@dimen/widget_height_45"
         android:textSize="@dimen/text_size_large"
         android:gravity="center"
-        android:background="@drawable/btn_buy_back"
+        android:background="@drawable/btn_detail_buy_back"
         android:text="看好" />
        </LinearLayout>
         <include 

@@ -24,8 +24,11 @@
     	<color name="text_color_9">#999999</color>
     	<color name="text_color_top_ranking">#747493</color>
     	<color name="text_color_price_change">#C8171E</color>
-    	<color name="gain_red">#CB141C</color>
-    	<color name="gain_blue">#008A41</color>
+    	<color name="btn_invivate_0">#007aff</color>
+    	<color name="btn_invivate_1">#66007aff</color>
+    	<color name="gain_red">#F8412F</color>
+    	<color name="gain_blue">#16E32E</color>
+    	<color name="text_blue">#008a41</color>
     	<color name="base_bg">#f4f6f6</color>
     	<color name="regist_keyword_1">#FE7D5E</color>
     	<color name="regist_keyword_2">#D7626A</color>
