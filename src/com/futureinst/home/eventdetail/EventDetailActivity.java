@@ -752,15 +752,6 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
      */  
     @Override  
     public void onScroll(int scrollY) {  
-//        if(scrollY >= buyLayoutTop){  
-//            if(suspendView == null){  
-//                showSuspend();  
-//            }  
-//        }else if(scrollY <= buyLayoutTop + buyLayoutHeight){  
-//            if(suspendView != null){  
-//                removeSuspend();  
-//            }  
-//        } 
     	int mFloatLayout2ParentTop = Math.max(scrollY, rl_deal.getTop());  
         rl_deal_float.layout(0, mFloatLayout2ParentTop, rl_deal_float.getWidth(), mFloatLayout2ParentTop + rl_deal_float.getHeight());
     }  

@@ -28,8 +28,6 @@ public class LazyBagFragment extends BaseFragment {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.view_over_listview);
-//		setTitle(getResources().getString(R.string.lazy_bag));
-//		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		initView();
 		getLazyBagData(eventId);
 	}

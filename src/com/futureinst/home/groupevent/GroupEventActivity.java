@@ -55,7 +55,7 @@ public class GroupEventActivity extends BaseActivity {
 	//获取事件数据
 		 private void getData(String id){
 			 HttpResponseUtils.getInstace(this).postJson(
-					 HttpPostParams.getInstace().getPostParams(PostMethod.query_event.name(), PostType.event.name(), HttpPostParams.getInstace().query_event_by_group_id(id)), 
+					 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event_by_group_id(id)), 
 					 QueryEventInfoDAO.class, 
 					 new PostCommentResponseListener() {
 						@Override

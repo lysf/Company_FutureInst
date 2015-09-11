@@ -98,7 +98,7 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 	//获取事件数据
 		 private void getData(String group_id){
 			 HttpResponseUtils.getInstace(this).postJson(
-					 HttpPostParams.getInstace().getPostParams(PostMethod.query_event.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(group_id)), 
+					 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(group_id)), 
 					 QueryEventInfoDAO.class, 
 					 new PostCommentResponseListener() {
 						@Override

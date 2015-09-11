@@ -168,7 +168,7 @@ public class CommentFragment extends BaseFragment {
 				view2.setBackgroundColor(color);
 			}else{
 				comment = "[不看好]"+comment;
-				color = getResources().getColor(R.color.gain_blue);
+				color = getResources().getColor(R.color.text_blue);
 				view1.setBackgroundColor(color);
 				view2.setBackgroundColor(color);
 			}

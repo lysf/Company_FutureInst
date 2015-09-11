@@ -10,6 +10,7 @@ import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.Utils;
 import com.futureinst.utils.ViewHolder;
+import com.futureinst.utils.xutils.XUtilsImageLoader;
 import com.futureinst.widget.MyTextView;
 import com.futureinst.widget.waterwave.WaterWaveView;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -27,10 +28,12 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 public class ForecastItemAdapter extends BaseAdapter {
+//	private XUtilsImageLoader imageLoader;
 	private List<QueryEventDAO> list;
 	private Context context;
 	public ForecastItemAdapter(Context context){
 		this.context = context;
+//		imageLoader = new XUtilsImageLoader(context);
 		list = new ArrayList<QueryEventDAO>();
 	}
 	public void setList(List<QueryEventDAO> list) {
@@ -78,13 +81,15 @@ public class ForecastItemAdapter extends BaseAdapter {
 		}
 		if(iv_image.getTag()==null || !iv_image.getTag().equals(item.getImgsrc())){
 			ImageLoader.getInstance().displayImage(item.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+//			imageLoader.display(iv_image, item.getImgsrc());
 			iv_image.setTag(item.getImgsrc());
 		}
 		if(item.getGroupId() == 1 || item.getGroupId() == 2){//专题或广告
-			tv_special.setVisibility(View.VISIBLE);
 			if(item.getGroupId() == 1){
+				tv_special.setVisibility(View.VISIBLE);
 				tv_special.setText("专题");
 			}else{
+				tv_special.setVisibility(View.GONE);
 				tv_special.setText("广告");
 			}
 			h = Utils.dip2px(context, 180);

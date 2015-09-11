@@ -39,6 +39,7 @@ public class PushWebActivity extends BaseActivity {
 	}
 	private void initView() {
 		url = getIntent().getStringExtra("url");
+//		url = HttpPath.SHOP;
 		webView = (WebView) findViewById(R.id.webView);
 		progressbar = (ProgressBar) findViewById(R.id.progress);
 		cookie1 = "user_id="+preferenceUtil.getID() + HttpPath.Cookie;
@@ -47,7 +48,7 @@ public class PushWebActivity extends BaseActivity {
 		webSettings = webView.getSettings();
 		webSettings.setAppCacheEnabled(true);
 		webSettings.setUseWideViewPort(true);
-		webSettings.setBuiltInZoomControls(true);
+		webSettings.setBuiltInZoomControls(false);
 		webSettings.setJavaScriptEnabled(true);
 		webSettings.setLoadWithOverviewMode(true);
 		webView.loadUrl(url);

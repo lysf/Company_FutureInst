@@ -45,7 +45,7 @@ public class ShoopActivity extends BaseActivity {
 		webSettings = webView.getSettings();
 		webSettings.setAppCacheEnabled(true);
 		webSettings.setUseWideViewPort(true);
-		webSettings.setBuiltInZoomControls(true);
+		webSettings.setBuiltInZoomControls(false);
 		webSettings.setJavaScriptEnabled(true);
 		webView.addJavascriptInterface(new JavaScriptObject(this), "obj");
 		webSettings.setLoadWithOverviewMode(true);

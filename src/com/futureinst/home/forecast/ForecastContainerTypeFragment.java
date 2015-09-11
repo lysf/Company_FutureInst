@@ -11,7 +11,6 @@ import com.futureinst.baseui.BaseFragment;
 import com.futureinst.global.Content;
 import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.home.eventdetail.EventDetailActivity;
-import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.attention.AttentionDAO;
 import com.futureinst.model.attention.AttentionInfoDAO;
@@ -91,7 +90,6 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		}
 		stayTime = System.currentTimeMillis();
 		isStart = true;
-//		showGuide();
 	}
 	private void initView(){
 		ll_unlogin = (LinearLayout) findViewById(R.id.ll_unLogin);
@@ -175,7 +173,6 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		super.onResume();
 		pullListView.hideHeader();
 		setUserVisibleHint(true);
-//			onRefresh(true);
 	}
 	
 	//获取我的关注
@@ -208,7 +205,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	 //获取事件数据
 	 private void getData(String tag,String order){
 		 HttpResponseUtils.getInstace(getActivity()).postJson(
-				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(tag, order)), 
+				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(tag, order)), 
 				 QueryEventInfoDAO.class, 
 				 new PostCommentResponseListener() {
 					@Override
@@ -218,7 +215,6 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
 						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
 						adapter.setList(queryEventInfoDAO.getEvents());
-					
 						notifyDate();
 					}
 				});
@@ -227,7 +223,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	 //查询归档事件数据
 	 private void getData(){
 		 HttpResponseUtils.getInstace(getActivity()).postJson(
-				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event.name(), PostType.event.name(), HttpPostParams.getInstace().query_event()), 
+				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event()), 
 				 FilingInfoDAO.class, 
 				 new PostCommentResponseListener() {
 					 @Override
@@ -245,7 +241,6 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void onRefresh(boolean isTop) {
 		if(isTop){
-//			pullListView.setSelection(0);
 			if(position == 1){
 				if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())){
 					getMyAttention();

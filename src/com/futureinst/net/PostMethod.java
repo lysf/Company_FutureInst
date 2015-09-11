@@ -8,7 +8,7 @@ public enum PostMethod {
 	update_user,//修改用户信息
 	sign_in_by_phone,//手机登录
 	update_pwd,//修改密码
-	query_event,//查询事件
+	query_event_all,//查询事件
 	query_event_group,//查询事件组
 	query_order,//查询个人订单（未完成订单）
 	query_event_clear,//查询清算单

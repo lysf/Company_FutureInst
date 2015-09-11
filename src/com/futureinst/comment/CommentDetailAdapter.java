@@ -86,7 +86,7 @@ public class CommentDetailAdapter extends BaseAdapter {
 			view2.setBackgroundColor(color);
 		}else{
 //			comment = "[不看好]"+comment;
-			color = context.getResources().getColor(R.color.gain_blue);
+			color = context.getResources().getColor(R.color.text_blue);
 			view1.setBackgroundColor(color);
 			view2.setBackgroundColor(color);
 		}
