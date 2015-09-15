@@ -16,6 +16,7 @@ import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.push.PushMessageInfo;
 import com.futureinst.push.PushMessageUtils;
 import com.futureinst.push.PushWebActivity;
+import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.widget.list.PullListView;
 
 public class PushMessageActivity extends BaseActivity {
@@ -28,6 +29,7 @@ public class PushMessageActivity extends BaseActivity {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_push_message);
+		ActivityManagerUtil.addActivity(this);
 		setTitle(R.string.pushMessage);
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		initView();
@@ -36,6 +38,7 @@ public class PushMessageActivity extends BaseActivity {
 	protected void onLeftImageViewClick(View view) {
 		super.onLeftImageViewClick(view);
 		pushMessageUtils.setAllRead();
+		ActivityManagerUtil.finishActivity();
 		finish();
 	}
 	private void initView() {
@@ -90,6 +93,7 @@ public class PushMessageActivity extends BaseActivity {
 			if(item.getType().equals("url")){//打开指定网页
 				Intent intent = new Intent(PushMessageActivity.this, PushWebActivity.class);
 				intent.putExtra("url", item.getHref());
+				intent.putExtra("title", "");
 				startActivity(intent);
 			}
 		}
@@ -98,6 +102,7 @@ public class PushMessageActivity extends BaseActivity {
 	public void onBackPressed() {
 		super.onBackPressed();
 		pushMessageUtils.setAllRead();
+		ActivityManagerUtil.finishActivity();
 	}
 	@Override
 	protected void onDestroy() {

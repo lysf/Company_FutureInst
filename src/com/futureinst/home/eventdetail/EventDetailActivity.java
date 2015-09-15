@@ -8,7 +8,10 @@ import org.json.JSONException;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,6 +20,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,6 +73,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 @SuppressLint({ "HandlerLeak", "DefaultLocale" })
 public class EventDetailActivity extends BaseActivity implements OnScrollListener{
+	private BroadcastReceiver receiver;
 	private PullLayout pullLayout;
 	private RelativeLayout rl_deal,rl_deal_float;
 	
@@ -175,6 +180,23 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 //		mySensor.onResume();
 	}
 	private void initView() {
+		receiver  = new BroadcastReceiver() {
+			@Override
+			public void onReceive(Context context, Intent intent) {
+				if(intent.getAction().equals("priceClear")){
+					Log.i(TAG, "==================priceClear============>>");
+					handler.postDelayed(new Runnable() {
+						@Override
+						public void run() {
+							query_single_event_clear();
+						}
+					}, 2000);
+					
+				}
+			}
+		};
+		IntentFilter filter = new IntentFilter("priceClear");
+		registerReceiver(receiver, filter);
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		getRightImageView().setImageDrawable(getResources().getDrawable(R.drawable.detail_operate));
 		setTitle(R.string.event_detail);
@@ -258,6 +280,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 			view_single_event.setVisibility(View.GONE);
 			return;
 		}
+		Log.i(TAG, "=====================刷新========>>");
 		view_single_event.setVisibility(View.VISIBLE);
 		String gain_good = String.format("%.2f",  singleEventInfo.getUser().getIf_yes());
 		String gain_bad = String.format("%.2f",  singleEventInfo.getUser().getIf_no());
@@ -600,6 +623,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 			}
 		});
 	}
+	//分享界面
 	private void showShareDialog(final QueryEventDAO event){
 		final String shareTitle = getResources().getString(R.string.shareTips).replace("X", event.getCurrPrice()+"").replace("Y", event.getLead());
 		final String content = "来自未来研究所";
@@ -612,8 +636,9 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 		tv_sina.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				OneKeyShareUtil.showShare(EventDetailActivity.this, event_id,share_award,shareTitle, HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), 
-						shareTitle, null, event.getImgsrc(), true, SinaWeibo.NAME);
+				OneKeyShareUtil.showShare(EventDetailActivity.this, event_id,share_award,shareTitle,
+						HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), 
+						shareTitle+HttpPath.SHARE_URL+event_id+"?user_id="+preferenceUtil.getID(), null, event.getImgsrc(), true, SinaWeibo.NAME);
 				dialog.dismiss();
 			}
 		});
@@ -702,6 +727,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 	@Override 
 	protected void onDestroy() {
 		super.onDestroy();
+		unregisterReceiver(receiver);
 		timeIsStart = false;
 		isPriceRefresh = false;
 		isDestroy = true;

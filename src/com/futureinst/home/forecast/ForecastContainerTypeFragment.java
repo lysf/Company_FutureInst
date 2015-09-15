@@ -115,14 +115,16 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
 				if(index < 1) return;
 				QueryEventDAO item = (QueryEventDAO) adapter.getItem(index - 1);
-				if(item.getGroupId() == 1){//专题
+				
+				if(item.getType() == 1){//专题
 					Intent intent = new Intent(getActivity(), ForecastGroupActivity.class);
 					intent.putExtra("group_id", item.getId()+"");
-					intent.putExtra("title", item.getLead());
+					intent.putExtra("title", item.getTitle());
 					startActivity(intent);
-				}else if(item.getGroupId() == 2){//广告
+				}else if(item.getType() == 2){//广告
 					Intent intent = new Intent(getActivity(), PushWebActivity.class);
 					intent.putExtra("url", item.getLead());
+					intent.putExtra("title", item.getTitle());
 					startActivity(intent);
 				}else{
 					//预测
@@ -172,6 +174,16 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	public void onResume() {
 		super.onResume();
 		pullListView.hideHeader();
+		if(position == 1 && ll_unlogin.getVisibility() == View.VISIBLE){
+			if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())
+					){
+				ll_unlogin.setVisibility(View.GONE);
+				getMyAttention();
+			}else{
+				pullListView.onRefreshComplete();
+				ll_unlogin.setVisibility(View.VISIBLE);
+			}
+		}
 		setUserVisibleHint(true);
 	}
 	
@@ -243,6 +255,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		if(isTop){
 			if(position == 1){
 				if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())){
+					ll_unlogin.setVisibility(View.GONE);
 					getMyAttention();
 				}else{
 					pullListView.onRefreshComplete();

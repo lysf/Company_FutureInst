@@ -32,7 +32,7 @@
 	        android:layout_height="@dimen/widget_height_40"
 	        android:textSize="@dimen/text_size_normal"
 	        android:textColor="@color/text_color_white"
-	        android:background="@drawable/btn_buy_back"
+	        android:background="@drawable/btn_detail_buy_back"
 	        android:layout_marginRight="@dimen/margin_20"
 	        android:alpha="0.3"
 	        android:text="看好"/>
@@ -43,7 +43,7 @@
 	        android:layout_height="@dimen/widget_height_40"
 	        android:textSize="@dimen/text_size_normal"
 	        android:textColor="@color/text_color_white"
-	        android:background="@drawable/btn_sell_back"
+	        android:background="@drawable/btn_detail_sell_back"
 	        android:alpha="0.3"
 	        android:text="不看好"/>
 	    <TextView 

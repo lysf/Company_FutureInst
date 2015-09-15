@@ -17,6 +17,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,6 @@ public class ForecastItemAdapter extends BaseAdapter {
 		if(convertView == null)
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_forecast, null);
 		QueryEventDAO item = list.get(position);
-		RelativeLayout rl_forecast = ViewHolder.get(convertView, R.id.rl_forecast);
 		ImageView iv_image = ViewHolder.get(convertView, R.id.iv_image);
 		MyTextView tv_special = ViewHolder.get(convertView, R.id.tv_special);
 		View view_line = ViewHolder.get(convertView, R.id.view_line);
@@ -72,8 +72,7 @@ public class ForecastItemAdapter extends BaseAdapter {
 		ll_circle.removeAllViews();
 		TextView tv_title = ViewHolder.get(convertView, R.id.tv_title);
 		View diver = ViewHolder.get(convertView, R.id.diver);
-		int h = Utils.dip2px(context, 250);
-		
+		int iv_h = Utils.dip2px(context, 180);
 		if(position == 0){
 			diver.setVisibility(View.GONE);
 		}else{
@@ -84,15 +83,15 @@ public class ForecastItemAdapter extends BaseAdapter {
 //			imageLoader.display(iv_image, item.getImgsrc());
 			iv_image.setTag(item.getImgsrc());
 		}
-		if(item.getGroupId() == 1 || item.getGroupId() == 2){//专题或广告
-			if(item.getGroupId() == 1){
+		if(item.getType() == 1 || item.getType() == 2){//专题或广告
+			if(item.getType() == 1){
 				tv_special.setVisibility(View.VISIBLE);
 				tv_special.setText("专题");
 			}else{
 				tv_special.setVisibility(View.GONE);
 				tv_special.setText("广告");
+				iv_h = Utils.getScreenWidth(context)*210/640;
 			}
-			h = Utils.dip2px(context, 180);
 			view_line.setVisibility(View.GONE);
 			tv_title.setVisibility(View.GONE);
 			tv_time.setVisibility(View.GONE);
@@ -100,7 +99,6 @@ public class ForecastItemAdapter extends BaseAdapter {
 			
 		}else{
 			tv_special.setVisibility(View.INVISIBLE);
-			h = Utils.dip2px(context, 250);
 			view_line.setVisibility(View.VISIBLE);
 			tv_title.setVisibility(View.VISIBLE);
 			tv_time.setVisibility(View.VISIBLE);
@@ -138,8 +136,8 @@ public class ForecastItemAdapter extends BaseAdapter {
 			wav.setWaterLevel(item.getCurrPrice()/100);
 			ll_circle.addView(wav);
 		}
-		LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, h);
-		rl_forecast.setLayoutParams(layoutParams);
+		android.widget.RelativeLayout.LayoutParams iv_layoutParams = new android.widget.RelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, iv_h);
+		iv_image.setLayoutParams(iv_layoutParams);
 		return convertView;
 	}
 

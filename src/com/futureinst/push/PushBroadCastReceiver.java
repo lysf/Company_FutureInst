@@ -23,6 +23,7 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.sharepreference.SharePreferenceUtil;
+import com.futureinst.utils.ActivityManagerUtil;
 import com.igexin.sdk.PushConsts;
 import com.igexin.sdk.PushManager;
 
@@ -103,6 +104,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 
 	@SuppressWarnings("deprecation")
 	private void setNotify(Context context,PushMessageDAO pushMessageDAO){
+		ActivityManagerUtil.finishActivity();
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		Intent notifyIntent = new Intent(context, PushMessageActivity.class);
 		notifyIntent.putExtra("push", true);
@@ -115,7 +117,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 		myNoti.tickerText = "未来研究所";
 		myNoti.defaults |= Notification.DEFAULT_SOUND;
 		myNoti.defaults |= Notification.DEFAULT_VIBRATE;
-		myNoti.setLatestEventInfo(context, "未来研究所", pushMessageDAO.getTitle(), appIntent);
+		myNoti.setLatestEventInfo(context, "未来研究所", pushMessageDAO.getText(), appIntent);
 		notificationManager.notify(0, myNoti);
 	}
 	//上传clientid

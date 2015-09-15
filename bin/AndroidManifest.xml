@@ -7,7 +7,7 @@
 
     <uses-sdk
         
-        android:minSdkVersion="16"
+        android:minSdkVersion="15"
         android:targetSdkVersion="22" />
  
     <supports-screens
@@ -307,8 +307,8 @@
             </intent-filter>
         </activity>
      <meta-data android:value="55cd9c4767e58efccf003e3c" android:name="UMENG_APPKEY"></meta-data>
-     <!-- 同时修改HttpPostParams中的regist（） ctype  和-->
-	 <meta-data android:value="anzhi" android:name="UMENG_CHANNEL"/>
+     <!-- 同时修改HttpPostParams中的regist（） ctype  -->
+	 <meta-data android:value="baidu" android:name="UMENG_CHANNEL"/>
         
     </application>
 

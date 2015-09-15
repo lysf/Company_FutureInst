@@ -165,8 +165,8 @@ public class HomeActivity extends BaseActivity {
 				//初始化推送
 				query_user_record();
 				PushManager.getInstance().initialize(this.getApplicationContext());
-			Log.i("", "===================================cid=>>"+cid);
-//			isUpdate = true;
+			}else if(TextUtils.isEmpty(tv_ranking.getText().toString())){
+				query_user_record();
 			}
 				
 		} 

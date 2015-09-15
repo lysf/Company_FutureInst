@@ -6,6 +6,7 @@ import java.io.Serializable;
 public class QueryEventDAO implements Serializable{
 	private Long id;
 	private int groupId;
+	private int type;
 	private String title;
 	private String description;
 	private String rule;
@@ -26,6 +27,12 @@ public class QueryEventDAO implements Serializable{
 	private Long ctime;
 	private String statusStr;
 	
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 	public int getGroupId() {
 		return groupId;
 	}

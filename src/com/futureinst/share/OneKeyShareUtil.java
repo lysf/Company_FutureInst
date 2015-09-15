@@ -52,6 +52,7 @@ public class OneKeyShareUtil {
 		}
 		// 微信和易信的分享的网络连接，如果没有可以不设置
 		oks.setUrl(shareTitleUrl); 
+		
 		// 人人平台特有的评论字段，如果没有可以不设置
 		// oks.setComment("comment");
 		// 程序的名称或者是站点名称 

@@ -23,6 +23,7 @@ import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -351,6 +352,8 @@ public class EventBuyActivity extends BaseActivity {
 					if(response == null) return;
 					//交易成功
 //					MyToast.showToast(EventBuyActivity.this, "正在为您撮合订单，请到我的持仓查看订单状态。",1);
+					Intent intent = new Intent("priceClear");
+					sendBroadcast(intent);
 					finish();
 				}
 			});

@@ -5,6 +5,7 @@ package com.futureinst.home.userinfo;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.net.HttpPath;
+import com.futureinst.share.JavaScriptObject;
 import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.CustomWebViewClient;
 import android.annotation.SuppressLint;
@@ -34,7 +35,6 @@ public class ShoopActivity extends BaseActivity {
 		initView();
 	}
 	private void initView() {
-//		url = HttpPath.SHOP;
 		url = getIntent().getStringExtra("url");
 //		url = "http://qxu1142100261.my3w.com/futureinst/src/main/webapp/mweb/gift/test_ad1.html";
 		webView = (WebView) findViewById(R.id.webView);
@@ -85,15 +85,4 @@ public class ShoopActivity extends BaseActivity {
 	        }
 	    }
 	 
-	 public class JavaScriptObject {
-		    Context mContxt;
-		    public JavaScriptObject(Context mContxt) {
-		        this.mContxt = mContxt;
-		    }
-		    public void testObjcCallback() {
-		    	ActivityManagerUtil.finishOthersActivity();
-		    	finish();
-		    }
-
-		}
 }

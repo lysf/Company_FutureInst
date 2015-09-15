@@ -13,12 +13,14 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.push.PushWebActivity;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -30,9 +32,9 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 	private String title;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.pull_listview_2);
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
-//		setTitle(R.string.company_name);
+		setContentView(R.layout.pull_listview_2);
+		setTitle(R.string.company_name);
 		initView();
 		getData(group_id);
 	}
@@ -43,7 +45,9 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 		if(title.length() > 15){
 			title = title.substring(0, 15) + "...";
 		}
-		setTitle(title);
+		if(!TextUtils.isEmpty(title)){
+			setTitle(title);
+		}
 		pullListView = (PullListView) findViewById(R.id.pull_listView);
 		pullListView.setonRefreshListener(this);
 		adapter = new ForecastItemAdapter(this);
@@ -53,11 +57,22 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 			public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
 				if(index < 1) return;
 				QueryEventDAO item = (QueryEventDAO) adapter.getItem(index - 1);
+				if(item.getType() == 1){//专题
+					Intent intent = new Intent(ForecastGroupActivity.this, ForecastGroupActivity.class);
+					intent.putExtra("group_id", item.getId()+"");
+					intent.putExtra("title", item.getTitle());
+					startActivity(intent);
+				}else if(item.getType() == 2){//广告
+					Intent intent = new Intent(ForecastGroupActivity.this, PushWebActivity.class);
+					intent.putExtra("url", item.getLead());
+					intent.putExtra("title", item.getTitle());
+					startActivity(intent);
+				}else{
 					//预测
 					Intent intent = new Intent(ForecastGroupActivity.this, EventDetailActivity.class);
 					intent.putExtra("eventId", item.getId()+"");
 					startActivity(intent);
-				
+				}
 			}
 		});
 	}

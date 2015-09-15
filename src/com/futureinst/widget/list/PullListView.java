@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -65,6 +66,7 @@ public class PullListView extends ListView implements OnScrollListener {
 	private LinearLayout headView;
 
 	private LinearLayout footView;
+	private RelativeLayout foot_contentLayout;
 
 	private TextView tipsTextview;
 
@@ -205,6 +207,7 @@ public class PullListView extends ListView implements OnScrollListener {
 				null);
 		footarrowImageView = (ImageView) footView
 				.findViewById(R.id.foot_arrowImageView);
+		foot_contentLayout = (RelativeLayout) footView.findViewById(R.id.foot_contentLayout);
 		footarrowImageView.setMinimumWidth(70);
 		footarrowImageView.setMinimumHeight(50);
 		footprogressBar = (ProgressBar) footView
@@ -757,30 +760,12 @@ public class PullListView extends ListView implements OnScrollListener {
 
 	public void setLoadMore(boolean loadMore) {
 		this.loadMore = loadMore;
+		if(loadMore){
+			foot_contentLayout.setVisibility(View.VISIBLE);
+		}else{
+			foot_contentLayout.setVisibility(View.GONE);
+		}
 	}
 	private float mDownX,mDownY;
-//  @Override
-//  public boolean dispatchTouchEvent(MotionEvent ev) {
-//  	switch (ev.getAction()) {
-//		case MotionEvent.ACTION_DOWN:
-//			mDownX = ev.getX();
-//			mDownY = ev.getY();
-//			getParent().requestDisallowInterceptTouchEvent(true);
-//			break;
-//		case MotionEvent.ACTION_MOVE:
-//			if(Math.abs(ev.getX() - mDownX) > Math.abs(ev.getY() - mDownY)){
-//				getParent().requestDisallowInterceptTouchEvent(true);
-//			}else{
-//				getParent().requestDisallowInterceptTouchEvent(false);
-//			}
-//			
-//			break;
-//		case MotionEvent.ACTION_UP:
-//		case MotionEvent.ACTION_CANCEL:
-//			getParent().requestDisallowInterceptTouchEvent(false);
-//			break;
-//		}
-//  	
-//  	return super.dispatchTouchEvent(ev);
-//  }
+
 }
