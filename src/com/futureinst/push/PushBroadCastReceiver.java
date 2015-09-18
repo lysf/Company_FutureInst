@@ -117,7 +117,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 		myNoti.tickerText = "未来研究所";
 		myNoti.defaults |= Notification.DEFAULT_SOUND;
 		myNoti.defaults |= Notification.DEFAULT_VIBRATE;
-		myNoti.setLatestEventInfo(context, "未来研究所", pushMessageDAO.getText(), appIntent);
+		myNoti.setLatestEventInfo(context, "未来研究所", pushMessageDAO.getTitle(), appIntent);
 		notificationManager.notify(0, myNoti);
 	}
 	//上传clientid

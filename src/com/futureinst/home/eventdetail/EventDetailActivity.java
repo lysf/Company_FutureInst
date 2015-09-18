@@ -503,6 +503,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 	//倒计时
 	private void showTimeStatus(){
 		if(event.getStatusStr().equals("交易中")){
+			if(event.getTradeTime() == null) return;
 			Long time = event.getTradeTime() - SystemTimeUtile.getInstance(0L).getSystemTime();
 			tv_time.setText("剩余"+LongTimeUtil.longTimeUtil(time));
 			view_line.setBackgroundColor(getResources().getColor(R.color.forecast_deal));

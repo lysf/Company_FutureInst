@@ -8,12 +8,22 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
+import org.json.JSONException;
+
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.comment.CommentActivity;
+import com.futureinst.global.Content;
 import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.home.forecast.ForecastGroupActivity;
+import com.futureinst.model.homeeventmodel.QueryEventDAO;
+import com.futureinst.model.homeeventmodel.SingleEventInfoDAO;
 import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.push.PushMessageInfo;
+import com.futureinst.net.PostCommentResponseListener;
+import com.futureinst.net.PostMethod;
+import com.futureinst.net.PostType;
+import com.futureinst.net.SingleEventScope;
 import com.futureinst.push.PushMessageUtils;
 import com.futureinst.push.PushWebActivity;
 import com.futureinst.utils.ActivityManagerUtil;
@@ -73,14 +83,17 @@ public class PushMessageActivity extends BaseActivity {
 	}
 	//点击事件
 	public void itemClick(PushMessageDAO item){
-		if(item.getEvent() != null ||(item.getType() == null && item.getEvent_id()!=null)
-				|| (item.getType()!=null && item.getType().equals("event"))){//事件详情
-			Intent intent = new Intent(PushMessageActivity.this, EventDetailActivity.class);
-			intent.putExtra("eventId",item.getEvent_id()+"");
-			startActivity(intent);
+		if(item.getType() == null){//专题或广告
+			if(item.getEvent_id()!=null){
+				query_single_event(item.getEvent_id());
+			}
 		}
-		if(item.getType()!=null){
-			if(item.getType().equals("comment")){//评论
+		else{
+			if(item.getType().equals("event")){//事件详情
+				Intent intent = new Intent(PushMessageActivity.this, EventDetailActivity.class);
+				intent.putExtra("eventId",item.getEvent_id()+"");
+				startActivity(intent);
+			}else if(item.getType().equals("comment")){//评论
 				Intent intent = new Intent(PushMessageActivity.this, CommentActivity.class);
 				intent.putExtra("eventId",item.getEvent_id()+"");
 				startActivity(intent);
@@ -96,6 +109,47 @@ public class PushMessageActivity extends BaseActivity {
 				intent.putExtra("title", "");
 				startActivity(intent);
 			}
+		}
+	}
+	
+	private void query_single_event(String event_id){
+		progressDialog.progressDialog();
+		Content.isPull = true;
+		httpResponseUtils.postJson(httpPostParams.getPostParams(
+				PostMethod.query_single_event.name(), PostType.event.name(), 
+				httpPostParams.query_single_event(event_id, SingleEventScope.base.name())), 
+				SingleEventInfoDAO.class, 
+				new PostCommentResponseListener() {
+					@Override
+					public void requestCompleted(Object response) throws JSONException {
+						progressDialog.cancleProgress();
+						Content.isPull = false;
+						if(response == null) return;
+						SingleEventInfoDAO queryEventInfoDAO = (SingleEventInfoDAO) response;
+						QueryEventDAO event = queryEventInfoDAO.getEvent();
+						operate(event);
+					}
+				});
+	
+	}
+	
+	private void operate(QueryEventDAO item){
+		if(item.getType() == 1){//专题
+			Intent intent = new Intent(this, ForecastGroupActivity.class);
+			intent.putExtra("group_id", item.getId()+"");
+			intent.putExtra("title", item.getTitle());
+			startActivity(intent);
+		}else if(item.getType() == 2){//广告
+			Intent intent = new Intent(this, PushWebActivity.class);
+			Log.i("", "=======================广告=>>");
+			intent.putExtra("url", item.getLead());
+			intent.putExtra("title", item.getTitle());
+			startActivity(intent);
+		}else{
+			//预测
+			Intent intent = new Intent(this, EventDetailActivity.class);
+			intent.putExtra("eventId", item.getId()+"");
+			startActivity(intent);
 		}
 	}
 	@Override
