@@ -11,6 +11,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.text.TextUtils;
@@ -43,7 +44,18 @@ import com.umeng.analytics.MobclickAgent;
 
 @SuppressLint("HandlerLeak")
 public abstract class BaseActivity extends BaseFragmentActivity {
-
+	protected Handler handler = new Handler(){
+		@Override
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			case 0:
+				Toast.makeText(getApplicationContext(), getResources().getString(R.string.data_over), Toast.LENGTH_SHORT).show();
+				break;
+			}
+		};
+	};
+	protected int page = 1;
+	protected String last_id = "0";
     protected final static String OVERIDE = "overide";
     protected String TAG = getClass().getSimpleName();
     private TextView mtxtTitle;

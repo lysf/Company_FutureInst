@@ -16,7 +16,9 @@ public class UserInformationDAO implements Serializable{
 	private float assure;
 	private float exchange;
 	private int status;
+	
 	private UserDAO user;
+	
 	
 	public float getExchange() {
 		return exchange;

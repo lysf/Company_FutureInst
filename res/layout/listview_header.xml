@@ -10,26 +10,36 @@
   android:orientation="vertical"
  >
   <FrameLayout 
-      android:visibility="gone"
+      android:visibility="visible"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
      >
       <ProgressBar
+          android:visibility="gone"
           android:id="@+id/iv_refreshing"
         style="@android:style/Widget.ProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:indeterminateDrawable="@drawable/custom_progress_draw"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+       android:interpolator="@android:interpolator/accelerate_decelerate"
         android:max="10000" />
+      <!-- 
       <ImageView 
           android:id="@+id/iv_refreshStart"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:src="@drawable/circular"/>
+          android:layout_width="40dip"
+          android:layout_height="40dip"
+          android:src="@drawable/circular"
+          />
+           -->
+      <com.futureinst.widget.CustomProgress 
+          android:id="@+id/iv_refreshStart"
+          android:layout_width="40dip"
+          android:layout_height="40dip"
+         />
   </FrameLayout>
   <!-- 内容 -->
   <RelativeLayout
-      android:visibility="visible"
+      android:visibility="gone"
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
   android:id="@+id/head_contentLayout"

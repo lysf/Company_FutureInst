@@ -44,7 +44,7 @@
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:textColor="@color/text_color_3"
-	                android:textSize="33sp"
+	                android:textSize="30sp"
 	                android:minWidth="90dp"
 	                android:text="67.50"/>
 	            <ImageView 

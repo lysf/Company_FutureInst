@@ -108,7 +108,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 	private LinearLayout ll_event_buy,ll_event_sell;
 	private TextView tv_eventdetail_gain_good,tv_eventdetail_gain_bad;
 	
-	private LinearLayout ll_scroll;
+	private LinearLayout ll_scroll,ll_detail_buy,ll_detail_sell;
 	//底部
 	private Button[] bottom_btns;
 	private View[] bottom_views;
@@ -123,13 +123,13 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 			switch (msg.what) {
 			case 1:
 				Long time = event.getTradeTime() - SystemTimeUtile.getInstance(0L).getSystemTime();
-				if(time > 800){
+				if(time > 1000){
 					tv_time.setText("剩余"+LongTimeUtil.longTimeUtil(time));
 					view_line.setBackgroundColor(getResources().getColor(R.color.forecast_deal));
 					tv_time.setBackgroundColor(getResources().getColor(R.color.forecast_deal));
 					
 				}else{  
-					timeIsStart = false;
+					tv_time.setText("待清算");
 					view_line.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
 					tv_time.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
 				}
@@ -211,7 +211,10 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 		rl_deal_float = (RelativeLayout) findViewById(R.id.rl_deal_float);
 		pullLayout.setOnScrollListener(this);
 		
-		
+		ll_detail_buy = (LinearLayout) findViewById(R.id.ll_detail_buy);
+		ll_detail_sell = (LinearLayout) findViewById(R.id.ll_detail_sell);
+		ll_detail_buy.setOnClickListener(clickListener);
+		ll_detail_sell.setOnClickListener(clickListener);
 		tv_buys_1 = new TextView[3];
 		tv_buys_2 = new TextView[3];
 		tv_buys_3 = new TextView[3];
@@ -276,7 +279,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 	private void initSingleEvent(SingleEventInfoDAO singleEventInfo){
 		SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
 		singleEventClearDAO = item;
-		if(item.getAllBuyNum() == 0 && item.getAllSellNum() == 0){
+		if(item.getBuyNum() == 0 && item.getSellNum() == 0){
 			view_single_event.setVisibility(View.GONE);
 			return;
 		}
@@ -378,9 +381,9 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 				finish();
 				break;
 			
-			case R.id.btn_invivate_float://分享
+			case R.id.btn_invivate_float://清算依据
 				if(event == null) return;
-				showShareDialog(event);
+				showDialog(event.getRule());
 				break;
 			case R.id.tv_lanren://懒人包
 				if(event == null) return;
@@ -389,7 +392,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 				startActivity(intentLazyBag);
 				break;
 			
-			case R.id.btn_lood_good_float://
+			case R.id.btn_lood_good_float://看好
 				if(!judgeIsLogin() || event == null) return; 
 				Intent intent1 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
 				intent1.putExtra("buyOrSell", true);
@@ -398,7 +401,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 				intent1.putExtra("price", priceDAOInfo);
 				startActivity(intent1);
 				break;
-			case R.id.btn_lood_bad_float://
+			case R.id.btn_lood_bad_float://不看好
 				if(!judgeIsLogin() || event == null) return;
 				Intent intent2 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
 				intent2.putExtra("buyOrSell", false);
@@ -406,6 +409,32 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 				intent2.putExtra("event", event);
 				intent2.putExtra("price", priceDAOInfo);
 				startActivity(intent2);
+				break;
+			case R.id.ll_detail_buy://三档看好--不看好
+				if(!judgeIsLogin() || event == null || 
+				priceDAOInfo.getBuys() == null || priceDAOInfo.getBuys().size() == 0) return; 
+				Intent intent3 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
+				intent3.putExtra("buyOrSell", false);
+				intent3.putExtra("assure", singleEventClearDAO);
+				QueryEventDAO eventDAO = event;
+				event.setCurrPrice(priceDAOInfo.getBuys().get(0).getPrice());
+				intent3.putExtra("event", eventDAO);
+				intent3.putExtra("number", priceDAOInfo.getBuys().get(0).getNum());
+				intent3.putExtra("price", priceDAOInfo);
+				startActivity(intent3);
+				break;
+			case R.id.ll_detail_sell://三档不看好--看好
+				if(!judgeIsLogin() || event == null || 
+						priceDAOInfo.getSells() == null || priceDAOInfo.getSells().size() == 0) return;
+				Intent intent4 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
+				intent4.putExtra("buyOrSell", true);
+				intent4.putExtra("assure", singleEventClearDAO);
+				QueryEventDAO dao = event;
+				event.setCurrPrice(priceDAOInfo.getSells().get(0).getPrice());
+				intent4.putExtra("event", dao);
+				intent4.putExtra("number", priceDAOInfo.getSells().get(0).getNum());
+				intent4.putExtra("price", priceDAOInfo);
+				startActivity(intent4);
 				break;
 			case R.id.ll_scroll:
 				hideSoftInputView();
@@ -613,7 +642,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 				isHavaPrice = true;
 				if(preferenceUtil.getGuide2() && isHavaPrice
 						&& !preferenceUtil.getGuide7()){
-					new  NewbieGuide(EventDetailActivity.this, R.drawable.guide_7, new GuideClickInterface() {
+					new  NewbieGuide(EventDetailActivity.this, R.drawable.guide_6, new GuideClickInterface() {
 						@Override
 						public void guideClick() {
 							preferenceUtil.setGuide7();
@@ -684,14 +713,15 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 		Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
 		btn_tips.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				showDialog(event.getRule());
+			public void onClick(View v) {//分享
+				if(event == null) return;
+				showShareDialog(event);
 				dialog.dismiss();
 			}
 		});
 		btn_attention.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v) {//关注
 				if(judgeIsLogin()){
 					String attention =null;
 					if(isAttention){
@@ -706,7 +736,7 @@ public class EventDetailActivity extends BaseActivity implements OnScrollListene
 		});
 		btn_guide.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v) {//引导
 				new EventdetailGuide(EventDetailActivity.this);
 				dialog.dismiss();
 			}

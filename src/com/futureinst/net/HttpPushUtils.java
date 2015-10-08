@@ -1,5 +1,6 @@
 package com.futureinst.net;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.json.JSONException;
@@ -8,6 +9,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -16,15 +18,18 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.futureinst.baseui.BaseApplication;
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.Utils;
 
 public class HttpPushUtils {
 	private static HttpPushUtils httpUtils;
 	private Context activity;
 	private RequestQueue mQueue;
+	private SharePreferenceUtil preferenceUtil;
 	private HttpPushUtils(Context activity) {
 		mQueue = BaseApplication.getInstance().getRequestQueue();
 		this.activity = activity;
+		preferenceUtil = SharePreferenceUtil.getInstance(activity);
 	}
 
 	public static HttpPushUtils getInstace(Context activity) {
@@ -87,6 +92,14 @@ public class HttpPushUtils {
 			protected Map<String, String> getParams() {
 				return params;
 			}
+			@Override
+					public Map<String, String> getHeaders() throws AuthFailureError {
+				Map<String,String> header = new HashMap<String, String>();
+				header.put("uuid", preferenceUtil.getUUid());
+				header.put("user_id", preferenceUtil.getID()+"");
+				header.put("deviceID", Utils.getDeviceID(activity));
+				return header;
+					}
 
 		};
 		postRequest.setRetryPolicy(new DefaultRetryPolicy(

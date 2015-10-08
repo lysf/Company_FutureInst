@@ -23,6 +23,8 @@ import android.widget.ListView;
 public class MyAttentionActivity extends BaseActivity {
 	private ListView lv_attention;
 	private MyAttentionAdapter adapter;
+	private int page=1;
+	private String last_id = "0";
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setTitle("我的关注");
@@ -48,14 +50,14 @@ public class MyAttentionActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		getMyAttention();
+		getMyAttention(page,last_id);
 	}
 	//获取我的关注
-	private void getMyAttention(){
+	private void getMyAttention(int page,String last_id){
 		progressDialog.progressDialog();
 		httpResponseUtils.postJson(
 				httpPostParams.getPostParams(PostMethod.query_follow.name(), PostType.follow.name(),
-						httpPostParams.query_follow(preferenceUtil.getID()+"", preferenceUtil.getUUid())), 
+						httpPostParams.query_follow(preferenceUtil.getID()+"", preferenceUtil.getUUid(),page,last_id)), 
 				AttentionInfoDAO.class, 
 				new PostCommentResponseListener() {
 			@Override

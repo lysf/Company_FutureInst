@@ -22,7 +22,8 @@ public class SharePreferenceUtil {
 		}
 		return preferenceUtil;
 	}
-	
+	private String FOLLOW = "FOLLOW";//关注我的人数
+	private String AD = "AD";//记录广告显示的时间
 	private String INSTALLTAG = "INSTALLTAG";//安装标记
 	private String MOBILEPHONE = "MOBILEPHONE";// 手机号
 	private String PASSWORD = "PASSWORD";// 密码
@@ -51,7 +52,22 @@ public class SharePreferenceUtil {
 	private String CID = "CID";
 	private String CTYPE = "CTYPE";
 	private String STATUS = "STATUS";
-	
+	//关注我的人
+	public void setFollow(int follow){
+		editor.putInt(FOLLOW, follow);
+		editor.commit();
+	}
+	public int getFollow(){
+		return mSharedPreferences.getInt(FOLLOW, 0);
+	}
+	//记录广告显示时间
+	public void setADTime(String time){
+		editor.putString(AD, time);
+		editor.commit();
+	}
+	public String getADTime(){
+		return mSharedPreferences.getString(AD, "1");
+	}
 	//安装标记
 	public boolean getInstallTag(){
 		return mSharedPreferences.getBoolean(INSTALLTAG, false);

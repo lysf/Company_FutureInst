@@ -14,6 +14,7 @@ public class TimeUtil {
 	
 	public final static String FORMAT_DATE = "yyyy-MM-dd";
 	public final static String FORMAT_DATE_YEAR_MONTH_DAY = "yyyy年MM月dd日";
+	public final static String FORMAT_DATE_YEAR_MONTH_DAY_1 = "yyyy.MM.dd";
 	public final static String FORMAT_TIME = "HH:mm";
 	public final static String FORMAT_MONTH_DAY_TIME = "MM月dd日  hh:mm";
 	

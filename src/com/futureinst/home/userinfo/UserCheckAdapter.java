@@ -23,9 +23,16 @@ public class UserCheckAdapter extends BaseAdapter {
 		this.context = context;
 		list = new ArrayList<UserCheckDAO>();
 	}
-	public void setList(List<UserCheckDAO> list){
+	public void refresh(List<UserCheckDAO> list){
 		this.list = list;
 		notifyDataSetChanged();
+	}
+	public void setList(List<UserCheckDAO> list){
+		this.list.addAll(list);
+		notifyDataSetChanged();
+	}
+	public List<UserCheckDAO> getList() {
+		return list;
 	}
 	@Override
 	public int getCount() {

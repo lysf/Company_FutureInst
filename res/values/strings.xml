@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+     <string name="crop__saving">Saving picture…</string>
+    <string name="crop__wait">Please wait…</string>
+    <string name="crop__pick_error">No image sources available</string>
+
+    <string name="data_over">没有更多数据</string>
+    <string name="crop__done">确定</string>
+    <string name="crop__cancel">取消</string>
+    
+    
     <!-- hometable -->
+    <!-- iconFont -->
+    <string name="home_tab1">&#xe600;</string>
+    <string name="home_tab2">&#xe601;</string>
+    <string name="home_tab3">&#xe602;</string>
+    <string name="home_tab4">&#xe603;</string>
+    <string name="home_bottom_tab1">预测</string>
+    <string name="home_bottom_tab2">发现</string>
+    <string name="home_bottom_tab3">福利</string>
+    <string name="home_bottom_tab4">个人</string>
+    
+    
     <string name="tab_forecast">预测</string>
     <string name="tab_revoke">订单</string>
+    <string name="tab_shoop">福利</string>
     <string name="tab_ranking">成就</string>
     <string name="tab_personal">个人</string>
     
@@ -85,15 +106,22 @@
 	<string name="userNmae_hint">用户名</string>
 	<string name="description_hint">一句话表达"先知态度"</string>
 	<string name="asset">我的资产</string>
-	<string name="bill">对账单</string>
-	<string name="question">常见问题</string>
-	<string name="feedback">意见反馈</string>
-	<string name="privacy">隐私和服务条款</string>
-	<string name="about_us">关于我们</string>
-	<string name="store">未来福利社</string>
 	<string name="useableMoney">总未币</string>
+	<string name="ranking">排名</string>
 	<string name="useableIcon">可消费未币</string>
 	<string name="depositCash">保证金</string>
+	<string name="forecasting">预测中事件</string>
+	<string name="record">战绩</string>
+	<string name="bill">对账单</string>
+	<string name="myattention">我关注的人</string>
+	<string name="attendMe">关注我的人</string>
+	<string name="secret">隐私</string>
+	<string name="question">常见问题</string>
+	<string name="feedback">意见反馈</string>
+	<string name="privacy">服务条款</string>
+	<string name="about_us">关于我们</string>
+	<string name="store">未来福利社</string>
+	
 	<string name="FAQ">常见问题</string>
 	<string name="media_report">媒体报道</string>
 	<string name="contact_us">联系我们</string>
@@ -123,7 +151,7 @@
 	<string name="event_detail_depend">清算依据</string>
 	<string name="event_detail_focus">关注该事件</string>
 	<string name="event_detail_unfocus">取消关注该事件</string>
-	<string name="event_detail_share">分享该事件</string>
+	<string name="event_detail_share">分享有奖</string>
 	<string name="event_detail_guide">新手说明</string>
 	
 	<string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>
@@ -136,4 +164,13 @@
 事件清算若出现了任何争议，本先知会送往仲裁委员会裁决，一定会给大家个公正的结果哒！</string>
 <string name="empty_hold">这里空空如也，鸭先知都能在这儿筑巢啦</string>
 <string name="shareTips">目前大家认为有X%的可能性会发生【Y】，你信吗？</string>
+
+<!-- personalShow -->
+<string name="show_homepage">Ta的主页</string>
+<string name="show_assure">总资产(未币)</string>
+<string name="show_forecast">预测中事件</string>
+<string name="show_ranking">他的战绩</string>
+<string name="show_comment">他的评论</string>
+<string name="show_attention">他关注的人</string>
+<string name="show_attend">关注他的人</string>
 </resources>

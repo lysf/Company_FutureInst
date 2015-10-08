@@ -29,5 +29,15 @@ public enum PostMethod {
 	add_download,//添加渠道下载标记
 	add_feedback,//添加意见反馈
 	upload_image,//上传图片
+	update_permit,//隐私设置
+	operation_peer_follow,//关注操作
+	query_follow_me,//关注我的
+	query_me_follow,//我关注的
+	peer_info_query_user_record,//查询 他人基本信息
+	peer_info_query_user_tag_record ,//查询 分类战绩概况
+	peer_info_query_event_trade,//查询 预测中事件
+	peer_info_query_event_clear,//查询 战绩具体事件
+	peer_info_query_follow_me,//查询 关注他的人
+	peer_info_query_me_follow,//查询 他关注的人
 	query_user_tag_record ;//查询分类战绩
 }

@@ -41,11 +41,14 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
 
 public class ForecastContainerTypeFragment extends BaseFragment implements OnRefreshListener{
 	private static final String ARG_POSITION = "position";
+	private int page = 1;
+	private String last_id = "0";
 	private int position;
 	private long stayTime;
 	private PullListView pullListView;
@@ -77,16 +80,16 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		initView();
 		if(position == 1){
 			if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())){
-				getMyAttention();
+				getMyAttention(page,last_id);
 			}else{
 				ll_unlogin.setVisibility(View.VISIBLE);
 			}
 		}else if(position == 0){
-			getData(position+1+"", orders[0]);
+			getData(position+1+"", orders[0],page,last_id);
 		}else if(position == -1){
-			getData();
+			getData(page,last_id);
 		}else{
-			getData(position+"", orders[0]);
+			getData(position+"", orders[0],page,last_id);
 		}
 		stayTime = System.currentTimeMillis();
 		isStart = true;
@@ -122,6 +125,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 					intent.putExtra("title", item.getTitle());
 					startActivity(intent);
 				}else if(item.getType() == 2){//广告
+					if(TextUtils.isEmpty(item.getLead())) return;
 					Intent intent = new Intent(getActivity(), PushWebActivity.class);
 					intent.putExtra("url", item.getLead());
 					intent.putExtra("title", item.getTitle());
@@ -178,7 +182,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())
 					){
 				ll_unlogin.setVisibility(View.GONE);
-				getMyAttention();
+				getMyAttention(page,last_id);
 			}else{
 				pullListView.onRefreshComplete();
 				ll_unlogin.setVisibility(View.VISIBLE);
@@ -188,10 +192,10 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	}
 	
 	//获取我的关注
-		private void getMyAttention(){
+		private void getMyAttention(final int page,String lastId){
 			HttpResponseUtils.getInstace(getActivity()).postJson(
 					HttpPostParams.getInstace().getPostParams(PostMethod.query_follow.name(), PostType.follow.name(),
-							HttpPostParams.getInstace().query_follow(SharePreferenceUtil.getInstance(getContext()).getID()+"", SharePreferenceUtil.getInstance(getContext()).getUUid())), 
+							HttpPostParams.getInstace().query_follow(SharePreferenceUtil.getInstance(getContext()).getID()+"", SharePreferenceUtil.getInstance(getContext()).getUUid(),page,lastId)), 
 					AttentionInfoDAO.class, 
 					new PostCommentResponseListener() {
 				@Override
@@ -200,24 +204,42 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 					if(response == null) return;
 					AttentionInfoDAO attentionInfoDAO = (AttentionInfoDAO) response;
 					List<QueryEventDAO> list = new ArrayList<QueryEventDAO>();
+					
+					if(attentionInfoDAO.getFollows()!=null && attentionInfoDAO.getFollows().size()>0){
+						last_id = attentionInfoDAO.getFollows().get(attentionInfoDAO.getFollows().size()-1).getFeid();
+					}
 					for(AttentionDAO dao : attentionInfoDAO.getFollows()){
 						list.add(dao.getEvent());
 					}
-					adapter.setList(list);
-					if(list.size() == 0){
+					if(page ==1){
+						adapter.refresh(list);
+					}else{
+						adapter.setList(list);
+					}
+					if(page == 1 && list.size() == 0){
 						ll_empty.setVisibility(View.VISIBLE);
 						pullListView.setEmptyView(ll_empty);
 					}else{
 						ll_empty.setVisibility(View.GONE);
+					}
+					
+					if(adapter.getCount() > 9){
+						pullListView.setLoadMore(true);
+					}else{
+						pullListView.setLoadMore(false);
+					}
+					if(page!=1 && (attentionInfoDAO.getFollows() == null || attentionInfoDAO.getFollows().size() == 0)){
+						handler.sendEmptyMessage(10);
+						pullListView.setLoadMore(false);
 					}
 					notifyDate();
 				}
 			});
 		}
 	 //获取事件数据
-	 private void getData(String tag,String order){
+	 private void getData(String tag,String order,final int page,String last_id){
 		 HttpResponseUtils.getInstace(getActivity()).postJson(
-				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(tag, order)), 
+				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(tag, order,page,last_id)), 
 				 QueryEventInfoDAO.class, 
 				 new PostCommentResponseListener() {
 					@Override
@@ -226,16 +248,31 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						if(response == null) return;
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
 						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
-						adapter.setList(queryEventInfoDAO.getEvents());
+						
+						if(page ==1){
+							adapter.refresh(queryEventInfoDAO.getEvents());
+						}else{
+							adapter.setList(queryEventInfoDAO.getEvents());
+						}
+						
+						if(adapter.getCount() > 9){
+							pullListView.setLoadMore(true);
+						}else{
+							pullListView.setLoadMore(false);
+						}
+						if(page!=1 && (queryEventInfoDAO.getEvents() == null || queryEventInfoDAO.getEvents().size() ==0)){
+							handler.sendEmptyMessage(10);
+							pullListView.setLoadMore(false);
+						}
 						notifyDate();
 					}
 				});
 	 }
 	
 	 //查询归档事件数据
-	 private void getData(){
+	 private void getData(final int page,String last_id){
 		 HttpResponseUtils.getInstace(getActivity()).postJson(
-				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event()), 
+				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(page,last_id)), 
 				 FilingInfoDAO.class, 
 				 new PostCommentResponseListener() {
 					 @Override
@@ -244,7 +281,22 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						 if(response == null) return;
 						 FilingInfoDAO filingInfoDAO = (FilingInfoDAO) response;
 						 SystemTimeUtile.getInstance(filingInfoDAO.getCurr_time()).setSystemTime(filingInfoDAO.getCurr_time());
-						 adapter.setList(filingInfoDAO.getEvents());
+						 
+						 if(page ==1){
+								adapter.refresh(filingInfoDAO.getEvents());
+							}else{
+								adapter.setList(filingInfoDAO.getEvents());
+							}
+						
+						 if(adapter.getCount() > 9){
+								pullListView.setLoadMore(true);
+							}else{
+								pullListView.setLoadMore(false);
+							}
+						 if(page!=1 && (filingInfoDAO.getEvents() == null || filingInfoDAO.getEvents().size() ==0)){
+								handler.sendEmptyMessage(10);
+								pullListView.setLoadMore(false);
+						}
 						 notifyDate();
 					 }
 				 });
@@ -253,27 +305,38 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void onRefresh(boolean isTop) {
 		if(isTop){
-			if(position == 1){
-				if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())){
-					ll_unlogin.setVisibility(View.GONE);
-					getMyAttention();
-				}else{
-					pullListView.onRefreshComplete();
-					ll_unlogin.setVisibility(View.VISIBLE);
+			page = 1;
+			last_id = "0";
+		}else{
+			page++;
+			if(adapter.getList() !=null && adapter.getList().size()>0){
+				if(position !=1){
+					last_id = adapter.getList().get(adapter.getCount()-1).getId()+"";
 				}
-			}else if(position == 0){
-				getData(position+1+"", orders[0]);
-			}else if(position == -1){
-				getData();
-			}else{
-				getData(position+"", orders[0]);
 			}
 		}
-		
+		if(position == 1){
+			if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())){
+				ll_unlogin.setVisibility(View.GONE);
+				getMyAttention(page,last_id);
+			}else{
+				pullListView.onRefreshComplete();
+				ll_unlogin.setVisibility(View.VISIBLE);
+			}
+		}else if(position == 0){
+			getData(position+1+"", orders[0],page,last_id);
+		}else if(position == -1){
+			getData(page,last_id);
+		}else{
+			getData(position+"", orders[0],page,last_id);
+		}
 	}
 	Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
+			case 10:
+				Toast.makeText(getContext(), getResources().getString(R.string.data_over), Toast.LENGTH_SHORT).show();
+				break;
 			case 111:
 				adapter.notifyDataSetChanged();
 				break;

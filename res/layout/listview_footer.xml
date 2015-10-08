@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- ListView的头部 -->
+<!-- ListView的底部-->
 
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
   android:gravity="center_horizontal"
+  android:id="@+id/foot_contentLayout"
  >
+ 
+ <FrameLayout 
+      android:visibility="visible"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+     >
+      <ProgressBar
+          android:visibility="gone"
+          android:id="@+id/iv_loading"
+        style="@android:style/Widget.ProgressBar"
+        android:indeterminateDrawable="@drawable/custom_progress_draw"
+        android:layout_width="40dip"
+        android:layout_height="40dip"
+       android:interpolator="@android:interpolator/accelerate_decelerate"
+        android:max="10000" />
+      <com.futureinst.widget.CustomProgress 
+          android:id="@+id/iv_loadStart"
+          android:layout_width="40dip"
+          android:layout_height="40dip"
+         />
+  </FrameLayout>
+    
   <!-- 内容 -->
   <RelativeLayout
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"
-  android:id="@+id/foot_contentLayout"
   android:paddingLeft="30dp"
   android:visibility="gone"
   >

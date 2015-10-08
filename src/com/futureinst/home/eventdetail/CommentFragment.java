@@ -18,6 +18,7 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
+import com.futureinst.personalinfo.other.PersonalShowActivity;
 import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.ImageLoadOptions;
@@ -148,7 +149,7 @@ public class CommentFragment extends BaseFragment {
 		ll_comment.removeAllViews();
 		for(int i = 0; i<commentList.size();i++){
 			if(i>3) return;
-			CommentDAO item = commentList.get(i);
+			final CommentDAO item = commentList.get(i);
 			View view = LayoutInflater.from(getContext()).inflate(R.layout.view_comment, null);
 			View view1 = view.findViewById(R.id.view_1);
 			View view2 = view.findViewById(R.id.view_2);
@@ -159,6 +160,25 @@ public class CommentFragment extends BaseFragment {
 			TextView tv_prise = (TextView) view.findViewById(R.id.tv_prise);
 			final TextView tv_prise_add = (TextView) view.findViewById(R.id.tv_prise_add);
 			ImageView iv_prise = (ImageView) view.findViewById(R.id.iv_prise);
+			imageView.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(getActivity(), PersonalShowActivity.class);
+					intent.putExtra("id", item.getUser().getId()+"");
+					startActivity(intent);
+					
+				}
+			});
+			tv_name.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(getActivity(), PersonalShowActivity.class);
+					intent.putExtra("id", item.getUser().getId()+"");
+					startActivity(intent);
+				}
+			});
+			
+			
 			String comment = item.getContent();
 			int color = 0;
 			if(item.getAttitude() == 1){
@@ -173,7 +193,7 @@ public class CommentFragment extends BaseFragment {
 				view2.setBackgroundColor(color);
 			}
 			tv_name.setText(item.getUser().getName());
-			ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+			ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.logo));
 			tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getCtime()));
 			SpannableStringBuilder stringBuilder = new SpannableStringBuilder(comment);
 			stringBuilder.setSpan(new ForegroundColorSpan(color), 0, comment.indexOf("]")+1, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);

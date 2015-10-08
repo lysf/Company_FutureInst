@@ -53,7 +53,6 @@ public class PushMessageUtils {
 		try {
 			messageInfo = readObject();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 			if(messageDAO != null){
@@ -151,20 +150,24 @@ public class PushMessageUtils {
 	}
 	//将消息置为已读
 	public void setAllRead(){
-		try {
-			messageInfo = readObject();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		if(messageInfo != null){
-			for(int i = 0;i<messageInfo.getList().size();i++){
-				messageInfo.getList().get(i).setRead(true);
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					messageInfo = readObject();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				if(messageInfo != null){
+					for(int i = 0;i<messageInfo.getList().size();i++){
+						messageInfo.getList().get(i).setRead(true);
+					}
+				}
+				try {
+					writeObject(messageInfo);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-		}
-		try {
-			writeObject(messageInfo);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		}).start();
 	}
 }

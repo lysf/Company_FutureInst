@@ -13,11 +13,11 @@ public class ImageLoadOptions {
 	public static DisplayImageOptions getOptions(int defaultPicture) {
 		DisplayImageOptions options = new DisplayImageOptions.Builder()
 				// // 设置图片在下载期间显示的图片
-				 .showImageOnLoading(R.drawable.image_top_default)
+				 .showImageOnLoading(defaultPicture)
 				// 设置图片Uri为空或是错误的时候显示的图片
-				 .showImageForEmptyUri(R.drawable.image_top_default)
+				 .showImageForEmptyUri(defaultPicture)
 				// // 设置图片加载/解码过程中错误时候显示的图片
-				 .showImageOnFail(R.drawable.image_top_default)
+				 .showImageOnFail(defaultPicture)
 				.cacheInMemory(true)
 				// 设置下载的图片是否缓存在内存中
 				.cacheOnDisc(true)

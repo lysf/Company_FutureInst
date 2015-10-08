@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class DBManager {
 	private static DBManager dbManager;
@@ -76,6 +77,7 @@ public class DBManager {
 		int count = 0;
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		count = db.update(table, values, whereClause, whereArgs);
+		Log.i("updata", "------------------sql-->>"+count);
 		return count;
 	}
 }

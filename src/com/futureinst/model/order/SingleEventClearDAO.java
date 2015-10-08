@@ -9,8 +9,6 @@ public class SingleEventClearDAO implements Serializable {
 	private String ueid;
 	private Long userId;
 	private QueryEventDAO event;
-	private int allBuyNum;
-	private int allSellNum;
 	private float buyPrice;
 	private int buyNum;
 	private float sellPrice;
@@ -46,18 +44,6 @@ public class SingleEventClearDAO implements Serializable {
 	}
 	public void setEvent(QueryEventDAO event) {
 		this.event = event;
-	}
-	public int getAllBuyNum() {
-		return allBuyNum;
-	}
-	public void setAllBuyNum(int allBuyNum) {
-		this.allBuyNum = allBuyNum;
-	}
-	public int getAllSellNum() {
-		return allSellNum;
-	}
-	public void setAllSellNum(int allSellNum) {
-		this.allSellNum = allSellNum;
 	}
 	public float getBuyPrice() {
 		return buyPrice;
@@ -109,9 +95,9 @@ public class SingleEventClearDAO implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "SingleEventClearDAO [ueid=" + ueid + ", userId=" + userId + ", event=" + event + ", allBuyNum="
-				+ allBuyNum + ", allSellNum=" + allSellNum + ", buyPrice=" + buyPrice + ", buyNum=" + buyNum
-				+ ", sellPrice=" + sellPrice + ", sellNum=" + sellNum + ", gain=" + gain + ", ctime=" + ctime
-				+ ", mtime=" + mtime + ", status=" + status + "]";
+		return "SingleEventClearDAO [ueid=" + ueid + ", userId=" + userId + ", event=" + event + ", buyPrice="
+				+ buyPrice + ", buyNum=" + buyNum + ", sellPrice=" + sellPrice + ", sellNum=" + sellNum + ", gain="
+				+ gain + ", ctime=" + ctime + ", mtime=" + mtime + ", status=" + status + "]";
 	}
+	
 }

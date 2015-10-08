@@ -1,10 +1,13 @@
 package com.futureinst.utils;
 
 import java.io.InputStream;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -13,6 +16,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -311,4 +316,40 @@ public class Utils {
         return BitmapFactory.decodeStream(is, null, opt);
 
         }
+    /**
+     * 获取设备号
+     * @Title: getDeviceID   
+     * @Description: TODO  
+     * @author: huihaoyan  
+     * @param: @param context
+     * @param: @return      
+     * @return: String      
+     * @throws
+     */
+    public static String getDeviceID(Context context){
+    	TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+    	return manager.getDeviceId();
+    }
+    
+    /**
+    * 判断程序是在前台还是后台
+    * @param context
+    * @return
+    */
+    public static boolean isBackground(Context context) {
+    ActivityManager activityManager = (ActivityManager) context
+    .getSystemService(Context.ACTIVITY_SERVICE);
+    List<RunningAppProcessInfo> appProcesses = activityManager
+    .getRunningAppProcesses();
+    for (RunningAppProcessInfo appProcess : appProcesses) {
+    if (appProcess.processName.equals(context.getPackageName())) {
+    if (appProcess.importance == RunningAppProcessInfo.IMPORTANCE_BACKGROUND) {
+    return true;
+    }else{
+    return false;
+    }
+    }
+    }
+    return false;
+    }
 }

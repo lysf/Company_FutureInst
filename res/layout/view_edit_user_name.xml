@@ -27,9 +27,9 @@
             android:textColor="@color/text_color_6"
             android:layout_width="match_parent"
             android:hint="@string/regist_userName_tip"
+           	android:maxLength="14"
             android:gravity="left|center_vertical"
             android:singleLine="true"
-           	android:maxLength="14"
             android:layout_height="@dimen/widget_height_50"/>
         <View 
             android:layout_marginTop="@dimen/margin_15"

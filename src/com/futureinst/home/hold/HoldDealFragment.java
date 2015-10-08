@@ -37,6 +37,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	private PullListView pullListView;
@@ -45,6 +46,8 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	private SharePreferenceUtil preferenceUtil;
 	private boolean isStart;
 	private TextView empty;
+	private int page = 1;
+	private String last_id = "0";
 //	private String actionId;
 //	private BroadcastReceiver receiver;
 	
@@ -70,15 +73,15 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 		initView();
 		initListHeader();
 		progressDialog.progressDialog();
-		getData();
+		getData(page,last_id);
 		isStart = true;
 		
 	}
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
-		if(isVisibleToUser && isStart){
-			getData();
-		}
+//		if(isVisibleToUser && isStart){
+//			getData(page,last_id);
+//		}
 		super.setUserVisibleHint(isVisibleToUser);
 	}
 	private void initView() {
@@ -104,10 +107,10 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 		pullListView.setonRefreshListener(this);
 		pullListView.setAdapter(adapter);
 	}
-	private void getData(){
+	private void getData(final int page,String last_id){
 		HttpResponseUtils.getInstace(getActivity()).postJson(
 				HttpPostParams.getInstace().getPostParams(PostMethod.query_event_clear.name(), PostType.event_clear .name(),
-						HttpPostParams.getInstace().query_event_clear(preferenceUtil.getID()+"",preferenceUtil.getUUid())),
+						HttpPostParams.getInstace().query_event_clear(preferenceUtil.getID()+"",preferenceUtil.getUUid(),page,last_id,0,"trade")),
 				DealOrderInfo.class, 
 				new PostCommentResponseListener() {
 					@Override
@@ -116,11 +119,22 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 						progressDialog.cancleProgress();
 						if(response == null) return;
 						DealOrderInfo dealOrderInfo = (DealOrderInfo) response;
-						adapter.setList(dealOrderInfo.getEventclears());
+						
+						if(page == 1){
+							adapter.refresh(dealOrderInfo.getEventclears());
+						}else{
+							adapter.setList(dealOrderInfo.getEventclears());
+						}
+						if(adapter.getCount() > 9){
+							pullListView.setLoadMore(true);
+						}else{
+							pullListView.setLoadMore(false);
+						}
 						pullListView.setEmptyView(empty);
-//						if(TextUtils.isEmpty(actionId)){
-//							setSelection();
-//						}
+						if(page!=1 && (dealOrderInfo.getEventclears()==null || dealOrderInfo.getEventclears().size() ==0)){
+							Toast.makeText(getContext(), "没有更多数据", Toast.LENGTH_SHORT).show();
+							pullListView.setLoadMore(false);
+						}
 					}
 				});
 	}
@@ -141,8 +155,14 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	@Override
 	public void onRefresh(boolean isTop) {
 		if(isTop){
-			getData();
+			page = 1;
+			last_id = "0";
+		}else{
+			page++;
+			last_id = adapter.getList().get(adapter.getCount()-1).getUeid();
+			
 		}
+		getData(page,last_id);
 	}
 	//删除已清算预测
 	private void delete(){

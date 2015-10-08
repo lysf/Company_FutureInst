@@ -35,7 +35,7 @@ public class RecordFragment extends BaseFragment {
 	private boolean isStart;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.fragment_record);
+		setContentView(R.layout.fragment_record); 
 		initView();
 		query_user_record();
 		query_user_tag_record();

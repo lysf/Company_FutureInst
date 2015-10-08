@@ -4,10 +4,24 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class RankDAO implements Serializable{
+	private long user_id;
+	private String user_head_image;
 	private String name;
 	private int foreIndex;
 	private int currRank;
 	private int lastRank;
+	public long getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(long user_id) {
+		this.user_id = user_id;
+	}
+	public String getUser_head_image() {
+		return user_head_image;
+	}
+	public void setUser_head_image(String user_head_image) {
+		this.user_head_image = user_head_image;
+	}
 	public String getName() {
 		return name;
 	}

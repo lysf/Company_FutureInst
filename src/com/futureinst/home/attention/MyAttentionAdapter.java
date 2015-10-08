@@ -31,7 +31,7 @@ public class MyAttentionAdapter extends BaseAdapter {
 //		mCountDownTimerMap = new HashMap<String, CountDownTimer>();
 	}
 	public void setList(List<AttentionDAO> list) {
-		this.list = list;
+		this.list.addAll(list);
 //		notifyDataSetChanged();
 	}
 	@Override

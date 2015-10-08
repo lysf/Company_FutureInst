@@ -23,8 +23,12 @@ public class HoldDealAdapter extends BaseAdapter {
 		this.context = context;
 		list = new ArrayList<DealOrderDAO>();
 	}
-	public void setList(List<DealOrderDAO> list){
+	public void refresh(List<DealOrderDAO> list){
 		this.list = list;
+		notifyDataSetChanged();
+	}
+	public void setList(List<DealOrderDAO> list){
+		this.list.addAll(list);
 		notifyDataSetChanged();
 	}
 	public List<DealOrderDAO> getList() {

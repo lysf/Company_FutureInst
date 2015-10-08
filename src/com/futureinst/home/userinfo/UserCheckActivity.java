@@ -23,7 +23,8 @@ import android.widget.AdapterView.OnItemClickListener;
 public class UserCheckActivity extends BaseActivity implements OnRefreshListener{
 	private PullListView pullListView;
 	private UserCheckAdapter adapter;
-
+	private int page = 1;
+	private String last_id = "0";
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_user_check);
@@ -33,7 +34,7 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
 		initView();
 		progressDialog.progressDialog();
-		getData();
+		getData(page,last_id);
 	}
 
 	@Override
@@ -47,7 +48,6 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 		View heaed = LayoutInflater.from(this).inflate(R.layout.view_check_top, null);
 //		pullListView.addHeaderView(heaed);
 		pullListView.setRefresh(true);
-		pullListView.setLoadMore(false);
 		adapter = new UserCheckAdapter(this);
 		pullListView.setAdapter(adapter);
 		pullListView.setonRefreshListener(this);
@@ -64,10 +64,10 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 	}
 
 	// 获取对账单
-	private void getData() {
+	private void getData(final int page,String last_id) {
 		httpResponseUtils.postJson(httpPostParams.getPostParams(
 				PostMethod.query_user_check.name(), PostType.user_info.name(),
-				httpPostParams.query_user_check(preferenceUtil.getID()+"",preferenceUtil.getUUid())), UserCheckInfo.class,
+				httpPostParams.query_user_check(preferenceUtil.getID()+"",preferenceUtil.getUUid(),page,last_id)), UserCheckInfo.class,
 				new PostCommentResponseListener() {
 					@Override
 					public void requestCompleted(Object response)
@@ -77,7 +77,21 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 						if (response == null)
 							return;
 						UserCheckInfo userCheckInfo = (UserCheckInfo) response;
-						adapter.setList(userCheckInfo.getChecks());
+						
+						if(page == 1){
+							adapter.refresh(userCheckInfo.getChecks());
+						}else{
+							adapter.setList(userCheckInfo.getChecks());
+						}
+						if(adapter.getCount() > 9){
+							pullListView.setLoadMore(true);
+						}else{
+							pullListView.setLoadMore(false);
+						}
+						if(page!=1 && (userCheckInfo.getChecks() == null || userCheckInfo.getChecks().size() ==0)){
+							handler.sendEmptyMessage(0);
+							pullListView.setLoadMore(false);
+						}
 					}
 				});
 	}
@@ -86,7 +100,15 @@ public class UserCheckActivity extends BaseActivity implements OnRefreshListener
 	public void onRefresh(boolean isTop) {
 		// TODO Auto-generated method stub
 		if(isTop){
-			getData();
+			page = 1;
+			last_id = "0";
+		}else{
+			page ++;
+			if(adapter.getList()!=null && adapter.getList().size()>0){
+				last_id = adapter.getList().get(adapter.getCount()-1).getId()+"";
+			}
+			
 		}
+		getData(page,last_id);
 	}
 }

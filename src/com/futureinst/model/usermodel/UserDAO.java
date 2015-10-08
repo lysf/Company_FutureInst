@@ -12,7 +12,26 @@ public class UserDAO implements Serializable{
 	private String description;
 	private String cid;
 	private String ctype;
+	private String interest;
+	private String birthday;
+	private int peertoNum;
+	private int topeerNum;
+	private int commentNum;
+	private PermitDAO permitMap;
 	private String status;
+	private String lastOrderTime;
+	public String getLastOrderTime() {
+		return lastOrderTime;
+	}
+	public void setLastOrderTime(String lastOrderTime) {
+		this.lastOrderTime = lastOrderTime;
+	}
+	public PermitDAO getPermitMap() {
+		return permitMap;
+	}
+	public void setPermitMap(PermitDAO permitMap) {
+		this.permitMap = permitMap;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -67,11 +86,42 @@ public class UserDAO implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	public String getInterest() {
+		return interest;
+	}
+	public void setInterest(String interest) {
+		this.interest = interest;
+	}
+	public String getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+	public int getPeertoNum() {
+		return peertoNum;
+	}
+	public void setPeertoNum(int peertoNum) {
+		this.peertoNum = peertoNum;
+	}
+	public int getTopeerNum() {
+		return topeerNum;
+	}
+	public void setTopeerNum(int topeerNum) {
+		this.topeerNum = topeerNum;
+	}
+	public int getCommentNum() {
+		return commentNum;
+	}
+	public void setCommentNum(int commentNum) {
+		this.commentNum = commentNum;
+	}
 	@Override
 	public String toString() {
-		return "UserDAO [id=" + id + ", uuid=" + uuid + ", name=" + name
-				+ ", gender=" + gender + ", headImage=" + headImage
-				+ ", description=" + description + ", cid=" + cid + ", ctype="
-				+ ctype + ", status=" + status + "]";
+		return "UserDAO [id=" + id + ", uuid=" + uuid + ", name=" + name + ", gender=" + gender + ", headImage="
+				+ headImage + ", description=" + description + ", cid=" + cid + ", ctype=" + ctype + ", interest="
+				+ interest + ", birthday=" + birthday + ", peertoNum=" + peertoNum + ", topeerNum=" + topeerNum
+				+ ", commentNum=" + commentNum + ", status=" + status + "]";
 	}
+	
 }

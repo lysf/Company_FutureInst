@@ -7,10 +7,12 @@
     android:paddingTop="@dimen/margin_20"
     android:paddingBottom="@dimen/margin_20">
     <LinearLayout
+       		 android:id="@+id/ll_modify"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="@color/text_color_white"
+            android:background="@drawable/item_select"
             android:padding="@dimen/activity_login_margin_10" >
 			
         <com.futureinst.roundimageutils.RoundedImageView
@@ -26,7 +28,9 @@
            
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/margin_5"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_5"
                 android:orientation="vertical" >
@@ -39,7 +43,7 @@
                     <TextView
                         android:id="@+id/tv_userName"
                         android:layout_width="0dip"
-                        android:layout_height="@dimen/widget_height_45"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:hint="昵称"
@@ -67,6 +71,19 @@
                         android:textSize="@dimen/text_size_small" />
 
                 </LinearLayout>
+               
+                    <TextView 
+                        android:id="@+id/tv_order"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/text_color_b"
+                        android:text="上次下单时间：1天前"/>
             </LinearLayout>
+            <ImageView 
+                android:id="@+id/iv_right_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow"/>
         </LinearLayout>
 	</LinearLayout>

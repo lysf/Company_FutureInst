@@ -2,6 +2,8 @@ package com.futureinst.net;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.nio.MappedByteBuffer;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +13,9 @@ import org.json.JSONException;
 import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -32,6 +36,7 @@ import com.futureinst.fileupload.MultiPartStack;
 import com.futureinst.fileupload.MultiPartStringRequest;
 import com.futureinst.global.Content;
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.NetstateToast;
 import com.futureinst.utils.Utils;
@@ -42,11 +47,13 @@ public class HttpResponseUtils {
 	private RequestQueue mQueue;
 	private RequestQueue mSingleQueue;
 	private DataCacheUtil cacheUtil;
+	private SharePreferenceUtil preferenceUtil;
 	private HttpResponseUtils(Activity activity) {
 		mQueue = BaseApplication.getInstance().getRequestQueue();
 		this.activity = activity;
 		mSingleQueue = Volley.newRequestQueue(activity, new MultiPartStack());
 		cacheUtil = DataCacheUtil.getInstance(activity);
+		preferenceUtil = SharePreferenceUtil.getInstance(activity);
 	}
 
 	public static HttpResponseUtils getInstace(Activity activity) {
@@ -87,7 +94,7 @@ public class HttpResponseUtils {
 								} catch (JSONException e1) {
 									e1.printStackTrace();
 								}
-								if(!method.equals("query_user_with_uuid")){
+								if(method ==null  || !method.equals("query_user_with_uuid")){
 									MyToast.showToast(activity, message, 0);
 								}
 								return;
@@ -122,10 +129,17 @@ public class HttpResponseUtils {
 					}
 				}) {
 			@Override
-			protected Map<String, String> getParams() {
+			protected Map<String, String> getParams(){
 				return params;
 			}
-
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError {
+				Map<String,String> header = new HashMap<String, String>();
+				header.put("uuid", preferenceUtil.getUUid());
+				header.put("user_id", preferenceUtil.getID()+"");
+				header.put("deviceID", Utils.getDeviceID(activity));
+				return header;
+			}
 		};
 		postRequest.setRetryPolicy(new DefaultRetryPolicy(
 						6*1000, DefaultRetryPolicy.DEFAULT_TIMEOUT_MS,
@@ -188,8 +202,16 @@ public class HttpResponseUtils {
 			}
 		}) {
 			@Override
-			protected Map<String, String> getParams() {
+			protected Map<String, String> getParams(){
 				return params;
+			}
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError {
+				Map<String,String> header = new HashMap<String, String>();
+				header.put("uuid", preferenceUtil.getUUid());
+				header.put("user_id", preferenceUtil.getID()+"");
+				header.put("deviceID", Utils.getDeviceID(activity));
+				return header;
 			}
 			
 		};
@@ -263,9 +285,10 @@ public class HttpResponseUtils {
 		mQueue.add(postRequest);
 	}
 
-	public <T> void UploadFileRequest(final String url, final List<String> files,
+	public <T> void UploadFileRequest(final List<String> files,
 			final Map<String, String> params, final Class<T> clz,
 			final PostCommentResponseListener commentResponseListener) {
+	final String url = HttpPath.PICPATH;
 		if (null == url || null == commentResponseListener) {
 			return;
 		}
@@ -273,8 +296,8 @@ public class HttpResponseUtils {
 				Request.Method.POST, url, new Listener<String>() {
 					@Override
 					public void onResponse(String response) {
+						Log.i("json", "----------response-->>" + response);
 						if (!TextUtils.isEmpty(response)) {
-							Log.i("json", "----------response-->>" + response);
 							BaseModel baseModel = GsonUtils.json2Bean(response,
 									BaseModel.class);
 							int status = baseModel.getStatus();
@@ -304,28 +327,41 @@ public class HttpResponseUtils {
 						// TODO Auto-generated method stub
 						Log.i("-----VolleyError---",
 								"-----文件上传失败--->>" + error.toString());
+						Toast.makeText(activity, "图片上传失败", Toast.LENGTH_SHORT).show();
 						try {
 							commentResponseListener.requestCompleted(null);
 						} catch (JSONException e) {
 							// TODO Auto-generated catch block
+							Log.i("-----VolleyError---", "------文件上传error--"+e.getMessage());
 							e.printStackTrace();
 						}
 					}
 				}) {
-
+			
+			
 			@Override
 			public Map<String, File> getFileUploads() {
-				return new HashMap<String, File>();
+				Map<String, File> map = new HashMap<String, File>();
+				map.put("file", new File(files.get(0)));
+				return map;
 			}
-
+			@Override
+					public RetryPolicy getRetryPolicy() {
+				DefaultRetryPolicy retryPolicy = new DefaultRetryPolicy(8000,
+						DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+						DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+				return retryPolicy;
+			}
 			@Override
 			public Map<String, String> getStringUploads() {
-				return params;
+				Map< String, String> map =  new HashMap<String, String>();
+//				map.put("tag", "head_image");
+				return map;
 			}
 
 			@Override
 			public List<String> getFileNameUploads() {
-				return files;
+				return new ArrayList<String>();
 			}
 		};
 		mSingleQueue.add(multiPartRequest);

@@ -32,6 +32,9 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Request.Method;
 import com.android.volley.toolbox.HttpClientStack.HttpPatch;
+
+import android.util.Log;
+
 import com.android.volley.toolbox.HurlStack;
 
 @SuppressWarnings("deprecation")
@@ -170,13 +173,16 @@ public class MultiPartStack extends HurlStack {
 			}
 		}
 		// Iterate the fileUploads
-		List<String> fileNames = ((MultiPartRequest) request).getFileNameUploads();
-		if(null != fileNames && fileNames.size() > 0) {
-			// 添加文件
-			for (String file : fileNames) {
-				builder.addPart("files", new FileBody(new File(file)));
-			}
-		}
+		Map<String, File> map= ((MultiPartRequest) request).getFileUploads();
+		Log.i(TAG, "----------file--->>"+map.get("file").getAbsolutePath());
+		builder.addPart("mainImg", new FileBody(map.get("file")));
+		
+//		if(null != fileNames && fileNames.size() > 0) {
+//			// 添加文件
+//			for (String file : fileNames) {
+//				builder.addPart("mainImg", new FileBody(new File(file)));
+//			}
+//		}
 		
 		
 		httpRequest.setEntity(builder.build());

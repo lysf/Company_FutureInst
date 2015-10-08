@@ -8,6 +8,8 @@ public enum PostType {
 	order,//订单
 	common ,//排名
 	comment,//评论
-	follow,//关注
+	follow,//事件关注
+	peer,//用户关注
+	peer_info,//他人信息
 	user_info ,//查询个人资产战绩等
 }

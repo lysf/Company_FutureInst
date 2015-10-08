@@ -18,7 +18,7 @@ import java.util.List;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.home.forecast.ForecastContainerTypeFragment;
-import com.futureinst.home.hold.HoldingFragment.MyFragmentAdapter;
+import com.futureinst.home.hold.HoldingActivity.MyFragmentAdapter;
 
 public class AboutUsActivity extends BaseActivity {
 	private List<Fragment> fragments;

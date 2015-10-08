@@ -2,16 +2,20 @@ package com.futureinst.comment;
 
 import com.futureinst.R;
 import com.futureinst.model.comment.CommentDAO;
+import com.futureinst.personalinfo.other.PersonalShowActivity;
 import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.ViewHolder;
+import com.lidroid.xutils.view.annotation.event.OnClick;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -66,7 +70,7 @@ public class CommentDetailAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if(convertView == null) 
 			convertView = LayoutInflater.from(context).inflate(R.layout.view_comment, null);
-		CommentDAO item = list.get(position);
+		final CommentDAO item = list.get(position);
 		
 		View view1 = ViewHolder.get(convertView, R.id.view_1);
 		View view2 = ViewHolder.get(convertView, R.id.view_2);
@@ -91,7 +95,7 @@ public class CommentDetailAdapter extends BaseAdapter {
 			view2.setBackgroundColor(color);
 		}
 		tv_name.setText(item.getUser().getName());
-		ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+		ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.logo));
 		tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getCtime()));
 //		SpannableStringBuilder stringBuilder = new SpannableStringBuilder(comment);
 //		stringBuilder.setSpan(new ForegroundColorSpan(color), 0, comment.indexOf("]")+1, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
@@ -106,6 +110,23 @@ public class CommentDetailAdapter extends BaseAdapter {
 						tv_prise_add.setVisibility(View.GONE);
 					}
 				}, 1000);
+			}
+		});
+		imageView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, PersonalShowActivity.class);
+				intent.putExtra("id", item.getUser().getId()+"");
+				context.startActivity(intent);
+				
+			}
+		});
+		tv_name.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(context, PersonalShowActivity.class);
+				intent.putExtra("id", item.getUser().getId()+"");
+				context.startActivity(intent);
 			}
 		});
 		return convertView;

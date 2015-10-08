@@ -13,7 +13,21 @@ public class VersionDAO implements Serializable {
 	private String type;
 	private Long curr_time;
 	private String download_url;
+	private String load_ad_image;
+	private String load_ad_url;
 	
+	public String getLoad_ad_image() {
+		return load_ad_image;
+	}
+	public void setLoad_ad_image(String load_ad_image) {
+		this.load_ad_image = load_ad_image;
+	}
+	public String getLoad_ad_url() {
+		return load_ad_url;
+	}
+	public void setLoad_ad_url(String load_ad_url) {
+		this.load_ad_url = load_ad_url;
+	}
 	public int getDisable_app_sign_in() {
 		return disable_app_sign_in;
 	}

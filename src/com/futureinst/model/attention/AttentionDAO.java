@@ -6,10 +6,18 @@ import com.futureinst.model.homeeventmodel.QueryEventDAO;
 
 @SuppressWarnings("serial")
 public class AttentionDAO implements Serializable {
+	private String feid;
 	private Long userId;
 	private QueryEventDAO event;
 	private float followPrice;
 	private Long ctime;
+	
+	public String getFeid() {
+		return feid;
+	}
+	public void setFeid(String feid) {
+		this.feid = feid;
+	}
 	public Long getUserId() {
 		return userId;
 	}

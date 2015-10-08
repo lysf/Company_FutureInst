@@ -48,26 +48,18 @@ public class NewbieGuide2 {
 				guide4.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						guide4.setVisibility(View.GONE);
+						if(isHavaPrice){
+							preferenceUtil.setGuide7();
+							guide4.setVisibility(View.GONE);
+						}else{
+							dialog.dismiss();
+						}
 					}
 				});
 				final ImageView guide5 = (ImageView) view.findViewById(R.id.guide5);
 				guide5.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						if(isHavaPrice){
-							preferenceUtil.setGuide7();
-							guide5.setVisibility(View.GONE);
-						}else{
-							dialog.dismiss();
-						}
-					}
-				});
-				final ImageView guide6 = (ImageView) view.findViewById(R.id.guide6);
-				guide6.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						
 						dialog.dismiss();
 					}
 				});

@@ -3,9 +3,7 @@ package com.futureinst.model.basemodel;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class BaseModel implements Serializable{
-	private int status;
-	private String errinfo;
+public class BaseModel extends BaseDAO implements Serializable{
 	private String method;
 	private String type;
 	private Long curr_time;
@@ -22,18 +20,6 @@ public class BaseModel implements Serializable{
 	public void setCurr_time(Long curr_time) {
 		this.curr_time = curr_time;
 	}
-	public int getStatus() {
-		return status;
-	}
-	public void setStatus(int status) {
-		this.status = status;
-	}
-	public String getErrinfo() {
-		return errinfo;
-	}
-	public void setErrinfo(String errinfo) {
-		this.errinfo = errinfo;
-	}
 	public String getMethod() {
 		return method;
 	}
@@ -48,9 +34,7 @@ public class BaseModel implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "BaseModel [status=" + status + ", errinfo=" + errinfo
-				+ ", method=" + method + ", type=" + type + ", curr_time="
-				+ curr_time + "]";
+		return "BaseModel [method=" + method + ", type=" + type + ", curr_time=" + curr_time + ", info=" + info + "]";
 	}
 	
 }

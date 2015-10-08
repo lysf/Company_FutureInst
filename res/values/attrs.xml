@@ -6,6 +6,10 @@
     </declare-styleable>
 
     <attr name="buttonBarButtonStyle" format="reference" />
+    <declare-styleable name="HomeTab">
+        <attr name = "iconFontText" format="string"/>
+        <attr name = "bottomText" format="string"/>
+    </declare-styleable>
 
     <declare-styleable name="RoundedImageView">
         <attr name="corner_radius" format="dimension" />
@@ -30,5 +34,17 @@
         <attr name="pstsTabBackground" format="reference" />
         <attr name="pstsShouldExpand" format="boolean" />
         <attr name="pstsTextAllCaps" format="boolean" />
+    </declare-styleable>
+    
+    <attr name="cropImageStyle" format="reference" />
+
+    <declare-styleable name="CropImageView">
+        <attr name="highlightColor" format="reference|color" />
+        <attr name="showThirds" format="boolean" />
+        <attr name="showHandles">
+          <enum name="changing" value="0" />
+          <enum name="always" value="1" />
+          <enum name="never" value="2" />
+        </attr>
     </declare-styleable>
 </resources>

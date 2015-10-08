@@ -5,127 +5,49 @@
     android:id="@+id/rl_type"
     android:background="@color/text_color_white"
     android:orientation="vertical" >
-   <!--   <com.futureinst.widget.VerticalViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
-         -->
-         <FrameLayout
+  	
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical">
+	    <FrameLayout
              android:id="@+id/container"
              android:layout_width="match_parent"
-             android:layout_height="match_parent"
+             android:layout_height="0dip"
+             android:layout_weight="1"
+             android:layout_above="@+id/tab_bottom"
              >
              
          </FrameLayout>
-<LinearLayout 
-    android:id="@+id/ll_home_table"
-    android:layout_alignParentBottom="true"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@drawable/top_line"
-    android:minHeight="@dimen/widget_height_50">
-    <TextView 
-        android:id="@+id/tab_forecast"
-        android:paddingTop="@dimen/margin_5"
-    android:paddingBottom="@dimen/margin_5"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_weight="1"
-        android:drawableTop="@drawable/tab_forecast"
-        android:textSize="@dimen/text_size_normal"
-        android:textColor="@drawable/tab_text_color"
-        android:text="@string/tab_forecast"
-        />
-    <TextView 
-        android:id="@+id/tab_revoke"
-        android:paddingTop="@dimen/margin_5"
-    android:paddingBottom="@dimen/margin_5"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:drawableTop="@drawable/tab_revokke"
-        android:textSize="@dimen/text_size_normal"
-        android:textColor="@drawable/tab_text_color"
-        android:text="@string/tab_revoke"
-        />
-    <LinearLayout 
-        android:id="@+id/tab_ranking"
-        android:gravity="center"
-        android:paddingTop="@dimen/margin_5"
-    	android:paddingBottom="@dimen/margin_5"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        >
-        <LinearLayout 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-            <TextView 
-            android:id="@+id/tv_ranking"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="@dimen/text_size_normal"
-        	android:textColor="@drawable/tab_text_color"
-        	/>
-            <ImageView 
-                android:id="@+id/iv_ranking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/tab_ranking_balance"/>
-        </LinearLayout>
-        
-        <TextView 
-        android:id="@+id/tv_tab_ranking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@dimen/text_size_normal"
-        android:textColor="@drawable/tab_text_color"
-        android:text="@string/tab_ranking"
-        />
-    </LinearLayout>
-    <RelativeLayout 
-        android:id="@+id/tab_personal"
-        android:paddingTop="@dimen/margin_5"
-    	android:paddingBottom="@dimen/margin_5"
-        android:layout_width="0dip"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" >
-        <TextView 
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-        android:gravity="center"
-        android:drawableTop="@drawable/tab_personal"
-        android:textSize="@dimen/text_size_normal"
-        android:textColor="@drawable/tab_text_color"
-        android:text="@string/tab_personal"
-        />
-        <LinearLayout android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal">
-            <TextView 
-           android:id="@+id/tv_message_count"
-           android:visibility="invisible"
-           android:layout_marginLeft="@dimen/margin_20"
-           android:layout_width="@dimen/margin_20"
-           android:layout_height="@dimen/margin_20"
-           android:gravity="center"
-           android:textColor="@color/text_color_white"
-           android:background="@drawable/point_red"
-           android:textSize="@dimen/text_size_small"
-           android:text="10"/>
-        </LinearLayout>
-    </RelativeLayout>
-    
-</LinearLayout>
+         <include
+             android:id="@+id/tab_bottom"
+             android:layout_width="match_parent"
+    		 android:layout_height="wrap_content" 
+    		 android:minHeight="@dimen/widget_height_55"
+             layout="@layout/home_tab_bottom"
+             />
+	</LinearLayout>
+         
+	<RelativeLayout 
+	    android:id="@+id/rl_ad"
+	    android:visibility="gone"
+	    android:background="@color/text_color_white"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	    
+	    <ImageView 
+	        android:id="@+id/iv_ad"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:src="@drawable/logo"/>
+	    <ImageView 
+	        android:id="@+id/iv_cancel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:padding="@dimen/activity_login_margin_10"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginTop="@dimen/activity_login_margin_10"
+	        android:layout_marginRight="@dimen/activity_login_margin_10"
+	        android:src="@drawable/cancel_01"/>
+	</RelativeLayout>
 </RelativeLayout>

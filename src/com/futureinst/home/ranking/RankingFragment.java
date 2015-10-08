@@ -2,13 +2,20 @@ package com.futureinst.home.ranking;
 
 import org.json.JSONException;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.home.HomeActivity;
+import com.futureinst.model.record.UserRecordDAO;
+import com.futureinst.model.usermodel.RankDAO;
 import com.futureinst.model.usermodel.RankInfo;
 import com.futureinst.model.usermodel.UserInformationDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
@@ -17,10 +24,15 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.personalinfo.other.PersonalShowActivity;
+import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.sharepreference.SharePreferenceUtil;
+import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.widget.list.PullListView;
+import com.futureinst.widget.list.PullListView.OnRefreshListener;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
-public class RankingFragment extends BaseFragment {
+public class RankingFragment extends BaseFragment implements OnRefreshListener{
 	private SharePreferenceUtil preferenceUtil;
 	private HttpResponseUtils httpResponseUtils;
 	private HttpPostParams httpPostParams;
@@ -28,11 +40,13 @@ public class RankingFragment extends BaseFragment {
 	private TextView tv_userName,tv_prophet,tv_ranking;
 	private ImageView iv_ranking;
 	private RankingAdapter adapter;
+	private RoundedImageView iv_headImg;
 	private Button[] buttons;
 	private boolean isStart;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_home_ranking);
+		setTitle("排行榜");
 		initView();
 		get_rank();
 		query_user_record();
@@ -48,7 +62,24 @@ public class RankingFragment extends BaseFragment {
 		tv_prophet = (TextView) findViewById(R.id.tv_prophet);
 		tv_ranking = (TextView) findViewById(R.id.tv_ranking);
 		iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
+		iv_headImg = (RoundedImageView) findViewById(R.id.iv_headImg);
 		isStart = true;
+		pullListView.setonRefreshListener(this);
+		pullListView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(position < 1) return;
+				RankDAO item = (RankDAO) adapter.getItem(position-1);
+				if(item.getUser_id() == preferenceUtil.getID()){//本人
+					((HomeActivity)getContext()).setTab(3);
+				}else{
+					Intent intent = new Intent(getActivity(), PersonalShowActivity.class);
+					intent.putExtra("id", item.getUser_id()+"");
+					startActivity(intent);
+				}
+				
+			}
+		});
 	}
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -58,10 +89,23 @@ public class RankingFragment extends BaseFragment {
 		}
 		super.setUserVisibleHint(isVisibleToUser);
 	}
-	private void initMyRanking(UserInformationDAO userInformationDAO){
+	@Override
+	public void onResume() {
+		get_rank();
+		query_user_record();
+		super.onResume();
+	}
+	private void initMyRanking(UserRecordDAO userInformationDAO){
 		tv_userName.setText(userInformationDAO.getUser().getName());
 		tv_prophet.setText(userInformationDAO.getForeIndex()+"");
+		if(iv_headImg.getTag() == null || !iv_headImg.getTag().equals(userInformationDAO.getUser().getHeadImage())){
+			ImageLoader.getInstance().displayImage(userInformationDAO.getUser().getHeadImage(), iv_headImg, ImageLoadOptions.getOptions(R.drawable.logo));
+			iv_headImg.setTag(userInformationDAO.getUser().getHeadImage());
+		}
 		tv_ranking.setText(userInformationDAO.getRank()+"  ");
+		if(userInformationDAO.getRank() == 0){
+			tv_ranking.setText("-  ");
+		}
 		if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
 			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.ranking_up_2));
 		}else if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
@@ -79,6 +123,7 @@ public class RankingFragment extends BaseFragment {
 					new PostCommentResponseListener() {
 				@Override
 				public void requestCompleted(Object response) throws JSONException {
+					pullListView.onRefreshComplete();
 					if(response == null) return;
 					RankInfo rankInfo = (RankInfo) response;
 					adapter.setList(rankInfo.getRanks());
@@ -99,5 +144,13 @@ public class RankingFragment extends BaseFragment {
 					initMyRanking(userInformationInfo.getUser_record());
 				}
 			});
+		}
+		@Override
+		public void onRefresh(boolean isTop) {
+			// TODO Auto-generated method stub
+			if(isTop){
+//				query_user_record();
+				get_rank();
+			}
 		}
 }

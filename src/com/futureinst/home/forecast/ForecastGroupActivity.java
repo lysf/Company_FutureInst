@@ -23,6 +23,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ForecastGroupActivity extends BaseActivity implements OnRefreshListener{
@@ -30,13 +31,15 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 	private ForecastItemAdapter adapter;
 	private String group_id;
 	private String title;
+	private int page = 1;
+	private String last_id = "0";
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		setContentView(R.layout.pull_listview_2);
 		setTitle(R.string.company_name);
 		initView();
-		getData(group_id);
+		getData(page,last_id,group_id);
 	}
 	private void initView() {
 		// TODO Auto-generated method stub
@@ -79,15 +82,24 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 	@Override
 	public void onRefresh(boolean isTop) {
 		if(isTop){
-			getData(group_id);
+			page = 1;
+			last_id = "0";
+		}else{
+			page++;
+			if(adapter.getList() !=null && adapter.getList().size()>0){
+					last_id = adapter.getList().get(adapter.getCount()-1).getId()+"";
+			}
 		}
-		
+		getData(page,last_id,group_id);
 	}
 	Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
 			case 111:
 				adapter.notifyDataSetChanged();
+				break;
+			case 0:
+				Toast.makeText(getApplicationContext(), getResources().getString(R.string.data_over), Toast.LENGTH_SHORT).show();
 				break;
 			}
 		};
@@ -111,28 +123,41 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 	}
 	
 	//获取事件数据
-		 private void getData(String group_id){
+		 private void getData(final int page,String last_id,String group_id){
 			 HttpResponseUtils.getInstace(this).postJson(
-					 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(group_id)), 
+					 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(page,last_id,group_id)), 
 					 QueryEventInfoDAO.class, 
 					 new PostCommentResponseListener() {
-						@Override
-						public void requestCompleted(Object response) throws JSONException {
-							pullListView.onRefreshComplete();
-							if(response == null) return;
-							QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
-							SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
-							adapter.setList(queryEventInfoDAO.getEvents());
-							notifyDate();
-						}
+							@Override
+							public void requestCompleted(Object response) throws JSONException {
+								pullListView.onRefreshComplete();
+								if(response == null) return;
+								QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
+								SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
+								
+								if(page ==1){
+									adapter.refresh(queryEventInfoDAO.getEvents());
+								}else{
+									adapter.setList(queryEventInfoDAO.getEvents());
+								}
+								
+								if(adapter.getCount() > 9){
+									pullListView.setLoadMore(true);
+								}else{
+									pullListView.setLoadMore(false);
+								}
+								if(page!=1 && (queryEventInfoDAO.getEvents() == null || queryEventInfoDAO.getEvents().size() ==0)){
+									handler.sendEmptyMessage(0);
+									pullListView.setLoadMore(false);
+								}
+								notifyDate();
+							}
 					});
 		 }
 	@Override
 	public void onPause() {
 		super.onPause();
-	
 		flag = false;
-		
 	}
 	@Override
 	public void onDestroy() {

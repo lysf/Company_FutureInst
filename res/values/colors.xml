@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="crop__button_bar">#f3f3f3</color>
+    <color name="crop__button_text">#666666</color>
+    <color name="crop__selector_pressed">#1a000000</color>
+    <color name="crop__selector_focused">#77000000</color>
+    
+    
+    
+    	 <color name="home_table_0">#8E8E93</color>
+    <color name="home_table_1">#007AFF</color>
+    
+    	<color name="right_btn">#1B6EDC</color>
     	<color name="status_bar">#f1f1f1</color>
     	<color name="text_color_base">#86BFFA</color>
     	<color name="tab_text_unselected">#ffffff</color>
@@ -17,6 +28,7 @@
     	<color name="text_color_e">#e5e5e5</color>
     	<color name="text_color_a">#a5a5a5</color>
     	<color name="text_color_b">#B8B8B8</color>
+    	<color name="text_color_c">#c9c9c9</color>
     	<color name="text_color_b0">#B0BDB4</color>
     	<color name="text_color_0">#000000</color>
     	<color name="text_color_3">#333333</color>
@@ -24,10 +36,10 @@
     	<color name="text_color_9">#999999</color>
     	<color name="text_color_top_ranking">#747493</color>
     	<color name="text_color_price_change">#C8171E</color>
-    	<color name="btn_invivate_0">#007aff</color>
-    	<color name="btn_invivate_1">#66007aff</color>
-    	<color name="gain_red">#F8412F</color>
-    	<color name="gain_blue">#23b534</color>
+    	<color name="btn_invivate_0">#5ac8fa</color>
+    	<color name="btn_invivate_1">#225ac8fa</color>
+    	<color name="gain_red">#ff3b30</color>
+    	<color name="gain_blue">#4cd964</color>
     	<color name="text_blue">#008a41</color>
     	<color name="base_bg">#f4f6f6</color>
     	<color name="regist_keyword_1">#FE7D5E</color>
@@ -71,7 +83,8 @@
     	<color name="type_9">#FCFB68</color>
     	
     	<color name="background_tab_pressed">#6633B5E5</color>
-    	<color name="forecast_deal">#F39800</color>
+    	<color name="forecast_deal">#ffcc00</color>
+    	<color name="forecast_deal_line">#Ff9500</color>
     	<color name="forecast_bottom_line_select">#007BFF</color>
     	<color name="comment_text_0">#5DA5FF</color>
     	<color name="comment_text_1">#885DA5FF</color>

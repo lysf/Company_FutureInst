@@ -7,11 +7,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import org.json.JSONException;
 
 import com.futureinst.R;
+import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.home.HomeActivity;
 import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.model.push.PushMessageDAO;
@@ -24,6 +26,7 @@ import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.ActivityManagerUtil;
+import com.futureinst.utils.Utils;
 import com.igexin.sdk.PushConsts;
 import com.igexin.sdk.PushManager;
 
@@ -52,7 +55,8 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			System.out.println("第三方回执接口调用" + (result ? "成功" : "失败"));
 
 			if (payload != null) {
-				PushMessageUtils pushMessageUtils = new PushMessageUtils(context);
+//				PushMessageUtils pushMessageUtils = new PushMessageUtils(context);
+				PushMessageCacheUtil messageCacheUtil = PushMessageCacheUtil.getInstance(context);
 				PushMessageDAO pushMessageDAO = null;
 				String data = new String(payload);
 				Log.d("GetuiSdkDemo", "receiver payload : " + data);
@@ -64,10 +68,15 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 				}else{
 					pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
 				}
-				setNotify(context,pushMessageDAO);
+				if((!TextUtils.isEmpty(pushMessageDAO.getNo_notice())
+						&& pushMessageDAO.getNo_notice().equals("1"))
+						|| !Utils.isBackground(context)){
+					//不发通知
+				}else{
+					setNotify(context,pushMessageDAO);
+				}
 				
-				
-				pushMessageUtils.addObject(pushMessageDAO);
+				messageCacheUtil.addPushMessage(pushMessageDAO);
 				Intent intent2 = new Intent("newPushMessage");
 				context.sendBroadcast(intent2);
 			}

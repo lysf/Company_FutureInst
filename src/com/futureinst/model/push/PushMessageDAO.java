@@ -8,11 +8,13 @@ import com.futureinst.model.homeeventmodel.QueryEventDAO;
 public class PushMessageDAO implements Serializable{
 	private String id;
 	private String event_id;
+	private String no_notice ="0";
 	private Long time;
 	private String text;
 	private String title;
 	private String href;
 	private String type ;//event  表示事件详情页;comment 表示评论页;rank 表示排名页,type为url时，配合参数href，表示打开特定网页
+	private String peer_id;//关注者id
 	private boolean isRead;
 	private QueryEventDAO event;
 	public PushMessageDAO() {
@@ -25,8 +27,22 @@ public class PushMessageDAO implements Serializable{
 		this.isRead = isRead;
 		this.time = time;
 	}
+	
+	public String getPeer_id() {
+		return peer_id;
+	}
+	public void setPeer_id(String peer_id) {
+		this.peer_id = peer_id;
+	}
 	public String getHref() {
 		return href;
+	}
+	
+	public String getNo_notice() {
+		return no_notice;
+	}
+	public void setNo_notice(String no_notice) {
+		this.no_notice = no_notice;
 	}
 	public void setHref(String href) {
 		this.href = href;

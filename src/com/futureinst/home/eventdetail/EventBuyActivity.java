@@ -7,6 +7,7 @@ import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.global.Content;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.homeeventmodel.EventBuyDAO;
 import com.futureinst.model.homeeventmodel.EventPriceDAOInfo;
@@ -42,6 +43,7 @@ import android.widget.TextView;
 
 public class EventBuyActivity extends BaseActivity {
 	private SingleEventClearDAO singleEventClearDAO;
+	private LinearLayout ll_detail_buy,ll_detail_sell;
 	private float asset;
 	private QueryEventDAO event;
 	private EventPriceDAOInfo priceDAOInfo;
@@ -58,6 +60,7 @@ public class EventBuyActivity extends BaseActivity {
 	private TextView tv_tip;
 	private Button btn_lood_good,btn_lood_bad;
 	private TableRow tableRow4;
+	private int number = 10;
 	private int color;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
@@ -114,12 +117,24 @@ public class EventBuyActivity extends BaseActivity {
 		}
 		event = (QueryEventDAO) getIntent().getSerializableExtra("event");
 		priceDAOInfo = (EventPriceDAOInfo) getIntent().getSerializableExtra("price");
+		number = getIntent().getIntExtra("number", 10);
+		if(number > 100) number = 100;
+		
 		isBuy = getIntent().getBooleanExtra("buyOrSell", false);
 		ll_event_buy = (LinearLayout) findViewById(R.id.ll_event_buy);
 		tv_total_1 = (TextView) findViewById(R.id.tv_total_1);
 		tv_total_2 = (TextView) findViewById(R.id.tv_total_2);
 		tv_total_3 = (TextView) findViewById(R.id.tv_total_3);
 		tv_total_4 = (TextView) findViewById(R.id.tv_total_4);
+		ll_detail_buy = (LinearLayout) findViewById(R.id.ll_detail_buy);
+		ll_detail_sell = (LinearLayout) findViewById(R.id.ll_detail_sell);
+		if(isBuy){
+			ll_detail_buy.setBackground(null);
+			ll_detail_sell.setOnClickListener(clickListener);
+		}else{
+			ll_detail_sell.setBackground(null);
+			ll_detail_buy.setOnClickListener(clickListener);
+		}
 		tv_buys_1 = new TextView[3];
 		tv_buys_2 = new TextView[3];
 		tv_buys_3 = new TextView[3];
@@ -142,7 +157,7 @@ public class EventBuyActivity extends BaseActivity {
 		btn_lood_good.setVisibility(View.GONE);
 		btn_lood_bad.setVisibility(View.GONE);
 		et_price.setText(String.format("%.2f", event.getCurrPrice()));
-		et_num.setText("10");
+		et_num.setText(number+"");
 		if(isBuy){
 			submit.setText("看好");
 			submit.setBackground(getResources().getDrawable(R.drawable.btn_detail_buy_back));
@@ -223,7 +238,7 @@ public class EventBuyActivity extends BaseActivity {
 				if(judgeData()){
 					String currPrice = et_price.getText().toString();
 					int currNum = Integer.valueOf(et_num.getText().toString());
-					float assure = CalculateAssureUtil.calculateNeedAssure(isBuy, currNum, Float.valueOf(currPrice), singleEventClearDAO.getAllBuyNum(), singleEventClearDAO.getBuyPrice(),
+					float assure = CalculateAssureUtil.calculateNeedAssure(isBuy, currNum, Float.valueOf(currPrice), singleEventClearDAO.getBuyNum(), singleEventClearDAO.getBuyPrice(),
 							singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
 					Log.i(TAG, "--------------------assure="+assure+"-----asset="+asset);
 					if(assure > asset){
@@ -288,6 +303,22 @@ public class EventBuyActivity extends BaseActivity {
 					getTotal();
 				}
 				break;
+			case R.id.ll_detail_buy://三档看好
+				if(event == null || 
+				priceDAOInfo.getBuys() == null || priceDAOInfo.getBuys().size() == 0) return; 
+				int number_buy = priceDAOInfo.getBuys().get(0).getNum();
+				if(number_buy>100) number_buy = 100;
+				et_num.setText(number_buy+"");
+				et_price.setText(String.format("%.1f", priceDAOInfo.getBuys().get(0).getPrice()));
+				break;
+			case R.id.ll_detail_sell://三档不看好
+				if(event == null || 
+						priceDAOInfo.getSells() == null || priceDAOInfo.getSells().size() == 0) return;
+				int number_sell = priceDAOInfo.getSells().get(0).getNum();
+						if(number_sell>100) number_sell = 100;
+				et_num.setText(number_sell+"");
+				et_price.setText(String.format("%.1f", priceDAOInfo.getSells().get(0).getPrice()));
+				break;
 			}
 		}
 	};
@@ -341,6 +372,7 @@ public class EventBuyActivity extends BaseActivity {
 		//添加订单
 		private void addOrder(int type,String price,int num){
 			progressDialog.progressDialog();
+			Content.isPull = true;
 			httpResponseUtils.postJson(httpPostParams.getPostParams(
 					PostMethod.add_order .name(), PostType.order .name(), 
 					httpPostParams.add_order(preferenceUtil.getID()+"", preferenceUtil.getUUid(), type+"", price, num+"", event.getId()+"")), 
@@ -349,6 +381,7 @@ public class EventBuyActivity extends BaseActivity {
 				@Override
 				public void requestCompleted(Object response) throws JSONException {
 					progressDialog.cancleProgress();
+					Content.isPull = false;
 					if(response == null) return;
 					//交易成功
 //					MyToast.showToast(EventBuyActivity.this, "正在为您撮合订单，请到我的持仓查看订单状态。",1);
@@ -423,7 +456,7 @@ public class EventBuyActivity extends BaseActivity {
 		 private void showGuide(){
 			 if(preferenceUtil.getGuide8())
 				 return;
-			 new NewbieGuide(this, R.drawable.guide_8, new GuideClickInterface() {
+			 new NewbieGuide(this, R.drawable.guide_7, new GuideClickInterface() {
 				@Override
 				public void guideClick() {
 					preferenceUtil.setGuide8();

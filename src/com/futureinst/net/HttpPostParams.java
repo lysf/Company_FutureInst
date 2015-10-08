@@ -97,7 +97,7 @@ public class HttpPostParams {
 	 * @return: String      
 	 * @throws
 	 */
-	public String update_user(String uuid,String user_id,String name,String description){
+	public String update_user(String uuid,String user_id,String name,String description,String headImage){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("uuid", uuid);
 		map.put("user_id", user_id);
@@ -105,6 +105,15 @@ public class HttpPostParams {
 			map.put("name", name);
 		}
 		map.put("description", description);
+		map.put("head_image", headImage);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	public String update_user_headImage(String uuid,String user_id,String headImage){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("uuid", uuid);
+		map.put("user_id", user_id);
+		map.put("head_image", headImage);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
@@ -134,30 +143,36 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
-	//首页查询事件
-	public String query_event(){
+	//归档事件
+	public String query_event(int page,String last_id){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("check", "-1");
+		map.put("page", page+"");
+		map.put("last_id", last_id);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
-	//查询归档事件
-	public String query_event(String tag,String order){
+	//事件
+	public String query_event(String tag,String order,int page,String last_id){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("tag", tag);
 		map.put("order", order);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
 	//根据事件组ID查询事件
-	public String query_event(String group_id){
+	public String query_event(int page,String last_id,String group_id){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("group_id", group_id);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
 	//根据事件组id查询事件
-	public String query_event_by_group_id(String id){
+	public String query_event_by_group_id( String id){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("group_id", id);
 		JSONObject jsonObject = new JSONObject(map);
@@ -194,10 +209,18 @@ public class HttpPostParams {
 		return jsonObject.toString();
 	}
 	//查询个人清算订单
-	public String query_event_clear(String user_id,String uuid){
+	public String query_event_clear(String user_id,String uuid,int page,String last_id,int tag,String scop){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", user_id);
 		map.put("uuid", uuid);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
+		if(tag > 0){
+			map.put("event_tag", tag+"");
+		}
+		if(!TextUtils.isEmpty(scop)){
+			map.put("scope", scop);
+		}
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
@@ -256,10 +279,12 @@ public class HttpPostParams {
 		return jsonObject.toString();
 	}
 	//对账单
-	public String query_user_check(String user_id,String uuid){
+	public String query_user_check(String user_id,String uuid,int page,String last_id){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("uuid", uuid);
 		map.put("user_id", user_id);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
@@ -331,10 +356,12 @@ public class HttpPostParams {
 	 * @return: String      
 	 * @throws
 	 */
-	public String query_follow(String user_id,String uuid){
+	public String query_follow(String user_id,String uuid,int page,String last_id){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", user_id);
 		map.put("uuid", uuid);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
@@ -452,7 +479,7 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
-	
+	//图片
 	public String upLoadFile(String uuid,String user_id){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", user_id);
@@ -460,5 +487,214 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
-	
+	//隐私设置
+	//permit_key:order(预测中事件),gain(战绩),follow_me（关注我的人）,me_follow（我关注的人）
+	//permit_value: all（所有人可看），follow(关注我的人可看)，none（没有人可以看）
+	public String update_permit(String uuid,String user_id,String permit_key,String permit_value){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("permit_key", permit_key);
+		map.put("permit_value", permit_value);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 好友关注操作
+	 * @Title: operation_peer_follow   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @param peer_id
+	 * @param: @param operation(操作类型): follow(添加)，unfollow(取消)
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String operation_peer_follow(String uuid,String user_id,String peer_id,String operation){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("peer_id", peer_id);
+		map.put("operation", operation);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 关注我的人
+	 * @Title: query_follow_me   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String query_follow_me (String uuid,String user_id,int page,String last_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 我关注的人
+	 * @Title: query_me_follow   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String query_me_follow (String uuid,String user_id,int page,String last_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询他人基本信息
+	 * @Title: peer_info_query_user_record   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @param peer_id 被查询人id
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String peer_info_query_user_record(String uuid,String user_id,String peer_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("peer_id", peer_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询分类战绩概览
+	 * @Title: peer_info_query_user_tag_record   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @param peer_id 被查询id
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String peer_info_query_user_tag_record(String uuid,String user_id,String peer_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("peer_id", peer_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询预测中的事件
+	 * @Title: peer_info_query_event_trade   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @param peer_id
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */ 
+	public String peer_info_query_event_trade(String uuid,String user_id,String peer_id,int page,String last_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("peer_id", peer_id);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
+		map.put("scope", "trade");
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询战绩的具体事件
+	 * @Title: peer_info_query_event_clear   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @param peer_id
+	 * @param: @param tag :分类的编号 2<=tag<=9
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String peer_info_query_event_clear(String uuid,String user_id,String peer_id,int tag,int page,String last_id,String scop){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("peer_id", peer_id);
+		if(tag > 0){
+			map.put("event_tag", tag+"");
+		}
+		map.put("page", page+"");
+		map.put("last_id", last_id+"");
+		if(!TextUtils.isEmpty(scop)){
+			map.put("scope", scop);
+		}
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询关注他的人
+	 * @Title: peer_info_query_follow_me   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @param peer_id
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String peer_info_query_follow_me(String uuid,String user_id,String peer_id,int page,String last_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("peer_id", peer_id);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
+	/**
+	 * 查询他关注的人
+	 * @Title: peer_info_query_me_follow   
+	 * @Description: TODO  
+	 * @author: huihaoyan  
+	 * @param: @param uuid
+	 * @param: @param user_id
+	 * @param: @param peer_id
+	 * @param: @return      
+	 * @return: String      
+	 * @throws
+	 */
+	public String peer_info_query_me_follow(String uuid,String user_id,String peer_id,int page,String last_id){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("peer_id", peer_id);
+		map.put("page", page+"");
+		map.put("last_id", last_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
 }

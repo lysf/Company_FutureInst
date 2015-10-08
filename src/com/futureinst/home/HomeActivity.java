@@ -12,6 +12,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -35,11 +37,13 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.forecast.ForecastFragment;
-import com.futureinst.home.hold.HoldingFragment;
+import com.futureinst.home.hold.HoldingActivity;
 import com.futureinst.home.ranking.RankAndRecordFragment;
-import com.futureinst.home.userinfo.UserInfoFragment2;
+import com.futureinst.home.ranking.RankingFragment;
+import com.futureinst.home.userinfo.UserInfoFragment;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.usermodel.UserInformationDAO;
@@ -54,27 +58,37 @@ import com.futureinst.push.PushMessageUtils;
 import com.futureinst.service.UpdateDialogShow;
 import com.futureinst.service.UpdateService;
 import com.futureinst.utils.BadgeUtil;
+import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
 import com.igexin.sdk.PushManager;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 
 @SuppressLint("ClickableViewAccessibility")
 public class HomeActivity extends BaseActivity {
 	private boolean isCloseTab = true;
-	private PushMessageUtils pushMessageUtils;
+//	private PushMessageUtils pushMessageUtils;
+	private PushMessageCacheUtil messageCacheUtil;
 	public static boolean isUpdate = false;
 	private boolean isHide = false;  
 	private float lastX = 0;  
 	private float lastY = 0;  
-	private LinearLayout ll_home_tab;
+//	private LinearLayout ll_home_tab;
 	private BroadcastReceiver receiver;
 	private String cid;
-	private TextView tv_ranking,tv_messageCount;
-	private ImageView iv_ranking;
+	private TextView tv_messageCount;
 	private View[] views;
 	private List<Fragment> fragments;
 	private Animation animation;
 	private FragmentActivityTabAdapter activityAdapter;
+	
+	//广告
+	private RelativeLayout rl_ad;
+	private ImageView iv_ad,iv_cancel;
+	
+	
 	private Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
@@ -83,7 +97,7 @@ public class HomeActivity extends BaseActivity {
 				if(userInformationInfo.getUser_record() != null){
 					preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
 					preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
-					setRanking(userInformationInfo.getUser_record());
+//					setRanking(userInformationInfo.getUser_record());
 				}
 				break;
 			}
@@ -98,7 +112,7 @@ public class HomeActivity extends BaseActivity {
 			add_download();
 		}
 		get_android_version();
-		showGuide();
+		
 	}
 	 //显示新手引导
 	 private void showGuide(){
@@ -112,18 +126,42 @@ public class HomeActivity extends BaseActivity {
 		});
 		 
 	 }
+	 
+	 OnClickListener clickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.iv_ad://广告页
+				Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(versionInfo.getLoad_ad_url()));
+				startActivity(intent);
+				rl_ad.setVisibility(View.GONE);
+				showGuide();
+				break;
+			case R.id.iv_cancel://隐藏
+				rl_ad.setVisibility(View.GONE);
+				showGuide();
+				break;
+			}
+		}
+	};
 	private void initVeiw() {
+		//广告
+		rl_ad = (RelativeLayout) findViewById(R.id.rl_ad);
+		iv_ad = (ImageView) findViewById(R.id.iv_ad);
+		iv_cancel = (ImageView) findViewById(R.id.iv_cancel);
+		iv_ad.setOnClickListener(clickListener);
+		iv_cancel.setOnClickListener(clickListener);
+		
+		
 		views = new View[4];
 		fragments = new ArrayList<Fragment>(); 
-		ll_home_tab = (LinearLayout) findViewById(R.id.ll_home_table);
-		tv_ranking = (TextView) findViewById(R.id.tv_ranking);
-		iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
+//		ll_home_tab = (LinearLayout) findViewById(R.id.ll_home_table);
 		tv_messageCount = (TextView) findViewById(R.id.tv_message_count);
 		
-		views[0] = (TextView) findViewById(R.id.tab_forecast);
-		views[1] = (TextView) findViewById(R.id.tab_revoke);
-		views[2] = (LinearLayout) findViewById(R.id.tab_ranking);
-		views[3] = (RelativeLayout) findViewById(R.id.tab_personal);
+		views[0]  = findViewById(R.id.tab1);
+		views[1]  = findViewById(R.id.tab2);
+		views[2]  = findViewById(R.id.tab3);
+		views[3]  = findViewById(R.id.tab4);
 		
 		receiver = new BroadcastReceiver() {
 			@Override
@@ -142,12 +180,18 @@ public class HomeActivity extends BaseActivity {
 		registerReceiver(receiver, filter);
 		
 	}
+	
+	
 	private void initFragment(){
 		fragments.add(new ForecastFragment());
-		fragments.add(new HoldingFragment());
-		fragments.add(new RankAndRecordFragment());
-		fragments.add(new UserInfoFragment2());
+		fragments.add(new RankingFragment());
+		fragments.add(new ShoopFragment());
+		fragments.add(new UserInfoFragment());
 		activityAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, views);
+	}
+	//0-3
+	public void setTab(int position){
+		activityAdapter.setFragmentShow(position);
 	}
 	private boolean isLogin(){
 		if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
@@ -165,29 +209,30 @@ public class HomeActivity extends BaseActivity {
 				//初始化推送
 				query_user_record();
 				PushManager.getInstance().initialize(this.getApplicationContext());
-			}else if(TextUtils.isEmpty(tv_ranking.getText().toString())){
-				query_user_record();
 			}
+//			else if(TextUtils.isEmpty(tv_ranking.getText().toString())){
+//				query_user_record();
+//			}
 				
 		} 
 	}
 	
 	
 	//设置用户的排名
-	private void setRanking(UserInformationDAO userInformationDAO){
-		tv_ranking.setText(userInformationDAO.getRank()+"");
-		
-		if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
-			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_up));
-		}else if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
-			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_down));
-		}else{
-			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_balance));
-		}
-		tv_ranking.postInvalidate();
-		iv_ranking.postInvalidate();
-		Log.i(TAG, "=============================>?"+userInformationDAO.getRank());
-	}
+//	private void setRanking(UserInformationDAO userInformationDAO){
+//		tv_ranking.setText(userInformationDAO.getRank()+"");
+//		
+//		if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
+//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_up));
+//		}else if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
+//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_down));
+//		}else{
+//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_balance));
+//		}
+//		tv_ranking.postInvalidate();
+//		iv_ranking.postInvalidate();
+//		Log.i(TAG, "=============================>?"+userInformationDAO.getRank());
+//	}
 
 	// 获取个人信息
 	private void query_user_record() {
@@ -217,8 +262,10 @@ public class HomeActivity extends BaseActivity {
 			if(TextUtils.isEmpty(preferenceUtil.getUUid())){
 				return;
 			}
-			pushMessageUtils = new PushMessageUtils(getApplicationContext());
-			int count =  pushMessageUtils.getUnReadMessageCount();
+//			pushMessageUtils = new PushMessageUtils(getApplicationContext());
+//			int count =  pushMessageUtils.getUnReadMessageCount();
+			messageCacheUtil = PushMessageCacheUtil.getInstance(this);
+			int count =  messageCacheUtil.getUnReadMessage();
 			if(count>0){
 				BadgeUtil.setBadgeCount(getApplicationContext(), count);
 				tv_messageCount.setText(count+"");
@@ -229,8 +276,43 @@ public class HomeActivity extends BaseActivity {
 				tv_messageCount.setVisibility(View.INVISIBLE);
 			}
 		}
+		
+	//显示广告
+		private VersionDAO versionInfo;
+	private void showAD(VersionDAO versionDAO){
+		String current = TimeUtil.longToString(System.currentTimeMillis(), TimeUtil.FORMAT_DATE);
+		if(current.equals(preferenceUtil.getADTime())
+				|| TextUtils.isEmpty(versionDAO.getLoad_ad_image())
+				|| versionDAO.getLoad_ad_image().equals("null")){
+			showGuide();
+			return;
+		}
+		versionInfo = versionDAO;
+		preferenceUtil.setADTime(current);
+		ImageLoader.getInstance().displayImage(versionDAO.getLoad_ad_image(), iv_ad,
+				new ImageLoadingListener() {
+					@Override
+					public void onLoadingStarted(String imageUri, View view) {
+					}
+					@Override
+					public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+//						rl_ad.setVisibility(View.GONE);
+					}
+					@Override
+					public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+						rl_ad.setVisibility(View.VISIBLE);
+					}
+					@Override
+					public void onLoadingCancelled(String imageUri, View view) {
+						rl_ad.setVisibility(View.GONE);
+						
+					}
+				});
+	}
 	//获取版本信息
 	private void get_android_version(){
+		Content.isPull = true;
+		progressDialog.progressDialog();
 		httpResponseUtils.postJson(
 				httpPostParams.getPostParams(PostMethod.get_android_version.name(), PostType.common.name(), 
 						httpPostParams.get_android_version()), 
@@ -238,8 +320,11 @@ public class HomeActivity extends BaseActivity {
 				new PostCommentResponseListener() {
 					@Override
 					public void requestCompleted(Object response) throws JSONException {
+						progressDialog.cancleProgress();
+						Content.isPull = false;
 						if(response == null) return;
 						VersionDAO versionDAO = (VersionDAO) response;
+						showAD(versionDAO);
 						if(versionDAO.getDisable_app_sign_in() == 1){
 							Content.disable_app_sign_in = false;
 						}else{
@@ -321,29 +406,29 @@ public class HomeActivity extends BaseActivity {
 			boolean down = y > lastY ? true : false;
 			lastY = y;
 			lastX = x;
-			if(dx< 8 && dy > 8&& !isHide && !down){
-				animation = AnimationUtils.loadAnimation(this, R.anim.push_out);
-				ll_home_tab.startAnimation(animation);
-				handler.postDelayed(new Runnable(){
-		            public void run() {
-		            	if(isCloseTab){
-		            		ll_home_tab.setVisibility(View.GONE);
-		            		isHide = true;
-		            	}
-		            } 
-				}, 500);
-			}else if(dx < 8 && dy > 8 && isHide && down){
-				animation = AnimationUtils.loadAnimation(this, R.anim.push_in);
-				ll_home_tab.startAnimation(animation);
-				handler.postDelayed(new Runnable(){
-		            public void run() {
-		            	ll_home_tab.setVisibility(View.VISIBLE);
-		            	isHide = false;
-		            } 
-				}, 500);
-			}else{
-				break;
-			}
+//			if(dx< 8 && dy > 8&& !isHide && !down){
+//				animation = AnimationUtils.loadAnimation(this, R.anim.push_out);
+//				ll_home_tab.startAnimation(animation);
+//				handler.postDelayed(new Runnable(){
+//		            public void run() {
+//		            	if(isCloseTab){
+//		            		ll_home_tab.setVisibility(View.GONE);
+//		            		isHide = true;
+//		            	}
+//		            } 
+//				}, 500);
+//			}else if(dx < 8 && dy > 8 && isHide && down){
+//				animation = AnimationUtils.loadAnimation(this, R.anim.push_in);
+//				ll_home_tab.startAnimation(animation);
+//				handler.postDelayed(new Runnable(){
+//		            public void run() {
+//		            	ll_home_tab.setVisibility(View.VISIBLE);
+//		            	isHide = false;
+//		            } 
+//				}, 500);
+//			}else{
+//				break;
+//			}
 			break;
 		}
 		return super.dispatchTouchEvent(event);
@@ -355,7 +440,7 @@ public class HomeActivity extends BaseActivity {
 		activityAdapter.getCurrentFragment().onResume();
 		if(activityAdapter.getCurrentTab() != 0){
 			isCloseTab = false;
-			ll_home_tab.setVisibility(View.VISIBLE);
+//			ll_home_tab.setVisibility(View.VISIBLE);
 		}
 		getMessageCount();
 	}
@@ -439,11 +524,11 @@ public class HomeActivity extends BaseActivity {
 				return;
 			}
 			if(i == 2){
-				iv_ranking.setSelected(true);
-				tv_ranking.setSelected(true);
+//				iv_ranking.setSelected(true);
+//				tv_ranking.setSelected(true);
 			}else{
-				iv_ranking.setSelected(false);
-				tv_ranking.setSelected(false);
+//				iv_ranking.setSelected(false);
+//				tv_ranking.setSelected(false);
 			}
 			
 			btns[currentTab].setSelected(false);
@@ -473,16 +558,16 @@ public class HomeActivity extends BaseActivity {
 					}
 					if(i!=0){
 						isCloseTab = false;
-						ll_home_tab.setVisibility(View.VISIBLE);
+//						ll_home_tab.setVisibility(View.VISIBLE);
 					}else{
 						isCloseTab = true;
 					}
 					if(i == 2){
-						iv_ranking.setSelected(true);
-						tv_ranking.setSelected(true);
+//						iv_ranking.setSelected(true);
+//						tv_ranking.setSelected(true);
 					}else{
-						iv_ranking.setSelected(false);
-						tv_ranking.setSelected(false);
+//						iv_ranking.setSelected(false);
+//						tv_ranking.setSelected(false);
 					}
 					
 					btns[currentTab].setSelected(false);

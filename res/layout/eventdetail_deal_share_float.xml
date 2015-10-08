@@ -15,7 +15,7 @@
                     android:textColor="@color/text_color_white"
                     android:textSize="@dimen/text_size_normal"
                     android:background="@drawable/btn_invivate"
-                    android:text="邀人预测"/>
+                    android:text="清算依据"/>
 	 <Button 
                     android:id="@+id/btn_lood_good_float"
                      android:layout_centerVertical="true"

@@ -10,21 +10,18 @@ import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.Utils;
 import com.futureinst.utils.ViewHolder;
-import com.futureinst.utils.xutils.XUtilsImageLoader;
 import com.futureinst.widget.MyTextView;
 import com.futureinst.widget.waterwave.WaterWaveView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
@@ -37,9 +34,17 @@ public class ForecastItemAdapter extends BaseAdapter {
 //		imageLoader = new XUtilsImageLoader(context);
 		list = new ArrayList<QueryEventDAO>();
 	}
-	public void setList(List<QueryEventDAO> list) {
+	public void refresh(List<QueryEventDAO> list) {
 		this.list = list;
 		notifyDataSetChanged();
+	}
+	public void setList(List<QueryEventDAO> list) {
+		this.list.addAll(list);
+		notifyDataSetChanged();
+	}
+	public List<QueryEventDAO> getList() {
+		
+		return list;
 	}
 	@Override
 	public int getCount() {

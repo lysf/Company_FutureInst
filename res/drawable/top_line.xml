@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
     <item >
         <shape >
-            <solid android:color="@color/text_color_3"/>
+            <solid android:color="@color/text_color_a"/>
         </shape>
     </item>
 	<item android:top="@dimen/line_height">

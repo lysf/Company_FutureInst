@@ -44,13 +44,11 @@ public class RecordAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return position;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
 		if(convertView == null)
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_record, null);
 		RecordDAO item = list.get(position);
@@ -60,7 +58,7 @@ public class RecordAdapter extends BaseAdapter {
 		TextView tv_gainNumber = ViewHolder.get(convertView, R.id.tv_gainNumber);
 		TextView tv_odds = ViewHolder.get(convertView, R.id.tv_odds);
 		
-		tv_type.setText(types[item.getTag() - 1]+context.getResources().getString(R.string.space));
+		tv_type.setText(""+types[item.getTag() - 1]+context.getResources().getString(R.string.space));
 		tv_gainTotal.setText(String.format("%.2f", item.getAllGain()));
 		tv_avgGain.setText(String.format("%.2f", item.getAvgGain()));
 		tv_gainNumber.setText(item.getGainEvent()+"");
