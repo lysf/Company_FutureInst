@@ -622,7 +622,6 @@ public class PullListView extends ListView implements OnScrollListener {
 			arrowImageView.setImageResource(upImageResources);
 			tipsTextview.setText("下拉刷新");
 			lastUpdatedTextView.setVisibility(View.VISIBLE);
-			
 //			iv_refreshing.setVisibility(View.GONE);
 			iv_refreshStart.setVisibility(View.VISIBLE);
 			iv_refreshStart.stopAnima();

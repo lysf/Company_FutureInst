@@ -4,6 +4,7 @@ import org.json.JSONException;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.SyncStateContract.Constants;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -82,17 +83,11 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener{
 		});
 	}
 	@Override
-	public void setUserVisibleHint(boolean isVisibleToUser) {
-		if(isVisibleToUser && isStart){
+	public void onResume() {
+		if(((HomeActivity)getActivity()).getCurrentTab() == 1){
 			get_rank();
 			query_user_record();
 		}
-		super.setUserVisibleHint(isVisibleToUser);
-	}
-	@Override
-	public void onResume() {
-		get_rank();
-		query_user_record();
 		super.onResume();
 	}
 	private void initMyRanking(UserRecordDAO userInformationDAO){

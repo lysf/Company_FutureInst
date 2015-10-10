@@ -1,4 +1,4 @@
-﻿package com.futureinst.db;
+package com.futureinst.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

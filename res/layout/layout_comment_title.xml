@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="48dp"
     android:background="@color/text_color_white"
-    style="?android:attr/windowTitleBackgroundStyle"
+
     android:gravity="center" >
 
     <!-- 左边的title -->
@@ -76,9 +76,9 @@
         android:textSize="18sp"
         android:layout_marginRight="10dip"
         android:textColor="@drawable/right_button_text_color"
-        android:background="@drawable/item_select"
+        android:background="@null"
         android:layout_gravity="right|center_vertical"
-        android:visibility="visible"/>
+        android:visibility="invisible"/>
     <ImageView 
         android:id="@+id/iv_right"
         android:layout_width="48dp"

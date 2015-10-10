@@ -87,10 +87,13 @@ public class UserInfoFragment extends BaseFragment {
 		getMessageCount();
 		isStart =true;
 	}
+	
 	@Override
 	public void onResume() {
-		query_user_record();
-		getMessageCount();
+		if(((HomeActivity)getActivity()).getCurrentTab() == 3){
+			query_user_record();
+			getMessageCount();
+		}
 		super.onResume();
 	}
 	// 获取未读消息数量

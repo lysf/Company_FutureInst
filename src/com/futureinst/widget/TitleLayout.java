@@ -61,58 +61,58 @@ protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        int childCount = getChildCount();
-        View child = null;
-        int i = 0;
-        for (; i < childCount; i++) {
-            child = getChildAt(i);
-            if (child.getVisibility() != VISIBLE) {
-                child = null;
-                continue;
-            }
-            final LayoutParams lp =
-                    (LayoutParams) child.getLayoutParams();
-            int gravity = lp.gravity;
-            if (gravity < 0) {
-                child = null;
-                continue;
-            }
-            if( (gravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.CENTER_HORIZONTAL) {
-                break;
-            }else {
-                child = null;
-            }
-        }
-        if (child != null) {//有需要居中的
-            int left= 0;
-            int right = getWidth();
-            int j = i-1;
-            //找出左边可见的view
-            while (j>=0) {
-                View leftView = getChildAt(j);
-                j--;
-                if (leftView.getVisibility() == VISIBLE) {
-                    left = leftView.getRight();
-                    break;
-                }
-            }
-            j = i+1;
-            while (j<childCount) {
-                View leftView = getChildAt(j);
-                j++;
-                if (leftView.getVisibility() == VISIBLE) {
-                    right = leftView.getLeft();
-                    break;
-                }
-            }
-            final LayoutParams lp =
-                    (LayoutParams) child.getLayoutParams();
-            left += lp.leftMargin;
-            right -= lp.rightMargin;
-            int endge = Math.max(left, getWidth()-right);
-            int childwidth = getWidth() - 2*endge;
-            child.measure(MeasureSpec.makeMeasureSpec(childwidth, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(child.getHeight(), MeasureSpec.EXACTLY));
-            child.layout(endge, child.getTop(), getWidth()-endge, child.getBottom());
-        }
+//        int childCount = getChildCount();
+//        View child = null;
+//        int i = 0;
+//        for (; i < childCount; i++) {
+//            child = getChildAt(i);
+//            if (child.getVisibility() != VISIBLE) {
+//                child = null;
+//                continue;
+//            }
+//            final LayoutParams lp =
+//                    (LayoutParams) child.getLayoutParams();
+//            int gravity = lp.gravity;
+//            if (gravity < 0) {
+//                child = null;
+//                continue;
+//            }
+//            if( (gravity & Gravity.HORIZONTAL_GRAVITY_MASK) == Gravity.CENTER_HORIZONTAL) {
+//                break;
+//            }else {
+//                child = null;
+//            }
+//        }
+//        if (child != null) {//有需要居中的
+//            int left= 0;
+//            int right = getWidth();
+//            int j = i-1;
+//            //找出左边可见的view
+//            while (j>=0) {
+//                View leftView = getChildAt(j);
+//                j--;
+//                if (leftView.getVisibility() == VISIBLE) {
+//                    left = leftView.getRight();
+//                    break;
+//                }
+//            }
+//            j = i+1;
+//            while (j<childCount) {
+//                View leftView = getChildAt(j);
+//                j++;
+//                if (leftView.getVisibility() == VISIBLE) {
+//                    right = leftView.getLeft();
+//                    break;
+//                }
+//            }
+//            final LayoutParams lp =
+//                    (LayoutParams) child.getLayoutParams();
+//            left += lp.leftMargin;
+//            right -= lp.rightMargin;
+//            int endge = Math.max(left, getWidth()-right);
+//            int childwidth = getWidth() - 2*endge;
+//            child.measure(MeasureSpec.makeMeasureSpec(childwidth, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(child.getHeight(), MeasureSpec.EXACTLY));
+//            child.layout(endge, child.getTop(), getWidth()-endge, child.getBottom());
+//        }
     }
 }

@@ -354,7 +354,7 @@
         </activity>
      <meta-data android:value="55cd9c4767e58efccf003e3c" android:name="UMENG_APPKEY"></meta-data>
      <!-- 同时修改HttpPostParams中的regist（） ctype  -->
-	 <meta-data android:value="android" android:name="UMENG_CHANNEL"/>
+	 <meta-data android:value="anzhi" android:name="UMENG_CHANNEL"/>
         
     </application>
 

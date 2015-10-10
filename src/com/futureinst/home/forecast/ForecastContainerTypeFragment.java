@@ -9,6 +9,7 @@ import org.json.JSONException;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.global.Content;
+import com.futureinst.home.HomeActivity;
 import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.home.eventdetail.EventDetailActivity;
 import com.futureinst.login.LoginActivity;
@@ -150,7 +151,6 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	}
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
-		super.setUserVisibleHint(isVisibleToUser);
 		if(!isStart) return;
 		if(isVisibleToUser){
 			pullListView.hideHeader();
@@ -173,6 +173,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			CustomStatUtil.onEvent(getContext(), id, map, (int)(stayTime/1000));
 			stayTime = 0;
 		}
+		super.setUserVisibleHint(isVisibleToUser);
 	}
 	@Override
 	public void onResume() {
@@ -182,13 +183,17 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 			if(!TextUtils.isEmpty(SharePreferenceUtil.getInstance(getContext()).getUUid())
 					){
 				ll_unlogin.setVisibility(View.GONE);
+				page = 1;
+				last_id = "0";
 				getMyAttention(page,last_id);
 			}else{
 				pullListView.onRefreshComplete();
 				ll_unlogin.setVisibility(View.VISIBLE);
 			}
 		}
-		setUserVisibleHint(true);
+		if(((HomeActivity)getActivity()).getCurrentTab() == 0){
+			setUserVisibleHint(true);
+		}
 	}
 	
 	//获取我的关注

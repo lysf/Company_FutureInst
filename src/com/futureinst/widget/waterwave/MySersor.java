@@ -1,4 +1,4 @@
-﻿package com.futureinst.widget.waterwave;
+package com.futureinst.widget.waterwave;
 
 
 import android.content.Context;

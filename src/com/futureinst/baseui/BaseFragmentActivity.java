@@ -88,7 +88,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
         if (isRoot() && event.getKeyCode() == KeyEvent.KEYCODE_BACK && mFragmentManager.getBackStackEntryCount() <= 0) {
             long second = System.currentTimeMillis();
             if (second - mClickTime < BaseApplication.EXIT_TIMEOUT) {
-            	MobclickAgent.onKillProcess( this );
+//            	MobclickAgent.onKillProcess( this );
                 finish();
                 return true;
             } else {

@@ -1,4 +1,4 @@
-﻿package com.futureinst.baseui;
+package com.futureinst.baseui;
 
 import java.io.File;
 

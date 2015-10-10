@@ -499,7 +499,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 	}  
 	   @Override
 	public void finish() {
-		   MobclickAgent.onKillProcess( this );
+//		   MobclickAgent.onKillProcess( this );
 		super.finish();
 	}
 	   private boolean isAppOnForeground(Context context) {   

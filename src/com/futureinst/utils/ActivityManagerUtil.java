@@ -1,4 +1,4 @@
-﻿package com.futureinst.utils;
+package com.futureinst.utils;
 
 import java.util.ArrayList;
 

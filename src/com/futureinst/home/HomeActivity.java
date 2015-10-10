@@ -193,8 +193,12 @@ public class HomeActivity extends BaseActivity {
 	public void setTab(int position){
 		activityAdapter.setFragmentShow(position);
 	}
+	public int getCurrentTab(){
+		return activityAdapter.getCurrentTab();
+	}
 	private boolean isLogin(){
 		if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
+			Log.i(TAG, "============error login==");
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivity(intent);
 			return false;
