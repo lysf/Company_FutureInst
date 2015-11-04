@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_e"
+    android:orientation="vertical" >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/margin_20"
+        android:paddingBottom="@dimen/margin_20"
+        android:gravity="center">
+         <com.futureinst.roundimageutils.RoundedImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/iv_headImg"
+                    android:layout_width="80dip"
+                    android:layout_height="80dip"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logo"
+                    app:corner_radius="8dip"
+                    app:mutate_background="true"
+                    app:oval="true" />
+        
+    </LinearLayout>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/widget_height_50"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/activity_login_margin_10"
+    android:background="@color/text_color_white">
+
+    <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_3"
+            android:layout_marginRight="@dimen/activity_login_margin_10"
+            android:text="我的昵称"/>
+    <View 
+        android:layout_width="@dimen/line_height"
+        android:layout_height="wrap_content"
+        android:background="@color/text_color_e"/>
+        <EditText 
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_login_margin_10"
+            android:gravity="center_vertical"
+            android:background="@null"
+             android:hint="@string/regist_userName_tip"
+           	android:maxLength="14"
+           	android:singleLine="true"
+            android:textColor="@color/text_color_6"
+            android:textSize="@dimen/text_size_normal"/>
+</LinearLayout>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="horizontal"
+    android:background="@color/text_color_white"
+    android:layout_marginTop="@dimen/margin_20">
+    <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_login_margin_10"
+            android:gravity="center"
+            android:paddingTop="@dimen/activity_login_margin_10"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_3"
+            android:layout_marginRight="@dimen/activity_login_margin_10"
+            android:text="先知态度"/>
+    <View 
+        android:layout_width="@dimen/line_height"
+        android:layout_height="@dimen/widget_height_40"
+        android:background="@color/text_color_e"/>
+    <EditText 
+        android:id="@+id/et_description"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|left"
+        android:padding="@dimen/activity_login_margin_10"
+        android:minHeight="100dp"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="@color/text_color_6"
+        android:hint="@string/description_hint"
+        android:maxLength="20"
+        android:background="@color/text_color_white"
+        />
+</LinearLayout>
+</LinearLayout>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/activity_modify_personal_info.xml -->

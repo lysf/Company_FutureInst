@@ -356,8 +356,8 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 				adapter.notifyDataSetChanged();
 				break;
 			}
-		};
-	};
+		}
+    };
 	boolean flag = false;
 	private void notifyDate(){
 		if(flag) return;

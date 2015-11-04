@@ -45,11 +45,7 @@ public class DBManager {
 			String nullColumnHack, ContentValues values) {
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		long raw = db.replace(tableName, nullColumnHack, values);
-		if (raw > 0) {
-			return true;
-		} else {
-			return false;
-		}
+        return raw > 0;
 	}
 
 	// 查找数据

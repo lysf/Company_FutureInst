@@ -89,7 +89,7 @@ public class RankingAdapter extends BaseAdapter {
 			}else{
 				tv_userName.setText(item.getName());
 			}
-			tv_prophet.setText(String.format("%.3f",item.getForeIndex()));
+			tv_prophet.setText(String.format("%.3f",item.getForeIndexNew()));
 			tv_ranking.setText(item.getCurrRank()+"  ");
 			if(item.getCurrRank() < item.getLastRank()){
 				iv_ranking.setImageDrawable(context.getResources().getDrawable(R.drawable.iv_up));

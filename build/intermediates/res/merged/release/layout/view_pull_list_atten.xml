@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_e"
+    android:orientation="vertical" >
+    <com.futureinst.widget.list.PullListView
+        android:id="@+id/pull_listView"
+        android:layout_marginTop="@dimen/line_height"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:dividerHeight="@dimen/line_height"
+        android:divider="@android:color/transparent"
+        />
+	<TextView 
+	    android:id="@+id/view_empty"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:gravity="center"
+	    android:textSize="@dimen/text_size_normal"
+	    android:textColor="@color/text_color_9"
+	    android:text="暂无数据~"/>
+</LinearLayout>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/view_pull_list_atten.xml -->

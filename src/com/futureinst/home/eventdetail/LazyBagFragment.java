@@ -1,7 +1,10 @@
 package com.futureinst.home.eventdetail;
 
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import com.futureinst.R;
@@ -16,7 +19,8 @@ public class LazyBagFragment extends BaseFragment {
 	private MyListView overListView;
 	private LazyBagAdapter adapter;
 	private String eventId;
-	private LazyBagInfoDao lazyBagInfo;
+//	private LazyBagInfoDao lazyBagInfo;
+	private BroadcastReceiver receiver;
 	public  LazyBagFragment(){
 	}
 	@Override
@@ -33,11 +37,21 @@ public class LazyBagFragment extends BaseFragment {
 
 	private void initView() {
 		eventId = getArguments().getString("eventId");
-		lazyBagInfo = (LazyBagInfoDao) getArguments().getSerializable("date");
+//		lazyBagInfo = (LazyBagInfoDao) getArguments().getSerializable("date");
 		overListView =  (MyListView) findViewById(R.id.myList);
 		adapter = new LazyBagAdapter(getContext());
-		adapter.setList(lazyBagInfo.getBags());
+//		adapter.setList(lazyBagInfo.getBags());
 		overListView.setAdapter(adapter);
+		receiver = new BroadcastReceiver() {
+			@Override
+			public void onReceive(Context context, Intent intent) {
+				if(intent.getAction().equals("lazybag")){
+					adapter.setList(((LazyBagInfoDao) intent.getSerializableExtra("data")).getBags());
+				}
+			}
+		};
+		IntentFilter filter = new IntentFilter("lazybag");
+		getActivity().registerReceiver(receiver,filter);
 	
 	}
 	public void update(List<LazyBagDAO> list){
@@ -46,5 +60,12 @@ public class LazyBagFragment extends BaseFragment {
 		}
 	}
 
-
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		if(receiver != null){
+			getActivity().unregisterReceiver(receiver);
+			receiver = null;
+		}
+	}
 }

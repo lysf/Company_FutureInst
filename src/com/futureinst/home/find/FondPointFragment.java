@@ -29,18 +29,16 @@ import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.TimeUtil;
-import com.futureinst.widget.list.MyListView;
 import com.futureinst.widget.list.PullListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.json.JSONException;
 
-import java.util.HashMap;
 
 /**
  * 发现-观点
  */
-public class FondPointFragment extends BaseFragment implements PullListView.OnRefreshListener{
+public class FondPointFragment extends BaseFragment implements PullListView.OnRefreshListener {
     private SharePreferenceUtil preferenceUtil;
     private MyProgressDialog progressDialog;
     private HttpPostParams httpPostParams;
@@ -82,15 +80,15 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
     private void initView() {
         preferenceUtil = SharePreferenceUtil.getInstance(getContext());
         progressDialog = MyProgressDialog.getInstance(getContext());
-        httpPostParams = httpPostParams.getInstace();
+        httpPostParams = HttpPostParams.getInstace();
         httpResponseUtils = HttpResponseUtils.getInstace(getActivity());
 
         lv_article = (PullListView) findViewById(R.id.lv_article);
         view_top = LayoutInflater.from(getContext()).inflate(R.layout.view_article_top, null, false);
         view_select_point = view_top.findViewById(R.id.view_select_point);
 
-        lv_article.addHeaderView(view_top);
         adapter = new PointAdapter(getContext());
+        lv_article.addHeaderView(view_top);
         lv_article.setAdapter(adapter);
         lv_article.setonRefreshListener(this);
 
@@ -100,7 +98,7 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
                 if(position < 2) return;
                 com.futureinst.model.comment.ArticleDAO item = (ArticleDAO) adapter.getItem(position-2);
                 Intent intent = new Intent(getContext(), ArticleDetailActivity.class);
-                intent.putExtra("point", item);
+                intent.putExtra("article_id", item.getId()+"");
                 startActivity(intent);
             }
         });
@@ -109,7 +107,7 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
             public void onClick(View v) {
                 if (ArticleDAO == null) return;
                 Intent intent = new Intent(getContext(), ArticleDetailActivity.class);
-                intent.putExtra("point", ArticleDAO);
+                intent.putExtra("article_id", ArticleDAO.getId()+"");
                 startActivity(intent);
             }
         });
@@ -145,6 +143,9 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
     }
     //初始化观点精选
     private void initDate(ArticleDAO today_article){
+        if(today_article == null ){
+            return;
+        }
         if(iv_event.getTag() == null || !iv_event.getTag().equals(today_article.getEvent().getImgsrc())){
             ImageLoader.getInstance().displayImage(today_article.getEvent().getImgsrc(),iv_event, ImageLoadOptions.getOptions(R.drawable.image_top_default));
             iv_event.setTag(today_article.getEvent().getImgsrc());

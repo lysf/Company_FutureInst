@@ -715,7 +715,7 @@ public class PullListView extends ListView implements OnScrollListener {
 	}
 
 	public interface OnRefreshListener {
-		public void onRefresh(boolean isTop);
+		void onRefresh(boolean isTop);
 	}
 	//	public boolean isStartRefresh(){
 //		if(!TextUtils.isEmpty(lastUpdatedTextView.getText().toString())){

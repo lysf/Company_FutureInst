@@ -8,13 +8,13 @@ import java.util.Map;
  */
 public interface MultiPartRequest {
 
-    public void addFileUpload(String param,File file); 
+    void addFileUpload(String param, File file);
     
-    public void addStringUpload(String param,String content); 
+    void addStringUpload(String param, String content);
     
-    public Map<String,File> getFileUploads();
+    Map<String,File> getFileUploads();
     
-    public Map<String,String> getStringUploads(); 
+    Map<String,String> getStringUploads();
     
-    public List<String> getFileNameUploads();
+    List<String> getFileNameUploads();
 }

@@ -163,7 +163,7 @@ public class WaterWaveView extends View implements MySensorLisenter
 				mPath.reset();
 				
 				int disX =  (int) Math.sqrt(r*r - d*d);
-				int startX = (int) (width/2 - disX);
+				int startX = width/2 - disX;
 				//波浪效果
 				while (startX < width/2 + disX)
 				{
@@ -209,7 +209,7 @@ public class WaterWaveView extends View implements MySensorLisenter
 		mPath.reset();
 		
 		int disX =  (int) Math.sqrt(r*r - d*d);
-		int startX = (int) (width/2 - disX);
+		int startX = width/2 - disX;
 		//波浪效果
 		while (startX < width/2 + disX)
 		{

@@ -16,8 +16,10 @@ import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
 import com.futureinst.widget.list.MyListView;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,7 +33,8 @@ public class RefrenceFragment extends BaseFragment {
 	private HttpResponseUtils httpResponseUtils;
 	private HttpPostParams httpPostParams;
 	private String event_id;
-	private ReferenceDAOInfo referenceDAOInfo;
+//	private ReferenceDAOInfo referenceDAOInfo;
+	private BroadcastReceiver receiver;
 	public RefrenceFragment(){
 
 	}
@@ -49,12 +52,12 @@ public class RefrenceFragment extends BaseFragment {
 
 	private void initView() {
 		event_id = getArguments().getString("eventId");
-		referenceDAOInfo = (ReferenceDAOInfo) getArguments().getSerializable("date");
+//		referenceDAOInfo = (ReferenceDAOInfo) getArguments().getSerializable("date");
 		httpResponseUtils = HttpResponseUtils.getInstace(getActivity());
 		httpPostParams = HttpPostParams.getInstace();
 		lv_refrence = (MyListView) findViewById(R.id.lv_refrence);
 		adapter = new RefrenceAdapter(getContext());
-		adapter.setList(referenceDAOInfo.getRefer());
+//		adapter.setList(referenceDAOInfo.getRefer());
 		lv_refrence.setAdapter(adapter);
 		
 		lv_refrence.setOnItemClickListener(new OnItemClickListener() {
@@ -66,8 +69,30 @@ public class RefrenceFragment extends BaseFragment {
 				startActivity(intent);
 			}
 		});
+
+
+		receiver = new BroadcastReceiver() {
+			@Override
+			public void onReceive(Context context, Intent intent) {
+				if(intent.getAction().equals("refer")){
+					adapter.setList(((ReferenceDAOInfo)intent.getSerializableExtra("data")).getRefer());
+				}
+			}
+		};
+		IntentFilter filter = new IntentFilter("refer");
+		getActivity().registerReceiver(receiver,filter);
 	}
 	public void update(List<ReferenceDAO> list){
 		adapter.setList(list);
 	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		if(receiver != null){
+			getActivity().unregisterReceiver(receiver);
+			receiver = null;
+		}
+	}
 }
+

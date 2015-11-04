@@ -32,10 +32,13 @@ import com.futureinst.net.PostType;
 import com.futureinst.personalinfo.other.PersonalShowActivity;
 import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.utils.ImageLoadOptions;
+import com.futureinst.utils.TimeUtil;
 import com.futureinst.widget.list.PullListView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.json.JSONException;
+
+import java.util.List;
 
 /**
  * Created by hao on 2015/10/29.
@@ -47,6 +50,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
     private CommentDAO commentDAO;
     private CommentDAO comment;
     private LinearLayout ll_container;
+    private List<String> loves;
     private boolean parentPraise = false;//父评论是否点过赞
     private CommentDeleteDialogUtil commentDeleteDialogUtil;
     RoundedImageView imageView;
@@ -60,6 +64,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
     private View view_float_comment_edit;
     private EditText et_comment_apply;
     private Button btn_send;
+    private String comment_id,event_id,article_id,parent_id;
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_comment_detail_second);
@@ -74,6 +79,16 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
 
     private void initView() {
         commentDAO = (CommentDAO) getIntent().getSerializableExtra("value");
+        comment_id = getIntent().getStringExtra("comment_id");
+        event_id = getIntent().getStringExtra("event_id");
+        parent_id = getIntent().getStringExtra("parent_id");
+        article_id = getIntent().getStringExtra("article_id");
+        if(commentDAO !=null){
+            comment_id = commentDAO.getId()+"";
+            event_id = commentDAO.getEventId()+"";
+            article_id = commentDAO.getArticleId()+"";
+            parent_id = commentDAO.getParentId()+"";
+        }
         parentPraise = getIntent().getBooleanExtra("praise",false);
         fromComment = getIntent().getBooleanExtra("from", true);
         pull_listView = (PullListView)findViewById(R.id.pull_listView);
@@ -105,13 +120,13 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
                         if(parentPraise){
                             operate = CommentOperate.unlike.name();
                             parentPraise = false;
-                            tv_comment_num.setText(commentDAO.getLikeNum()-1+"");
+//                            tv_comment_num.setText(commentDAO.getLikeNum()-1+"");
                         }else{
                             operate = CommentOperate.like.name();
                             parentPraise = true;
-                            tv_comment_num.setText(commentDAO.getLikeNum()+1+"");
+//                            tv_comment_num.setText(commentDAO.getLikeNum()+1+"");
                         }
-                        operate_comment(commentDAO.getId() + "", operate);
+                        operate_comment(comment_id, operate);
                     iv_agree.setSelected(parentPraise);
                     sendBroadcast(new Intent("praise"));
                 }
@@ -210,7 +225,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
                     if (fromComment) {
                         addComment(comment.getParentId() + "", comment.getId() + "", et_comment_apply.getText().toString().trim());
                     } else {
-                        add_comment_for_article(commentDAO.getParentId() + "", commentDAO.getId() + "", et_comment_apply.getText().toString().trim());
+                        add_comment_for_article(comment.getParentId() + "", comment.getId() + "", et_comment_apply.getText().toString().trim());
                     }
 
                 }
@@ -231,7 +246,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
         }else{
             tv_attitude.setVisibility(View.GONE);
         }
-
+        parentPraise = !(loves == null || !loves.contains(item.getId() + ""));
         iv_agree.setSelected(parentPraise);
 
         tv_comment.setText(item.getContent());
@@ -248,7 +263,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
                         et_comment_apply.setFocusableInTouchMode(true);
                         et_comment_apply.requestFocus();
                         showSoftInputView(et_comment_apply);
-                        et_comment_apply.setHint("回复 " + commentDAO.getUser().getName());
+                        et_comment_apply.setHint("回复 " + comment.getUser().getName());
                     } else {
                         commentDeleteDialogUtil.show(CommentDetailSecondActivity.this, new CommentDeleteDialogUtil.DelCommentListener() {
                             @Override
@@ -273,7 +288,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
             ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.logo));
             imageView.setTag(item.getUser().getHeadImage());
         }
-        tv_time.setText(item.getCtimeStr());
+        tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getCtime()));
         tv_comment_num.setText(item.getLikeNum()+"");
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -311,6 +326,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
                         if (response == null) return;
                         CommentDetailInfoDAO commentInfoDAO = (CommentDetailInfoDAO) response;
                         initTop(commentInfoDAO.getParentComment());
+                        loves = commentInfoDAO.getLoves();
                         adapter.setList(commentInfoDAO.getChildComments(),commentInfoDAO.getLoves(),commentInfoDAO.getReplyToCommentMap());
                     }
                 });
@@ -319,16 +335,16 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
     public void onRefresh(boolean isTop) {
         if (isTop) {
             if(fromComment){
-                getComment(commentDAO.getEventId()+"",commentDAO.getId() +"");
+                getComment(event_id,comment_id);
             }else{
-                query_comment_for_article(commentDAO.getArticleId()+"",commentDAO.getId()+"");
+                query_comment_for_article(article_id,comment_id);
             }
         }
     }
 
     //点赞或取消点赞（删除）
     private void operate_comment(String com_id, String operate) {
-        progressDialog.progressDialog();
+//        progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.operate_comment.name(), PostType.comment.name(),
                         httpPostParams.operate_comment(preferenceUtil.getID() + "", preferenceUtil.getUUid(), com_id, operate)),
                 BaseModel.class,
@@ -349,12 +365,13 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
         httpResponseUtils.postJson(httpPostParams.getPostParams(
                         PostMethod.add_comment.name(), PostType.comment.name(),
                         httpPostParams.add_comment(preferenceUtil.getID() + "", preferenceUtil.getUUid(),
-                                commentDAO.getEventId()+"", parent_id, apply_id, content)),
+                                event_id, parent_id, apply_id, content)),
                 BaseModel.class,
                 new PostCommentResponseListener() {
                     @Override
                     public void requestCompleted(Object response) throws JSONException {
                         progressDialog.cancleProgress();
+
                         if (response == null) return;
                         hideSoftInputView();
                         view_float_comment_edit.setVisibility(View.GONE);
@@ -381,14 +398,16 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
     private void query_comment_for_article(String articleId,String parent_id) {
         progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.query_comment_for_article.name(), PostType.article.name(),
-                        httpPostParams.query_comment_for_article(articleId,parent_id)),
+                        httpPostParams.query_comment_for_article(preferenceUtil.getID()+"",preferenceUtil.getUUid(),articleId,parent_id)),
                 CommentDetailInfoDAO.class, new PostCommentResponseListener() {
                     @Override
                     public void requestCompleted(Object response) throws JSONException {
                         progressDialog.cancleProgress();
+                        pull_listView.onRefreshComplete();
                         if (response == null) return;
                         CommentDetailInfoDAO commentInfoDAO = (CommentDetailInfoDAO) response;
                         adapter.setList(commentInfoDAO.getChildComments(),commentInfoDAO.getLoves(),commentInfoDAO.getReplyToCommentMap());
+                        loves = commentInfoDAO.getLoves();
                         initTop(commentInfoDAO.getParentComment());
                     }
                 });
@@ -397,7 +416,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
     private void add_comment_for_article(String parent_id,String reply_to,String content) {
         progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.add_comment_for_article.name(), PostType.article.name(),
-                        httpPostParams.add_comment_for_article(preferenceUtil.getID() + "", preferenceUtil.getUUid(), commentDAO.getArticleId()+"", content, parent_id, reply_to)),
+                        httpPostParams.add_comment_for_article(preferenceUtil.getID() + "", preferenceUtil.getUUid(), article_id, content, parent_id, reply_to)),
                 BaseModel.class, new PostCommentResponseListener() {
                     @Override
                     public void requestCompleted(Object response) throws JSONException {
@@ -411,23 +430,6 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
                     }
                 });
     }
-//    //点赞或取消点赞
-//    private void operate_artilce_comment(String com_id, String operate) {
-//        progressDialog.progressDialog();
-//        httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.operate_comment.name(), PostType.comment.name(),
-//                        httpPostParams.operate_comment(preferenceUtil.getID() + "", preferenceUtil.getUUid(), com_id, operate)),
-//                BaseModel.class,
-//                new PostCommentResponseListener() {
-//                    @Override
-//                    public void requestCompleted(Object response) throws JSONException {
-//                        if (response == null) {
-//                            progressDialog.cancleProgress();
-//                            return;
-//                        }
-//                        handler.sendEmptyMessage(0);
-//                    }
-//                });
-//    }
 
     //判断是否已登录
     private boolean judgeIsLogin() {

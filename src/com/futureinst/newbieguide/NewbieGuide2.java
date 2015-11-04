@@ -5,6 +5,8 @@ import com.futureinst.sharepreference.SharePreferenceUtil;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.os.Handler;
+import android.os.Message;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +21,9 @@ public class NewbieGuide2 {
 	private int[] eventTrade_guid_2 = new int[]{R.drawable.guide_7,R.drawable.guide_8};
 	private int[] imagesId;
 	private int index = 0;
-	public void setImagesId(int[] imagesId){
+    private ImageView guide;
+
+    public void setImagesId(int[] imagesId){
 		this.imagesId = imagesId;
 	}
 
@@ -39,12 +43,14 @@ public class NewbieGuide2 {
 		final Dialog dialog = new Dialog(context,R.style.choose_dialog);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		View view = LayoutInflater.from(context).inflate(R.layout.choose_dialog_2, null);
-		final ImageView guide = (ImageView) view.findViewById(R.id.guide);
+        guide = (ImageView) view.findViewById(R.id.guide);
+		guide.setImageDrawable(context.getResources().getDrawable(imagesId[0]));
 				guide.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						if(index == imagesId.length-1){
 							dialog.dismiss();
+                            guide = null;
 							return;
 						}
 						index++;
@@ -53,19 +59,7 @@ public class NewbieGuide2 {
 				});
 				
 
-//				guide4.setOnClickListener(new OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//						if(isHavaPrice){
-//							preferenceUtil.setGuide7();
-//							guide4.setVisibility(View.GONE);
-//						}else{
-//							dialog.dismiss();
-//						}
-//					}
-//				});
 
-		
 		dialog.setContentView(view);
 		DisplayMetrics metrics = new DisplayMetrics();
 		context.getWindowManager().getDefaultDisplay().getMetrics(metrics);

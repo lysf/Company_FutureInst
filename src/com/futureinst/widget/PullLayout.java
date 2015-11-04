@@ -62,8 +62,8 @@ public class PullLayout extends ScrollView{
             if(onScrollListener != null){  
                 onScrollListener.onScroll(scrollY);  
             }
-        };  
-  
+        }
+
     }; 
 	public PullLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -252,15 +252,15 @@ public class PullLayout extends ScrollView{
         int startR = (startInt >> 16) & 0xff;
         int startG = (startInt >> 8) & 0xff;
         int startB = startInt & 0xff;
-        int endInt = (Integer) endValue;
+        int endInt = endValue;
         int endA = (endInt >> 24) & 0xff;
         int endR = (endInt >> 16) & 0xff;
         int endG = (endInt >> 8) & 0xff;
         int endB = endInt & 0xff;
-        return (int) ((startA + (int) (fraction * (endA - startA))) << 24)
-                | (int) ((startR + (int) (fraction * (endR - startR))) << 16)
-                | (int) ((startG + (int) (fraction * (endG - startG))) << 8)
-                | (int) ((startB + (int) (fraction * (endB - startB))));
+        return (startA + (int) (fraction * (endA - startA))) << 24
+                | (startR + (int) (fraction * (endR - startR))) << 16
+                | (startG + (int) (fraction * (endG - startG))) << 8
+                | (startB + (int) (fraction * (endB - startB)));
     }
 
     public void toggle() {
@@ -274,7 +274,7 @@ public class PullLayout extends ScrollView{
     private Status status;
 
     public enum Status {
-        Open, Close;
+        Open, Close
     }
 
     public boolean isOpen() {
@@ -362,8 +362,8 @@ public class PullLayout extends ScrollView{
          * 回调方法， 返回MyScrollView滑动的Y方向距离 
          * @param scrollY 
          *              、 
-         */  
-        public void onScroll(int scrollY);  
+         */
+        void onScroll(int scrollY);
     } 
     @Override
     protected int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {

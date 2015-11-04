@@ -52,8 +52,8 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 				Toast.makeText(getApplicationContext(), getResources().getString(R.string.data_over), Toast.LENGTH_SHORT).show();
 				break;
 			}
-		};
-	};
+		}
+    };
 	protected int page = 1;
 	protected String last_id = "0";
     protected final static String OVERIDE = "overide";
@@ -196,11 +196,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
         double pixels = Math.sqrt(w * w + h * h);
         double inch = pixels / displayMetrics.densityDpi;
 
-        if (inch <= 5.0) {
-            return false;
-        } else {
-            return true;
-        }
+        return inch > 5.0;
     }
 
     /**

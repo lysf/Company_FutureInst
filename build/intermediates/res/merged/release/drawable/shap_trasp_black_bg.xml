@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="5dp"/>
+    <stroke android:color="@color/text_color_0" android:width="@dimen/line_height"/>
+    <solid android:color="@android:color/transparent"/>
+    <padding android:left="@dimen/margin_5"
+        android:right="@dimen/margin_5"
+        android:top="1dip"
+        android:bottom="1dip"
+        />
+</shape><!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/shap_trasp_black_bg.xml -->

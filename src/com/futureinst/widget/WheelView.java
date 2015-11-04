@@ -29,7 +29,7 @@ public class WheelView extends ScrollView {
     private OnItemSelectListener onItemSelectListener;
     
     public interface OnItemSelectListener{
-    	public void onItemSelect(int position);
+    	void onItemSelect(int position);
     }
     public void setOnItemSelectListener(OnItemSelectListener itemSelectListener){
     		onItemSelectListener = itemSelectListener;

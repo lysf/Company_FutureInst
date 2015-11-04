@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_focused="true" android:color="@color/text_color_9"/>
+    <item android:state_pressed="true" android:color="@color/text_color_9"/>
+    <item android:color="@color/text_color_0"/>
+</selector>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/right_button_text_color.xml -->

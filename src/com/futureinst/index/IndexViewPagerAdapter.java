@@ -21,7 +21,7 @@ public class IndexViewPagerAdapter extends PagerAdapter implements OnPageChangeL
 	@Override
 	public Object instantiateItem(ViewGroup container, int position) {
 		View view = list.get(position);
-		((ViewPager) container).addView(view);
+		container.addView(view);
 		return view;
 	}
 	@Override
@@ -43,7 +43,7 @@ public class IndexViewPagerAdapter extends PagerAdapter implements OnPageChangeL
 	public void destroyItem(ViewGroup container, int position, Object object) {
 		// TODO Auto-generated method stub
 		// super.destroyItem(container, position, object);
-		((ViewPager) container).removeView(list.get(position));
+		container.removeView(list.get(position));
 	}
 	
 	@Override

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.futureinst.widget.dragtop.StickyNavLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="@color/text_color_white"
+        android:orientation="vertical">
+    </RelativeLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:background="@color/text_color_white"
+            android:id="@+id/id_stickynavlayout_topview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:paddingTop="@dimen/margin_5"
+                android:paddingBottom="@dimen/margin_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/iv_forecast_top" />
+            <include
+                android:id="@+id/view_auto_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_below="@+id/ll_top"
+                layout="@layout/view_auto_scroll_viewpager" />
+        </LinearLayout>
+
+
+
+        <com.futureinst.widget.PagerSlidingTabStrip
+            android:id="@+id/id_stickynavlayout_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/text_color_e" />
+        <com.futureinst.widget.CustomViewPager
+            android:id="@+id/id_stickynavlayout_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+        <com.futureinst.widget.PagerSlidingTabStrip
+            android:visibility="gone"
+            android:id="@+id/slidingTab_float"
+            android:layout_below="@+id/ll_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/text_color_e" />
+
+
+
+</com.futureinst.widget.dragtop.StickyNavLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/fragment_forecast.xml -->

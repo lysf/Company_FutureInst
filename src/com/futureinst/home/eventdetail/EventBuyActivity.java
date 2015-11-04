@@ -435,12 +435,9 @@ public class EventBuyActivity extends BaseActivity {
 			if(TextUtils.isEmpty(et_price.getText().toString())){
 				return false;
 			}
-			if(TextUtils.isEmpty(et_num.getText().toString())){
-				return false;
-			}
-			return true;
-		
-		}
+            return !TextUtils.isEmpty(et_num.getText().toString());
+
+        }
 		
 		//显示新手引导
 		 private void showGuide(){

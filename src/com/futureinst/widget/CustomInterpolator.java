@@ -5,7 +5,6 @@ import android.view.animation.Interpolator;
 public class CustomInterpolator implements Interpolator {
 	 /**
      * 
-     * @param cycles 要重复的周期数
      */
     public CustomInterpolator() {
     }

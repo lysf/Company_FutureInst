@@ -177,7 +177,6 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
             }
         }
 
-        ;
     };
 
     //显示新手引导
@@ -202,6 +201,7 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
         initView();
         progressDialog.progressDialog();
         getPrice();
+        showGuide();
 
     }
 
@@ -221,7 +221,6 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
             isPriceRefresh = true;
             refreshPrice();
         }
-        showGuide();
     }
 
     private void initView() {
@@ -302,6 +301,7 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
         initOrder();
         initCommentView();
         initPoint();
+        initLazyBagAndReference();
     }
 
     //init order
@@ -455,7 +455,7 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EventDetailActivity.this, ArticleDetailActivity.class);
-                intent.putExtra("point",article);
+                intent.putExtra("article_id",article.getId()+"");
                 startActivity(intent);
             }
         });
@@ -602,8 +602,22 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
             ll_event_sell.setVisibility(View.GONE);
         }
     }
+//初始化懒人包和相关新闻
+    private void initLazyBagAndReference(){
+        Bundle bundle = new Bundle();
+
+        lazyBagFragment = new LazyBagFragment();
+        bundle.putString("eventId", event_id);
+        lazyBagFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_incident, lazyBagFragment).commitAllowingStateLoss();
 
 
+        refrenceFragment = new RefrenceFragment();
+        bundle.putString("eventId", event_id);
+        refrenceFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_refrence, refrenceFragment).commitAllowingStateLoss();
+
+    }
     //初始化数据
     private void initData(QueryEventDAO event) {
         tv_event_title.setText(event.getTitle());
@@ -1152,20 +1166,14 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
                         if(response == null) return;
                         EventRelatedInfo eventRelatedInfo = (EventRelatedInfo) response;
                             if(eventRelatedInfo.getLazybag()!=null){
-                                lazyBagFragment = new LazyBagFragment();
-                                Bundle bundle = new Bundle();
-                                bundle.putString("eventId", event_id);
-                                bundle.putSerializable("date", eventRelatedInfo.getLazybag());
-                                lazyBagFragment.setArguments(bundle);
-                                getSupportFragmentManager().beginTransaction().replace(R.id.container_incident, lazyBagFragment).commit();
+                                Intent lazybagIntent = new Intent("lazybag");
+                                lazybagIntent.putExtra("data", eventRelatedInfo.getLazybag());
+                                sendBroadcast(lazybagIntent);
                             }
-                        if(eventRelatedInfo.getRefer()!=null){
-                            refrenceFragment = new RefrenceFragment();
-                            Bundle bundle = new Bundle();
-                            bundle.putString("eventId", event_id);
-                            bundle.putSerializable("date", eventRelatedInfo.getRefer());
-                            refrenceFragment.setArguments(bundle);
-                            getSupportFragmentManager().beginTransaction().replace(R.id.container_refrence, refrenceFragment).commit();
+                        if(eventRelatedInfo.getRefer()!=null ){
+                            Intent referIntent = new Intent("refer");
+                            referIntent.putExtra("data",eventRelatedInfo.getRefer());
+                            sendBroadcast(referIntent);
                         }
                     }
                 });

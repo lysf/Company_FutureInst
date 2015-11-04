@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+        <ImageView
+            android:id="@+id/iv_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_top_default"/>
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:background="@color/text_color_white"
+            android:alpha="0.66"
+            android:paddingTop="@dimen/margin_5"
+            android:paddingBottom="@dimen/margin_5"
+            android:paddingLeft="@dimen/activity_login_margin_10"
+            android:paddingRight="@dimen/activity_login_margin_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_event_type"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/text_color_3"
+                android:layout_width="wrap_content"
+                android:text="财经"
+                android:background="@drawable/shap_trasp_black_bg"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_event_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_login_margin_10"
+                android:textSize="@dimen/text_size_small"
+                android:text="这是事件标题"
+                android:textColor="@color/text_color_3"
+                android:singleLine="true"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@color/text_color_white"
+        android:paddingTop="@dimen/margin_5"
+        android:paddingBottom="@dimen/margin_5"
+        android:paddingLeft="@dimen/activity_login_margin_10"
+        android:paddingRight="@dimen/activity_login_margin_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.futureinst.roundimageutils.RoundedImageView
+            android:id="@+id/headImage_select"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="3dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"
+            app:corner_radius="8dip"
+            app:mutate_background="true"
+            app:oval="true" />
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_toRightOf="@+id/headImage_select"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_time"
+            android:textSize="@dimen/text_size_small"
+            android:layout_below="@+id/tv_name"
+            android:layout_toRightOf="@+id/headImage_select"
+            android:layout_toEndOf="@+id/headImage_select"
+            android:textColor="@color/text_color_9" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0人阅读"
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
+            android:id="@+id/tv_read"
+            android:textColor="@color/text_color_9"
+            android:layout_alignBottom="@+id/tv_time"
+            android:layout_toRightOf="@+id/tv_time"
+            android:layout_toEndOf="@+id/tv_time"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:drawableLeft="@drawable/iv_comment_num"
+            android:text=" 0"
+            android:textColor="@color/text_color_9"
+            android:textSize="@dimen/text_size_small"
+            android:layout_alignTop="@+id/tv_read"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            />
+
+        <TextView
+            android:id="@+id/tv_praise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text=" 0"
+            android:drawableLeft="@drawable/iv_item_prise"
+            android:textColor="@color/text_color_9"
+            android:textSize="@dimen/text_size_small"
+            android:layout_alignTop="@+id/tv_comment"
+            android:layout_toLeftOf="@+id/tv_comment"
+            android:layout_toStartOf="@+id/tv_comment"
+            android:layout_marginRight="@dimen/margin_20"
+            android:layout_marginEnd="21dp" />
+    </RelativeLayout>
+    <TextView
+        android:layout_marginTop="@dimen/activity_login_margin_10"
+        android:layout_marginBottom="@dimen/activity_login_margin_10"
+        android:layout_marginLeft="@dimen/activity_login_margin_10"
+        android:layout_marginRight="@dimen/activity_login_margin_10"
+        android:id="@+id/tv_select_point_title"
+        android:textSize="@dimen/text_size_large"
+        android:textColor="@color/text_color_4"
+        android:lineSpacingExtra="@dimen/dimen_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_select_point_content"
+            android:paddingBottom="@dimen/margin_20"
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
+            android:layout_marginRight="@dimen/activity_login_margin_10"
+            android:textColor="@color/text_color_4"
+            android:textSize="@dimen/text_size_normal"
+            android:lineSpacingExtra="@dimen/dimen_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+</LinearLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/view_selection_point.xml -->

@@ -129,7 +129,7 @@ public class CommentDetailAdapter extends BaseAdapter {
 				headImage_1.setTag(dao.getUser().getHeadImage());
 			}
 			tv_name_1.setText(dao.getUser().getName()+" 已回复");
-			tv_time_1.setText(dao.getCtimeStr());
+			tv_time_1.setText(TimeUtil.getDescriptionTimeFromTimestamp(dao.getCtime()));
 			tv_total_apply.setText("共"+item.getChildNum()+"条回复");
 		}
 
@@ -148,7 +148,7 @@ public class CommentDetailAdapter extends BaseAdapter {
 			ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.logo));
 			imageView.setTag(item.getUser().getHeadImage());
 		}
-		tv_time.setText(item.getCtimeStr());
+		tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getCtime()));
 
 		imageView.setOnClickListener(new OnClickListener() {
 			@Override

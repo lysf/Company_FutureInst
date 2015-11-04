@@ -46,6 +46,15 @@ public class NewsDAO implements Serializable{
     @SerializedName("status")
     private int status;
     private UserDAO user;
+    private String targetUrl;
+
+    public String getTargetUrl() {
+        return targetUrl;
+    }
+
+    public void setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
+    }
 
     public UserDAO getUser() {
         return user;

@@ -22,7 +22,7 @@ public interface WheelAdapter {
 	 * 
 	 * @return the count of wheel items
 	 */
-	public int getItemsCount();
+    int getItemsCount();
 
 	/**
 	 * Gets a wheel item by index.
@@ -31,7 +31,7 @@ public interface WheelAdapter {
 	 *            the item index
 	 * @return the wheel item text or null
 	 */
-	public String getItem(int index);
+    String getItem(int index);
 
 	/**
 	 * Gets maximum item length. It is used to determine the wheel width. If -1
@@ -39,5 +39,5 @@ public interface WheelAdapter {
 	 * 
 	 * @return the maximum item length or -1
 	 */
-	public int getMaximumLength();
+    int getMaximumLength();
 }

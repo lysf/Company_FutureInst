@@ -73,7 +73,7 @@ public class MySersor
 	}
 	
 	interface MySensorLisenter{
-		 public void doRotate(float x);
+		 void doRotate(float x);
 	}
 	
 }

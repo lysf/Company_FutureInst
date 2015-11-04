@@ -28,11 +28,23 @@ public class MyScrollView extends ScrollView {
     protected void onScrollChanged(int x, int y, int oldx, int oldy) {
         super.onScrollChanged(x, y, oldx, oldy);
         if (scrollViewListener != null) {
+//            if(getScrollY() + getHeight() >=  computeVerticalScrollRange()){
+            setScrollBottom(getScrollY() + getHeight() >=  computeVerticalScrollRange());
+//            }
             scrollViewListener.onScrollChanged( x, y, oldx, oldy);
         }
     }
     public interface ScrollViewListener {
         void onScrollChanged( int x, int y, int oldx, int oldy);
 
+    }
+    private boolean scrollBottom;
+
+    public boolean isScrollBottom() {
+        return scrollBottom;
+    }
+
+    public void setScrollBottom(boolean scrollBottom) {
+        this.scrollBottom = scrollBottom;
     }
 }

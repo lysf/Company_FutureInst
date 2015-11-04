@@ -17,9 +17,9 @@
             android:layout_height="wrap_content">
             <com.futureinst.widget.IconSlidingTabView
                 android:id="@+id/icon_type"
-                android:text="&#xe637;"
+                android:text="&#xe641;"
                 android:textColor="@color/text_color_4"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView

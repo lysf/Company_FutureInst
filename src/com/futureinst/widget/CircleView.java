@@ -97,7 +97,7 @@ public class CircleView extends View {
 		if(v<=0.5){
 			canvas.drawCircle(pointX, pointY, r, paint1);
 			 startAngle = (float) (Math.asin(d/r)/Math.PI*180);
-			sweepAngle = (float) (180 - 2*startAngle);
+			sweepAngle = 180 - 2*startAngle;
 			canvas.drawArc(oval, startAngle, sweepAngle, false, paint2);
 		}else{
 			canvas.drawCircle(pointX, pointY, r, paint2);

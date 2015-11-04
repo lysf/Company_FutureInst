@@ -192,6 +192,6 @@ public class RegistActiivty_1 extends BaseActivity {
 			default:
 				break;
 			}
-		};
-	};
+		}
+    };
 }

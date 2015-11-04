@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:background="@drawable/view_shap"
+        android:paddingTop="@dimen/margin_20"
+        android:paddingBottom="@dimen/margin_20"
+        android:layout_margin="@dimen/activity_login_margin_10"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:paddingTop="@dimen/margin_15"
+            android:paddingBottom="@dimen/margin_15"
+            android:paddingLeft="@dimen/activity_login_margin_10"
+            android:paddingRight="@dimen/activity_login_margin_10"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_4"
+            android:text="@string/welcom_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_ok"
+            android:layout_marginTop="@dimen/margin_20"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_4"
+            android:text="@string/ok"
+            android:background="@drawable/login_btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/view_diaolog_welcom.xml -->

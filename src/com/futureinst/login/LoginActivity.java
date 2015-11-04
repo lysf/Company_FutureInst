@@ -102,10 +102,10 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 				startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
 				break;
 			case R.id.tv_wechat://微信
-//				authorize(new Wechat(LoginActivity.this));
+				authorize(new Wechat(LoginActivity.this));
 				break;
 			case R.id.tv_sina://新浪
-//				authorize(new SinaWeibo(LoginActivity.this));
+				authorize(new SinaWeibo(LoginActivity.this));
 				break;
 			}
 		}
@@ -220,7 +220,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 						type = "weixin"+openId;
 					}
 					thirdName = plat.getDb().getUserName();
-					gender = (String) plat.getDb().get("gender");
+					gender = plat.getDb().get("gender");
 					if(gender.equals("m")){
 						gender = "1";
 					}else {

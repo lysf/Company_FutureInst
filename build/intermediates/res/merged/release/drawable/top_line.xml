@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item >
+        <shape >
+            <solid android:color="@color/text_color_a"/>
+        </shape>
+    </item>
+	<item android:top="@dimen/line_height">
+	    <shape >
+	        <solid android:color="@color/text_color_white"/>
+	    </shape>
+	</item>
+</layer-list>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/top_line.xml -->

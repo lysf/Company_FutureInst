@@ -72,10 +72,17 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
         pull_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) return;
-                ArticleDAO item = (ArticleDAO) adapter.getItem(position - 1);
+                ArticleDAO item = null;
+                if(isUser){
+                    if (position < 2) return;
+                    item = (ArticleDAO) adapter.getItem(position - 2);
+                }else{
+                    if (position < 1) return;
+                   item = (ArticleDAO) adapter.getItem(position - 1);
+                }
+
                 Intent intent = new Intent(AritlceActivity.this, ArticleDetailActivity.class);
-                intent.putExtra("point", item);
+                intent.putExtra("article_id", item.getId()+"");
                 startActivity(intent);
             }
         });

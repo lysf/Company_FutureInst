@@ -64,7 +64,7 @@ public class DragTopLayout extends FrameLayout {
     private PanelState panelState = PanelState.EXPANDED;
 
 
-    public static enum PanelState {
+    public enum PanelState {
 
         COLLAPSED(0),
         EXPANDED(1),
@@ -573,18 +573,18 @@ public class DragTopLayout extends FrameLayout {
         /**
          * Called while the panel state is changed.
          */
-        public void onPanelStateChanged(PanelState panelState);
+        void onPanelStateChanged(PanelState panelState);
 
         /**
          * Called while dragging.
          * ratio >= 0.
          */
-        public void onSliding(float ratio);
+        void onSliding(float ratio);
 
         /**
          * Called while the ratio over refreshRatio.
          */
-        public void onRefresh();
+        void onRefresh();
     }
 
     public static class SimplePanelListener implements PanelListener {

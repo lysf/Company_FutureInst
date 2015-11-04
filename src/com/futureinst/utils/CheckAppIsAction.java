@@ -13,10 +13,7 @@ public class CheckAppIsAction {
 	    final Intent intent = new Intent(action);    
 	    List<ResolveInfo> resolveInfo =    
 	            packageManager.queryIntentActivities(intent,    
-	                    PackageManager.MATCH_DEFAULT_ONLY);    
-	   if (resolveInfo.size() > 0) {    
-	        return true;    
-	    }    
-	   return false;    
-	}
+	                    PackageManager.MATCH_DEFAULT_ONLY);
+        return resolveInfo.size() > 0;
+    }
 }

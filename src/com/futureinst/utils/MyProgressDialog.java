@@ -38,10 +38,7 @@ public class MyProgressDialog {
 		}
 	}
 	public boolean getIsShow(){
-		if(mProgressDialog.isShowing()){
-			return true;
-		}
-		return false;
-	}
+        return mProgressDialog.isShowing();
+    }
 }
 

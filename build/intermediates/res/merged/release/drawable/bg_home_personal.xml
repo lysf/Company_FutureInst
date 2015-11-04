@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_selected="false" android:drawable="@drawable/home_white_userrinfo_2"/>
+    <item android:state_selected="true" android:drawable="@drawable/home_white_userinfo_1"/>
+	<item android:drawable="@drawable/home_btn_3_1"/>
+</selector>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/bg_home_personal.xml -->

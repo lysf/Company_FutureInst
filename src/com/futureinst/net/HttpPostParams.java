@@ -10,7 +10,7 @@ import android.text.TextUtils;
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
 	//ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi
-	private String ctype = "anzhi";
+	private String ctype = "android";
 	public static HttpPostParams getInstace(){
 		if(httpPostParams == null)
 			httpPostParams = new HttpPostParams();
@@ -832,8 +832,12 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
-	public String query_comment_for_article(String article_id,String parent_id){
+	public String query_comment_for_article(String user_id,String uuid,String article_id,String parent_id){
 		Map<String, String> map = new HashMap<String, String>();
+		if(!user_id.equals("0") && !TextUtils.isEmpty(uuid)){
+			map.put("user_id", user_id);
+			map.put("uuid", uuid);
+		}
 		map.put("article_id", article_id);
 		map.put("parent_id", parent_id);
 		JSONObject jsonObject = new JSONObject(map);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/status_bar"
+    android:paddingLeft="@dimen/margin_20"
+    android:paddingRight="@dimen/margin_20"
+    android:paddingTop="@dimen/margin_5"
+    android:paddingBottom="@dimen/margin_5"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/btn_comment_float"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:text=" 写评论"
+        android:textColor="@color/text_color_4"
+        android:textSize="@dimen/text_size_large"
+        android:drawableLeft="@drawable/comment_edit_float"
+
+    />
+    <Button
+        android:id="@+id/btn_comment_total_float"
+        android:layout_alignParentRight="true"
+        android:background="@null"
+        android:drawableLeft="@drawable/comment_float"
+        android:text=" 0"
+        android:textSize="@dimen/text_size_large"
+        android:textColor="@color/text_color_4"
+        android:gravity="left|center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/view_comment_float.xml -->
