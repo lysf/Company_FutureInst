@@ -28,8 +28,11 @@
              >
 
             <ImageView
+                android:layout_marginTop="@dimen/margin_5"
+                android:layout_marginBottom="@dimen/margin_5"
                 android:id="@+id/iv_message"
                 android:scaleType="center"
+                android:background="@drawable/ripple_shap"
                 android:layout_centerHorizontal="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -40,7 +43,7 @@
                 android:layout_marginRight="@dimen/activity_login_margin_10"
                 android:layout_marginTop="15dp"
                 android:layout_alignParentRight="true"
-
+                android:visibility="invisible"
                 android:layout_width="@dimen/margin_15"
                 android:layout_height="@dimen/margin_15"
                 android:background="@drawable/point_red"

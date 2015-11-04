@@ -105,6 +105,7 @@ public class ForecastItemAdapter extends BaseAdapter {
         View view_bottom = ViewHolder.get(convertView,R.id.view_bottom);
 		TextView tv_commentNum = ViewHolder.get(convertView,R.id.tv_commentNum);//评论数
 		TextView tv_orderNum = ViewHolder.get(convertView,R.id.tv_orderNum);//下单数
+		TextView tv_group = ViewHolder.get(convertView,R.id.tv_group);
 
 		tv_commentNum.setText(item.getAllComNum()+"");
 		tv_orderNum.setText(item.getInvolve() + "");
@@ -118,6 +119,7 @@ public class ForecastItemAdapter extends BaseAdapter {
 		layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		tv_status.setLayoutParams(layoutParams);
 
+		tv_group.setVisibility(View.GONE);
 		view_transp.setVisibility(View.INVISIBLE);
         ll_time.setVisibility(View.INVISIBLE);
 		if(iv_image.getTag()==null || !iv_image.getTag().equals(item.getImgsrc())){
@@ -131,6 +133,8 @@ public class ForecastItemAdapter extends BaseAdapter {
 			}else{
                 tv_type.setText("广告");
 			}
+			tv_group.setVisibility(View.VISIBLE);
+			tv_group.setText(item.getTitle());
             tv_type.setTextColor(context.getResources().getColor(R.color.text_color_white));
             tv_type.setBackground(context.getResources().getDrawable(R.drawable.shap_trasp_white_bg));
 			tv_title.setVisibility(View.GONE);

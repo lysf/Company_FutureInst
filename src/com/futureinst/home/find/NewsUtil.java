@@ -10,13 +10,7 @@ public class NewsUtil {
     private String comment_id;//  /comments#
     private String comment_parent_id;//  ?parent_id=
     private String article_id;//   ./article/
-    public static NewsUtil newsUtil;
-    public static NewsUtil getInstance(){
-        if(newsUtil == null){
-            newsUtil = new NewsUtil();
-        }
-        return newsUtil;
-    }
+
 
     //解析
     public void analysisNews(String news){
@@ -48,16 +42,16 @@ public class NewsUtil {
                 if(news.contains("?parent_id=")){//观点文章评论详情
                     setComment_parent_id(news.substring(news.indexOf("?parent_id=")+"?parent_id=".length()));
                     setComment_id(news.substring(news.indexOf("/comments#") + "/comments#".length(), news.indexOf("?parent_id=")));
-                    setEvent_id(news.substring(news.indexOf("./article/") + "./article/".length(),news.indexOf("/comments#")));
+                    setArticle_id(news.substring(news.indexOf("./article/") + "./article/".length(), news.indexOf("/comments#")));
                     setType(7);
                     return;
                 }
                 setComment_id(news.substring(news.indexOf("/comments#") + "/comments#".length()));
-                setEvent_id(news.substring(news.indexOf("./article/") + "./article/".length(),news.indexOf("/comments#")));
+                setArticle_id(news.substring(news.indexOf("./article/") + "./article/".length(), news.indexOf("/comments#")));
                 setType(6);
                 return;
             }
-            setEvent_id(news.substring(news.indexOf("./article/") + "./article/".length()));
+            setArticle_id(news.substring(news.indexOf("./article/") + "./article/".length()));
             setType(5);
             return;
         }

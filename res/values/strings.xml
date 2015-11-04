@@ -8,7 +8,7 @@
     <string name="crop__done">确定</string>
     <string name="crop__cancel">取消</string>
 
-	<string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，送您的5000未币已经到账，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
+	<string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送5000未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
     <!-- hometable -->
     <!-- iconFont -->
     <string name="home_tab1">&#xe600;</string>
@@ -57,7 +57,7 @@
 	<string name="login_regist">注册</string>
 	<string name="login_phone_number">手机号</string>
 	<string name="login_password">密码</string>
-	<string name="login_forget_password">忘记密码</string>
+	<string name="login_forget_password">忘记密码?</string>
 	<string name="empty_phone">请输入手机号</string>
 	<string name="wrong_phone">请输入合法手机号</string>
 	<string name="empty_pwd">请输入密码</string>

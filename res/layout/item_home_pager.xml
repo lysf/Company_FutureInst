@@ -103,7 +103,6 @@
                     android:id="@+id/tv_involve"
                     android:layout_marginTop="@dimen/margin_5"
                     android:gravity="center_vertical"
-                    android:drawableLeft="@drawable/a_hp_1_icon_03"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_size_normal"

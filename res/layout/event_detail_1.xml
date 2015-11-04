@@ -5,39 +5,44 @@
     android:background="@color/text_color_white"
     android:orientation="vertical">
     <RelativeLayout
+        android:id="@+id/rl_top"
         android:layout_width="match_parent"
-        android:layout_height="120dip">
+        android:layout_height="125dip">
+
         <ImageView
             android:id="@+id/iv_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/image_top_default"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_top_default"/>
+
         <LinearLayout
             android:id="@+id/ll_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/margin_5"
+            android:alpha="0.6"
             android:background="@color/text_color_white"
             android:gravity="end"
-            android:alpha="0.6">
+            android:padding="@dimen/margin_5">
+
             <TextView
                 android:id="@+id/tv_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="9天5时候关闭交易"
-                android:textSize="@dimen/text_size_small"
                 android:background="@null"
+                android:text="9天5时候关闭交易"
                 android:textColor="@color/text_color_6"
+                android:textSize="@dimen/text_size_small"
                 />
+
             <View
                 android:layout_width="2dip"
                 android:layout_height="match_parent"
-                android:background="@color/text_color_0"
-                android:layout_marginTop="@dimen/dimen_3"
                 android:layout_marginBottom="@dimen/dimen_3"
                 android:layout_marginLeft="@dimen/margin_5"
-                android:layout_marginRight="@dimen/margin_5"/>
+                android:layout_marginRight="@dimen/margin_5"
+                android:layout_marginTop="@dimen/dimen_3"
+                android:background="@color/text_color_0"/>
         </LinearLayout>
     </RelativeLayout>
     <TextView

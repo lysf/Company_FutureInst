@@ -5,6 +5,11 @@
         <attr name="right_width" format="dimension"></attr>
     </declare-styleable>
 
+    <declare-styleable name="PullScrollView">
+    <attr name="header" format="reference" />
+    <attr name="headerHeight" format="dimension" />
+    <attr name="headerVisibleHeight" format="dimension" />
+    </declare-styleable>
 
     <declare-styleable name="HomeTab">
         <attr name = "iconFontText" format="string"/>
@@ -53,6 +58,7 @@
         </attr>
     </declare-styleable>
 
+
     <declare-styleable name="DragTopLayout">
 
         <!--Set the collapse panel offset-->
@@ -72,5 +78,34 @@
 
         <!-- True the top view can be dragged -->
         <attr name="dtlCaptureTop" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="MaterialLayout">
+        <attr name="alpha" format="integer" />
+        <attr name="alpha_step" format="integer" />
+        <attr name="framerate" format="integer" />
+        <attr name="duration" format="integer" />
+        <attr name="mcolor" format="color" />
+        <attr name="scale" format="float" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RippleView">
+        <attr name="rv_alpha" format="integer" />
+        <attr name="rv_framerate" format="integer"/>
+        <attr name="rv_rippleDuration" format="integer"/>
+        <attr name="rv_zoomDuration" format="integer" />
+        <attr name="rv_color" format="color" />
+        <attr name="rv_centered" format="boolean" />
+        <attr name="rv_type" format="enum">
+            <enum name="simpleRipple" value="0"/>
+            <enum name="doubleRipple" value="1"/>
+            <enum name="rectangle" value="2" />
+        </attr>
+        <attr name="rv_ripplePadding" format="dimension" />
+        <attr name="rv_zoom" format="boolean" />
+        <attr name="rv_zoomScale" format="float" />
+
     </declare-styleable>
 </resources>

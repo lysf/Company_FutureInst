@@ -1,43 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/text_color_white"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
     <LinearLayout
-        android:padding="@dimen/activity_login_margin_10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:gravity="center"
-            android:textColor="@color/text_color_6"
-            android:text="标题:"
-            android:textSize="@dimen/text_size_large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <View
-            android:layout_marginLeft="@dimen/activity_login_margin_10"
-            android:background="@color/text_color_e"
-            android:layout_width="@dimen/line_height"
-            android:layout_height="match_parent"/>
-        <EditText
-            android:id="@+id/et_point_title"
-            android:background="@null"
-            android:gravity="center_vertical"
-            android:textColor="@color/text_color_4"
-            android:textSize="@dimen/text_size_large"
+        android:layout_height="match_parent"
+        android:background="@color/text_color_white"
+        android:orientation="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_login_margin_10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="标题:"
+                android:textColor="@color/text_color_6"
+                android:textSize="@dimen/text_size_large"/>
+
+            <View
+                android:layout_width="@dimen/line_height"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/activity_login_margin_10"
+                android:layout_marginRight="@dimen/activity_login_margin_10"
+                android:background="@color/text_color_e"/>
+
+            <EditText
+                android:id="@+id/et_point_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_color_4"
+                android:textSize="@dimen/text_size_large"/>
+        </LinearLayout>
+
+        <include layout="@layout/view_line"/>
+
+        <com.futureinst.widget.richeditor.RichEditor
+            android:id="@+id/et_point_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="200dp"
+            android:background="@null"
+            android:gravity="top|left"
+            android:hint="写观点赚未币，文章审核通过即可发布"
+            android:padding="@dimen/activity_login_margin_10"
+            android:textColor="@color/text_color_9"
+            android:textSize="@dimen/text_size_normal"/>
     </LinearLayout>
-    <include layout="@layout/view_line"/>
-    <EditText
-        android:id="@+id/et_point_content"
-        android:padding="@dimen/activity_login_margin_10"
-        android:background="@null"
-        android:gravity="top|left"
-        android:textSize="@dimen/text_size_normal"
-        android:textColor="@color/text_color_9"
-        android:hint="写观点赚未币，文章审核通过即可发布"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+    <ImageView
+        android:id="@+id/iv_image"
+        android:src="@drawable/rich_editor_imag"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/activity_login_margin_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -5,7 +5,9 @@
     android:background="@color/text_color_e"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
-    <LinearLayout 
+    <LinearLayout
+        android:paddingLeft="@dimen/widget_height_55"
+        android:paddingRight="@dimen/widget_height_55"
         android:layout_marginTop="@dimen/line_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

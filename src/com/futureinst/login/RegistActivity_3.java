@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -31,10 +32,11 @@ import com.futureinst.net.PostType;
 import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.MyToast;
+import com.futureinst.widget.list.MyGridView;
 import com.igexin.sdk.PushManager;
 
 public class RegistActivity_3 extends BaseActivity {
-	private GridView gridView;
+	private MyGridView gridView;
 	private KeywordGridViewAdapter adapter;
 	private String keywords[];
 	private List<RegistsKeywordDAO > list;
@@ -42,26 +44,33 @@ public class RegistActivity_3 extends BaseActivity {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		initView();
-		initData();
+
 	}
-	@Override
-	protected void onRightClick(View view) {//完成
-		super.onRightClick(view);
-		update_user(adapter.getResult());
-	}
+
 	private void initView() {
 		loginTag = getIntent().getBooleanExtra("loginTag", false);
-		setTitle(R.string.login_regist);
+		setTitle("选择感兴趣的未来");
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
-		setRight(R.string.complete);
 		setContentView(R.layout.activity_regist_3);
-		gridView = (GridView) findViewById(R.id.gv_keyword);
+		gridView = (MyGridView) findViewById(R.id.gv_keyword);
+        findViewById(R.id.btn_submit).setOnClickListener(onClickListener);
 		adapter = new KeywordGridViewAdapter(this);
-		gridView.setAdapter(adapter);
 		keywords = getResources().getStringArray(R.array.regist_keyword);
-		list = new ArrayList<RegistsKeywordDAO>();
-	}
+        list = new ArrayList<>();
+        initData();
+        gridView.setAdapter(adapter);
+    }
+    OnClickListener onClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn_submit:
+                    update_user(adapter.getResult());
+                    break;
+            }
+        }
+    };
 	private void initData(){
 		RegistsKeywordDAO registsKeyword1 = new RegistsKeywordDAO(keywords[0], R.color.regist_keyword_1, R.color.text_color_white, false);
 		list.add(registsKeyword1);
@@ -79,8 +88,6 @@ public class RegistActivity_3 extends BaseActivity {
 		list.add(registsKeyword7);
 		RegistsKeywordDAO registsKeyword8 = new RegistsKeywordDAO(keywords[7], R.color.regist_keyword_8, R.color.text_color_3, false);
 		list.add(registsKeyword8);
-		RegistsKeywordDAO registsKeyword9 = new RegistsKeywordDAO(keywords[8], R.color.regist_keyword_9, R.color.text_color_3, false);
-		list.add(registsKeyword9);
 		adapter.setList(list);
 	}
 	private void update_user(String interest){

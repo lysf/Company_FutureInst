@@ -95,8 +95,8 @@ public class HomeActivity extends BaseActivity {
 				}
 				break;
 			}
-		};
-	};
+		}
+    };
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
@@ -323,11 +323,7 @@ public class HomeActivity extends BaseActivity {
 						if(response == null) return;
 						VersionDAO versionDAO = (VersionDAO) response;
 						showAD(versionDAO);
-						if(versionDAO.getDisable_app_sign_in() == 1){
-							Content.disable_app_sign_in = false;
-						}else{
-							Content.disable_app_sign_in = true;
-						}
+                        Content.disable_app_sign_in = versionDAO.getDisable_app_sign_in() != 1;
 						if(versionDAO.getAoto_refresh_event_price() == 1){
 							Content.is_aoto_refresh_event_price = true;
 							Content.aoto_refresh_event_price_interval = versionDAO.getAoto_refresh_event_price_interval();
@@ -554,12 +550,7 @@ public class HomeActivity extends BaseActivity {
 					if(i!=0 && !isLogin()){
 						return;
 					}
-					if(i!=0){
-						isCloseTab = false;
-//						ll_home_tab.setVisibility(View.VISIBLE);
-					}else{
-						isCloseTab = true;
-					}
+                    isCloseTab = i == 0;
 					if(i == 2){
 //						iv_ranking.setSelected(true);
 //						tv_ranking.setSelected(true);

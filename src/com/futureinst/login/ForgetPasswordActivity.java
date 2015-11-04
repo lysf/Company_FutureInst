@@ -34,7 +34,7 @@ public class ForgetPasswordActivity extends BaseActivity {
 
 	private void initView() {
 		setTitle(getResources().getString(R.string.reset_pwd));
-		setLeft(getResources().getString(R.string.cancel));
+        getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
 		et_mobile = (EditText) findViewById(R.id.et_phoneNumber);
 		et_authCode = (EditText) findViewById(R.id.et_authCode);
@@ -187,6 +187,6 @@ public class ForgetPasswordActivity extends BaseActivity {
 			default:
 				break;
 			}
-		};
-	};
+		}
+    };
 }

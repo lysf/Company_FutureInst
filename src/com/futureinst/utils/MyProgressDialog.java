@@ -1,9 +1,9 @@
 package com.futureinst.utils;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.widget.ProgressBar;
 
 import com.futureinst.R;
 
@@ -16,7 +16,6 @@ public class MyProgressDialog {
 		super();
 		mProgressDialog = new Dialog(context,R.style.theme_dialog_alert);
 		mProgressDialog.setContentView(R.layout.window_layout);
-		mProgressDialog.setCancelable(true);
 	}
 	public static MyProgressDialog getInstance(Context context){
 		progressDialog = new MyProgressDialog(context);
@@ -26,7 +25,7 @@ public class MyProgressDialog {
 		mProgressDialog
 		.setOnCancelListener(new android.content.DialogInterface.OnCancelListener() {
 			public void onCancel(DialogInterface dialog) {
-				//						((Object) context).finish();
+//										((Activity) context).finish();
 			}
 		});
 		mProgressDialog.setCancelable(false);
@@ -38,10 +37,7 @@ public class MyProgressDialog {
 		}
 	}
 	public boolean getIsShow(){
-		if(mProgressDialog.isShowing()){
-			return true;
-		}
-		return false;
-	}
+        return mProgressDialog.isShowing();
+    }
 }
 

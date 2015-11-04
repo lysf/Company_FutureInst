@@ -39,7 +39,15 @@ public class FondIndicentFragment extends BaseFragment implements PullListView.O
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_fond_indicent);
         initView();
-        query_user_news();
+
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        if(isVisibleToUser){
+            query_user_news();
+        }
+        super.setUserVisibleHint(isVisibleToUser);
     }
 
     private void initView() {

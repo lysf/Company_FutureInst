@@ -55,7 +55,7 @@ public class HomeLayout extends ScrollView{
             if(onScrollListener != null){
                 onScrollListener.onScroll(scrollY);
             }
-        };
+        }
 
     };
 
@@ -200,7 +200,7 @@ public class HomeLayout extends ScrollView{
          * @param scrollY
          *              、
          */
-        public void onScroll(int scrollY);
+        void onScroll(int scrollY);
     }
     @Override
     protected int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {

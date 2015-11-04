@@ -52,7 +52,7 @@ public class RotateLayout extends LinearLayout {
 				0.5f);
 		LinearInterpolator lin = new LinearInterpolator();
 		animation.setInterpolator(lin);
-		animation.setDuration(1000);
+		animation.setDuration(500);
 		animation.setRepeatCount(-1);
 		animation.setFillAfter(true);
 		imageview.startAnimation(animation);
@@ -77,8 +77,8 @@ public class RotateLayout extends LinearLayout {
 		if(scale > 1) scale = 1;
 		mt.postScale(scale, scale);
 		
-		mt.postRotate((curDegrees = curDegrees - roate)*2, bmpW / 2, bmpH / 2);
-		if(bmpW == 0 || bmpH == 0) bmpW = bmpH = 1;
+		mt.postRotate((curDegrees = curDegrees - roate)*3, bmpW / 2, bmpH / 2);
+		if(bmpW <= 0 || bmpH <= 0) bmpW = bmpH = 1;
 		Bitmap resizeBmp = Bitmap.createBitmap(bm, 0, 0, bmpW, bmpH, mt, true);
 		imageview.setScaleType(ScaleType.CENTER);
 		imageview.setImageBitmap(resizeBmp);

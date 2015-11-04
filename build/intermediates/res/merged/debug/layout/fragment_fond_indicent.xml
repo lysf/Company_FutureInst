@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    tools:context="com.futureinst.home.find.FondIndicentFragment">
+    <com.futureinst.widget.list.PullListView
+        android:id="@+id/pull_listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="0dp"/>
+    <ImageView
+        android:id="@+id/iv_empty"
+        android:visibility="invisible"
+        android:layout_marginLeft="40dp"
+        android:src="@drawable/incident_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/fragment_fond_indicent.xml -->

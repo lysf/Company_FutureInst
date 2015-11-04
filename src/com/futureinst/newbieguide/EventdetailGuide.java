@@ -66,7 +66,7 @@ public class EventdetailGuide {
         int screenHeight = metrics.heightPixels;
         Window window = dialog.getWindow();
         //设置显示动画
-        window.setWindowAnimations(R.anim.dialog_open);
+//        window.setWindowAnimations(R.anim.dialog_open);
         WindowManager.LayoutParams wl = window.getAttributes();
         wl.width = screenWidth;
         wl.height = screenHeight;

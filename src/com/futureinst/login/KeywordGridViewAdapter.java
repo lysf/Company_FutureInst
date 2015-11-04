@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.futureinst.R;
@@ -19,7 +23,11 @@ import com.futureinst.model.basemodel.RegistsKeywordDAO;
 import com.futureinst.utils.ViewHolder;
 
 public class KeywordGridViewAdapter extends BaseAdapter {
+
 	private List<RegistsKeywordDAO> list;
+    private int[]images = new int[]{
+            R.drawable.icon_tiyu,R.drawable.icon_caijing,R.drawable.icon_yule,R.drawable.icon_minsheng,
+    R.drawable.icon_keji,R.drawable.icon_guoji,R.drawable.icon_chengshi,R.drawable.icon_xinqi};
 	private Context context;
 	private SparseBooleanArray isCheck;
 	private String resullt = "";
@@ -58,18 +66,23 @@ public class KeywordGridViewAdapter extends BaseAdapter {
 		if(convertView==null)
 		convertView = LayoutInflater.from(context).inflate(R.layout.item_keyword, null, false);
 		RegistsKeywordDAO item = list.get(position);
-		TextView tv_keyword = ViewHolder.get(convertView, R.id.tv_keyword);
-		final ImageView iv_check = ViewHolder.get(convertView, R.id.iv_check);
+		 final TextView tv_keyword = ViewHolder.get(convertView, R.id.tv_keyword);
+        final LinearLayout ll_keyword = ViewHolder.get(convertView,R.id.ll_keyword);
+         final ImageView iv_check = ViewHolder.get(convertView, R.id.iv_check);
 		tv_keyword.setText(item.getKeyword());
-		tv_keyword.setBackground(context.getResources().getDrawable(item.getBackgroundColor()));
-		tv_keyword.setTextColor(context.getResources().getColor(item.getTextColor()));
-		tv_keyword.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-					iv_check.setSelected(!(isCheck.get(position)));
-					isCheck.put(position, !(isCheck.get(position)));
-			}
-		});
+        iv_check.setImageDrawable(context.getResources().getDrawable(images[position]));
+
+
+        ll_keyword.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isCheck.put(position, (isCheck.get(position) == true ? false : true));
+                iv_check.setSelected((isCheck.get(position)));
+                tv_keyword.setSelected((isCheck.get(position)));
+                ll_keyword.setSelected((isCheck.get(position)));
+            }
+        });
+
 		return convertView;
 	}
 	public String getResult(){
@@ -84,4 +97,6 @@ public class KeywordGridViewAdapter extends BaseAdapter {
 		}
 		return resullt;
 	}
+
+
 }

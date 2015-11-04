@@ -106,7 +106,7 @@ public class Shake2Share extends FakeActivity implements SensorEventListener {
 				float deltaX = x - mLastX;
 				float deltaY = y - mLastY;
 				float deltaZ = z - mLastZ;
-				float delta = FloatMath.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ) / diffTime * 10000;
+				float delta = (float)Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ) / diffTime * 10000;
 				if (delta > SHAKE_THRESHOLD) {
 					if (!shaken) {
 						shaken = true;
@@ -129,8 +129,8 @@ public class Shake2Share extends FakeActivity implements SensorEventListener {
 
 	}
 
-	public static interface OnShakeListener {
-		public void onShake();
+	public interface OnShakeListener {
+		void onShake();
 	}
 
 }

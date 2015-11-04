@@ -127,7 +127,7 @@ public class ArticleCommentAdapter extends BaseAdapter {
 				headImage_1.setTag(dao.getUser().getHeadImage());
 			}
 			tv_name_1.setText(dao.getUser().getName()+" 已回复");
-			tv_time_1.setText(dao.getCtimeStr());
+			tv_time_1.setText(TimeUtil.getDescriptionTimeFromTimestamp(dao.getCtime()));
 			tv_total_apply.setText("共"+item.getChildNum()+"条回复");
 		}
 
@@ -193,9 +193,9 @@ public class ArticleCommentAdapter extends BaseAdapter {
 				intent.putExtra("value",item);
 				intent.putExtra("from",false);
 				if(operate.equals(CommentOperate.like.name())){
-					intent.putExtra("praise",true);
-				}else{
 					intent.putExtra("praise",false);
+				}else{
+					intent.putExtra("praise",true);
 				}
 				context.startActivity(intent);
 

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.futureinst"
-    android:versionCode="13"
-    android:versionName="2.0" >
+    android:versionCode="15"
+    android:versionName="2.0.2" >
 
     <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="22" />
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
 
     <supports-screens
         android:anyDensity="true"
@@ -35,13 +35,15 @@
     </permission>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:name="com.futureinst.baseui.BaseApplication"
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/future_icon"
         android:label="@string/company_name"
-        android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" >
+        android:theme="@style/FullBleedTheme" >
         <activity
             android:name="com.futureinst.index.IndexActivity"
             android:label="@string/company_name"
@@ -69,12 +71,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.futureinst.login.ForgetPasswordActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.futureinst.home.title.PrimaryTitleActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.futureinst.home.title.SecondTitleActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.futureinst.home.groupevent.GroupEventActivity"
@@ -194,7 +190,7 @@
             android:name="com.futureinst.comment.AddPointActivity"
             android:label="@string/title_activity_aritlce"
             android:screenOrientation="portrait" />
- >
+        >
         <service android:name="com.futureinst.service.UpdateService" />
 
         <receiver
@@ -213,19 +209,19 @@
         <meta-data
             android:name="PUSH_APPID"
             android:value="zr7geZUP3o8ryY1XQCIpN9" />
- <!-- 替换为第三方应用的APPID -->
+        <!-- 替换为第三方应用的APPID -->
         <!-- android:value="alYzVK8m5l64f05bj2pVq7" -->
 
         <meta-data
             android:name="PUSH_APPKEY"
             android:value="jtCOx26nEK9IGHPRlS5aj2" />
- <!-- 替换为第三方应用的APPKEY -->
+        <!-- 替换为第三方应用的APPKEY -->
         <!-- android:value="9U2ftCGtk1A4ZtUK6V5S86" -->
 
         <meta-data
             android:name="PUSH_APPSECRET"
             android:value="EYUtqXkvA965jTqJED0oX6" />
- <!-- 替换为第三方应用的APPSECRET -->
+        <!-- 替换为第三方应用的APPSECRET -->
         <!-- android:value="HQi18kl23m62OqHsU7qJc8" -->
 
         <meta-data
@@ -321,6 +317,7 @@
             android:windowSoftInputMode="stateHidden|adjustResize" >
 		</activity>
         -->
+
         <activity
             android:name="cn.sharesdk.framework.AuthorizeActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -360,7 +357,57 @@
         <!-- 同时修改HttpPostParams中的regist（） ctype -->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="anzhi" />
+            android:value="android" />
+        <meta-data
+            android:name="BDAPPID"
+            android:value="6455116" />
+        <meta-data
+            android:name="BDAPPKEY"
+            android:value="WeKrdAKQWpkR85xm1TEn9Gev" />
+ <!-- ↓↓↓ 百度移动统计SDK ↓↓↓ -->
+        <!-- 是否开启错误日志统计，默认为false -->
+        <meta-data
+            android:name="BaiduMobAd_EXCEPTION_LOG"
+            android:value="true" />
+ <!-- 日志发送策略，可选值：APP_START、ONCE_A_DAY、SET_TIME_INTERVAL，默认为APP_START -->
+        <meta-data
+            android:name="BaiduMobAd_SEND_STRATEGY"
+            android:value="APP_START" />
+ <!-- 日志发送策略 为SET_TIME_INTERVAL时，需设定时间间隔(取消下行注释)。取值为1-24的整数，默认为1 -->
+        <!-- <meta-data android:name="BaiduMobAd_TIME_INTERVAL" android:value="2" /> -->
+        <!-- 日志仅在wifi网络下发送，默认为false -->
+        <meta-data
+            android:name="BaiduMobAd_ONLY_WIFI"
+            android:value="false" />
+ <!-- 是否获取基站位置信息 ,默认为true -->
+        <meta-data
+            android:name="BaiduMobAd_CELL_LOCATION"
+            android:value="true" />
+ <!-- 是否获取GPS位置信息，默认为true -->
+        <meta-data
+            android:name="BaiduMobAd_GPS_LOCATION"
+            android:value="true" />
+ <!-- 是否获取WIFI位置信息，默认为true -->
+        <meta-data
+            android:name="BaiduMobAd_WIFI_LOCATION"
+            android:value="true" />
+ <!-- ↑↑↑ 百度移动统计SDK ↑↑↑ -->
+        <activity
+            android:name="com.baidu.autoupdatesdk.ConfirmDialoigActivity"
+            android:exported="false"
+            android:screenOrientation="sensor"
+            android:theme="@style/bdp_update_dialog_style_fullscreen" />
+
+        <receiver
+            android:name="com.baidu.autoupdatesdk.receiver.BDBroadcastReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_UPDATE" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_DOWNLOAD_COMPLETE" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_NEW_AS" />
+                <action android:name="com.baidu.autoupdatesdk.ACTION_AS_DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

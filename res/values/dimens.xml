@@ -1,5 +1,5 @@
 <resources>
-
+    <dimen name="dime_top_userHeadImage">17dp</dimen>
 	<dimen name="dimen_user_headImage_name">22dp</dimen>
 	<dimen name="dimen_ranking_image">50dp</dimen>
 	<dimen name="dimen_ranking_image_margin">12dp</dimen>

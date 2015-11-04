@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,9 +26,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.futureinst.R;
+import com.futureinst.activitytransition.ActivityTransition;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.comment.AddCommentActivity;
 import com.futureinst.comment.AddPointActivity;
@@ -71,8 +74,10 @@ import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
 import com.futureinst.widget.CustomView_Image_Text;
+import com.futureinst.widget.PullLayout;
 import com.futureinst.widget.list.MyListView;
 import com.futureinst.widget.scrollview.MyScrollView;
+import com.futureinst.widget.scrollview.PullScrollView;
 import com.futureinst.widget.waterwave.CustomDraw;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -87,9 +92,10 @@ import cn.sharesdk.wechat.moments.WechatMoments;
 
 
 @SuppressLint({"HandlerLeak", "DefaultLocale"})
-public class EventDetailActivity extends BaseActivity implements MyScrollView.ScrollViewListener {
+public class EventDetailActivity extends BaseActivity implements PullLayout.ScrollViewListener {
     private BroadcastReceiver receiver;
-    private MyScrollView scroll;
+    private PullLayout scroll;
+    private RelativeLayout rl_top;
 
     private LazyBagFragment lazyBagFragment;
     private RefrenceFragment refrenceFragment;
@@ -177,7 +183,6 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
             }
         }
 
-        ;
     };
 
     //显示新手引导
@@ -202,7 +207,7 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
         initView();
         progressDialog.progressDialog();
         getPrice();
-
+        showGuide();
     }
 
     @Override
@@ -221,7 +226,6 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
             isPriceRefresh = true;
             refreshPrice();
         }
-        showGuide();
     }
 
     private void initView() {
@@ -254,7 +258,8 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
         progressDialog = MyProgressDialog.getInstance(this);
         event_id = getIntent().getStringExtra("eventId");
 
-        scroll = (MyScrollView) findViewById(R.id.scroll);
+        scroll = (PullLayout) findViewById(R.id.scroll);
+
         scroll.setScrollViewListener(this);
         scroll.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -302,6 +307,7 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
         initOrder();
         initCommentView();
         initPoint();
+        initLazyBagAndReference();
     }
 
     //init order
@@ -453,9 +459,10 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
 //        tv_article_comment_num.setText(article.get);//评论数
         ll_article_content.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) {//进入观点详情页
                 Intent intent = new Intent(EventDetailActivity.this, ArticleDetailActivity.class);
-                intent.putExtra("point",article);
+                intent.putExtra("article_id",article.getId()+"");
+                intent.putExtra("from",true);
                 startActivity(intent);
             }
         });
@@ -491,12 +498,8 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
         btn_switch_advance = (Button) findViewById(R.id.btn_switch_advance);
         btn_switch_easy = (Button) findViewById(R.id.btn_switch_easy);
 
-        btn_easy_look_bad = (CustomView_Image_Text) findViewById(R.id.btn_easy_look_bad);
-        btn_easy_look_good = (CustomView_Image_Text) findViewById(R.id.btn_easy_look_good);
         btn_switch_advance.setOnClickListener(clickListener);
         btn_switch_easy.setOnClickListener(clickListener);
-        btn_easy_look_bad.setOnClickListener(clickListener);
-        btn_easy_look_good.setOnClickListener(clickListener);
         if (preferenceUtil.getEasyModel()) {
             view_easy.setVisibility(View.VISIBLE);
             view_advance.setVisibility(View.GONE);
@@ -602,8 +605,22 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
             ll_event_sell.setVisibility(View.GONE);
         }
     }
+//初始化懒人包和相关新闻
+    private void initLazyBagAndReference(){
+        Bundle bundle = new Bundle();
+
+        lazyBagFragment = new LazyBagFragment();
+        bundle.putString("eventId", event_id);
+        lazyBagFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_incident, lazyBagFragment).commitAllowingStateLoss();
 
 
+        refrenceFragment = new RefrenceFragment();
+        bundle.putString("eventId", event_id);
+        refrenceFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_refrence, refrenceFragment).commitAllowingStateLoss();
+
+    }
     //初始化数据
     private void initData(QueryEventDAO event) {
         tv_event_title.setText(event.getTitle());
@@ -673,21 +690,16 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
                     if (event == null) return;
                     showDialog(event.getRule());
                     break;
-                case R.id.tv_lanren://懒人包
-                    if (event == null) return;
-                    Intent intentLazyBag = new Intent(EventDetailActivity.this, LazyBagFragment.class);
-                    intentLazyBag.putExtra("event", event);
-                    startActivity(intentLazyBag);
-                    break;
                 case R.id.btn_easy_look_good://简易模式看好
                     if (!judgeIsLogin() ||  event == null ||
                         priceDAOInfo.getSells() == null || priceDAOInfo.getSells().size() == 0) return;
-                    showBuyConfig(1, priceDAOInfo.getSells().get(0).getPrice() + "");
+
+                    showBuyConfig(1, getPrice(1,priceDAOInfo));
                     break;
                 case R.id.btn_easy_look_bad://简易模式不看好
                     if (!judgeIsLogin() || event == null||
                             priceDAOInfo.getBuys() == null || priceDAOInfo.getBuys().size() == 0) return;
-                    showBuyConfig(3,priceDAOInfo.getBuys().get(0).getPrice()+"");
+                    showBuyConfig(3,getPrice(3,priceDAOInfo));
                     break;
                 case R.id.btn_advance_look_good://专家模式看好
                     if (!judgeIsLogin() || event == null) return;
@@ -735,9 +747,9 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
                     intent4.putExtra("price", priceDAOInfo);
                     startActivity(intent4);
                     break;
-                case R.id.ll_scroll:
-                    hideSoftInputView();
-                    break;
+//                case R.id.ll_scroll:
+//                    hideSoftInputView();
+//                    break;
             }
         }
     };
@@ -884,14 +896,20 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
     //事件清算中不可下单
     private void judgeIsClear(QueryEventDAO event) {
         if (!event.getStatusStr().equals("交易中")) {
+            btn_easy_look_good.setSelected(true);
+            btn_easy_look_bad.setSelected(true);
+            btn_advance_look_good.setSelected(true);
+            btn_advance_look_bad.setSelected(true);
+
 			btn_easy_look_good.setClickable(false);
 			btn_easy_look_bad.setClickable(false);
 			btn_advance_look_good.setClickable(false);
             btn_advance_look_bad.setClickable(false);
-            btn_easy_look_good.setAlpha(0.5f);
-            btn_easy_look_bad.setAlpha(0.5f);
-            btn_advance_look_good.setAlpha(0.5f);
-            btn_advance_look_bad.setAlpha(0.5f);
+
+            btn_easy_look_good.setBackgroundResource(R.drawable.btn_gray);
+            btn_easy_look_bad.setBackgroundResource(R.drawable.btn_gray);
+            btn_advance_look_good.setBackgroundResource(R.drawable.btn_gray);
+            btn_advance_look_bad.setBackgroundResource(R.drawable.btn_gray);
         }
     }
 
@@ -964,15 +982,6 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
                             return;
                         }
                         isHavaPrice = true;
-//                        if (preferenceUtil.getGuide2() && isHavaPrice
-//                                && !preferenceUtil.getGuide7()) {
-//                            new NewbieGuide(EventDetailActivity.this, R.drawable.guide_6, new GuideClickInterface() {
-//                                @Override
-//                                public void guideClick() {
-//                                    preferenceUtil.setGuide7();
-//                                }
-//                            });
-//                        }
                         initSingleEvent(singleEventInfoDAO);
                     }
                 });
@@ -1152,20 +1161,14 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
                         if(response == null) return;
                         EventRelatedInfo eventRelatedInfo = (EventRelatedInfo) response;
                             if(eventRelatedInfo.getLazybag()!=null){
-                                lazyBagFragment = new LazyBagFragment();
-                                Bundle bundle = new Bundle();
-                                bundle.putString("eventId", event_id);
-                                bundle.putSerializable("date", eventRelatedInfo.getLazybag());
-                                lazyBagFragment.setArguments(bundle);
-                                getSupportFragmentManager().beginTransaction().replace(R.id.container_incident, lazyBagFragment).commit();
+                                Intent lazybagIntent = new Intent("lazybag");
+                                lazybagIntent.putExtra("data", eventRelatedInfo.getLazybag());
+                                sendBroadcast(lazybagIntent);
                             }
-                        if(eventRelatedInfo.getRefer()!=null){
-                            refrenceFragment = new RefrenceFragment();
-                            Bundle bundle = new Bundle();
-                            bundle.putString("eventId", event_id);
-                            bundle.putSerializable("date", eventRelatedInfo.getRefer());
-                            refrenceFragment.setArguments(bundle);
-                            getSupportFragmentManager().beginTransaction().replace(R.id.container_refrence, refrenceFragment).commit();
+                        if(eventRelatedInfo.getRefer()!=null ){
+                            Intent referIntent = new Intent("refer");
+                            referIntent.putExtra("data", eventRelatedInfo.getRefer());
+                            sendBroadcast(referIntent);
                         }
                     }
                 });
@@ -1177,7 +1180,7 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
         Content.isPull = true;
         httpResponseUtils.postJson(httpPostParams.getPostParams(
                         PostMethod.add_order .name(), PostType.order .name(),
-                        httpPostParams.add_order(preferenceUtil.getID() + "", preferenceUtil.getUUid(), type + "", price, num + "", event.getId() + "","easy")),
+                        httpPostParams.add_order(preferenceUtil.getID() + "", preferenceUtil.getUUid(), type + "", price, num + "", event.getId() + "", "easy")),
                 BaseModel.class,
                 new PostCommentResponseListener() {
                     @Override
@@ -1192,6 +1195,31 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
                     }
                 });
     }
+
+    //简易模式价格
+    private String getPrice(int model ,EventPriceDAOInfo priceDAOInfo){
+        String price = event.getCurrPrice()+"";
+        switch (model){
+            case 1://看好
+                for(EventBuyDAO buyDAO : priceDAOInfo.getBuys()){
+                    if(buyDAO.getNum() >= 10){
+                        price = buyDAO.getPrice()+"";
+                        break;
+                    }
+                }
+                break;
+            case 3://不看好
+                for(EventSellDAO sellDAO : priceDAOInfo.getSells()){
+                    if(sellDAO.getNum() >= 10){
+                        price = sellDAO.getPrice()+"";
+                        break;
+                    }
+                }
+                break;
+        }
+        return price;
+    }
+
     //事件购买确认提示
     private void showBuyConfig(final int type,final String price){
         View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
@@ -1225,7 +1253,7 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
         dialog.show();
     }
     //评论提示
-    private void showEditCommentDialog(int type){
+    private void showEditCommentDialog(final int type){
         View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
         Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
         TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
@@ -1252,6 +1280,7 @@ public class EventDetailActivity extends BaseActivity implements MyScrollView.Sc
             public void onClick(View v) {
                 Intent intent = new Intent(EventDetailActivity.this, AddCommentActivity.class);
                 intent.putExtra("eventId", event_id);
+                intent.putExtra("attitude", type);
                 startActivity(intent);
                 dialog.cancel();
             }

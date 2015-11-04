@@ -168,7 +168,7 @@ public class MultiPartStack extends HurlStack {
 				final String key = entry.getKey();
 				final String val = entry.getValue();
 				if (null != val) {
-					builder.addPart(key, new StringBody((String) entry.getValue(), contentType));
+					builder.addPart(key, new StringBody(entry.getValue(), contentType));
 				}
 			}
 		}

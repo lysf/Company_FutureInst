@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/activity_login_margin_10"
-                android:paddingLeft="@dimen/activity_login_margin_10"
+                android:paddingLeft="@dimen/margin_5"
                 android:paddingBottom="@dimen/margin_5"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -28,8 +28,8 @@
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:visibility="visible"
                     android:id="@+id/headImage_1"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="@dimen/dime_top_userHeadImage"
+                    android:layout_height="@dimen/dime_top_userHeadImage"
                     android:layout_marginRight="3dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/logo"
@@ -46,7 +46,7 @@
                     />
                 <TextView
                     android:id="@+id/tv_status_1"
-                    android:layout_marginLeft="@dimen/margin_5"
+                    android:layout_marginLeft="@dimen/dimen_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_size_small"
@@ -149,7 +149,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/activity_login_margin_10"
-                android:paddingLeft="@dimen/activity_login_margin_10"
+                android:paddingLeft="@dimen/margin_5"
                 android:paddingBottom="@dimen/margin_5"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -157,8 +157,8 @@
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:visibility="visible"
                     android:id="@+id/headImage_2"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="@dimen/dime_top_userHeadImage"
+                    android:layout_height="@dimen/dime_top_userHeadImage"
                     android:layout_marginRight="3dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/logo"
@@ -175,7 +175,7 @@
                     />
                 <TextView
                     android:id="@+id/tv_status_2"
-                    android:layout_marginLeft="@dimen/margin_5"
+                    android:layout_marginLeft="@dimen/dimen_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_size_small"

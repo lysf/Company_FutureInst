@@ -43,7 +43,7 @@ public class UserCheckConsumeFragment extends BaseFragment implements PullListVi
                     Toast.makeText(getContext(), getResources().getString(R.string.data_over), Toast.LENGTH_SHORT).show();
                     break;
             }
-        };
+        }
     };
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {

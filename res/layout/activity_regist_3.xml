@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/text_color_white"
+    android:background="@color/text_color_e"
     android:gravity="center_horizontal"
     android:orientation="vertical" >
     <View 
         android:layout_width="match_parent"
         android:layout_height="@dimen/line_height"
         android:background="@color/text_color_a"/>
-    <TextView 
-         android:paddingLeft="@dimen/activity_login_padding"
-         android:paddingTop="@dimen/activity_login_padding"
-         android:paddingRight="@dimen/activity_login_padding"
-        android:layout_marginTop="@dimen/activity_login_padding"
+
+    <com.futureinst.widget.list.MyGridView
+        android:id="@+id/gv_keyword"
+        android:scrollbars="none"
+        android:layout_marginTop="@dimen/margin_20"
+        android:padding="@dimen/margin_20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@dimen/text_size_normal"
-        android:textColor="@color/text_color_b0"
-        android:text="@string/keyword"/>
-
-    <GridView
-        android:id="@+id/gv_keyword"
-        android:layout_width="240dip"
-        android:layout_height="wrap_content"
         android:stretchMode="columnWidth"
-        android:horizontalSpacing="0dip"
+        android:horizontalSpacing="@dimen/activity_login_margin_10"
+        android:verticalSpacing="@dimen/activity_login_margin_10"
         android:listSelector="@android:color/transparent"
-        android:numColumns="3" >
-    </GridView>
-
+        android:numColumns="2" >
+    </com.futureinst.widget.list.MyGridView>
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:textSize="@dimen/text_size_normal"
+        android:layout_marginTop="@dimen/widget_height_30"
+        android:layout_marginBottom="@dimen/margin_20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textColor="@color/text_color_white"
+        android:background="@drawable/login_btn_login"
+        android:text="@string/complete" />
 </LinearLayout>
+</ScrollView>

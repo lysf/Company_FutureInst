@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="rippelColor">#86BFFA</color>
+
     <color name="crop__button_bar">#f3f3f3</color>
     <color name="crop__button_text">#666666</color>
     <color name="crop__selector_pressed">#1a000000</color>
@@ -66,14 +69,14 @@
     	
     	<color name="redLight">#ffff4444</color>
     	<color name="greenLight">#ff99cc00</color>
-    	
+
     	<color name="hold_status">#9095b9</color>
     	<color name="hold_line">#1e266e</color>
     	<color name="hold_item_top">#3853ad</color>
     	<color name="hold_back">#283887</color>
     	<color name="publish_comment">#3991EB</color>
     	<color name="refrence">#E5EEFF</color>
-    	
+
     	<color name="comment_select">#ebf4fd</color>
     	
     	<color name="type_1">#1E266E</color>

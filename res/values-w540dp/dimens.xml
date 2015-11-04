@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="dime_top_userHeadImage">22.7dp</dimen>
+
     <dimen name="dimen_user_headImage_name">44dp</dimen>
     <dimen name="dimen_ranking_image">66.7dp</dimen>
     <dimen name="dimen_ranking_image_margin">16dp</dimen>

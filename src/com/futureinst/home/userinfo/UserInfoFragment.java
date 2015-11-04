@@ -92,8 +92,14 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+
+        super.setUserVisibleHint(isVisibleToUser);
+    }
+
+    @Override
     public void onResume() {
-        if (((HomeActivity) getActivity()).getCurrentTab() == 3) {
+        if (((HomeActivity) getActivity()).getCurrentTab() == 3 && getUserVisibleHint()) {
             query_user_record();
             getMessageCount();
         }
@@ -251,6 +257,9 @@ public class UserInfoFragment extends BaseFragment {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.ll_modify://修改用户信息
+                    if(userInformationDAO == null ){
+                        return;
+                    }
                     Intent intentName = new Intent(getActivity(), ModifyPersoanlInfoActivity.class);
                     intentName.putExtra("user", userInformationDAO.getUser());
                     startActivity(intentName);
@@ -277,6 +286,9 @@ public class UserInfoFragment extends BaseFragment {
                     startActivity(intent0);
                     break;
                 case R.id.tableRow1://战绩
+                    if(userInformationDAO == null ){
+                        return;
+                    }
                     Intent intent1 = new Intent(getActivity(), PersonalRecordActivity.class);
                     intent1.putExtra("id", preferenceUtil.getID() + "");
                     intent1.putExtra("isMe", true);
@@ -286,18 +298,27 @@ public class UserInfoFragment extends BaseFragment {
                     startActivity(new Intent(getActivity(), UserCheckActivity.class));
                     break;
                 case R.id.tableRow3://文章
+                    if(userInformationDAO == null ){
+                        return;
+                    }
                     Intent intentArticle = new Intent(getActivity(), AritlceActivity.class);
                     intentArticle.putExtra("from",true);
                     intentArticle.putExtra("user",userInformationDAO);
                     startActivity(intentArticle);
                     break;
                 case R.id.tv_attend://我关注的人
+                    if(userInformationDAO == null ){
+                        return;
+                    }
                     Intent intent3 = new Intent(getActivity(), PersonalAttentionActivity.class);
                     intent3.putExtra("id", preferenceUtil.getID() + "");
                     intent3.putExtra("isMe", true);
                     startActivity(intent3);
                     break;
                 case R.id.tv_attention://关注我的人
+                    if(userInformationDAO == null ){
+                        return;
+                    }
                     Intent intent4 = new Intent(getActivity(), PersonalAttendActivity.class);
                     intent4.putExtra("id", preferenceUtil.getID() + "");
                     intent4.putExtra("isMe", true);
@@ -305,6 +326,9 @@ public class UserInfoFragment extends BaseFragment {
                     startActivity(intent4);
                     break;
                 case R.id.tableRow5://隐私
+                    if(userInformationDAO == null ){
+                        return;
+                    }
                     Intent intent = new Intent(getActivity(), SecrtActivity.class);
                     intent.putExtra("permit", userInformationDAO.getUser().getPermitMap());
                     startActivity(intent);
@@ -364,7 +388,7 @@ public class UserInfoFragment extends BaseFragment {
 
     // 获取用户信息
     private void query_user_record() {
-//		progressDialog.progressDialog();
+		progressDialog.progressDialog();
         httpResponseUtils
                 .postJson(
                         httpPostParams.getPostParams(PostMethod.query_user_record.name(), PostType.user_info.name(),

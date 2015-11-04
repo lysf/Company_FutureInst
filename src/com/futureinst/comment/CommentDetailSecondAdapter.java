@@ -105,7 +105,7 @@ public class CommentDetailSecondAdapter extends BaseAdapter {
 		tv_attitude.setVisibility(View.GONE);
 		tv_comment_num.setText(item.getLikeNum()+"");
 		String s = null;
-		if(loves == null || !loves.contains(item.getId()+"")){
+		if(loves == null || !loves.contains((item.getId()+"").trim())){
 			iv_agree.setSelected(false);
 			s = CommentOperate.like.name();
 		}else{
@@ -129,6 +129,7 @@ public class CommentDetailSecondAdapter extends BaseAdapter {
 			imageView.setTag(item.getUser().getHeadImage());
 		}
 		tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getCtime()));
+//		tv_time.setText(item.getCtimeStr());
 
 		imageView.setOnClickListener(new OnClickListener() {
 			@Override

@@ -12,6 +12,7 @@ public class UserRecordDAO implements Serializable {
 	private int allEvent;
 	private int gainEvent;
 	private float foreIndex;
+    private float foreIndexNew;
 	private int rank;
 	private int lastRank;
 	private float asset;
@@ -26,7 +27,15 @@ public class UserRecordDAO implements Serializable {
 	
 	private UserDAO user;
 
-	public int getArticleNum() {
+    public float getForeIndexNew() {
+        return foreIndexNew;
+    }
+
+    public void setForeIndexNew(float foreIndexNew) {
+        this.foreIndexNew = foreIndexNew;
+    }
+
+    public int getArticleNum() {
 		return articleNum;
 	}
 

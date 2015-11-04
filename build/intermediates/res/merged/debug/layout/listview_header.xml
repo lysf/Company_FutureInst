@@ -9,102 +9,12 @@
   android:gravity="center_horizontal"
   android:orientation="vertical"
  >
-  <FrameLayout 
-      android:visibility="visible"
+  <com.futureinst.widget.list.RotateLayout
+      android:id="@+id/rotateLayout"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-     >
-      <ProgressBar
-          android:visibility="gone"
-          android:id="@+id/iv_refreshing"
-        style="@android:style/Widget.ProgressBar"
-        android:indeterminateDrawable="@drawable/custom_progress_draw"
-        android:layout_width="40dip"
-        android:layout_height="40dip"
-       android:interpolator="@android:interpolator/accelerate_decelerate"
-        android:max="10000" />
-      <!-- 
-      <ImageView
-          android:id="@+id/iv_refreshStart"
-          android:layout_width="40dip"
-          android:layout_height="40dip"
-          android:src="@drawable/circular"
-          />
-           -->
-      <com.futureinst.widget.CustomProgress
-          android:id="@+id/iv_refreshStart"
-          android:layout_width="40dip"
-          android:layout_height="40dip"
-         />
-  </FrameLayout>
-  <!-- 内容 -->
-  <RelativeLayout
-      android:visibility="gone"
-  android:layout_width="fill_parent"
-  android:layout_height="wrap_content"
-  android:id="@+id/head_contentLayout"
-  android:paddingLeft="30dp"
-  >
-  
-  <!-- 箭头图像、进度条 -->
-  <FrameLayout
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:layout_alignParentLeft="true"
-  android:layout_centerVertical="true"
-  >
-  
-  <!-- 箭头 -->
-  <ImageView
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:layout_gravity="center"
-  android:src="@drawable/arrow_01"
-  android:id="@+id/head_arrowImageView"
-  />
-  
-  <!-- 进度条 -->
-  <ProgressBar
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  style="?android:attr/progressBarStyleSmall"
-  android:layout_gravity="center"
-  android:id="@+id/head_progressBar"
-  
-  android:visibility="gone"
-  />
-  
-  </FrameLayout>
-  
-  <!-- 提示、最近更新 -->
-  <LinearLayout
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:layout_centerHorizontal="true"
-  android:orientation="vertical"
-  android:gravity="center_horizontal"
-  >
-  
-  <!-- 提示 -->
-  <TextView
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:text="下拉加载更多"
-  android:id="@+id/head_tipsTextView"
-  />
-  
-  <!-- 最近更新 -->
-  <TextView
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"
-  android:id="@+id/head_lastUpdatedTextView"
-  android:text="上次更新"
-  />
-  
-  </LinearLayout>
-  
-  
-  </RelativeLayout>
+      android:layout_height="wrap_content">
+
+  </com.futureinst.widget.list.RotateLayout>
   
   
 </LinearLayout>

@@ -102,8 +102,8 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 				Toast.makeText(getApplicationContext(), getResources().getString(R.string.data_over), Toast.LENGTH_SHORT).show();
 				break;
 			}
-		};
-	};
+		}
+    };
 	boolean flag = false;
 	private void notifyDate(){
 		if(flag) return;

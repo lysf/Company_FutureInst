@@ -90,9 +90,7 @@ public class PersonalAttendActivity extends BaseActivity implements OnRefreshLis
 					List<UserRecordDAO> list = new ArrayList<UserRecordDAO>();
 					list.addAll(followInfo.getFollows());
 					list.addAll(followInfo.getFriends());
-					if(page!=1 && (list == null || list.size() ==0)){
-						handler.sendEmptyMessage(0);
-					}
+
 					if(page == 1){
 						adapter.refresh(list);
 					}else{
@@ -103,6 +101,11 @@ public class PersonalAttendActivity extends BaseActivity implements OnRefreshLis
 					}else{
 						pullListView.setLoadMore(false);
 					}
+
+                    if(page!=1 && (list == null || list.size() ==0)){
+                        handler.sendEmptyMessage(0);
+                        pullListView.setLoadMore(false);
+                    }
 				}
 			});
 		}

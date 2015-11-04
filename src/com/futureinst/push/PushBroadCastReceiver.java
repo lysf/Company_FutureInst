@@ -120,13 +120,15 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 		notifyIntent.putExtra("pushMessage", pushMessageDAO);
 		PendingIntent appIntent = PendingIntent.getActivity(context, 0,
 				notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-		Notification myNoti = new Notification();
-		myNoti.flags = Notification.FLAG_AUTO_CANCEL;
-		myNoti.icon = R.drawable.push_logo;
-		myNoti.tickerText = "未来研究所";
-		myNoti.defaults |= Notification.DEFAULT_SOUND;
-		myNoti.defaults |= Notification.DEFAULT_VIBRATE;
-		myNoti.setLatestEventInfo(context, "未来研究所", pushMessageDAO.getTitle(), appIntent);
+		Notification myNoti = new Notification.Builder(context)
+                .setSmallIcon(R.drawable.push_logo)
+                .setAutoCancel(true)
+                .setContentTitle(pushMessageDAO.getTitle())
+                .setContentText("未来研究所")
+                .setContentIntent(appIntent)
+                .setDefaults(Notification.DEFAULT_ALL)
+                .setWhen(System.currentTimeMillis())
+                .build();
 		notificationManager.notify(0, myNoti);
 	}
 	//上传clientid

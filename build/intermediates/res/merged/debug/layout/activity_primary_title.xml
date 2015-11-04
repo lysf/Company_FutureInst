@@ -23,7 +23,7 @@
         android:dividerHeight="0dip"
         android:divider="#ffffffff"
         android:layout_width="120dip"
-        android:scrollbars="@null"
+        android:scrollbars="none"
         android:listSelector="@android:color/transparent" 
         android:layoutAnimation="@anim/list_anim_layout"
         android:layout_height="wrap_content" >

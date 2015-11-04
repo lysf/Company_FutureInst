@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="dime_top_userHeadImage">11.3dp</dimen>
+
     <dimen name="text_size_small">8sp</dimen>
     <dimen name="text_size_normal">10sp</dimen>
     <dimen name="text_size_large">12sp</dimen>

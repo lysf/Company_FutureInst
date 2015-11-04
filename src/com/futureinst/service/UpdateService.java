@@ -33,7 +33,7 @@ public class UpdateService extends Service {
 	private String url = null;
 	// 通知栏
 	private NotificationManager updateNotificationManager = null;
-	private Notification updateNotification = null;
+    private Notification.Builder builder;
 	private String appName = null;
 	private String fileName = null;
 	private String updateDir = null;
@@ -60,15 +60,16 @@ public class UpdateService extends Service {
 					getApplicationContext(), 0, nullIntent, 0);
 			// 创建文件
 			updateNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-			updateNotification = new Notification();
-			updateNotification.icon = R.drawable.logo;
-			updateNotification.tickerText = "正在更新" + appName;
-			updateNotification.setLatestEventInfo(getApplication(), "正在下载"
-					+ appName, "0%", null);
-//			updateNotification.defaults = Notification.DEFAULT_SOUND;
-			updateNotification.flags = Notification.FLAG_AUTO_CANCEL;
-			updateNotification.contentIntent = pendingIntent;
-			updateNotificationManager.notify(101, updateNotification);
+            builder = new Notification.Builder(this)
+                    .setSmallIcon(R.drawable.logo)
+                    .setContentTitle("正在下载" + appName)
+                    .setContentText("正在更新" + appName)
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .setWhen(System.currentTimeMillis());
+			updateNotificationManager.notify(101, builder.build());
 			// 开启线程现在
 			new Thread(new updateRunnable()).start();
 			preferenceUtil.setIsUpdateVersion(true);
@@ -116,10 +117,10 @@ public class UpdateService extends Service {
 				PendingIntent pendingIntent = PendingIntent.getActivity(
 						UpdateService.this, 10, nullIntent, 0);
 				// 下载失败
-				updateNotification.setLatestEventInfo(UpdateService.this,
-						appName, "网络连接不正常，下载失败！", pendingIntent);
-				updateNotification.flags = Notification.FLAG_AUTO_CANCEL;
-				updateNotificationManager.notify(101, updateNotification);
+
+                builder.setContentTitle(appName).setContentText("网络连接不正常，下载失败！");
+
+				updateNotificationManager.notify(101, builder.build());
 				preferenceUtil.setUpdate(false);
 				preferenceUtil.setIsUpdateVersion(false);
 				stopSelf();
@@ -174,10 +175,10 @@ public class UpdateService extends Service {
 				Intent nullIntent = new Intent();
 				PendingIntent pendingIntent = PendingIntent.getActivity(
 						getApplicationContext(), 0, nullIntent, 0);
-				updateNotification.contentIntent = pendingIntent;
-				updateNotification.setLatestEventInfo(UpdateService.this,
-						appName + "正在下载",  downloadCount + "%", null);
-				updateNotificationManager.notify(101, updateNotification);
+                builder.setContentIntent(pendingIntent).setContentTitle(appName+"正在下载")
+                        .setContentText(downloadCount + "%");
+
+				updateNotificationManager.notify(101, builder.build());
 			}
 			}
 		} finally {

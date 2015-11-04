@@ -86,7 +86,7 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
     }
     @Override
     public void onPageSelected(int arg0) {
-        ((ForecastContainerTypeFragment)adapter.getItem(arg0)).setUserVisibleHint(true);
+        adapter.getItem(arg0).setUserVisibleHint(true);
         ((ForecastContainerTypeFragment)adapter.getItem(arg0)).setIsHaveTop(true);
     }
 

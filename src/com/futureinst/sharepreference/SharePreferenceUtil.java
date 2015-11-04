@@ -4,6 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @SuppressLint("CommitPrefEdits")
 public class SharePreferenceUtil {
 	private SharedPreferences mSharedPreferences;
@@ -45,14 +48,12 @@ public class SharePreferenceUtil {
 	private String GUIDE_2 = "GUIDE_2";
 	private String GUIDE_3 = "GUIDE_3";
 	private String GUIDE_4 = "GUIDE_4";
-	private String GUIDE_5 = "GUIDE_5";
-	private String GUIDE_6 = "GUIDE_6";
-	private String GUIDE_7 = "GUIDE_7";
-	private String GUIDE_8 = "GUIDE_8";
-	
+
 	private String CID = "CID";
 	private String CTYPE = "CTYPE";
 	private String STATUS = "STATUS";
+
+    private String PHONE_SET = "PHONE_SET";
 	public boolean getEasyModel(){
 		return mSharedPreferences.getBoolean(EASYMODEL,true);
 	}
@@ -60,8 +61,25 @@ public class SharePreferenceUtil {
 		editor.putBoolean(EASYMODEL,model);
 		editor.commit();
 	}
-
-
+    public void addPassword(String phone,String password){
+        editor.putString(phone,password);
+        editor.commit();
+    }
+    public  String getPassword(String phone){
+        return mSharedPreferences.getString(phone,"");
+    }
+    //缓存手机号码
+    public Set<String> getPhones(){
+        return mSharedPreferences.getStringSet(PHONE_SET,new HashSet<String>());
+    }
+    public void addPhone(String phone){
+        Set<String> set = mSharedPreferences.getStringSet(PHONE_SET, new HashSet<String>());
+        if(set.contains(phone))
+          return;
+        set.add(phone);
+        editor.putStringSet(PHONE_SET,set);
+        editor.commit();
+    }
 	//关注我的人
 	public void setFollow(int follow){
 		editor.putInt(FOLLOW, follow);

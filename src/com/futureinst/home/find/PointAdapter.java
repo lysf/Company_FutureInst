@@ -69,7 +69,7 @@ public class PointAdapter extends BaseAdapter {
         TextView tv_comment_num = ViewHolder.get(convertView,R.id.tv_comment_num);
 
         if(headImage_select.getTag() == null || !headImage_select.getTag().equals(item.getUser().getHeadImage())){
-            ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(),headImage_select, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+            ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(),headImage_select, ImageLoadOptions.getOptions(R.drawable.logo));
             headImage_select.setTag(item.getUser().getHeadImage());
         }
         tv_type.setText(item.getEvent().getTagstr());

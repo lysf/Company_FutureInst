@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
 <com.futureinst.widget.TitleLayout
     android:id="@+id/layout_title"
     android:layout_width="fill_parent"
@@ -12,19 +13,19 @@
     android:gravity="center" >
 
     <!-- 左边的title -->
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="70dp"
-        android:layout_gravity="left"
+        android:gravity="center"
         android:layout_height="match_parent">
     <com.futureinst.widget.TitleButton
         android:id="@+id/btn_left_base"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:minWidth="48dp"
         android:textSize="18sp"
         android:layout_marginLeft="5dip"
+        android:background="@drawable/ripple_shap"
         android:textColor="@color/text_color_0"
-        android:background="@null"
         android:layout_gravity="left|center_vertical"
         android:contentDescription="@string/app_name"
         android:visibility="gone" />
@@ -33,11 +34,12 @@
         android:id="@+id/iv_left"
          android:visibility="visible"
         android:layout_width="48dp"
+        android:background="@drawable/ripple_shap"
         android:scaleType="centerInside"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="left|center_vertical"
         android:contentDescription="@null"/>
-    </FrameLayout>
+    </RelativeLayout>
     <!-- 中间的title -->
 
     <RelativeLayout
@@ -77,32 +79,34 @@
             android:visibility="gone" />
     </RelativeLayout>
     <!-- 右边的btn -->
-<FrameLayout
+<RelativeLayout
     android:layout_width="70dp"
     android:layout_gravity="right"
+    android:gravity="center"
     android:layout_marginRight="@dimen/activity_login_margin_10"
     android:layout_height="match_parent">
     <com.futureinst.widget.TitleButton
         android:id="@+id/btn_right_base"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ripple_shap"
         android:minWidth="48dp"
         android:textSize="18sp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="3dp"
         android:textColor="@drawable/right_button_text_color"
-        android:background="@null"
         android:layout_gravity="right|center_vertical"
         android:visibility="gone"/>
     <ImageView
         android:id="@+id/iv_right"
-        android:layout_width="48dp"
+        android:background="@drawable/ripple_shap"
+        android:layout_width="wrap_content"
         android:scaleType="centerInside"
         android:layout_height="match_parent"
         android:layout_gravity="right|center_vertical"
         android:contentDescription="@null"
         android:visibility="gone"/>
-</FrameLayout>
+</RelativeLayout>
 
 </com.futureinst.widget.TitleLayout>
     <View

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
@@ -13,6 +14,7 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.utils.MyToast;
+import com.futureinst.widget.richeditor.RichEditor;
 
 import org.json.JSONException;
 
@@ -20,8 +22,10 @@ import org.json.JSONException;
  * Created by hao on 2015/10/22.
  */
 public class AddPointActivity extends BaseActivity {
-    private EditText et_point_title,et_point_content;
+    private EditText et_point_title;
+    private RichEditor et_point_content;
     private String event_id;
+    private ImageView iv_image;
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setTitle("写观点");
@@ -35,7 +39,7 @@ public class AddPointActivity extends BaseActivity {
     protected void onRightClick(View view) {
         super.onRightClick(view);//添加观点
         String title = et_point_title.getText().toString().trim();
-        String content = et_point_content.getText().toString().trim();
+        String content = et_point_content.getHtml().toString().trim();
         if(judgeDate(title,content)){
             add_article(event_id,title,content);
         }
@@ -45,7 +49,22 @@ public class AddPointActivity extends BaseActivity {
     private void initView() {
         event_id = getIntent().getStringExtra("event_id");
         et_point_title = (EditText)findViewById(R.id.et_point_title);
-        et_point_content = (EditText)findViewById(R.id.et_point_content);
+        et_point_content = (RichEditor)findViewById(R.id.et_point_content);
+        iv_image = (ImageView)findViewById(R.id.iv_image);
+
+        et_point_content.setEditorHeight(300);
+        et_point_content.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
+            @Override public void onTextChange(String text) {
+//                mPreview.setText(text);
+            }
+        });
+        iv_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_point_content.insertImage("http://www.1honeywan.com/dachshund/image/7.21/7.21_3_thumb.JPG",
+                        "dachshund");
+            }
+        });
 
     }
 

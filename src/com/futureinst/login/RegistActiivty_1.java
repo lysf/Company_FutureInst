@@ -32,22 +32,11 @@ public class RegistActiivty_1 extends BaseActivity {
 		setContentView(R.layout.activity_regist_1);
 		initView();
 	}
-	@Override
-	protected void onRightClick(View view) {
-		super.onRightClick(view);
-		String phoneNumber = et_phoneNumber.getText().toString().trim();
-		String authCode = et_authCode.getText().toString().trim();
-		String password = et_password.getText().toString().trim();
-		String submit_pwd = et_submit_password.getText().toString().trim();
-//		startActivity(new Intent(RegistActiivty_1.this, RegistActivity_2.class));
-		regist(phoneNumber, authCode, password,submit_pwd);
-		
-	}
+
 	private void initView() {
 		// TODO Auto-generated method stub
 		setTitle(getResources().getString(R.string.login_regist));
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
-		setRight(R.string.next);
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		et_phoneNumber = (EditText) findViewById(R.id.et_phoneNumber);
 		et_authCode = (EditText) findViewById(R.id.et_authCode);
@@ -55,6 +44,7 @@ public class RegistActiivty_1 extends BaseActivity {
 		et_submit_password = (EditText) findViewById(R.id.et_submit_password);
 		btn_authCode = (Button) findViewById(R.id.btn_auth);
 		btn_authCode.setOnClickListener(clickListener);
+        findViewById(R.id.btn_next).setOnClickListener(clickListener);
 	}
 	OnClickListener clickListener = new OnClickListener() {
 		@Override
@@ -66,12 +56,20 @@ public class RegistActiivty_1 extends BaseActivity {
 				String mobile = et_phoneNumber.getText().toString().trim();
 				getAuthCode(mobile);
 				break;
+                case R.id.btn_next://下一步
+                    String phoneNumber = et_phoneNumber.getText().toString().trim();
+                    String authCode = et_authCode.getText().toString().trim();
+                    String password = et_password.getText().toString().trim();
+                    String submit_pwd = et_submit_password.getText().toString().trim();
+//                    startActivity(new Intent(RegistActiivty_1.this,RegistActivity_2.class));
+                    regist(phoneNumber, authCode, password);
+                    break;
 			}
 		}
 	};
 	//获取验证码
 	protected void getAuthCode(String mobile) {
-		if(!checkData(mobile, "123456", "123456","123456")){
+		if(!checkData(mobile, "123456", "123456")){
 			return;
 		}
 		progressDialog.progressDialog();
@@ -93,8 +91,8 @@ public class RegistActiivty_1 extends BaseActivity {
 		
 	}
 	//注册
-	private void regist(String mobile, String authCode, String pwd,String submit_pwd){
-		if(!checkData(mobile, authCode, pwd,submit_pwd)){
+	private void regist(String mobile, String authCode, String pwd){
+		if(!checkData(mobile, authCode, pwd)){
 			return;
 		}
 		Content.isPull = true;
@@ -118,7 +116,7 @@ public class RegistActiivty_1 extends BaseActivity {
 	
 	}
 	//检测输入数据
-		private boolean checkData(String mobile, String authCode, String pwd,String submit_pwd){
+		private boolean checkData(String mobile, String authCode, String pwd){
 			if(TextUtils.isEmpty(mobile)){
 				MyToast.getInstance().showToast(this, getResources().getString(R.string.empty_phone), 0);
 				return false;
@@ -135,14 +133,14 @@ public class RegistActiivty_1 extends BaseActivity {
 				MyToast.getInstance().showToast(this, getResources().getString(R.string.empty_authCode), 0);
 				return false;
 			}
-			if(TextUtils.isEmpty(submit_pwd)){
-				MyToast.getInstance().showToast(this, "请输入确认密码", 0);
-				return false;
-			}
-			if(!pwd.equals(submit_pwd)){
-				MyToast.getInstance().showToast(this, "两次密码不一致", 0);
-				return false;
-			}
+//			if(TextUtils.isEmpty(submit_pwd)){
+//				MyToast.getInstance().showToast(this, "请输入确认密码", 0);
+//				return false;
+//			}
+//			if(!pwd.equals(submit_pwd)){
+//				MyToast.getInstance().showToast(this, "两次密码不一致", 0);
+//				return false;
+//			}
 			return true;
 		}
 	private Thread thread;
@@ -192,6 +190,6 @@ public class RegistActiivty_1 extends BaseActivity {
 			default:
 				break;
 			}
-		};
-	};
+		}
+    };
 }

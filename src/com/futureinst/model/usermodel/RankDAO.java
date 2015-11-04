@@ -8,8 +8,18 @@ public class RankDAO implements Serializable{
 	private String user_head_image;
 	private String name;
 	private float foreIndex;
+	private float foreIndexNew;
 	private int currRank;
 	private int lastRank;
+
+	public float getForeIndexNew() {
+		return foreIndexNew;
+	}
+
+	public void setForeIndexNew(float foreIndexNew) {
+		this.foreIndexNew = foreIndexNew;
+	}
+
 	public long getUser_id() {
 		return user_id;
 	}

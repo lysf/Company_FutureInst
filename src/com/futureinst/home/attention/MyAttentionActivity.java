@@ -77,8 +77,8 @@ public class MyAttentionActivity extends BaseActivity {
 				adapter.notifyDataSetChanged();
 				break;
 			}
-		};
-	};
+		}
+    };
 	boolean flag = false;
 	public void notifyDate(){
 		flag = true;

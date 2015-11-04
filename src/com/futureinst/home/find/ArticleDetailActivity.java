@@ -5,6 +5,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
@@ -18,6 +20,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,7 +31,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.futureinst.R;
+import com.futureinst.baseui.BaseActivity;
 import com.futureinst.comment.CommentDeleteDialogUtil;
+import com.futureinst.home.eventdetail.EventDetailActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.comment.ArticleDAO;
@@ -52,6 +59,7 @@ import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
 import com.futureinst.widget.list.MyListView;
 import com.futureinst.widget.scrollview.MyScrollView;
+import com.futureinst.widget.scrollview.OverScrollView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.json.JSONException;
@@ -60,10 +68,12 @@ import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.wechat.friends.Wechat;
 import cn.sharesdk.wechat.moments.WechatMoments;
 
-public class ArticleDetailActivity extends Activity implements MyScrollView.ScrollViewListener{
+public class ArticleDetailActivity extends BaseActivity implements OverScrollView.ScrollViewListener {
     private CommentDeleteDialogUtil commentDeleteDialogUtil;
-    private MyScrollView scroll;
-    private ArticleDAO pointDAO;
+    private boolean comeFromEventDetail = false;
+    private OverScrollView scroll;
+    private TextView btn_event_detail_in;
+    private ArticleDetailDAO articleDetail;
     private AwradDialogUtil awradDialogUtil;
     private ImageView iv_back;
     private Button btn_award;
@@ -79,6 +89,7 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
     private TextView tv_type, tv_title, tv_name, tv_time, tv_read;
     private RoundedImageView headImage_select;
     private TextView tv_artice_content;
+    private WebView web_article_content;
     //评论
     private TextView tv_article_comment_num;
     private MyListView lv_article_comment;
@@ -91,13 +102,13 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
     private Button btn_send;
 
     private BroadcastReceiver receiver;
-
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
+                    getArticleRead(articleId);
                     query_comment_for_article(articleId);
                     break;
                 case 1:
@@ -109,8 +120,7 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
     };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_article_detail);
         initView();
 
@@ -119,17 +129,18 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
         query_comment_for_article(articleId);
     }
 
+
     private void initView() {
         commentDeleteDialogUtil = CommentDeleteDialogUtil.newInstance();
-        pointDAO = (ArticleDAO) getIntent().getSerializableExtra("point");
-        articleId = pointDAO.getId() + "";
+        comeFromEventDetail = getIntent().getBooleanExtra("from", false);
+        articleId = getIntent().getStringExtra("article_id");
         preferenceUtil = SharePreferenceUtil.getInstance(this);
         httpPostParams = HttpPostParams.getInstace();
         httpResponseUtils = HttpResponseUtils.getInstace(this);
         progressDialog = MyProgressDialog.getInstance(this);
         awradDialogUtil = AwradDialogUtil.getInstance();
 
-        scroll = (MyScrollView)findViewById(R.id.scroll);
+        scroll = (OverScrollView) findViewById(R.id.scroll);
         scroll.setScrollViewListener(this);
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_back.setOnClickListener(clickListener);
@@ -137,12 +148,10 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
         top_imageViews[0] = (ImageView) findViewById(R.id.iv_comment);//评论
         top_imageViews[1] = (ImageView) findViewById(R.id.iv_praise);//点赞
         top_imageViews[2] = (ImageView) findViewById(R.id.iv_share);//分享
-        tv_praise_num = (TextView)findViewById(R.id.tv_praise_num);
+        tv_praise_num = (TextView) findViewById(R.id.tv_praise_num);
         top_imageViews[0].setOnClickListener(clickListener);
-        top_imageViews[1].setOnClickListener(clickListener);
+        findViewById(R.id.ll_prise).setOnClickListener(clickListener);
         top_imageViews[2].setOnClickListener(clickListener);
-
-
 
 
         lv_article_comment = (MyListView) findViewById(R.id.lv_article_comment);
@@ -153,25 +162,25 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                if(intent.getAction().equals("praise")){
+                if (intent.getAction().equals("praise")) {
                     handler.sendEmptyMessage(0);
                 }
             }
         };
         IntentFilter filter = new IntentFilter("praise");
-        registerReceiver(receiver,filter);
+        registerReceiver(receiver, filter);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(receiver != null){
+        if (receiver != null) {
             unregisterReceiver(receiver);
         }
     }
 
     void initTop() {
-        tv_artice_content = (TextView)findViewById(R.id.tv_artice_content);
+        tv_artice_content = (TextView) findViewById(R.id.tv_artice_content);
         tv_type = (TextView) findViewById(R.id.tv_type);
         tv_time = (TextView) findViewById(R.id.tv_time);
         tv_title = (TextView) findViewById(R.id.tv_title);
@@ -180,31 +189,66 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
         headImage_select = (RoundedImageView) findViewById(R.id.headImage_select);
 
         btn_award = (Button) findViewById(R.id.btn_award);
-        tv_reward = (TextView)findViewById(R.id.tv_reward);
-        btn_award.setOnClickListener(clickListener);
+        tv_reward = (TextView) findViewById(R.id.tv_reward);
+        btn_event_detail_in = (TextView)findViewById(R.id.btn_event_detail_in);
+        btn_event_detail_in.setOnClickListener(clickListener);
+        if(!comeFromEventDetail){
+            btn_event_detail_in.setVisibility(View.GONE);
+        }
+
+        web_article_content = (WebView)findViewById(R.id.web_article_content);
+        web_article_content.getSettings().setDefaultTextEncodingName("utf-8");
+        web_article_content.getSettings().setTextSize(WebSettings.TextSize.NORMAL);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            web_article_content.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+        } else {
+            web_article_content.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+        }
+
+
 
     }
-    private void initTopDate(ArticleDetailDAO articleDetail){
-        tv_praise_num.setText(articleDetail.getArticle().getLoveNum()+"");//文章点赞数量
-        if(articleDetail.getLove() > 0){//已经点过赞
+
+    private String getHtmlData(String bodyHTML) {
+        String head = "<head>" +
+                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"> " +
+                "<style>img{max-width: 100%; width:100%; height:auto; display:block;margin-top:10;margin-bottom:10}body{color: #888888;}</style>" +
+                "</head>";
+        return "<html>" + head + "<body>" + bodyHTML + "</body></html>";
+    }
+
+    private void initTopDate(ArticleDetailDAO articleDetail) {
+        tv_praise_num.setText(articleDetail.getArticle().getLoveNum() + "");//文章点赞数量
+        tv_article_comment_num.setText("(" + articleDetail.getArticle().getCommentNum() + ")");
+        if (articleDetail.getLove() > 0) {//已经点过赞
             top_imageViews[1].setSelected(true);
-        }else{
+        } else {
             top_imageViews[1].setSelected(false);
         }
-        if(articleDetail.getAward() > 0){
-            tv_reward.setText("你已打赏"+articleDetail.getAward()+"未币");
+        if (articleDetail.getAward() > 0) {
+            tv_reward.setText("你已打赏" + articleDetail.getAward() + "未币");
             btn_award.setSelected(true);
-            btn_award.setClickable(false);
         }
         tv_type.setText(articleDetail.getArticle().getEvent().getTagstr());
         tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(articleDetail.getArticle().getMtime()));
         tv_title.setText(articleDetail.getArticle().getTitle());
         tv_name.setText(articleDetail.getArticle().getUser().getName());
         tv_artice_content.setText(articleDetail.getDetail());
+        web_article_content.loadData(getHtmlData(articleDetail.getDetail()), "text/html; charset=utf-8", "utf-8");
+
         tv_read.setText(articleDetail.getArticle().getReadNum() + "人已阅读");
         if (headImage_select.getTag() == null || !headImage_select.getTag().equals(articleDetail.getArticle().getEvent().getImgsrc())) {
             ImageLoader.getInstance().displayImage(articleDetail.getArticle().getUser().getHeadImage(), headImage_select, ImageLoadOptions.getOptions(R.drawable.logo));
             headImage_select.setTag(articleDetail.getArticle().getEvent().getImgsrc());
+        }
+        btn_award.setOnClickListener(clickListener);
+
+        int[] location = new int[2];
+        tv_article_comment_num.getLocationOnScreen(location);if (location[1] < Utils.getScreenHeight(ArticleDetailActivity.this)) {
+            view_float_comment_edit.setVisibility(View.VISIBLE);
+            et_comment_apply.setHint("写下你的评论吧！");
+        } else {
+            view_float_comment_edit.setVisibility(View.GONE);
         }
     }
 
@@ -214,13 +258,14 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
         tv_article_comment_num = (TextView) findViewById(R.id.tv_article_comment_num);
         view_float_comment_edit = findViewById(R.id.view_float_comment_edit);
         et_comment_apply = (EditText) findViewById(R.id.et_comment_apply);
-        btn_send = (Button)findViewById(R.id.btn_send);
+        btn_send = (Button) findViewById(R.id.btn_send);
         ll_container.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (view_float_comment_edit.getVisibility() == View.VISIBLE) {
                     hideSoftInputView();
-                    view_float_comment_edit.setVisibility(View.GONE);
+                    et_comment_apply.setText("");
+                    et_comment_apply.setHint("写下你的评论吧！");
                     return true;
                 }
                 return false;
@@ -230,30 +275,15 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (view_float_comment_edit.getVisibility() == View.VISIBLE) {
-                    view_float_comment_edit.setVisibility(View.GONE);
+                    hideSoftInputView();
+                    et_comment_apply.setText("");
+                    et_comment_apply.setHint("写下你的评论吧！");
                     return true;
                 }
                 return false;
             }
         });
-//        et_comment_apply.setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
-//                    if (TextUtils.isEmpty(et_comment_apply.getText().toString().trim())) {
-//                        Toast.makeText(ArticleDetailActivity.this, "输入内容不能为空", Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        String parent_id = "0";
-//                        if (comment != null) {//回复评论
-//                            parent_id = comment.getId() + "";
-//                        }
-//                        add_comment_for_article(articleId, et_comment_apply.getText().toString().trim(), parent_id);
-//                    }
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
+
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -287,7 +317,7 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
                     et_comment_apply.setFocusable(true);
                     et_comment_apply.setFocusableInTouchMode(true);
                     et_comment_apply.requestFocus();
-                    InputMethodManager inputManager =(InputMethodManager) et_comment_apply.getContext().getSystemService(INPUT_METHOD_SERVICE);
+                    InputMethodManager inputManager = (InputMethodManager) et_comment_apply.getContext().getSystemService(INPUT_METHOD_SERVICE);
                     inputManager.showSoftInput(et_comment_apply, 0);
                     et_comment_apply.setHint("回复 " + coment.getUser().getName());
                 }
@@ -302,7 +332,7 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
                     public void onClickListener() {
                         //删除评论
                         if (judgeIsLogin()) {
-                            operate_comment(comment.getId()+"", ArticleOperate.delete);
+                            operate_comment(comment.getId() + "", ArticleOperate.delete);
                         }
                     }
                 });
@@ -317,28 +347,37 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
                 case R.id.iv_back:
                     finish();
                     break;
+                case R.id.btn_event_detail_in://进入事件详情页
+                    if(articleDetail == null) return;
+                    Intent intent = new Intent(ArticleDetailActivity.this, EventDetailActivity.class);
+                    intent.putExtra("eventId",articleDetail.getArticle().getEvent().getId()+"");
+                    startActivity(intent);
+                    break;
                 case R.id.iv_comment://评论
                     comment = null;
                     view_float_comment_edit.setVisibility(View.VISIBLE);
                     et_comment_apply.setFocusable(true);
                     et_comment_apply.setFocusableInTouchMode(true);
                     et_comment_apply.requestFocus();
-                    InputMethodManager inputManager =(InputMethodManager) et_comment_apply.getContext().getSystemService(INPUT_METHOD_SERVICE);
+                    InputMethodManager inputManager = (InputMethodManager) et_comment_apply.getContext().getSystemService(INPUT_METHOD_SERVICE);
                     inputManager.showSoftInput(et_comment_apply, 0);
                     break;
-                case R.id.iv_praise://点赞
-                    if(top_imageViews[1].isSelected()){
+                case R.id.ll_prise://点赞
+                    if (top_imageViews[1].isSelected()) {
                         articleOperate(articleId, ArticleOperate.unlove, 0);
-                    }else{
+                    } else {
                         articleOperate(articleId, ArticleOperate.love, 0);
                     }
                     break;
                 case R.id.iv_share://分享
-                    share("分享观点", null, " 分享的观点内容", null, null);
+                    if (articleDetail == null) {
+                        return;
+                    }
+                    showShareDialog(articleDetail);
                     break;
                 case R.id.btn_award://打赏
-                    if (judgeIsLogin()) {
-                        awradDialogUtil.showDialog(ArticleDetailActivity.this,pointDAO.getUser().getHeadImage(), new AwradDialogUtil.AwardClickListener() {
+                    if (judgeIsLogin() && !btn_award.isSelected() && articleDetail!=null) {
+                        awradDialogUtil.showDialog(ArticleDetailActivity.this, articleDetail.getArticle().getUser().getHeadImage(), new AwradDialogUtil.AwardClickListener() {
                             @Override
                             public void onClickListner(int icons) {
                                 articleOperate(articleId, ArticleOperate.award, icons);
@@ -349,6 +388,51 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
             }
         }
     };
+
+
+    //分享界面
+    private void showShareDialog(final ArticleDetailDAO articleDetai) {
+        final String shareTitle = articleDetai.getArticle().getTitle();
+        final String content = articleDetai.getArticle().getAbstr();
+        View view = LayoutInflater.from(this).inflate(R.layout.view_share_gridview, null,false);
+        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.BOTTOM);
+        TextView tv_sina = (TextView) view.findViewById(R.id.tv_sina);
+        TextView tv_wechat = (TextView) view.findViewById(R.id.tv_wechat);
+        TextView tv_wechatmonets = (TextView) view.findViewById(R.id.tv_wechatmoments);
+        TextView tv_cancel = (TextView) view.findViewById(R.id.tv_cancel);
+        tv_sina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OneKeyShareUtil.showShare(ArticleDetailActivity.this, null, 0, shareTitle,
+                        HttpPath.SHARE_URL_ARTICLE + articleId + "?user_id=" + preferenceUtil.getID(),
+                        shareTitle + HttpPath.SHARE_URL_ARTICLE + articleId + "?user_id=" + preferenceUtil.getID(), null, articleDetai.getArticle().getEvent().getImgsrc(), true, SinaWeibo.NAME);
+                dialog.dismiss();
+            }
+        });
+        tv_wechat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OneKeyShareUtil.showShare(ArticleDetailActivity.this, null, 0, shareTitle, HttpPath.SHARE_URL_ARTICLE + articleId + "?user_id=" + preferenceUtil.getID(),
+                        content, null, articleDetai.getArticle().getEvent().getImgsrc(), true, Wechat.NAME);
+                dialog.dismiss();
+            }
+        });
+        tv_wechatmonets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OneKeyShareUtil.showShare(ArticleDetailActivity.this, null, 0, shareTitle, HttpPath.SHARE_URL_ARTICLE + articleId + "?user_id=" + preferenceUtil.getID(),
+                        content, null, articleDetai.getArticle().getEvent().getImgsrc(), true, WechatMoments.NAME);
+                dialog.dismiss();
+            }
+        });
+        tv_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
 
     //判断是否已登录
     private boolean judgeIsLogin() {
@@ -370,16 +454,17 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
                     public void requestCompleted(Object response) throws JSONException {
                         progressDialog.cancleProgress();
                         if (response == null) return;
-                        if(operate.equals(ArticleOperate.love) || operate.equals(ArticleOperate.unlove)
-                                || operate.equals(ArticleOperate.award))
-                        {
+                        if (operate.equals(ArticleOperate.love) || operate.equals(ArticleOperate.unlove)
+                                || operate.equals(ArticleOperate.award)) {
                             handler.sendEmptyMessage(1);
                         }
                     }
                 });
     }
+
     //文章详情
     private void getArticleRead(String id) {
+        progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.operate_article.name(), PostType.article.name(),
                         httpPostParams.operate_article(preferenceUtil.getID() + "", preferenceUtil.getUUid(), id, ArticleOperate.read, 0)),
                 ArticleDetailDAO.class, new PostCommentResponseListener() {
@@ -388,6 +473,7 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
                         progressDialog.cancleProgress();
                         if (response == null) return;
                         ArticleDetailDAO articleDetailDAO = (ArticleDetailDAO) response;
+                        articleDetail = articleDetailDAO;
                         initTopDate(articleDetailDAO);
 
                     }
@@ -418,15 +504,15 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
     private void query_comment_for_article(String articleId) {
         progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.query_comment_for_article.name(), PostType.article.name(),
-                        httpPostParams.query_comment_for_article(preferenceUtil.getID()+"",preferenceUtil.getUUid(),articleId)),
+                        httpPostParams.query_comment_for_article(preferenceUtil.getID() + "", preferenceUtil.getUUid(), articleId)),
                 CommentInfoDAO.class, new PostCommentResponseListener() {
                     @Override
                     public void requestCompleted(Object response) throws JSONException {
                         progressDialog.cancleProgress();
                         if (response == null) return;
                         CommentInfoDAO commentInfoDAO = (CommentInfoDAO) response;
-                        tv_article_comment_num.setText("("+commentInfoDAO.getComments().size()+")");
-                        adapter.setList(commentInfoDAO.getComments(), commentInfoDAO.getLastChildCommentMap(),commentInfoDAO.getLoves());
+
+                        adapter.setList(commentInfoDAO.getComments(), commentInfoDAO.getLastChildCommentMap(), commentInfoDAO.getLoves());
                     }
                 });
     }
@@ -449,12 +535,6 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
                 });
     }
 
-    //分享界面
-    private void share(String shareTitle,
-                       String shareTitleUrl, String shareContents,
-                       String shareLocalImageUrl, String shareImageUrl) {
-        OneKeyShareUtil.showShare(this, null, 0, shareTitle, shareTitleUrl, shareContents, shareLocalImageUrl, shareImageUrl, true, null);
-    }
 
     public void hideSoftInputView() {
         InputMethodManager manager = ((InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE));
@@ -466,6 +546,10 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
 
     @Override
     public void onScrollChanged(int x, int y, int oldx, int oldy) {
+        if(scroll.isScrollBottom() && lv_article_comment.getCount() > 1){
+            view_float_comment_edit.setVisibility(View.GONE);
+            return;
+        }
         int[] location = new int[2];
         tv_article_comment_num.getLocationOnScreen(location);
         Log.i("", "================location=" + location[1]);
@@ -476,4 +560,5 @@ public class ArticleDetailActivity extends Activity implements MyScrollView.Scro
             view_float_comment_edit.setVisibility(View.GONE);
         }
     }
+
 }

@@ -137,7 +137,7 @@ public class HttpResponseUtils {
 				Map<String,String> header = new HashMap<String, String>();
 				header.put("uuid", preferenceUtil.getUUid());
 				header.put("user_id", preferenceUtil.getID()+"");
-				header.put("deviceID", Utils.getDeviceID(activity));
+				header.put("deviceID", Content.DEVICE_ID);
 				return header;
 			}
 		};
@@ -211,7 +211,7 @@ public class HttpResponseUtils {
 				Map<String,String> header = new HashMap<String, String>();
 				header.put("uuid", preferenceUtil.getUUid());
 				header.put("user_id", preferenceUtil.getID()+"");
-				header.put("deviceID", Utils.getDeviceID(activity));
+				header.put("deviceID", Utils.getUniquePsuedoID());
 				return header;
 			}
 			

@@ -125,15 +125,7 @@ public class CustomViewPager extends ViewPager {
 
 	if (xMoved) {
 
-	if(xDiff > yDiff) {
-
-	return true;
-
-	} else {
-
-	return false;
-
-	}
+        return xDiff > yDiff;
 
 	} 
 

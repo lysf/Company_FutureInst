@@ -35,7 +35,6 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.FloatMath;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
@@ -61,7 +60,7 @@ public class WheelView extends View {
 	private static final int VALUE_TEXT_COLOR = 0xF0000000;
 
 	/** Items text color */
-	private static final int ITEMS_TEXT_COLOR = 0xFF000000;
+	private static final int ITEMS_TEXT_COLOR = 0xFF666666;
 
 	/** Top and bottom shadows colors */
 	private static final int[] SHADOWS_COLORS = new int[] { 0xFF111111,
@@ -577,7 +576,7 @@ public class WheelView extends View {
 
 		int maxLength = getMaxTextLength();
 		if (maxLength > 0) {
-			float textWidth = FloatMath.ceil(Layout.getDesiredWidth("0",
+			float textWidth = (float)Math.ceil(Layout.getDesiredWidth("0",
 					itemsPaint));
 			itemsWidth = (int) (maxLength * textWidth);
 		} else {
@@ -587,7 +586,7 @@ public class WheelView extends View {
 
 		labelWidth = 0;
 		if (label != null && label.length() > 0) {
-			labelWidth = (int) FloatMath.ceil(Layout.getDesiredWidth(label,
+			labelWidth = (int) Math.ceil(Layout.getDesiredWidth(label,
 					valuePaint));
 		}
 
@@ -998,8 +997,7 @@ public class WheelView extends View {
 	/**
 	 * Scroll the wheel
 	 * 
-	 * @param itemsToSkip
-	 *            items to scroll
+	 * @param
 	 * @param time
 	 *            scrolling duration
 	 */

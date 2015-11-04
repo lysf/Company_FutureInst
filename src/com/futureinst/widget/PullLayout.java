@@ -22,23 +22,24 @@ import android.widget.TextView;
 
 public class PullLayout extends ScrollView{
 	 private View rl_top;
-	 private PullLayout bottom_scroll;
 	 private ObjectAnimator oa;
-	 private float lastY = -1;
-	 private float detalY = -1;
-	 private int tvHeight;
-	 private int tvWidth;
-	 private int range;
-	 private boolean isTouchOrRunning;
-	 private boolean isActionCancel;
-	
-	private View view_line;
-	private ImageView iv_operate;
-	private ImageView iv_share;
-	private ImageView iv_back;
-	private ImageView iv_image;
-	private TextView tv_time;
-	private TextView tv_event_title;
+    private float lastY = -1;
+    private float detalY = -1;
+    private int range;
+    private boolean isTouchOrRunning;
+    private boolean isActionCancel;
+    private ImageView iv_image;
+
+//    private int tvHeight;
+//    private View view_line;
+//    private PullLayout bottom_scroll;
+//    private int tvWidth;
+//    private ImageView iv_operate;
+//	private ImageView iv_share;
+//	private ImageView iv_back;
+
+//	private TextView tv_time;
+//	private TextView tv_event_title;
 
 	 private OnScrollListener onScrollListener;  
 	/** 
@@ -62,8 +63,8 @@ public class PullLayout extends ScrollView{
             if(onScrollListener != null){  
                 onScrollListener.onScroll(scrollY);  
             }
-        };  
-  
+        }
+
     }; 
 	public PullLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -95,41 +96,41 @@ public class PullLayout extends ScrollView{
 		rl_top = findViewById(R.id.rl_top);
 //		bottom_scroll = (PullLayout) findViewById(R.id.bottom_scroll);
 //		rl_deal = findViewById(R.id.rl_deal);
-		 tv_time = (TextView) findViewById(R.id.tv_time);
+//		 tv_time = (TextView) findViewById(R.id.tv_time);
 		iv_image = (ImageView) findViewById(R.id.iv_image);
-		iv_operate = (ImageView) findViewById(R.id.iv_operate);
-		iv_share = (ImageView) findViewById(R.id.iv_share);
-		iv_back = (ImageView) findViewById(R.id.iv_back);
-		tv_event_title = (TextView) findViewById(R.id.tv_event_title);
-		view_line = findViewById(R.id.view_line);
+//		iv_operate = (ImageView) findViewById(R.id.iv_operate);
+//		iv_share = (ImageView) findViewById(R.id.iv_share);
+//		iv_back = (ImageView) findViewById(R.id.iv_back);
+//		tv_event_title = (TextView) findViewById(R.id.tv_event_title);
+//		view_line = findViewById(R.id.view_line);
 		rl_top.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
             @SuppressWarnings("deprecation")
             @Override
             public void onGlobalLayout() {
                 rl_top.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 range = rl_top.getHeight();
-                scrollTo(0, range);
+//                scrollTo(0, range);
                 rl_top.getLayoutParams().height = range;
             }
         });
-		bottom_scroll.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-			@SuppressWarnings("deprecation")
-			@Override
-			public void onGlobalLayout() {
-				onScrollListener.onScroll(bottom_scroll.getScrollY());
-			}
-		});
-		open();
-		tv_event_title.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-	            @SuppressWarnings("deprecation")
-	            @Override
-	            public void onGlobalLayout() {
-	            	tv_event_title.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-	                tvHeight = tv_event_title.getHeight();
-	                tvWidth = tv_event_title.getWidth();
-//	                ViewHelper.setTranslationY(ll_content, tvHeight);
-	            }
-	        });
+//		bottom_scroll.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+//			@SuppressWarnings("deprecation")
+//			@Override
+//			public void onGlobalLayout() {
+//				onScrollListener.onScroll(bottom_scroll.getScrollY());
+//			}
+//		});
+//		open();
+//		tv_event_title.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+//	            @SuppressWarnings("deprecation")
+//	            @Override
+//	            public void onGlobalLayout() {
+//	            	tv_event_title.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+//	                tvHeight = tv_event_title.getHeight();
+//	                tvWidth = tv_event_title.getWidth();
+////	                ViewHelper.setTranslationY(ll_content, tvHeight);
+//	            }
+//	        });
 	}
 	
 	@Override
@@ -182,7 +183,7 @@ public class PullLayout extends ScrollView{
                     if (detalY != 0) {
                         reset();
                     } else {
-                        toggle();
+//                        toggle();
                     }
                     return true;
                 }
@@ -193,7 +194,13 @@ public class PullLayout extends ScrollView{
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        onScrollListener.onScroll(t);
+        if(onScrollListener!=null){
+            onScrollListener.onScroll(t);
+        }
+        if (scrollViewListener != null) {
+            setScrollBottom(getScrollY() + getHeight() >= computeVerticalScrollRange());
+            scrollViewListener.onScrollChanged(l, t, oldl, oldt);
+        }
         if (t > range) {
             return;
         } else if (!isTouchOrRunning && t != range) {
@@ -201,6 +208,7 @@ public class PullLayout extends ScrollView{
         } else {
             animateScroll(t);
         }
+
     }
 
     public void setT(int t) {
@@ -212,38 +220,40 @@ public class PullLayout extends ScrollView{
 
     private void animateScroll(int t) {
         float percent = (float) t / range;
-        ViewHelper.setTranslationY(rl_top, t);
+//        ViewHelper.setTranslationY(rl_top, t);
         
-        ViewHelper.setTranslationY(iv_operate, -t);
-        ViewHelper.setTranslationY(iv_share, -t);
-        ViewHelper.setTranslationY(tv_event_title, -t);
-        ViewHelper.setTranslationY(iv_image, -t/3);
-        if(percent<=0.5){
-        	float alpha = 1-2*percent;
-        	iv_back.setAlpha(alpha);
-        	tv_time.setAlpha(alpha);
-        	iv_operate.setAlpha(alpha);
-        	iv_share.setAlpha(alpha);
-        	view_line.setAlpha(alpha);
-        	tv_event_title.setAlpha(alpha);
-        }
+//        ViewHelper.setTranslationY(iv_operate, -t);
+//        ViewHelper.setTranslationY(iv_share, -t);
+//        ViewHelper.setTranslationY(tv_event_title, -t);
+//        ViewHelper.setTranslationY(iv_image, -t/3);
+//        if(percent<=0.5){
+//        	float alpha = 1-2*percent;
+//        	iv_back.setAlpha(alpha);
+//        	tv_time.setAlpha(alpha);
+//        	iv_operate.setAlpha(alpha);
+//        	iv_share.setAlpha(alpha);
+//        	view_line.setAlpha(alpha);
+//        	tv_event_title.setAlpha(alpha);
+//        }
 //        ViewHelper.setTranslationY(ll_content, tvHeight * percent);
 //        ViewHelper.setTranslationY(tv_event_title, tvHeight*percent*1.5f);
        
-        tv_event_title.setTextColor(evaluate(percent, Color.WHITE, Color.BLACK));
+//        tv_event_title.setTextColor(evaluate(percent, Color.WHITE, Color.BLACK));
     }
 
     private void animatePull(int t) {
     	float percent = (float) t / range;
-        rl_top.getLayoutParams().height = range - t;
-        rl_top.requestLayout();
-        iv_image.requestLayout();
-        iv_back.setAlpha(1-percent);
-        tv_time.setAlpha(1-percent);
-        iv_operate.setAlpha(1-percent);
-        iv_share.setAlpha(1-percent);
-        view_line.setAlpha(1-percent);
-        tv_event_title.setAlpha(1-percent);
+        if(t<0){
+            rl_top.getLayoutParams().height = range - t;
+            rl_top.requestLayout();
+            iv_image.requestLayout();
+        }
+//        iv_back.setAlpha(1-percent);
+//        tv_time.setAlpha(1-percent);
+//        iv_operate.setAlpha(1-percent);
+//        iv_share.setAlpha(1-percent);
+//        view_line.setAlpha(1-percent);
+//        tv_event_title.setAlpha(1-percent);
     }
 
     private Integer evaluate(float fraction, Object startValue, Integer endValue) {
@@ -252,29 +262,29 @@ public class PullLayout extends ScrollView{
         int startR = (startInt >> 16) & 0xff;
         int startG = (startInt >> 8) & 0xff;
         int startB = startInt & 0xff;
-        int endInt = (Integer) endValue;
+        int endInt = endValue;
         int endA = (endInt >> 24) & 0xff;
         int endR = (endInt >> 16) & 0xff;
         int endG = (endInt >> 8) & 0xff;
         int endB = endInt & 0xff;
-        return (int) ((startA + (int) (fraction * (endA - startA))) << 24)
-                | (int) ((startR + (int) (fraction * (endR - startR))) << 16)
-                | (int) ((startG + (int) (fraction * (endG - startG))) << 8)
-                | (int) ((startB + (int) (fraction * (endB - startB))));
+        return (startA + (int) (fraction * (endA - startA))) << 24
+                | (startR + (int) (fraction * (endR - startR))) << 16
+                | (startG + (int) (fraction * (endG - startG))) << 8
+                | (startB + (int) (fraction * (endB - startB)));
     }
 
-    public void toggle() {
-        if (isOpen()) {
-            close();
-        } else {
-            open();
-        }
-    }
+//    public void toggle() {
+//        if (isOpen()) {
+//            close();
+//        } else {
+//            open();
+//        }
+//    }
 
     private Status status;
 
     public enum Status {
-        Open, Close;
+        Open, Close
     }
 
     public boolean isOpen() {
@@ -351,9 +361,9 @@ public class PullLayout extends ScrollView{
         oa.setDuration(400);
         oa.start();
     }
-	public void setTitleHeight(int height){
-		tvHeight = height;
-	}
+//	public void setTitleHeight(int height){
+//		tvHeight = height;
+//	}
 	 /** 
      * 滚动的回调接口 
      */  
@@ -362,12 +372,33 @@ public class PullLayout extends ScrollView{
          * 回调方法， 返回MyScrollView滑动的Y方向距离 
          * @param scrollY 
          *              、 
-         */  
-        public void onScroll(int scrollY);  
+         */
+        void onScroll(int scrollY);
     } 
     @Override
     protected int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {
     	// TODO Auto-generated method stub
     	return 0;
+    }
+
+
+
+    private ScrollViewListener scrollViewListener = null;
+    public void setScrollViewListener(ScrollViewListener scrollViewListener) {
+        this.scrollViewListener = scrollViewListener;
+    }
+
+    public interface ScrollViewListener {
+        void onScrollChanged( int x, int y, int oldx, int oldy);
+
+    }
+    private boolean scrollBottom;
+
+    public boolean isScrollBottom() {
+        return scrollBottom;
+    }
+
+    public void setScrollBottom(boolean scrollBottom) {
+        this.scrollBottom = scrollBottom;
     }
 }

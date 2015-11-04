@@ -22,6 +22,7 @@ public class AddCommentActivity extends BaseActivity {
 	private LinearLayout ll_add_comment;
 	private CustomView_Image_Text btn_good,btn_bad;
 	private EditText et_comment;
+    private int attitude = 0;//1:看好，3：不看好
 	private int flag = 0;
 	String event_id;
 	@Override
@@ -48,6 +49,7 @@ public class AddCommentActivity extends BaseActivity {
 	}
 	private void initView() {
 		ll_add_comment = (LinearLayout) findViewById(R.id.ll_add_comment);
+        attitude = getIntent().getIntExtra("attitude",0);
 		event_id = getIntent().getStringExtra("eventId");
 		btn_good = (CustomView_Image_Text) findViewById(R.id.btn_attention_good);
 		btn_bad = (CustomView_Image_Text) findViewById(R.id.btn_attention_bad);
@@ -55,6 +57,21 @@ public class AddCommentActivity extends BaseActivity {
 		btn_good.setOnClickListener(clickListener);
 		btn_bad.setOnClickListener(clickListener);
 		ll_add_comment.setOnClickListener(clickListener);
+        switch (attitude){
+            case 1:
+                btn_good.setSelected(true);
+                btn_bad.setSelected(false);
+                flag = 1;
+                break;
+            case 3:
+                btn_good.setSelected(false);
+                btn_bad.setSelected(true);
+                flag = 2;
+                break;
+            default:break;
+        }
+
+
 	}
 	OnClickListener clickListener = new OnClickListener() {
 		@Override

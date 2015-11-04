@@ -7,6 +7,7 @@ import java.util.List;
 import org.json.JSONException;
 
 import com.futureinst.R;
+import com.futureinst.activitytransition.ActivityTransitionLauncher;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.global.Content;
 import com.futureinst.home.HomeActivity;
@@ -356,8 +357,8 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 				adapter.notifyDataSetChanged();
 				break;
 			}
-		};
-	};
+		}
+    };
 	boolean flag = false;
 	private void notifyDate(){
 		if(flag) return;

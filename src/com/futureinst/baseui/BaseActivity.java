@@ -10,6 +10,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -34,6 +35,8 @@ import android.widget.Toast;
 import java.util.List;
 
 import com.futureinst.R;
+import com.futureinst.activitytransition.ActivityTransition;
+import com.futureinst.activitytransition.ExitActivityTransition;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.sharepreference.SharePreferenceUtil;
@@ -52,8 +55,8 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 				Toast.makeText(getApplicationContext(), getResources().getString(R.string.data_over), Toast.LENGTH_SHORT).show();
 				break;
 			}
-		};
-	};
+		}
+    };
 	protected int page = 1;
 	protected String last_id = "0";
     protected final static String OVERIDE = "overide";
@@ -91,18 +94,20 @@ public abstract class BaseActivity extends BaseFragmentActivity {
         }
     };
 	@SuppressWarnings({ "rawtypes", "deprecation" })
-	public void setNotiType(int iconId, String contentTitle,
+	public void setNotiType(Context context,int iconId, String contentTitle,
 			String contentText, Class activity, String from) {
 		Intent notifyIntent = new Intent(this, activity);
 		notifyIntent.putExtra("to", from);
 		PendingIntent appIntent = PendingIntent.getActivity(this, 0,
 				notifyIntent, 0);
-		Notification myNoti = new Notification();
-		myNoti.flags = Notification.FLAG_AUTO_CANCEL;
-		myNoti.icon = iconId;
-		myNoti.tickerText = contentTitle;
-		myNoti.defaults = Notification.DEFAULT_SOUND;
-		myNoti.setLatestEventInfo(BaseActivity.this, contentTitle, contentText, appIntent);
+		Notification myNoti = new Notification.Builder(context)
+                .setAutoCancel(true)
+                .setSmallIcon(iconId)
+                .setContentTitle(contentTitle)
+                .setContentText(contentText)
+                .setContentIntent(appIntent)
+                .setWhen(System.currentTimeMillis())
+                .build();
 		mNotificationManager.notify(0, myNoti);
 	}
 
@@ -123,27 +128,19 @@ public abstract class BaseActivity extends BaseFragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 创建状态栏的管理实例  
-        SystemBarTintManager tintManager = new SystemBarTintManager(this);  
-        // 激活状态栏设置  
-         tintManager.setStatusBarTintEnabled(true);  
-          // 激活导航栏设置  
-         tintManager.setNavigationBarTintEnabled(true); 
-      // 设置一个颜色给系统栏  
-//         tintManager.setTintColor(getResources().getColor(R.color.status_bar));  
-//         tintManager.setNavigationBarTintColor(getResources().getColor(R.color.text_color_3));
-         tintManager.setStatusBarTintColor(getResources().getColor(R.color.status_bar));
-//         tintManager.setStatusBarTintResource(R.color.text_color_3);
-         // 设置一个样式背景给导航栏  
-//         tintManager.setNavigationBarTintResource(R.drawable.my_tint);  
-         // 设置一个状态栏资源  
-//         tintManager.setStatusBarTintDrawable(MyDrawable);  
+
+
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//        }
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (savedInstanceState != null && savedInstanceState.getBoolean(OVERIDE)) {
             return;
         }
         setCustomerView(R.layout.layout_activity_base);
         localOnCreate(savedInstanceState);
+
     }
 
     @Override
@@ -196,11 +193,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
         double pixels = Math.sqrt(w * w + h * h);
         double inch = pixels / displayMetrics.densityDpi;
 
-        if (inch <= 5.0) {
-            return false;
-        } else {
-            return true;
-        }
+        return inch > 5.0;
     }
 
     /**
@@ -508,7 +501,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 	   @Override
 	public void finish() {
 //		   MobclickAgent.onKillProcess( this );
-		super.finish();
+           super.finish();
 	}
 	   private boolean isAppOnForeground(Context context) {   
 		      ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);   

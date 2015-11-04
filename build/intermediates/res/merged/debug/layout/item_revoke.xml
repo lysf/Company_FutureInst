@@ -22,7 +22,7 @@
             android:layout_marginLeft="@dimen/line_height"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/a_hp_1_icon_02"/>
+            />
         <View 
             android:layout_width="@dimen/line_height"
             android:layout_height="match_parent"

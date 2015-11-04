@@ -41,6 +41,28 @@ import java.util.List;
  */
 public class OverScrollView extends FrameLayout implements OnTouchListener
 {
+    private ScrollViewListener scrollViewListener = null;
+
+    public void setScrollViewListener(ScrollViewListener scrollViewListener) {
+        this.scrollViewListener = scrollViewListener;
+    }
+
+
+    public interface ScrollViewListener {
+        void onScrollChanged( int x, int y, int oldx, int oldy);
+
+    }
+
+    private boolean scrollBottom;
+
+    public boolean isScrollBottom() {
+        return scrollBottom;
+    }
+
+    public void setScrollBottom(boolean scrollBottom) {
+        this.scrollBottom = scrollBottom;
+    }
+
 
 	static final int ANIMATED_SCROLL_GAP = 250;
 
@@ -1480,18 +1502,22 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b)
 	{
-		super.onLayout(changed, l, t, r, b);
-		mIsLayoutDirty = false;
-		// Give a child focus if it needs it
-		if (mChildToScrollTo != null && isViewDescendantOf(mChildToScrollTo, this))
-		{
-			scrollToChild(mChildToScrollTo);
-		}
-		mChildToScrollTo = null;
-
-		// Calling this with the present values causes it to re-clam them
-		scrollTo(getScrollX(), getScrollY());
-	}
+        super.onLayout(changed, l, t, r, b);
+        mIsLayoutDirty = false;
+        // Give a child focus if it needs it
+        if (mChildToScrollTo != null && isViewDescendantOf(mChildToScrollTo, this))
+        {
+            scrollToChild(mChildToScrollTo);
+        }
+        mChildToScrollTo = null;
+        // Calling this with the present values causes it to re-clam them
+        scrollTo(getScrollX(), getScrollY());
+//        post(new Runnable() {
+//            public void run() {
+//                scrollTo(0, child.getPaddingTop());
+//            }
+//        });
+    }
 
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh)
@@ -1517,6 +1543,10 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
 	@Override
 	protected void onScrollChanged(int leftOfVisibleView, int topOfVisibleView, int oldLeftOfVisibleView, int oldTopOfVisibleView)
 	{
+        if (scrollViewListener != null) {
+            setScrollBottom(getScrollY() + getHeight() >=  computeVerticalScrollRange());
+            scrollViewListener.onScrollChanged(leftOfVisibleView, topOfVisibleView, oldLeftOfVisibleView, oldTopOfVisibleView);
+        }
 		int displayHeight = getHeight();
 		int paddingTop = child.getPaddingTop();
 		int contentBottom = child.getHeight() - child.getPaddingBottom();
@@ -1542,7 +1572,8 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
 			}
 		}
 		super.onScrollChanged(leftOfVisibleView, topOfVisibleView, oldLeftOfVisibleView, oldTopOfVisibleView);
-	}
+
+    }
 
 	/**
 	 * Return true if child is an descendant of parent, (or equal to the

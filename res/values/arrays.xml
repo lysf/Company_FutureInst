@@ -10,7 +10,6 @@
         <item >国际</item>
         <item >城市</item>
         <item >新奇</item>
-        <item >随机</item>
     </string-array>
     <string-array 
         name="home_title">
@@ -26,27 +25,27 @@
         <item >新奇</item>
     </string-array>
     <string-array name="home_icon_title">
-        <item >推荐-&#xe637;</item>
-        <item >关注-&#xe638;</item>
-        <item >体育-&#xe639;</item>
-        <item >财经-&#xe63a;</item>
-        <item >娱乐-&#xe63b;</item>
-        <item >民生-&#xe63c;</item>
-        <item >科技-&#xe63d;</item>
-        <item >国际-&#xe63e;</item>
-        <item >城市-&#xe63f;</item>
-        <item >新奇-&#xe640;</item>
+        <item >推荐-&#xe62d;</item>
+        <item >关注-&#xe62e;</item>
+        <item >体育-&#xe62e;</item>
+        <item >财经-&#xe630;</item>
+        <item >娱乐-&#xe631;</item>
+        <item >民生-&#xe632;</item>
+        <item >科技-&#xe633;</item>
+        <item >国际-&#xe634;</item>
+        <item >城市-&#xe635;</item>
+        <item >新奇-&#xe636;</item>
     </string-array>
     <string-array name="ranking_icon_title">
-        <item >总榜-&#xe637;</item>
-        <item >体育-&#xe639;</item>
-        <item >财经-&#xe63a;</item>
-        <item >娱乐-&#xe63b;</item>
-        <item >民生-&#xe63c;</item>
-        <item >科技-&#xe63d;</item>
-        <item >国际-&#xe63e;</item>
-        <item >城市-&#xe63f;</item>
-        <item >新奇-&#xe640;</item>
+        <item >总榜-&#xe641;</item>
+        <item >体育-&#xe62e;</item>
+        <item >财经-&#xe630;</item>
+        <item >娱乐-&#xe631;</item>
+        <item >民生-&#xe632;</item>
+        <item >科技-&#xe633;</item>
+        <item >国际-&#xe634;</item>
+        <item >城市-&#xe635;</item>
+        <item >新奇-&#xe636;</item>
     </string-array>
     <string-array
         name="record_tag">

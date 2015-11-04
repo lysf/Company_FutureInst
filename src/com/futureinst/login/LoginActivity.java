@@ -1,6 +1,7 @@
 package com.futureinst.login;
 
 import java.util.HashMap;
+import java.util.Set;
 
 import org.json.JSONException;
 
@@ -27,6 +28,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,7 +47,8 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 	private static final int MSG_AUTH_ERROR = 4;
 	private static final int MSG_AUTH_COMPLETE = 5;
 	private static final int MSG_AUTH_LOGIN = 6;
-	private EditText et_phone,et_password;
+	private AutoCompleteTextView et_phone;
+    private EditText et_password;
 	private boolean loginTag;
 	private TextView tv_wechat,tv_sina;
 	private String openId;
@@ -51,42 +56,43 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 	private String gender;//性别
 	private String headImage = "";
 	private String type;
+    private Set<String> phones;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		ShareSDK.initSDK(this);
 		ActivityManagerUtil.addActivity(this);
 		initView();
 	}
-	@Override
-	protected void onRightClick(View view) {
-		super.onRightClick(view);
-		//注册
-		if(Content.disable_app_sign_in){
-		startActivity(new Intent(LoginActivity.this, RegistActiivty_1.class));
-		if(loginTag){
-			finish();
-		}
-		}else{
-			MyToast.getInstance().showToast(LoginActivity.this, getResources().getString(R.string.app_regist_tip), 0);
-		}
-	}
+
 	private void initView() {
+        phones = preferenceUtil.getPhones();
 		loginTag = getIntent().getBooleanExtra("login", false);
 		setContentView(R.layout.activity_login);
 		setTitle(getResources().getString(R.string.login_login));
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
-		setRight(R.string.login_regist);
+//		setRight(R.string.login_regist);
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
 
-		et_phone = (EditText) findViewById(R.id.et_phoneNumber);
+		et_phone = (AutoCompleteTextView) findViewById(R.id.et_phoneNumber);
 		et_password = (EditText) findViewById(R.id.et_password);
 		findViewById(R.id.btn_login).setOnClickListener(clickListener);
 		findViewById(R.id.tv_forgetPwd).setOnClickListener(clickListener);
-		
+		findViewById(R.id.tv_regist).setOnClickListener(clickListener);
+
 		tv_wechat = (TextView) findViewById(R.id.tv_wechat);
 		tv_sina = (TextView) findViewById(R.id.tv_sina);
 		tv_wechat.setOnClickListener(clickListener);
 		tv_sina.setOnClickListener(clickListener);
+
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,phones.toArray(new String[]{}));
+        et_phone.setAdapter(adapter);
+        et_phone.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               String phone =  phones.toArray(new String[]{})[position];
+                et_password.setText(preferenceUtil.getPassword(phone));
+            }
+        });
 	}
 	
 	OnClickListener clickListener = new OnClickListener() {
@@ -101,18 +107,28 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			case R.id.tv_forgetPwd://忘记密码
 				startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
 				break;
+                case R.id.tv_regist://注册
+                    if(Content.disable_app_sign_in){
+                        startActivity(new Intent(LoginActivity.this, RegistActiivty_1.class));
+                        if(loginTag){
+                            finish();
+                        }
+                    }else{
+                        MyToast.getInstance().showToast(LoginActivity.this, getResources().getString(R.string.app_regist_tip), 0);
+                    }
+                    break;
 			case R.id.tv_wechat://微信
-//				authorize(new Wechat(LoginActivity.this));
+				authorize(new Wechat(LoginActivity.this));
 				break;
 			case R.id.tv_sina://新浪
-//				authorize(new SinaWeibo(LoginActivity.this));
+				authorize(new SinaWeibo(LoginActivity.this));
 				break;
 			}
 		}
 
 	};
 	//登录
-	private void doLogin(String phoneNummber, String pwd) {
+	private void doLogin(final String phoneNummber,final String pwd) {
 		if(!checkLoginData(phoneNummber, pwd)){
 			return;
 		}
@@ -130,6 +146,8 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 						if(response == null) return;
 						UserInfo userInfo = (UserInfo) response;
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
+                        preferenceUtil.addPhone(phoneNummber);
+                        preferenceUtil.addPassword(phoneNummber,pwd);
 						if(loginTag){
 							PushManager.getInstance().initialize(getApplicationContext());
 							query_user_record();
@@ -220,7 +238,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 						type = "weixin"+openId;
 					}
 					thirdName = plat.getDb().getUserName();
-					gender = (String) plat.getDb().get("gender");
+					gender = plat.getDb().get("gender");
 					if(gender.equals("m")){
 						gender = "1";
 					}else {
