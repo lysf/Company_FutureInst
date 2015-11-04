@@ -29,7 +29,7 @@ public class IconView extends TextView {
 		// TODO Auto-generated constructor stub
 	}
 	private void initView()  {
-        Typeface iconfont = Typeface.createFromAsset(context.getAssets(), "iconfont.ttf");  
+        Typeface iconfont = Typeface.createFromAsset(context.getAssets(), "iconfont_1.ttf");
         setTypeface(iconfont);  
     } 
 }

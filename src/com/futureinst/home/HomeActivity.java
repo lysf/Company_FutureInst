@@ -28,10 +28,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -40,13 +38,10 @@ import com.futureinst.baseui.BaseActivity;
 import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.forecast.ForecastFragment;
-import com.futureinst.home.hold.HoldingActivity;
-import com.futureinst.home.ranking.RankAndRecordFragment;
-import com.futureinst.home.ranking.RankingFragment;
+import com.futureinst.home.find.FondFragment;
 import com.futureinst.home.userinfo.UserInfoFragment;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
-import com.futureinst.model.usermodel.UserInformationDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.model.version.VersionDAO;
 import com.futureinst.net.PostCommentResponseListener;
@@ -54,7 +49,6 @@ import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.newbieguide.GuideClickInterface;
 import com.futureinst.newbieguide.NewbieGuide;
-import com.futureinst.push.PushMessageUtils;
 import com.futureinst.service.UpdateDialogShow;
 import com.futureinst.service.UpdateService;
 import com.futureinst.utils.BadgeUtil;
@@ -106,6 +100,8 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
+		Content.statusHeight = Utils.getStatusHeight(this);
+		Log.i("","====================statusHeight====>>"+Content.statusHeight);
 		initVeiw();
 		initFragment();
 		if(!preferenceUtil.getInstallTag()){
@@ -118,12 +114,13 @@ public class HomeActivity extends BaseActivity {
 	 private void showGuide(){
 		 if(preferenceUtil.getGuide1())
 			 return;
-		 new NewbieGuide(this, R.drawable.guide_1, new GuideClickInterface() {
-			@Override
-			public void guideClick() {
-				preferenceUtil.setGuide1();
-			}
-		});
+		 WelcomeDialog.showWelcom(this);
+//		 new NewbieGuide(this, R.drawable.guide_1, new GuideClickInterface() {
+//			@Override
+//			public void guideClick() {
+//				preferenceUtil.setGuide1();
+//			}
+//		});
 		 
 	 }
 	 
@@ -135,7 +132,6 @@ public class HomeActivity extends BaseActivity {
 				Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(versionInfo.getLoad_ad_url()));
 				startActivity(intent);
 				rl_ad.setVisibility(View.GONE);
-				showGuide();
 				break;
 			case R.id.iv_cancel://隐藏
 				rl_ad.setVisibility(View.GONE);
@@ -184,7 +180,7 @@ public class HomeActivity extends BaseActivity {
 	
 	private void initFragment(){
 		fragments.add(new ForecastFragment());
-		fragments.add(new RankingFragment());
+		fragments.add(new FondFragment());
 		fragments.add(new ShoopFragment());
 		fragments.add(new UserInfoFragment());
 		activityAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, views);
@@ -208,16 +204,14 @@ public class HomeActivity extends BaseActivity {
 	// 判断是否登录
 	private void judgeIsLogin() {
 		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
+			Log.i("tag","===========user_id="+preferenceUtil.getID()+"==uuid="+preferenceUtil.getUUid());
 			getMessageCount();
 			if(!isUpdate){
 				//初始化推送
 				query_user_record();
 				PushManager.getInstance().initialize(this.getApplicationContext());
 			}
-//			else if(TextUtils.isEmpty(tv_ranking.getText().toString())){
-//				query_user_record();
-//			}
-				
+
 		} 
 	}
 	
@@ -316,7 +310,7 @@ public class HomeActivity extends BaseActivity {
 	//获取版本信息
 	private void get_android_version(){
 		Content.isPull = true;
-		progressDialog.progressDialog();
+//		progressDialog.progressDialog();
 		httpResponseUtils.postJson(
 				httpPostParams.getPostParams(PostMethod.get_android_version.name(), PostType.common.name(), 
 						httpPostParams.get_android_version()), 

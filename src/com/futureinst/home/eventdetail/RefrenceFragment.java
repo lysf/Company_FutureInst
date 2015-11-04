@@ -7,49 +7,54 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.model.homeeventmodel.EventRelatedInfo;
 import com.futureinst.model.homeeventmodel.ReferenceDAO;
+import com.futureinst.model.homeeventmodel.ReferenceDAOInfo;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
-import com.futureinst.utils.ListViewHeightUtil;
+import com.futureinst.widget.list.MyListView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
+
+import java.util.List;
 
 public class RefrenceFragment extends BaseFragment {
-	private ListView lv_refrence;
+	private MyListView lv_refrence;
 	private RefrenceAdapter adapter;
 	private HttpResponseUtils httpResponseUtils;
 	private HttpPostParams httpPostParams;
 	private String event_id;
-	private boolean isVisiable;
+	private ReferenceDAOInfo referenceDAOInfo;
+	public RefrenceFragment(){
+
+	}
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_refrence);
 		initView();
-		getEvetnRealted();
-		isVisiable = true;
 	}
+
 	@Override
-	public void setUserVisibleHint(boolean isVisibleToUser) {
-		super.setUserVisibleHint(isVisibleToUser);
-		if(isVisibleToUser && isVisiable){
-			getEvetnRealted();	
-		}
+	public void onAttach(Context context) {
+		super.onAttach(context);
+
 	}
-	
+
 	private void initView() {
 		event_id = getArguments().getString("eventId");
+		referenceDAOInfo = (ReferenceDAOInfo) getArguments().getSerializable("date");
 		httpResponseUtils = HttpResponseUtils.getInstace(getActivity());
 		httpPostParams = HttpPostParams.getInstace();
-		lv_refrence = (ListView) findViewById(R.id.lv_refrence);
+		lv_refrence = (MyListView) findViewById(R.id.lv_refrence);
 		adapter = new RefrenceAdapter(getContext());
+		adapter.setList(referenceDAOInfo.getRefer());
 		lv_refrence.setAdapter(adapter);
 		
 		lv_refrence.setOnItemClickListener(new OnItemClickListener() {
@@ -62,21 +67,7 @@ public class RefrenceFragment extends BaseFragment {
 			}
 		});
 	}
-	//获取事件相关信息
-		private void getEvetnRealted(){
-			httpResponseUtils.postJson(httpPostParams.getPostParams(
-					PostMethod.query_single_event.name(), PostType.event.name(), 
-					httpPostParams.query_single_event(event_id, SingleEventScope.related.name())), 
-					EventRelatedInfo.class, 
-					new PostCommentResponseListener() {
-						@Override
-						public void requestCompleted(Object response) throws JSONException {
-							if(response == null) return;
-							EventRelatedInfo eventRelatedInfo = (EventRelatedInfo) response;
-							
-							adapter.setList(eventRelatedInfo.getRelated().getRefer().getRefer());
-							ListViewHeightUtil.setListViewHeightBasedOnChildren(lv_refrence);
-						}
-					});
-		}
+	public void update(List<ReferenceDAO> list){
+		adapter.setList(list);
+	}
 }

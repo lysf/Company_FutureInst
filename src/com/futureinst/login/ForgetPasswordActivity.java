@@ -118,27 +118,27 @@ public class ForgetPasswordActivity extends BaseActivity {
 	//检测输入数据
 	private boolean checkData(String mobile, String authCode, String new_pwd,String submit_pwd){
 		if(TextUtils.isEmpty(mobile)){
-			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
+			MyToast.getInstance().showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
 		}
 		if(!Utils.checkMobilePhoneNo(mobile)){
-			MyToast.showToast(this, getResources().getString(R.string.wrong_phone), 0);
+			MyToast.getInstance().showToast(this, getResources().getString(R.string.wrong_phone), 0);
 			return false;
 		}
 		if(TextUtils.isEmpty(new_pwd)){
-			MyToast.showToast(this, getResources().getString(R.string.empty_new_pwd), 0);
+			MyToast.getInstance().getInstance().showToast(this, getResources().getString(R.string.empty_new_pwd), 0);
 			return false;
 		}
 		if(TextUtils.isEmpty(authCode)){
-			MyToast.showToast(this, getResources().getString(R.string.empty_authCode), 0);
+			MyToast.getInstance().showToast(this, getResources().getString(R.string.empty_authCode), 0);
 			return false;
 		}
 		if(TextUtils.isEmpty(submit_pwd)){
-			MyToast.showToast(this, "请输入确认密码", 0);
+			MyToast.getInstance().showToast(this, "请输入确认密码", 0);
 			return false;
 		}
 		if(!new_pwd.equals(submit_pwd)){
-			MyToast.showToast(this, "两次密码不一致", 0);
+			MyToast.getInstance().showToast(this, "两次密码不一致", 0);
 			return false;
 		}
 		return true;

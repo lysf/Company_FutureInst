@@ -85,7 +85,7 @@ public class RegistActivity_3 extends BaseActivity {
 	}
 	private void update_user(String interest){
 		if(TextUtils.isEmpty(interest)){
-			MyToast.showToast(this, "您至少选择一项！", 0);
+			MyToast.getInstance().showToast(this, "您至少选择一项！", 0);
 			return;
 		}
 		Content.isPull = true;

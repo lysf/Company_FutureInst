@@ -43,8 +43,10 @@ public class HomeTabView extends LinearLayout {
 	}
 	private IconView iconView;
 	private TextView textView;
+	private int[] style = R.styleable.HomeTab;
+
 	private void setWidget(AttributeSet attrs){
-		TypedArray a = mContext.obtainStyledAttributes(attrs, R.styleable.HomeTab);
+		TypedArray a = mContext.obtainStyledAttributes(attrs, style);
 		iconFontText = a.getString(R.styleable.HomeTab_iconFontText);
 		bottomText = a.getString(R.styleable.HomeTab_bottomText);
 		iconView = new IconView(mContext);

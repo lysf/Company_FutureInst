@@ -15,4 +15,5 @@ public class Content {
 	public static boolean disable_app_sign_in = false;
 	public static int aoto_refresh_event_price_interval = 5;
 	public static int main_list_fresh_interval = 30;
+	public static int statusHeight = 20;
 }

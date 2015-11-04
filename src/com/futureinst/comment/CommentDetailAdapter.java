@@ -2,8 +2,11 @@ package com.futureinst.comment;
 
 import com.futureinst.R;
 import com.futureinst.model.comment.CommentDAO;
+import com.futureinst.model.usermodel.UserDAO;
+import com.futureinst.net.CommentOperate;
 import com.futureinst.personalinfo.other.PersonalShowActivity;
 import com.futureinst.roundimageutils.RoundedImageView;
+import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.ViewHolder;
@@ -12,7 +15,9 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,26 +33,43 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class CommentDetailAdapter extends BaseAdapter {
 	private Context context;
 	private List<CommentDAO> list;
-	private boolean attitude;
+	private Map<String,CommentDAO> map;
+	private SharePreferenceUtil preferenceUtil;
+
 	private Animation animation;
-	public CommentDetailAdapter(Context context,boolean attitude) {
+	private DeleteCommentListener deleteCommentListener;
+	private PraiseOperateListener operateListener;
+	private ApplyCommentListener applyCommentListener;
+	private List<String> loves;
+	public CommentDetailAdapter(Context context) {
 		this.context = context;
 		list = new ArrayList<CommentDAO>();
-		this.attitude = attitude;
+		preferenceUtil = SharePreferenceUtil.getInstance(context);
+		map = new HashMap<String,CommentDAO>();
+		loves = new ArrayList<String>();
 		animation = AnimationUtils.loadAnimation(context, R.anim.comment_prise);
 	}
 	public List<CommentDAO> getList() {
 		return list;
 	}
-	public void setList(List<CommentDAO> list) {
+
+	public void setList(List<CommentDAO> list,Map<String,CommentDAO> map,List<String> loves) {
 		this.list = list;
+		if(map!=null){
+			this.map = map;
+		}
+		if(loves !=null){
+			this.loves = loves;
+		}
 		notifyDataSetChanged();
 	}
+
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -62,74 +84,158 @@ public class CommentDetailAdapter extends BaseAdapter {
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return position;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if(convertView == null) 
-			convertView = LayoutInflater.from(context).inflate(R.layout.view_comment, null);
+			convertView = LayoutInflater.from(context).inflate(R.layout.item_comment, null);
 		final CommentDAO item = list.get(position);
 		
-		View view1 = ViewHolder.get(convertView, R.id.view_1);
-		View view2 = ViewHolder.get(convertView, R.id.view_2);
+
 		RoundedImageView imageView = ViewHolder.get(convertView, R.id.headImage);
 		TextView tv_name = ViewHolder.get(convertView, R.id.tv_name);
-		TextView tv_comment = ViewHolder.get(convertView, R.id.tv_comment);
+		TextView tv_attitude = ViewHolder.get(convertView, R.id.tv_attitude);
+		LinearLayout ll_agree = ViewHolder.get(convertView,R.id.ll_agree);
+		TextView tv_comment_num = ViewHolder.get(convertView, R.id.tv_comment_num);
+		ImageView iv_agree = ViewHolder.get(convertView,R.id.iv_agree);
 		TextView tv_time = ViewHolder.get(convertView, R.id.tv_time);
-		TextView tv_prise = ViewHolder.get(convertView, R.id.tv_prise);
-		final TextView tv_prise_add = ViewHolder.get(convertView, R.id.tv_prise_add);
-		ImageView iv_prise = ViewHolder.get(convertView, R.id.iv_prise);
-		String comment = item.getContent();
-		int color = 0;
-		if(item.getAttitude() == 1){
-//			comment = "[看好]"+comment;
-			color = context.getResources().getColor(R.color.gain_red);
-			view1.setBackgroundColor(color);
-			view2.setBackgroundColor(color);
+		TextView tv_comment = ViewHolder.get(convertView, R.id.tv_comment);
+
+		RoundedImageView headImage_1 = ViewHolder.get(convertView,R.id.headImage_1);
+		TextView tv_name_1 = ViewHolder.get(convertView,R.id.tv_name_1);
+		TextView tv_time_1 = ViewHolder.get(convertView,R.id.tv_time_1);
+		TextView tv_total_apply = ViewHolder.get(convertView,R.id.tv_total_apply);
+		LinearLayout ll_apply = ViewHolder.get(convertView, R.id.ll_apply);
+
+		tv_comment_num.setText(item.getLikeNum()+"");
+		 String s = null;
+		if(loves == null || !loves.contains(item.getId()+"")){
+			iv_agree.setSelected(false);
+			s = CommentOperate.like.name();
 		}else{
-//			comment = "[不看好]"+comment;
-			color = context.getResources().getColor(R.color.text_blue);
-			view1.setBackgroundColor(color);
-			view2.setBackgroundColor(color);
+			iv_agree.setSelected(true);
+			s = CommentOperate.unlike.name();
 		}
-		tv_name.setText(item.getUser().getName());
-		ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.logo));
-		tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getCtime()));
-//		SpannableStringBuilder stringBuilder = new SpannableStringBuilder(comment);
-//		stringBuilder.setSpan(new ForegroundColorSpan(color), 0, comment.indexOf("]")+1, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
-		tv_comment.setText(comment);
-		iv_prise.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				tv_prise_add.setVisibility(View.VISIBLE);
-				tv_prise_add.startAnimation(animation);
-				new Handler().postDelayed(new  Runnable() {
-					public void run() {
-						tv_prise_add.setVisibility(View.GONE);
-					}
-				}, 1000);
+		final String operate = s;
+		if(map == null || !map.containsKey(item.getLastChildId()+"")){
+			ll_apply.setVisibility(View.GONE);
+		}else{
+			ll_apply.setVisibility(View.VISIBLE);
+			CommentDAO dao = map.get(item.getLastChildId()+"");
+			if(headImage_1.getTag() == null || !headImage_1.getTag().equals(dao.getUser().getHeadImage())){
+				ImageLoader.getInstance().displayImage(dao.getUser().getHeadImage(),headImage_1,ImageLoadOptions.getOptions(R.drawable.image_top_default));
+				headImage_1.setTag(dao.getUser().getHeadImage());
 			}
-		});
+			tv_name_1.setText(dao.getUser().getName()+" 已回复");
+			tv_time_1.setText(dao.getCtimeStr());
+			tv_total_apply.setText("共"+item.getChildNum()+"条回复");
+		}
+
+		if(item.getAttitude() == 1){
+			tv_attitude.setText("看好");
+			tv_attitude.setTextColor(context.getResources().getColor(R.color.gain_red));
+			tv_attitude.setBackground(context.getResources().getDrawable(R.drawable.shap_back_good));
+		}else{
+			tv_attitude.setText("不看好");
+			tv_attitude.setTextColor(context.getResources().getColor(R.color.gain_blue));
+			tv_attitude.setBackground(context.getResources().getDrawable(R.drawable.shap_back_bad));
+		}
+		tv_comment.setText(item.getContent());
+		tv_name.setText(item.getUser().getName());
+		if(imageView.getTag() == null || !imageView.getTag().equals(item.getUser().getHeadImage())){
+			ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), imageView, ImageLoadOptions.getOptions(R.drawable.logo));
+			imageView.setTag(item.getUser().getHeadImage());
+		}
+		tv_time.setText(item.getCtimeStr());
+
 		imageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				if (preferenceUtil.getID() == item.getUser().getId()) {
+					return;
+				}
 				Intent intent = new Intent(context, PersonalShowActivity.class);
-				intent.putExtra("id", item.getUser().getId()+"");
+				intent.putExtra("id", item.getUser().getId() + "");
 				context.startActivity(intent);
-				
 			}
 		});
 		tv_name.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				if(preferenceUtil.getID() == item.getUser().getId()){
+					return;
+				}
 				Intent intent = new Intent(context, PersonalShowActivity.class);
-				intent.putExtra("id", item.getUser().getId()+"");
+				intent.putExtra("id", item.getUser().getId() + "");
 				context.startActivity(intent);
+			}
+		});
+		ll_agree.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(operateListener !=null){
+					operateListener.onClickListener(item.getId()
+					+"",operate);
+				}
+			}
+		});
+		tv_comment.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(item.getUser().getId() == preferenceUtil.getID()){
+					//删除提示
+					if(deleteCommentListener != null){
+						deleteCommentListener.onClickListener(item);
+					}
+					return;
+				}
+				if(applyCommentListener!=null){
+					applyCommentListener.onClickListener(item);
+				}
+			}
+		});
+		ll_apply.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//进入评论详情（子评论）
+				Intent intent = new Intent(context,CommentDetailSecondActivity.class);
+				intent.putExtra("value",item);
+				intent.putExtra("from", true);
+				if(operate.equals(CommentOperate.unlike.name())){
+					intent.putExtra("praise",true);
+				}else{
+					intent.putExtra("praise",false);
+				}
+				context.startActivity(intent);
+
 			}
 		});
 		return convertView;
 	}
-
+	public void setOperateListener(PraiseOperateListener operateListener){
+		if(operateListener !=null){
+			this.operateListener = operateListener;
+		}
+	}
+	public void setApplyCommentListener(ApplyCommentListener applyCommentListener){
+		if(applyCommentListener!=null){
+			this.applyCommentListener = applyCommentListener;
+		}
+	}
+	public void setDeleteCommentListener(DeleteCommentListener deleteCommentListener){
+		if(deleteCommentListener!=null){
+			this.deleteCommentListener = deleteCommentListener;
+		}
+	}
+	public interface PraiseOperateListener{
+		 void onClickListener(String com_id,String operate);//（点赞/取消点赞）
+	}
+	public interface ApplyCommentListener{
+		void onClickListener(CommentDAO comment) ;//回复评论
+	}
+	public interface DeleteCommentListener{
+		void onClickListener(CommentDAO comment);//删除评论
+	}
 }

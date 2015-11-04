@@ -63,6 +63,8 @@ public class IndexActivity extends BaseActivity{
 		btn_skip = (Button) findViewById(R.id.btn_skip);
 		viewPager = (ViewPager)this.findViewById(R.id.viewpager);
 		dot = (LinearLayout) findViewById(R.id.linear_dot_array);
+		dot.setVisibility(View.INVISIBLE);
+
 		pagers = new ArrayList<View>();
 		setPagers();
 		adapter = new IndexViewPagerAdapter(IndexActivity.this, pagers);
@@ -81,7 +83,9 @@ public class IndexActivity extends BaseActivity{
 		View view1 = LayoutInflater.from(this).inflate(R.layout.index_1, null);
 		View view2 = LayoutInflater.from(this).inflate(R.layout.index_2, null);
 		View view3 = LayoutInflater.from(this).inflate(R.layout.index_3, null);
-		Button btn_enter = (Button) view3.findViewById(R.id.btn_enter);
+		View view4 = LayoutInflater.from(this).inflate(R.layout.index_4, null);
+		View view5 = LayoutInflater.from(this).inflate(R.layout.index_5, null);
+		Button btn_enter = (Button) view5.findViewById(R.id.btn_enter);
 		btn_enter.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -92,6 +96,8 @@ public class IndexActivity extends BaseActivity{
 		pagers.add(view1);
 		pagers.add(view2);
 		pagers.add(view3);
+		pagers.add(view4);
+		pagers.add(view5);
 	}
 	@Override
 	protected void onResume() {

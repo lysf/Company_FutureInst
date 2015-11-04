@@ -7,9 +7,12 @@
     
     
     
-    	 <color name="home_table_0">#8E8E93</color>
-    <color name="home_table_1">#007AFF</color>
-    
+	<color name="home_table_0">#6D6D6D</color>
+    <color name="home_table_1">#51C3D1</color>
+
+	<color name="sliding_table_0">#C5C5C5</color>
+    <color name="sliding_table_1">#51C1CF</color>
+
     	<color name="right_btn">#1B6EDC</color>
     	<color name="status_bar">#f1f1f1</color>
     	<color name="text_color_base">#86BFFA</color>
@@ -19,7 +22,7 @@
     	<color name="background5">#6069B7</color>
    		 <color name="bg">#F5F5F5</color>
     	<color name="login_title_layout_back">#081448</color>
-    	<color name="login_btn_login">#86BFFA</color>
+    	<color name="login_btn_login">#BAD311</color>
     	<color name="text_color_pink">#FF80AB</color>
     	<color name="text_color_white">#FfFfFfff</color>
     	<color name="text_color_cb">#BFBFBF</color>
@@ -32,14 +35,15 @@
     	<color name="text_color_b0">#B0BDB4</color>
     	<color name="text_color_0">#000000</color>
     	<color name="text_color_3">#333333</color>
+    	<color name="text_color_4">#4B494B</color>
     	<color name="text_color_6">#666666</color>
-    	<color name="text_color_9">#999999</color>
+    	<color name="text_color_9">#9b9b9b</color>
     	<color name="text_color_top_ranking">#747493</color>
     	<color name="text_color_price_change">#C8171E</color>
     	<color name="btn_invivate_0">#5ac8fa</color>
     	<color name="btn_invivate_1">#225ac8fa</color>
-    	<color name="gain_red">#ff3b30</color>
-    	<color name="gain_blue">#4cd964</color>
+    	<color name="gain_red">#ff6565</color>
+    	<color name="gain_blue">#B9D310</color>
     	<color name="text_blue">#008a41</color>
     	<color name="base_bg">#f4f6f6</color>
     	<color name="regist_keyword_1">#FE7D5E</color>
@@ -85,7 +89,7 @@
     	<color name="background_tab_pressed">#6633B5E5</color>
     	<color name="forecast_deal">#ffcc00</color>
     	<color name="forecast_deal_line">#Ff9500</color>
-    	<color name="forecast_bottom_line_select">#007BFF</color>
+    	<color name="forecast_bottom_line_select">#F8E71C</color>
     	<color name="comment_text_0">#5DA5FF</color>
     	<color name="comment_text_1">#885DA5FF</color>
 </resources>

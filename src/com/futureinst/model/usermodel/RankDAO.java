@@ -7,7 +7,7 @@ public class RankDAO implements Serializable{
 	private long user_id;
 	private String user_head_image;
 	private String name;
-	private int foreIndex;
+	private float foreIndex;
 	private int currRank;
 	private int lastRank;
 	public long getUser_id() {
@@ -28,10 +28,10 @@ public class RankDAO implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getForeIndex() {
+	public float getForeIndex() {
 		return foreIndex;
 	}
-	public void setForeIndex(int foreIndex) {
+	public void setForeIndex(float foreIndex) {
 		this.foreIndex = foreIndex;
 	}
 	public int getCurrRank() {

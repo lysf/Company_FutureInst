@@ -4,18 +4,40 @@ import com.futureinst.model.basemodel.BaseModel;
 
 @SuppressWarnings("serial")
 public class EventRelatedInfo extends BaseModel {
-	private EventRelatedDAO related;
+	private ReferenceDAOInfo refer;
+	private LazyBagInfoDao lazybag;
+	private QueryEventDAO event;
 
-	public EventRelatedDAO getRelated() {
-		return related;
+	public ReferenceDAOInfo getRefer() {
+		return refer;
 	}
 
-	public void setRelated(EventRelatedDAO related) {
-		this.related = related;
+	public void setRefer(ReferenceDAOInfo refer) {
+		this.refer = refer;
+	}
+
+	public LazyBagInfoDao getLazybag() {
+		return lazybag;
+	}
+
+	public void setLazybag(LazyBagInfoDao lazybag) {
+		this.lazybag = lazybag;
+	}
+
+	public QueryEventDAO getEvent() {
+		return event;
+	}
+
+	public void setEvent(QueryEventDAO event) {
+		this.event = event;
 	}
 
 	@Override
 	public String toString() {
-		return "EventRelatedInfo [related=" + related + "]";
+		return "EventRelatedInfo{" +
+				"refer=" + refer +
+				", lazybag=" + lazybag +
+				", event=" + event +
+				'}';
 	}
 }

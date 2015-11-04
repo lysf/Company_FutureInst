@@ -6,7 +6,7 @@ import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
-import com.futureinst.home.ranking.RecordAdapter;
+import com.futureinst.home.find.RecordAdapter;
 import com.futureinst.model.record.RecordDAO;
 import com.futureinst.model.record.RecordInofDAO;
 import com.futureinst.model.record.UserRecordDAO;

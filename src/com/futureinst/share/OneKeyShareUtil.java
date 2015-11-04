@@ -27,7 +27,9 @@ public class OneKeyShareUtil {
 		OnekeyShare oks = new OnekeyShare();
 		
 		oks.setTheme(OnekeyShareTheme.CLASSIC);
-		oks.setEventId(event_id);
+		if(!TextUtils.isEmpty(event_id)){
+			oks.setEventId(event_id);
+		}
 		oks.setShare_award(share_award);
 		// 设置Notification的显示图标和显示文字
 //		oks.setNotification(R.drawable.logo, "未来研究所");
@@ -65,7 +67,9 @@ public class OneKeyShareUtil {
 		// oks.setLongitude(113.372338f);
 		// 设置是否是直接分享
 		oks.setSilent(false);
-		oks.setPlatform(platform);
+		if(!TextUtils.isEmpty(platform)){
+			oks.setPlatform(platform);
+		}
 //		 设置自定义的外部回调
 //		 oks.setCallback(new OneKeyShareCallback(context));
 //		 oks.setShareContentCustomizeCallback(new ShareContentCustomizeDemo(shareTitle, shareTitleUrl, shareImageUrl, shareContents));

@@ -14,18 +14,18 @@ public class CustomProgress extends ImageView {
 	public CustomProgress(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		// TODO Auto-generated constructor stub
-		setImage(context, R.drawable.circular);
+		setImage(context, R.drawable.loading_icon);
 	}
 
 	public CustomProgress(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
-		setImage(context, R.drawable.circular);
+		setImage(context, R.drawable.loading_icon);
 	}
 
 	public CustomProgress(Context context) {
 		super(context);
-		setImage(context, R.drawable.circular);
+		setImage(context, R.drawable.loading_icon);
 		// TODO Auto-generated constructor stub
 	}
 	private void setImage(Context context,int resId){

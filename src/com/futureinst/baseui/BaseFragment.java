@@ -235,7 +235,7 @@ public abstract class BaseFragment extends Fragment {
 		return (String) getTitleView().getText();
 	}
 
-	protected BaseFragmentActivity getContext() {
+	public BaseFragmentActivity getContext() {
 		if (mContentView == null) {
 			return BaseApplication.getInstance().getTop();
 		}

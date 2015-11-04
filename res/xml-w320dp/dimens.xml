@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="text_size_small">24sp</dimen>
+    <dimen name="text_size_normal">31sp</dimen>
+    <dimen name="text_size_large">36sp</dimen>
+
+    <dimen name="dimen_ranking_image">100dp</dimen>
+    <dimen name="dimen_ranking_image_margin">24dp</dimen>
+
+</resources>

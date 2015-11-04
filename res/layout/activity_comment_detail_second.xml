@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+
+    >
+    <LinearLayout
+        android:id="@+id/ll_container"
+        android:visibility="visible"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.futureinst.widget.list.PullListView
+        android:id="@+id/pull_listView"
+        android:divider="@color/text_color_e"
+        android:dividerHeight="@dimen/line_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.futureinst.widget.list.PullListView>
+    <include
+        android:id="@+id/view_float_comment_edit"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/view_comment_edit"/>
+
+</RelativeLayout>

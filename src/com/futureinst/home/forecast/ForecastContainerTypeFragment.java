@@ -26,6 +26,7 @@ import com.futureinst.net.PostType;
 import com.futureinst.push.PushWebActivity;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.CustomStatUtil;
+import com.futureinst.widget.dragtop.AttachUtil;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
 
@@ -39,12 +40,15 @@ import android.util.Log;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
+
+import de.greenrobot.event.EventBus;
 
 public class ForecastContainerTypeFragment extends BaseFragment implements OnRefreshListener{
 	private static final String ARG_POSITION = "position";
@@ -59,7 +63,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	private TextView tv_empty;
 	private boolean isStart;
 	private Button btn_login;
-	private String empty = "快去点击事件进入事件详情页打开‘<img src=\""+R.drawable.attention_tip+"\" />’";
+	private String empty = "快去点击事件进入事件详情页打开“‘<img src=\""+R.drawable.detail_operate+"\" />’”";
 	public static ForecastContainerTypeFragment newInstance(int position) {
 		ForecastContainerTypeFragment f = new ForecastContainerTypeFragment();
 		Bundle b = new Bundle();
@@ -110,37 +114,37 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	         } 
 	     }; 
 	     tv_empty.append(Html.fromHtml(empty, imageGetter, null));
-		pullListView = (PullListView) findViewById(R.id.pull_listView);
+		pullListView = (PullListView) findViewById(R.id.id_stickynavlayout_innerscrollview);
 		pullListView.setonRefreshListener(this);
 		adapter = new ForecastItemAdapter(getContext());
 		pullListView.setAdapter(adapter);
 		pullListView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
-				if(index < 1) return;
-				QueryEventDAO item = (QueryEventDAO) adapter.getItem(index - 1);
-				
-				if(item.getType() == 1){//专题
-					Intent intent = new Intent(getActivity(), ForecastGroupActivity.class);
-					intent.putExtra("group_id", item.getId()+"");
-					intent.putExtra("title", item.getTitle());
-					startActivity(intent);
-				}else if(item.getType() == 2){//广告
-					if(TextUtils.isEmpty(item.getLead())) return;
-					Intent intent = new Intent(getActivity(), PushWebActivity.class);
-					intent.putExtra("url", item.getLead());
-					intent.putExtra("title", item.getTitle());
-					startActivity(intent);
-				}else{
-					//预测
-					Intent intent = new Intent(getActivity(), EventDetailActivity.class);
-					intent.putExtra("eventId", item.getId()+"");
-					if(position == -1)
-						intent.putExtra("boolean", true);
-					startActivity(intent);
-				}
-			}
-		});
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
+                if (index < 1) return;
+                QueryEventDAO item = (QueryEventDAO) adapter.getItem(index - 1);
+
+                if (item.getType() == 1) {//专题
+                    Intent intent = new Intent(getActivity(), ForecastGroupActivity.class);
+                    intent.putExtra("group_id", item.getId() + "");
+                    intent.putExtra("title", item.getTitle());
+                    startActivity(intent);
+                } else if (item.getType() == 2) {//广告
+                    if (TextUtils.isEmpty(item.getLead())) return;
+                    Intent intent = new Intent(getActivity(), PushWebActivity.class);
+                    intent.putExtra("url", item.getLead());
+                    intent.putExtra("title", item.getTitle());
+                    startActivity(intent);
+                } else {
+                    //预测
+                    Intent intent = new Intent(getActivity(), EventDetailActivity.class);
+                    intent.putExtra("eventId", item.getId() + "");
+                    if (position == -1)
+                        intent.putExtra("boolean", true);
+                    startActivity(intent);
+                }
+            }
+        });
 		btn_login.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -148,7 +152,9 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 				startActivity(intent);
 			}
 		});
+
 	}
+
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
 		if(!isStart) return;
@@ -191,9 +197,13 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 				ll_unlogin.setVisibility(View.VISIBLE);
 			}
 		}
+		if(getActivity() instanceof HomeActivity){
 		if(((HomeActivity)getActivity()).getCurrentTab() == 0){
 			setUserVisibleHint(true);
 		}
+		}
+
+
 	}
 	
 	//获取我的关注
@@ -217,9 +227,9 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						list.add(dao.getEvent());
 					}
 					if(page ==1){
-						adapter.refresh(list);
+						adapter.refresh(list,attentionInfoDAO.getCommentMap());
 					}else{
-						adapter.setList(list);
+						adapter.setList(list,attentionInfoDAO.getCommentMap());
 					}
 					if(page == 1 && list.size() == 0){
 						ll_empty.setVisibility(View.VISIBLE);
@@ -255,9 +265,9 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
 						
 						if(page ==1){
-							adapter.refresh(queryEventInfoDAO.getEvents());
+							adapter.refresh(queryEventInfoDAO.getEvents(),queryEventInfoDAO.getCommentMap());
 						}else{
-							adapter.setList(queryEventInfoDAO.getEvents());
+							adapter.setList(queryEventInfoDAO.getEvents(),queryEventInfoDAO.getCommentMap());
 						}
 						
 						if(adapter.getCount() > 9){
@@ -288,9 +298,9 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						 SystemTimeUtile.getInstance(filingInfoDAO.getCurr_time()).setSystemTime(filingInfoDAO.getCurr_time());
 						 
 						 if(page ==1){
-								adapter.refresh(filingInfoDAO.getEvents());
+								adapter.refresh(filingInfoDAO.getEvents(),filingInfoDAO.getCommentMap());
 							}else{
-								adapter.setList(filingInfoDAO.getEvents());
+								adapter.setList(filingInfoDAO.getEvents(),filingInfoDAO.getCommentMap());
 							}
 						
 						 if(adapter.getCount() > 9){
@@ -394,5 +404,5 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		flag = false;
 		handler.removeCallbacks(delayLoad);
 	}
-	
+
 }

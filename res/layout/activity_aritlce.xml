@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/text_color_e"
+    tools:context="com.futureinst.home.article.AritlceActivity">
+
+    <com.futureinst.widget.list.PullListView
+        android:id="@+id/pull_listView"
+        android:scrollbars="none"
+        android:paddingTop="@dimen/activity_login_margin_10"
+        android:paddingBottom="@dimen/activity_login_margin_10"
+        android:paddingLeft="@dimen/activity_login_margin_10"
+        android:paddingRight="@dimen/activity_login_margin_10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.futureinst.widget.list.PullListView>
+</LinearLayout>

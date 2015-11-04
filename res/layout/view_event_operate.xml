@@ -12,7 +12,16 @@
         android:textSize="@dimen/text_size_normal"
         android:background="@drawable/item_select"
         android:text="@string/event_detail_share"/>
-    <Button 
+     <Button
+        android:id="@+id/btn_edit_point"
+         android:layout_marginTop="1px"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_45"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/text_size_normal"
+        android:background="@drawable/item_select"
+        android:text="写观点赚未币"/>
+    <Button
         android:id="@+id/btn_guide"
         android:layout_marginTop="1px"
         android:layout_width="match_parent"

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/widget_height_50"
+    android:clipChildren="false"
+     android:layerType="software" 
+    android:id="@+id/ll_back"
+    android:orientation="vertical" >
+
+   <RelativeLayout
+       android:layout_marginLeft="@dimen/margin_15"
+       android:layout_marginTop="@dimen/margin_15"
+       android:layout_marginRight="@dimen/margin_20"
+       android:layout_marginBottom="@dimen/margin_15"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:gravity="center_vertical"
+       >
+       <TextView 
+           android:id="@+id/tv_title_1"
+           android:paddingLeft="@dimen/margin_5"
+           android:gravity="center"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="@dimen/text_size_large"
+           android:textColor="@drawable/text_color_white"
+            android:drawableRight="@drawable/home_down_1"
+           />
+       <TextView 
+           android:id="@+id/tv_company"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:padding="@dimen/margin_5"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentTop="true"
+           android:gravity="right|bottom"
+           android:textSize="@dimen/text_size_large"
+           android:textColor="@drawable/text_color_white"
+           android:text="@string/myAttention"/>
+       
+
+       <TextView
+           android:id="@+id/tv_title_2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/tv_title_1"
+           android:layout_toRightOf="@+id/tv_title_1"
+           android:padding="@dimen/margin_5"
+           android:gravity="center"
+           android:drawableRight="@drawable/home_down_1"
+           android:textColor="@drawable/text_color_white"
+           android:textSize="@dimen/text_size_large" />
+
+   </RelativeLayout>
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight="1"
+    android:layout_marginTop="@dimen/margin_5"
+    android:orientation="horizontal"
+    android:id="@+id/ll_container"
+    android:layerType="software"
+    android:clipChildren="false">
+	<android.support.v4.view.ViewPager
+	    android:id="@+id/viewpager"
+	    android:visibility="visible"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_marginLeft="10dip"
+	   android:layout_marginRight="50dip"  
+	    android:clipChildren="false" >
+	</android.support.v4.view.ViewPager>
+  </LinearLayout>
+  
+  <LinearLayout 
+     android:layout_marginLeft="10dip"
+	   android:layout_marginRight="50dip"
+	   android:layout_marginTop="@dimen/activity_login_margin_10"
+      android:layout_width="match_parent"
+      android:layout_height="0dip"
+      android:layout_weight="0.3"
+      android:orientation="vertical">
+      <com.futureinst.widget.WheelView
+      android:id="@+id/wheelView_1"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scrollbars="none"/>
+  </LinearLayout>
+  
+</LinearLayout>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/fragment_home.xml -->

@@ -115,20 +115,20 @@ public class CommentFragment extends BaseFragment {
 		}
 	// 获取事件相关信息
 	private void getEvetnRealted() {
-		httpResponseUtils.postJson(
-				httpPostParams.getPostParams(PostMethod.query_single_event.name(), PostType.event.name(),
-						httpPostParams.query_single_event(event_id, SingleEventScope.related.name())),
-				EventRelatedInfo.class, new PostCommentResponseListener() {
-					@Override
-					public void requestCompleted(Object response) throws JSONException {
-						if (response == null)
-							return;
-						EventRelatedInfo eventRelatedInfo = (EventRelatedInfo) response;
-						if(eventRelatedInfo.getRelated().getComment().getSize() == 0) return;
-						list = eventRelatedInfo.getRelated().getComment().getComments();
-						formatCommentList(list);
-					}
-				});
+//		httpResponseUtils.postJson(
+//				httpPostParams.getPostParams(PostMethod.query_single_event.name(), PostType.event.name(),
+//						httpPostParams.query_single_event(event_id, SingleEventScope.related.name())),
+//				EventRelatedInfo.class, new PostCommentResponseListener() {
+//					@Override
+//					public void requestCompleted(Object response) throws JSONException {
+//						if (response == null)
+//							return;
+//						EventRelatedInfo eventRelatedInfo = (EventRelatedInfo) response;
+//						if(eventRelatedInfo.getRelated().getComment().getSize() == 0) return;
+//						list = eventRelatedInfo.getRelated().getComment().getComments();
+//						formatCommentList(list);
+//					}
+//				});
 	}
 	private void formatCommentList(List<CommentDAO> list){
 		List<CommentDAO> goodList = new ArrayList<CommentDAO>();

@@ -19,6 +19,7 @@ import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.newbieguide.GuideClickInterface;
 import com.futureinst.newbieguide.NewbieGuide;
+import com.futureinst.newbieguide.NewbieGuide2;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.Utils;
@@ -58,10 +59,8 @@ public class EventBuyActivity extends BaseActivity {
 	private ImageView iv_number_sub,iv_number_add;
 	private String price,num;
 	private TextView tv_tip;
-	private Button btn_lood_good,btn_lood_bad;
 	private TableRow tableRow4;
 	private int number = 10;
-	private int color;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -152,28 +151,19 @@ public class EventBuyActivity extends BaseActivity {
 		
 		tableRow4 = (TableRow) findViewById(R.id.tableRow4);
 		tableRow4.setVisibility(View.GONE);
-		btn_lood_good = (Button) findViewById(R.id.btn_lood_good);
-		btn_lood_bad = (Button) findViewById(R.id.btn_lood_bad);
-		btn_lood_good.setVisibility(View.GONE);
-		btn_lood_bad.setVisibility(View.GONE);
 		et_price.setText(String.format("%.2f", event.getCurrPrice()));
 		et_num.setText(number+"");
 		if(isBuy){
-			submit.setText("看好");
+			submit.setText("确认看多");
 			submit.setBackground(getResources().getDrawable(R.drawable.btn_detail_buy_back));
 			tv_tip.setText(getResources().getString(R.string.buy_tip_buy));
-//			tv_total.setTextColor();
-			color = getResources().getColor(R.color.gain_red);
-//			order_tips = getResources().getString(R.string.order_look_good);
 		}else{
-			submit.setText("不看好");
+			submit.setText("确认看空");
 			submit.setBackground(getResources().getDrawable(R.drawable.btn_detail_sell_back));
 			tv_tip.setText(getResources().getString(R.string.buy_tip_sell));
-			color = getResources().getColor(R.color.text_blue);
-//			order_tips = getResources().getString(R.string.order_look_bad);
 		}
-		tv_total_2.setTextColor(color);
-		tv_total_4.setTextColor(color);
+		tv_total_2.setTextColor(getResources().getColor(R.color.gain_red));
+		tv_total_4.setTextColor(getResources().getColor(R.color.gain_blue));
 		et_price.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -184,7 +174,7 @@ public class EventBuyActivity extends BaseActivity {
 					}
 					float price = Float.valueOf(s.toString());
 					if(price > 99.9){
-						MyToast.showToast(EventBuyActivity.this, "价格超限", 0);
+						MyToast.getInstance().showToast(EventBuyActivity.this, "价格超限", 0);
 						et_price.setText(String.format("%.1f", event.getCurrPrice()));
 						return;
 					}
@@ -202,13 +192,13 @@ public class EventBuyActivity extends BaseActivity {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				if(!TextUtils.isEmpty(s)){
 					if(!Utils.checkIsNumber(s.subSequence(0, 1).toString()) || s.subSequence(0, 1).toString().equals("0")){
-						MyToast.showToast(EventBuyActivity.this, "件数不能为0", 0);
+						MyToast.getInstance().showToast(EventBuyActivity.this, "件数不能为0", 0);
 						et_num.setText("1");
 						return;
 					}
 					int number = Integer.valueOf(s.toString());
 					if(number > 100){
-						MyToast.showToast(EventBuyActivity.this, "件数超限", 0);
+						MyToast.getInstance().getInstance().showToast(EventBuyActivity.this, "件数超限", 0);
 						et_num.setText("10");
 						return;
 					}
@@ -242,7 +232,7 @@ public class EventBuyActivity extends BaseActivity {
 							singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
 					Log.i(TAG, "--------------------assure="+assure+"-----asset="+asset);
 					if(assure > asset){
-						MyToast.showToast(EventBuyActivity.this, "保证金不足，无法下单", 0);
+						MyToast.getInstance().showToast(EventBuyActivity.this, "保证金不足，无法下单", 0);
 						return;
 					}
 					if(isBuy){
@@ -370,12 +360,12 @@ public class EventBuyActivity extends BaseActivity {
 			
 		}
 		//添加订单
-		private void addOrder(int type,String price,int num){
+		private void addOrder(final int type,String price,int num){
 			progressDialog.progressDialog();
 			Content.isPull = true;
 			httpResponseUtils.postJson(httpPostParams.getPostParams(
 					PostMethod.add_order .name(), PostType.order .name(), 
-					httpPostParams.add_order(preferenceUtil.getID()+"", preferenceUtil.getUUid(), type+"", price, num+"", event.getId()+"")), 
+					httpPostParams.add_order(preferenceUtil.getID()+"", preferenceUtil.getUUid(), type+"", price, num+"", event.getId()+"","pro")),
 					BaseModel.class, 
 					new PostCommentResponseListener() {
 				@Override
@@ -384,8 +374,8 @@ public class EventBuyActivity extends BaseActivity {
 					Content.isPull = false;
 					if(response == null) return;
 					//交易成功
-//					MyToast.showToast(EventBuyActivity.this, "正在为您撮合订单，请到我的持仓查看订单状态。",1);
 					Intent intent = new Intent("priceClear");
+					intent.putExtra("attitude",type);
 					sendBroadcast(intent);
 					finish();
 				}
@@ -402,15 +392,15 @@ public class EventBuyActivity extends BaseActivity {
 //				configMsg = "确定以" + price + "未币的价格看好" + num + "份事件（"+event.getTitle()+"）吗？";
 				configMsg = "确定以价格" + price + "，看好" + num + "份";
 				break;
-			case 2:
-				configMsg = "确定以市价" + "买进" + num + "份";
-				break;
+//			case 2:
+//				configMsg = "确定以市价" + "买进" + num + "份";
+//				break;
 			case 3:
 				configMsg = "确定以价格" + price + "，不看好" + num + "份";
 				break;
-			case 4:
-				configMsg = "确定以市价" + "卖空" + num + "份";
-				break;
+//			case 4:
+//				configMsg = "确定以市价" + "卖空" + num + "份";
+//				break;
 			}
 			tv_configMsg.setText(configMsg);
 			Button btn_config = (Button) view.findViewById(R.id.btn_submit);
@@ -432,11 +422,11 @@ public class EventBuyActivity extends BaseActivity {
 		}
 		private boolean judgeData(){
 			if(TextUtils.isEmpty(et_price.getText().toString()) || et_price.getText().toString().equals("0")){
-				MyToast.showToast(this, "请输入价格", 0);
+				MyToast.getInstance().showToast(this, "请输入价格", 0);
 				return false;
 			}
 			if(TextUtils.isEmpty(et_num.getText().toString())){
-				MyToast.showToast(this, "请输入件数", 0);
+				MyToast.getInstance().showToast(this, "请输入件数", 0);
 				return false;
 			}
 			return true;
@@ -454,14 +444,10 @@ public class EventBuyActivity extends BaseActivity {
 		
 		//显示新手引导
 		 private void showGuide(){
-			 if(preferenceUtil.getGuide8())
-				 return;
-			 new NewbieGuide(this, R.drawable.guide_7, new GuideClickInterface() {
-				@Override
-				public void guideClick() {
-					preferenceUtil.setGuide8();
-				}
-			});
+			 if(!preferenceUtil.getGuide4()){
+				 new NewbieGuide2(this, true,3);
+				 preferenceUtil.setGuide4();
+			 }
 			 
 		 }
 }

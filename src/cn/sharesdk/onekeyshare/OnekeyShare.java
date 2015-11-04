@@ -514,7 +514,7 @@ public class OnekeyShare implements PlatformActionListener, Callback {
 				switch (msg.arg1) {
 					case 1: {
 						// 成功
-						if(share_award == 0){
+						if(share_award == 0 && !TextUtils.isEmpty(event_id)){
 							ShareOperate.addMyAttention(context, event_id);
 						}
 						int resId = getStringRes(context, "share_completed");

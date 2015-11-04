@@ -253,7 +253,7 @@
             <include 
                 android:visibility="visible"
                 android:id="@+id/view_easy"
-                layout="@layout/view_easy_mode"/>
+                layout="@layout/view_mode_advance"/>
            
           
         </FrameLayout>

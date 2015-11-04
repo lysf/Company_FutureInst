@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-     android:background="#f2f2f2"
+    android:background="@color/text_color_white"
     android:orientation="vertical" >
 	<TextView 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:padding="@dimen/activity_login_margin_10"
-	    android:textColor="@color/text_color_3"
+	    android:textColor="@color/text_color_4"
 	    android:textSize="@dimen/text_size_normal"
 	    android:gravity="center"
 	    android:text="待交易订单"/>
@@ -17,49 +17,6 @@
         android:layout_height="wrap_content"
          >
 
-        <TableRow
-            android:id="@+id/tableRow0"
-            android:visibility="gone"
-            android:gravity="center"
-            android:paddingBottom="@dimen/margin_20"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-            <LinearLayout 
-                android:layout_width="0dip"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button 
-                    android:id="@+id/btn_lood_good"
-                    android:layout_width="100dip"
-                    android:layout_height="@dimen/widget_height_40"
-                    android:textColor="@color/text_color_white"
-                    android:textSize="@dimen/text_size_normal"
-                    android:background="@drawable/btn_buy_back"
-                    android:text="看好"/>
-            </LinearLayout>
-            <ImageView 
-                android:visibility="invisible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/a_hp_1_icon_02"/>
-           <LinearLayout 
-                android:layout_width="0dip"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button 
-                    android:id="@+id/btn_lood_bad"
-                    android:layout_width="100dip"
-                    android:layout_height="@dimen/widget_height_40"
-                    android:textColor="@color/text_color_white"
-                    android:textSize="@dimen/text_size_normal"
-                    android:background="@drawable/btn_sell_back"
-                    android:text="不看好"/>
-            </LinearLayout>
-        </TableRow>
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -80,7 +37,7 @@
                     android:paddingRight="@dimen/margin_15"
                     android:paddingBottom="@dimen/margin_5"
                     android:orientation="horizontal"
-                    android:background="@drawable/view_shap">
+                    android:background="@drawable/price_red">
                     
               
                <TextView 
@@ -89,7 +46,7 @@
                 android:gravity="right"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
                <TextView 
                  android:id="@+id/tv_buy_1_2"
                 android:layout_width="wrap_content"
@@ -97,18 +54,19 @@
                 android:text="--"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
                <TextView 
                  android:id="@+id/tv_buy_1_3"
                 android:layout_width="50dip"
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
                  </LinearLayout>
            </LinearLayout>
              
             <ImageView 
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon"/>
@@ -126,29 +84,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:background="@drawable/view_shap">
+                    android:background="@drawable/price_blue">
               <TextView 
-                android:id="@+id/tv_sell_1_1"
+                android:id="@+id/tv_sell_1_3"
                 android:layout_width="50dip"
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
               <TextView 
                 android:id="@+id/tv_sell_1_2"
                 android:layout_width="wrap_content"
                  android:text="--"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
               <TextView 
-                android:id="@+id/tv_sell_1_3"
+                android:id="@+id/tv_sell_1_1"
                 android:layout_width="50dip"
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
           		 </LinearLayout>
            </LinearLayout>
         </TableRow>
@@ -170,7 +128,7 @@
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
                <TextView 
                  android:id="@+id/tv_buy_2_2"
                 android:layout_width="wrap_content"
@@ -178,7 +136,7 @@
                 android:text="--"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
                <TextView 
                  android:id="@+id/tv_buy_2_3"
                 android:layout_width="50dip"
@@ -186,9 +144,10 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
                 android:layout_marginRight="@dimen/margin_15"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
            </LinearLayout>
             <ImageView 
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon"/>
@@ -199,32 +158,33 @@
                android:layout_height="wrap_content"
                android:orientation="horizontal">
               <TextView 
-                android:id="@+id/tv_sell_2_1"
+                android:id="@+id/tv_sell_2_3"
                 android:layout_width="50dip"
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
               <TextView 
                 android:id="@+id/tv_sell_2_2"
                 android:layout_width="wrap_content"
                  android:text="--"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
               <TextView 
-                android:id="@+id/tv_sell_2_3"
+                android:id="@+id/tv_sell_2_1"
                 android:layout_width="50dip"
                 android:layout_marginRight="@dimen/margin_15"
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
            </LinearLayout>
         </TableRow>
         <TableRow
             android:id="@+id/tableRow3"
+            android:layout_marginBottom="@dimen/margin_20"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
@@ -240,7 +200,7 @@
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
                <TextView 
                  android:id="@+id/tv_buy_3_2"
                 android:layout_width="wrap_content"
@@ -248,7 +208,7 @@
                 android:text="--"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
                <TextView 
                  android:id="@+id/tv_buy_3_3"
                 android:layout_width="50dip"
@@ -256,9 +216,10 @@
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gain_red"
-                android:textSize="@dimen/text_size_small"/>
+                android:textSize="@dimen/text_size_normal"/>
            </LinearLayout>
             <ImageView 
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon"/>
@@ -269,33 +230,34 @@
                android:layout_height="wrap_content"
                android:orientation="horizontal">
               <TextView 
-                android:id="@+id/tv_sell_3_1"
+                android:id="@+id/tv_sell_3_3"
                 android:layout_width="50dip"
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
               <TextView 
                 android:id="@+id/tv_sell_3_2"
                 android:layout_width="wrap_content"
                  android:text="--"
                 android:gravity="center"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
               <TextView 
-                android:id="@+id/tv_sell_3_3"
+                android:id="@+id/tv_sell_3_1"
                 android:layout_marginRight="@dimen/margin_15"
                 android:layout_width="50dip"
                 android:gravity="right|center_vertical"
                 android:layout_height="wrap_content"
-                android:textColor="@color/text_blue"
-                android:textSize="@dimen/text_size_small"/>
+                android:textColor="@color/gain_blue"
+                android:textSize="@dimen/text_size_normal"/>
            </LinearLayout>
         </TableRow>
 	
          <TableRow
             android:id="@+id/tableRow4"
+             android:visibility="gone"
             android:gravity="center"
             android:paddingLeft="@dimen/margin_15"
             android:paddingRight="@dimen/margin_15"
@@ -313,7 +275,7 @@
         android:gravity="center_vertical"
         android:minHeight="@dimen/widget_height_35"
         android:textColor="@color/text_color_9"
-        android:textSize="@dimen/text_size_small"/>
+        android:textSize="@dimen/text_size_normal"/>
 	    <TextView 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -322,8 +284,8 @@
         android:layout_marginRight="@dimen/margin_5"
         android:gravity="center_vertical"
         android:minHeight="@dimen/widget_height_35"
-        android:textColor="@color/gain_red"
-        android:textSize="@dimen/text_size_small"/>
+        android:textColor="@color/text_color_4"
+        android:textSize="@dimen/text_size_normal"/>
 	    <TextView 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -331,7 +293,7 @@
         android:gravity="center_vertical"
         android:minHeight="@dimen/widget_height_35"
         android:textColor="@color/text_color_9"
-        android:textSize="@dimen/text_size_small"/>
+        android:textSize="@dimen/text_size_normal"/>
            </LinearLayout>
             <ImageView 
                 android:layout_width="wrap_content"
@@ -350,7 +312,7 @@
         android:gravity="center_vertical"
         android:minHeight="@dimen/widget_height_35"
         android:textColor="@color/text_color_9"
-        android:textSize="@dimen/text_size_small"/>
+        android:textSize="@dimen/text_size_normal"/>
 	    <TextView 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -359,8 +321,8 @@
         android:text="不看好"
         android:gravity="center_vertical"
         android:minHeight="@dimen/widget_height_35"
-        android:textColor="@color/text_blue"
-        android:textSize="@dimen/text_size_small"/>
+        android:textColor="@color/text_color_4"
+        android:textSize="@dimen/text_size_normal"/>
 	    <TextView 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -368,7 +330,7 @@
         android:gravity="center_vertical"
         android:minHeight="@dimen/widget_height_35"
         android:textColor="@color/text_color_9"
-        android:textSize="@dimen/text_size_small"/>
+        android:textSize="@dimen/text_size_normal"/>
            </LinearLayout>
         </TableRow>
     </TableLayout>

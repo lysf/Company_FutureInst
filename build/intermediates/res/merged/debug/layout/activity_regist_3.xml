@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_a"/>
+    <TextView 
+         android:paddingLeft="@dimen/activity_login_padding"
+         android:paddingTop="@dimen/activity_login_padding"
+         android:paddingRight="@dimen/activity_login_padding"
+        android:layout_marginTop="@dimen/activity_login_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="@color/text_color_b0"
+        android:text="@string/keyword"/>
+
+    <GridView
+        android:id="@+id/gv_keyword"
+        android:layout_width="240dip"
+        android:layout_height="wrap_content"
+        android:stretchMode="columnWidth"
+        android:horizontalSpacing="0dip"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3" >
+    </GridView>
+
+</LinearLayout>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/activity_regist_3.xml -->

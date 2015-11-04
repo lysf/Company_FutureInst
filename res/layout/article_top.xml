@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    android:padding="@dimen/activity_login_margin_10"
+    android:orientation="vertical">
+    <TextView
+        android:text="累计受赏"
+        android:layout_marginTop="@dimen/margin_5"
+        android:textColor="@color/text_color_3"
+        android:textSize="@dimen/text_size_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_total_award"
+            android:textColor="@color/text_color_0"
+            android:textSize="40sp"
+            android:text="0"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toRightOf="@+id/tv_total_award"
+
+            android:paddingBottom="@dimen/activity_login_margin_10"
+            android:layout_alignBottom="@+id/tv_total_award"
+            android:paddingLeft="@dimen/activity_login_margin_10"
+            android:text="未币"
+            android:textColor="@color/text_color_4"
+            android:textSize="@dimen/text_size_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="累计发表"
+                android:layout_marginBottom="@dimen/activity_login_margin_10"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="@color/text_color_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_num_article"
+                    android:textSize="30sp"
+                    android:textColor="@color/text_color_3"
+                    android:text="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text=" 篇"
+                    android:textColor="@color/text_color_3"
+                    android:textSize="@dimen/text_size_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="累计读者"
+                android:layout_marginBottom="@dimen/activity_login_margin_10"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="@color/text_color_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_num_read"
+                    android:textSize="30sp"
+                    android:textColor="@color/text_color_3"
+                    android:text="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text=" 人"
+                    android:textColor="@color/text_color_3"
+                    android:textSize="@dimen/text_size_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="right"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="累计获得"
+                android:layout_marginBottom="@dimen/activity_login_margin_10"
+                android:textSize="@dimen/text_size_normal"
+                android:textColor="@color/text_color_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/tv_num_praise"
+                    android:textSize="30sp"
+                    android:textColor="@color/text_color_3"
+                    android:text="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text=" 赞"
+                    android:textColor="@color/text_color_3"
+                    android:textSize="@dimen/text_size_normal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

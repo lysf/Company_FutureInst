@@ -28,6 +28,7 @@ public class TimeUtil {
 	private static final int DAY = 24 * 60 * 60;// 天
 	private static final int HOUR = 60 * 60;// 小时
 	private static final int MINUTE = 60;// 分钟
+	private static final int SECOND = 60;// 秒
 
 	/**
 	 * 根据时间戳获取描述性时间，如3分钟前，1天前
@@ -55,7 +56,11 @@ public class TimeUtil {
 		} else if (timeGap > MINUTE) {// 1分钟-59分钟
 			timeStr = timeGap / MINUTE + "分钟前";
 		} else {// 1秒钟-59秒钟
-			timeStr = "刚刚";
+			if(timeGap <= 0){
+				timeStr = "1秒前";
+			}else{
+				timeStr = timeGap/SECOND + "秒前";
+			}
 		}
 		return timeStr;
 	}

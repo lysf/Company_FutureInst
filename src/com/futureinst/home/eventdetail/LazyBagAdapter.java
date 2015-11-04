@@ -45,21 +45,16 @@ public class LazyBagAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
 		if(convertView == null)
-			convertView = LayoutInflater.from(context).inflate(R.layout.item_lazy_bag, null, false);
+			convertView = LayoutInflater.from(context).inflate(R.layout.item_whole_incident, null, false);
 			LazyBagDAO item = list.get(position);
-			ImageView iv_type = ViewHolder.get(convertView, R.id.iv_type);
-			TextView tv_time = ViewHolder.get(convertView, R.id.tv_time);
-			TextView tv_title = ViewHolder.get(convertView, R.id.tv_title);
-			TextView tv_content = ViewHolder.get(convertView, R.id.tv_content);
-//			if(position == 0){
-				iv_type.setImageDrawable(context.getResources().getDrawable(R.drawable.point_red));
-//			}else{
-//				iv_type.setImageDrawable(context.getResources().getDrawable(R.drawable.point_gray));
-//			}
+			TextView tv_time = ViewHolder.get(convertView, R.id.tv_incident_time);
+			TextView tv_title = ViewHolder.get(convertView, R.id.tv_incident_title);
+			TextView tv_content = ViewHolder.get(convertView, R.id.tv_incident_content);
 				if(!TextUtils.isEmpty(item.getHtime())){
 					tv_time.setText(item.getHtime());
+				}else{
+					tv_time.setText("背景信息");
 				}
 			tv_title.setText(item.getTitle());
 			tv_content.setText(item.getContent());

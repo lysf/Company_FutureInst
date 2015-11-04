@@ -8,6 +8,24 @@ import com.futureinst.model.basemodel.BaseModel;
 public class RankInfo extends BaseModel {
 	private int size;
 	private List<RankDAO> ranks;
+	private List<String> follows;
+	private List<String> friends;
+
+	public List<String> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<String> friends) {
+		this.friends = friends;
+	}
+
+	public List<String> getFollows() {
+		return follows;
+	}
+	public void setFollows(List<String> follows) {
+		this.follows = follows;
+	}
+
 	public int getSize() {
 		return size;
 	}

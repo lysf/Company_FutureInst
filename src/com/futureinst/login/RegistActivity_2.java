@@ -63,7 +63,7 @@ public class RegistActivity_2 extends BaseActivity {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				try {
 					if(s.toString().getBytes("GB2312").length > 14){
-						MyToast.showToast(RegistActivity_2.this, getResources().getString(R.string.regist_userName_tip), 0);
+						MyToast.getInstance().showToast(RegistActivity_2.this, getResources().getString(R.string.regist_userName_tip), 0);
 						et_userName.setText("");
 						return;
 					}
@@ -125,15 +125,15 @@ public class RegistActivity_2 extends BaseActivity {
 	private boolean judgeData(String userName,String gender,String birthday){
 		boolean flag = true;
 		if(TextUtils.isEmpty(userName)){
-			MyToast.showToast(this, "请输入昵称！", 0);
+			MyToast.getInstance().showToast(this, "请输入昵称！", 0);
 			flag = false;
 		}
 		if(TextUtils.isEmpty(gender)){
-			MyToast.showToast(this, "请选择性别！", 0);
+			MyToast.getInstance().showToast(this, "请选择性别！", 0);
 			flag = false;
 		}
 		if(TextUtils.isEmpty(birthday)){
-			MyToast.showToast(this, "请选择生日！", 0);
+			MyToast.getInstance().showToast(this, "请选择生日！", 0);
 			flag = false;
 		}
 		return flag;

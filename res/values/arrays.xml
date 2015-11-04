@@ -25,7 +25,30 @@
         <item >城市</item>
         <item >新奇</item>
     </string-array>
-    <string-array 
+    <string-array name="home_icon_title">
+        <item >推荐-&#xe637;</item>
+        <item >关注-&#xe638;</item>
+        <item >体育-&#xe639;</item>
+        <item >财经-&#xe63a;</item>
+        <item >娱乐-&#xe63b;</item>
+        <item >民生-&#xe63c;</item>
+        <item >科技-&#xe63d;</item>
+        <item >国际-&#xe63e;</item>
+        <item >城市-&#xe63f;</item>
+        <item >新奇-&#xe640;</item>
+    </string-array>
+    <string-array name="ranking_icon_title">
+        <item >总榜-&#xe637;</item>
+        <item >体育-&#xe639;</item>
+        <item >财经-&#xe63a;</item>
+        <item >娱乐-&#xe63b;</item>
+        <item >民生-&#xe63c;</item>
+        <item >科技-&#xe63d;</item>
+        <item >国际-&#xe63e;</item>
+        <item >城市-&#xe63f;</item>
+        <item >新奇-&#xe640;</item>
+    </string-array>
+    <string-array
         name="record_tag">
         <item >推荐</item>
         <item >体育</item>
@@ -52,5 +75,5 @@
         <item >price</item>
         <item >involve</item>
     </string-array>
-   
+
 </resources>

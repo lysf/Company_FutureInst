@@ -309,7 +309,6 @@ public abstract class BaseActivity extends BaseFragmentActivity {
             mbtnRight.requestLayout();
         }
     }
-
     public void setRight(int id) {
         setRight(getString(id));
     }
@@ -440,12 +439,21 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 		}
 	}
 	// 显示软键盘
-		public void showSoftInputView(View view) {
-			if (getWindow().getAttributes().softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
-				if (getCurrentFocus() != null)
-					((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE))
-							.showSoftInput(view, 0);
-			}
+		public void showSoftInputView(final View view) {
+            InputMethodManager inputManager =(InputMethodManager) view.getContext().getSystemService(INPUT_METHOD_SERVICE);
+            inputManager.showSoftInput(view, 0);
+//			if (getWindow().getAttributes().softInputMode == WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
+//				if (getCurrentFocus() != null){
+//                 new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                    }
+//                },600);
+//
+//
+////                }
+//			}
 		}
 		
 	@Override

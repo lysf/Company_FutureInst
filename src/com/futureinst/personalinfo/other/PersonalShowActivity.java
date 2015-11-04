@@ -6,8 +6,10 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.global.Content;
 import com.futureinst.global.Premit;
+import com.futureinst.home.article.AritlceActivity;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.record.UserRecordDAO;
+import com.futureinst.model.usermodel.UserDAO;
 import com.futureinst.model.usermodel.UserInformationDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.net.PostCommentResponseListener;
@@ -57,27 +59,22 @@ public class PersonalShowActivity extends BaseActivity {
 		tv_order = (TextView) findViewById(R.id.tv_order);//上次下单时间
 		tv_ranking = (TextView) findViewById(R.id.tv_ranking);
 		tv_win = (TextView) findViewById(R.id.tv_win);//胜率
-		findViewById(R.id.iv_right_1).setVisibility(View.INVISIBLE);
-		tows = new TableRow[5];
+		tows = new TableRow[3];
 		tv_total_assure = (TextView) findViewById(R.id.tv_total_assure);
 		btn_attention = (Button) findViewById(R.id.btn_attention);
 		tows[0] = (TableRow) findViewById(R.id.tableRow0);
 		tows[1] = (TableRow) findViewById(R.id.tableRow1);
-		tows[2] = (TableRow) findViewById(R.id.tableRow2);
-		tows[3] = (TableRow) findViewById(R.id.tableRow3);
-		tows[4] = (TableRow) findViewById(R.id.tableRow4);
+		tows[2] = (TableRow) findViewById(R.id.tableRow_article);
 		btn_attention.setOnClickListener(clickListener);
 		tows[0].setOnClickListener(clickListener);
 		tows[1].setOnClickListener(clickListener);
 		tows[2].setOnClickListener(clickListener);
-		tows[3].setOnClickListener(clickListener);
-		tows[4].setOnClickListener(clickListener);
-		
-		iv_permit = new ImageView[4];
+
+		iv_permit = new ImageView[2];
 		iv_permit[0] = (ImageView) findViewById(R.id.iv_1);
 		iv_permit[1] = (ImageView) findViewById(R.id.iv_2);
-		iv_permit[2] = (ImageView) findViewById(R.id.iv_3);
-		iv_permit[3] = (ImageView) findViewById(R.id.iv_4);
+		tv_attention.setOnClickListener(clickListener);
+		tv_attend.setOnClickListener(clickListener);
 	}
 	private void initUserinfo(UserRecordDAO dao){
 		ImageLoader.getInstance().displayImage(dao.getUser().getHeadImage(), iv_headImg,ImageLoadOptions.getOptions(R.drawable.logo));
@@ -98,12 +95,12 @@ public class PersonalShowActivity extends BaseActivity {
 			time +="暂无数据";
 		}
 		tv_order.setText(time);
-		tv_attend.setText(dao.getUser().getPeertoNum()+"");//关注他的人
-		tv_attention.setText(dao.getUser().getTopeerNum()+"");//他关注的人
+		tv_attention.setText("被关注"+dao.getUser().getPeertoNum()+"");//他关注的人
+		tv_attend.setText("关注"+dao.getUser().getTopeerNum()+"");//关注他的人
 		if(userInfo.getRelation().equals("none")){
-			btn_attention.setText("+ 关注");
+			btn_attention.setText("关注");
 		}else{
-			btn_attention.setText("- 取消关注");
+			btn_attention.setText("取消关注");
 		}
 		
 		if(!judgePremit(Premit.order, userInfo.getPermit_list())){
@@ -118,17 +115,17 @@ public class PersonalShowActivity extends BaseActivity {
 			iv_permit[1].setVisibility(View.VISIBLE);
 		}
 		
-		if(!judgePremit(Premit.follow_me, userInfo.getPermit_list())){
-			iv_permit[2].setVisibility(View.INVISIBLE);
-		}else{
-			iv_permit[2].setVisibility(View.VISIBLE);
-		}
-		
-		if(!judgePremit(Premit.me_follow, userInfo.getPermit_list())){
-			iv_permit[3].setVisibility(View.INVISIBLE);
-		}else{
-			iv_permit[3].setVisibility(View.VISIBLE);
-		}
+//		if(!judgePremit(Premit.follow_me, userInfo.getPermit_list())){
+//			iv_permit[2].setVisibility(View.INVISIBLE);
+//		}else{
+//			iv_permit[2].setVisibility(View.VISIBLE);
+//		}
+//
+//		if(!judgePremit(Premit.me_follow, userInfo.getPermit_list())){
+//			iv_permit[3].setVisibility(View.INVISIBLE);
+//		}else{
+//			iv_permit[3].setVisibility(View.VISIBLE);
+//		}
 		
 		
 	}
@@ -162,7 +159,7 @@ public class PersonalShowActivity extends BaseActivity {
 				intent2.putExtra("id", id);
 				startActivity(intent2);
 				break;
-			case R.id.tableRow3://他关注的人
+			case R.id.tv_attend://他关注的人
 				if(!judgePremit(Premit.me_follow, userInfo.getPermit_list())){
 					showToast(message(userInfo.getPeerPermitMap().getMe_follow()));
 					return;
@@ -171,7 +168,7 @@ public class PersonalShowActivity extends BaseActivity {
 				intent3.putExtra("id", id);
 				startActivity(intent3);
 				break;
-			case R.id.tableRow4://关注他的人
+			case R.id.tv_attention://关注他的人
 				if(!judgePremit(Premit.follow_me, userInfo.getPermit_list())){
 					showToast(message(userInfo.getPeerPermitMap().getFollow_me()));
 					return;
@@ -186,6 +183,12 @@ public class PersonalShowActivity extends BaseActivity {
 				}else{
 					operation_peer_follow(id, "unfollow");
 				}
+				break;
+			case R.id.tableRow_article:
+				Intent intentArticle = new Intent(PersonalShowActivity.this, AritlceActivity.class);
+				intentArticle.putExtra("from",false);
+				intentArticle.putExtra("user",userInfo.getUser_record().getUser());
+				startActivity(intentArticle);
 				break;
 			}
 			
@@ -230,13 +233,14 @@ public class PersonalShowActivity extends BaseActivity {
 						peer_info_query_user_record(id);
 						if(operation.equals("unfollow")){
 							message = "您已取消关注";
-							btn_attention.setText("+ 关注");
+							btn_attention.setText("关注");
 							userInfo.setRelation("none");
 						}else{
-							btn_attention.setText("- 取消关注");
+							btn_attention.setText("取消关注");
 							userInfo.setRelation("follow");
 						}
-						MyToast.showToast(PersonalShowActivity.this, message, 1);
+						sendBroadcast(new Intent("relation"));
+						MyToast.getInstance().showToast(PersonalShowActivity.this, message, 1);
 					}
 				});
 	}

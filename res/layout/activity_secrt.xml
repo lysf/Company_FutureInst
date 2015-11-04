@@ -27,7 +27,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/iv_personal_4"
+                    android:src="@drawable/iv_personal_5"
                     />
 
                 <TextView
@@ -71,7 +71,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/iv_personal_5"
+                    android:src="@drawable/iv_personal_6"
                   />
 
                 <TextView
@@ -117,7 +117,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/iv_personal_8"
+                    android:src="@drawable/secret_attention"
                     />
 
                 <TextView
@@ -161,7 +161,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/iv_personal_7"
+                    android:src="@drawable/secret_attended"
                   />
 
                 <TextView

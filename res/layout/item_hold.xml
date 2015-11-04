@@ -5,7 +5,7 @@
     android:background="@drawable/item_select"
     android:orientation="vertical" >
     <TextView 
-        android:id="@+id/tv_status"
+        android:id="@+id/tv_attitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="@dimen/activity_login_margin_10"
@@ -90,7 +90,7 @@
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
 	            android:textSize="@dimen/text_size_normal"
-	            android:textColor="@color/text_blue"
+	            android:textColor="@color/gain_blue"
 	            android:text="又不看好      30份      以45.5  "
 	            />
 	    </LinearLayout>

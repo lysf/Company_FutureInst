@@ -51,10 +51,10 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 		if(!TextUtils.isEmpty(title)){
 			setTitle(title);
 		}
-		pullListView = (PullListView) findViewById(R.id.pull_listView);
-		pullListView.setonRefreshListener(this);
+		pullListView = (PullListView) findViewById(R.id.id_stickynavlayout_innerscrollview);
 		adapter = new ForecastItemAdapter(this);
 		pullListView.setAdapter(adapter);
+		pullListView.setonRefreshListener(this);
 		pullListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int index, long id) {
@@ -136,9 +136,9 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 								SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
 								
 								if(page ==1){
-									adapter.refresh(queryEventInfoDAO.getEvents());
+									adapter.refresh(queryEventInfoDAO.getEvents(),queryEventInfoDAO.getCommentMap());
 								}else{
-									adapter.setList(queryEventInfoDAO.getEvents());
+									adapter.setList(queryEventInfoDAO.getEvents(),queryEventInfoDAO.getCommentMap());
 								}
 								
 								if(adapter.getCount() > 9){

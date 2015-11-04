@@ -1,114 +1,122 @@
 package com.futureinst.home.userinfo;
 
-import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
-import com.futureinst.home.eventdetail.EventDetailActivity;
-import com.futureinst.model.usermodel.UserCheckDAO;
-import com.futureinst.model.usermodel.UserCheckInfo;
-import com.futureinst.net.PostCommentResponseListener;
-import com.futureinst.net.PostMethod;
-import com.futureinst.net.PostType;
-import com.futureinst.widget.list.PullListView;
-import com.futureinst.widget.list.PullListView.OnRefreshListener;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
 
-public class UserCheckActivity extends BaseActivity implements OnRefreshListener{
-	private PullListView pullListView;
-	private UserCheckAdapter adapter;
-	private int page = 1;
-	private String last_id = "0";
-	@Override
-	protected void localOnCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.activity_user_check);
-		setTitle(R.string.bill);
-		getLeftImageView().setImageDrawable(
-				getResources().getDrawable(R.drawable.back));
-//		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
-		initView();
-		progressDialog.progressDialog();
-		getData(page,last_id);
-	}
+import java.util.ArrayList;
+import java.util.List;
 
-	@Override
-	protected void onLeftImageViewClick(View view) {
-		super.onLeftImageViewClick(view);
-		finish();
-	}
+public class UserCheckActivity extends BaseActivity {
+    private Button[] buttons;
+    private View[] views;
+    private List<Fragment> fragments;
+    private ViewPager container;
 
-	private void initView() {
-		pullListView = (PullListView) findViewById(R.id.pull_listView);
-		View heaed = LayoutInflater.from(this).inflate(R.layout.view_check_top, null);
-//		pullListView.addHeaderView(heaed);
-		pullListView.setRefresh(true);
-		adapter = new UserCheckAdapter(this);
-		pullListView.setAdapter(adapter);
-		pullListView.setonRefreshListener(this);
-		pullListView.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				if(position < 1) return;
-				UserCheckDAO item = (UserCheckDAO) adapter.getItem(position-1);
-				Intent intent = new Intent(UserCheckActivity.this, EventDetailActivity.class);
-				intent.putExtra("eventId", item.getEventId()+"");
-				startActivity(intent);
-			}
-		});
-	}
+    @Override
+    protected void localOnCreate(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_user_check);
+        setTitle("对账单");
+        getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
+        initView();
 
-	// 获取对账单
-	private void getData(final int page,String last_id) {
-		httpResponseUtils.postJson(httpPostParams.getPostParams(
-				PostMethod.query_user_check.name(), PostType.user_info.name(),
-				httpPostParams.query_user_check(preferenceUtil.getID()+"",preferenceUtil.getUUid(),page,last_id)), UserCheckInfo.class,
-				new PostCommentResponseListener() {
-					@Override
-					public void requestCompleted(Object response)
-							throws JSONException {
-						progressDialog.cancleProgress();
-						pullListView.onRefreshComplete();
-						if (response == null)
-							return;
-						UserCheckInfo userCheckInfo = (UserCheckInfo) response;
-						
-						if(page == 1){
-							adapter.refresh(userCheckInfo.getChecks());
-						}else{
-							adapter.setList(userCheckInfo.getChecks());
-						}
-						if(adapter.getCount() > 9){
-							pullListView.setLoadMore(true);
-						}else{
-							pullListView.setLoadMore(false);
-						}
-						if(page!=1 && (userCheckInfo.getChecks() == null || userCheckInfo.getChecks().size() ==0)){
-							handler.sendEmptyMessage(0);
-							pullListView.setLoadMore(false);
-						}
-					}
-				});
-	}
+    }
 
-	@Override
-	public void onRefresh(boolean isTop) {
-		// TODO Auto-generated method stub
-		if(isTop){
-			page = 1;
-			last_id = "0";
-		}else{
-			page ++;
-			if(adapter.getList()!=null && adapter.getList().size()>0){
-				last_id = adapter.getList().get(adapter.getCount()-1).getId()+"";
-			}
-			
-		}
-		getData(page,last_id);
-	}
+    private void initView() {
+
+
+        buttons = new Button[2];
+        views = new View[2];
+        fragments = new ArrayList<>();
+        buttons[0] = (Button) findViewById(R.id.btn_trade);
+        buttons[1] = (Button) findViewById(R.id.btn_consume);
+        views[0] = findViewById(R.id.view1);
+        views[1] = findViewById(R.id.view2);
+        fragments.add(new UserCheckTradeFragment());
+        fragments.add(new UserCheckConsumeFragment());
+        buttons[0].setSelected(true);
+        views[0].setSelected(true);
+        buttons[0].setOnClickListener(clickListener);
+        buttons[1].setOnClickListener(clickListener);
+        container = (ViewPager) findViewById(R.id.container);
+        MyFragmentAdapter adapter = new MyFragmentAdapter(
+                getSupportFragmentManager(), fragments);
+        container.setAdapter(adapter);
+        container.setOnPageChangeListener(adapter);
+    }
+
+    View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            views[0].setSelected(false);
+            views[1].setSelected(false);
+            buttons[0].setSelected(false);
+            buttons[1].setSelected(false);
+            switch (v.getId()) {
+                case R.id.btn_trade://可交易
+                    views[0].setSelected(true);
+                    buttons[0].setSelected(true);
+                    container.setCurrentItem(0);
+                    break;
+                case R.id.btn_consume://可消费
+                    views[1].setSelected(true);
+                    buttons[1].setSelected(true);
+                    container.setCurrentItem(1);
+                    break;
+            }
+        }
+    };
+
+
+    class MyFragmentAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
+        private List<Fragment> fragments;
+
+        public MyFragmentAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        public MyFragmentAdapter(FragmentManager fm, List<Fragment> oneListFragments) {
+            super(fm);
+            this.fragments = oneListFragments;
+        }
+
+        @Override
+        public Fragment getItem(int arg0) {
+            return fragments.get(arg0);
+        }
+
+        @Override
+        public int getCount() {
+            return fragments.size();
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int position) {
+        }
+
+        @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            views[0].setSelected(false);
+            views[1].setSelected(false);
+            buttons[0].setSelected(false);
+            buttons[1].setSelected(false);
+            views[position].setSelected(true);
+            buttons[position].setSelected(true);
+        }
+
+    }
+
 }

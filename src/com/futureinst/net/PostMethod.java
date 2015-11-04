@@ -18,7 +18,7 @@ public enum PostMethod {
 	get_faq,//常见问题
 	query_user_check,//对账单
 	update_order,//撤销订单
-	query_comment,//查询评论
+	query_event_for_comment,//查询事件评论
 	add_comment,//添加评论
 	query_follow,//查询我的关注
 	operate_follow,//关注操作
@@ -39,5 +39,17 @@ public enum PostMethod {
 	peer_info_query_event_clear,//查询 战绩具体事件
 	peer_info_query_follow_me,//查询 关注他的人
 	peer_info_query_me_follow,//查询 他关注的人
-	query_user_tag_record ;//查询分类战绩
+	query_top_banner,//查询顶部banner广告
+	operate_comment,//点赞操作
+	get_tag_rank,//分类排名
+	query_user_tag_record, //查询分类战绩
+	operate_article ,//操作观点
+	query_top_article ,//查询发现栏目的观点
+	query_comment_for_article ,//查询观点评论
+	add_comment_for_article ,//添加评论
+	//查询用户观点
+	query_user_article,
+	peer_info_query_user_article,//查询他人观点
+	add_article,//添加观点
+	query_user_news,//动态
 }

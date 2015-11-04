@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/text_color_white"
+    android:background="@color/text_color_e"
     android:orientation="vertical" >
     <com.futureinst.widget.list.PullListView
-        android:id="@+id/pull_listView"
+        android:id="@+id/id_stickynavlayout_innerscrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
@@ -17,15 +17,17 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:gravity="center_horizontal"
+        android:paddingTop="50dp"
         android:background="#D9D9D9"
         android:orientation="vertical">
-        <ImageView 
+        <ImageView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/attention_unlogin"/>
         <TextView 
-            android:layout_marginTop="@dimen/activity_login_margin_10"
+            android:layout_marginTop="@dimen/margin_20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/text_size_normal"
@@ -35,7 +37,7 @@
             android:id="@+id/btn_login"
             android:layout_marginLeft="@dimen/widget_height_30"
             android:layout_marginRight="@dimen/widget_height_30"
-            android:layout_marginTop="@dimen/margin_15"
+            android:layout_marginTop="@dimen/widget_height_50"
             android:layout_width="match_parent"
             android:layout_height="@dimen/widget_height_45"
             android:textSize="@dimen/text_size_normal"
@@ -48,16 +50,17 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:gravity="center_horizontal"
         android:background="#D9D9D9"
         android:orientation="vertical"
         >
-        <ImageView 
+        <ImageView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/attention_empty"/>
         <TextView 
-            android:layout_marginTop="@dimen/margin_5"
+            android:layout_marginTop="@dimen/widget_height_55"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="@dimen/dimen_3"
@@ -77,6 +80,7 @@
          <TextView 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/margin_20"
             android:lineSpacingExtra="@dimen/dimen_3"
             android:textColor="@color/text_color_9"
             android:textSize="@dimen/text_size_normal"

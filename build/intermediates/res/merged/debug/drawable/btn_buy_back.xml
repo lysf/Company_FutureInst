@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <corners android:radius="30dip"/>
+	<solid android:color="#52C3D1"/>
+    <size android:height="@dimen/widget_height_35"
+        android:width="90dp"/>
+    <padding
+        android:left="@dimen/widget_height_30"
+        android:right="@dimen/widget_height_30"
+        />
+</shape>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/btn_buy_back.xml -->

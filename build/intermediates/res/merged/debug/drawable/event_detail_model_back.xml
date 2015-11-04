@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_selected="true" android:drawable="@color/model_check"/>
+    <item android:state_selected="false" android:drawable="@color/model_uncheck"/>
+
+</selector>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/event_detail_model_back.xml -->

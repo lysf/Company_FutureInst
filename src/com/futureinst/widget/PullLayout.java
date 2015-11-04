@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -38,8 +39,7 @@ public class PullLayout extends ScrollView{
 	private ImageView iv_image;
 	private TextView tv_time;
 	private TextView tv_event_title;
-	private View rl_deal;
-	
+
 	 private OnScrollListener onScrollListener;  
 	/** 
      * 主要是用在用户手指离开MyScrollView，MyScrollView还在继续滑动，我们用来保存Y的距离，然后做比较 
@@ -91,9 +91,10 @@ public class PullLayout extends ScrollView{
 	protected void onFinishInflate() {
 		super.onFinishInflate();
 		setVerticalScrollBarEnabled(false);
+
 		rl_top = findViewById(R.id.rl_top);
-		bottom_scroll = (PullLayout) findViewById(R.id.bottom_scroll);
-		rl_deal = findViewById(R.id.rl_deal);
+//		bottom_scroll = (PullLayout) findViewById(R.id.bottom_scroll);
+//		rl_deal = findViewById(R.id.rl_deal);
 		 tv_time = (TextView) findViewById(R.id.tv_time);
 		iv_image = (ImageView) findViewById(R.id.iv_image);
 		iv_operate = (ImageView) findViewById(R.id.iv_operate);

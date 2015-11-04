@@ -4,13 +4,82 @@
     android:layout_height="match_parent"
     android:background="@color/text_color_e"
     android:orientation="vertical" >
-    <include layout="@layout/view_check_top"/>
-     <com.futureinst.widget.list.PullListView
-        android:id="@+id/pull_listView"
+<RelativeLayout
+    android:background="@color/text_color_white"
+    android:layout_width="match_parent"
+    android:layout_height="48dp">
+    <ImageView
+        android:visibility="invisible"
+        android:src="@drawable/back"
+        android:scaleType="center"
+        android:layout_width="48dp"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/widget_height_55"
+        android:layout_marginRight="@dimen/widget_height_55"
+        android:background="@color/text_color_white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:dividerHeight="0dip"
-        android:scrollbars="none"
-        android:divider="@null"
-        />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btn_trade"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="可交易未币"
+                android:layout_height="@dimen/widget_height_45"
+                android:textSize="@dimen/text_size_large"
+                android:textColor="@drawable/text_color_fond"
+                android:background="@color/text_color_white"/>
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_3"
+                android:layout_marginBottom="@dimen/margin_5"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_marginRight="@dimen/margin_5"
+                android:background="@drawable/forecast_botom_line"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btn_consume"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:text="可消费未币"
+                android:layout_height="@dimen/widget_height_45"
+                android:textSize="@dimen/text_size_large"
+                android:textColor="@drawable/text_color_fond"
+                android:background="@color/text_color_white"/>
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_3"
+                android:layout_marginBottom="@dimen/margin_5"
+                android:layout_marginLeft="@dimen/margin_5"
+                android:layout_marginRight="@dimen/margin_5"
+                android:background="@drawable/forecast_botom_line"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>
+    <include layout="@layout/view_check_top"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="@color/text_color_e"
+        android:clipChildren="false" >
+    </android.support.v4.view.ViewPager>
+
 </LinearLayout>

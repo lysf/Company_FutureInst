@@ -67,16 +67,17 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 			finish();
 		}
 		}else{
-			MyToast.showToast(LoginActivity.this, getResources().getString(R.string.app_regist_tip), 0);
+			MyToast.getInstance().showToast(LoginActivity.this, getResources().getString(R.string.app_regist_tip), 0);
 		}
 	}
 	private void initView() {
 		loginTag = getIntent().getBooleanExtra("login", false);
 		setContentView(R.layout.activity_login);
 		setTitle(getResources().getString(R.string.login_login));
-		setLeft(getResources().getString(R.string.login_cancel));
+		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		setRight(R.string.login_regist);
 //		setTitleBackGround(getResources().getColor(R.color.login_title_layout_back));
+
 		et_phone = (EditText) findViewById(R.id.et_phoneNumber);
 		et_password = (EditText) findViewById(R.id.et_password);
 		findViewById(R.id.btn_login).setOnClickListener(clickListener);
@@ -180,11 +181,11 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 	//检测登录数据
 	private boolean checkLoginData(String phoneNummber, String pwd){
 		if(TextUtils.isEmpty(phoneNummber)){
-			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
+			MyToast.getInstance().showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
 		}
 		if(TextUtils.isEmpty(pwd)){
-			MyToast.showToast(this, getResources().getString(R.string.empty_phone), 0);
+			MyToast.getInstance().showToast(this, getResources().getString(R.string.empty_phone), 0);
 			return false;
 		}
 //		if(!Utils.checkMobilePhoneNo(phoneNummber)){

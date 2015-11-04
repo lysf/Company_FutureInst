@@ -11,17 +11,61 @@ public class UserRecordDAO implements Serializable {
 	private float avgGain;
 	private int allEvent;
 	private int gainEvent;
-	private int foreIndex;
+	private float foreIndex;
 	private int rank;
 	private int lastRank;
 	private float asset;
 	private float assure;
 	private float exchange;
 	private int status;
+	private int articleNum;
+	private int articleLoveNum;
+	private int articleAward;
+	private int articleAwardNum;
+	private int articleReadNum;
 	
 	private UserDAO user;
-	
-	
+
+	public int getArticleNum() {
+		return articleNum;
+	}
+
+	public void setArticleNum(int articleNum) {
+		this.articleNum = articleNum;
+	}
+
+	public int getArticleLoveNum() {
+		return articleLoveNum;
+	}
+
+	public void setArticleLoveNum(int articleLoveNum) {
+		this.articleLoveNum = articleLoveNum;
+	}
+
+	public int getArticleAward() {
+		return articleAward;
+	}
+
+	public void setArticleAward(int articleAward) {
+		this.articleAward = articleAward;
+	}
+
+	public int getArticleAwardNum() {
+		return articleAwardNum;
+	}
+
+	public void setArticleAwardNum(int articleAwardNum) {
+		this.articleAwardNum = articleAwardNum;
+	}
+
+	public int getArticleReadNum() {
+		return articleReadNum;
+	}
+
+	public void setArticleReadNum(int articleReadNum) {
+		this.articleReadNum = articleReadNum;
+	}
+
 	public float getExchange() {
 		return exchange;
 	}
@@ -64,10 +108,10 @@ public class UserRecordDAO implements Serializable {
 	public void setGainEvent(int gainEvent) {
 		this.gainEvent = gainEvent;
 	}
-	public int getForeIndex() {
+	public float getForeIndex() {
 		return foreIndex;
 	}
-	public void setForeIndex(int foreIndex) {
+	public void setForeIndex(float foreIndex) {
 		this.foreIndex = foreIndex;
 	}
 	public int getRank() {

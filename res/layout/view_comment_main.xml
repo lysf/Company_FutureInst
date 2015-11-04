@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:paddingTop="@dimen/activity_login_margin_10"
+        android:paddingBottom="@dimen/activity_login_margin_10"
+        android:paddingLeft="@dimen/margin_20"
+        android:paddingRight="@dimen/margin_20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.futureinst.roundimageutils.RoundedImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:visibility="visible"
+            android:id="@+id/headImage"
+            android:layout_width="@dimen/widget_height_40"
+            android:layout_height="@dimen/widget_height_40"
+            android:layout_marginRight="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo"
+            app:corner_radius="8dip"
+            app:mutate_background="true"
+            app:oval="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_name"
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/text_color_4"
+                android:text="nickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/dimen_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_attitude"
+                    android:background="@drawable/edit_back_squre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/activity_login_margin_10"
+                    android:text="看好"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_article_time"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/text_color_9"
+                    android:text="5分钟前"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tv_article_readNum"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:text="56人已阅读"
+                    android:textSize="@dimen/text_size_small"
+                    android:textColor="@color/text_color_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/line_height"/>
+                <ImageView
+                    android:id="@+id/iv_agree"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:src="@drawable/iv_item_prise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tv_prise_num"
+                    android:layout_marginLeft="@dimen/dimen_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_color_9"
+                    android:textSize="@dimen/text_size_small"
+                    android:text="0"/>
+                <ImageView
+                    android:src="@drawable/iv_comment_num"
+                    android:layout_marginLeft="@dimen/activity_login_margin_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tv_article_comment_num"
+                    android:text="0"
+                    android:layout_marginLeft="@dimen/dimen_3"
+                    android:textColor="@color/text_color_9"
+                    android:textSize="@dimen/text_size_small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_article_content"
+        android:orientation="vertical"
+        android:background="@drawable/item_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginRight="@dimen/margin_20"
+            android:textColor="@color/text_color_4"
+            android:textSize="@dimen/text_size_large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="@dimen/dimen_3"/>
+        <TextView
+            android:id="@+id/tv_article_content"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:layout_marginRight="@dimen/margin_20"
+            android:background="@drawable/item_select"
+            android:layout_marginBottom="@dimen/activity_login_margin_10"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_4"
+            android:lineSpacingExtra="@dimen/line_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:background="@color/text_color_6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -19,6 +19,6 @@ public class LongTimeUtil {
 		 else if(minus > 0) result = minus + "分"+seconds+"秒";
 		 else if(seconds > 0)result = seconds+"秒";
 		 else result = "0秒";
-		 return result;
+		 return " "+result+"后关闭交易";
 	}
 }

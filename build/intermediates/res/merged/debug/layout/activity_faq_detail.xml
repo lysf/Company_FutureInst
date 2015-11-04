@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView 
+    android:background="@color/text_color_white"
+    android:scrollbars="none"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    
+    android:orientation="vertical" >
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_e"/>
+    <TextView 
+        android:id="@+id/tv_detail"
+        android:padding="@dimen/activity_login_margin_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="@dimen/dimen_3"
+        android:textSize="@dimen/text_size_normal"
+        android:textColor="@color/text_color_3"/>
+
+</LinearLayout>
+</ScrollView><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/activity_faq_detail.xml -->

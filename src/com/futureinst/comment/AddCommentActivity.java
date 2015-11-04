@@ -9,18 +9,18 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.utils.MyToast;
+import com.futureinst.widget.CustomView_Image_Text;
 
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
 public class AddCommentActivity extends BaseActivity {
 	private LinearLayout ll_add_comment;
-	private Button btn_good,btn_bad;
+	private CustomView_Image_Text btn_good,btn_bad;
 	private EditText et_comment;
 	private int flag = 0;
 	String event_id;
@@ -28,7 +28,9 @@ public class AddCommentActivity extends BaseActivity {
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setTitle("写评论");
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
-		setRight("发布");
+		setRight("发送");
+//		getRightButton().setTextColor(getResources().getColor(R.color.text_color_white));
+//		getRightButton().setBackgroundColor(Color.parseColor("#F8E71C"));
 		setContentView(R.layout.activity_add_comment);
 		initView();
 	}
@@ -47,8 +49,8 @@ public class AddCommentActivity extends BaseActivity {
 	private void initView() {
 		ll_add_comment = (LinearLayout) findViewById(R.id.ll_add_comment);
 		event_id = getIntent().getStringExtra("eventId");
-		btn_good = (Button) findViewById(R.id.btn_attention_good);
-		btn_bad = (Button) findViewById(R.id.btn_attention_bad);
+		btn_good = (CustomView_Image_Text) findViewById(R.id.btn_attention_good);
+		btn_bad = (CustomView_Image_Text) findViewById(R.id.btn_attention_bad);
 		et_comment = (EditText) findViewById(R.id.et_comment);
 		btn_good.setOnClickListener(clickListener);
 		btn_bad.setOnClickListener(clickListener);
@@ -59,13 +61,13 @@ public class AddCommentActivity extends BaseActivity {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.btn_attention_good://看好
-				btn_good.setAlpha(1.0f);
-				btn_bad.setAlpha(0.3f);
+				btn_good.setSelected(true);
+				btn_bad.setSelected(false);
 				flag = 1;
 				break;
 			case R.id.btn_attention_bad://不看好
-				btn_bad.setAlpha(1.0f);
-				btn_good.setAlpha(0.3f);
+				btn_good.setSelected(false);
+				btn_bad.setSelected(true);
 				flag = 2;
 				break;
 			case R.id.ll_add_comment:
@@ -87,18 +89,18 @@ public class AddCommentActivity extends BaseActivity {
 					public void requestCompleted(Object response) throws JSONException {
 						progressDialog.cancleProgress();
 						if(response == null) return;
-						MyToast.showToast(AddCommentActivity.this, "您的评论发布成功", 1);
+						MyToast.getInstance().showToast(AddCommentActivity.this, "您的评论发布成功", 1);
 						finish();
 					}
 				});
 			}
 	private boolean judgeDate(){
 			if(flag == 0){
-				MyToast.showToast(this, "请选择您的态度", 0);
+				MyToast.getInstance().showToast(this, "请选择您的态度", 0);
 				return false;
 			}
 			if(TextUtils.isEmpty(et_comment.getText().toString().trim())){
-				MyToast.showToast(this, "请填写您的评论", 0);
+				MyToast.getInstance().showToast(this, "请填写您的评论", 0);
 				return false;
 			}
 			return true;

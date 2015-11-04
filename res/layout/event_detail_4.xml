@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:CustomViewImgText="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/text_color_white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="@dimen/margin_20"
+        android:paddingLeft="@dimen/margin_20"
+        android:paddingTop="@dimen/activity_login_margin_10"
+        android:paddingBottom="@dimen/activity_login_margin_10"
+        >
+        <TextView
+            android:drawableLeft="@drawable/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 评论"
+            android:textColor="@color/text_color_4"
+            android:textSize="@dimen/text_size_large"/>
+        <com.futureinst.widget.CustomView_Image_Text
+            android:id="@+id/view_comment_total"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            CustomViewImgText:imageSrc="@drawable/comment"
+            CustomViewImgText:text="0"
+            />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_e"/>
+    <RelativeLayout
+        android:background="@color/text_color_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/view_empty"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_marginTop="@dimen/margin_5"
+            android:layout_marginRight="@dimen/margin_5"
+            android:layout_marginBottom="@dimen/activity_login_margin_10"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:gravity="center"
+            android:textSize="@dimen/text_size_large"
+            android:textColor="@color/text_color_9"
+            android:text="不表态就会死星人，写下你的评论吧！"
+            />
+        <com.futureinst.widget.list.MyListView
+            android:id="@+id/lv_comment"
+            android:background="@color/text_color_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <View
+        android:background="@color/text_color_e"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"/>
+
+</LinearLayout>

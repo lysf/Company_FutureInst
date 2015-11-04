@@ -2,19 +2,32 @@ package com.futureinst.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.media.Image;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.futureinst.R;
+import com.futureinst.utils.toast.ToastHelper;
 
 public class MyToast {
+	private static MyToast myToast;
+	private ToastHelper toast;
+	public static MyToast getInstance(){
+		if(myToast == null){
+			myToast = new MyToast();
+
+		}
+		return myToast;
+	}
+
 	/**
 	 * 
 	 * @Title: showToast   
@@ -26,7 +39,7 @@ public class MyToast {
 	 * @return: void      
 	 * @throws
 	 */
-	public static void showToast(Activity activity,String message,int style){
+	public  void showToast(Activity activity,String message,int style){
 		DisplayMetrics dm = new DisplayMetrics();
 	    activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
 	   int mScreenWidth = dm.widthPixels;
@@ -35,21 +48,27 @@ public class MyToast {
 	   View toastView = null;
 	   if (toastView == null) {
 	        LayoutInflater inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	        params = new LinearLayout.LayoutParams(mScreenWidth, ViewGroup.LayoutParams.MATCH_PARENT);
+	        params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
 	        toastView = inflater.inflate(R.layout.toast_custom_prompt, null);
 	    }
 	    TextView tv = (TextView) toastView.findViewById(R.id.tvTitleToast);
+		ImageView iv_toast = (ImageView)toastView.findViewById(R.id.iv_tag);
 	    tv.setLayoutParams(params);
 	    tv.setText(message);
 	    if(style == 0){//红色
-	    	tv.setBackgroundColor(activity.getResources().getColor(R.color.redLight));
+			iv_toast.setImageDrawable(activity.getResources().getDrawable(R.drawable.toast_bad));
 	    }else{
-	    	tv.setBackgroundColor(activity.getResources().getColor(R.color.greenLight));
+			iv_toast.setImageDrawable(activity.getResources().getDrawable(R.drawable.toast_ok));
 	    }
-	    Toast toast = new Toast(activity);
+		if(toast != null){
+			toast.removeView();
+			toast = null;
+		}
+		toast = new ToastHelper(activity);
 //	    float hOffset = activity.getResources().getDimension(R.dimen.widget_height_35);
-	    toast.setGravity(Gravity.TOP, 0, 0);
-	    toast.setDuration(Toast.LENGTH_SHORT);
+//	    toast.setGravity(Gravity.CENTER, 0, 0);
+	    toast.setDuration(ToastHelper.LENGTH_SHORT);
+		toast.setAnimation(R.style.PopToast);
 	    toast.setView(toastView);
 	    toast.show();
 	}

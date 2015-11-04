@@ -47,6 +47,7 @@
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_login_margin_10"
             android:gravity="center_vertical"
             android:background="@null"
              android:hint="@string/regist_userName_tip"

@@ -24,14 +24,14 @@
        android:interpolator="@android:interpolator/accelerate_decelerate"
         android:max="10000" />
       <!-- 
-      <ImageView 
+      <ImageView
           android:id="@+id/iv_refreshStart"
           android:layout_width="40dip"
           android:layout_height="40dip"
           android:src="@drawable/circular"
           />
            -->
-      <com.futureinst.widget.CustomProgress 
+      <com.futureinst.widget.CustomProgress
           android:id="@+id/iv_refreshStart"
           android:layout_width="40dip"
           android:layout_height="40dip"

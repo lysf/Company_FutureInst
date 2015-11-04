@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_normal">15sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+
+    <dimen name="dimen_ranking_image">50dp</dimen>
+    <dimen name="dimen_ranking_image_margin">12dp</dimen>
+
+    <dimen name="dimen_user_headImage_name">22dp</dimen>
+</resources>

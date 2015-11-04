@@ -13,6 +13,79 @@ public class CommentDAO implements Serializable {
 	private Long ctime;
 	private int attitude;
 	private int status;
+	private long level;
+	private int likeNum;
+	private long lastChildId;
+	private long parentId;
+	private int childNum;
+	private long replyTo;
+	private long articleId;
+	private String ctimeStr;
+
+	public long getLevel() {
+		return level;
+	}
+
+	public void setLevel(long level) {
+		this.level = level;
+	}
+
+	public int getLikeNum() {
+		return likeNum;
+	}
+
+	public void setLikeNum(int likeNum) {
+		this.likeNum = likeNum;
+	}
+
+	public long getLastChildId() {
+		return lastChildId;
+	}
+
+	public void setLastChildId(long lastChildId) {
+		this.lastChildId = lastChildId;
+	}
+
+	public long getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(long parentId) {
+		this.parentId = parentId;
+	}
+
+	public int getChildNum() {
+		return childNum;
+	}
+
+	public void setChildNum(int childNum) {
+		this.childNum = childNum;
+	}
+
+	public long getReplyTo() {
+		return replyTo;
+	}
+
+	public void setReplyTo(long replyTo) {
+		this.replyTo = replyTo;
+	}
+
+	public long getArticleId() {
+		return articleId;
+	}
+
+	public void setArticleId(long articleId) {
+		this.articleId = articleId;
+	}
+
+	public String getCtimeStr() {
+		return ctimeStr;
+	}
+
+	public void setCtimeStr(String ctimeStr) {
+		this.ctimeStr = ctimeStr;
+	}
+
 	public Long getId() {
 		return id;
 	}

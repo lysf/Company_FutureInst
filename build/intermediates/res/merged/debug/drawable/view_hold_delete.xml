@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <corners android:radius="6dip"/>
+	<padding 
+	    android:left="@dimen/margin_15"
+	    android:right="@dimen/margin_15"
+	    android:top="@dimen/margin_20"
+	    android:bottom="@dimen/margin_20"/>
+	<solid android:color="#081447"/>
+	<stroke android:width="@dimen/line_height" android:color="@color/hold_status"/>
+</shape>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/view_hold_delete.xml -->

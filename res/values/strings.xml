@@ -7,8 +7,8 @@
     <string name="data_over">没有更多数据</string>
     <string name="crop__done">确定</string>
     <string name="crop__cancel">取消</string>
-    
-    
+
+	<string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，送您的5000未币已经到账，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
     <!-- hometable -->
     <!-- iconFont -->
     <string name="home_tab1">&#xe600;</string>
@@ -38,7 +38,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="company_name">未来研究所</string>
     <string name="client_no_response">系统无响应，请稍后再试！</string>
-    <string name="connection_interrupt">网络连接中断，请检查！</string>
+    <string name="connection_interrupt">网络连接中断，请检查网络！</string>
     <string name="login_out">退出登录</string>
     <string name="next">下一步</string>
     <string name="cancel">取消</string>
@@ -134,16 +134,16 @@
 	<string name="unhold_delete">确定清空所有已失效的预测记录？</string>
 	<string name="unhold_revoke">确定撤销该预测订单？</string>
 	<string name="point">● </string>
-	<string name="buy_tip_1">● 若事件发生则<font color = "#CB232B"> 看好 </font>盈利 | 事件不发生则<font color = "#008842"> 不看好 </font>盈利</string>
+	<string name="buy_tip_1">若事件发生则<font color = "#CB232B"> 看好 </font>盈利 | 事件不发生则<font color = "#008842"> 不看好 </font>盈利</string>
 	<string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
 	<string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
 	<string name="steep3_price_tip">● 此次预测将用</string>
-	<string name="event_detail_good">● 若事件发生你将 </string>
+	<string name="event_detail_good"> 若事件发生你将 </string>
 	<string name="event_detail_bad">\t|\t若事件不发生你将</string>
 	<string name="hold_1">又不看好&#160;</string>
 	<string name="unhold_1">你看好&#160;&#160;&#160;&#160;&#160;</string>
-	<string name="unhold_1_1">你已看好&#160;</string>
-	<string name="unhold_2">你不看好&#160;</string>
+	<string name="unhold_1_1">你已<font color = "#ff6565">看多</font></string>
+	<string name="unhold_2">你已<font color = "#B9D310">看空</font></string>
 	<string name="unhold_3">剩余&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
 	<string name="event_detail_deal">其中&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
 	<string name="space">&#160;&#160;&#160;&#160;</string>
@@ -173,4 +173,10 @@
 <string name="show_comment">他的评论</string>
 <string name="show_attention">他关注的人</string>
 <string name="show_attend">关注他的人</string>
+    <string name="title_activity_home3">Home3Activity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_article_detail">ArticleDetailActivity</string>
+    <string name="title_activity_aritlce">AritlceActivity</string>
 </resources>

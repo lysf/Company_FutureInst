@@ -35,7 +35,7 @@ import android.widget.TextView;
 
 /**
  * 自定义listview 上拉与下拉的刷新
- * 
+ *
  * @author jiang
  */
 public class PullListView extends ListView implements OnScrollListener {
@@ -123,8 +123,8 @@ public class PullListView extends ListView implements OnScrollListener {
 	private OnRefreshListener refreshListener;
 
 	/**
-     * 
-     */
+	 *
+	 */
 	private boolean isRefreshable;
 
 	private boolean isBackRefreshable;
@@ -158,14 +158,14 @@ public class PullListView extends ListView implements OnScrollListener {
 
 	/**
 	 * 构造方法
-	 * 
+	 *
 	 * @param context
 	 * @param isFootVisible
 	 * @param isHeaderVisible
 	 */
 
 	public PullListView(Context context, boolean isFootVisible,
-			boolean isHeaderVisible) {
+						boolean isHeaderVisible) {
 		super(context);
 		this.isFootVisible = isFootVisible;
 		this.isHeaderVisible = isHeaderVisible;
@@ -187,8 +187,8 @@ public class PullListView extends ListView implements OnScrollListener {
 //		iv_refreshing.setInterpolator(new AccelerateDecelerateInterpolator());
 //		iv_refreshing.setIndeterminate(true);
 		iv_refreshStart = (CustomProgress) headView.findViewById(R.id.iv_refreshStart);
-		
-		
+
+
 		arrowImageView = (ImageView) headView
 				.findViewById(R.id.head_arrowImageView);
 		arrowImageView.setMinimumWidth(70);
@@ -213,7 +213,7 @@ public class PullListView extends ListView implements OnScrollListener {
 		}
 		footView = (LinearLayout) inflater.inflate(R.layout.listview_footer,
 				null);
-		
+
 		iv_loadStart = (CustomProgress) footView.findViewById(R.id.iv_loadStart);
 		footarrowImageView = (ImageView) footView
 				.findViewById(R.id.foot_arrowImageView);
@@ -274,7 +274,7 @@ public class PullListView extends ListView implements OnScrollListener {
 	}
 
 	public void onScroll(AbsListView view, int firstVisibleItem,
-			int visibleItemCount, int totalItemCount) { // 计算出lastitem的值
+						 int visibleItemCount, int totalItemCount) { // 计算出lastitem的值
 		lastItem = firstVisibleItem + visibleItemCount;
 		// 同样拿出lastitem的值
 		this.totalItemCount = totalItemCount;
@@ -297,65 +297,65 @@ public class PullListView extends ListView implements OnScrollListener {
 
 		if (isRefreshable) {
 			switch (event.getAction()) {
-			case MotionEvent.ACTION_DOWN:
-				mDownX = event.getX();
-				mDownY = event.getY();
-				if (firstItemIndex == 0 && !isRecored) {
-					isRecored = true;
-					startY = (int) event.getY();
-					Log.v(TAG, "在down时候记录当前位置‘");
-				}
-
-				if (lastItem == totalItemCount && !isBottomRecored) {
-					isBottomRecored = true;
-					startBottomY = (int) event.getY();
-					Log.v(TAG, "在bottomdown时候记录当前位置‘");
-				}
-
-				break;
-
-			case MotionEvent.ACTION_UP:
-
-				if (state != REFRESHING && state != LOADING) {
-					if (state == DONE || !refresh) {
-						// 什么都不做
-						state = DONE;
+				case MotionEvent.ACTION_DOWN:
+					mDownX = event.getX();
+					mDownY = event.getY();
+					if (firstItemIndex == 0 && !isRecored) {
+						isRecored = true;
+						startY = (int) event.getY();
+						Log.v(TAG, "在down时候记录当前位置‘");
 					}
-					if (state == PULL_To_REFRESH) {
-						state = DONE;
-						changeHeaderViewByState();
 
-						Log.v(TAG, "由下拉刷新状态，到done状态");
+					if (lastItem == totalItemCount && !isBottomRecored) {
+						isBottomRecored = true;
+						startBottomY = (int) event.getY();
+						Log.v(TAG, "在bottomdown时候记录当前位置‘");
 					}
-					if (state == RELEASE_To_REFRESH) {
-						state = REFRESHING;
-						changeHeaderViewByState();
 
-						isTop = true;
-						
-						onRefresh(isTop);
+					break;
 
-						Log.v(TAG, "由松开刷新状态，到done状态");
+				case MotionEvent.ACTION_UP:
+
+					if (state != REFRESHING && state != LOADING) {
+						if (state == DONE || !refresh) {
+							// 什么都不做
+							state = DONE;
+						}
+						if (state == PULL_To_REFRESH) {
+							state = DONE;
+							changeHeaderViewByState();
+
+							Log.v(TAG, "由下拉刷新状态，到done状态");
+						}
+						if (state == RELEASE_To_REFRESH) {
+							state = REFRESHING;
+							changeHeaderViewByState();
+
+							isTop = true;
+
+							onRefresh(isTop);
+
+							Log.v(TAG, "由松开刷新状态，到done状态");
+						}
 					}
-				}
 
-				isRecored = false;
-				isBack = false;
+					isRecored = false;
+					isBack = false;
 
-				Log.v(TAG, "bottomstate== PULL_To_REFRESH" + bottomstate + "=="
-						+ PULL_To_REFRESH);
-				if (bottomstate != REFRESHING && bottomstate != LOADING) {
-					if (bottomstate == DONE || !loadMore) {
-						
-					}
-					if (bottomstate == PULL_To_REFRESH) {
-						bottomstate = DONE;
+					Log.v(TAG, "bottomstate== PULL_To_REFRESH" + bottomstate + "=="
+							+ PULL_To_REFRESH);
+					if (bottomstate != REFRESHING && bottomstate != LOADING) {
+						if (bottomstate == DONE || !loadMore) {
+
+						}
+						if (bottomstate == PULL_To_REFRESH) {
+							bottomstate = DONE;
 //						changeFootViewByState();
 
-						Log.v(TAG, "由下拉刷新状态，到done状态");
-					}
-					if (bottomstate == RELEASE_To_REFRESH) {
-						bottomstate = REFRESHING;
+							Log.v(TAG, "由下拉刷新状态，到done状态");
+						}
+						if (bottomstate == RELEASE_To_REFRESH) {
+							bottomstate = REFRESHING;
 //						changeFootViewByState();
 //
 //						isTop = false;
@@ -365,268 +365,266 @@ public class PullListView extends ListView implements OnScrollListener {
 //							}
 //						}, 2000);
 
-						Log.v(TAG, "由松开刷新状态，到done状态");
+							Log.v(TAG, "由松开刷新状态，到done状态");
+						}
 					}
-				}
 
-				isBottomRecored = false;
-				isBottomBack = false;
+					isBottomRecored = false;
+					isBottomBack = false;
 
-				break;
+					break;
 
-			case MotionEvent.ACTION_MOVE:
+				case MotionEvent.ACTION_MOVE:
 //				if(Math.abs(event.getX() - mDownX) > Math.abs(event.getY() - mDownY)){
 //					
 //				}
-				if(Math.abs(event.getY() - mDownY) < 15){
+					if(Math.abs(event.getY() - mDownY) < 15){
+						break;
+					}
+					int tempY = (int) event.getY();
+
+					if (!isRecored && firstItemIndex == 0) {
+						Log.v(TAG, "在move时候记录下位置");
+						isRecored = true;
+						startY = tempY;
+					}
+
+					if (state != REFRESHING && isRecored && state != LOADING) {
+						if(!refresh){
+							break;
+						}
+						// 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
+
+						// 可以松手去刷新了
+						if (state == RELEASE_To_REFRESH) {
+
+//						setSelection(0);
+
+							// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
+							if (((tempY - startY) / RATIO < headContentHeight)
+									&& (tempY - startY) > 0) {
+								state = PULL_To_REFRESH;
+								changeHeaderViewByState();
+
+								Log.v(TAG, "由松开刷新状态转变到下拉刷新状态");
+							}
+							// 一下子推到顶了
+							else if (tempY - startY <= 0) {
+								state = DONE;
+								changeHeaderViewByState();
+
+								Log.v(TAG, "由松开刷新状态转变到done状态");
+							}
+							// 往下拉了，或者还没有上推到屏幕顶部掩盖head的地步
+							else {
+								// 不用进行特别的操作，只用更新paddingTop的值就行了
+							}
+						}
+						// 还没有到达显示松开刷新的时候,DONE或者是PULL_To_REFRESH状态
+						if (state == PULL_To_REFRESH) {
+
+//						setSelection(0);
+
+							// 下拉到可以进入RELEASE_TO_REFRESH的状态
+							if ((tempY - startY) / RATIO >= headContentHeight) {
+								state = RELEASE_To_REFRESH;
+								isBack = true;
+								changeHeaderViewByState();
+
+								Log.v(TAG, "由done或者下拉刷新状态转变到松开刷新");
+							}
+							// 上推到顶了
+							else if (tempY - startY <= 0) {
+								state = DONE;
+								changeHeaderViewByState();
+
+								Log.v(TAG, "由DOne或者下拉刷新状态转变到done状态");
+							}
+						}
+
+						// done状态下
+						if (state == DONE) {
+							if (tempY - startY > 0) {
+								state = PULL_To_REFRESH;
+								changeHeaderViewByState();
+							}
+						}
+
+						// 更新headView的size
+						if (state == PULL_To_REFRESH) {
+							headView.setPadding(0, -1 * headContentHeight
+									+ (tempY - startY) / RATIO, 0, 0);
+
+						}
+
+						// 更新headView的paddingTop
+						if (state == RELEASE_To_REFRESH) {
+							headView.setPadding(0, (tempY - startY) / RATIO
+									- headContentHeight, 0, 0);
+						}
+
+					}
+
+					Log.v(TAG, "isBottomRecored=" + bottomstate + "" + lastItem
+							+ "==" + totalItemCount);
+
+					if (!isBottomRecored && lastItem == totalItemCount) {
+						Log.v(TAG, "在bottommove时候记录下位置");
+						isBottomRecored = true;
+						startBottomY = tempY;
+					}
+
+					if (bottomstate != REFRESHING && isBottomRecored
+							&& bottomstate != LOADING) {
+						if(!loadMore){
+							break;
+						}
+						// 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
+
+						// 可以松手去刷新了
+						if (bottomstate == RELEASE_To_REFRESH) {
+
+							setSelection(totalItemCount - 1);
+
+							// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
+							if (((startBottomY - tempY) / RATIO < headContentHeight)
+									&& (startBottomY - tempY) > 0) {
+								bottomstate = PULL_To_REFRESH;
+//							changeFootViewByState();
+
+								Log.v(TAG, "由松开刷新状态转变到上拉刷新状态");
+							}
+							// 一下子推到顶了
+							else if (startBottomY - tempY <= 0) {
+								bottomstate = DONE;
+//							changeFootViewByState();
+
+								Log.v(TAG, "由松开刷新状态转变到done状态");
+							}
+							// 往下拉了，或者还没有上推到屏幕顶部掩盖head的地步
+							else {
+								// 不用进行特别的操作，只用更新paddingTop的值就行了
+							}
+						}
+						// 还没有到达显示松开刷新的时候,DONE或者是PULL_To_REFRESH状态
+						if (bottomstate == PULL_To_REFRESH) {
+
+							setSelection(totalItemCount - 1);
+
+							// 下拉到可以进入RELEASE_TO_REFRESH的状态
+							if ((startBottomY - tempY) / RATIO >= headContentHeight) {
+								bottomstate = RELEASE_To_REFRESH;
+								isBottomBack = true;
+//							changeFootViewByState();
+
+								Log.v(TAG, "由done或者上拉刷新状态转变到松开刷新");
+							}
+							// 上推到顶了
+							else if (startBottomY - tempY < 0) {
+								bottomstate = DONE;
+//							changeFootViewByState();
+
+								Log.v(TAG, "由DOne或者下拉刷新状态转变到done状态");
+							}
+						}
+
+						// done状态下
+						if (bottomstate == DONE) {
+							if (startBottomY - tempY > 0) {
+								bottomstate = PULL_To_REFRESH;
+//							changeFootViewByState();
+							}
+						}
+
+						// 更新headView的size
+						if (bottomstate == PULL_To_REFRESH) {
+							if ((startBottomY - tempY) <= 0) {
+								footView.setPadding(0, 0, 0, headContentHeight + 1
+										* (startBottomY - tempY) / RATIO);
+							}
+						}
+
+						// 更新footView的paddingTop
+						if (bottomstate == RELEASE_To_REFRESH) {
+							footView.setPadding(0, 0, 0, (startBottomY - tempY)
+									/ RATIO - headContentHeight);
+						}
+
+					}
+
 					break;
-				}
-				int tempY = (int) event.getY();
-
-				if (!isRecored && firstItemIndex == 0) {
-					Log.v(TAG, "在move时候记录下位置");
-					isRecored = true;
-					startY = tempY;
-				}
-
-				if (state != REFRESHING && isRecored && state != LOADING) {
-					if(!refresh){
-						break;
-					}
-					// 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
-
-					// 可以松手去刷新了
-					if (state == RELEASE_To_REFRESH) {
-
-//						setSelection(0);
-
-						// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
-						if (((tempY - startY) / RATIO < headContentHeight)
-								&& (tempY - startY) > 0) {
-							state = PULL_To_REFRESH;
-							changeHeaderViewByState();
-
-							Log.v(TAG, "由松开刷新状态转变到下拉刷新状态");
-						}
-						// 一下子推到顶了
-						else if (tempY - startY <= 0) {
-							state = DONE;
-							changeHeaderViewByState();
-
-							Log.v(TAG, "由松开刷新状态转变到done状态");
-						}
-						// 往下拉了，或者还没有上推到屏幕顶部掩盖head的地步
-						else {
-							// 不用进行特别的操作，只用更新paddingTop的值就行了
-						}
-					}
-					// 还没有到达显示松开刷新的时候,DONE或者是PULL_To_REFRESH状态
-					if (state == PULL_To_REFRESH) {
-
-//						setSelection(0);
-
-						// 下拉到可以进入RELEASE_TO_REFRESH的状态
-						if ((tempY - startY) / RATIO >= headContentHeight) {
-							state = RELEASE_To_REFRESH;
-							isBack = true;
-							changeHeaderViewByState();
-
-							Log.v(TAG, "由done或者下拉刷新状态转变到松开刷新");
-						}
-						// 上推到顶了
-						else if (tempY - startY <= 0) {
-							state = DONE;
-							changeHeaderViewByState();
-
-							Log.v(TAG, "由DOne或者下拉刷新状态转变到done状态");
-						}
-					}
-
-					// done状态下
-					if (state == DONE) {
-						if (tempY - startY > 0) {
-							state = PULL_To_REFRESH;
-							changeHeaderViewByState();
-						}
-					}
-
-					// 更新headView的size
-					if (state == PULL_To_REFRESH) {
-						headView.setPadding(0, -1 * headContentHeight
-								+ (tempY - startY) / RATIO, 0, 0);
-
-					}
-
-					// 更新headView的paddingTop
-					if (state == RELEASE_To_REFRESH) {
-						headView.setPadding(0, (tempY - startY) / RATIO
-								- headContentHeight, 0, 0);
-					}
-
-				}
-
-				Log.v(TAG, "isBottomRecored=" + bottomstate + "" + lastItem
-						+ "==" + totalItemCount);
-
-				if (!isBottomRecored && lastItem == totalItemCount) {
-					Log.v(TAG, "在bottommove时候记录下位置");
-					isBottomRecored = true;
-					startBottomY = tempY;
-				}
-
-				if (bottomstate != REFRESHING && isBottomRecored
-						&& bottomstate != LOADING) {
-					if(!loadMore){
-						break;
-					}
-					// 保证在设置padding的过程中，当前的位置一直是在head，否则如果当列表超出屏幕的话，当在上推的时候，列表会同时进行滚动
-
-					// 可以松手去刷新了
-					if (bottomstate == RELEASE_To_REFRESH) {
-
-						setSelection(totalItemCount - 1);
-
-						// 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
-						if (((startBottomY - tempY) / RATIO < headContentHeight)
-								&& (startBottomY - tempY) > 0) {
-							bottomstate = PULL_To_REFRESH;
-//							changeFootViewByState();
-
-							Log.v(TAG, "由松开刷新状态转变到上拉刷新状态");
-						}
-						// 一下子推到顶了
-						else if (startBottomY - tempY <= 0) {
-							bottomstate = DONE;
-//							changeFootViewByState();
-
-							Log.v(TAG, "由松开刷新状态转变到done状态");
-						}
-						// 往下拉了，或者还没有上推到屏幕顶部掩盖head的地步
-						else {
-							// 不用进行特别的操作，只用更新paddingTop的值就行了
-						}
-					}
-					// 还没有到达显示松开刷新的时候,DONE或者是PULL_To_REFRESH状态
-					if (bottomstate == PULL_To_REFRESH) {
-
-						setSelection(totalItemCount - 1);
-
-						// 下拉到可以进入RELEASE_TO_REFRESH的状态
-						if ((startBottomY - tempY) / RATIO >= headContentHeight) {
-							bottomstate = RELEASE_To_REFRESH;
-							isBottomBack = true;
-//							changeFootViewByState();
-
-							Log.v(TAG, "由done或者上拉刷新状态转变到松开刷新");
-						}
-						// 上推到顶了
-						else if (startBottomY - tempY < 0) {
-							bottomstate = DONE;
-//							changeFootViewByState();
-
-							Log.v(TAG, "由DOne或者下拉刷新状态转变到done状态");
-						}
-					}
-
-					// done状态下
-					if (bottomstate == DONE) {
-						if (startBottomY - tempY > 0) {
-							bottomstate = PULL_To_REFRESH;
-//							changeFootViewByState();
-						}
-					}
-
-					// 更新headView的size
-					if (bottomstate == PULL_To_REFRESH) {
-						if ((startBottomY - tempY) <= 0) {
-							footView.setPadding(0, 0, 0, headContentHeight + 1
-									* (startBottomY - tempY) / RATIO);
-						}
-					}
-
-					// 更新footView的paddingTop
-					if (bottomstate == RELEASE_To_REFRESH) {
-						footView.setPadding(0, 0, 0, (startBottomY - tempY)
-								/ RATIO - headContentHeight);
-					}
-
-				}
-
-				break;
 			}
 		}
-
 		return super.onTouchEvent(event);
-//		return true;
 	}
 
 	// 当状态改变时候，调用该方法，以更新界面
 	private void changeHeaderViewByState() {
 		switch (state) {
-		case RELEASE_To_REFRESH:
-			arrowImageView.setVisibility(View.VISIBLE);
-			progressBar.setVisibility(View.GONE);
-			tipsTextview.setVisibility(View.VISIBLE);
-			lastUpdatedTextView.setVisibility(View.VISIBLE);
-			Content.isPull = true;
-			arrowImageView.clearAnimation();
-			arrowImageView.startAnimation(animation);
-
-			tipsTextview.setText("松开刷新");
-			
-//			iv_refreshing.setVisibility(View.GONE);
-			iv_refreshStart.setVisibility(View.VISIBLE);
-			Log.v(TAG, "当前状态，松开刷新");
-			break;
-		case PULL_To_REFRESH:
-			progressBar.setVisibility(View.GONE);
-			tipsTextview.setVisibility(View.VISIBLE);
-			lastUpdatedTextView.setVisibility(View.VISIBLE);
-			arrowImageView.clearAnimation();
-			arrowImageView.setVisibility(View.VISIBLE);
-			// 是由RELEASE_To_REFRESH状态转变来的
-			if (isBack) {
-				isBack = false;
+			case RELEASE_To_REFRESH:
+				arrowImageView.setVisibility(View.VISIBLE);
+				progressBar.setVisibility(View.GONE);
+				tipsTextview.setVisibility(View.VISIBLE);
+				lastUpdatedTextView.setVisibility(View.VISIBLE);
+				Content.isPull = true;
 				arrowImageView.clearAnimation();
-				arrowImageView.startAnimation(reverseAnimation);
+				arrowImageView.startAnimation(animation);
 
-				tipsTextview.setText("下拉刷新");
-			} else {
-				tipsTextview.setText("下拉刷新");
-			}
+				tipsTextview.setText("松开刷新");
+
 //			iv_refreshing.setVisibility(View.GONE);
-			iv_refreshStart.setVisibility(View.VISIBLE);
-			Log.v(TAG, "当前状态，下拉刷新");
-			break;
+				iv_refreshStart.setVisibility(View.VISIBLE);
+				Log.v(TAG, "当前状态，松开刷新");
+				break;
+			case PULL_To_REFRESH:
+				progressBar.setVisibility(View.GONE);
+				tipsTextview.setVisibility(View.VISIBLE);
+				lastUpdatedTextView.setVisibility(View.VISIBLE);
+				arrowImageView.clearAnimation();
+				arrowImageView.setVisibility(View.VISIBLE);
+				// 是由RELEASE_To_REFRESH状态转变来的
+				if (isBack) {
+					isBack = false;
+					arrowImageView.clearAnimation();
+					arrowImageView.startAnimation(reverseAnimation);
 
-		case REFRESHING:
+					tipsTextview.setText("下拉刷新");
+				} else {
+					tipsTextview.setText("下拉刷新");
+				}
+//			iv_refreshing.setVisibility(View.GONE);
+				iv_refreshStart.setVisibility(View.VISIBLE);
+				Log.v(TAG, "当前状态，下拉刷新");
+				break;
 
-			headView.setPadding(0, 0, 0, 0);
+			case REFRESHING:
 
-			progressBar.setVisibility(View.VISIBLE);
-			arrowImageView.clearAnimation();
-			arrowImageView.setVisibility(View.GONE);
-			tipsTextview.setText("正在刷新...");
-			lastUpdatedTextView.setVisibility(View.VISIBLE);
-			
+				headView.setPadding(0, 0, 0, 0);
+
+				progressBar.setVisibility(View.VISIBLE);
+				arrowImageView.clearAnimation();
+				arrowImageView.setVisibility(View.GONE);
+				tipsTextview.setText("正在刷新...");
+				lastUpdatedTextView.setVisibility(View.VISIBLE);
+
 //			iv_refreshing.setVisibility(View.VISIBLE);
-			iv_refreshStart.setVisibility(View.VISIBLE);
-			iv_refreshStart.startAnima();
-			Log.v(TAG, "当前状态,正在刷新...");
-			break;
-		case DONE:
-			headView.setPadding(0, -1 * headContentHeight, 0, 0);
+				iv_refreshStart.setVisibility(View.VISIBLE);
+				iv_refreshStart.startAnima();
+				Log.v(TAG, "当前状态,正在刷新...");
+				break;
+			case DONE:
+				headView.setPadding(0, -1 * headContentHeight, 0, 0);
 
-			progressBar.setVisibility(View.GONE);
-			arrowImageView.clearAnimation();
-			arrowImageView.setImageResource(upImageResources);
-			tipsTextview.setText("下拉刷新");
-			lastUpdatedTextView.setVisibility(View.VISIBLE);
+				progressBar.setVisibility(View.GONE);
+				arrowImageView.clearAnimation();
+				arrowImageView.setImageResource(upImageResources);
+				tipsTextview.setText("下拉刷新");
+				lastUpdatedTextView.setVisibility(View.VISIBLE);
 //			iv_refreshing.setVisibility(View.GONE);
-			iv_refreshStart.setVisibility(View.VISIBLE);
-			iv_refreshStart.stopAnima();
-			Log.v(TAG, "当前状态，done");
-			break;
+				iv_refreshStart.setVisibility(View.VISIBLE);
+				iv_refreshStart.stopAnima();
+				Log.v(TAG, "当前状态，done");
+				break;
 		}
 	}
 	//隐藏头部
@@ -638,7 +636,7 @@ public class PullListView extends ListView implements OnScrollListener {
 		arrowImageView.setImageResource(upImageResources);
 		tipsTextview.setText("下拉刷新");
 		lastUpdatedTextView.setVisibility(View.VISIBLE);
-		
+
 //		iv_refreshing.setVisibility(View.GONE);
 		iv_refreshStart.setVisibility(View.VISIBLE);
 		iv_refreshStart.stopAnima();
@@ -646,68 +644,68 @@ public class PullListView extends ListView implements OnScrollListener {
 	// 当状态改变时候，调用该方法，以更新界面
 	private void changeFootViewByState() {
 		switch (bottomstate) {
-		case RELEASE_To_REFRESH:
-			Content.isPull = true;
-			footarrowImageView.setVisibility(View.VISIBLE);
-			footprogressBar.setVisibility(View.GONE);
-			foottipsTextview.setVisibility(View.VISIBLE);
-			footlastUpdatedTextView.setVisibility(View.VISIBLE);
+			case RELEASE_To_REFRESH:
+				Content.isPull = true;
+				footarrowImageView.setVisibility(View.VISIBLE);
+				footprogressBar.setVisibility(View.GONE);
+				foottipsTextview.setVisibility(View.VISIBLE);
+				footlastUpdatedTextView.setVisibility(View.VISIBLE);
 
-			footarrowImageView.clearAnimation();
-			footarrowImageView.startAnimation(footanimation);
-
-			foottipsTextview.setText("松开加载");
-			
-			iv_loadStart.setVisibility(View.VISIBLE);
-			Log.v(TAG, "当前状态，松开刷新");
-			break;
-		case PULL_To_REFRESH:
-			footprogressBar.setVisibility(View.GONE);
-			foottipsTextview.setVisibility(View.VISIBLE);
-			footlastUpdatedTextView.setVisibility(View.VISIBLE);
-			footarrowImageView.clearAnimation();
-			footarrowImageView.setVisibility(View.VISIBLE);
-			// 是由RELEASE_To_REFRESH状态转变来的
-			if (isBottomBack) {
-				isBottomBack = false;
 				footarrowImageView.clearAnimation();
-				footarrowImageView.startAnimation(footreverseAnimation);
+				footarrowImageView.startAnimation(footanimation);
 
+				foottipsTextview.setText("松开加载");
+
+				iv_loadStart.setVisibility(View.VISIBLE);
+				Log.v(TAG, "当前状态，松开刷新");
+				break;
+			case PULL_To_REFRESH:
+				footprogressBar.setVisibility(View.GONE);
+				foottipsTextview.setVisibility(View.VISIBLE);
+				footlastUpdatedTextView.setVisibility(View.VISIBLE);
+				footarrowImageView.clearAnimation();
+				footarrowImageView.setVisibility(View.VISIBLE);
+				// 是由RELEASE_To_REFRESH状态转变来的
+				if (isBottomBack) {
+					isBottomBack = false;
+					footarrowImageView.clearAnimation();
+					footarrowImageView.startAnimation(footreverseAnimation);
+
+					foottipsTextview.setText("上拉加载更多");
+				} else {
+					foottipsTextview.setText("上拉加载更多");
+				}
+				iv_loadStart.setVisibility(View.VISIBLE);
+				Log.v(TAG, "当前状态，上拉刷新");
+				break;
+
+			case REFRESHING:
+
+				footView.setPadding(0, 0, 0, 0);
+
+				footprogressBar.setVisibility(View.VISIBLE);
+				footarrowImageView.clearAnimation();
+				footarrowImageView.setVisibility(View.GONE);
+				foottipsTextview.setText("正在加载...");
+				footlastUpdatedTextView.setVisibility(View.VISIBLE);
+
+				iv_loadStart.setVisibility(View.VISIBLE);
+				iv_loadStart.startAnima();
+				Log.v(TAG, "当前状态,正在刷新...");
+				break;
+			case DONE:
+				footView.setPadding(0, 0, 0, -1 * headContentHeight);
+
+				footprogressBar.setVisibility(View.GONE);
+				footarrowImageView.clearAnimation();
+				footarrowImageView.setImageResource(bottomImageResources);
 				foottipsTextview.setText("上拉加载更多");
-			} else {
-				foottipsTextview.setText("上拉加载更多");
-			}
-			iv_loadStart.setVisibility(View.VISIBLE);
-			Log.v(TAG, "当前状态，上拉刷新");
-			break;
+				footlastUpdatedTextView.setVisibility(View.VISIBLE);
 
-		case REFRESHING:
-
-			footView.setPadding(0, 0, 0, 0);
-
-			footprogressBar.setVisibility(View.VISIBLE);
-			footarrowImageView.clearAnimation();
-			footarrowImageView.setVisibility(View.GONE);
-			foottipsTextview.setText("正在加载...");
-			footlastUpdatedTextView.setVisibility(View.VISIBLE);
-			
-			iv_loadStart.setVisibility(View.VISIBLE);
-			iv_loadStart.startAnima();
-			Log.v(TAG, "当前状态,正在刷新...");
-			break;
-		case DONE:
-			footView.setPadding(0, 0, 0, -1 * headContentHeight);
-
-			footprogressBar.setVisibility(View.GONE);
-			footarrowImageView.clearAnimation();
-			footarrowImageView.setImageResource(bottomImageResources);
-			foottipsTextview.setText("上拉加载更多");
-			footlastUpdatedTextView.setVisibility(View.VISIBLE);
-			
-			iv_loadStart.setVisibility(View.VISIBLE);
-			iv_loadStart.stopAnima();
-			Log.v(TAG, "=====================当前状态，done");
-			break;
+				iv_loadStart.setVisibility(View.VISIBLE);
+				iv_loadStart.stopAnima();
+				Log.v(TAG, "=====================当前状态，done");
+				break;
 		}
 	}
 
@@ -719,7 +717,7 @@ public class PullListView extends ListView implements OnScrollListener {
 	public interface OnRefreshListener {
 		public void onRefresh(boolean isTop);
 	}
-//	public boolean isStartRefresh(){
+	//	public boolean isStartRefresh(){
 //		if(!TextUtils.isEmpty(lastUpdatedTextView.getText().toString())){
 //			long currentTime = System.currentTimeMillis();
 //			String lastUpdatedText = lastUpdatedTextView.getText().toString().replace("最近更新:", "").replace("上午", "").replace("下午", "");
@@ -743,14 +741,14 @@ public class PullListView extends ListView implements OnScrollListener {
 		lastUpdatedTextView.setText("最近更新:" + TimeUtil.getCurrentTime(TimeUtil.FORMAT_DATE_TIME_SECOND));
 		footlastUpdatedTextView.setText("最近更新:" + new Date().toLocaleString());
 		new Handler().postDelayed(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				changeFootViewByState();
 				changeHeaderViewByState();
 			}
 		}, 1200);
-		
+
 	}
 
 	private void onRefresh(boolean isTop) {
@@ -809,5 +807,6 @@ public class PullListView extends ListView implements OnScrollListener {
 		}
 	}
 	private float mDownX,mDownY;
+
 
 }

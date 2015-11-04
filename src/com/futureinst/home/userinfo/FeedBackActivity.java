@@ -39,7 +39,7 @@ public class FeedBackActivity extends BaseActivity {
 		//发送意见
 		String content = et_feedback.getText().toString().trim();
 		if(TextUtils.isEmpty(content)){
-			MyToast.showToast(FeedBackActivity.this, "请填写您的意见和建议", 0);
+			MyToast.getInstance().showToast(FeedBackActivity.this, "请填写您的意见和建议", 0);
 			return;
 		}
 		add_feedback(content);
@@ -62,7 +62,7 @@ public class FeedBackActivity extends BaseActivity {
 						progressDialog.cancleProgress();
 						if(response == null) return;
 						finish();
-						MyToast.showToast(FeedBackActivity.this, "您的意见反馈成功", 1);
+						MyToast.getInstance().showToast(FeedBackActivity.this, "您的意见反馈成功", 1);
 					}
 				});
 	

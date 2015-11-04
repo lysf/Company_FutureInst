@@ -14,55 +14,57 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 public class NewbieGuide2 {
-	public NewbieGuide2(Activity activity,boolean isHavaPrice){
+	private int[] eventDetail_guid_1 = new int[]{R.drawable.guide_2,R.drawable.guide_3,R.drawable.guide_4,R.drawable.guide_5};
+	private int[] eventDetail_guid_2 = new int[]{R.drawable.guide_6};
+	private int[] eventTrade_guid_2 = new int[]{R.drawable.guide_7,R.drawable.guide_8};
+	private int[] imagesId;
+	private int index = 0;
+	public void setImagesId(int[] imagesId){
+		this.imagesId = imagesId;
+	}
+
+	public NewbieGuide2(Activity activity,boolean isHavaPrice,int type){
+		if(type == 1){
+			this.imagesId = eventDetail_guid_1;
+		}else if(type == 2){
+			this.imagesId = eventDetail_guid_2;
+		}else if(type == 3){
+			this.imagesId = eventTrade_guid_2;
+		}
+		index = 0;
 		showDialog(activity,isHavaPrice).show();
 	}
-	private Dialog showDialog(Activity context,final boolean isHavaPrice){
+	private Dialog showDialog(final Activity context,final boolean isHavaPrice){
 		final SharePreferenceUtil preferenceUtil = SharePreferenceUtil.getInstance(context);
 		final Dialog dialog = new Dialog(context,R.style.choose_dialog);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		View view = LayoutInflater.from(context).inflate(R.layout.choose_dialog_2, null);
-		final ImageView guide1 = (ImageView) view.findViewById(R.id.guide1);
-				guide1.setOnClickListener(new OnClickListener() {
+		final ImageView guide = (ImageView) view.findViewById(R.id.guide);
+				guide.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						guide1.setVisibility(View.GONE);
+						if(index == imagesId.length-1){
+							dialog.dismiss();
+							return;
+						}
+						index++;
+						guide.setImageDrawable(context.getResources().getDrawable(imagesId[index]));
 					}
 				});
 				
-				final ImageView guide2 = (ImageView) view.findViewById(R.id.guide2);
-				guide2.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						guide2.setVisibility(View.GONE);
-					}
-				});
-				final ImageView guide3 = (ImageView) view.findViewById(R.id.guide3);
-				guide3.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						guide3.setVisibility(View.GONE);
-					}
-				});
-				final ImageView guide4 = (ImageView) view.findViewById(R.id.guide4);
-				guide4.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						if(isHavaPrice){
-							preferenceUtil.setGuide7();
-							guide4.setVisibility(View.GONE);
-						}else{
-							dialog.dismiss();
-						}
-					}
-				});
-				final ImageView guide5 = (ImageView) view.findViewById(R.id.guide5);
-				guide5.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						dialog.dismiss();
-					}
-				});
+
+//				guide4.setOnClickListener(new OnClickListener() {
+//					@Override
+//					public void onClick(View v) {
+//						if(isHavaPrice){
+//							preferenceUtil.setGuide7();
+//							guide4.setVisibility(View.GONE);
+//						}else{
+//							dialog.dismiss();
+//						}
+//					}
+//				});
+
 		
 		dialog.setContentView(view);
 		DisplayMetrics metrics = new DisplayMetrics();

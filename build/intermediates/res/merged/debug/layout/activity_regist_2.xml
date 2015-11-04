@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_a"/>
+    <LinearLayout 
+       android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    android:padding="@dimen/activity_login_padding"
+    android:orientation="vertical" >
+    <EditText 
+        android:id="@+id/et_userName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_height_35"
+        style="@style/BaseEditTextType"
+        android:singleLine="true"
+        android:ems="14"
+        android:hint="@string/regist_userName"/>
+	<TextView 
+	    android:layout_marginTop="@dimen/margin_5"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:textSize="@dimen/text_size_small"
+	    android:textColor="@color/text_color_base"
+	    android:text="@string/regist_userName_tip"/>
+	<TextView 
+	    android:id="@+id/tv_sex"
+	    android:layout_marginTop="@dimen/activity_login_margin_10"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/widget_height_35"
+	    style="@style/BaseEditTextType"
+        android:hint="@string/sex_hint"
+	    />
+	<TextView 
+	    android:id="@+id/tv_birthday"
+	    android:layout_marginTop="@dimen/activity_login_margin_10"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/widget_height_35"
+	    style="@style/BaseEditTextType"
+        android:hint="@string/birthday_hint"
+	    />
+
+</LinearLayout>
+</LinearLayout>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/activity_regist_2.xml -->

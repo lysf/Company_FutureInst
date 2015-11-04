@@ -1,13 +1,25 @@
 package com.futureinst.model.homeeventmodel;
 
 import java.util.List;
+import java.util.Map;
 
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.model.comment.CommentDAO;
 
 @SuppressWarnings("serial")
 public class QueryEventInfoDAO extends BaseModel {
 	private int size;
+	Map<String,List<CommentDAO>> commentMap;
 	private List<QueryEventDAO> events;
+
+	public Map<String, List<CommentDAO>> getCommentMap() {
+		return commentMap;
+	}
+
+	public void setCommentMap(Map<String, List<CommentDAO>> commentMap) {
+		this.commentMap = commentMap;
+	}
+
 	public int getSize() {
 		return size;
 	}

@@ -172,7 +172,7 @@ public class HoldUnDealFragment extends BaseFragment implements OnRefreshListene
 						if(response == null) return;
 						//订单撤销成功
 						BaseModel baseModel = (BaseModel) response;
-						MyToast.showToast(getActivity(), baseModel.getInfo(), 1);
+						MyToast.getInstance().showToast(getActivity(), baseModel.getInfo(), 1);
 						adapter.removeIten(item);
 					}
 				});

@@ -9,7 +9,6 @@ import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.ViewHolder;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +55,7 @@ public class HoldDealAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_hold, null, false);
 			
 			DealOrderDAO item = list.get(position);
-			TextView tv_status = ViewHolder.get(convertView, R.id.tv_status);
+			TextView tv_status = ViewHolder.get(convertView, R.id.tv_attitude);
 			String sttaus = "此预测将于"+TimeUtil.longToString(item.getEvent().getClearTime(), TimeUtil.FORMAT_DATE_TIME_SECOND)+"清算盈亏";
 			tv_status.setText(sttaus);
 			tv_status.setVisibility(View.VISIBLE);

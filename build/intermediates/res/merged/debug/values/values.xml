@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/arrays.xml -->
+    <eat-comment/>
+    <string-array name="home_icon_title">
+        <item>推荐-</item>
+        <item>关注-</item>
+        <item>体育-</item>
+        <item>财经-</item>
+        <item>娱乐-</item>
+        <item>民生-</item>
+        <item>科技-</item>
+        <item>国际-</item>
+        <item>城市-</item>
+        <item>新奇-</item>
+    </string-array>
+    <string-array name="home_second_title">
+        <item>缘分</item>
+        <item>快到期</item>
+        <item>量大</item>
+        <item>昂贵</item>
+        <item>扎堆</item>
+    </string-array>
+    <string-array name="home_seond_title_order">
+        <item>new</item>
+        <item>dead</item>
+        <item>trade</item>
+        <item>price</item>
+        <item>involve</item>
+    </string-array>
+    <string-array name="home_title">
+        <item>推荐</item>
+        <item>关注</item>
+        <item>体育</item>
+        <item>财经</item>
+        <item>娱乐</item>
+        <item>民生</item>
+        <item>科技</item>
+        <item>国际</item>
+        <item>城市</item>
+        <item>新奇</item>
+    </string-array>
+    <string-array name="ranking_icon_title">
+        <item>总榜-</item>
+        <item>体育-</item>
+        <item>财经-</item>
+        <item>娱乐-</item>
+        <item>民生-</item>
+        <item>科技-</item>
+        <item>国际-</item>
+        <item>城市-</item>
+        <item>新奇-</item>
+    </string-array>
+    <string-array name="record_tag">
+        <item>推荐</item>
+        <item>体育</item>
+        <item>财经</item>
+        <item>娱乐</item>
+        <item>民生</item>
+        <item>科技</item>
+        <item>国际</item>
+        <item>城市</item>
+        <item>新奇</item>
+    </string-array>
+    <string-array name="regist_keyword">
+        <item>体育</item>
+        <item>财经</item>
+        <item>娱乐</item>
+        <item>民生</item>
+        <item>科技</item>
+        <item>国际</item>
+        <item>城市</item>
+        <item>新奇</item>
+        <item>随机</item>
+    </string-array>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__attrs.xml -->
+    <eat-comment/>
+    <attr format="boolean" name="centered"/>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/attrs.xml -->
+    <eat-comment/>
+    <attr format="reference" name="cropImageStyle"/>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__attrs.xml -->
+    <eat-comment/>
+    <attr format="color" name="selectedColor"/>
+    <attr format="dimension" name="strokeWidth"/>
+    <attr format="color" name="unselectedColor"/>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <eat-comment/>
+    <bool name="default_circle_indicator_centered">true</bool>
+    <bool name="default_circle_indicator_snap">false</bool>
+    <bool name="default_line_indicator_centered">true</bool>
+    <bool name="default_title_indicator_selected_bold">true</bool>
+    <bool name="default_underline_indicator_fades">true</bool>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="aboutUs_Check">#D9DEF4</color>
+    <color name="aboutUs_UnCheck">#F1F4FB</color>
+    <color name="background">#1E266E</color>
+    <color name="background5">#6069B7</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="base_bg">#f4f6f6</color>
+    <color name="bg">#F5F5F5</color>
+    <color name="btn_invivate_0">#5ac8fa</color>
+    <color name="btn_invivate_1">#225ac8fa</color>
+    <color name="color_55ed">#55EDB9BB</color>
+    <color name="color_B1">#B1DBC5</color>
+    <color name="color_ed">#EDB9BB</color>
+    <color name="comment_select">#ebf4fd</color>
+    <color name="comment_text_0">#5DA5FF</color>
+    <color name="comment_text_1">#885DA5FF</color>
+    <color name="crop__button_bar">#f3f3f3</color>
+    <color name="crop__button_text">#666666</color>
+    <color name="crop__selector_focused">#77000000</color>
+    <color name="crop__selector_pressed">#1a000000</color>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <eat-comment/>
+    <color name="default_circle_indicator_fill_color">#FFFFFFFF</color>
+    <color name="default_circle_indicator_page_color">#00000000</color>
+    <color name="default_circle_indicator_stroke_color">#FFDDDDDD</color>
+    <color name="default_line_indicator_selected_color">#FF33B5E5</color>
+    <color name="default_line_indicator_unselected_color">#FFBBBBBB</color>
+    <color name="default_title_indicator_footer_color">#FF33B5E5</color>
+    <color name="default_title_indicator_selected_color">#FFFFFFFF</color>
+    <color name="default_title_indicator_text_color">#BBFFFFFF</color>
+    <color name="default_underline_indicator_selected_color">#FF33B5E5</color>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <eat-comment/>
+    <color name="forecast_bottom_line_select">#F8E71C</color>
+    <color name="forecast_deal">#ffcc00</color>
+    <color name="forecast_deal_line">#Ff9500</color>
+    <color name="gain_blue">#B9D310</color>
+    <color name="gain_red">#ff6565</color>
+    <color name="greenLight">#ff99cc00</color>
+    <color name="hold_back">#283887</color>
+    <color name="hold_item_top">#3853ad</color>
+    <color name="hold_line">#1e266e</color>
+    <color name="hold_status">#9095b9</color>
+    <color name="home_table_0">#6D6D6D</color>
+    <color name="home_table_1">#51C3D1</color>
+    <color name="login_btn_login">#BAD311</color>
+    <color name="login_title_layout_back">#081448</color>
+    <color name="model_check">#E5E5E5</color>
+    <color name="model_uncheck">#F2F2F2</color>
+    <color name="publish_comment">#3991EB</color>
+    <color name="redLight">#ffff4444</color>
+    <color name="refrence">#E5EEFF</color>
+    <color name="regist_keyword_1">#FE7D5E</color>
+    <color name="regist_keyword_2">#D7626A</color>
+    <color name="regist_keyword_3">#FFA0C0</color>
+    <color name="regist_keyword_4">#68FFD2</color>
+    <color name="regist_keyword_5">#4196FF</color>
+    <color name="regist_keyword_6">#E2DACF</color>
+    <color name="regist_keyword_7">#FECEC0</color>
+    <color name="regist_keyword_8">#FEFB90</color>
+    <color name="regist_keyword_9">#E6E6E6</color>
+    <color name="right_btn">#1B6EDC</color>
+    <color name="sliding_table_0">#C5C5C5</color>
+    <color name="sliding_table_1">#51C1CF</color>
+    <color name="status_bar">#f1f1f1</color>
+    <color name="tab_text_selected">#86BFFA</color>
+    <color name="tab_text_unselected">#ffffff</color>
+    <color name="text_blue">#008a41</color>
+    <color name="text_color_0">#000000</color>
+    <color name="text_color_3">#333333</color>
+    <color name="text_color_4">#4B494B</color>
+    <color name="text_color_6">#666666</color>
+    <color name="text_color_9">#9b9b9b</color>
+    <color name="text_color_a">#a5a5a5</color>
+    <color name="text_color_b">#B8B8B8</color>
+    <color name="text_color_b0">#B0BDB4</color>
+    <color name="text_color_base">#86BFFA</color>
+    <color name="text_color_bf">#bfbfbf</color>
+    <color name="text_color_c">#c9c9c9</color>
+    <color name="text_color_cb">#BFBFBF</color>
+    <color name="text_color_e">#e5e5e5</color>
+    <color name="text_color_pink">#FF80AB</color>
+    <color name="text_color_price_change">#C8171E</color>
+    <color name="text_color_top_ranking">#747493</color>
+    <color name="text_color_white">#FfFfFfff</color>
+    <color name="text_color_white_b">#bbffffff</color>
+    <color name="type_1">#1E266E</color>
+    <color name="type_2">#F97F5F</color>
+    <color name="type_3">#CE131A</color>
+    <color name="type_4">#FA82AA</color>
+    <color name="type_5">#67FED6</color>
+    <color name="type_6">#3F9AF4</color>
+    <color name="type_7">#E1DBCE</color>
+    <color name="type_8">#FFBDAD</color>
+    <color name="type_9">#FCFB68</color>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__colors.xml -->
+    <eat-comment/>
+    <color name="vpi__background_holo_dark">#ff000000</color>
+    <color name="vpi__background_holo_light">#fff3f3f3</color>
+    <color name="vpi__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="vpi__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="vpi__bright_foreground_holo_dark">@color/vpi__background_holo_light</color>
+    <color name="vpi__bright_foreground_holo_light">@color/vpi__background_holo_dark</color>
+    <color name="vpi__bright_foreground_inverse_holo_dark">@color/vpi__bright_foreground_holo_light</color>
+    <color name="vpi__bright_foreground_inverse_holo_light">@color/vpi__bright_foreground_holo_dark</color>
+    <declare-styleable name="CirclePageIndicator"><attr name="centered"/><attr format="color" name="fillColor"/><attr format="color" name="pageColor"/><attr name="android:orientation"/><attr format="dimension" name="radius"/><attr format="boolean" name="snap"/><attr format="color" name="strokeColor"/><attr name="strokeWidth"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="CropImageView"><attr format="reference|color" name="highlightColor"/><attr format="boolean" name="showThirds"/><attr name="showHandles"><enum name="changing" value="0"/><enum name="always" value="1"/><enum name="never" value="2"/></attr></declare-styleable>
+    <declare-styleable name="CustomViewImgText"><attr format="reference" name="imageSrc"/><attr format="string" name="text"/></declare-styleable>
+    <declare-styleable name="DragTopLayout"><attr format="dimension" name="dtlCollapseOffset"/><attr format="boolean" name="dtlOverDrag"/><attr format="boolean" name="dtlOpen"/><attr format="reference" name="dtlTopView"/><attr format="reference" name="dtlDragContentView"/><attr format="boolean" name="dtlCaptureTop"/></declare-styleable>
+    <declare-styleable name="HomeLayout"><attr format="string" name="exampleString"/><attr format="dimension" name="exampleDimension"/><attr format="color" name="exampleColor"/><attr format="color|reference" name="exampleDrawable"/></declare-styleable>
+    <declare-styleable name="HomeTab"><attr format="string" name="iconFontText"/><attr format="string" name="bottomText"/></declare-styleable>
+    <declare-styleable name="LinePageIndicator"><attr name="centered"/><attr name="unselectedColor"/><attr name="selectedColor"/><attr format="dimension" name="lineWidth"/><attr name="strokeWidth"/><attr format="dimension" name="gapWidth"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="PagerSlidingTabStrip"><attr format="color" name="pstsIndicatorColor"/><attr format="color" name="pstsUnderlineColor"/><attr format="color" name="pstsDividerColor"/><attr format="dimension" name="pstsIndicatorHeight"/><attr format="dimension" name="pstsUnderlineHeight"/><attr format="dimension" name="pstsDividerPadding"/><attr format="dimension" name="pstsTabPaddingLeftRight"/><attr format="dimension" name="pstsScrollOffset"/><attr format="reference" name="pstsTabBackground"/><attr format="boolean" name="pstsShouldExpand"/><attr format="boolean" name="pstsTextAllCaps"/></declare-styleable>
+    <declare-styleable name="RoundedImageView"><attr format="dimension" name="corner_radius"/><attr format="dimension" name="border_width"/><attr format="color" name="border_color"/><attr format="boolean" name="mutate_background"/><attr format="boolean" name="oval"/><attr name="android:scaleType"/><attr format="reference" name="bigImageMask"/><attr format="reference" name="listViewBackground"/></declare-styleable>
+    <declare-styleable name="TitlePageIndicator"><attr format="dimension" name="clipPadding"/><attr format="color" name="footerColor"/><attr format="dimension" name="footerLineHeight"/><attr name="footerIndicatorStyle"><enum name="none" value="0"/><enum name="triangle" value="1"/><enum name="underline" value="2"/></attr><attr format="dimension" name="footerIndicatorHeight"/><attr format="dimension" name="footerIndicatorUnderlinePadding"/><attr format="dimension" name="footerPadding"/><attr name="linePosition"><enum name="bottom" value="0"/><enum name="top" value="1"/></attr><attr name="selectedColor"/><attr format="boolean" name="selectedBold"/><attr name="android:textColor"/><attr name="android:textSize"/><attr format="dimension" name="titlePadding"/><attr format="dimension" name="topPadding"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="UnderlinePageIndicator"><attr format="boolean" name="fades"/><attr format="integer" name="fadeDelay"/><attr format="integer" name="fadeLength"/><attr name="selectedColor"/><attr name="android:background"/></declare-styleable>
+    <declare-styleable name="ViewPagerIndicator"><attr format="reference" name="vpiCirclePageIndicatorStyle"/><attr format="reference" name="vpiIconPageIndicatorStyle"/><attr format="reference" name="vpiLinePageIndicatorStyle"/><attr format="reference" name="vpiTitlePageIndicatorStyle"/><attr format="reference" name="vpiTabPageIndicatorStyle"/><attr format="reference" name="vpiUnderlinePageIndicatorStyle"/></declare-styleable>
+    <declare-styleable name="swipelistviewstyle"><attr format="dimension" name="right_width"/></declare-styleable>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_login_margin_10">10dip</dimen>
+    <dimen name="activity_login_padding">30dip</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="crop__bar_height">48dp</dimen>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <eat-comment/>
+    <dimen name="default_circle_indicator_radius">3dp</dimen>
+    <dimen name="default_circle_indicator_stroke_width">1dp</dimen>
+    <dimen name="default_line_indicator_gap_width">4dp</dimen>
+    <dimen name="default_line_indicator_line_width">12dp</dimen>
+    <dimen name="default_line_indicator_stroke_width">1dp</dimen>
+    <dimen name="default_title_indicator_clip_padding">4dp</dimen>
+    <dimen name="default_title_indicator_footer_indicator_height">4dp</dimen>
+    <dimen name="default_title_indicator_footer_indicator_underline_padding">20dp</dimen>
+    <dimen name="default_title_indicator_footer_line_height">2dp</dimen>
+    <dimen name="default_title_indicator_footer_padding">7dp</dimen>
+    <dimen name="default_title_indicator_text_size">15dp</dimen>
+    <dimen name="default_title_indicator_title_padding">5dp</dimen>
+    <dimen name="default_title_indicator_top_padding">7dp</dimen>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="dimen_3">3dip</dimen>
+    <dimen name="dimen_ranking_image">50dp</dimen>
+    <dimen name="dimen_ranking_image_margin">12dp</dimen>
+    <dimen name="dimen_user_headImage_name">22dp</dimen>
+    <dimen name="line_height">1px</dimen>
+    <dimen name="margin_15">15dip</dimen>
+    <dimen name="margin_20">20dip</dimen>
+    <dimen name="margin_5">5dip</dimen>
+    <dimen name="text_size_large">19sp</dimen>
+    <dimen name="text_size_large_22">22sp</dimen>
+    <dimen name="text_size_large_28">28sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_small">13sp</dimen>
+    <dimen name="widget_height_30">30dip</dimen>
+    <dimen name="widget_height_35">35dip</dimen>
+    <dimen name="widget_height_40">40dip</dimen>
+    <dimen name="widget_height_45">45dip</dimen>
+    <dimen name="widget_height_50">50dip</dimen>
+    <dimen name="widget_height_55">55dip</dimen>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <eat-comment/>
+    <integer name="default_circle_indicator_orientation">0</integer>
+    <integer name="default_title_indicator_footer_indicator_style">2</integer>
+    <integer name="default_title_indicator_line_position">0</integer>
+    <integer name="default_underline_indicator_fade_delay">300</integer>
+    <integer name="default_underline_indicator_fade_length">400</integer>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="FAQ">常见问题</string>
+    <string name="about_us">关于我们</string>
+    <string name="action_settings">Settings</string>
+    <string name="advance_model">高级模式</string>
+    <string name="app_name">未来研究所</string>
+    <string name="app_regist_tip">抱歉，未来研究所目前仅开放邀请注册。请关注微信公众号“鸭先知”，了解更多邀请码获取方式。</string>
+    <string name="asset">我的资产</string>
+    <string name="attendMe">关注我的人</string>
+    <string name="authCode">验证码</string>
+    <string name="auth_cancel">授权操作已取消</string>
+    <string name="auth_complete">授权成功，正在跳转登录操作…</string>
+    <string name="auth_error">授权操作遇到错误</string>
+    <string name="bill">对账单</string>
+    <string name="birthday">生日</string>
+    <string name="birthday_hint">生日</string>
+    <string name="buy">看好，买进</string>
+    <string name="buy_tip_1">若事件发生则<font color="#CB232B"> 看好 </font>盈利 | 事件不发生则<font color="#008842"> 不看好 </font>盈利</string>
+    <string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
+    <string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
+    <string name="cancel">取消</string>
+    <string name="client_no_response">系统无响应，请稍后再试！</string>
+    <string name="company_name">未来研究所</string>
+    <string name="complete">完成</string>
+    <string name="connection_interrupt">网络连接中断，请检查网络！</string>
+    <string name="contact_us">联系我们</string>
+    <string name="crop__cancel">取消</string>
+    <string name="crop__done">确定</string>
+    <string name="crop__pick_error">No image sources available</string>
+    <string name="crop__saving">Saving picture…</string>
+    <string name="crop__wait">Please wait…</string>
+    <string name="data_over">没有更多数据</string>
+    <string name="day">日</string>
+    <string name="depositCash">保证金</string>
+    <string name="description_hint">一句话表达"先知态度"</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="douban">豆瓣</string>
+    <string name="dropbox">Dropbox</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="easy_model">简易模式</string>
+    <string name="easy_model_tip">点击看好/不看好，即以市价买进/卖空10件该事件。</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="email">邮件</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="empty_authCode">请输入验证码</string>
+    <string name="empty_hold">这里空空如也，鸭先知都能在这儿筑巢啦</string>
+    <string name="empty_new_pwd">请输入新密码</string>
+    <string name="empty_phone">请输入手机号</string>
+    <string name="empty_pwd">请输入密码</string>
+    <string name="event_detail">事件详情</string>
+    <string name="event_detail_bad">\t|\t若事件不发生你将</string>
+    <string name="event_detail_deal">其中         </string>
+    <string name="event_detail_depend">清算依据</string>
+    <string name="event_detail_focus">关注该事件</string>
+    <string name="event_detail_good"> 若事件发生你将 </string>
+    <string name="event_detail_guide">新手说明</string>
+    <string name="event_detail_share">分享有奖</string>
+    <string name="event_detail_unfocus">取消关注该事件</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="evernote">印象笔记</string>
+    <string name="facebook">Facebook</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="feedback">意见反馈</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <eat-comment/>
+    <string name="finish">完成</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="flickr">Flickr</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="forecast">我要预测</string>
+    <string name="forecasting">预测中事件</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="foursquare">FourSquare</string>
+    <string name="google_plus_client_inavailable">Google+ 版本过低或者没有安装，需要升级或安装Google+才能使用！</string>
+    <string name="googleplus">Google+</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="guidang">归档事件</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hold_1">又不看好 </string>
+    <string name="hold_deal">已成交预测</string>
+    <string name="hold_delete">确定清空所有已清算的预测记录？</string>
+    <string name="hold_undeal">未成交预测</string>
+    <string name="home_bottom_tab1">预测</string>
+    <string name="home_bottom_tab2">发现</string>
+    <string name="home_bottom_tab3">福利</string>
+    <string name="home_bottom_tab4">个人</string>
+    <string name="home_tab1"></string>
+    <string name="home_tab2"></string>
+    <string name="home_tab3"></string>
+    <string name="home_tab4"></string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="instagram">Instagram</string>
+    <string name="instagram_client_inavailable">Instagram版本过低或者没有安装，需要升级或安装Instagram才能使用！</string>
+    <string name="kaixin">开心网</string>
+    <string name="kakaostory">KakaoStory</string>
+    <string name="kakaostory_client_inavailable">目前您的KakaoStory版本过低或未安装，需要安装KakaoStory才能使用</string>
+    <string name="kakaotalk">KakaoTalk</string>
+    <string name="kakaotalk_client_inavailable">目前您的KakaoTalk版本过低或未安装，需要安装KakaoTalk才能使用</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="keyword">请选择先知关键词\n（至少选一个）</string>
+    <string name="lanren">懒人包〉</string>
+    <string name="lazy_bag">懒人包</string>
+    <string name="limit_price">出价</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="line">Line</string>
+    <string name="line_client_inavailable">目前您的Line版本过低或未安装，需要安装Line才能使用</string>
+    <string name="linkedin">领英</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <eat-comment/>
+    <string name="list_friends">%s的朋友</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="login_cancel">取消</string>
+    <string name="login_forget_password">忘记密码</string>
+    <string name="login_login">登录</string>
+    <string name="login_out">退出登录</string>
+    <string name="login_out_tip">确定退出该账户</string>
+    <string name="login_password">密码</string>
+    <string name="login_phone_number">手机号</string>
+    <string name="login_regist">注册</string>
+    <string name="logining">使用%s帐号登录中…</string>
+    <string name="market_price">市价</string>
+    <string name="media_report">媒体报道</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="mingdao">明道</string>
+    <string name="mingdao_share_content">网页分享</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="month">月</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <eat-comment/>
+    <string name="multi_share">图文分享</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="myAttention">我的关注</string>
+    <string name="myattention">我关注的人</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="neteasemicroblog">网易微博</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="new_password">新密码</string>
+    <string name="next">下一步</string>
+    <string name="ok">确定</string>
+    <string name="order_look_bad">此次预测，如果事件不发生，则你获利 P*Q=$，若事件发生，则你亏损（100-P）*Q=￥</string>
+    <string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="pinterest">Pinterest</string>
+    <string name="pinterest_client_inavailable">Pinterest版本过低或者没有安装，需要升级或安装Pinterest才能使用！</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="point">● </string>
+    <string name="privacy">服务条款</string>
+    <string name="pushMessage">通知中心</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="qq">QQ</string>
+    <string name="qq_client_inavailable">QQ 版本过低或者没有安装，需要升级或安装QQ才能使用！</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="question">常见问题</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="qzone">QQ空间</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="ranking">排名</string>
+    <string name="ranking_fragment_title">排行榜</string>
+    <string name="record">战绩</string>
+    <string name="reference_news">参考消息</string>
+    <string name="regist_auth">获取验证码</string>
+    <string name="regist_password_tip"> （ 密码需要包含字母数字，至少8个字符，区分大小写 ） </string>
+    <string name="regist_sucess_tip">欢迎进入未来研究所，5000点未币已送达你的账户，现在就去预测世界大展身手吧！</string>
+    <string name="regist_userName">用户名</string>
+    <string name="regist_userName_tip">（ 不多于14个英文字母或者7个汉字 ）</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="renren">人人网</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="reset_pwd">找回密码</string>
+    <string name="secret">隐私</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <eat-comment/>
+    <string name="select_one_plat_at_least">请选择一个目标平台</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="sell">不看好，卖空</string>
+    <string name="sex">性别</string>
+    <string name="sex_female">女</string>
+    <string name="sex_guess">你猜</string>
+    <string name="sex_hint">性别</string>
+    <string name="sex_male">男</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <eat-comment/>
+    <string name="share">分享</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="shareTips">目前大家认为有X%的可能性会发生【Y】，你信吗？</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <eat-comment/>
+    <string name="share_canceled">分享已取消</string>
+    <string name="share_completed">分享成功</string>
+    <string name="share_failed">分享失败</string>
+    <string name="share_to">分享到</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="share_to_mingdao">分享到明道</string>
+    <string name="share_to_qq">分享到QQ</string>
+    <string name="share_to_qzone">分享到QQ空间</string>
+    <string name="share_to_qzone_default">来自%s的分享</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <eat-comment/>
+    <string name="sharing">分享操作正在后台进行…</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="shortmessage">信息</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="show_assure">总资产(未币)</string>
+    <string name="show_attend">关注他的人</string>
+    <string name="show_attention">他关注的人</string>
+    <string name="show_comment">他的评论</string>
+    <string name="show_forecast">预测中事件</string>
+    <string name="show_homepage">Ta的主页</string>
+    <string name="show_ranking">他的战绩</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="sinaweibo">新浪微博</string>
+    <string name="sohumicroblog">搜狐微博</string>
+    <string name="sohusuishenkan">搜狐随身看</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="space">    </string>
+    <string name="steep3_price_tip">● 此次预测将用</string>
+    <string name="store">未来福利社</string>
+    <string name="submit">提交</string>
+    <string name="submit_buy">确认买入</string>
+    <string name="submit_new_password">确认密码</string>
+    <string name="submit_sell">确认卖空</string>
+    <string name="tab_forecast">预测</string>
+    <string name="tab_personal">个人</string>
+    <string name="tab_ranking">成就</string>
+    <string name="tab_revoke">订单</string>
+    <string name="tab_shoop">福利</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="tencentweibo">腾讯微博</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="tip_rule">这个事件是YES/NO型，最后清算价格只可能是100或0，代表着事件【发生】或是【未发生】两种结果，不会存在中间状态哦
+清算依据呢，就是$
+如果事件提前发生，鸭先知就只好提前关闭交易并清算啦。
+事件清算若出现了任何争议，本先知会送往仲裁委员会裁决，一定会给大家个公正的结果哒！</string>
+    <string name="title_activity_aritlce">AritlceActivity</string>
+    <string name="title_activity_article_detail">ArticleDetailActivity</string>
+    <string name="title_activity_home3">Home3Activity</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="tumblr">Tumblr</string>
+    <string name="twitter">Twitter</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="unLogin">未登录</string>
+    <string name="unhold_1">你看好     </string>
+    <string name="unhold_1_1">你已<font color="#ff6565">看多</font></string>
+    <string name="unhold_2">你已<font color="#B9D310">看空</font></string>
+    <string name="unhold_3">剩余         </string>
+    <string name="unhold_delete">确定清空所有已失效的预测记录？</string>
+    <string name="unhold_revoke">确定撤销该预测订单？</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="use_login_button">请改用“登录”按钮</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="useableIcon">可消费未币</string>
+    <string name="useableMoney">总未币</string>
+    <string name="userNmae_hint">用户名</string>
+    <string name="userid_found">用户信息已存在，正在跳转登录操作…</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="vkontakte">VK</string>
+    <string name="website">http://www.shareSDK.cn</string>
+    <string name="wechat">微信好友</string>
+    <string name="wechat_client_inavailable">目前您的微信版本过低或未安装微信，需要安装微信才能使用</string>
+    <string name="wechatfavorite">微信收藏</string>
+    <string name="wechatmoments">微信朋友圈</string>
+    <string name="weibo_oauth_regiseter">应用授权</string>
+    <string name="weibo_upload_content">分享图片</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，送您的5000未币已经到账，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
+    <string name="wrong_phone">请输入合法手机号</string>
+    <string name="year">年</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
+    <string name="yixin">易信</string>
+    <string name="yixin_client_inavailable">目前您的易信版本过低或未安装，需要安装易信才能使用</string>
+    <string name="yixinmoments">易信朋友圈</string>
+    <string name="youdao">有道云笔记</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="BaseButtonType">
+        <item name="android:textColor">@color/text_color_white</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:background">@drawable/login_btn_login</item>
+    </style>
+    <style name="BaseCheckTextType">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">@color/text_color_a</item>
+        <item name="android:textColorHint">@color/text_color_a</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="BaseEditTextType">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:textColor">@color/text_color_a</item>
+        <item name="android:background">@drawable/edit_back</item>
+        <item name="android:textColorHint">@color/text_color_a</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="Crop"/>
+    <style name="Crop.ActionButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/crop__selectable_background</item>
+    </style>
+    <style name="Crop.ActionButtonText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingRight">20dp</item> <!-- Offsets left drawable -->
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textColor">@color/crop__button_text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="Crop.ActionButtonText.Cancel">
+        <item name="android:text">@string/crop__cancel</item>
+    </style>
+    <style name="Crop.ActionButtonText.Done">
+        <item name="android:text">@string/crop__done</item>
+    </style>
+    <style name="Crop.DoneCancelBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/crop__bar_height</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:divider">@drawable/crop__divider</item>
+        <item name="android:showDividers">middle</item>
+        <item name="android:dividerPadding">12dp</item>
+        <item name="android:background">@color/crop__button_bar</item>
+    </style>
+    <style name="PopToast">
+        <item name="@android:windowEnterAnimation">@anim/anim_toast_enter</item>
+        <item name="@android:windowExitAnimation">@anim/anim_toast_exit</item>
+    </style>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__styles.xml -->
+    <eat-comment/>
+    <style name="TextAppearance.TabPageIndicator" parent="Widget">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/vpi__dark_theme</item>
+    </style>
+    <style name="Theme.PageIndicatorDefaults" parent="android:Theme">
+        <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
+    </style>
+    <style name="Widget">
+    </style>
+    <style name="Widget.IconPageIndicator" parent="Widget">
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_marginRight">6dp</item>
+    </style>
+    <style name="Widget.TabPageIndicator" parent="Widget">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/vpi__tab_indicator</item>
+        <item name="android:paddingLeft">22dip</item>
+        <item name="android:paddingRight">22dip</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.TabPageIndicator</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="choose_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+		 <item name="android:windowFullscreen">true</item>  
+    	<item name="android:windowIsTranslucent">true</item>  
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+         <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+    </style>
+    <style name="theme_dialog_alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

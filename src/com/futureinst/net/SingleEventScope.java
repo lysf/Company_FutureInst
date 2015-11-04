@@ -8,8 +8,9 @@ public enum SingleEventScope {
 	 * related,相关信息，包括参考信息、相关事件(暂无)、评论（暂无）；
 	 *  lazybag,懒人包
 	 */
+	user,
 	base,
 	price,
-	related,
-	lazybag;
+	comment_article,
+	refer_lazy,
 }

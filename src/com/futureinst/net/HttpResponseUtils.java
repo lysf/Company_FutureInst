@@ -2,7 +2,6 @@ package com.futureinst.net;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
-import java.nio.MappedByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,7 +37,6 @@ import com.futureinst.global.Content;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.MyToast;
-import com.futureinst.utils.NetstateToast;
 import com.futureinst.utils.Utils;
 
 public class HttpResponseUtils {
@@ -95,7 +93,7 @@ public class HttpResponseUtils {
 									e1.printStackTrace();
 								}
 								if(method ==null  || !method.equals("query_user_with_uuid")){
-									MyToast.showToast(activity, message, 0);
+									MyToast.getInstance().showToast(activity, message, 0);
 								}
 								return;
 							}
@@ -122,10 +120,12 @@ public class HttpResponseUtils {
 						}
 						if(!Utils.checkNetkworkState(activity)){
 //							MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
-							NetstateToast.getInstance(activity, activity.getResources().getString(R.string.connection_interrupt)).showToast();
+//							NetstateToast.getInstance(activity, activity.getResources().getString(R.string.connection_interrupt)).showToast();
+							MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
 							return;
 						}
-						MyToast.showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
+						MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
+						return;
 					}
 				}) {
 			@Override
@@ -150,7 +150,7 @@ public class HttpResponseUtils {
 	public synchronized <T> void postJson_1(final Map<String, String> params, final Class<T> clz,
 			final PostCommentResponseListener commentResponseListener) {
 		if(!Utils.checkNetkworkState(activity)){
-			MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+			MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
 			return;
 		}
 		StringRequest postRequest = new StringRequest(Request.Method.POST, HttpPath.URL,
@@ -171,7 +171,7 @@ public class HttpResponseUtils {
 							e1.printStackTrace();
 						}
 						if(status == -3) return;
-						MyToast.showToast(activity, message, 0);
+						MyToast.getInstance().showToast(activity, message, 0);
 						return;
 					}
 					try {
@@ -193,12 +193,13 @@ public class HttpResponseUtils {
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-				if(!Utils.checkNetkworkState(activity)){
-					NetstateToast.getInstance(activity, activity.getResources().getString(R.string.connection_interrupt)).showToast();
-//					MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+				if(!Utils.checkNetkworkState(activity)) {
+//					NetstateToast.getInstance(activity, activity.getResources().getString(R.string.connection_interrupt)).showToast();
+					MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
 					return;
 				}
-				MyToast.showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
+				MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
+				return;
 			}
 		}) {
 			@Override
@@ -303,7 +304,7 @@ public class HttpResponseUtils {
 							int status = baseModel.getStatus();
 							final String message = baseModel.getErrinfo();
 							if(status!=0){
-								MyToast.showToast(activity, message, 0);
+								MyToast.getInstance().showToast(activity, message, 0);
 								try {
 									commentResponseListener
 											.requestCompleted(null);

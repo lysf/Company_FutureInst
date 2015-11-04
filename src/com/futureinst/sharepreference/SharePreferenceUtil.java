@@ -22,6 +22,7 @@ public class SharePreferenceUtil {
 		}
 		return preferenceUtil;
 	}
+	private String EASYMODEL = "EASYMODEL";//是否为简易模式
 	private String FOLLOW = "FOLLOW";//关注我的人数
 	private String AD = "AD";//记录广告显示的时间
 	private String INSTALLTAG = "INSTALLTAG";//安装标记
@@ -52,6 +53,15 @@ public class SharePreferenceUtil {
 	private String CID = "CID";
 	private String CTYPE = "CTYPE";
 	private String STATUS = "STATUS";
+	public boolean getEasyModel(){
+		return mSharedPreferences.getBoolean(EASYMODEL,true);
+	}
+	public void setEasyModel(boolean model){
+		editor.putBoolean(EASYMODEL,model);
+		editor.commit();
+	}
+
+
 	//关注我的人
 	public void setFollow(int follow){
 		editor.putInt(FOLLOW, follow);
@@ -128,34 +138,7 @@ public class SharePreferenceUtil {
 		editor.putBoolean(GUIDE_4, true);
 		editor.commit();
 	}
-	public boolean getGuide5(){
-		return mSharedPreferences.getBoolean(GUIDE_5, false);
-	}
-	public void setGuide5(){
-		editor.putBoolean(GUIDE_5, true);
-		editor.commit();
-	}
-	public boolean getGuide6(){
-		return mSharedPreferences.getBoolean(GUIDE_6, false);
-	}
-	public void setGuide6(){
-		editor.putBoolean(GUIDE_6, true);
-		editor.commit();
-	}
-	public boolean getGuide7(){
-		return mSharedPreferences.getBoolean(GUIDE_7, false);
-	}
-	public void setGuide7(){
-		editor.putBoolean(GUIDE_7, true);
-		editor.commit();
-	}
-	public boolean getGuide8(){
-		return mSharedPreferences.getBoolean(GUIDE_8, false);
-	}
-	public void setGuide8(){
-		editor.putBoolean(GUIDE_8, true);
-		editor.commit();
-	}
+
 	
 	public boolean isFirstLogin(){
 		return mSharedPreferences.getBoolean(ISFIRSTLOGIN, true);

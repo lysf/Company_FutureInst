@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.futureinst.widget.TitleLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<com.futureinst.widget.TitleLayout
     android:id="@+id/layout_title"
     android:layout_width="fill_parent"
     android:layout_height="48dp"
     android:background="@color/text_color_white"
-
     android:gravity="center" >
 
     <!-- 左边的title -->
-
+    <FrameLayout
+        android:layout_width="70dp"
+        android:layout_gravity="left"
+        android:layout_height="match_parent">
     <com.futureinst.widget.TitleButton
         android:id="@+id/btn_left_base"
         android:layout_width="wrap_content"
@@ -17,19 +24,20 @@
         android:textSize="18sp"
         android:layout_marginLeft="5dip"
         android:textColor="@color/text_color_0"
-        android:background="@drawable/item_select"
+        android:background="@null"
         android:layout_gravity="left|center_vertical"
         android:contentDescription="@string/app_name"
         android:visibility="gone" />
 
      <ImageView 
         android:id="@+id/iv_left"
+         android:visibility="visible"
         android:layout_width="48dp"
         android:scaleType="centerInside"
         android:layout_height="match_parent"
         android:layout_gravity="left|center_vertical"
         android:contentDescription="@null"/>
-    
+    </FrameLayout>
     <!-- 中间的title -->
 
     <RelativeLayout
@@ -42,7 +50,9 @@
         android:gravity="center"
         android:orientation="horizontal" >
 		
-        <LinearLayout android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
             android:layout_height="wrap_content"
             android:gravity="center">
 	        <TextView
@@ -67,19 +77,24 @@
             android:visibility="gone" />
     </RelativeLayout>
     <!-- 右边的btn -->
-
+<FrameLayout
+    android:layout_width="70dp"
+    android:layout_gravity="right"
+    android:layout_marginRight="@dimen/activity_login_margin_10"
+    android:layout_height="match_parent">
     <com.futureinst.widget.TitleButton
         android:id="@+id/btn_right_base"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:minWidth="48dp"
         android:textSize="18sp"
-        android:layout_marginRight="10dip"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
         android:textColor="@drawable/right_button_text_color"
         android:background="@null"
         android:layout_gravity="right|center_vertical"
-        android:visibility="invisible"/>
-    <ImageView 
+        android:visibility="gone"/>
+    <ImageView
         android:id="@+id/iv_right"
         android:layout_width="48dp"
         android:scaleType="centerInside"
@@ -87,4 +102,11 @@
         android:layout_gravity="right|center_vertical"
         android:contentDescription="@null"
         android:visibility="gone"/>
+</FrameLayout>
+
 </com.futureinst.widget.TitleLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/text_color_e"/>
+    </LinearLayout>

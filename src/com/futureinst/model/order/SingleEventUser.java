@@ -6,9 +6,19 @@ import java.io.Serializable;
 public class SingleEventUser implements Serializable {
 	private int follow;//1:已关注，0：未关注
 	private int share_award;
+	private int comment;//下单时判断是否需要评论
 	private float if_yes;
 	private float if_no;
 	private SingleEventClearDAO event_clear;
+
+	public int getComment() {
+		return comment;
+	}
+
+	public void setComment(int comment) {
+		this.comment = comment;
+	}
+
 	public float getIf_yes() {
 		return if_yes;
 	}

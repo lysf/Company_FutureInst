@@ -20,7 +20,6 @@ public class ForecastViewPagerAdapter extends FragmentPagerAdapter {
 		
 		return ForecastContainerTypeFragment.newInstance(arg0);
 	}
-
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub

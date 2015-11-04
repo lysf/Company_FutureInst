@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/text_color_white"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/activity_login_margin_10"
+        android:gravity="right|center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="@drawable/item_select"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:text="排名"
+                android:padding="@dimen/margin_5"
+                android:textColor="#52c3d1"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_ranking"
+                android:padding="@dimen/margin_5"
+                android:textColor="#52c3d1"
+                android:text="0"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/iv_ranking"
+                android:src="@drawable/iv_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:layout_marginRight="@dimen/activity_login_margin_10"
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
+            android:layout_width="@dimen/line_height"
+            android:layout_height="match_parent"
+            android:background="@color/text_color_e"/>
+
+        <TextView
+            android:id="@+id/tv_attend"
+            android:textColor="#52c3d1"
+            android:text="关注 0"
+            android:padding="@dimen/margin_5"
+            android:textSize="@dimen/text_size_normal"
+            android:background="@drawable/item_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_marginRight="@dimen/activity_login_margin_10"
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
+            android:layout_width="@dimen/line_height"
+            android:layout_height="match_parent"
+            android:background="@color/text_color_e"/>
+        <TextView
+            android:id="@+id/tv_attention"
+            android:textColor="#52c3d1"
+            android:text="被关注 0"
+            android:padding="@dimen/margin_5"
+            android:layout_marginRight="@dimen/margin_20"
+            android:textSize="@dimen/text_size_normal"
+            android:background="@drawable/item_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:paddingRight="@dimen/activity_login_margin_10"
+        android:paddingLeft="@dimen/activity_login_margin_10"
+        android:paddingBottom="@dimen/activity_login_margin_10"
+        android:paddingTop="@dimen/activity_login_margin_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/total_coins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
+            android:text="总资产"
+            android:textColor="@color/text_color_4"
+            android:textSize="@dimen/text_size_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_total_assure"
+            android:text="0"
+            android:gravity="right"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

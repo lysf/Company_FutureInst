@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<com.futureinst.widget.scrollview.MyScrollView
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:fillViewport="true"
+    >
+   
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_color_e"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+
+    >
+    <include 
+        android:id="@+id/view_top"
+        layout="@layout/event_detail_1"/>
+
+
+	<LinearLayout
+	    android:gravity="center"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:background="@color/text_color_white"
+        android:padding="@dimen/margin_20"
+	    android:orientation="horizontal">
+        
+        <com.futureinst.widget.waterwave.CustomDraw
+	    android:id="@+id/wav"
+	    android:layout_width="match_parent"
+	    android:layout_height="240dp"
+	    android:gravity="center_vertical"
+	    
+	     />
+        </LinearLayout>
+         <include
+             layout="@layout/event_detail_3"/>
+         <include 
+		    android:id="@+id/view_singlev_event"
+
+		    layout="@layout/view_event_detail_11"/>
+         <include
+             android:id="@+id/bottom"
+             android:visibility="gone"
+             layout="@layout/forecast_bottom"/>
+    <!--评论-->
+    <include
+        android:id="@+id/view_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
+        layout="@layout/event_detail_4"/>
+    <!--观点-->
+    <include layout="@layout/event_detail_5"/>
+    <!--相关新闻-->
+    <include layout="@layout/event_detail_6"/>
+    <!--事件始末-->
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
+        layout="@layout/event_detail_7"/>
+</LinearLayout>
+</com.futureinst.widget.scrollview.MyScrollView>
+    <!--浮动评论-->
+    <include
+        android:id="@+id/view_comment_float"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/view_comment_float"/>
+    <include
+        android:id="@+id/view_float_comment_edit"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/view_comment_edit"/>
+</RelativeLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/activity_event_detail_about.xml -->

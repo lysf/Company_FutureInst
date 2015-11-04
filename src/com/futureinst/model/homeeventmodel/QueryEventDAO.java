@@ -20,13 +20,40 @@ public class QueryEventDAO implements Serializable{
 	private float currPrice;
 	private float priceChange;
 	private int clearPrice;
-	private Long involve;
+	private int involve;
 	private int sug;
 	private String accord;
 	private String lead;
 	private Long ctime;
 	private String statusStr;
-	
+	private int allComNum;
+	private int buyComNum;
+	private int articleNum;
+
+	public int getAllComNum() {
+		return allComNum;
+	}
+
+	public void setAllComNum(int allComNum) {
+		this.allComNum = allComNum;
+	}
+
+	public int getBuyComNum() {
+		return buyComNum;
+	}
+
+	public void setBuyComNum(int buyComNum) {
+		this.buyComNum = buyComNum;
+	}
+
+	public int getArticleNum() {
+		return articleNum;
+	}
+
+	public void setArticleNum(int articleNum) {
+		this.articleNum = articleNum;
+	}
+
 	public int getType() {
 		return type;
 	}
@@ -143,10 +170,10 @@ public class QueryEventDAO implements Serializable{
 	public void setClearPrice(int clearPrice) {
 		this.clearPrice = clearPrice;
 	}
-	public Long getInvolve() {
+	public int getInvolve() {
 		return involve;
 	}
-	public void setInvolve(Long involve) {
+	public void setInvolve(int involve) {
 		this.involve = involve;
 	}
 	public Long getCtime() {

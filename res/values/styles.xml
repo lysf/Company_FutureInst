@@ -91,4 +91,8 @@
     <style name="Crop.ActionButtonText.Cancel">
         <item name="android:text">@string/crop__cancel</item>
     </style>
+    <style name="PopToast">
+        <item name="@android:windowEnterAnimation">@anim/anim_toast_enter</item>
+        <item name="@android:windowExitAnimation">@anim/anim_toast_exit</item>
+    </style>
 </resources>

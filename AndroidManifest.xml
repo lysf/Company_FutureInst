@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
- 	 package="com.futureinst"
-    
-    android:versionCode="11"
-    android:versionName="1.6.1" >
+    package="com.futureinst"
+    android:versionCode="13"
+    android:versionName="2.0" >
 
     <uses-sdk
-        
-        android:minSdkVersion="15"
+        android:minSdkVersion="16"
         android:targetSdkVersion="22" />
- 
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
         android:normalScreens="true"
         android:smallScreens="true" />
-  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-<uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
-<uses-permission android:name="android.permission.INTERNET"/>
-<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-<uses-permission android:name="android.permission.WAKE_LOCK"/>
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.VIBRATE"/>
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-<uses-permission android:name="getui.permission.GetuiService.com.futureinst"/>
-<uses-permission android:name="android.permission.GET_TASKS"/>
- <uses-permission android:name="android.permission.CAMERA" />
-<!--自定义权限-->
-<permission
-    android:name="getui.permission.GetuiService.com.futureinst"
-    android:protectionLevel="normal">
-</permission>
-    
-    
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="getui.permission.GetuiService.com.futureinst" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 自定义权限 -->
+    <permission
+        android:name="getui.permission.GetuiService.com.futureinst"
+        android:protectionLevel="normal" >
+    </permission>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
-        android:name="com.futureinst.baseui.BaseApplication"
+        android:name=".baseui.BaseApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/company_name"
         android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" >
         <activity
-            android:name="com.futureinst.index.IndexActivity"
+            android:name=".index.IndexActivity"
             android:label="@string/company_name"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -52,8 +52,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-         <activity
+        <activity
             android:name=".home.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -82,8 +81,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.eventdetail.EventDetailActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".home.eventdetail.MyHoldActivity"
             android:screenOrientation="portrait" />
@@ -107,123 +106,125 @@
             android:name=".home.eventdetail.RefrenceNewsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.userinfo.MyAseetActivity"
+            android:name=".home.userinfo.MyAseetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.eventdetail.EventBuyActivity"
+            android:name=".home.eventdetail.EventBuyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.comment.CommentActivity"
+            android:name=".comment.CommentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".home.attention.MyAttentionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.attention.MyAttentionActivity"
+            android:name=".comment.AddCommentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".home.userinfo.FeedBackActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.comment.AddCommentActivity"
+            android:name=".home.userinfo.PrivacyActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.userinfo.FeedBackActivity"
+            android:name=".home.userinfo.ShoopActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.userinfo.PrivacyActivity"
+            android:name=".push.PushWebActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.userinfo.ShoopActivity"
+            android:name=".home.forecast.ForecastGroupActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.push.PushWebActivity"
+            android:name=".personalinfo.other.PersonalShowActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.forecast.ForecastGroupActivity"
+            android:name=".personalinfo.other.PersonalForecastActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.personalinfo.other.PersonalShowActivity"
+            android:name=".personalinfo.other.PersonalRecordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.personalinfo.other.PersonalForecastActivity"
+            android:name=".personalinfo.other.PersonalCommentActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.personalinfo.other.PersonalRecordActivity"
+            android:name=".personalinfo.other.PersonalAttentionActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.personalinfo.other.PersonalCommentActivity"
+            android:name=".personalinfo.other.PersonalAttendActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.personalinfo.other.PersonalAttentionActivity"
+            android:name=".home.userinfo.SecrtActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.personalinfo.other.PersonalAttendActivity"
+            android:name=".home.userinfo.SetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.userinfo.SecrtActivity"
+            android:name=".personalinfo.other.PersonalTagRecordActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.userinfo.SetActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.futureinst.home.userinfo.PersonalNameSetActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.futureinst.home.userinfo.PersonalDescriptionActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.futureinst.personalinfo.other.PersonalTagRecordActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.futureinst.home.hold.HoldingActivity"
+            android:name=".home.hold.HoldingActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.soundcloud.android.crop.CropImageActivity"
-          android:screenOrientation="portrait" />
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.futureinst.home.userinfo.ModifyPersoanlInfoActivity"
-            android:windowSoftInputMode="adjustResize"
-          android:screenOrientation="portrait" />
-       
-		
-        
-        
-        <service 
-            android:name="com.futureinst.service.UpdateService"/>
-        
-         <receiver
-            android:name="com.futureinst.push.PushBroadCastReceiver"
+            android:name=".home.userinfo.ModifyPersoanlInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".comment.CommentApplyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".home.find.ArticleDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".comment.CommentDetailSecondActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".home.article.AritlceActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_aritlce" />
+        <activity
+            android:name="com.futureinst.comment.AddPointActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_aritlce"/> >
+
+        <service android:name=".service.UpdateService" />
+
+        <receiver
+            android:name=".push.PushBroadCastReceiver"
             android:exported="false" >
             <intent-filter>
+
                 <!-- 个推的appId -->
-                <!-- 
-                <action android:name="com.igexin.sdk.action.alYzVK8m5l64f05bj2pVq7" />
-                 -->
+                <!-- <action android:name="com.igexin.sdk.action.alYzVK8m5l64f05bj2pVq7" /> -->
                 <action android:name="com.igexin.sdk.action.zr7geZUP3o8ryY1XQCIpN9" />
             </intent-filter>
         </receiver>
-        
+
         <!-- 个推SDK配置开始 -->
-        <!-- 配置第三方应用参数属性 -->  
+        <!-- 配置第三方应用参数属性 -->
         <meta-data
             android:name="PUSH_APPID"
-            android:value="zr7geZUP3o8ryY1XQCIpN9"
-             /> <!-- 替换为第三方应用的APPID -->
-            <!-- 
-            android:value="alYzVK8m5l64f05bj2pVq7"
-             -->
-        
+            android:value="zr7geZUP3o8ryY1XQCIpN9" /> <!-- 替换为第三方应用的APPID -->
+        <!-- android:value="alYzVK8m5l64f05bj2pVq7" -->
+
         <meta-data
             android:name="PUSH_APPKEY"
-            android:value="jtCOx26nEK9IGHPRlS5aj2" 
-            />  <!-- 替换为第三方应用的APPKEY -->
-            <!-- 
-             android:value="9U2ftCGtk1A4ZtUK6V5S86"
-             -->
-           
+            android:value="jtCOx26nEK9IGHPRlS5aj2" /> <!-- 替换为第三方应用的APPKEY -->
+        <!-- android:value="9U2ftCGtk1A4ZtUK6V5S86" -->
+
         <meta-data
             android:name="PUSH_APPSECRET"
-            android:value="EYUtqXkvA965jTqJED0oX6" 
-            /><!-- 替换为第三方应用的APPSECRET -->
-        <!-- 
-        android:value="HQi18kl23m62OqHsU7qJc8" 
-        --> 
-            
+            android:value="EYUtqXkvA965jTqJED0oX6" /> <!-- 替换为第三方应用的APPSECRET -->
+        <!-- android:value="HQi18kl23m62OqHsU7qJc8" -->
+
         <meta-data
             android:name="PUSH_GROUPID"
             android:value="" />
@@ -241,11 +242,10 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.intent.action.USER_PRESENT" />
                 <action android:name="com.igexin.sdk.action.refreshls" />
-                 <!-- 以下三项为可选的action声明，可大大提高service存活率和消息到达速度 -->
-            <action android:name="android.intent.action.MEDIA_MOUNTED" />
-            <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-            <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-                
+                <!-- 以下三项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
             </intent-filter>
         </receiver>
         <receiver
@@ -283,19 +283,17 @@
                 <action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4" />
                 <!-- 替换为android:name="com.igexin.sdk.action.第三方的appId" -->
                 <action android:name="com.igexin.sdk.action.zr7geZUP3o8ryY1XQCIpN9" />
-                <!-- 
-                 <action android:name="com.igexin.sdk.action.alYzVK8m5l64f05bj2pVq7" />
-                 -->
+                <!-- <action android:name="com.igexin.sdk.action.alYzVK8m5l64f05bj2pVq7" /> -->
             </intent-filter>
         </receiver>
 
         <service
             android:name="com.igexin.getuiext.service.GetuiExtService"
             android:process=":pushservice" />
-       
+
         <!-- =========================================================================== -->
-        
-        
+
+
         <!-- ShareSDKUIShell -->
         <activity
             android:name="com.mob.tools.MobUIShell"
@@ -312,14 +310,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <!-- 
+        <!--
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateHidden|adjustResize" >
 		</activity>
-         -->
+        -->
         <activity
             android:name="cn.sharesdk.framework.AuthorizeActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -329,7 +327,7 @@
         </activity>
         <!-- 微信分享回调 -->
         <activity
-            android:name="com.futureinst.wxapi.WXEntryActivity"
+            android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -352,10 +350,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-     <meta-data android:value="55cd9c4767e58efccf003e3c" android:name="UMENG_APPKEY"></meta-data>
-     <!-- 同时修改HttpPostParams中的regist（） ctype  -->
-	 <meta-data android:value="anzhi" android:name="UMENG_CHANNEL"/>
-        
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="55cd9c4767e58efccf003e3c" />
+        <!-- 同时修改HttpPostParams中的regist（） ctype -->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="anzhi" />
+
+
     </application>
 
 </manifest>

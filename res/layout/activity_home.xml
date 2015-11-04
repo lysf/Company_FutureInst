@@ -1,17 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:id="@+id/rl_type"
+    android:background="@color/text_color_white"
     android:orientation="vertical" >
-    <!-- 
-    <com.futureinst.widget.VerticalViewPager
-        android:id="@+id/pager"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
- -->
- <com.futureinst.widget.verticalviewpager.VerticalViewPager
-        android:id="@+id/pager"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:layout_above="@+id/tab_bottom"
+            >
+
+        </FrameLayout>
+        <include
+            android:id="@+id/tab_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/widget_height_55"
+            layout="@layout/home_tab_bottom"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_ad"
+        android:visibility="gone"
+        android:background="@color/text_color_white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_ad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo"/>
+        <ImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_login_margin_10"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/activity_login_margin_10"
+            android:layout_marginRight="@dimen/activity_login_margin_10"
+            android:src="@drawable/cancel_01"/>
+    </RelativeLayout>
+</RelativeLayout>

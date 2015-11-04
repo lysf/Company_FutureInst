@@ -67,11 +67,11 @@ public class ModifyPersoanlInfoActivity extends BaseActivity {
 		String name = et_name.getText().toString().trim();
 		String description = et_description.getText().toString().trim();
 		if(TextUtils.isEmpty(name)){
-			MyToast.showToast(ModifyPersoanlInfoActivity.this, "请输入昵称", 0);
+			MyToast.getInstance().showToast(ModifyPersoanlInfoActivity.this, "请输入昵称", 0);
 			return;
 		}
 		if(TextUtils.isEmpty(description)){
-			MyToast.showToast(ModifyPersoanlInfoActivity.this, "请输入先知态度", 0);
+			MyToast.getInstance().showToast(ModifyPersoanlInfoActivity.this, "请输入先知态度", 0);
 			return;
 		}
 		if(name.equals(user.getName()))
@@ -95,7 +95,7 @@ public class ModifyPersoanlInfoActivity extends BaseActivity {
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
 				try {
 					if (s.toString().getBytes("GB2312").length > 14) {
-						MyToast.showToast(ModifyPersoanlInfoActivity.this, getResources().getString(R.string.regist_userName_tip), 1);
+						MyToast.getInstance().showToast(ModifyPersoanlInfoActivity.this, getResources().getString(R.string.regist_userName_tip), 1);
 						et_name.setText("");
 						return;
 					}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/text_size_large"
+        android:textColor="@color/text_color_white"
+        android:layout_marginTop="100dip"
+        android:gravity="center_horizontal"
+        android:text="还没有相关未来哦~\n试试其他的"/>
+
+</LinearLayout>
+<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/view_empty_search.xml -->
