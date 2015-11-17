@@ -42,8 +42,18 @@
 
         <include layout="@layout/view_line"/>
 
+        <EditText
+            android:id="@+id/et_point"
+            android:padding="@dimen/margin_5"
+            android:gravity="top"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color_6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <com.futureinst.widget.richeditor.RichEditor
             android:id="@+id/et_point_content"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minHeight="200dp"
@@ -56,6 +66,7 @@
     </LinearLayout>
     <ImageView
         android:id="@+id/iv_image"
+        android:visibility="gone"
         android:src="@drawable/rich_editor_imag"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"

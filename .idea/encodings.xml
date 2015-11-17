@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/com/futureinst/activitytransition/ActivityTransition.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/futureinst/activitytransition/ActivityTransitionLauncher.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/futureinst/activitytransition/BuildConfigUtils.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/futureinst/activitytransition/ExitActivityTransition.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/futureinst/activitytransition/core" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/futureinst/activitytransition/fragment" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

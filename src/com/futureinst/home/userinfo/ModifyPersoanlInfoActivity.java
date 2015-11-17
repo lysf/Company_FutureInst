@@ -54,10 +54,9 @@ public class ModifyPersoanlInfoActivity extends BaseActivity {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setTitle("编辑个人信息");
-		getLeftButton().setText("取消");
-		getLeftButton().setVisibility(View.VISIBLE);
 		getRightButton().setText("保存");
-		getRightButton().setTextColor(getResources().getColor(R.color.right_btn));
+        getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
+        getRightButton().setTextColor(getResources().getColor(R.color.right_btn));
 		setContentView(R.layout.activity_modify_personal_info);
 		initView();
 	}

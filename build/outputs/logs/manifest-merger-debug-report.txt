@@ -4,7 +4,7 @@ ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:2:1-367:12
 	package
 		ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:2:11-35
 	android:versionName
-		ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:6:11-38
+		ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:6:11-36
 	android:versionCode
 		ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:5:11-35
 		INJECTED from F:\CompanyWork\FutureInst\AndroidManifest.xml

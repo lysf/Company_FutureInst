@@ -9,9 +9,10 @@ import android.text.TextUtils;
 
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
-	//ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi
-	private String ctype = "android";
-	public static HttpPostParams getInstace(){
+    //ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi、huawei
+    private String ctype = "android";
+
+    public static HttpPostParams getInstace(){
 		if(httpPostParams == null)
 			httpPostParams = new HttpPostParams();
 		return httpPostParams;

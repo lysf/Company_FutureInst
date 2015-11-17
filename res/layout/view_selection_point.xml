@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/text_color_white"
+              android:background="@drawable/item_select"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -44,7 +44,6 @@
         </LinearLayout>
     </RelativeLayout>
     <RelativeLayout
-        android:background="@color/text_color_white"
         android:paddingTop="@dimen/margin_5"
         android:paddingBottom="@dimen/margin_5"
         android:paddingLeft="@dimen/activity_login_margin_10"

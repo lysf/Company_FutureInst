@@ -26,6 +26,8 @@ public class AddPointActivity extends BaseActivity {
     private RichEditor et_point_content;
     private String event_id;
     private ImageView iv_image;
+
+    private EditText et_point;
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setTitle("写观点");
@@ -39,7 +41,7 @@ public class AddPointActivity extends BaseActivity {
     protected void onRightClick(View view) {
         super.onRightClick(view);//添加观点
         String title = et_point_title.getText().toString().trim();
-        String content = et_point_content.getHtml().toString().trim();
+        String content = et_point.getText().toString().trim();
         if(judgeDate(title,content)){
             add_article(event_id,title,content);
         }
@@ -51,6 +53,8 @@ public class AddPointActivity extends BaseActivity {
         et_point_title = (EditText)findViewById(R.id.et_point_title);
         et_point_content = (RichEditor)findViewById(R.id.et_point_content);
         iv_image = (ImageView)findViewById(R.id.iv_image);
+        et_point = (EditText)findViewById(R.id.et_point);
+
 
         et_point_content.setEditorHeight(300);
         et_point_content.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {

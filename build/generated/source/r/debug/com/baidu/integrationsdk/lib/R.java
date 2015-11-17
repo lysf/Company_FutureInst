@@ -8,8 +8,8 @@ package com.baidu.integrationsdk.lib;
 
 public final class R {
 	public static final class color {
-		public static final int legacyPrimary = 0x7f0e0059;
-		public static final int legacy_primary = 0x7f0e005a;
+		public static final int legacyPrimary = 0x7f0e0063;
+		public static final int legacy_primary = 0x7f0e0064;
 	}
 	public static final class drawable {
 		public static final int bdp_update_bg_dialog_btn = 0x7f02005b;
@@ -19,13 +19,13 @@ public final class R {
 		public static final int bdp_update_progress_download = 0x7f02005f;
 	}
 	public static final class id {
-		public static final int btn_action_1 = 0x7f0c00e2;
-		public static final int lin_other_btns = 0x7f0c00e3;
-		public static final int txt_action_2 = 0x7f0c00e4;
-		public static final int txt_action_3 = 0x7f0c00e5;
-		public static final int txt_main_tip = 0x7f0c00e0;
-		public static final int txt_minor_tip = 0x7f0c00e1;
-		public static final int txt_title = 0x7f0c00df;
+		public static final int btn_action_1 = 0x7f0c00e3;
+		public static final int lin_other_btns = 0x7f0c00e4;
+		public static final int txt_action_2 = 0x7f0c00e5;
+		public static final int txt_action_3 = 0x7f0c00e6;
+		public static final int txt_main_tip = 0x7f0c00e1;
+		public static final int txt_minor_tip = 0x7f0c00e2;
+		public static final int txt_title = 0x7f0c00e0;
 	}
 	public static final class layout {
 		public static final int bdp_update_activity_confirm_dialog = 0x7f030038;

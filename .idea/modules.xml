@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" filepath="$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/FutureInst.iml" filepath="$PROJECT_DIR$/FutureInst.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>

@@ -234,7 +234,8 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
         tv_title.setText(articleDetail.getArticle().getTitle());
         tv_name.setText(articleDetail.getArticle().getUser().getName());
         tv_artice_content.setText(articleDetail.getDetail());
-        web_article_content.loadData(getHtmlData(articleDetail.getDetail()), "text/html; charset=utf-8", "utf-8");
+
+//        web_article_content.loadData(getHtmlData(articleDetail.getDetail()), "text/html; charset=utf-8", "utf-8");
 
         tv_read.setText(articleDetail.getArticle().getReadNum() + "人已阅读");
         if (headImage_select.getTag() == null || !headImage_select.getTag().equals(articleDetail.getArticle().getEvent().getImgsrc())) {

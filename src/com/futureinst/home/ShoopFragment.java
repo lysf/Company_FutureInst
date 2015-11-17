@@ -12,6 +12,7 @@ import com.futureinst.utils.CustomWebViewClient;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.View;
 import android.webkit.CookieManager;
@@ -24,8 +25,8 @@ import android.widget.ProgressBar;
 @SuppressLint("SetJavaScriptEnabled")
 public class ShoopFragment extends BaseFragment {
 	private WebView webView;
-	private WebSettings webSettings;
-	private ProgressBar progressbar;
+    private SwipeRefreshLayout swipe_container;
+    private WebSettings webSettings;
 	private String cookie1,cookie2 ;
 	private String url ;
 	private long time;
@@ -39,15 +40,12 @@ public class ShoopFragment extends BaseFragment {
 		preferenceUtil = SharePreferenceUtil.getInstance(getContext());
 		time = System.currentTimeMillis();
 		url = HttpPath.SHOP;
-		webView = (WebView) findViewById(R.id.webView);
-//		LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-//		layoutParams.bottomMargin = Utils.dip2px(getContext(), 50);
-//		webView.setLayoutParams(layoutParams);
-		progressbar = (ProgressBar) findViewById(R.id.progress);
+        swipe_container = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        webView = (WebView) findViewById(R.id.webView);
 		cookie1 = "user_id="+preferenceUtil.getID() + HttpPath.Cookie;
 		cookie2 = "uuid="+preferenceUtil.getUUid() + HttpPath.Cookie;
-		Log.i(getTag(), "-------------cookie1--"+cookie1+"----"+cookie2);
-		synCookies(getContext(), url);
+        Log.i(getTag(), "-------------cookie1--" + cookie1 + "----" + cookie2);
+        synCookies(getContext(), url);
 		webSettings = webView.getSettings();
 		webSettings.setAppCacheEnabled(false);
 //		webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
@@ -57,15 +55,22 @@ public class ShoopFragment extends BaseFragment {
 		webView.addJavascriptInterface(new JavaScriptObject(getContext()), "obj");
 		webSettings.setLoadWithOverviewMode(true);
 		webView.loadUrl(url);
-		webView.setWebViewClient(new CustomWebViewClient(getContext()));
+
 		webView.setWebChromeClient(new ChromeClient());
-	}
-	@Override
+        swipe_container.setColorSchemeColors(R.color.holo_blue_light,
+                R.color.holo_green_light, R.color.holo_orange_light,
+                R.color.holo_red_light);
+        swipe_container.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                webView.loadUrl(url);
+            }
+        });
+        webView.setWebViewClient(new CustomWebViewClient(getContext()));
+    }
+
+    @Override
 	public void onResume() {
-		if(System.currentTimeMillis() - time > 1*60*1000){
-			time = System.currentTimeMillis();
-			webView.loadUrl(url);
-		}
 		super.onResume();
 	}
 	private void synCookies(Context context, String url) {  
@@ -82,14 +87,14 @@ public class ShoopFragment extends BaseFragment {
 	        @Override 
 	        public void onProgressChanged(WebView view, int newProgress) { 
 	            //动态在标题栏显示进度条 
-	        	if (newProgress == 100) {
-	                progressbar.setVisibility(View.GONE);
-	            } else {
-	                if (progressbar.getVisibility() == View.GONE)
-	                    progressbar.setVisibility(View.VISIBLE);
-	                progressbar.setProgress(newProgress);
-	            }
-	            super.onProgressChanged(view, newProgress); 
+                if (newProgress == 100) {
+                    //隐藏进度条
+                    swipe_container.setRefreshing(false);
+                } else {
+                    if (!swipe_container.isRefreshing())
+                        swipe_container.setRefreshing(true);
+                }
+                super.onProgressChanged(view, newProgress);
 
 	        } 
 	        @Override

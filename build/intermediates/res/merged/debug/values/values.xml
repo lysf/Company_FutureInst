@@ -237,6 +237,16 @@
     <color name="hold_item_top">#3853ad</color>
     <color name="hold_line">#1e266e</color>
     <color name="hold_status">#9095b9</color>
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="holo_green_dark">#ff669900</color>
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_orange_dark">#ffff8800</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_purple">#ffaa66cc</color>
+    <color name="holo_red_dark">#ffcc0000</color>
+    <color name="holo_red_light">#ffff4444</color>
     <color name="home_table_0">#6D6D6D</color>
     <color name="home_table_1">#51C3D1</color>
     <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml -->

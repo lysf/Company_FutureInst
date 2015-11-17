@@ -153,7 +153,7 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
         tv_event_title.setText(today_article.getEvent().getLead());
         tv_event_type.setText(today_article.getEvent().getTagstr());
         if(headImage_select.getTag() == null || !headImage_select.getTag().equals(today_article.getUser().getHeadImage())){
-            ImageLoader.getInstance().displayImage(today_article.getUser().getHeadImage(),headImage_select, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+            ImageLoader.getInstance().displayImage(today_article.getUser().getHeadImage(), headImage_select, ImageLoadOptions.getOptions(R.drawable.logo));
             headImage_select.setTag(today_article.getUser().getHeadImage());
         }
         tv_name.setText(today_article.getUser().getName());
