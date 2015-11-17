@@ -1,6 +1,11 @@
 package com.futureinst.comment;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -10,13 +15,18 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.global.Content;
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.model.basemodel.UpFileDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.utils.ImageCompressUtil;
 import com.futureinst.utils.MyToast;
 import com.futureinst.widget.richeditor.RichEditor;
 
 import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hao on 2015/10/22.
@@ -41,7 +51,7 @@ public class AddPointActivity extends BaseActivity {
     protected void onRightClick(View view) {
         super.onRightClick(view);//添加观点
         String title = et_point_title.getText().toString().trim();
-        String content = et_point.getText().toString().trim();
+        String content = et_point_content.getHtml().toString().trim();
         if(judgeDate(title,content)){
             add_article(event_id,title,content);
         }
@@ -57,21 +67,53 @@ public class AddPointActivity extends BaseActivity {
 
 
         et_point_content.setEditorHeight(300);
-        et_point_content.setOnTextChangeListener(new RichEditor.OnTextChangeListener() {
-            @Override public void onTextChange(String text) {
-//                mPreview.setText(text);
-            }
-        });
         iv_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                et_point_content.insertImage("http://www.1honeywan.com/dachshund/image/7.21/7.21_3_thumb.JPG",
-                        "dachshund");
+                ImageCompressUtil.selectImageFromLocal(AddPointActivity.this);
+
+                hideSoftInputView();
             }
         });
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == Content.REQUESTCODE_TAKE_LOCAL) {
+            Uri uri = data.getData();
+            String[] proj = {MediaStore.Images.Media.DATA};
+            Cursor cursor = getContentResolver().query(uri, proj, null, null, null);
+            String path = "";
+            if (cursor.moveToFirst()) {
+                int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                path = cursor.getString(index);
+            }
+            cursor.close();
+            List<String> list = new ArrayList<>();
+            list.add(ImageCompressUtil.getimage(path));
+            uploadPic(list);
+        }
+    }
+
+    //上传图片
+    private void uploadPic(final List<String> files) {
+        progressDialog.progressDialog();
+        httpResponseUtils.UploadFileRequest(files, httpPostParams.getPostParams(PostMethod.upload_image.name(), "topic",
+                httpPostParams.upLoadFile(preferenceUtil.getID() + "",
+                        preferenceUtil.getUUid())), UpFileDAO.class, new PostCommentResponseListener() {
+            @Override
+            public void requestCompleted(Object response) throws JSONException {
+                progressDialog.cancleProgress();
+                if (response == null) {
+                    return;
+                }
+                et_point_content.insertImage(((UpFileDAO) response).getSrc(),
+                        "dachshund");
+            }
+        });
+    }
     //添加观点
     private void add_article(String event_id,String title,String content){
         progressDialog.progressDialog();

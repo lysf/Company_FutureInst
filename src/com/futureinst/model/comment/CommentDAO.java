@@ -11,8 +11,8 @@ public class CommentDAO implements Serializable {
 	private UserDAO user;
 	private String content;
 	private Long ctime;
-	private int attitude;
-	private int status;
+    private int attitude;//1表示看好，2表示不看好
+    private int status;
 	private long level;
 	private int likeNum;
 	private long lastChildId;

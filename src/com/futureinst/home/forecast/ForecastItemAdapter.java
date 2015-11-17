@@ -237,15 +237,32 @@ public class ForecastItemAdapter extends BaseAdapter {
 
 		return convertView;
 	}
-	private List<CommentDAO> getComment(Long id){
+
+
+    private List<CommentDAO> getComment(Long id){
 		List<CommentDAO> list = new ArrayList<CommentDAO>();
 		if(commentMap.containsKey(id+"")){
 			list = commentMap.get(id+"");
 		}
 		if(list.size() < 2){
 			list = null;
-		}
-		return list;
-	}
+        } else {
+            List<CommentDAO> comments = new ArrayList<>();
+            for (CommentDAO dao : list) {
+                if (dao.getAttitude() == 1) {//看好
+                    comments.add(dao);
+                    break;
+                }
+            }
+            for (CommentDAO dao : list) {
+                if (dao.getAttitude() == 2) {//不看好
+                    comments.add(dao);
+                    break;
+                }
+            }
+            if (comments.size() == 2) return comments;
+        }
+        return null;
+    }
 
 }

@@ -137,7 +137,8 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     //浮动
     private Button btn_comment_float, btn_comment_total_float;
-    private View view_comment_float, view_comment;
+    private View view_comment_float;
+    private View view_comment, view_point_layout, view_reference_layout, view_lazyBag_layout;
     //头部
     private Button btn_invivate;
 
@@ -301,6 +302,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
         tv_event_title = (TextView) findViewById(R.id.tv_event_title);
         tv_description = (TextView) findViewById(R.id.tv_description);
+
+        view_point_layout = findViewById(R.id.view_point_layout);
+        view_reference_layout = findViewById(R.id.view_reference_layout);
+        view_lazyBag_layout = findViewById(R.id.view_lazyBag_layout);
         initPriceView();
         initSwitchModel();
         initFloatView();
@@ -452,11 +457,9 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         }
         tv_name.setText(article.getUser().getName());
         tv_article_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(article.getMtime()));
-//        tv_prise_num.setText(article.get);//点赞数
         tv_article_title.setText(article.getTitle());
         tv_article_content.setText(article.getAbstr());
         tv_article_readNum.setText(article.getReadNum()+"人已阅读");
-//        tv_article_comment_num.setText(article.get);//评论数
         ll_article_content.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {//进入观点详情页
@@ -854,11 +857,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             }
 
         }
-//        else if (event.getStatusStr().equals("已清算")) {
-//			tv_time.setBackgroundColor(getResources().getColor(R.color.text_color_bf));
-//        } else {
-//			tv_time.setBackgroundColor(getResources().getColor(R.color.tab_text_selected));
-//        }
     }
 
     Thread timeRunThread = new Thread(new Runnable() {
@@ -1115,14 +1113,42 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     @Override
     public void onScrollChanged(int x, int y, int oldx, int oldy) {
-        int[] location = new int[2];
-        view_comment.getLocationOnScreen(location);
-        Log.i("", "================location=" + location[1]);
-        if (location[1] < Utils.getScreenHeight(EventDetailActivity.this)) {
+        int[] location_comment = new int[2];
+        int[] location_point = new int[2];
+        int[] location_refrence = new int[2];
+        int[] location_lazyBag = new int[2];
+        int screenHeight = Utils.getScreenHeight(EventDetailActivity.this);
+        int statutsHeight = Utils.getStatusHeight(this);
+        int location = statutsHeight + Utils.dip2px(this, 48);
+
+        view_comment.getLocationOnScreen(location_comment);
+        view_point_layout.getLocationOnScreen(location_point);
+        view_reference_layout.getLocationOnScreen(location_refrence);
+        view_lazyBag_layout.getLocationOnScreen(location_lazyBag);
+
+        if (location_comment[1] < screenHeight) {
             view_comment_float.setVisibility(View.VISIBLE);
         } else {
             view_comment_float.setVisibility(View.GONE);
         }
+        if (location_lazyBag[1] < location) {
+            setTitle("事件始末");
+            return;
+        } else if (location_refrence[1] < location) {
+            setTitle("相关新闻");
+            return;
+        } else if (location_point[1] < location) {
+            setTitle("精选观点");
+            return;
+        } else if (location_comment[1] < location) {
+            setTitle("评论");
+            return;
+        } else {
+            setTitle("事件详情");
+            return;
+        }
+
+
     }
 
     // 获取评论和精选观点

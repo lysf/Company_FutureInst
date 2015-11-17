@@ -2,6 +2,7 @@ package com.futureinst.newbieguide;
 
 import com.futureinst.R;
 import com.futureinst.sharepreference.SharePreferenceUtil;
+import com.futureinst.utils.Utils;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -16,10 +17,10 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 public class NewbieGuide2 {
-	private int[] eventDetail_guid_1 = new int[]{R.drawable.guide_2,R.drawable.guide_3,R.drawable.guide_4,R.drawable.guide_5};
-	private int[] eventDetail_guid_2 = new int[]{R.drawable.guide_6};
-	private int[] eventTrade_guid_2 = new int[]{R.drawable.guide_7,R.drawable.guide_8};
-	private int[] imagesId;
+    private int[] eventDetail_guid_1 = new int[]{R.raw.guide_2, R.raw.guide_3, R.raw.guide_4, R.raw.guide_5};
+    private int[] eventDetail_guid_2 = new int[]{R.raw.guide_6};
+    private int[] eventTrade_guid_2 = new int[]{R.raw.guide_7, R.raw.guide_8};
+    private int[] imagesId;
 	private int index = 0;
     private ImageView guide;
 
@@ -44,8 +45,9 @@ public class NewbieGuide2 {
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		View view = LayoutInflater.from(context).inflate(R.layout.choose_dialog_2, null);
         guide = (ImageView) view.findViewById(R.id.guide);
-		guide.setImageDrawable(context.getResources().getDrawable(imagesId[0]));
-				guide.setOnClickListener(new OnClickListener() {
+        guide.setImageBitmap(Utils.readBitMap(context, imagesId[0]));
+//		guide.setImageDrawable(context.getResources().getDrawable(imagesId[0]));
+        guide.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						if(index == imagesId.length-1){
@@ -54,8 +56,9 @@ public class NewbieGuide2 {
 							return;
 						}
 						index++;
-						guide.setImageDrawable(context.getResources().getDrawable(imagesId[index]));
-					}
+                        guide.setImageBitmap(Utils.readBitMap(context, imagesId[index]));
+//						guide.setImageDrawable(context.getResources().getDrawable(imagesId[index]));
+                    }
 				});
 				
 
@@ -67,8 +70,8 @@ public class NewbieGuide2 {
 		int screenHeight = metrics.heightPixels;
 		Window window = dialog.getWindow();
 		//设置显示动画  
-		window.setWindowAnimations(R.anim.dialog_open);  
-		WindowManager.LayoutParams wl = window.getAttributes();  
+//		window.setWindowAnimations(R.anim.dialog_open);
+        WindowManager.LayoutParams wl = window.getAttributes();
 		wl.width = screenWidth;
 		wl.height = screenHeight;
 		

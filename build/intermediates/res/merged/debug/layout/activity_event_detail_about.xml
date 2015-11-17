@@ -68,11 +68,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_20"/>
             <!--观点-->
-            <include layout="@layout/event_detail_5"/>
+            <include
+                android:id="@+id/view_point_layout"
+                layout="@layout/event_detail_5"/>
             <!--相关新闻-->
-            <include layout="@layout/event_detail_6"/>
+            <include
+                android:id="@+id/view_reference_layout"
+                layout="@layout/event_detail_6"/>
             <!--事件始末-->
             <include
+                android:id="@+id/view_lazyBag_layout"
                 layout="@layout/event_detail_7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

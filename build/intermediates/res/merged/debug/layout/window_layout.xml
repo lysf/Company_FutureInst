@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+              android:orientation="vertical"
+             android:layout_height="match_parent"
+             android:gravity="center"
+             >
 
-    <ProgressBar
-        style="@android:style/Widget.ProgressBar"
+    <LinearLayout
+        android:background="@drawable/toast_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminateDrawable="@drawable/loading_icon"
-        android:max="10000" />
+        android:gravity="center"
+        android:padding="@dimen/activity_login_margin_10"
+        android:orientation="vertical">
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:max="100"/>
+    </LinearLayout>
 
-</FrameLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/window_layout.xml -->
+
+</LinearLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/window_layout.xml -->

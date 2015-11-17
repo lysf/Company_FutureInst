@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="查看事件"
-            android:textColor="#A6E2EA"
+            android:textColor="@drawable/text_color_blue"
             android:textSize="@dimen/text_size_small"
             android:layout_alignParentRight="true"
             />

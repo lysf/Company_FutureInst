@@ -50,7 +50,7 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
     protected void localOnCreate(Bundle savedInstanceState) {
         setTitle("评论");
         getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
-        getRightButton().setImageDrawable(getResources().getDrawable(R.drawable.comment_type));
+        getRightImageView().setImageDrawable(getResources().getDrawable(R.drawable.comment_type));
         setContentView(R.layout.fragment_detail_comment);
         initView();
         getComment(event_id, attitude);
@@ -63,8 +63,8 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
     }
 
     @Override
-    protected void onRightClick(View view) {
-        super.onRightClick(view);//选择评论类别
+    protected void onRightImageViewClick(View view) {
+        super.onRightImageViewClick(view);//选择评论类别
         if (popupWindow != null && popupWindow.isShowing()) {
             popupWindow.dismiss();
             popupWindow = null;

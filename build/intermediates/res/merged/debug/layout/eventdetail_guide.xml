@@ -9,7 +9,6 @@
         android:paddingBottom="@dimen/margin_15"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:src="@drawable/detail_guide_1"
         android:scaleType="fitXY"/>
 	<RelativeLayout 
 	    android:layout_width="match_parent"

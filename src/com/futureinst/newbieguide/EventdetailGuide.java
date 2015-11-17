@@ -1,6 +1,7 @@
 package com.futureinst.newbieguide;
 
 import com.futureinst.R;
+import com.futureinst.utils.Utils;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -22,8 +23,8 @@ public class EventdetailGuide {
     private Activity activity;
 
     public EventdetailGuide(Activity activity) {
-        guids = new int[]{R.drawable.detail_guide_1, R.drawable.detail_guide_2,
-                R.drawable.detail_guide_3, R.drawable.detail_guide_4, R.drawable.detail_guide_5
+        guids = new int[]{R.raw.detail_guide_1, R.raw.detail_guide_2,
+                R.raw.detail_guide_3, R.raw.detail_guide_4, R.raw.detail_guide_5
         };
         index = 0;
         this.activity = activity;
@@ -43,7 +44,8 @@ public class EventdetailGuide {
                         return;
                     }
                     index++;
-                    imageViews[0].setImageDrawable(activity.getResources().getDrawable(guids[index]));
+                    imageViews[0].setImageBitmap(Utils.readBitMap(activity, guids[index]));
+//                    imageViews[0].setImageDrawable(activity.getResources().getDrawable(guids[index]));
                     break;
 
             }
@@ -57,6 +59,7 @@ public class EventdetailGuide {
         btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
         btn_cancel.setOnClickListener(clickListener);
         imageViews[0] = (ImageView) view.findViewById(R.id.guide1);
+        imageViews[0].setImageBitmap(Utils.readBitMap(activity, guids[index]));
         imageViews[0].setOnClickListener(clickListener);
 
         dialog.setContentView(view);

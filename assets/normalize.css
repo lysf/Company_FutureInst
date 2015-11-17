@@ -182,7 +182,7 @@ sub {
 
 img {
   border: 0;
-  width:90%;
+  width:100%;
   height:auto;
   display:block;
   margin-top:10;

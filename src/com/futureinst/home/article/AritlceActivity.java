@@ -108,7 +108,7 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
     }
     //查询用户自己观点
     private void query_user_article(){
-//        progressDialog.progressDialog();
+        progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.query_user_article.name(), PostType.article.name(),
                         httpPostParams.query_user_article(preferenceUtil.getID() + "", preferenceUtil.getUUid()) ),
                 ArticleInfoDAO.class,
@@ -126,7 +126,7 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
     }
     //查询他人的观点
     private void peer_info_query_user_article(String peer_id){
-//        progressDialog.progressDialog();
+        progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.peer_info_query_user_article.name(), PostType.peer_info.name(),
                         httpPostParams.peer_info_query_user_article(preferenceUtil.getID() + "", preferenceUtil.getUUid(),peer_id) ),
                 ArticleInfoDAO.class,

@@ -192,7 +192,7 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
         tv_reward = (TextView) findViewById(R.id.tv_reward);
         btn_event_detail_in = (TextView)findViewById(R.id.btn_event_detail_in);
         btn_event_detail_in.setOnClickListener(clickListener);
-        if(!comeFromEventDetail){
+        if (comeFromEventDetail) {
             btn_event_detail_in.setVisibility(View.GONE);
         }
 
@@ -233,9 +233,9 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
         tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(articleDetail.getArticle().getMtime()));
         tv_title.setText(articleDetail.getArticle().getTitle());
         tv_name.setText(articleDetail.getArticle().getUser().getName());
-        tv_artice_content.setText(articleDetail.getDetail());
+//        tv_artice_content.setText(articleDetail.getDetail());
 
-//        web_article_content.loadData(getHtmlData(articleDetail.getDetail()), "text/html; charset=utf-8", "utf-8");
+        web_article_content.loadData(getHtmlData(articleDetail.getDetail()), "text/html; charset=utf-8", "utf-8");
 
         tv_read.setText(articleDetail.getArticle().getReadNum() + "人已阅读");
         if (headImage_select.getTag() == null || !headImage_select.getTag().equals(articleDetail.getArticle().getEvent().getImgsrc())) {

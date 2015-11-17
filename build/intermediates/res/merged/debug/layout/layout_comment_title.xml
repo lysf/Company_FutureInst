@@ -15,7 +15,7 @@
     <!-- 左边的title -->
     <RelativeLayout
         android:layout_width="70dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_height="match_parent">
     <com.futureinst.widget.TitleButton
         android:id="@+id/btn_left_base"
@@ -37,7 +37,7 @@
         android:background="@drawable/ripple_shap"
         android:scaleType="centerInside"
         android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
+        android:layout_gravity="center"
         android:contentDescription="@null"/>
     </RelativeLayout>
     <!-- 中间的title -->
@@ -54,7 +54,6 @@
 		
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginLeft="@dimen/activity_login_margin_10"
             android:layout_height="wrap_content"
             android:gravity="center">
 	        <TextView
@@ -82,8 +81,8 @@
 <RelativeLayout
     android:layout_width="70dp"
     android:layout_gravity="right"
-    android:gravity="center"
-    android:layout_marginRight="@dimen/activity_login_margin_10"
+    android:gravity="center_vertical|right"
+
     android:layout_height="match_parent">
     <com.futureinst.widget.TitleButton
         android:id="@+id/btn_right_base"
@@ -92,6 +91,7 @@
         android:background="@drawable/ripple_shap"
         android:minWidth="48dp"
         android:textSize="18sp"
+        android:layout_marginRight="@dimen/activity_login_margin_10"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="3dp"
         android:textColor="@drawable/right_button_text_color"
@@ -103,9 +103,8 @@
         android:layout_width="wrap_content"
         android:scaleType="centerInside"
         android:layout_height="match_parent"
-        android:layout_gravity="right|center_vertical"
         android:contentDescription="@null"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 </RelativeLayout>
 
 </com.futureinst.widget.TitleLayout>
