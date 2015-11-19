@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:minWidth="48dp"
         android:textSize="18sp"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_marginLeft="5dip"
         android:background="@drawable/ripple_shap"
         android:textColor="@color/text_color_0"
@@ -86,9 +87,10 @@
     android:layout_height="match_parent">
     <com.futureinst.widget.TitleButton
         android:id="@+id/btn_right_base"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ripple_shap"
+        style="?android:attr/borderlessButtonStyle"
         android:minWidth="48dp"
         android:textSize="18sp"
         android:layout_marginRight="@dimen/activity_login_margin_10"
@@ -96,7 +98,7 @@
         android:layout_marginBottom="3dp"
         android:textColor="@drawable/right_button_text_color"
         android:layout_gravity="right|center_vertical"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
     <ImageView
         android:id="@+id/iv_right"
         android:background="@drawable/ripple_shap"
@@ -104,7 +106,7 @@
         android:scaleType="centerInside"
         android:layout_height="match_parent"
         android:contentDescription="@null"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 </RelativeLayout>
 
 </com.futureinst.widget.TitleLayout>

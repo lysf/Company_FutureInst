@@ -162,12 +162,15 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                if (intent.getAction().equals("praise")) {
+                if (intent.getAction().equals("praise")
+                        || intent.getAction().equals("commentUpdate")) {
                     handler.sendEmptyMessage(0);
                 }
             }
         };
-        IntentFilter filter = new IntentFilter("praise");
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("praise");
+        filter.addAction("commentUpdate");
         registerReceiver(receiver, filter);
     }
 
@@ -199,12 +202,14 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
         web_article_content = (WebView)findViewById(R.id.web_article_content);
         web_article_content.getSettings().setDefaultTextEncodingName("utf-8");
         web_article_content.getSettings().setTextSize(WebSettings.TextSize.NORMAL);
+        web_article_content.getSettings().setJavaScriptEnabled(false);
+        web_article_content.getSettings().setJavaScriptCanOpenWindowsAutomatically(false);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             web_article_content.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
         } else {
             web_article_content.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
         }
-
+        web_article_content.setFocusable(false);
 
 
     }
@@ -212,7 +217,8 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
     private String getHtmlData(String bodyHTML) {
         String head = "<head>" +
                 "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"> " +
-                "<style>img{max-width: 100%; width:100%; height:auto; display:block;margin-top:10;margin-bottom:10}body{color: #888888;}</style>" +
+                "<style>img{max-width: 100%; width:100%; height:auto; display:block;margin-top:10;margin-bottom:10}body{color: #666666;" +
+                "TABLE-LAYOUT: fixed; WORD-BREAK: break-all;}</style>" +
                 "</head>";
         return "<html>" + head + "<body>" + bodyHTML + "</body></html>";
     }

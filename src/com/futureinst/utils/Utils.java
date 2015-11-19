@@ -285,8 +285,15 @@ public class Utils {
                 View.MeasureSpec.UNSPECIFIED);
         view.measure(w, h);
         return view.getMeasuredHeight();
-//        int width = view.getMeasuredWidth();
 
+    }
+    public static int getViewMeasuredWidth(View view) {
+        int w = View.MeasureSpec.makeMeasureSpec(0,
+                View.MeasureSpec.UNSPECIFIED);
+        int h = View.MeasureSpec.makeMeasureSpec(0,
+                View.MeasureSpec.UNSPECIFIED);
+        view.measure(w, h);
+        return view.getMeasuredWidth();
     }
 
     /**

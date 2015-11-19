@@ -74,6 +74,7 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
         setContentView(R.layout.fragment_fond_attitude);
         initView();
         initTop();
+        progressDialog.progressDialog();
         query_top_article();
     }
 
@@ -183,10 +184,6 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
                         adapter.setList(pointInfoDAO.getArticles());
                         initDate(pointInfoDAO.getToday_article());
                         topImageUrl = pointInfoDAO.getTop_url();
-//                        if(iv_article_top.getTag() == null || !iv_article_top.getTag().equals(pointInfoDAO.getTop_url())){
-//                            ImageLoader.getInstance().displayImage(pointInfoDAO.getTop_url(),iv_article_top, ImageLoadOptions.getOptions(R.drawable.image_top_default));
-//                            iv_article_top.setTag(pointInfoDAO.getTop_url());
-//                        }
                     }
                 });
     }

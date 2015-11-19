@@ -34,8 +34,6 @@ import com.futureinst.widget.list.PullListView;
 public class PushMessageActivity extends BaseActivity {
 	private PullListView pullListView;
 	private PushMessageAdapter adapter;
-//	private PushMessageInfo pushMessageInfo;
-//	private PushMessageUtils pushMessageUtils;
 	private List<PushMessageDAO> list;
 	private PushMessageCacheUtil messageCacheUtil;
 	private boolean push;
@@ -56,23 +54,15 @@ public class PushMessageActivity extends BaseActivity {
 	private void initView() {
 		push = getIntent().getBooleanExtra("push", false);
 		pushMessageDAO = (PushMessageDAO) getIntent().getSerializableExtra("pushMessage");
-//		pushMessageUtils = new PushMessageUtils(this);
 		messageCacheUtil = PushMessageCacheUtil.getInstance(this);
 		list = new ArrayList<PushMessageDAO>();
 		list = messageCacheUtil.getPushMessage();
-//		try {
-//			pushMessageInfo = pushMessageUtils.readObject();
-//			Log.i(TAG, "-----------pushMessageInfo-->>"+pushMessageInfo);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+//			Log.i(TAG, "-----------pushMessageInfo-->>"+list);
 		pullListView = (PullListView) findViewById(R.id.pull_listView);
 		pullListView.setRefresh(false);
 		pullListView.setLoadMore(false);
 		adapter = new PushMessageAdapter(this);
 		pullListView.setAdapter(adapter);
-//		if(pushMessageInfo!=null)
 			adapter.setList(list);
 		pullListView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -95,7 +85,8 @@ public class PushMessageActivity extends BaseActivity {
 			}
 		}
 		else{
-			if(item.getType().equals("event") || item.getType().equals("deal")){//事件详情
+			if(item.getType().equals("event")
+                    || item.getType().equals("deal") ){//事件详情
 				Intent intent = new Intent(PushMessageActivity.this, EventDetailActivity.class);
 				intent.putExtra("eventId",item.getEvent_id()+"");
 				startActivity(intent);
@@ -106,24 +97,31 @@ public class PushMessageActivity extends BaseActivity {
 				startActivity(intent);
 				adapter.notifyDataSetChanged();
 			}
-			if(item.getType().equals("rank")){//排名
+			else if(item.getType().equals("rank")){//排名
 				Intent intent = new Intent("rank");
 				sendBroadcast(intent);
 				finish();
 				adapter.notifyDataSetChanged();
 			}
-			if(item.getType().equals("url")){//打开指定网页
+			else if(item.getType().equals("url")){//打开指定网页
 				Intent intent = new Intent(PushMessageActivity.this, PushWebActivity.class);
 				intent.putExtra("url", item.getHref());
 				intent.putExtra("title", "");
 				startActivity(intent);
 				adapter.notifyDataSetChanged();
 			}
-			if(item.getType().equals("follow_me")){//关注通知
+			else if(item.getType().equals("follow_me")){//关注通知
 				Intent intent = new Intent(PushMessageActivity.this,PersonalShowActivity.class);
 				intent.putExtra("id", item.getPeer_id());
 				startActivity(intent);
-			}
+			}else {
+                if(item.getEvent_id()!=null){//事件详情页
+                    Intent intent = new Intent(PushMessageActivity.this, EventDetailActivity.class);
+                    intent.putExtra("eventId",item.getEvent_id()+"");
+                    startActivity(intent);
+                    adapter.notifyDataSetChanged();
+                }
+            }
 		}
 	}
 	

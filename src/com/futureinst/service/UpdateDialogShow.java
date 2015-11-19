@@ -18,7 +18,7 @@ public class UpdateDialogShow {
 		dialog.setContentView(view);
 		Window window = dialog.getWindow();
 		//设置显示动画  
-		window.setWindowAnimations(R.anim.dialog_open);  
+//		window.setWindowAnimations(R.anim.dialog_open);
 		WindowManager.LayoutParams wl = window.getAttributes();  
 		wl.width = screenWidth * 7 / 10;
 		wl.gravity = Gravity.CENTER;

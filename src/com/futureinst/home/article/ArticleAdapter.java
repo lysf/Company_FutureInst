@@ -1,6 +1,10 @@
 package com.futureinst.home.article;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +26,13 @@ import java.util.List;
  * Created by hao on 2015/10/30.
  */
 public class ArticleAdapter extends BaseAdapter {
+    private boolean isMe;
     private Context context;
     private List<ArticleDAO> list;
-    public ArticleAdapter(Context context){
+    public ArticleAdapter(Context context,boolean isMe){
         this.context = context;
         list = new ArrayList<ArticleDAO>();
+        this.isMe = isMe;
     }
     public void refresh(List<ArticleDAO> list){
         this.list.addAll(list);
@@ -64,6 +70,7 @@ public class ArticleAdapter extends BaseAdapter {
         TextView tv_point_title = ViewHolder.get(convertView,R.id.tv_point_title);
         TextView tv_time = ViewHolder.get(convertView,R.id.tv_time);
         TextView tv_read = ViewHolder.get(convertView,R.id.tv_read);
+        TextView tv_award = ViewHolder.get(convertView,R.id.tv_award);
         TextView tv_praise = ViewHolder.get(convertView,R.id.tv_praise);
         TextView tv_comment_num = ViewHolder.get(convertView,R.id.tv_comment_num);
         TextView tv_point_content = ViewHolder.get(convertView,R.id.tv_point_content);
@@ -72,15 +79,24 @@ public class ArticleAdapter extends BaseAdapter {
             ImageLoader.getInstance().displayImage(item.getEvent().getImgsrc(),iv_event, ImageLoadOptions.getOptions(R.drawable.image_top_default));
             iv_event.setTag(item.getEvent().getImgsrc());
         }
-        tv_praise.setText(item.getLoveNum()+"");
-        tv_comment_num.setText(item.getCommentNum()+"");
+        tv_praise.setText("  "+item.getLoveNum());
+        tv_comment_num.setText("  "+item.getCommentNum());
         tv_event_type.setText(item.getEvent().getTagstr());
         tv_event_title.setText(item.getEvent().getLead());
         tv_point_title.setText(item.getTitle());
         tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getMtime()));
         tv_read.setText(item.getReadNum()+"人已阅读");
         tv_point_content.setText(item.getAbstr());
-
+        String award = item.getAward()+"";
+        String awardtext = "  本文共受赏"+award+"未币";
+        SpannableStringBuilder stringBuilder = new SpannableStringBuilder(awardtext);
+        stringBuilder.setSpan(new ForegroundColorSpan(context.getResources().getColor(R.color.text_color_4)), awardtext.indexOf(award), awardtext.indexOf(award) + award.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+        tv_award.setText(stringBuilder);
+        if(isMe){
+            tv_award.setVisibility(View.VISIBLE);
+        }else{
+            tv_award.setVisibility(View.GONE);
+        }
         return convertView;
     }
 }

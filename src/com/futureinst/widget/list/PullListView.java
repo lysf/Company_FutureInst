@@ -5,11 +5,12 @@ import java.util.Date;
 import com.futureinst.R;
 import com.futureinst.global.Content;
 import com.futureinst.utils.TimeUtil;
-import com.futureinst.widget.CustomInterpolator;
 import com.futureinst.widget.CustomProgress;
+import com.futureinst.widget.list.rotate.RotateLayout;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -17,17 +18,16 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
+import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -39,9 +39,12 @@ import android.widget.TextView;
  * @author jiang
  */
 public class PullListView extends ListView implements OnScrollListener {
-    private CustomProgress iv_refreshStart;
+    private float mInitialMotionY, mLastMotionY, moveY_1, moveY_2;
+    private boolean mIsBeingDragged = false;
+    private int mTop = 0;
+
+    private RotateLayout rotateLayout;
     private CustomProgress iv_loadStart;
-//	private ProgressBar iv_refreshing;
 
     private static final String TAG = "listview";
 
@@ -183,10 +186,7 @@ public class PullListView extends ListView implements OnScrollListener {
 
         headView = (LinearLayout) inflater.inflate(R.layout.listview_header,
                 null);
-//		iv_refreshing = (ProgressBar) headView.findViewById(R.id.iv_refreshing);
-//		iv_refreshing.setInterpolator(new AccelerateDecelerateInterpolator());
-//		iv_refreshing.setIndeterminate(true);
-        iv_refreshStart = (CustomProgress) headView.findViewById(R.id.iv_refreshStart);
+        rotateLayout = (RotateLayout) headView.findViewById(R.id.rotateLayout);
 
 
         arrowImageView = (ImageView) headView
@@ -293,11 +293,42 @@ public class PullListView extends ListView implements OnScrollListener {
         }
     }
 
+    private boolean isFirstItemVisible() {
+        final Adapter adapter = getAdapter();
+        if (null == adapter || adapter.isEmpty()) {
+            return true;
+        } else {
+            if (getFirstVisiblePosition() <= 1) {
+                final View firstVisibleChild = getChildAt(0);
+                if (firstVisibleChild != null) {
+                    return firstVisibleChild.getTop() >= getTop();
+                }
+            }
+        }
+        return false;
+    }
+//    private void pullEvent(float newScrollValue) {
+//        // scrollTo(0, (int) newScrollValue + mTop);
+//        headView.setPadding(0, (int) newScrollValue - mTop, 0, 0);
+//    }
+//    private MotionEvent newMotionEvent(MotionEvent ev) {
+//        return MotionEvent.obtain(ev.getDownTime(), SystemClock.uptimeMillis(),
+//                MotionEvent.ACTION_CANCEL, ev.getX(), ev.getY(), 0);
+//
+//    }
+
     public boolean onTouchEvent(MotionEvent event) {
 
         if (isRefreshable) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
+                    if(state == REFRESHING || bottomstate == LOADING){
+                        return super.onTouchEvent(event);
+                    }
+                    if (isFirstItemVisible()) {
+                        mLastMotionY = mInitialMotionY = event.getY();
+                    }
+
                     mDownX = event.getX();
                     mDownY = event.getY();
                     if (firstItemIndex == 0 && !isRecored) {
@@ -321,6 +352,12 @@ public class PullListView extends ListView implements OnScrollListener {
                             // 什么都不做
                             state = DONE;
                         }
+
+                        if (mIsBeingDragged) {
+                            mIsBeingDragged = false;
+                            mLastMotionY = event.getY();
+                        }
+
                         if (state == PULL_To_REFRESH) {
                             state = DONE;
                             changeHeaderViewByState();
@@ -356,14 +393,6 @@ public class PullListView extends ListView implements OnScrollListener {
                         }
                         if (bottomstate == RELEASE_To_REFRESH) {
                             bottomstate = REFRESHING;
-//						changeFootViewByState();
-//
-//						isTop = false;
-//						new Handler().postDelayed(new Runnable() {
-//							public void run() {
-//								onRefresh(isTop);
-//							}
-//						}, 2000);
 
                             Log.v(TAG, "由松开刷新状态，到done状态");
                         }
@@ -375,12 +404,28 @@ public class PullListView extends ListView implements OnScrollListener {
                     break;
 
                 case MotionEvent.ACTION_MOVE:
-//				if(Math.abs(event.getX() - mDownX) > Math.abs(event.getY() - mDownY)){
-//					
-//				}
+                    if(state == REFRESHING || bottomstate == LOADING){
+                        return super.onTouchEvent(event);
+                    }
                     if(Math.abs(event.getY() - mDownY) < 15){
                         break;
                     }
+                    if (isFirstItemVisible()) {
+                        mLastMotionY = event.getY();
+                        moveY_1 = event.getY();
+                        if (moveY_1 != moveY_2) {
+                            float rotate = moveY_2 - moveY_1;
+                            System.out.println("rotate= " + rotate);
+                            moveY_2 = moveY_1;
+                            if (mLastMotionY - mInitialMotionY > 0) {
+                                mIsBeingDragged = true;
+                                rotateLayout.reset();
+                                rotateLayout.roate(rotate);
+                            }
+                        }
+                        System.out.println("mLastMotionY:" + mLastMotionY);
+                    }
+
                     int tempY = (int) event.getY();
 
                     if (!isRecored && firstItemIndex == 0) {
@@ -397,8 +442,6 @@ public class PullListView extends ListView implements OnScrollListener {
 
                         // 可以松手去刷新了
                         if (state == RELEASE_To_REFRESH) {
-
-//						setSelection(0);
 
                             // 往上推了，推到了屏幕足够掩盖head的程度，但是还没有推到全部掩盖的地步
                             if (((tempY - startY) / RATIO < headContentHeight)
@@ -567,13 +610,9 @@ public class PullListView extends ListView implements OnScrollListener {
                 tipsTextview.setVisibility(View.VISIBLE);
                 lastUpdatedTextView.setVisibility(View.VISIBLE);
                 Content.isPull = true;
-                arrowImageView.clearAnimation();
-                arrowImageView.startAnimation(animation);
 
                 tipsTextview.setText("松开刷新");
-
-//			iv_refreshing.setVisibility(View.GONE);
-                iv_refreshStart.setVisibility(View.VISIBLE);
+//                iv_refreshStart.setVisibility(View.VISIBLE);
                 Log.v(TAG, "当前状态，松开刷新");
                 break;
             case PULL_To_REFRESH:
@@ -585,15 +624,16 @@ public class PullListView extends ListView implements OnScrollListener {
                 // 是由RELEASE_To_REFRESH状态转变来的
                 if (isBack) {
                     isBack = false;
-                    arrowImageView.clearAnimation();
-                    arrowImageView.startAnimation(reverseAnimation);
+
+//                    arrowImageView.clearAnimation();
+//                    arrowImageView.startAnimation(reverseAnimation);
 
                     tipsTextview.setText("下拉刷新");
                 } else {
                     tipsTextview.setText("下拉刷新");
                 }
 //			iv_refreshing.setVisibility(View.GONE);
-                iv_refreshStart.setVisibility(View.VISIBLE);
+//                iv_refreshStart.setVisibility(View.VISIBLE);
                 Log.v(TAG, "当前状态，下拉刷新");
                 break;
 
@@ -608,8 +648,8 @@ public class PullListView extends ListView implements OnScrollListener {
                 lastUpdatedTextView.setVisibility(View.VISIBLE);
 
 //			iv_refreshing.setVisibility(View.VISIBLE);
-                iv_refreshStart.setVisibility(View.VISIBLE);
-                iv_refreshStart.startAnima();
+//                iv_refreshStart.setVisibility(View.VISIBLE);
+                rotateLayout.rotateAnimation();
                 Log.v(TAG, "当前状态,正在刷新...");
                 break;
             case DONE:
@@ -620,9 +660,8 @@ public class PullListView extends ListView implements OnScrollListener {
                 arrowImageView.setImageResource(upImageResources);
                 tipsTextview.setText("下拉刷新");
                 lastUpdatedTextView.setVisibility(View.VISIBLE);
-//			iv_refreshing.setVisibility(View.GONE);
-                iv_refreshStart.setVisibility(View.VISIBLE);
-                iv_refreshStart.stopAnima();
+//                iv_refreshStart.setVisibility(View.VISIBLE);
+                rotateLayout.celarAniamtion();
                 Log.v(TAG, "当前状态，done");
                 break;
         }
@@ -638,8 +677,8 @@ public class PullListView extends ListView implements OnScrollListener {
         lastUpdatedTextView.setVisibility(View.VISIBLE);
 
 //		iv_refreshing.setVisibility(View.GONE);
-        iv_refreshStart.setVisibility(View.VISIBLE);
-        iv_refreshStart.stopAnima();
+//        iv_refreshStart.setVisibility(View.VISIBLE);
+        rotateLayout.celarAniamtion();
     }
     // 当状态改变时候，调用该方法，以更新界面
     private void changeFootViewByState() {
@@ -717,18 +756,7 @@ public class PullListView extends ListView implements OnScrollListener {
     public interface OnRefreshListener {
         void onRefresh(boolean isTop);
     }
-    //	public boolean isStartRefresh(){
-//		if(!TextUtils.isEmpty(lastUpdatedTextView.getText().toString())){
-//			long currentTime = System.currentTimeMillis();
-//			String lastUpdatedText = lastUpdatedTextView.getText().toString().replace("最近更新:", "").replace("上午", "").replace("下午", "");
-//			long lastUpdatedTime = TimeUtil.stringToLong(lastUpdatedText, TimeUtil.FORMAT_DATE_TIME_SECOND);
-//			Log.i(TAG, "------------距离上次刷新-->>"+(currentTime - lastUpdatedTime)/1000/1000+"秒"+"------"+lastUpdatedTime+";"+currentTime+"--"+lastUpdatedText);
-//			if((currentTime - lastUpdatedTime) > 30*1000*1000){
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
+
     public long getLastUpdatedTime(){
         if(TextUtils.isEmpty(lastUpdatedTextView.getText().toString())) return 0L;
         String lastUpdatedText = lastUpdatedTextView.getText().toString().replace("最近更新:", "");
@@ -744,8 +772,11 @@ public class PullListView extends ListView implements OnScrollListener {
 
             @Override
             public void run() {
-                changeFootViewByState();
-                changeHeaderViewByState();
+                if(isTop){
+                    changeHeaderViewByState();
+                }else{
+                    changeFootViewByState();
+                }
             }
         }, 1200);
 

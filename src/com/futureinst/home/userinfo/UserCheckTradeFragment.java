@@ -48,10 +48,16 @@ public class UserCheckTradeFragment extends BaseFragment implements PullListView
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_user_check);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         initView();
         progressDialog.progressDialog();
         getData(page, last_id);
     }
+
     private void initView() {
         progressDialog = MyProgressDialog.getInstance(getContext());
         preferenceUtil = SharePreferenceUtil.getInstance(getContext());

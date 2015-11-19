@@ -240,10 +240,13 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 //		tab.setSingleLine();
 
         SlidingTabView tab = new SlidingTabView(getContext());
+
         tab.setIconFontText(titles[1]);
         tab.setBottomText(titles[0]);
+        tab.setIconTextBackground();
         if (position == currentPosition) {
             tab.setSelected(true);
+
         } else {
             tab.setSelected(false);
         }

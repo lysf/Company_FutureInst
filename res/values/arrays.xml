@@ -27,7 +27,7 @@
     <string-array name="home_icon_title">
         <item >推荐-&#xe62d;</item>
         <item >关注-&#xe62e;</item>
-        <item >体育-&#xe62e;</item>
+        <item >体育-&#xe62f;</item>
         <item >财经-&#xe630;</item>
         <item >娱乐-&#xe631;</item>
         <item >民生-&#xe632;</item>
@@ -38,7 +38,7 @@
     </string-array>
     <string-array name="ranking_icon_title">
         <item >总榜-&#xe641;</item>
-        <item >体育-&#xe62e;</item>
+        <item >体育-&#xe62f;</item>
         <item >财经-&#xe630;</item>
         <item >娱乐-&#xe631;</item>
         <item >民生-&#xe632;</item>

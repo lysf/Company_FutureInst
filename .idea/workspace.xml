@@ -68,38 +68,28 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daff0e59-b119-416a-9cd5-90a655b735f4" name="Default" comment="2015年11月17日10:11:47">
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\app\app.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/AddPointActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/AddPointActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/AddPointActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/AddPointActivity.class" />
+    <list default="true" id="daff0e59-b119-416a-9cd5-90a655b735f4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/icon_mypoint.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/bitmap/BitmapUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/shape_sliding_normal.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/shape_sliding_selected.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/sliding_bg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/AritlceActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/AritlceActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/AritlceActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/AritlceActivity$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/AritlceActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/AritlceActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/AritlceActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/AritlceActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/ArticleAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/article/ArticleAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleCommentAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleCommentAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$10.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$10.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$11.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$11.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$12.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$12.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$13.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$13.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$14.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$14.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$15.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$15.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$16.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$16.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$17.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$17.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$18.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$18.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$5.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$6.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$6.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$7.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$7.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$8$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$8$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$8.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$8.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$9$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$9$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$9.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/ArticleDetailActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/AwradDialogUtil$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/AwradDialogUtil$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/AwradDialogUtil.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/AwradDialogUtil.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/BDAutoUpdate_APPX_SDK_20150826-9d8b5506de85639f3a07a3d9496fa6af01d35495.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/BDAutoUpdate_APPX_SDK_20150826-9d8b5506de85639f3a07a3d9496fa6af01d35495.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/BannerFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/BannerFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/baseui/BaseActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/baseui/BaseActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/baseui/BaseFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/baseui/BaseFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/BuildConfig.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/BuildConfig.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/CardView.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/CardView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/ChooseSexUtil$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/ChooseSexUtil$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/ChooseSexUtil.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/ChooseSexUtil.class" />
@@ -107,14 +97,43 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDeleteDialogUtil.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDeleteDialogUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity$12.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity$13.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity$14.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity$14.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity$15.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity$15.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/comment/CommentDetailSecondAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/CommentFragment$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/CommentFragment$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/CommentFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/CommentFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/soundcloud/android/crop/CropImageActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/soundcloud/android/crop/CropImageActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/CustomProgress.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/CustomProgress.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventBuyActivity$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventBuyActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventBuyActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventBuyActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$11.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$11.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$12.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$13.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$13.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$15.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$15.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$16.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$16.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$17.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$17.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$18.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$18.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$19.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$19.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$20.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$20.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$21.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$21.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$22.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$22.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$23.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$23.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$24.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$24.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$25.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$25.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$26.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$26.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$27.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$27.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$28.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$28.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$29.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$29.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$30.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$30.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$31.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$31.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$32.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$32.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$33.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$33.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$34.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$34.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$9.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity$9.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/EventDetailActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/newbieguide/EventdetailGuide$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/newbieguide/EventdetailGuide$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/newbieguide/EventdetailGuide.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/newbieguide/EventdetailGuide.class" />
@@ -129,11 +148,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/FondIndicentFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/FondIndicentFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/FondPointFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/FondPointFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/ForecastContainerTypeFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/ForecastContainerTypeFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/ForecastFragment$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/ForecastFragment$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/ForecastFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/ForecastFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/ForecastItemAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/ForecastItemAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/baseui/FragmentTransform.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/baseui/FragmentTransform.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/apk/FutureInst-debug-unaligned.apk" afterPath="$PROJECT_DIR$/build/outputs/apk/FutureInst-debug-unaligned.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/apk/FutureInst-debug.apk" afterPath="$PROJECT_DIR$/build/outputs/apk/FutureInst-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/GetuiExt-2.0.3-9714bd291153423478e42a57683087d53db7a098.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/GetuiExt-2.0.3-9714bd291153423478e42a57683087d53db7a098.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/GetuiSdk2.5.0.0-74408dad90d7c40b03e938a023350eebfd8a7168.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/GetuiSdk2.5.0.0-74408dad90d7c40b03e938a023350eebfd8a7168.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/groupevent/GroupEventActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/groupevent/GroupEventActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/hold/HoldDealAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/hold/HoldDealAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/hold/HoldDealFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/hold/HoldDealFragment.class" />
@@ -144,7 +166,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/HomeActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/HomeActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/HomeActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/HomeActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/scrollview/HomeLayout.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/scrollview/HomeLayout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpPostParams.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpPostParams.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpPath.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpPath.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpPushUtils.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpPushUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$10.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$10.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$11.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$11.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$12.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$12.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$5.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$6.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$7.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$8.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$8.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$9.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils$9.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/net/HttpResponseUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/IncidentAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/IncidentAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/index/IndexActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/index/IndexActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/login/KeywordGridViewAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/login/KeywordGridViewAdapter.class" />
@@ -152,33 +185,46 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/LazyBagFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/LazyBagFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/login/LoginActivity$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/login/LoginActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/login/LoginActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/login/LoginActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/MobLogCollector-311ac1a65ddbebc8b8648d9c7c705ece0bc4d3f0.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/MobLogCollector-311ac1a65ddbebc8b8648d9c7c705ece0bc4d3f0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/MobTools-e92855ff66fb5421303755f6e67e3600f59132c9.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/MobTools-e92855ff66fb5421303755f6e67e3600f59132c9.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/ModifyPersoanlInfoActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/ModifyPersoanlInfoActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/MyAseetActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/MyAseetActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/attention/MyAttentionActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/attention/MyAttentionActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/attention/MyAttentionAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/attention/MyAttentionAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/MyHoldActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/MyHoldActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/MyHoldActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/MyHoldActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/MyTextView.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/MyTextView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/MyToast.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/MyToast.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/NetstateToast.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/NetstateToast.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/newbieguide/NewbieGuide.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/newbieguide/NewbieGuide.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/newbieguide/NewbieGuide2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/newbieguide/NewbieGuide2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip$PageListener.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip$PageListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip$SavedState$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip$SavedState$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip$SavedState.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip$SavedState.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PagerSlidingTabStrip.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalAttendActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalAttendActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalAttentionActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalAttentionActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalAttentionAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalAttentionAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalForecastActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalForecastActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalForecastAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalForecastAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalRecordActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalRecordActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalShowActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalShowActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalShowActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalShowActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalTagRecordActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/personalinfo/other/PersonalTagRecordActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/PointAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/find/PointAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/title/PrimaryTitleListAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/title/PrimaryTitleListAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/PrivacyActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/PrivacyActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$Status.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout$Status.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/PullLayout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/list/PullListView.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/list/PullListView.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/PushMessageActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/PushMessageActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/push/PushBroadCastReceiver.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/push/PushBroadCastReceiver.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/PushMessageAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/PushMessageAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/push/PushWebActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/push/PushWebActivity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/R$dimen.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/R$dimen.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/R$drawable.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/baidu/integrationsdk/lib/R$id.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/baidu/integrationsdk/lib/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/R$id.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/R$id.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/R$integer.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/R$integer.class" />
@@ -207,7 +253,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/login/RegistActivity_3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/login/RegistActivity_3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/RevokeAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/RevokeAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/RevokeFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/eventdetail/RevokeFragment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/list/RotateLayout.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/list/RotateLayout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/search/SearchAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/search/SearchAdapter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/search/SearchFragment$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/search/SearchFragment$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/search/SearchFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/search/SearchFragment.class" />
@@ -216,76 +261,109 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/SecrtActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/SecrtActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/share/ShareDialog.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/share/ShareDialog.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/share/ShareOperate.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/share/ShareOperate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Core-2.6.1-52391d7799a574fc7b36341769d37318373aaed3.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Core-2.6.1-52391d7799a574fc7b36341769d37318373aaed3.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-SinaWeibo-2.6.1-0535775e8373e94b95579eb3fd983843b6d3000b.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-SinaWeibo-2.6.1-0535775e8373e94b95579eb3fd983843b6d3000b.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-2.6.1-f1083df1b443bd9ec73f65b09b4c7d17149db975.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-2.6.1-f1083df1b443bd9ec73f65b09b4c7d17149db975.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Core-2.6.1-88c0e0f803c97c23fe47f0109814ff26ebc39212.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Core-2.6.1-88c0e0f803c97c23fe47f0109814ff26ebc39212.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Favorite-2.6.1-3ac81ad483611159ac6c5c898e2fef95eabe1fd7.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Favorite-2.6.1-3ac81ad483611159ac6c5c898e2fef95eabe1fd7.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Moments-2.6.1-0bb58b2abac2e0609716521a344a3b35696060a5.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/ShareSDK-Wechat-Moments-2.6.1-0bb58b2abac2e0609716521a344a3b35696060a5.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/ShoopActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/ShoopActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/ShoopFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/ShoopFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/ShowPicDialog.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/ShowPicDialog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/SlidingTabView.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/SlidingTabView.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/TypeAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/forecast/TypeAdapter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/service/UpdateDialogShow.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/service/UpdateDialogShow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/service/UpdateService.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/service/UpdateService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/UpdateVersionUtil.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/UpdateVersionUtil.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckActivity$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckActivity.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckAdapter.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckConsumeFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckConsumeFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckTradeFragment$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckTradeFragment$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckTradeFragment$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckTradeFragment$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckTradeFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserCheckTradeFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$1.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$2.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$3.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$4.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$5.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment$5.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/UserInfoFragment.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/Utils.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/Utils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/WebViewFragment.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/userinfo/WebViewFragment.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/WelcomeDialog.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/home/WelcomeDialog.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/wheelview/WheelMain.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/wheelview/WheelMain.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/wheelview/WheelView.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/widget/wheelview/WheelView.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/xutils/XUtilsImageLoader.class" afterPath="$PROJECT_DIR$/build/intermediates/classes/debug/com/futureinst/utils/xutils/XUtilsImageLoader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/android_api_3.6.9.3-30d83523c9d9c53694a133ea3baaa2247c505aef.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/android_api_3.6.9.3-30d83523c9d9c53694a133ea3baaa2247c505aef.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-ce3c2fc4c4db8900152799bb549a0cbfe56aa3d7.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/classes-ce3c2fc4c4db8900152799bb549a0cbfe56aa3d7.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/build/intermediates/dex/debug/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/eventbus-d71c87922d5eadad27610bab3bd4cbf2bd9d7051.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/eventbus-d71c87922d5eadad27610bab3bd4cbf2bd9d7051.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/gson-2.2.4-b707d327b9d43807355229ac7c73e869a1689be5.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/gson-2.2.4-b707d327b9d43807355229ac7c73e869a1689be5.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/httpcore-4.3.2-2c8e9e0303cbb5dcf8544c094087f07682419794.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/httpcore-4.3.2-2c8e9e0303cbb5dcf8544c094087f07682419794.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/httpmime-4.3.5-44b46a1fe4acfaa7f59c74596655f6edadf0fea9.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/httpmime-4.3.5-44b46a1fe4acfaa7f59c74596655f6edadf0fea9.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/libammsdk-46047f08d84a94f88b12d46b8804114f2dc4c86e.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/libammsdk-46047f08d84a94f88b12d46b8804114f2dc4c86e.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/need_lib-c7460bae28a52e9a95f22993f4e7ca1fbfdd20a0.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/need_lib-c7460bae28a52e9a95f22993f4e7ca1fbfdd20a0.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-f9f5e14bf3bf838ad2215e5346538ebb7c734459.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/nineoldandroids-2.4.0-f9f5e14bf3bf838ad2215e5346538ebb7c734459.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/patchupdate-6fcdeb4169dcf9cfd6a611a3c70849bd26963083.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/patchupdate-6fcdeb4169dcf9cfd6a611a3c70849bd26963083.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/comment/AddPointActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/comment/AddPointActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/umeng-analytics-v5.5.3-9953ff4765786721fee3ee9045cddd34b8b21b63.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/umeng-analytics-v5.5.3-9953ff4765786721fee3ee9045cddd34b8b21b63.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4-64501dbaee386be45d6bcf0bf0017d1b57eb4e54.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.4-64501dbaee386be45d6bcf0bf0017d1b57eb4e54.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/volley-e1b51427f6b34232e085861ee099446ae619b47c.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/volley-e1b51427f6b34232e085861ee099446ae619b47c.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/xUtils-2.6.14-b99e9274b98378f91b273de5c7be3bba856f2512.jar" afterPath="$PROJECT_DIR$/build/intermediates/pre-dexed/debug/xUtils-2.6.14-b99e9274b98378f91b273de5c7be3bba856f2512.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/aapt/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/find/ArticleDetailActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/find/ArticleDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/buildConfig/androidTest/debug/com/baidu/integrationsdk/lib/test/BuildConfig.java" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/buildConfig/androidTest/debug/com/baidu/integrationsdk/lib/test/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/buildConfig/debug/com/baidu/integrationsdk/lib/BuildConfig.java" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/buildConfig/debug/com/baidu/integrationsdk/lib/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/buildConfig/release/com/baidu/integrationsdk/lib/BuildConfig.java" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/buildConfig/release/com/baidu/integrationsdk/lib/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/buildConfig/debug/com/futureinst/BuildConfig.java" afterPath="$PROJECT_DIR$/build/generated/source/buildConfig/debug/com/futureinst/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java" afterPath="$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java" afterPath="$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/r/androidTest/debug/com/baidu/integrationsdk/lib/R.java" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/r/androidTest/debug/com/baidu/integrationsdk/lib/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/article/AritlceActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/article/AritlceActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/article/ArticleAdapter.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/article/ArticleAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/comment/CommentDetailSecondActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/comment/CommentDetailSecondActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FutureInst.iml" afterPath="$PROJECT_DIR$/FutureInst.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/net/HttpResponseUtils.java" afterPath="$PROJECT_DIR$/src/com/futureinst/net/HttpResponseUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/utils/MyToast.java" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/MyToast.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/widget/PagerSlidingTabStrip.java" afterPath="$PROJECT_DIR$/src/com/futureinst/widget/PagerSlidingTabStrip.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/widget/PullLayout.java" afterPath="$PROJECT_DIR$/src/com/futureinst/widget/PullLayout.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/baidu/integrationsdk/lib/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/baidu/integrationsdk/lib/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/futureinst/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/futureinst/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/widget/richeditor/RichEditor.java" afterPath="$PROJECT_DIR$/src/com/futureinst/widget/richeditor/RichEditor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/widget/SlidingTabView.java" afterPath="$PROJECT_DIR$/src/com/futureinst/widget/SlidingTabView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/service/UpdateDialogShow.java" afterPath="$PROJECT_DIR$/src/com/futureinst/service/UpdateDialogShow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserCheckTradeFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserCheckTradeFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserInfoFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserInfoFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/utils/Utils.java" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/Utils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_add_point.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_add_point.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_add_point.xml" afterPath="$PROJECT_DIR$/res/layout/activity_add_point.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_article_detail.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_article_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_article_detail.xml" afterPath="$PROJECT_DIR$/res/layout/activity_article_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_aritlce.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_aritlce.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_aritlce.xml" afterPath="$PROJECT_DIR$/res/layout/activity_aritlce.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/arrays.xml" afterPath="$PROJECT_DIR$/res/values/arrays.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/colors.xml" afterPath="$PROJECT_DIR$/res/values/colors.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/dimens.xml" afterPath="$PROJECT_DIR$/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/event_detail_1.xml" afterPath="$PROJECT_DIR$/res/layout/event_detail_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_5.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_5.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/event_detail_5.xml" afterPath="$PROJECT_DIR$/res/layout/event_detail_5.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/eventbus.xml" afterPath="$PROJECT_DIR$/.idea/libraries/eventbus.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_forecast.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_forecast.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/fragment_forecast.xml" afterPath="$PROJECT_DIR$/res/layout/fragment_forecast.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/release/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeResourcesandroidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeResourcesandroidTest/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesdebug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesrelease/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesrelease/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_article.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_article.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item_article.xml" afterPath="$PROJECT_DIR$/res/layout/item_article.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_forecast_type.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_forecast_type.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item_forecast_type.xml" afterPath="$PROJECT_DIR$/res/layout/item_forecast_type.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_comment_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_comment_title.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_comment_title.xml" afterPath="$PROJECT_DIR$/res/layout/layout_comment_title.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values-v19/values-v19.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values-v19/values-v19.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -322,46 +400,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33242506">
-              <caret line="338" column="55" selection-start-line="338" selection-start-column="55" selection-end-line="338" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpPath.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
+      <file leaf-file-name="BaseActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/futureinst/baseui/BaseActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="76" selection-start-line="4" selection-start-column="58" selection-end-line="9" selection-end-column="76" />
+              <caret line="209" column="65" selection-start-line="209" selection-start-column="65" selection-end-line="209" selection-end-column="65" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticleDetailActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/ArticleDetailActivity.java">
+      <file leaf-file-name="EventDetailActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="228" column="72" selection-start-line="228" selection-start-column="72" selection-end-line="228" selection-end-column="72" />
+              <caret line="981" column="43" selection-start-line="981" selection-start-column="43" selection-end-line="981" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_article_detail.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/activity_article_detail.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="112" column="50" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
+      <file leaf-file-name="layout_activity_base.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/layout_activity_base.xml">
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.4">
+              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_comment_title.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/layout/layout_comment_title.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7196262">
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_shap.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/drawable/view_shap.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddPointActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/futureinst/comment/AddPointActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RichEditor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/richeditor/RichEditor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="213" column="3" selection-start-line="213" selection-start-column="3" selection-end-line="213" selection-end-column="3" />
+              <folding>
+                <element signature="e#6210#6211#0" expanded="true" />
+                <element signature="e#6261#6262#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ripple_shap.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/drawable-v21/ripple_shap.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -1602,7 +1726,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="F:\CompanyWork\FutureInst" value="4343021551376" />
+        <entry key="F:\CompanyWork\FutureInst" value="4343131810030" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1644,6 +1768,10 @@
                             <option value="$MODULE_DIR$/libs/universal-image-loader-1.9.4.jar" />
                             <option value="$MODULE_DIR$/libs/volley.jar" />
                             <option value="$MODULE_DIR$/libs/xUtils-2.6.14.jar" />
+                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/android_api_3.6.9.3.jar" />
+                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
+                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/need_lib.jar" />
+                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/patchupdate.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/1.3.0/gradle-core-1.3.0-sources.jar" />
@@ -1758,6 +1886,10 @@
                             <option value="$MODULE_DIR$/libs/universal-image-loader-1.9.4.jar" />
                             <option value="$MODULE_DIR$/libs/volley.jar" />
                             <option value="$MODULE_DIR$/libs/xUtils-2.6.14.jar" />
+                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/android_api_3.6.9.3.jar" />
+                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
+                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/need_lib.jar" />
+                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/patchupdate.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/1.3.0/gradle-core-1.3.0-sources.jar" />
@@ -2178,117 +2310,119 @@
               <option name="name" value="FutureInst" />
               <option name="projectBuildClasspath">
                 <list>
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/announce" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/antlr" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/base-services" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/base-services-groovy" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/build-comparison" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/build-init" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/cli" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/code-quality" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/core" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/dependency-management" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/diagnostics" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ear" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ide" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ide-native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/internal-integ-testing" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/internal-testing" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ivy" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/jacoco" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/javascript" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/jetty" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-groovy" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-java" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-jvm" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/language-scala" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/launcher" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/maven" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/messaging" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/model-core" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/model-groovy" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/open-api" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/osgi" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/platform-base" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/platform-jvm" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/platform-native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/platform-play" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/plugin-development" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/plugin-use" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/plugins" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/publish" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/reporting" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/resources" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/resources-http" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/resources-s3" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/resources-sftp" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/scala" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/signing" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/sonar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/testing-native" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/tooling-api" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/tooling-api-builders" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/ui" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/src/wrapper" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/ant-1.9.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/ant-launcher-1.9.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-base-services-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-base-services-groovy-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-cli-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-core-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-docs-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-launcher-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-messaging-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-model-core-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-model-groovy-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-open-api-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-resources-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-tooling-api-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-ui-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/gradle-wrapper-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/groovy-all-2.3.10.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-announce-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-antlr-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-build-comparison-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-build-init-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-code-quality-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-dependency-management-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-diagnostics-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-ear-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-ide-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-ide-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-ivy-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-jacoco-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-javascript-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-jetty-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-groovy-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-java-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-jvm-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-language-scala-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-maven-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-osgi-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-platform-base-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-platform-jvm-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-platform-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-platform-play-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-plugin-development-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-plugin-use-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-plugins-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-publish-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-reporting-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-resources-http-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-resources-s3-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-resources-sftp-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-scala-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-signing-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-sonar-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-testing-native-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/gradle-tooling-api-builders-2.4.jar" />
-                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4/lib/plugins/ivy-2.2.0.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/announce" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/antlr" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/base-services" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/base-services-groovy" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/build-comparison" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/build-init" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/cli" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/code-quality" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/core" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/dependency-management" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/diagnostics" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/ear" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/ide" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/ide-native" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/internal-integ-testing" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/internal-testing" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/ivy" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/jacoco" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/javascript" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/jetty" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/language-groovy" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/language-java" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/language-jvm" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/language-native" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/language-scala" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/launcher" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/maven" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/messaging" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/model-core" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/model-groovy" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/native" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/open-api" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/osgi" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/platform-base" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/platform-jvm" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/platform-native" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/platform-play" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/plugin-development" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/plugin-use" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/plugins" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/publish" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/reporting" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/resources" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/resources-http" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/resources-s3" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/resources-sftp" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/scala" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/signing" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/sonar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/test-kit" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/testing-native" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/tooling-api" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/tooling-api-builders" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/ui" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/src/wrapper" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/ant-1.9.3.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/ant-launcher-1.9.3.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-base-services-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-base-services-groovy-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-cli-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-core-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-docs-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-launcher-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-messaging-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-model-core-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-model-groovy-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-native-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-open-api-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-resources-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-tooling-api-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-ui-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/gradle-wrapper-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/groovy-all-2.4.4.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-announce-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-antlr-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-build-comparison-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-build-init-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-code-quality-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-dependency-management-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-diagnostics-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-ear-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-ide-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-ide-native-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-ivy-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-jacoco-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-javascript-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-jetty-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-language-groovy-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-language-java-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-language-jvm-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-language-native-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-language-scala-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-maven-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-osgi-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-platform-base-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-platform-jvm-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-platform-native-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-platform-play-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-plugin-development-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-plugin-use-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-plugins-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-publish-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-reporting-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-resources-http-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-resources-s3-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-resources-sftp-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-scala-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-signing-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-sonar-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-test-kit-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-testing-native-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/gradle-tooling-api-builders-2.8.jar" />
+                  <option value="$APPLICATION_HOME_DIR$/gradle/gradle-2.8/lib/plugins/ivy-2.2.0.jar" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/java" />
                   <option value="$PROJECT_DIR$/buildSrc/src/main/groovy" />
                 </list>
@@ -2305,57 +2439,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/futureinst/login/RegistActivity_3.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/login/RegistActiivty_1.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/login/RegistActivity_2.java" />
-        <option value="$PROJECT_DIR$/res/layout/view_article_comment.xml" />
-        <option value="$PROJECT_DIR$/assets/normalize.css" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/widget/scrollview/MyScrollView.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/widget/scrollview/OverScrollView.java" />
-        <option value="$PROJECT_DIR$/res/values/attrs.xml" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/widget/scrollview/PullScrollView.java" />
-        <option value="$PROJECT_DIR$/res/layout/event_detail_1.xml" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/widget/PullLayout.java" />
-        <option value="$PROJECT_DIR$/res/layout/layout_comment_title.xml" />
-        <option value="$PROJECT_DIR$/res/drawable/ripple_shap.xml" />
-        <option value="$PROJECT_DIR$/res/drawable/fade_in.xml" />
-        <option value="$PROJECT_DIR$/res/anim/fade_in.xml" />
-        <option value="$PROJECT_DIR$/res/anim/fade_out.xml" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/core/MoveData.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/ActivityTransition.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/ExitActivityTransition.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/ActivityTransitionLauncher.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/core/TransitionBundleFactory.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/core/TransitionData.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/fragment/ExitFragmentTransition.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/fragment/FragmentTransition.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/activitytransition/fragment/FragmentTransitionLauncher.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_event_detail_about.xml" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/baseui/BaseActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastContainerTypeFragment.java" />
-        <option value="$PROJECT_DIR$/res/values-v21/style.xml" />
-        <option value="$PROJECT_DIR$/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/res/values-v19/style.xml" />
-        <option value="$PROJECT_DIR$/res/layout/fragment_userinfo.xml" />
-        <option value="$PROJECT_DIR$/res/layout/rotatelayout.xml" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
-        <option value="$PROJECT_DIR$/res/drawable/btn_ripple.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/res/drawable/ripple_shap_normal.xml" />
-        <option value="$PROJECT_DIR$/res/drawable/ripple_shap_press.xml" />
-        <option value="$PROJECT_DIR$/res/drawable-v21/ripple_shap.xml" />
         <option value="$PROJECT_DIR$/src/com/futureinst/login/ForgetPasswordActivity.java" />
         <option value="$PROJECT_DIR$/res/drawable/loading.xml" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/widget/list/RotateLayout.java" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/widget/list/PullListView.java" />
-        <option value="$PROJECT_DIR$/res/layout/listview_header.xml" />
-        <option value="$PROJECT_DIR$/src/com/futureinst/comment/AddPointActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/activity_add_point.xml" />
         <option value="$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/list/RotateLayout.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/CustomProgress.java" />
+        <option value="$PROJECT_DIR$/res/anim/progress_rotate.xml" />
+        <option value="$PROJECT_DIR$/res/layout/listview_footer.xml" />
+        <option value="$PROJECT_DIR$/res/layout/listview_header.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/list/rotate/RotateLayout.java" />
+        <option value="$PROJECT_DIR$/res/layout/rotatelayout.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/list/PullListView.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/home/find/FondPointFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_article_detail.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/utils/TimeUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/home/userinfo/PushMessageActivity.java" />
         <option value="$PROJECT_DIR$/src/com/futureinst/home/find/ArticleDetailActivity.java" />
         <option value="$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/comment/CommentDetailSecondActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/event_detail_4.xml" />
+        <option value="$PROJECT_DIR$/res/layout/event_detail_5.xml" />
+        <option value="$PROJECT_DIR$/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_add_point.xml" />
+        <option value="$PROJECT_DIR$/res/layout/item_article.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_aritlce.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/home/article/AritlceActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/home/article/ArticleAdapter.java" />
+        <option value="$PROJECT_DIR$/res/drawable/shape_sliding.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/color_sliding_bg.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/PagerSlidingTabStrip.java" />
+        <option value="$PROJECT_DIR$/res/layout/fragment_forecast.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/shape_sliding_normal.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/SlidingTabView.java" />
+        <option value="$PROJECT_DIR$/res/values/arrays.xml" />
+        <option value="$PROJECT_DIR$/res/drawable/shape_sliding_selected.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/PullLayout.java" />
+        <option value="$PROJECT_DIR$/res/layout/event_detail_1.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/utils/MyToast.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/net/HttpResponseUtils.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserInfoFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserCheckTradeFragment.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/service/UpdateDialogShow.java" />
+        <option value="$PROJECT_DIR$/res/layout/item_forecast_type.xml" />
+        <option value="$PROJECT_DIR$/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/utils/bitmap/BitmapUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/comment/AddPointActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/richeditor/RichEditor.java" />
+        <option value="$PROJECT_DIR$/res/layout/layout_comment_title.xml" />
       </list>
     </option>
   </component>
@@ -2401,7 +2535,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
@@ -2419,26 +2552,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="FutureInst" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2474,22 +2587,8 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="onekeyshare" />
+              <option name="myItemId" value="com" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2507,11 +2606,102 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="onekeyshare" />
+              <option name="myItemId" value="com" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="theme" />
+              <option name="myItemId" value="futureinst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="futureinst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="futureinst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="eventdetail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2523,9 +2713,9 @@
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/res/anim" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/libs" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="a00c8557" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.10.102:5555" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_4_API_23" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="ExportApk.ApkPath" value="C:\Users\hao\Desktop\future" />
@@ -2568,11 +2758,11 @@
       <recent name="com.futureinst.comment" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\CompanyWork\FutureInst\res\drawable" />
       <recent name="F:\CompanyWork\FutureInst\res\drawable-xhdpi" />
       <recent name="F:\CompanyWork\FutureInst\src\com\futureinst\activitytransition" />
       <recent name="F:\CompanyWork\FutureInst\src\com\futureinst\widget\scrollview" />
       <recent name="F:\CompanyWork\FutureInst\res\drawable-xxhdpi" />
-      <recent name="F:\CompanyWork\FutureInst\res\values" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\CompanyWork\FutureInst\res\anim" />
@@ -2598,33 +2788,23 @@
   <component name="RunManager" selected="Android Application.FutureInst">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -2634,28 +2814,17 @@
       <option name="METHOD_NAME" value="" />
       <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2701,7 +2870,10 @@
       </option>
       <envs />
       <patterns />
-      <method />
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -2747,33 +2919,23 @@
     </configuration>
     <configuration default="false" name="FutureInst" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="FutureInst" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
-      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="Please select a project..." />
-      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="Please select a project..." />
-      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="Cloud configuration not specified" />
-      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
-      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="Cloud configuration not specified" />
-      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
       <method />
     </configuration>
     <list size="1">
@@ -2827,7 +2989,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447671976064</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="2015年11月19日16:44:52">
+      <created>1447922764794</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1447922764794</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2844,21 +3012,23 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32423207" sideWeight="0.4515885" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.4515885" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26096824" sideWeight="0.5255973" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7610921" sideWeight="0.53177005" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.70477813" sideWeight="0.46822995" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24127465" sideWeight="0.49109414" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5341297" sideWeight="0.4666161" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24051593" sideWeight="0.49109414" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.49394855" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.52874434" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.62286687" sideWeight="0.5333839" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26100153" sideWeight="0.47440273" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23596358" sideWeight="0.47440273" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2877,12 +3047,12 @@
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21068703" sideWeight="0.5126263" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26096824" sideWeight="0.5255973" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.5458015" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7610921" sideWeight="0.53177005" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.77303755" sideWeight="0.47420335" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39590445" sideWeight="0.46822995" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2893,14 +3063,14 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.4515885" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24130106" sideWeight="0.49109414" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24054463" sideWeight="0.49109414" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.49394855" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.4969743" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.77303755" sideWeight="0.52579665" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.52874434" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7713311" sideWeight="0.49394855" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26096824" sideWeight="0.48737374" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2579425" sideWeight="0.47440273" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2927,7 +3097,8 @@
     <MESSAGE value="2015年11月4日22:40:55&#10;" />
     <MESSAGE value="2015年11月16日19:00:12" />
     <MESSAGE value="2015年11月17日10:11:47" />
-    <option name="LAST_COMMIT_MESSAGE" value="2015年11月17日10:11:47" />
+    <MESSAGE value="2015年11月19日16:44:52" />
+    <option name="LAST_COMMIT_MESSAGE" value="2015年11月19日16:44:52" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2955,403 +3126,427 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/ArticleDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="228" column="72" selection-start-line="228" selection-start-column="72" selection-end-line="228" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_article_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="50" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/res/layout/event_detail_5.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.6">
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/item_select.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6714542">
+          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_add_point.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.800759">
+          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/model/comment/ArticleDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5637343">
+          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/IncidentAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="17" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/item_article.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.233333">
+          <caret line="53" column="50" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_aritlce.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0333333">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/article/AritlceActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="95" column="57" selection-start-line="95" selection-start-column="42" selection-end-line="95" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/article/ArticleAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="50" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_event_detail_about.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastViewPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4901257">
+          <caret line="18" column="39" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/IconSlidingTabView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0179533">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/sliding_bg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07540395">
+          <caret line="2" column="80" selection-start-line="2" selection-start-column="80" selection-end-line="2" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/SlidingTabView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/fragment_forecast.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0">
+          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/PagerSlidingTabStrip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="247" column="22" selection-start-line="247" selection-start-column="22" selection-end-line="247" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/arrays.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/shape_sliding_normal.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22621185">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/shape_sliding_selected.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25846153">
+          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="281" column="51" selection-start-line="281" selection-start-column="51" selection-end-line="281" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/event_detail_1.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37966102">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/utils/toast/ToastHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="80" selection-start-line="11" selection-start-column="59" selection-end-line="16" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.33213645">
+          <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/utils/MyToast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41472173">
+          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java">
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpResponseUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.5583483">
+          <caret line="151" column="8" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/list/PullListView.java">
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/utils/MyProgressDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/list/RotateLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="47" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/listview_header.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/EventsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/forecast/BannerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="65" selection-start-line="106" selection-start-column="65" selection-end-line="106" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserInfoFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56552964">
+          <caret line="89" column="27" selection-start-line="89" selection-start-column="27" selection-end-line="89" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5852783">
+          <caret line="184" column="38" selection-start-line="184" selection-start-column="38" selection-end-line="184" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserCheckTradeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62298024">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/service/UpdateDialogShow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82944345">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastContainerTypeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="32" selection-start-line="165" selection-start-column="32" selection-end-line="165" selection-end-column="32" />
+          <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#13653#13654#0" expanded="false" />
+            <element signature="e#13677#13678#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastItemAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="79" selection-start-line="76" selection-start-column="79" selection-end-line="76" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1728#1729#0" expanded="false" />
+            <element signature="e#1746#1747#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/item_forecast_type.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_my_aseet.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="42" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/PullLayout.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35906643">
-          <caret line="196" column="35" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/scrollview/MyScrollView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22621185">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/layout_comment_title.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1666667">
-          <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.17953321">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/utils/bitmap/BitmapUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7163375">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/layout_activity_base.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19924098">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="android-dummy://F:\CompanyWork\FutureInst//Theme Editor">
-      <provider selected="true" editor-type-id="themeEditor">
-        <state theme-name="@style/bdp_update_dialog_style" module-name="BDIntegrationSDK_Lib" proportion="0.5" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/model/homeeventmodel/EventPriceDAOInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_event_detail_about.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="35" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="35" />
+        <state vertical-scroll-proportion="-8.4">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/baseui/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="503" column="10" selection-start-line="503" selection-start-column="10" selection-end-line="503" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="72" selection-start-line="14" selection-start-column="72" selection-end-line="14" selection-end-column="72" />
+          <caret line="209" column="65" selection-start-line="209" selection-start-column="65" selection-end-line="209" selection-end-column="65" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-v19/style.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/fragment_userinfo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="42" column="76" selection-start-line="42" selection-start-column="76" selection-end-line="42" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserInfoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82944345">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/list/MyListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1508079">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/rotatelayout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59772295">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/CustomView_Image_Text.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.037701976">
-          <caret line="38" column="27" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="899" column="48" selection-start-line="899" selection-start-column="48" selection-end-line="899" selection-end-column="48" />
-          <folding>
-            <element signature="e#8025#8717#0" expanded="false" />
-            <element signature="e#8716#8717#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/login/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="42" selection-start-line="69" selection-start-column="42" selection-end-line="69" selection-end-column="42" />
+          <caret line="981" column="43" selection-start-line="981" selection-start-column="43" selection-end-line="981" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_login.xml">
+    <entry file="file://$PROJECT_DIR$/res/drawable-v21/ripple_shap.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.166667">
-          <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/login/ForgetPasswordActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/TitleButton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14362657">
-          <caret line="172" column="32" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/icon_caijing.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/icon_yule.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/custom_progress_draw.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/utils/MyProgressDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07540395">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/window_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3586338">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.9245961">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="47" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastContainerTypeFragment.java">
+    <entry file="file://$PROJECT_DIR$/res/drawable/shape_rounded.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.583483">
-          <caret line="166" column="32" selection-start-line="166" selection-start-column="32" selection-end-line="166" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/listview_header.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.7540395">
+          <caret line="28" column="44" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="44" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/list/RotateLayout.java">
+    <entry file="file://$PROJECT_DIR$/res/drawable/view_shap.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07540395">
-          <caret line="74" column="47" selection-start-line="74" selection-start-column="47" selection-end-line="74" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+          <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/view_award_dialog.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33206832">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding>
-            <element signature="e#1466#1491#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/list/PullListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11310592">
-          <caret line="194" column="44" selection-start-line="194" selection-start-column="44" selection-end-line="194" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_add_point.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2523719">
-          <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="39" />
-          <folding>
-            <element signature="e#1789#1806#0" expanded="true" />
-            <element signature="e#1870#1894#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/comment/AddPointActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6032316">
-          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/ArticleDetailActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/richeditor/RichEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="228" column="72" selection-start-line="228" selection-start-column="72" selection-end-line="228" selection-end-column="72" />
-          <folding />
+          <caret line="213" column="3" selection-start-line="213" selection-start-column="3" selection-end-line="213" selection-end-column="3" />
+          <folding>
+            <element signature="e#6210#6211#0" expanded="true" />
+            <element signature="e#6261#6262#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="76" selection-start-line="4" selection-start-column="58" selection-end-line="9" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_article_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="50" selection-start-line="112" selection-start-column="33" selection-end-line="112" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/res/layout/layout_comment_title.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33242506">
-          <caret line="338" column="55" selection-start-line="338" selection-start-column="55" selection-end-line="338" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.7196262">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding />
         </state>
       </provider>

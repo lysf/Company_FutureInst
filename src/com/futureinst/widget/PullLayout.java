@@ -1,18 +1,21 @@
 package com.futureinst.widget;
 
 import com.futureinst.R;
+import com.futureinst.utils.bitmap.BitmapUtil;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 import com.nineoldandroids.view.ViewHelper;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
@@ -29,6 +32,8 @@ public class PullLayout extends ScrollView{
     private boolean isTouchOrRunning;
     private boolean isActionCancel;
     private ImageView iv_image;
+    private ImageView iv_image_blur;
+    private LinearLayout ll_time;
 
 //    private int tvHeight;
 //    private View view_line;
@@ -94,10 +99,24 @@ public class PullLayout extends ScrollView{
 		setVerticalScrollBarEnabled(false);
 
 		rl_top = findViewById(R.id.rl_top);
+        ll_time = (LinearLayout)findViewById(R.id.ll_time);
 //		bottom_scroll = (PullLayout) findViewById(R.id.bottom_scroll);
 //		rl_deal = findViewById(R.id.rl_deal);
 //		 tv_time = (TextView) findViewById(R.id.tv_time);
 		iv_image = (ImageView) findViewById(R.id.iv_image);
+        iv_image_blur = (ImageView) findViewById(R.id.iv_image_blur);
+        iv_image.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            @Override
+            public boolean onPreDraw() {
+                iv_image.buildDrawingCache();
+                Bitmap bmp = iv_image.getDrawingCache();
+                BitmapUtil.blur(getContext(),bmp,iv_image_blur);
+                return true;
+            }
+        });
+
+
+
 //		iv_operate = (ImageView) findViewById(R.id.iv_operate);
 //		iv_share = (ImageView) findViewById(R.id.iv_share);
 //		iv_back = (ImageView) findViewById(R.id.iv_back);
@@ -182,8 +201,6 @@ public class PullLayout extends ScrollView{
                 if (getScrollY() < range) {
                     if (detalY != 0) {
                         reset();
-                    } else {
-//                        toggle();
                     }
                     return true;
                 }
@@ -217,24 +234,31 @@ public class PullLayout extends ScrollView{
             animatePull(t);
         }
     }
-
     private void animateScroll(int t) {
         float percent = (float) t / range;
-//        ViewHelper.setTranslationY(rl_top, t);
+        ViewHelper.setTranslationY(rl_top, t);
         
 //        ViewHelper.setTranslationY(iv_operate, -t);
 //        ViewHelper.setTranslationY(iv_share, -t);
 //        ViewHelper.setTranslationY(tv_event_title, -t);
-//        ViewHelper.setTranslationY(iv_image, -t/3);
-//        if(percent<=0.5){
-//        	float alpha = 1-2*percent;
-//        	iv_back.setAlpha(alpha);
+
+        ViewHelper.setTranslationY(iv_image, -t / 2);
+        ViewHelper.setTranslationY(iv_image_blur, -t / 2);
+        float alpha = 1 - percent;
+        if (alpha > 1.0) {
+            alpha = 1.0f;
+        } else if (alpha < 0.0) {
+            alpha = 0.0f;
+        }
+        iv_image_blur.setAlpha(2*percent);
+        if(alpha <=0.6){
+            ll_time.setAlpha(alpha);
 //        	tv_time.setAlpha(alpha);
 //        	iv_operate.setAlpha(alpha);
 //        	iv_share.setAlpha(alpha);
 //        	view_line.setAlpha(alpha);
 //        	tv_event_title.setAlpha(alpha);
-//        }
+        }
 //        ViewHelper.setTranslationY(ll_content, tvHeight * percent);
 //        ViewHelper.setTranslationY(tv_event_title, tvHeight*percent*1.5f);
        
@@ -247,8 +271,9 @@ public class PullLayout extends ScrollView{
             rl_top.getLayoutParams().height = range - t;
             rl_top.requestLayout();
             iv_image.requestLayout();
+            iv_image_blur.requestLayout();
         }
-//        iv_back.setAlpha(1-percent);
+        iv_image_blur.setAlpha(2*percent);
 //        tv_time.setAlpha(1-percent);
 //        iv_operate.setAlpha(1-percent);
 //        iv_share.setAlpha(1-percent);

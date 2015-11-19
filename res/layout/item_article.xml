@@ -43,8 +43,24 @@
                 android:singleLine="true"/>
         </LinearLayout>
     </RelativeLayout>
+    <LinearLayout
+        android:gravity="center_vertical|right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_award"
+            android:visibility="visible"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color_9"
+            android:gravity="right"
+            android:drawableLeft="@drawable/icon_mypoint"
+            android:text="  本文共受赏6000未币"
+            android:padding="@dimen/activity_login_margin_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
     <TextView
-        android:layout_marginTop="@dimen/activity_login_margin_10"
         android:layout_marginBottom="@dimen/activity_login_margin_10"
         android:layout_marginLeft="@dimen/activity_login_margin_10"
         android:layout_marginRight="@dimen/activity_login_margin_10"

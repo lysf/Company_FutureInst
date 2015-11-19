@@ -102,7 +102,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     private SingleEventClearDAO singleEventClearDAO;
     private boolean isAttention;
-    private MyProgressDialog progressDialog;
     private EventPriceDAOInfo priceDAOInfo;
     private String event_id;
     private QueryEventDAO event;
@@ -133,7 +132,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private  TextView tv_article_readNum,tv_article_comment_num;
     private ImageView iv_editPoint;
     private LinearLayout ll_empty_point;
-    private ImageView iv_empty_point;
+//    private ImageView iv_empty_point;
 
     //浮动
     private Button btn_comment_float, btn_comment_total_float;
@@ -143,6 +142,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private Button btn_invivate;
 
     private ImageView iv_image;
+    private ImageView iv_image_blur;
     private TextView tv_time, tv_event_title;
 
     private CustomDraw customDraw;//自定义价格动画
@@ -256,7 +256,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         setTitle(R.string.event_detail);
 
         came = getIntent().getBooleanExtra("boolean", false);
-        progressDialog = MyProgressDialog.getInstance(this);
         event_id = getIntent().getStringExtra("eventId");
 
         scroll = (PullLayout) findViewById(R.id.scroll);
@@ -288,6 +287,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         customDraw.setLayoutParams(layoutParams);
         tv_time = (TextView) findViewById(R.id.tv_time);
         iv_image = (ImageView) findViewById(R.id.iv_image);
+        iv_image_blur = (ImageView) findViewById(R.id.iv_image_blur);
 
         view_single_event = findViewById(R.id.view_singlev_event);
         view_single_event.setVisibility(View.GONE);
@@ -445,9 +445,9 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         view_point = findViewById(R.id.view_point);
         iv_editPoint = (ImageView)findViewById(R.id.iv_editPoint);
         iv_editPoint.setOnClickListener(clickListener);
-        iv_empty_point = (ImageView)findViewById(R.id.iv_empty_point);
-        iv_empty_point.setOnClickListener(clickListener);
+//        iv_empty_point = (ImageView)findViewById(R.id.iv_empty_point);
         ll_empty_point = (LinearLayout)findViewById(R.id.ll_empty_point);
+        ll_empty_point.setOnClickListener(clickListener);
     }
     private void initPointDate(final ArticleDAO article){
 
@@ -650,7 +650,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.iv_empty_point:
+                case R.id.ll_empty_point:
                 case R.id.iv_editPoint://添加观点
                     if(judgeIsLogin()){
                         Intent intent = new Intent(EventDetailActivity.this,AddPointActivity.class);
@@ -987,7 +987,8 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     //分享界面
     private void showShareDialog(final QueryEventDAO event) {
-        final String shareTitle = getResources().getString(R.string.shareTips).replace("X", event.getCurrPrice() + "").replace("Y", event.getLead());
+//        final String shareTitle = getResources().getString(R.string.shareTips).replace("X", event.getCurrPrice() + "").replace("Y", event.getLead());
+        final String shareTitle = event.getLead()+"你敢赌吗？";
         final String content = "来自未来研究所";
         View view = LayoutInflater.from(this).inflate(R.layout.view_share_gridview, null);
         final Dialog dialog = DialogShow.showDialog(this, view, Gravity.BOTTOM);
@@ -1105,6 +1106,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(receiver);
+        progressDialog.cancleProgress();
         timeIsStart = false;
         isPriceRefresh = false;
         isDestroy = true;

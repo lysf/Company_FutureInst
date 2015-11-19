@@ -12,13 +12,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.futureinst.R;
+import com.futureinst.utils.Utils;
 
 public class SlidingTabView extends LinearLayout {
     private Context mContext;
     private String iconFontText,bottomText;
     private int smallIconTextSize = 25;
     private int smallTextSize = 14;
-    private int maxIconTextSize = 30;
+    private int maxIconTextSize = 35;
     private int maxTextSize = 16;
     public SlidingTabView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -42,20 +43,35 @@ public class SlidingTabView extends LinearLayout {
         super.setSelected(selected);
         iconView.setSelected(selected);
         textView.setSelected(selected);
+       LayoutParams layoutParams = null;
+       LayoutParams layoutParams_text = null;
+
         if(selected){
             iconView.setTextSize(maxIconTextSize);
             textView.setTextSize(maxTextSize);
-            iconView.setTextColor(getResources().getColor(R.color.sliding_table_1));
+            iconView.setTextColor(getResources().getColor(R.color.text_color_white));
             textView.setTextColor(getResources().getColor(R.color.sliding_table_1));
+            int height = Utils.getViewMeasuredHeight(iconView);
+            layoutParams = new LayoutParams(height,height);
+            iconView.setLayoutParams(layoutParams);
+
         }else{
             iconView.setTextSize(smallIconTextSize);
             textView.setTextSize(smallTextSize);
             iconView.setTextColor(getResources().getColor(R.color.sliding_table_0));
             textView.setTextColor(getResources().getColor(R.color.sliding_table_0));
+            int height = Utils.getViewMeasuredHeight(iconView);
+            layoutParams = new LayoutParams(height,height);
+            iconView.setLayoutParams(layoutParams);
         }
+        layoutParams_text = new LayoutParams(Utils.getViewMeasuredWidth(textView),Utils.getViewMeasuredWidth(textView));
+        textView.setLayoutParams(layoutParams_text);
     }
     private IconSlidingTabView iconView;
     private TextView textView;
+    public void setIconTextBackground(){
+        iconView.setBackground(getResources().getDrawable(R.drawable.sliding_bg));
+    }
 
     public void setIconFontText(String iconFontText){
         iconView.setText(iconFontText);
@@ -81,6 +97,7 @@ public class SlidingTabView extends LinearLayout {
         textView.setTextColor(getResources().getColor(R.color.sliding_table_0));
         this.setOrientation(LinearLayout.VERTICAL);
         setGravity(Gravity.CENTER);
+        setMinimumWidth(Utils.dip2px(getContext(),80));
         this.addView(iconView);
         this.addView(textView);
     }

@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 public class CustomProgress extends ImageView {
@@ -32,7 +33,7 @@ public class CustomProgress extends ImageView {
 		setImageDrawable(getResources().getDrawable(resId));
 		animation = AnimationUtils.loadAnimation(context, R.anim.progress_rotate);
 //		animation.setInterpolator(new CustomInterpolator());
-		animation.setInterpolator(new AccelerateDecelerateInterpolator());
+		animation.setInterpolator(new LinearInterpolator());
 		
 	}
 	public void startAnima(){

@@ -344,7 +344,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
 
     //点赞或取消点赞（删除）
     private void operate_comment(String com_id, String operate) {
-//        progressDialog.progressDialog();
+        progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.operate_comment.name(), PostType.comment.name(),
                         httpPostParams.operate_comment(preferenceUtil.getID() + "", preferenceUtil.getUUid(), com_id, operate)),
                 BaseModel.class,
@@ -355,7 +355,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
                             progressDialog.cancleProgress();
                             return;
                         }
-                        handler.sendEmptyMessage(0);
+                        handler.sendEmptyMessage(110);
                     }
                 });
     }
@@ -371,12 +371,11 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
                     @Override
                     public void requestCompleted(Object response) throws JSONException {
                         progressDialog.cancleProgress();
-
                         if (response == null) return;
                         hideSoftInputView();
                         view_float_comment_edit.setVisibility(View.GONE);
                         et_comment_apply.setText("");
-                        handler.sendEmptyMessage(0);
+                        handler.sendEmptyMessage(110);
                     }
                 });
     }
@@ -385,7 +384,8 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
-                case 0:
+                case 110:
+                    notifyUpdate();
                     onRefresh(true);
                     break;
             }
@@ -425,7 +425,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
                         hideSoftInputView();
                         view_float_comment_edit.setVisibility(View.GONE);
                         et_comment_apply.setText("");
-                        handler.sendEmptyMessage(0);
+                        handler.sendEmptyMessage(110);
 
                     }
                 });
@@ -440,5 +440,9 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
             return false;
         }
         return true;
+    }
+    private void notifyUpdate(){
+        Intent intent = new Intent("commentUpdate");
+        sendBroadcast(intent);
     }
 }

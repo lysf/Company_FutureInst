@@ -56,7 +56,7 @@ public class TimeUtil {
 		} else if (timeGap > MINUTE) {// 1分钟-59分钟
 			timeStr = timeGap / MINUTE + "分钟前";
 		} else {// 1秒钟-59秒钟
-			if(timeGap <= 0){
+			if(timeGap < 1000){
 				timeStr = "1秒前";
 			}else{
 				timeStr = timeGap/SECOND + "秒前";

@@ -33,7 +33,7 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
     private boolean isUser = true;
     private View article_top;
     private String title = "发表的观点文章";
-
+    private TextView tv_empty;
     private TextView tv_total_award,tv_num_article,tv_num_read,tv_num_praise;
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
         if(isUser){
             initTopDate(userRecord);
         }
+        progressDialog.progressDialog();
         onRefresh(true);
     }
 
@@ -58,9 +59,10 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
         tv_num_article = (TextView)article_top.findViewById(R.id.tv_num_article);
         tv_num_read = (TextView)article_top.findViewById(R.id.tv_num_read);
         tv_num_praise = (TextView)article_top.findViewById(R.id.tv_num_praise);
+        tv_empty = (TextView)findViewById(R.id.tv_empty);
 
         pull_listView = (PullListView) findViewById(R.id.pull_listView);
-        adapter = new ArticleAdapter(this);
+        adapter = new ArticleAdapter(this,isUser);
         if(!isUser){
             setTitle(user.getName().toString().trim() + title);
         }else{
@@ -73,19 +75,20 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ArticleDAO item = null;
-                if(isUser){
+                if (isUser) {
                     if (position < 2) return;
                     item = (ArticleDAO) adapter.getItem(position - 2);
-                }else{
+                } else {
                     if (position < 1) return;
-                   item = (ArticleDAO) adapter.getItem(position - 1);
+                    item = (ArticleDAO) adapter.getItem(position - 1);
                 }
 
                 Intent intent = new Intent(AritlceActivity.this, ArticleDetailActivity.class);
-                intent.putExtra("article_id", item.getId()+"");
+                intent.putExtra("article_id", item.getId() + "");
                 startActivity(intent);
             }
         });
+        pull_listView.setEmptyView(tv_empty);
     }
     //初始化我的文章头部
     private void initTopDate(UserRecordDAO userRecord){
@@ -108,7 +111,7 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
     }
     //查询用户自己观点
     private void query_user_article(){
-        progressDialog.progressDialog();
+
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.query_user_article.name(), PostType.article.name(),
                         httpPostParams.query_user_article(preferenceUtil.getID() + "", preferenceUtil.getUUid()) ),
                 ArticleInfoDAO.class,
@@ -126,7 +129,7 @@ public class AritlceActivity extends BaseActivity implements PullListView.OnRefr
     }
     //查询他人的观点
     private void peer_info_query_user_article(String peer_id){
-        progressDialog.progressDialog();
+
         httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.peer_info_query_user_article.name(), PostType.peer_info.name(),
                         httpPostParams.peer_info_query_user_article(preferenceUtil.getID() + "", preferenceUtil.getUUid(),peer_id) ),
                 ArticleInfoDAO.class,

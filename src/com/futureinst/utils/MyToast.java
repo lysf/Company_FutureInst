@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.futureinst.R;
 import com.futureinst.utils.toast.ToastHelper;
 
+import java.util.logging.Handler;
+
 public class MyToast {
 	private static MyToast myToast;
 	private ToastHelper toast;
@@ -63,6 +65,7 @@ public class MyToast {
 		if(toast != null){
 			toast.removeView();
 			toast = null;
+            return;
 		}
 		toast = new ToastHelper(activity);
 //	    float hOffset = activity.getResources().getDimension(R.dimen.widget_height_35);

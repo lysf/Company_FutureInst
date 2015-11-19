@@ -42,7 +42,7 @@
             android:id="@+id/id_stickynavlayout_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/text_color_e" />
+            android:background="@color/text_color_white" />
         <com.futureinst.widget.CustomViewPager
             android:id="@+id/id_stickynavlayout_viewpager"
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
             android:layout_below="@+id/ll_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/text_color_e" />
+            android:background="@color/text_color_white" />
 
 
 

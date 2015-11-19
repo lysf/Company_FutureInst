@@ -149,10 +149,6 @@ public class HttpResponseUtils {
 	}
 	public synchronized <T> void postJson_1(final Map<String, String> params, final Class<T> clz,
 			final PostCommentResponseListener commentResponseListener) {
-		if(!Utils.checkNetkworkState(activity)){
-			MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
-			return;
-		}
 		StringRequest postRequest = new StringRequest(Request.Method.POST, HttpPath.URL,
 				new Response.Listener<String>() {
 			@Override
@@ -194,7 +190,6 @@ public class HttpResponseUtils {
 					e.printStackTrace();
 				}
 				if(!Utils.checkNetkworkState(activity)) {
-//					NetstateToast.getInstance(activity, activity.getResources().getString(R.string.connection_interrupt)).showToast();
 					MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
 					return;
 				}

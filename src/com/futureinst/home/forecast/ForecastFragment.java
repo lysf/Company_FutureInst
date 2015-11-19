@@ -26,7 +26,7 @@ import org.json.JSONException;
 
 public class ForecastFragment extends BaseFragment implements OnPageChangeListener{
     private CustomViewPager viewPager;
-//    private HomeLayout home_layout;
+    private Long recordTime;
     private String[] titles;
     private PagerSlidingTabStrip slidingTab;
     private ForecastViewPagerAdapter adapter;
@@ -43,10 +43,9 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         setContentView(R.layout.fragment_forecast);
         initView();
         getBanner();
+        recordTime = System.currentTimeMillis();
     }
     private void initView() {
-//        home_layout = (HomeLayout)findViewById(R.id.home_layout);
-//        home_layout.setOnScrollListener(this);
         slidingTab = (PagerSlidingTabStrip) findViewById(R.id.id_stickynavlayout_indicator);
         viewPager = (CustomViewPager) findViewById(R.id.id_stickynavlayout_viewpager);
         titles = getResources().getStringArray(R.array.home_icon_title);
@@ -67,15 +66,17 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.getScreenWidth(getContext())*346/750);
         view_auto_viewpager.setLayoutParams(layoutParams);
 
-
     }
 
 
     @Override
     public void onResume() {
-        // TODO Auto-generated method stub
         super.onResume();
         adapter.getItem(viewPager.getCurrentItem()).setUserVisibleHint(true);
+        if(System.currentTimeMillis() - recordTime > 60*60*1000){
+            recordTime = System.currentTimeMillis();
+            getBanner();
+        }
     }
     @Override
     public void onPageScrollStateChanged(int arg0) {
@@ -99,10 +100,12 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
                     public void requestCompleted(Object response) throws JSONException {
                         if(response == null) return;
                         QueryEventInfoDAO eventInfoDAO = (QueryEventInfoDAO)response;
-                        bannerAdapter = new BannerAdapter(getChildFragmentManager(),eventInfoDAO.getEvents());
-                        autoScrollViewPager.setAdapter(bannerAdapter);
-                        circlePageIndicator.setViewPager(autoScrollViewPager);
-                        autoScrollViewPager.startAutoScroll(4000);
+                        if(eventInfoDAO.getEvents() != null && eventInfoDAO.getEvents().size() > 0){
+                            bannerAdapter = new BannerAdapter(getChildFragmentManager(),eventInfoDAO.getEvents());
+                            autoScrollViewPager.setAdapter(bannerAdapter);
+                            circlePageIndicator.setViewPager(autoScrollViewPager);
+                            autoScrollViewPager.startAutoScroll(4000);
+                        }
                     }
                 }
         );

@@ -214,7 +214,7 @@ public class RichEditor extends WebView {
   }
 
   public String getHtml() {
-    return mContents;
+    return mContents == null ? "" : mContents;
   }
 
   public void setEditorFontColor(int color) {
