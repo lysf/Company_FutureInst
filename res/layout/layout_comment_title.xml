@@ -65,7 +65,7 @@
 	            android:ellipsize="end"
 	            android:gravity="center"
 	            android:singleLine="true"
-	            android:textSize="18sp"
+	            android:textSize="@dimen/text_size_large"
 	            android:textColor="@color/text_color_0"
 	            />
 		</LinearLayout>

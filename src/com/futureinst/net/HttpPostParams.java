@@ -911,4 +911,35 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
+
+    /**
+     * 查询今日任务
+     * @param user_id
+     * @param uuid
+     * @return
+     */
+    public String query_user_daily_task(String user_id, String uuid){
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 领取任务奖励
+     * @param user_id
+     * @param uuid
+     * @param task_name
+     * @return
+     */
+    public String get_daily_task_award(String user_id, String uuid,String task_name){
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("task_name", task_name);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
 }

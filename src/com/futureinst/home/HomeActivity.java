@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,6 +43,7 @@ import com.futureinst.home.find.FondFragment;
 import com.futureinst.home.userinfo.UserInfoFragment;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
+import com.futureinst.model.dailytask.DailyTaskInfoDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.model.version.VersionDAO;
 import com.futureinst.net.PostCommentResponseListener;
@@ -51,6 +53,7 @@ import com.futureinst.newbieguide.GuideClickInterface;
 import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.service.UpdateDialogShow;
 import com.futureinst.service.UpdateService;
+import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.BadgeUtil;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
@@ -72,7 +75,8 @@ public class HomeActivity extends BaseActivity {
 //	private LinearLayout ll_home_tab;
 	private BroadcastReceiver receiver;
 	private String cid;
-	private TextView tv_messageCount;
+//	private TextView tv_messageCount;
+    private ImageView iv_message_tip;
 	private View[] views;
 	private List<Fragment> fragments;
 	private Animation animation;
@@ -94,6 +98,9 @@ public class HomeActivity extends BaseActivity {
 //					setRanking(userInformationInfo.getUser_record());
 				}
 				break;
+                case -1:
+                    getMessageCount();
+                    break;
 			}
 		}
     };
@@ -101,7 +108,7 @@ public class HomeActivity extends BaseActivity {
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
 		Content.statusHeight = Utils.getStatusHeight(this);
-		Log.i("","====================statusHeight====>>"+Content.statusHeight);
+        ActivityManagerUtil.addActivity(this);
 		initVeiw();
 		initFragment();
 		if(!preferenceUtil.getInstallTag()){
@@ -115,13 +122,6 @@ public class HomeActivity extends BaseActivity {
 		 if(preferenceUtil.getGuide1())
 			 return;
 		 WelcomeDialog.showWelcom(this);
-//		 new NewbieGuide(this, R.drawable.guide_1, new GuideClickInterface() {
-//			@Override
-//			public void guideClick() {
-//				preferenceUtil.setGuide1();
-//			}
-//		});
-		 
 	 }
 	 
 	 OnClickListener clickListener = new OnClickListener() {
@@ -152,7 +152,8 @@ public class HomeActivity extends BaseActivity {
 		views = new View[4];
 		fragments = new ArrayList<Fragment>(); 
 //		ll_home_tab = (LinearLayout) findViewById(R.id.ll_home_table);
-		tv_messageCount = (TextView) findViewById(R.id.tv_message_count);
+//		tv_messageCount = (TextView) findViewById(R.id.tv_message_count);
+        iv_message_tip = (ImageView)findViewById(R.id.iv_message_tip);
 		
 		views[0]  = findViewById(R.id.tab1);
 		views[1]  = findViewById(R.id.tab2);
@@ -204,11 +205,12 @@ public class HomeActivity extends BaseActivity {
 	// 判断是否登录
 	private void judgeIsLogin() {
 		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
-			Log.i("tag","===========user_id="+preferenceUtil.getID()+"==uuid="+preferenceUtil.getUUid());
-			getMessageCount();
+            Log.i(TAG,"=========id="+preferenceUtil.getID()+"==uuid="+preferenceUtil.getUUid());
+            getMessageCount();
 			if(!isUpdate){
 				//初始化推送
 				query_user_record();
+                query_user_daily_task();
 				PushManager.getInstance().initialize(this.getApplicationContext());
 			}
 
@@ -255,24 +257,51 @@ public class HomeActivity extends BaseActivity {
 					}
 				});
 	}
+    //查询今日任务
+	private void query_user_daily_task() {
+        if(TextUtils.isEmpty(preferenceUtil.getUUid())){
+            return;
+        }
+		httpResponseUtils.postJson(
+				httpPostParams.getPostParams(
+						PostMethod.query_user_daily_task.name(),
+						PostType.daily_task.name(),
+						httpPostParams.query_user_daily_task(preferenceUtil.getID()
+                                + "", preferenceUtil.getUUid())),
+                DailyTaskInfoDAO.class, new PostCommentResponseListener() {
+					@Override
+					public void requestCompleted(Object response)
+							throws JSONException {
+						if (response == null)
+							return;
+                        DailyTaskInfoDAO dailyTaskInfo = (DailyTaskInfoDAO) response;
+                        if(dailyTaskInfo.getDaily_task()!=null &&
+                                dailyTaskInfo.getDaily_task().getAwardedTasks() != null
+                                && dailyTaskInfo.getDaily_task().getAwardedTasks().size() == 5){
+                            iv_message_tip.setVisibility(View.INVISIBLE);
+                        }else{
+                            iv_message_tip.setVisibility(View.VISIBLE);
+                        }
+                        handler.sendEmptyMessage(-1);
+					}
+				});
+	}
 	//获取未读消息数量
 		private void getMessageCount(){
 			if(TextUtils.isEmpty(preferenceUtil.getUUid())){
 				return;
 			}
-//			pushMessageUtils = new PushMessageUtils(getApplicationContext());
-//			int count =  pushMessageUtils.getUnReadMessageCount();
 			messageCacheUtil = PushMessageCacheUtil.getInstance(this);
 			int count =  messageCacheUtil.getUnReadMessage();
 			if(count>0){
 				BadgeUtil.setBadgeCount(getApplicationContext(), count);
-				tv_messageCount.setText(count+"");
-				tv_messageCount.setVisibility(View.VISIBLE);
-			}else{
-				tv_messageCount.setText("0");
-				BadgeUtil.resetBadgeCount(getApplicationContext());
-				tv_messageCount.setVisibility(View.INVISIBLE);
+//				tv_messageCount.setText(count+"");
+                iv_message_tip.setVisibility(View.VISIBLE);
 			}
+//            else{
+//				BadgeUtil.resetBadgeCount(getApplicationContext());
+//                iv_message_tip.setVisibility(View.INVISIBLE);
+//			}
 		}
 		
 	//显示广告
@@ -400,29 +429,6 @@ public class HomeActivity extends BaseActivity {
 			boolean down = y > lastY ? true : false;
 			lastY = y;
 			lastX = x;
-//			if(dx< 8 && dy > 8&& !isHide && !down){
-//				animation = AnimationUtils.loadAnimation(this, R.anim.push_out);
-//				ll_home_tab.startAnimation(animation);
-//				handler.postDelayed(new Runnable(){
-//		            public void run() {
-//		            	if(isCloseTab){
-//		            		ll_home_tab.setVisibility(View.GONE);
-//		            		isHide = true;
-//		            	}
-//		            } 
-//				}, 500);
-//			}else if(dx < 8 && dy > 8 && isHide && down){
-//				animation = AnimationUtils.loadAnimation(this, R.anim.push_in);
-//				ll_home_tab.startAnimation(animation);
-//				handler.postDelayed(new Runnable(){
-//		            public void run() {
-//		            	ll_home_tab.setVisibility(View.VISIBLE);
-//		            	isHide = false;
-//		            } 
-//				}, 500);
-//			}else{
-//				break;
-//			}
 			break;
 		}
 		return super.dispatchTouchEvent(event);
@@ -436,7 +442,7 @@ public class HomeActivity extends BaseActivity {
 			isCloseTab = false;
 //			ll_home_tab.setVisibility(View.VISIBLE);
 		}
-		getMessageCount();
+		query_user_daily_task();
 	}
 
 	@Override
@@ -447,6 +453,7 @@ public class HomeActivity extends BaseActivity {
 		SystemTimeUtile.getInstance(0L).setFlag(false);
 		if (receiver != null)
 			unregisterReceiver(receiver);
+        ActivityManagerUtil.finishActivity();
 	}
 	
 	

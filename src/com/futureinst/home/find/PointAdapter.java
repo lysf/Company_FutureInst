@@ -63,7 +63,7 @@ public class PointAdapter extends BaseAdapter {
         TextView tv_type = ViewHolder.get(convertView,R.id.tv_type);
         TextView tv_title = ViewHolder.get(convertView,R.id.tv_title);
         TextView tv_name = ViewHolder.get(convertView,R.id.tv_name);
-        TextView tv_time = ViewHolder.get(convertView,R.id.tv_time);
+//        TextView tv_time = ViewHolder.get(convertView,R.id.tv_time);
         TextView tv_read = ViewHolder.get(convertView,R.id.tv_read);
         TextView tv_praise = ViewHolder.get(convertView,R.id.tv_praise);
         TextView tv_comment_num = ViewHolder.get(convertView,R.id.tv_comment_num);
@@ -78,7 +78,7 @@ public class PointAdapter extends BaseAdapter {
         tv_praise.setText(" "+item.getLoveNum());
         tv_comment_num.setText(" "+item.getCommentNum());
         tv_title.setText(item.getTitle());
-        tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getMtime()));
+//        tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getMtime()));
         return convertView;
     }
     public void setOperateListener(PraiseOperateListener operateListener){

@@ -78,7 +78,7 @@
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/attrs.xml -->
     <eat-comment/>
     <attr format="reference" name="cropImageStyle"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
@@ -87,13 +87,13 @@
     <eat-comment/>
     <attr format="color" name="selectedColor"/>
     <attr format="dimension" name="strokeWidth"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <attr format="string" name="title"/>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__attrs.xml -->
     <eat-comment/>
     <attr format="color" name="unselectedColor"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
@@ -110,7 +110,7 @@
     <bool name="default_line_indicator_centered">true</bool>
     <bool name="default_title_indicator_selected_bold">true</bool>
     <bool name="default_underline_indicator_fades">true</bool>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
@@ -120,7 +120,7 @@
     <eat-comment/>
     <color name="aboutUs_Check">#D9DEF4</color>
     <color name="aboutUs_UnCheck">#F1F4FB</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
@@ -138,7 +138,7 @@
     <eat-comment/>
     <color name="background">#1E266E</color>
     <color name="background5">#6069B7</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
@@ -149,7 +149,7 @@
     <color name="background_tab_pressed">#6633B5E5</color>
     <color name="base_bg">#f4f6f6</color>
     <color name="bg">#F1F1F1</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -161,7 +161,7 @@
     <eat-comment/>
     <color name="btn_invivate_0">#5ac8fa</color>
     <color name="btn_invivate_1">#225ac8fa</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
@@ -194,7 +194,7 @@
     <color name="default_title_indicator_selected_color">#FFFFFFFF</color>
     <color name="default_title_indicator_text_color">#BBFFFFFF</color>
     <color name="default_underline_indicator_selected_color">#FF33B5E5</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
@@ -205,7 +205,7 @@
     <color name="design_fab_stroke_top_outer_color">#2EFFFFFF</color>
     <color name="design_snackbar_background_color">#323232</color>
     <color name="design_textinput_error_color">#FFDD2C00</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
@@ -216,7 +216,7 @@
     <color name="forecast_bottom_line_select">#F8E71C</color>
     <color name="forecast_deal">#ffcc00</color>
     <color name="forecast_deal_line">#Ff9500</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
@@ -225,7 +225,7 @@
     <color name="gain_blue">#B9D310</color>
     <color name="gain_red">#ff6565</color>
     <color name="greenLight">#ff99cc00</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
@@ -257,7 +257,7 @@
     <eat-comment/>
     <color name="login_btn_login">#BAD311</color>
     <color name="login_title_layout_back">#081448</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
@@ -275,7 +275,7 @@
     <eat-comment/>
     <color name="model_check">#E5E5E5</color>
     <color name="model_uncheck">#F2F2F2</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
@@ -301,7 +301,7 @@
     <color name="regist_keyword_9">#E6E6E6</color>
     <color name="right_btn">#1B6EDC</color>
     <color name="rippelColor">#86BFFA</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
@@ -314,7 +314,7 @@
     <color name="sliding_table_0">#C5C5C5</color>
     <color name="sliding_table_1">#51C1CF</color>
     <color name="status_bar">#f1f1f1</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
@@ -374,7 +374,7 @@
     <declare-styleable name="CustomViewImgText"><attr format="reference" name="imageSrc"/><attr format="string" name="text"/></declare-styleable>
     <declare-styleable name="DragTopLayout"><attr format="dimension" name="dtlCollapseOffset"/><attr format="boolean" name="dtlOverDrag"/><attr format="boolean" name="dtlOpen"/><attr format="reference" name="dtlTopView"/><attr format="reference" name="dtlDragContentView"/><attr format="boolean" name="dtlCaptureTop"/></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="arrowHeadLength"/><attr format="dimension" name="arrowShaftLength"/><attr format="dimension" name="barLength"/><attr format="dimension" name="thickness"/></declare-styleable>
-    <declare-styleable name="FloatingActionButton"><attr name="android:background"/><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/></declare-styleable>
+    <declare-styleable name="FloatingActionButton"><attr name="backgroundTint"/><attr name="backgroundTintMode"/><attr format="color" name="rippleColor"/><attr name="fabSize"><enum name="normal" value="0"/><enum name="mini" value="1"/></attr><attr name="elevation"/><attr format="dimension" name="pressedTranslationZ"/><attr format="dimension" name="borderWidth"/></declare-styleable>
     <declare-styleable name="ForegroundLinearLayout"><attr name="android:foreground"/><attr name="android:foregroundGravity"/><attr format="boolean" name="foregroundInsidePadding"/></declare-styleable>
     <declare-styleable name="GridLayout"><attr name="orientation"><enum name="horizontal" value="0"/><enum name="vertical" value="1"/></attr><attr format="integer" name="rowCount"/><attr format="integer" name="columnCount"/><attr format="boolean" name="useDefaultMargins"/><attr name="alignmentMode"><enum name="alignBounds" value="0"/><enum name="alignMargins" value="1"/></attr><attr format="boolean" name="rowOrderPreserved"/><attr format="boolean" name="columnOrderPreserved"/></declare-styleable>
     <declare-styleable name="GridLayout_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_margin"/><attr name="android:layout_marginLeft"/><attr name="android:layout_marginTop"/><attr name="android:layout_marginRight"/><attr name="android:layout_marginBottom"/><attr format="integer" name="layout_row"/><attr format="integer" min="1" name="layout_rowSpan"/><attr format="float" name="layout_rowWeight"/><attr format="integer" name="layout_column"/><attr format="integer" min="1" name="layout_columnSpan"/><attr format="float" name="layout_columnWeight"/><attr name="layout_gravity"><flag name="top" value="0x30"/><flag name="bottom" value="0x50"/><flag name="left" value="0x03"/><flag name="right" value="0x05"/><flag name="center_vertical" value="0x10"/><flag name="fill_vertical" value="0x70"/><flag name="center_horizontal" value="0x01"/><flag name="fill_horizontal" value="0x07"/><flag name="center" value="0x11"/><flag name="fill" value="0x77"/><flag name="clip_vertical" value="0x80"/><flag name="clip_horizontal" value="0x08"/><flag name="start" value="0x00800003"/><flag name="end" value="0x00800005"/></attr></declare-styleable>
@@ -414,7 +414,7 @@
     <declare-styleable name="ViewPagerIndicator"><attr format="reference" name="vpiCirclePageIndicatorStyle"/><attr format="reference" name="vpiIconPageIndicatorStyle"/><attr format="reference" name="vpiLinePageIndicatorStyle"/><attr format="reference" name="vpiTitlePageIndicatorStyle"/><attr format="reference" name="vpiTabPageIndicatorStyle"/><attr format="reference" name="vpiUnderlinePageIndicatorStyle"/></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
     <declare-styleable name="swipelistviewstyle"><attr format="dimension" name="right_width"/></declare-styleable>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -489,6 +489,7 @@
     <dimen name="activity_login_margin_10">10dip</dimen>
     <dimen name="activity_login_padding">30dip</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
     <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
@@ -517,7 +518,7 @@
     <dimen name="default_title_indicator_text_size">15dp</dimen>
     <dimen name="default_title_indicator_title_padding">5dp</dimen>
     <dimen name="default_title_indicator_top_padding">7dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_fab_border_width">0.5dp</dimen>
@@ -554,14 +555,19 @@
     <dimen name="dimen_ranking_image">50dp</dimen>
     <dimen name="dimen_ranking_image_margin">12dp</dimen>
     <dimen name="dimen_user_headImage_name">22dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <eat-comment/>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
@@ -570,16 +576,19 @@
     <dimen name="margin_15">15dip</dimen>
     <dimen name="margin_20">20dip</dimen>
     <dimen name="margin_5">5dip</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
+    <dimen name="text_margin">16dp</dimen>
     <dimen name="text_size_large">19sp</dimen>
+    <dimen name="text_size_large_17">17sp</dimen>
     <dimen name="text_size_large_20">20sp</dimen>
     <dimen name="text_size_large_22">22sp</dimen>
+    <dimen name="text_size_large_26">26sp</dimen>
     <dimen name="text_size_large_28">28sp</dimen>
     <dimen name="text_size_normal">16sp</dimen>
     <dimen name="text_size_small">13sp</dimen>
@@ -589,7 +598,7 @@
     <dimen name="widget_height_45">45dip</dimen>
     <dimen name="widget_height_50">50dip</dimen>
     <dimen name="widget_height_55">55dip</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
@@ -597,19 +606,19 @@
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
     <item name="up" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="view_offset_helper" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
@@ -622,16 +631,16 @@
     <integer name="default_title_indicator_line_position">0</integer>
     <integer name="default_underline_indicator_fade_delay">300</integer>
     <integer name="default_underline_indicator_fade_length">400</integer>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <integer name="design_snackbar_text_max_lines">2</integer>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="FAQ">常见问题</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -659,7 +668,7 @@
     <string name="advance_model">高级模式</string>
     <string name="app_name">未来研究所</string>
     <string name="app_regist_tip">抱歉，未来研究所目前仅开放邀请注册。请关注微信公众号“鸭先知”，了解更多邀请码获取方式。</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
@@ -701,9 +710,9 @@
     <string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
     <string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
     <string name="cancel">取消</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
-    <string name="character_counter_pattern" translatable="false">%1$d/%2$d</string>
+    <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="client_no_response">系统无响应，请稍后再试！</string>
@@ -799,6 +808,95 @@
     <eat-comment/>
     <string name="keyword">请选择先知关键词\n（至少选一个）</string>
     <string name="lanren">懒人包〉</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
     <string name="lazy_bag">懒人包</string>
     <string name="limit_price">出价</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
@@ -935,7 +1033,7 @@
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="space">    </string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
@@ -963,6 +1061,7 @@
     <string name="title_activity_aritlce">AritlceActivity</string>
     <string name="title_activity_article_detail">ArticleDetailActivity</string>
     <string name="title_activity_home3">Home3Activity</string>
+    <string name="title_activity_today_task">TodayTaskActivity</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="tumblr">Tumblr</string>
@@ -1006,7 +1105,7 @@
     <string name="yixin_client_inavailable">目前您的易信版本过低或未安装，需要安装易信才能使用</string>
     <string name="yixinmoments">易信朋友圈</string>
     <string name="youdao">有道云笔记</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
@@ -1024,7 +1123,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
@@ -1961,7 +2060,7 @@
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
         <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
@@ -2023,7 +2122,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingRight">20dp</item> <!-- Offsets left drawable -->
+        <item name="android:paddingRight">20dp</item>
+        <!-- Offsets left drawable -->
         <item name="android:drawablePadding">8dp</item>
         <item name="android:textColor">@color/crop__button_text</item>
         <item name="android:textStyle">bold</item>
@@ -2045,10 +2145,16 @@
         <item name="android:background">@color/crop__button_bar</item>
     </style>
     <style name="FullBleedTheme" parent="Theme.AppCompat.Light.NoActionBar">
-                <item name="android:dropDownListViewStyle">@style/mySpinnerStyle</item>
-                <item name="android:windowAnimationStyle">@style/fade</item>
-        </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+        <item name="android:dropDownListViewStyle">@style/mySpinnerStyle</item>
+        <item name="android:windowAnimationStyle">@style/fade</item>
+    </style>
+    <style name="FullBleedTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="FullBleedTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="FullBleedTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
@@ -2154,7 +2260,7 @@
         <item name="@android:windowEnterAnimation">@anim/anim_toast_enter</item>
         <item name="@android:windowExitAnimation">@anim/anim_toast_exit</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="Base.DialogWindowTitle.AppCompat">
     </style>
@@ -2258,14 +2364,12 @@
     </style>
     <style name="TextAppearance.AppCompat.Widget.Switch" parent="Base.TextAppearance.AppCompat.Widget.Switch"/>
     <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="TextAppearance.Design.CollapsingToolbar.Expanded" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <style name="TextAppearance.Design.Counter" parent="TextAppearance.AppCompat.Caption">
-        <item name="android:textColor">?attr/colorControlActivated</item>
-    </style>
+    <style name="TextAppearance.Design.Counter" parent="TextAppearance.AppCompat.Caption"/>
     <style name="TextAppearance.Design.Counter.Overflow" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textColor">@color/design_textinput_error_color</item>
     </style>
@@ -2284,7 +2388,7 @@
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="textAllCaps">true</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="TextAppearance.StatusBar.EventContent" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Info" parent=""/>
@@ -2297,7 +2401,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/vpi__dark_theme</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="TextAppearance.Widget.AppCompat.ExpandedMenu.Item" parent="Base.TextAppearance.Widget.AppCompat.ExpandedMenu.Item">
     </style>
@@ -2333,7 +2437,7 @@
         <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
         <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
@@ -2344,7 +2448,7 @@
     <eat-comment/>
     <style name="Widget">
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
     </style>
@@ -2439,7 +2543,7 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.0/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Widget.Design.AppBarLayout" parent="android:Widget">
         <item name="elevation">@dimen/design_appbar_elevation</item>
@@ -2533,11 +2637,11 @@
     <style name="choose_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowIsFloating">true</item>
         <!-- 是否浮现在activity之上 -->
-		 <item name="android:windowFullscreen">true</item>  
-    	<item name="android:windowIsTranslucent">true</item>  
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowNoTitle">true</item>
         <!-- 无标题 -->
-         <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <!-- 背景透明 -->
     </style>
     <style name="fade" parent="@android:style/Animation.Activity">

@@ -15,6 +15,7 @@ import com.futureinst.home.article.AritlceActivity;
 import com.futureinst.home.hold.HoldingActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.UpFileDAO;
+import com.futureinst.model.dailytask.DailyTaskInfoDAO;
 import com.futureinst.model.record.UserRecordDAO;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.model.usermodel.UserInformationDAO;
@@ -29,6 +30,7 @@ import com.futureinst.personalinfo.other.PersonalAttentionActivity;
 import com.futureinst.personalinfo.other.PersonalRecordActivity;
 import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.sharepreference.SharePreferenceUtil;
+import com.futureinst.todaytask.TodayTaskActivity;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.MyProgressDialog;
@@ -74,12 +76,14 @@ public class UserInfoFragment extends BaseFragment {
     private PushMessageCacheUtil messageCacheUtil;
     private TextView tv_useableIcon, tv_depositCash, tv_useableSaleIcon, tv_ranking, tv_attend, tv_attention;
     private boolean isStart;
-    private TextView tv_version, tv_order;
+    private TextView  tv_order;
     private BroadcastReceiver receiver;
     private LinearLayout ll_modify;
     private TextView tv_win;
     private TextView tv_follow_add;
     private ImageView iv_ranking;
+    private ImageView iv_set;
+    private ImageView iv_todayTask;
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -106,6 +110,7 @@ public class UserInfoFragment extends BaseFragment {
     public void onResume() {
         if (((HomeActivity) getActivity()).getCurrentTab() == 3 && getUserVisibleHint()) {
             query_user_record();
+            query_user_daily_task();
             getMessageCount();
         }
         super.onResume();
@@ -141,22 +146,20 @@ public class UserInfoFragment extends BaseFragment {
         iv_headImag = (RoundedImageView) findViewById(R.id.iv_headImg);
         tv_follow_add = (TextView) findViewById(R.id.tv_follow_add);
         iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
+        iv_set = (ImageView) findViewById(R.id.iv_set);
+        iv_todayTask = (ImageView) findViewById(R.id.iv_today_task_message);
 
-        tableRows = new TableRow[10];
+        tableRows = new TableRow[5];
         ll_modify = (LinearLayout) findViewById(R.id.ll_modify);
         tableRows[0] = (TableRow) findViewById(R.id.tableRow0);
         tableRows[1] = (TableRow) findViewById(R.id.tableRow1);
         tableRows[2] = (TableRow) findViewById(R.id.tableRow2);
         tableRows[3] = (TableRow) findViewById(R.id.tableRow3);
-        tableRows[4] = (TableRow) findViewById(R.id.tableRow5);
-        tableRows[5] = (TableRow) findViewById(R.id.tableRow6);
-        tableRows[6] = (TableRow) findViewById(R.id.tableRow7);
-        tableRows[7] = (TableRow) findViewById(R.id.tableRow8);
-        tableRows[8] = (TableRow) findViewById(R.id.tableRow9);
-        tableRows[9] = (TableRow) findViewById(R.id.tableRow10);
+        tableRows[4] = (TableRow) findViewById(R.id.tableRow_todayTask);
+
         tv_useableIcon = (TextView) findViewById(R.id.tv_useableIcon);
         tv_depositCash = (TextView) findViewById(R.id.tv_depositCash);
-        tv_version = (TextView) findViewById(R.id.tv_version);
+
         tv_ranking = (TextView) findViewById(R.id.tv_ranking);
         tv_win = (TextView) findViewById(R.id.tv_win);
         receiver = new BroadcastReceiver() {
@@ -192,8 +195,7 @@ public class UserInfoFragment extends BaseFragment {
         preferenceUtil.setFollow(userInfo.getUser().getPeertoNum());
 
 
-        String version = "V" + Utils.getVersionName(getContext()) + "   Build(" + Utils.getVersionCode(getContext()) + ")";
-        tv_version.setText(version);
+
         if (!TextUtils.isEmpty(userInfo.getUser().getName())) {
             tv_userName.setText(userInfo.getUser().getName());
         }
@@ -205,9 +207,9 @@ public class UserInfoFragment extends BaseFragment {
         tv_useableSaleIcon.setText(String.format("%.2f", userInfo.getExchange()));
         tv_ranking.setText(userInfo.getRank() + "");
         if (userInfo.getLastRank() > userInfo.getRank()) {
-            iv_ranking.setBackground(getResources().getDrawable(R.drawable.iv_down));
+            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_down));
         } else if (userInfo.getLastRank() < userInfo.getRank()) {
-            iv_ranking.setBackground(getResources().getDrawable(R.drawable.iv_up));
+            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_up));
         } else {
             iv_ranking.setVisibility(View.INVISIBLE);
         }
@@ -239,8 +241,7 @@ public class UserInfoFragment extends BaseFragment {
 
     private void setClickListener() {
         iv_message.setOnClickListener(clickListener);
-//		tv_description.setOnClickListener(clickListener);
-//		tv_userName.setOnClickListener(clickListener);
+        iv_set.setOnClickListener(clickListener);
         tv_attend.setOnClickListener(clickListener);
         tv_attention.setOnClickListener(clickListener);
         tableRows[0].setOnClickListener(clickListener);
@@ -248,12 +249,7 @@ public class UserInfoFragment extends BaseFragment {
         tableRows[2].setOnClickListener(clickListener);
         tableRows[3].setOnClickListener(clickListener);
         tableRows[4].setOnClickListener(clickListener);
-        tableRows[5].setOnClickListener(clickListener);
-        tableRows[6].setOnClickListener(clickListener);
-        tableRows[7].setOnClickListener(clickListener);
-        tableRows[8].setOnClickListener(clickListener);
-        tableRows[9].setOnClickListener(clickListener);
-//		iv_headImag.setOnClickListener(clickListener);
+
         ll_modify.setOnClickListener(clickListener);
     }
 
@@ -284,6 +280,15 @@ public class UserInfoFragment extends BaseFragment {
                 case R.id.iv_message:// 消息
                     startActivity(new Intent(getActivity(), PushMessageActivity.class));
                     tv_message_count.setVisibility(View.INVISIBLE);
+                    break;
+                case R.id.iv_set://设置
+                    Intent setIntent = new Intent(getActivity(),HomeSetActivity.class);
+                    setIntent.putExtra("userInfo",userInformationDAO);
+                    startActivity(setIntent);
+                    break;
+                case R.id.tableRow_todayTask://今日任务
+                    startActivity(new Intent(getActivity(), TodayTaskActivity.class));
+
                     break;
                 case R.id.tableRow0://预测中事件
                     Intent intent0 = new Intent(getActivity(), HoldingActivity.class);
@@ -330,66 +335,12 @@ public class UserInfoFragment extends BaseFragment {
                     tv_follow_add.setVisibility(View.GONE);
                     startActivity(intent4);
                     break;
-                case R.id.tableRow5://隐私
-                    if(userInformationDAO == null ){
-                        return;
-                    }
-                    Intent intent = new Intent(getActivity(), SecrtActivity.class);
-                    intent.putExtra("permit", userInformationDAO.getUser().getPermitMap());
-                    startActivity(intent);
-                    break;
-                case R.id.tableRow6:// 常见问题
-                    startActivity(new Intent(getActivity(), FAQActivity.class));
-                    break;
-                case R.id.tableRow7://意见反馈
-                    startActivity(new Intent(getActivity(), FeedBackActivity.class));
-                    break;
-                case R.id.tableRow8:// 隐私和服务条款
-                    startActivity(new Intent(getActivity(), PrivacyActivity.class));
-                    break;
-                case R.id.tableRow9:// 关于我们
-                    startActivity(new Intent(getActivity(), AboutUsActivity.class));
-                    break;
-                case R.id.tableRow10:// 退出登录
-                    loginOut();
-                    break;
+
             }
         }
     };
 
-    //退出
-    private void loginOut() {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.view_event_order_config, null, false);
-        final Dialog dialog = DialogShow.showDialog(getActivity(), view, Gravity.CENTER);
-        TextView tv_tips = (TextView) view.findViewById(R.id.tv_configMsg);
-        Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
-        Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
-        tv_tips.setText(getResources().getString(R.string.login_out_tip));
-        btn_cancel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        btn_submit.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HomeActivity.isUpdate = false;
-                PushManager.getInstance().stopService(getContext().getApplicationContext());
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                preferenceUtil.setUUid(null);
-                preferenceUtil.setID(0L);
-                preferenceUtil.setName("");
-                preferenceUtil.setGender(0);
-                preferenceUtil.setFollow(0);
-                startActivity(intent);
-                getActivity().finish();
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
-    }
+
 
     // 获取用户信息
     private void query_user_record() {
@@ -412,7 +363,34 @@ public class UserInfoFragment extends BaseFragment {
                         });
     }
 
-
+    //查询今日任务
+    private void query_user_daily_task() {
+        if(TextUtils.isEmpty(preferenceUtil.getUUid())){
+            return;
+        }
+        httpResponseUtils.postJson(
+                httpPostParams.getPostParams(
+                        PostMethod.query_user_daily_task.name(),
+                        PostType.daily_task.name(),
+                        httpPostParams.query_user_daily_task(preferenceUtil.getID()
+                                + "", preferenceUtil.getUUid())),
+                DailyTaskInfoDAO.class, new PostCommentResponseListener() {
+                    @Override
+                    public void requestCompleted(Object response)
+                            throws JSONException {
+                        if (response == null)
+                            return;
+                        DailyTaskInfoDAO dailyTaskInfo = (DailyTaskInfoDAO) response;
+                        if (dailyTaskInfo.getDaily_task() !=null &&
+                                dailyTaskInfo.getDaily_task().getAwardedTasks() != null
+                                && dailyTaskInfo.getDaily_task().getAwardedTasks().size() == 5) {
+                            iv_todayTask.setVisibility(View.INVISIBLE);
+                        } else {
+                            iv_todayTask.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

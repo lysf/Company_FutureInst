@@ -52,7 +52,7 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
     private ImageView iv_event;
     private TextView tv_event_type,tv_event_title;
     RoundedImageView headImage_select;
-    private TextView tv_name,tv_time,tv_read,tv_praise,tv_comment;
+    private TextView tv_name,tv_read,tv_praise,tv_comment;
     private TextView tv_select_point_title;//精选观点标题
     private TextView tv_select_point_content;//精选观点内容
     private View view_select_point;
@@ -122,7 +122,7 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
         tv_event_title = (TextView)view_top.findViewById(R.id.tv_event_title);
         headImage_select = (RoundedImageView)view_top.findViewById(R.id.headImage_select);
         tv_name = (TextView)view_top.findViewById(R.id.tv_name);
-        tv_time = (TextView)view_top.findViewById(R.id.tv_time);
+//        tv_time = (TextView)view_top.findViewById(R.id.tv_time);
         tv_read = (TextView)view_top.findViewById(R.id.tv_read);
         tv_praise = (TextView)view_top.findViewById(R.id.tv_praise);
         tv_comment = (TextView)view_top.findViewById(R.id.tv_comment);
@@ -163,7 +163,7 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
         tv_comment.setText(" "+today_article.getCommentNum());
         tv_select_point_title.setText(today_article.getTitle());
         tv_select_point_content.setText(today_article.getAbstr());
-        tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(today_article.getMtime()));
+//        tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(today_article.getMtime()));
 
     }
 

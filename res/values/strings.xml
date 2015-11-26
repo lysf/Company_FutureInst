@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-     <string name="crop__saving">Saving picture…</string>
+    <string name="crop__saving">Saving picture…</string>
     <string name="crop__wait">Please wait…</string>
     <string name="crop__pick_error">No image sources available</string>
 
@@ -8,7 +8,7 @@
     <string name="crop__done">确定</string>
     <string name="crop__cancel">取消</string>
 
-	<string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送5000未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
+    <string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送5000未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
     <!-- hometable -->
     <!-- iconFont -->
     <string name="home_tab1">&#xe600;</string>
@@ -19,20 +19,20 @@
     <string name="home_bottom_tab2">发现</string>
     <string name="home_bottom_tab3">福利</string>
     <string name="home_bottom_tab4">个人</string>
-    
-    
+
+
     <string name="tab_forecast">预测</string>
     <string name="tab_revoke">订单</string>
     <string name="tab_shoop">福利</string>
     <string name="tab_ranking">成就</string>
     <string name="tab_personal">个人</string>
-    
+
     <string name="userid_found">用户信息已存在，正在跳转登录操作…</string>
     <string name="logining">使用%s帐号登录中…</string>
     <string name="auth_cancel">授权操作已取消</string>
     <string name="auth_error">授权操作遇到错误</string>
     <string name="auth_complete">授权成功，正在跳转登录操作…</string>
-    
+
     <string name="app_name">未来研究所</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -50,133 +50,223 @@
     <string name="submit_new_password">确认密码</string>
     <string name="reset_pwd">找回密码</string>
     <string name="login_out_tip">确定退出该账户</string>
-	<!-- LoginActiivty -->
-	<string name="app_regist_tip">抱歉，未来研究所目前仅开放邀请注册。请关注微信公众号“鸭先知”，了解更多邀请码获取方式。</string>
-	<string name="login_login">登录</string>
-	<string name="login_cancel">取消</string>
-	<string name="login_regist">注册</string>
-	<string name="login_phone_number">手机号</string>
-	<string name="login_password">密码</string>
-	<string name="login_forget_password">忘记密码?</string>
-	<string name="empty_phone">请输入手机号</string>
-	<string name="wrong_phone">请输入合法手机号</string>
-	<string name="empty_pwd">请输入密码</string>
-	<string name="empty_new_pwd">请输入新密码</string>
-	<string name="empty_authCode">请输入验证码</string>
-	<!-- RegistActivity -->
-	<string name="regist_auth">获取验证码</string>
-	<string name="authCode">验证码</string>
-	<string name="regist_password_tip"> （ 密码需要包含字母数字，至少8个字符，区分大小写 ） </string>
-	<string name="regist_userName">用户名</string>
-	<string name="regist_userName_tip">（ 不多于14个英文字母或者7个汉字 ）</string>
-	<string name="sex_hint">性别</string>
-	<string name="birthday_hint">生日</string>
-	<string name="sex">性别</string>
-	<string name="sex_male">男</string>
-	<string name="sex_female">女</string>
-	<string name="sex_guess">你猜</string>
-	<string name="birthday">生日</string>
-	<string name="year">年</string>
-	<string name="month">月</string>
-	<string name="day">日</string>
-	<string name="keyword">请选择先知关键词\n（至少选一个）</string>
-	<!-- HomeFragment -->
-	<string name="forecast">我要预测</string>
-	 <string name="myAttention">我的关注</string>
-	<!-- HoldFragment -->
-	<string name="hold_deal">已成交预测</string>
-	<string name="hold_undeal">未成交预测</string>
-	<!-- RankingFragment -->
-	<string name="ranking_fragment_title">排行榜</string>
-	<!-- EventDetailActivity -->
-	<string name="event_detail">事件详情</string>
-	<string name="easy_model_tip">点击看好/不看好，即以市价买进/卖空10件该事件。</string>
-	<string name="easy_model">简易模式</string>
-	<string name="advance_model">高级模式</string>
-	<string name="lanren">懒人包〉</string>
-	<string name="reference_news">参考消息</string>
-	<string name="buy">看好，买进</string>
-	<string name="sell">不看好，卖空</string>
-	<string name="limit_price">出价</string>
-	<string name="market_price">市价</string>
-	<string name="submit_buy">确认买入</string>
-	<string name="submit_sell">确认卖空</string>
-	<string name="lazy_bag">懒人包</string>
-	<!-- UserInfoFragment -->
-	<string name="userNmae_hint">用户名</string>
-	<string name="description_hint">一句话表达"先知态度"</string>
-	<string name="asset">我的资产</string>
-	<string name="useableMoney">总未币</string>
-	<string name="ranking">排名</string>
-	<string name="useableIcon">可消费未币</string>
-	<string name="depositCash">保证金</string>
-	<string name="forecasting">预测中事件</string>
-	<string name="record">战绩</string>
-	<string name="bill">对账单</string>
-	<string name="myattention">我关注的人</string>
-	<string name="attendMe">关注我的人</string>
-	<string name="secret">隐私</string>
-	<string name="question">常见问题</string>
-	<string name="feedback">意见反馈</string>
-	<string name="privacy">服务条款</string>
-	<string name="about_us">关于我们</string>
-	<string name="store">未来福利社</string>
-	
-	<string name="FAQ">常见问题</string>
-	<string name="media_report">媒体报道</string>
-	<string name="contact_us">联系我们</string>
-	<string name="guidang">归档事件</string>
-	<string name="pushMessage">通知中心</string>
-	
-	<string name="regist_sucess_tip">欢迎进入未来研究所，5000点未币已送达你的账户，现在就去预测世界大展身手吧！</string>
-	
-	<string name="hold_delete">确定清空所有已清算的预测记录？</string>
-	<string name="unhold_delete">确定清空所有已失效的预测记录？</string>
-	<string name="unhold_revoke">确定撤销该预测订单？</string>
-	<string name="point">● </string>
-	<string name="buy_tip_1">若事件发生则<font color = "#CB232B"> 看好 </font>盈利 | 事件不发生则<font color = "#008842"> 不看好 </font>盈利</string>
-	<string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
-	<string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
-	<string name="steep3_price_tip">● 此次预测将用</string>
-	<string name="event_detail_good"> 若事件发生你将 </string>
-	<string name="event_detail_bad">\t|\t若事件不发生你将</string>
-	<string name="hold_1">又不看好&#160;</string>
-	<string name="unhold_1">你看好&#160;&#160;&#160;&#160;&#160;</string>
-	<string name="unhold_1_1">你已<font color = "#ff6565">看多</font></string>
-	<string name="unhold_2">你已<font color = "#B9D310">看空</font></string>
-	<string name="unhold_3">剩余&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
-	<string name="event_detail_deal">其中&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
-	<string name="space">&#160;&#160;&#160;&#160;</string>
-	
-	<string name="event_detail_depend">清算依据</string>
-	<string name="event_detail_focus">关注该事件</string>
-	<string name="event_detail_unfocus">取消关注该事件</string>
-	<string name="event_detail_share">分享有奖</string>
-	<string name="event_detail_guide">新手说明</string>
-	
-	<string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>
-	<string name="order_look_bad">此次预测，如果事件不发生，则你获利 P*Q=$，若事件发生，则你亏损（100-P）*Q=￥</string>
+    <!-- LoginActiivty -->
+    <string name="app_regist_tip">抱歉，未来研究所目前仅开放邀请注册。请关注微信公众号“鸭先知”，了解更多邀请码获取方式。</string>
+    <string name="login_login">登录</string>
+    <string name="login_cancel">取消</string>
+    <string name="login_regist">注册</string>
+    <string name="login_phone_number">手机号</string>
+    <string name="login_password">密码</string>
+    <string name="login_forget_password">忘记密码?</string>
+    <string name="empty_phone">请输入手机号</string>
+    <string name="wrong_phone">请输入合法手机号</string>
+    <string name="empty_pwd">请输入密码</string>
+    <string name="empty_new_pwd">请输入新密码</string>
+    <string name="empty_authCode">请输入验证码</string>
+    <!-- RegistActivity -->
+    <string name="regist_auth">获取验证码</string>
+    <string name="authCode">验证码</string>
+    <string name="regist_password_tip"> （ 密码需要包含字母数字，至少8个字符，区分大小写 ） </string>
+    <string name="regist_userName">用户名</string>
+    <string name="regist_userName_tip">（ 不多于14个英文字母或者7个汉字 ）</string>
+    <string name="sex_hint">性别</string>
+    <string name="birthday_hint">生日</string>
+    <string name="sex">性别</string>
+    <string name="sex_male">男</string>
+    <string name="sex_female">女</string>
+    <string name="sex_guess">你猜</string>
+    <string name="birthday">生日</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="keyword">请选择先知关键词\n（至少选一个）</string>
+    <!-- HomeFragment -->
+    <string name="forecast">我要预测</string>
+    <string name="myAttention">我的关注</string>
+    <!-- HoldFragment -->
+    <string name="hold_deal">已成交预测</string>
+    <string name="hold_undeal">未成交预测</string>
+    <!-- RankingFragment -->
+    <string name="ranking_fragment_title">排行榜</string>
+    <!-- EventDetailActivity -->
+    <string name="event_detail">事件详情</string>
+    <string name="easy_model_tip">点击看好/不看好，即以市价买进/卖空10件该事件。</string>
+    <string name="easy_model">简易模式</string>
+    <string name="advance_model">高级模式</string>
+    <string name="lanren">懒人包〉</string>
+    <string name="reference_news">参考消息</string>
+    <string name="buy">看好，买进</string>
+    <string name="sell">不看好，卖空</string>
+    <string name="limit_price">出价</string>
+    <string name="market_price">市价</string>
+    <string name="submit_buy">确认买入</string>
+    <string name="submit_sell">确认卖空</string>
+    <string name="lazy_bag">懒人包</string>
+    <!-- UserInfoFragment -->
+    <string name="userNmae_hint">用户名</string>
+    <string name="description_hint">一句话表达"先知态度"</string>
+    <string name="asset">我的资产</string>
+    <string name="useableMoney">总未币</string>
+    <string name="ranking">排名</string>
+    <string name="useableIcon">可消费未币</string>
+    <string name="depositCash">保证金</string>
+    <string name="forecasting">预测中事件</string>
+    <string name="record">战绩</string>
+    <string name="bill">对账单</string>
+    <string name="myattention">我关注的人</string>
+    <string name="attendMe">关注我的人</string>
+    <string name="secret">隐私</string>
+    <string name="question">常见问题</string>
+    <string name="feedback">意见反馈</string>
+    <string name="privacy">服务条款</string>
+    <string name="about_us">关于我们</string>
+    <string name="store">未来福利社</string>
+
+    <string name="FAQ">常见问题</string>
+    <string name="media_report">媒体报道</string>
+    <string name="contact_us">联系我们</string>
+    <string name="guidang">归档事件</string>
+    <string name="pushMessage">通知中心</string>
+
+    <string name="regist_sucess_tip">欢迎进入未来研究所，5000点未币已送达你的账户，现在就去预测世界大展身手吧！</string>
+
+    <string name="hold_delete">确定清空所有已清算的预测记录？</string>
+    <string name="unhold_delete">确定清空所有已失效的预测记录？</string>
+    <string name="unhold_revoke">确定撤销该预测订单？</string>
+    <string name="point">● </string>
+    <string name="buy_tip_1">若事件发生则<font color="#CB232B"> 看好 </font>盈利 | 事件不发生则<font color="#008842"> 不看好 </font>盈利</string>
+    <string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
+    <string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
+    <string name="steep3_price_tip">● 此次预测将用</string>
+    <string name="event_detail_good"> 若事件发生你将 </string>
+    <string name="event_detail_bad">\t|\t若事件不发生你将</string>
+    <string name="hold_1">又不看好&#160;</string>
+    <string name="unhold_1">你看好&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="unhold_1_1">你已<font color="#ff6565">看多</font></string>
+    <string name="unhold_2">你已<font color="#B9D310">看空</font></string>
+    <string name="unhold_3">剩余&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="event_detail_deal">其中&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="space">&#160;&#160;&#160;&#160;</string>
+
+    <string name="event_detail_depend">清算依据</string>
+    <string name="event_detail_focus">关注该事件</string>
+    <string name="event_detail_unfocus">取消关注该事件</string>
+    <string name="event_detail_share">分享有奖</string>
+    <string name="event_detail_guide">新手说明</string>
+
+    <string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>
+    <string name="order_look_bad">此次预测，如果事件不发生，则你获利 P*Q=$，若事件发生，则你亏损（100-P）*Q=￥</string>
 	
 	
 	<string name="tip_rule">这个事件是YES/NO型，最后清算价格只可能是100或0，代表着事件【发生】或是【未发生】两种结果，不会存在中间状态哦
 清算依据呢，就是$
 如果事件提前发生，鸭先知就只好提前关闭交易并清算啦。
 事件清算若出现了任何争议，本先知会送往仲裁委员会裁决，一定会给大家个公正的结果哒！</string>
-<string name="empty_hold">这里空空如也，鸭先知都能在这儿筑巢啦</string>
-<string name="shareTips">目前大家认为有X%的可能性会发生【Y】，你信吗？</string>
+    <string name="empty_hold">这里空空如也，鸭先知都能在这儿筑巢啦</string>
+    <string name="shareTips">目前大家认为有X%的可能性会发生【Y】，你信吗？</string>
 
-<!-- personalShow -->
-<string name="show_homepage">Ta的主页</string>
-<string name="show_assure">总资产(未币)</string>
-<string name="show_forecast">预测中事件</string>
-<string name="show_ranking">他的战绩</string>
-<string name="show_comment">他的评论</string>
-<string name="show_attention">他关注的人</string>
-<string name="show_attend">关注他的人</string>
+    <!-- personalShow -->
+    <string name="show_homepage">Ta的主页</string>
+    <string name="show_assure">总资产(未币)</string>
+    <string name="show_forecast">预测中事件</string>
+    <string name="show_ranking">他的战绩</string>
+    <string name="show_comment">他的评论</string>
+    <string name="show_attention">他关注的人</string>
+    <string name="show_attend">关注他的人</string>
     <string name="title_activity_home3">Home3Activity</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_article_detail">ArticleDetailActivity</string>
     <string name="title_activity_aritlce">AritlceActivity</string>
+    <string name="title_activity_today_task">TodayTaskActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
 </resources>

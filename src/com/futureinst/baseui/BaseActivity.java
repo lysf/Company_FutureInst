@@ -452,6 +452,10 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
+//        if(progressDialog!=null && progressDialog.getIsShow()){
+//            progressDialog.cancleProgress();
+//            return;
+//        }
 		finish();
 	}
 	  

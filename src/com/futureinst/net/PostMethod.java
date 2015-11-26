@@ -52,4 +52,6 @@ public enum PostMethod {
 	peer_info_query_user_article,//查询他人观点
 	add_article,//添加观点
 	query_user_news,//动态
+    query_user_daily_task,//查询当日任务
+    get_daily_task_award,//领取当日任务奖励
 }

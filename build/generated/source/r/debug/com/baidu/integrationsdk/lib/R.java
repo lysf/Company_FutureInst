@@ -19,16 +19,16 @@ public final class R {
 		public static final int bdp_update_progress_download = 0x7f02005f;
 	}
 	public static final class id {
-		public static final int btn_action_1 = 0x7f0c00e7;
-		public static final int lin_other_btns = 0x7f0c00e8;
-		public static final int txt_action_2 = 0x7f0c00e9;
-		public static final int txt_action_3 = 0x7f0c00ea;
-		public static final int txt_main_tip = 0x7f0c00e5;
-		public static final int txt_minor_tip = 0x7f0c00e6;
-		public static final int txt_title = 0x7f0c00e4;
+		public static final int btn_action_1 = 0x7f0c010a;
+		public static final int lin_other_btns = 0x7f0c010b;
+		public static final int txt_action_2 = 0x7f0c010c;
+		public static final int txt_action_3 = 0x7f0c010d;
+		public static final int txt_main_tip = 0x7f0c0108;
+		public static final int txt_minor_tip = 0x7f0c0109;
+		public static final int txt_title = 0x7f0c0107;
 	}
 	public static final class layout {
-		public static final int bdp_update_activity_confirm_dialog = 0x7f030038;
+		public static final int bdp_update_activity_confirm_dialog = 0x7f03003a;
 	}
 	public static final class string {
 		public static final int bdp_update_action_download = 0x7f070021;
@@ -52,8 +52,8 @@ public final class R {
 		public static final int bdp_update_title_install = 0x7f070033;
 	}
 	public static final class style {
-		public static final int bdp_update_dialog_style = 0x7f0a007b;
-		public static final int bdp_update_dialog_style_fullscreen = 0x7f0a015c;
-		public static final int bdp_update_progress_download = 0x7f0a015d;
+		public static final int bdp_update_dialog_style = 0x7f0a007c;
+		public static final int bdp_update_dialog_style_fullscreen = 0x7f0a015f;
+		public static final int bdp_update_progress_download = 0x7f0a0160;
 	}
 }

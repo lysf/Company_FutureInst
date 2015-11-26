@@ -15,4 +15,5 @@ public enum PostType {
 	user_info ,//查询个人资产战绩等
 	article ,//评论
 	news ,//动态
+    daily_task ,//当日任务
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
-     xmlns:HomeTab="http://schemas.android.com/apk/res/com.futureinst"
+     xmlns:HomeTab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:minHeight="@dimen/widget_height_55"
@@ -54,9 +54,16 @@
             android:gravity="center"
             android:layout_centerHorizontal="true"
             android:orientation="horizontal">
+            <ImageView
+                android:visibility="invisible"
+                android:id="@+id/iv_message_tip"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:src="@drawable/message_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <TextView 
            android:id="@+id/tv_message_count"
-           android:visibility="invisible"
+           android:visibility="gone"
            android:layout_marginLeft="@dimen/margin_20"
            android:layout_width="@dimen/margin_20"
            android:layout_height="@dimen/margin_20"

@@ -39,13 +39,12 @@
             android:layout_height="180dip"/>
         <TextView
             android:id="@+id/tv_group"
-            android:layout_marginLeft="@dimen/margin_20"
-            android:layout_marginRight="@dimen/margin_20"
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
+            android:layout_marginRight="@dimen/activity_login_margin_10"
             android:layout_centerInParent="true"
             android:lineSpacingExtra="@dimen/dimen_3"
-            android:text="实践组"
             android:textColor="@color/text_color_white"
-            android:textSize="@dimen/text_size_large_20"
+            android:textSize="@dimen/text_size_large_26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
             <LinearLayout

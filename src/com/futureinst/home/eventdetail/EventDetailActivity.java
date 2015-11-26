@@ -84,6 +84,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import org.json.JSONException;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.sharesdk.sina.weibo.SinaWeibo;
@@ -540,7 +541,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     //单个事件的账单
     private void initSingleEvent(SingleEventInfoDAO singleEventInfo) {
-        if(attitude !=0 ){//有下单,并且该事件还未评论过，提示评论
+        if(attitude !=0 ){//有下单
             if (preferenceUtil.getEasyModel()) {//简易模式
                if(attitude == 1){//看好
                    btn_easy_look_good.setSelected(true);
@@ -566,7 +567,9 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     btn_advance_look_bad.setSelected(true);
                 }
             }
-            if(singleEventInfo.getUser().getComment() == 0){
+
+            List<Double> orignalRates = new ArrayList<>();
+            if(singleEventInfo.getUser().getComment() == 0){//该事件还未评论过，提示评论
                 showEditCommentDialog(attitude);
             }
         }
