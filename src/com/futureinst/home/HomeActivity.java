@@ -55,6 +55,7 @@ import com.futureinst.service.UpdateDialogShow;
 import com.futureinst.service.UpdateService;
 import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.BadgeUtil;
+import com.futureinst.utils.TaskTipUtil;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
 import com.igexin.sdk.PushManager;
@@ -275,13 +276,18 @@ public class HomeActivity extends BaseActivity {
 						if (response == null)
 							return;
                         DailyTaskInfoDAO dailyTaskInfo = (DailyTaskInfoDAO) response;
-                        if(dailyTaskInfo.getDaily_task()!=null &&
-                                dailyTaskInfo.getDaily_task().getAwardedTasks() != null
-                                && dailyTaskInfo.getDaily_task().getAwardedTasks().size() == 5){
-                            iv_message_tip.setVisibility(View.INVISIBLE);
-                        }else{
+                        if(TaskTipUtil.isShowTip(dailyTaskInfo)){
                             iv_message_tip.setVisibility(View.VISIBLE);
+                        }else{
+                            iv_message_tip.setVisibility(View.INVISIBLE);
                         }
+//                        if(dailyTaskInfo.getDaily_task()!=null &&
+//                                dailyTaskInfo.getDaily_task().getAwardedTasks() != null
+//                                && dailyTaskInfo.getDaily_task().getAwardedTasks().size() == 5){
+//                            iv_message_tip.setVisibility(View.INVISIBLE);
+//                        }else{
+//                            iv_message_tip.setVisibility(View.VISIBLE);
+//                        }
                         handler.sendEmptyMessage(-1);
 					}
 				});

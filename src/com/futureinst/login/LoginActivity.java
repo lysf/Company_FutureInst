@@ -351,8 +351,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 	//判断是否已经注册
 	private void query_user_with_uuid(String uuid){	
 		progressDialog.progressDialog();
-		Content.isPull = true;
-		httpResponseUtils.postJson(
+		httpResponseUtils.postJson_1(
 				httpPostParams.getPostParams(PostMethod.query_user_with_uuid.name(), PostType.user.name(), 
 						httpPostParams.query_user_with_uuid(uuid)), 
 				UserInfo.class,
@@ -361,8 +360,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
 					public void requestCompleted(Object response) throws JSONException {
 						//登录成功
 						progressDialog.cancleProgress();
-						Content.isPull = false;
-						if(response == null){ 
+						if(response == null){
 							UIHandler.sendEmptyMessage(MSG_AUTH_LOGIN, LoginActivity.this );
 							return;
 						}

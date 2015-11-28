@@ -34,6 +34,7 @@ import com.futureinst.todaytask.TodayTaskActivity;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.MyProgressDialog;
+import com.futureinst.utils.TaskTipUtil;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
 import com.igexin.sdk.PushManager;
@@ -381,13 +382,12 @@ public class UserInfoFragment extends BaseFragment {
                         if (response == null)
                             return;
                         DailyTaskInfoDAO dailyTaskInfo = (DailyTaskInfoDAO) response;
-                        if (dailyTaskInfo.getDaily_task() !=null &&
-                                dailyTaskInfo.getDaily_task().getAwardedTasks() != null
-                                && dailyTaskInfo.getDaily_task().getAwardedTasks().size() == 5) {
-                            iv_todayTask.setVisibility(View.INVISIBLE);
-                        } else {
+                        if(TaskTipUtil.isShowTip(dailyTaskInfo)){
                             iv_todayTask.setVisibility(View.VISIBLE);
+                        }else{
+                            iv_todayTask.setVisibility(View.INVISIBLE);
                         }
+
                     }
                 });
     }

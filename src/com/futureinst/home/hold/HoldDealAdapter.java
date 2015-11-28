@@ -75,7 +75,7 @@ public class HoldDealAdapter extends BaseAdapter {
 			tv_sell.setText(sell);
 			tv_sell.setVisibility(View.VISIBLE);
 			if(item.getBuyNum() == 0){
-				sell = context.getResources().getString(R.string.unhold_2)+String.format("%3d", item.getSellNum())+"份     均价\t"+String.format("%.2f", Math.abs(item.getSellPrice()))+"\t";
+				sell = "你不看好\t"+String.format("%3d", item.getSellNum())+"份     均价\t"+String.format("%.2f", Math.abs(item.getSellPrice()))+"\t";
 				tv_sell.setText(sell);
 				tv_sell.setVisibility(View.VISIBLE);
 				tv_buy.setVisibility(View.GONE);

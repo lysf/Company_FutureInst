@@ -39,9 +39,9 @@ import com.mob.tools.utils.UIHandler;
  * 通过不同的setter设置参数，然后调用{@link #show(Context)}方法启动快捷分享
  */
 public class OnekeyShare implements PlatformActionListener, Callback {
-	private static final int MSG_TOAST = 1;
-	private static final int MSG_ACTION_CCALLBACK = 2;
-	private static final int MSG_CANCEL_NOTIFY = 3;
+	private static final int MSG_TOAST = -11;
+	private static final int MSG_ACTION_CCALLBACK = -22;
+	private static final int MSG_CANCEL_NOTIFY = -33;
 	
 	private String event_id;
 	private int share_award;

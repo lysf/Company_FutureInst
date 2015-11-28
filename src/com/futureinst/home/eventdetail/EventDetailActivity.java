@@ -73,6 +73,7 @@ import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
+import com.futureinst.utils.lottery.LotteryUtil;
 import com.futureinst.widget.CustomView_Image_Text;
 import com.futureinst.widget.PullLayout;
 import com.futureinst.widget.list.MyListView;
@@ -129,8 +130,8 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private View view_point;
     private RoundedImageView headImage;
     private LinearLayout ll_article_content;
-    private TextView tv_name,tv_article_time,tv_prise_num,tv_article_title,tv_article_content;
-    private  TextView tv_article_readNum,tv_article_comment_num;
+    private TextView tv_name, tv_article_time, tv_prise_num, tv_article_title, tv_article_content;
+    private TextView tv_article_readNum, tv_article_comment_num;
     private ImageView iv_editPoint;
     private LinearLayout ll_empty_point;
 //    private ImageView iv_empty_point;
@@ -179,7 +180,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 case 2:
                     getPrice();
                     break;
-                case 3 :
+                case 3:
                     getCommentAndArticle();
                     break;
             }
@@ -191,7 +192,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private void showGuide() {
         if (preferenceUtil.getGuide2())
             return;
-        new NewbieGuide2(this, isHavaPrice,1);
+        new NewbieGuide2(this, isHavaPrice, 1);
         preferenceUtil.setGuide2();
     }
 
@@ -235,7 +236,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             @Override
             public void onReceive(Context context, Intent intent) {
                 if (intent.getAction().equals("priceClear")) {
-                    attitude = intent.getIntExtra("attitude",0);
+                    attitude = intent.getIntExtra("attitude", 0);
                     progressDialog.progressDialog();
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -243,7 +244,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                             query_single_event_clear();
                         }
                     }, 1000);
-                }else if(intent.getAction().equals("praise")){
+                } else if (intent.getAction().equals("praise")) {
                     getCommentAndArticle();
                 }
             }
@@ -265,7 +266,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         scroll.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(et_comment_apply.getVisibility() == View.VISIBLE){
+                if (et_comment_apply.getVisibility() == View.VISIBLE) {
                     hideSoftInputView();
                     view_float_comment_edit.setVisibility(View.GONE);
                 }
@@ -284,7 +285,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         tv_sells_3 = new TextView[3];
 
         customDraw = (CustomDraw) findViewById(R.id.wav);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,Utils.getScreenWidth(this)*3/5);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.getScreenWidth(this) * 3 / 5);
         customDraw.setLayoutParams(layoutParams);
         tv_time = (TextView) findViewById(R.id.tv_time);
         iv_image = (ImageView) findViewById(R.id.iv_image);
@@ -327,17 +328,18 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         btn_advance_look_good.setOnClickListener(clickListener);
         btn_advance_look_bad.setOnClickListener(clickListener);
     }
+
     //评论
-    private void initCommentView(){
+    private void initCommentView() {
 
         view_float_comment_edit = findViewById(R.id.view_float_comment_edit);
         et_comment_apply = (EditText) findViewById(R.id.et_comment_apply);
-        btn_send = (Button)findViewById(R.id.btn_send);
+        btn_send = (Button) findViewById(R.id.btn_send);
         commentDeleteDialogUtil = CommentDeleteDialogUtil.newInstance();
 
-        lv_comment = (MyListView)findViewById(R.id.lv_comment);
-        view_empty = (TextView)findViewById(R.id.view_empty);
-        view_comment_total = (CustomView_Image_Text)findViewById(R.id.view_comment_total);
+        lv_comment = (MyListView) findViewById(R.id.lv_comment);
+        view_empty = (TextView) findViewById(R.id.view_empty);
+        view_comment_total = (CustomView_Image_Text) findViewById(R.id.view_comment_total);
         view_comment_total.setOnClickListener(clickListener);
         commentAdapter = new CommentDetailAdapter(this);
         lv_comment.setAdapter(commentAdapter);
@@ -382,21 +384,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             }
         });
 
-//        et_comment_apply.setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                Log.i("tag", "============keycode=" + keyCode);
-//                if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
-//                    if (TextUtils.isEmpty(et_comment_apply.getText().toString().trim())) {
-//                        showToast("输入内容不能为空");
-//                    } else {
-//                        addComment(comment.getId() + "", "0", et_comment_apply.getText().toString().trim());
-//                    }
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
 
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -411,7 +398,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     }
 
     //添加评论
-    private void addComment(String parent_id,String apply_id,String content){
+    private void addComment(String parent_id, String apply_id, String content) {
         progressDialog.progressDialog();
         httpResponseUtils.postJson(httpPostParams.getPostParams(
                         PostMethod.add_comment.name(), PostType.comment.name(),
@@ -430,50 +417,51 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     }
                 });
     }
+
     //精选观点
-    private void initPoint(){
-        headImage = (RoundedImageView)findViewById(R.id.headImage);
-        tv_name = (TextView)findViewById(R.id.tv_name);
-        tv_article_time = (TextView)findViewById(R.id.tv_article_time);
-        tv_prise_num = (TextView)findViewById(R.id.tv_prise_num);
-        tv_article_title = (TextView)findViewById(R.id.tv_article_title);
-        tv_article_content = (TextView)findViewById(R.id.tv_article_content);
-        tv_article_readNum = (TextView)findViewById(R.id.tv_article_readNum);
-        tv_article_comment_num = (TextView)findViewById(R.id.tv_article_comment_num);
-        ll_article_content = (LinearLayout)findViewById(R.id.ll_article_content);
+    private void initPoint() {
+        headImage = (RoundedImageView) findViewById(R.id.headImage);
+        tv_name = (TextView) findViewById(R.id.tv_name);
+        tv_article_time = (TextView) findViewById(R.id.tv_article_time);
+        tv_prise_num = (TextView) findViewById(R.id.tv_prise_num);
+        tv_article_title = (TextView) findViewById(R.id.tv_article_title);
+        tv_article_content = (TextView) findViewById(R.id.tv_article_content);
+        tv_article_readNum = (TextView) findViewById(R.id.tv_article_readNum);
+        tv_article_comment_num = (TextView) findViewById(R.id.tv_article_comment_num);
+        ll_article_content = (LinearLayout) findViewById(R.id.ll_article_content);
 
 
         view_point = findViewById(R.id.view_point);
-        iv_editPoint = (ImageView)findViewById(R.id.iv_editPoint);
+        iv_editPoint = (ImageView) findViewById(R.id.iv_editPoint);
         iv_editPoint.setOnClickListener(clickListener);
-//        iv_empty_point = (ImageView)findViewById(R.id.iv_empty_point);
-        ll_empty_point = (LinearLayout)findViewById(R.id.ll_empty_point);
+        ll_empty_point = (LinearLayout) findViewById(R.id.ll_empty_point);
         ll_empty_point.setOnClickListener(clickListener);
     }
-    private void initPointDate(final ArticleDAO article){
 
-        if(headImage.getTag() == null || !headImage.getTag().equals(article.getUser().getHeadImage())){
-            ImageLoader.getInstance().displayImage(article.getUser().getHeadImage(),headImage,ImageLoadOptions.getOptions(R.drawable.logo));
+    private void initPointDate(final ArticleDAO article) {
+
+        if (headImage.getTag() == null || !headImage.getTag().equals(article.getUser().getHeadImage())) {
+            ImageLoader.getInstance().displayImage(article.getUser().getHeadImage(), headImage, ImageLoadOptions.getOptions(R.drawable.logo));
             headImage.setTag(article.getUser().getHeadImage());
         }
         tv_name.setText(article.getUser().getName());
         tv_article_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(article.getMtime()));
         tv_article_title.setText(article.getTitle());
         tv_article_content.setText(article.getAbstr());
-        tv_article_readNum.setText(article.getReadNum()+"人已阅读");
+        tv_article_readNum.setText(article.getReadNum() + "人已阅读");
         ll_article_content.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {//进入观点详情页
                 Intent intent = new Intent(EventDetailActivity.this, ArticleDetailActivity.class);
-                intent.putExtra("article_id",article.getId()+"");
-                intent.putExtra("from",true);
+                intent.putExtra("article_id", article.getId() + "");
+                intent.putExtra("from", true);
                 startActivity(intent);
             }
         });
         headImage.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(article.getUser().getId() == preferenceUtil.getID()){//是自己
+                if (article.getUser().getId() == preferenceUtil.getID()) {//是自己
                     return;
                 }
                 Intent intent = new Intent(EventDetailActivity.this, PersonalShowActivity.class);
@@ -541,26 +529,26 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     //单个事件的账单
     private void initSingleEvent(SingleEventInfoDAO singleEventInfo) {
-        if(attitude !=0 ){//有下单
+        if (attitude != 0) {//有下单
             if (preferenceUtil.getEasyModel()) {//简易模式
-               if(attitude == 1){//看好
-                   btn_easy_look_good.setSelected(true);
-                   btn_easy_look_bad.setSelected(false);
-                   btn_advance_look_good.setSelected(false);
-                   btn_advance_look_bad.setSelected(false);
-               }else if(attitude == 3){//不看好
-                   btn_easy_look_good.setSelected(false);
-                   btn_easy_look_bad.setSelected(true);
-                   btn_advance_look_good.setSelected(false);
-                   btn_advance_look_bad.setSelected(false);
-               }
+                if (attitude == 1) {//看好
+                    btn_easy_look_good.setSelected(true);
+                    btn_easy_look_bad.setSelected(false);
+                    btn_advance_look_good.setSelected(false);
+                    btn_advance_look_bad.setSelected(false);
+                } else if (attitude == 3) {//不看好
+                    btn_easy_look_good.setSelected(false);
+                    btn_easy_look_bad.setSelected(true);
+                    btn_advance_look_good.setSelected(false);
+                    btn_advance_look_bad.setSelected(false);
+                }
             } else {//专家模式
-                if(attitude == 1){//看好
+                if (attitude == 1) {//看好
                     btn_easy_look_good.setSelected(false);
                     btn_easy_look_bad.setSelected(false);
                     btn_advance_look_good.setSelected(true);
                     btn_advance_look_bad.setSelected(false);
-                }else if(attitude == 3){//不看好
+                } else if (attitude == 3) {//不看好
                     btn_easy_look_good.setSelected(false);
                     btn_easy_look_bad.setSelected(false);
                     btn_advance_look_good.setSelected(false);
@@ -568,10 +556,8 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 }
             }
 
-            List<Double> orignalRates = new ArrayList<>();
-            if(singleEventInfo.getUser().getComment() == 0){//该事件还未评论过，提示评论
-                showEditCommentDialog(attitude);
-            }
+            orderTip(singleEventInfo.getUser().getComment(),share_award);
+
         }
         SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
         singleEventClearDAO = item;
@@ -611,8 +597,47 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             ll_event_sell.setVisibility(View.GONE);
         }
     }
-//初始化懒人包和相关新闻
-    private void initLazyBagAndReference(){
+    //下单提示（分享、评论）
+    private void orderTip(int commentNum,int share_award){
+        Log.i(TAG,"========commentNum="+commentNum+"===share_award="+share_award);
+        List<Double> orignalRates = new ArrayList<>();
+        if (commentNum == 0
+                && share_award == 0) {//该事件还未评论过，也没有分享过，提示评论或分享
+            orignalRates.add(0.3);
+            orignalRates.add(0.2);
+            orignalRates.add(0.5);
+            Log.i(TAG,"===========111");
+            switch (LotteryUtil.lottery(orignalRates)) {
+                case 0://分享
+                    showShareCommentDialog(attitude);
+                    break;
+                case 1://评论
+                    showEditCommentDialog(attitude);
+                    break;
+                case 2://什么都不做
+                    break;
+            }
+        }else if(commentNum == 0
+                && share_award > 0){//未评论，有过分享
+            Log.i(TAG,"===========2222");
+            orignalRates.add(0.5);
+            orignalRates.add(0.5);
+            if(LotteryUtil.lottery(orignalRates) == 0){//评论
+                showEditCommentDialog(attitude);
+            }
+        }else if(commentNum > 0
+                && share_award == 0){//有过评论，没有分享
+            Log.i(TAG,"===========333");
+            orignalRates.add(0.5);
+            orignalRates.add(0.5);
+            if(LotteryUtil.lottery(orignalRates) == 0){//分享
+                showShareCommentDialog(attitude);
+            }
+        }
+    }
+
+    //初始化懒人包和相关新闻
+    private void initLazyBagAndReference() {
         Bundle bundle = new Bundle();
 
         lazyBagFragment = new LazyBagFragment();
@@ -627,12 +652,13 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         getSupportFragmentManager().beginTransaction().replace(R.id.container_refrence, refrenceFragment).commitAllowingStateLoss();
 
     }
+
     //初始化数据
     private void initData(QueryEventDAO event) {
         tv_event_title.setText(event.getTitle());
         tv_description.setText(event.getDescription());
-        btn_comment_total_float.setText(" "+event.getAllComNum());
-        view_comment_total.setText(event.getAllComNum()+"");
+        btn_comment_total_float.setText(" " + event.getAllComNum());
+        view_comment_total.setText(event.getAllComNum() + "");
         if (came || event.getStatusStr().equals("已清算")) {
             tv_description.setText(event.getAccord());
 //            tv_description.setTextColor(getResources().getColor(R.color.forecast_bottom_line_select));
@@ -655,15 +681,15 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             switch (v.getId()) {
                 case R.id.ll_empty_point:
                 case R.id.iv_editPoint://添加观点
-                    if(judgeIsLogin()){
-                        Intent intent = new Intent(EventDetailActivity.this,AddPointActivity.class);
-                        intent.putExtra("event_id",event_id);
+                    if (judgeIsLogin()) {
+                        Intent intent = new Intent(EventDetailActivity.this, AddPointActivity.class);
+                        intent.putExtra("event_id", event_id);
                         startActivity(intent);
                     }
                     break;
                 case R.id.view_comment_total://进入评论详情列表
                     Intent commentDetailIntent = new Intent(EventDetailActivity.this, CommentActivity.class);
-                    commentDetailIntent.putExtra("eventId",event_id);
+                    commentDetailIntent.putExtra("eventId", event_id);
                     startActivity(commentDetailIntent);
                     break;
                 case R.id.btn_comment_float://添加评论
@@ -675,12 +701,12 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     break;
                 case R.id.btn_comment_total_float://评论列表
                     Intent commentDetailFlotIntent = new Intent(EventDetailActivity.this, CommentActivity.class);
-                    commentDetailFlotIntent.putExtra("eventId",event_id);
+                    commentDetailFlotIntent.putExtra("eventId", event_id);
                     startActivity(commentDetailFlotIntent);
                     break;
                 case R.id.btn_switch_advance://切换到专家模式
-                    if(!preferenceUtil.getGuide3()){
-                        new NewbieGuide2(EventDetailActivity.this, isHavaPrice,2);
+                    if (!preferenceUtil.getGuide3()) {
+                        new NewbieGuide2(EventDetailActivity.this, isHavaPrice, 2);
                         preferenceUtil.setGuide3();
                     }
                     preferenceUtil.setEasyModel(false);
@@ -697,15 +723,17 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     showDialog(event.getRule());
                     break;
                 case R.id.btn_easy_look_good://简易模式看好
-                    if (!judgeIsLogin() ||  event == null ||
-                        priceDAOInfo.getSells() == null || priceDAOInfo.getSells().size() == 0) return;
+                    if (!judgeIsLogin() || event == null ||
+                            priceDAOInfo.getSells() == null || priceDAOInfo.getSells().size() == 0)
+                        return;
 
-                    showBuyConfig(1, getPrice(1,priceDAOInfo));
+                    showBuyConfig(1, getPrice(1, priceDAOInfo));
                     break;
                 case R.id.btn_easy_look_bad://简易模式不看好
-                    if (!judgeIsLogin() || event == null||
-                            priceDAOInfo.getBuys() == null || priceDAOInfo.getBuys().size() == 0) return;
-                    showBuyConfig(3,getPrice(3,priceDAOInfo));
+                    if (!judgeIsLogin() || event == null ||
+                            priceDAOInfo.getBuys() == null || priceDAOInfo.getBuys().size() == 0)
+                        return;
+                    showBuyConfig(3, getPrice(3, priceDAOInfo));
                     break;
                 case R.id.btn_advance_look_good://专家模式看好
                     if (!judgeIsLogin() || event == null) return;
@@ -753,9 +781,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     intent4.putExtra("price", priceDAOInfo);
                     startActivity(intent4);
                     break;
-//                case R.id.ll_scroll:
-//                    hideSoftInputView();
-//                    break;
             }
         }
     };
@@ -778,6 +803,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             tv_sells_3[j].setText(String.format("%3d", sells.get(j).getNum()) + "份");
         }
     }
+
     //重置三档价格
     private void priceViewReset() {
         for (int i = 0; i < tv_buys_1.length; i++) {
@@ -792,6 +818,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     //获取事件的价格走势
     private boolean priceClear;
+
     private void getPrice() {
         httpResponseUtils.postJson(httpPostParams.getPostParams(
                         PostMethod.query_single_event.name(), PostType.event.name(),
@@ -902,9 +929,9 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             btn_advance_look_good.setSelected(true);
             btn_advance_look_bad.setSelected(true);
 
-			btn_easy_look_good.setClickable(false);
-			btn_easy_look_bad.setClickable(false);
-			btn_advance_look_good.setClickable(false);
+            btn_easy_look_good.setClickable(false);
+            btn_easy_look_bad.setClickable(false);
+            btn_advance_look_good.setClickable(false);
             btn_advance_look_bad.setClickable(false);
 
             btn_easy_look_good.setBackgroundResource(R.drawable.btn_gray);
@@ -955,6 +982,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     }
                 });
     }
+
     private boolean isHavaPrice;
 
     //查询用户对于该事件的操作结果，关注和清算单
@@ -989,9 +1017,15 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     }
 
     //分享界面
-    private void showShareDialog(final QueryEventDAO event) {
-//        final String shareTitle = getResources().getString(R.string.shareTips).replace("X", event.getCurrPrice() + "").replace("Y", event.getLead());
-        final String shareTitle = event.getLead()+"你敢赌吗？";
+    private void showShareDialog(final QueryEventDAO event, int type) {
+
+        String title = event.getLead() + " 你敢赌吗？";
+        if (type == 1) {//看好
+            title = event.getLead() + " 我赌会发生！";
+        } else if (type == 3) {//不看好
+            title = event.getLead() + " 我赌不发生！";
+        }
+        final String shareTitle = title;
         final String content = "来自未来研究所";
         View view = LayoutInflater.from(this).inflate(R.layout.view_share_gridview, null);
         final Dialog dialog = DialogShow.showDialog(this, view, Gravity.BOTTOM);
@@ -1053,16 +1087,16 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             @Override
             public void onClick(View v) {//分享
                 if (event == null) return;
-                showShareDialog(event);
+                showShareDialog(event, 0);
                 dialog.dismiss();
             }
         });
         btn_edit_point.setOnClickListener(new OnClickListener() {//写观点赚未币
             @Override
             public void onClick(View v) {
-                if(judgeIsLogin()){
-                    Intent intent = new Intent(EventDetailActivity.this,AddPointActivity.class);
-                    intent.putExtra("event_id",event_id);
+                if (judgeIsLogin()) {
+                    Intent intent = new Intent(EventDetailActivity.this, AddPointActivity.class);
+                    intent.putExtra("event_id", event_id);
                     startActivity(intent);
                     dialog.dismiss();
                 }
@@ -1180,8 +1214,9 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     }
                 });
     }
+
     //获取懒人包和相关新闻
-    private void getEvetnRealted(){
+    private void getEvetnRealted() {
         httpResponseUtils.postJson(httpPostParams.getPostParams(
                         PostMethod.query_single_event.name(), PostType.event.name(),
                         httpPostParams.query_single_event(event_id, SingleEventScope.refer_lazy.name())),
@@ -1189,14 +1224,14 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 new PostCommentResponseListener() {
                     @Override
                     public void requestCompleted(Object response) throws JSONException {
-                        if(response == null) return;
+                        if (response == null) return;
                         EventRelatedInfo eventRelatedInfo = (EventRelatedInfo) response;
-                            if(eventRelatedInfo.getLazybag()!=null){
-                                Intent lazybagIntent = new Intent("lazybag");
-                                lazybagIntent.putExtra("data", eventRelatedInfo.getLazybag());
-                                sendBroadcast(lazybagIntent);
-                            }
-                        if(eventRelatedInfo.getRefer()!=null ){
+                        if (eventRelatedInfo.getLazybag() != null) {
+                            Intent lazybagIntent = new Intent("lazybag");
+                            lazybagIntent.putExtra("data", eventRelatedInfo.getLazybag());
+                            sendBroadcast(lazybagIntent);
+                        }
+                        if (eventRelatedInfo.getRefer() != null) {
                             Intent referIntent = new Intent("refer");
                             referIntent.putExtra("data", eventRelatedInfo.getRefer());
                             sendBroadcast(referIntent);
@@ -1206,11 +1241,11 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     }
 
     //添加订单
-    private void addOrder(final int type,String price,int num){
+    private void addOrder(final int type, String price, int num) {
         progressDialog.progressDialog();
         Content.isPull = true;
         httpResponseUtils.postJson(httpPostParams.getPostParams(
-                        PostMethod.add_order .name(), PostType.order .name(),
+                        PostMethod.add_order.name(), PostType.order.name(),
                         httpPostParams.add_order(preferenceUtil.getID() + "", preferenceUtil.getUUid(), type + "", price, num + "", event.getId() + "", "easy")),
                 BaseModel.class,
                 new PostCommentResponseListener() {
@@ -1218,31 +1253,31 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     public void requestCompleted(Object response) throws JSONException {
                         progressDialog.cancleProgress();
                         Content.isPull = false;
-                        if(response == null) return;
+                        if (response == null) return;
                         //交易成功
                         Intent intent = new Intent("priceClear");
-                        intent.putExtra("attitude",type);
+                        intent.putExtra("attitude", type);
                         sendBroadcast(intent);
                     }
                 });
     }
 
     //简易模式价格
-    private String getPrice(int model ,EventPriceDAOInfo priceDAOInfo){
-        String price = event.getCurrPrice()+"";
-        switch (model){
+    private String getPrice(int model, EventPriceDAOInfo priceDAOInfo) {
+        String price = event.getCurrPrice() + "";
+        switch (model) {
             case 1://看好
-                for(EventBuyDAO buyDAO : priceDAOInfo.getBuys()){
-                    if(buyDAO.getNum() >= 10){
-                        price = buyDAO.getPrice()+"";
+                for (EventBuyDAO buyDAO : priceDAOInfo.getBuys()) {
+                    if (buyDAO.getNum() >= 10) {
+                        price = buyDAO.getPrice() + "";
                         break;
                     }
                 }
                 break;
             case 3://不看好
-                for(EventSellDAO sellDAO : priceDAOInfo.getSells()){
-                    if(sellDAO.getNum() >= 10){
-                        price = sellDAO.getPrice()+"";
+                for (EventSellDAO sellDAO : priceDAOInfo.getSells()) {
+                    if (sellDAO.getNum() >= 10) {
+                        price = sellDAO.getPrice() + "";
                         break;
                     }
                 }
@@ -1252,14 +1287,14 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     }
 
     //事件购买确认提示
-    private void showBuyConfig(final int type,final String price){
+    private void showBuyConfig(final int type, final String price) {
         View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
         Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
         TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
         String configMsg = "";
         switch (type) {//type 1-限价买进 2-市价买进 3-限价卖空 4-市价卖空
             case 1:
-                configMsg = "确定看好" ;
+                configMsg = "确定看好";
                 break;
             case 3:
                 configMsg = "确定不看好";
@@ -1267,7 +1302,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         }
         tv_configMsg.setText(configMsg);
         Button btn_config = (Button) view.findViewById(R.id.btn_submit);
-        final Dialog dialog = DialogShow.showDialog(this, view,Gravity.CENTER);
+        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.CENTER);
         btn_cancel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1283,15 +1318,16 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         });
         dialog.show();
     }
+
     //评论提示
-    private void showEditCommentDialog(final int type){
+    private void showEditCommentDialog(final int type) {
         View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
         Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
         TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
         String configMsg = "";
         switch (type) {//type 1-看好,3-不看好
             case 1:
-                configMsg = "你已经看好咯，马上去支持两句！" ;
+                configMsg = "你已经看好咯，马上去支持两句！";
                 break;
             case 3:
                 configMsg = "你不看好哦，马上去吐个槽！";
@@ -1299,7 +1335,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         }
         tv_configMsg.setText(configMsg);
         Button btn_config = (Button) view.findViewById(R.id.btn_submit);
-        final Dialog dialog = DialogShow.showDialog(this, view,Gravity.CENTER);
+        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.CENTER);
         btn_cancel.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1313,6 +1349,36 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 intent.putExtra("eventId", event_id);
                 intent.putExtra("attitude", type);
                 startActivity(intent);
+                dialog.cancel();
+            }
+        });
+        dialog.show();
+    }
+
+    //下单分享提示
+    private void showShareCommentDialog(final int type) {
+        View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
+        Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
+        TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
+        String configMsg = "找朋友对赌，首次分享领50！";
+
+        tv_configMsg.setText(configMsg);
+        Button btn_config = (Button) view.findViewById(R.id.btn_submit);
+        btn_cancel.setText("暂不分享");
+        btn_config.setText("立即分享");
+        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.CENTER);
+        btn_cancel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+        btn_config.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {//分享下单
+                if (event == null)
+                    return;
+                showShareDialog(event, type);
                 dialog.cancel();
             }
         });

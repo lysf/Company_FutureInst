@@ -15,7 +15,7 @@
         android:paddingLeft="@dimen/margin_15"
         android:paddingRight="@dimen/margin_15"
         android:minHeight="80dip"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lineSpacingExtra="2dip"
@@ -31,8 +31,9 @@
         android:layout_marginLeft="@dimen/activity_login_margin_10"
         android:layout_marginRight="@dimen/activity_login_margin_10"
         android:layout_height="@dimen/widget_height_40"
-        android:background="@color/text_color_white"
+        android:background="@drawable/item_select"
         android:textSize="@dimen/text_size_large"
+        style="?android:attr/borderlessButtonStyle"
         android:text="@string/ok"
         android:textColor="#4597FF"/>
 	</LinearLayout>
