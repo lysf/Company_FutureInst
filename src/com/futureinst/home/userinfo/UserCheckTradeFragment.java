@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.home.find.ArticleDetailActivity;
 import com.futureinst.model.usermodel.UserCheckDAO;
 import com.futureinst.model.usermodel.UserCheckInfo;
 import com.futureinst.net.HttpPostParams;
@@ -74,9 +75,16 @@ public class UserCheckTradeFragment extends BaseFragment implements PullListView
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position < 1) return;
                 UserCheckDAO item = (UserCheckDAO) adapter.getItem(position-1);
-                Intent intent = new Intent(getContext(), EventDetailActivity.class);
-                intent.putExtra("eventId", item.getEventId()+"");
-                startActivity(intent);
+                if(item.getEventId() != 0){//事件
+                    Intent intent = new Intent(getContext(), EventDetailActivity.class);
+                    intent.putExtra("eventId", item.getEventId()+"");
+                    startActivity(intent);
+                }
+                if(item.getType() == 1){//文章
+                    Intent intentPoint = new Intent(getContext(), ArticleDetailActivity.class);
+//                    intentPoint.putExtra("article_id",item.get)
+//                    startActivity(intentPoint);
+                }
             }
         });
     }

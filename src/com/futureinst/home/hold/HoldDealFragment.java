@@ -48,25 +48,6 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	private TextView empty;
 	private int page = 1;
 	private String last_id = "0";
-//	private String actionId;
-//	private BroadcastReceiver receiver;
-	
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-//		receiver = new BroadcastReceiver() {
-//			@Override
-//			public void onReceive(Context context, Intent intent) {
-//				if(intent.getAction().equals("pushAction")){
-//					actionId = intent.getStringExtra("messageId");
-//					Log.i("action", "--------------actionId---->>"+actionId);
-//				}
-//			}
-//		};
-//		IntentFilter filter = new IntentFilter();
-//		filter.addAction("pushAction");
-//		activity.registerReceiver(receiver, filter);
-	}
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.fragment_hold_deal);
@@ -79,9 +60,6 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 	}
 	@Override
 	public void setUserVisibleHint(boolean isVisibleToUser) {
-//		if(isVisibleToUser && isStart){
-//			getData(page,last_id);
-//		}
 		super.setUserVisibleHint(isVisibleToUser);
 	}
 	private void initView() {
@@ -138,20 +116,6 @@ public class HoldDealFragment extends BaseFragment implements OnRefreshListener{
 					}
 				});
 	}
-//	private void setSelection(){
-//		if(actionId == null){
-//			return;
-//		}
-//		for(int i = 0;i < adapter.getCount();i++){
-//			DealOrderDAO item = (DealOrderDAO) adapter.getItem(i);
-//			if(actionId.equals(item.getEvent().getId()+"")){
-//				final int index = i+1;
-//				Log.i("index", "--------------actionId---->>-------"+index);
-//				pullListView.clearFocus();
-//				pullListView.smoothScrollToPosition(index);
-//			}
-//		}
-//	}
 	@Override
 	public void onRefresh(boolean isTop) {
 		if(isTop){

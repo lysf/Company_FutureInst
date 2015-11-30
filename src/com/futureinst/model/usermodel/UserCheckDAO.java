@@ -11,8 +11,17 @@ public class UserCheckDAO implements Serializable{
 	private float balanceChange;
 	private float balanceCurr;
 	private Long ctime;
-	
-	public Long getEventId() {
+    private int type;
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public Long getEventId() {
 		return eventId;
 	}
 	public void setEventId(Long eventId) {
@@ -54,10 +63,19 @@ public class UserCheckDAO implements Serializable{
 	public void setCtime(Long ctime) {
 		this.ctime = ctime;
 	}
-	@Override
-	public String toString() {
-		return "UserCheckDAO [id=" + id + ", userId=" + userId + ", eventId=" + eventId + ", title=" + title
-				+ ", balanceChange=" + balanceChange + ", balanceCurr=" + balanceCurr + ", ctime=" + ctime + "]";
-	}
-	
+
+    @Override
+    public String toString() {
+        return "UserCheckDAO{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", eventId=" + eventId +
+                ", title='" + title + '\'' +
+                ", balanceChange=" + balanceChange +
+                ", balanceCurr=" + balanceCurr +
+                ", ctime=" + ctime +
+                ", type=" + type +
+                '}';
+    }
+
 }
