@@ -31,22 +31,29 @@
                 layout="@layout/event_detail_1"/>
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/text_color_white"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="@dimen/margin_20">
-
+                >
+                <ImageView
+                    android:id="@+id/iv_refresh"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/new_cut"
+                    />
                 <com.futureinst.widget.waterwave.CustomDraw
                     android:id="@+id/wav"
+                    android:layout_margin="@dimen/margin_20"
                     android:layout_width="match_parent"
                     android:layout_height="240dp"
                     android:gravity="center_vertical"
 
                     />
-            </LinearLayout>
+            </RelativeLayout>
 
             <include
                 layout="@layout/event_detail_3"/>

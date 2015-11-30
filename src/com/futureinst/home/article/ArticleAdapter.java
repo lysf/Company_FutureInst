@@ -85,7 +85,7 @@ public class ArticleAdapter extends BaseAdapter {
         tv_event_title.setText(item.getEvent().getLead());
         tv_point_title.setText(item.getTitle());
         tv_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(item.getMtime()));
-        tv_read.setText(item.getReadNum()+"人已阅读");
+        tv_read.setText("已阅读"+item.getReadNum()+"次");
         tv_point_content.setText(item.getAbstr());
         String award = item.getAward()+"";
         String awardtext = "  本文共受赏"+award+"未币";
