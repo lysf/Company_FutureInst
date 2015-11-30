@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
@@ -14,7 +13,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,7 +20,6 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,12 +33,9 @@ import com.futureinst.comment.CommentDeleteDialogUtil;
 import com.futureinst.home.eventdetail.EventDetailActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
-import com.futureinst.model.comment.ArticleDAO;
 import com.futureinst.model.comment.CommentDAO;
 import com.futureinst.model.comment.CommentInfoDAO;
-import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.point.ArticleDetailDAO;
-import com.futureinst.model.point.PointDAO;
 import com.futureinst.net.ArticleOperate;
 import com.futureinst.net.HttpPath;
 import com.futureinst.net.HttpPostParams;
@@ -49,6 +43,7 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.personalinfo.other.PersonalShowActivity;
 import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.share.OneKeyShareUtil;
 import com.futureinst.sharepreference.SharePreferenceUtil;
@@ -58,7 +53,6 @@ import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
 import com.futureinst.widget.list.MyListView;
-import com.futureinst.widget.scrollview.MyScrollView;
 import com.futureinst.widget.scrollview.OverScrollView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -223,7 +217,7 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
         return "<html>" + head + "<body>" + bodyHTML + "</body></html>";
     }
 
-    private void initTopDate(ArticleDetailDAO articleDetail) {
+    private void initTopDate(final ArticleDetailDAO articleDetail) {
         tv_praise_num.setText(articleDetail.getArticle().getLoveNum() + "");//文章点赞数量
         tv_article_comment_num.setText("(" + articleDetail.getArticle().getCommentNum() + ")");
         if (articleDetail.getLove() > 0) {//已经点过赞
@@ -243,11 +237,23 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
 
         web_article_content.loadData(getHtmlData(articleDetail.getDetail()), "text/html; charset=utf-8", "utf-8");
 
-        tv_read.setText(articleDetail.getArticle().getReadNum() + "人已阅读");
+        tv_read.setText("阅读"+articleDetail.getArticle().getReadNum() + "次");
         if (headImage_select.getTag() == null || !headImage_select.getTag().equals(articleDetail.getArticle().getEvent().getImgsrc())) {
             ImageLoader.getInstance().displayImage(articleDetail.getArticle().getUser().getHeadImage(), headImage_select, ImageLoadOptions.getOptions(R.drawable.logo));
             headImage_select.setTag(articleDetail.getArticle().getEvent().getImgsrc());
         }
+
+        headImage_select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (preferenceUtil.getID() == articleDetail.getArticle().getUser().getId()) {
+                    return;
+                }
+                Intent intent = new Intent(ArticleDetailActivity.this, PersonalShowActivity.class);
+                intent.putExtra("id", articleDetail.getArticle().getUser().getId() + "");
+                startActivity(intent);
+            }
+        });
         btn_award.setOnClickListener(clickListener);
 
         int[] location = new int[2];

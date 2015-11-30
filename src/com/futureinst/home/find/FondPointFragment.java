@@ -158,7 +158,7 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
             headImage_select.setTag(today_article.getUser().getHeadImage());
         }
         tv_name.setText(today_article.getUser().getName());
-        tv_read.setText(today_article.getReadNum()+"人已阅读");
+        tv_read.setText("阅读"+today_article.getReadNum()+"次");
         tv_praise.setText(" "+today_article.getLoveNum());
         tv_comment.setText(" "+today_article.getCommentNum());
         tv_select_point_title.setText(today_article.getTitle());

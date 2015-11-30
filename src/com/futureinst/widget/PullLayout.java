@@ -9,7 +9,6 @@ import com.nineoldandroids.view.ViewHelper;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -21,7 +20,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 public class PullLayout extends ScrollView{
 	 private View rl_top;
@@ -63,7 +61,7 @@ public class PullLayout extends ScrollView{
             //此时的距离和记录下的距离不相等，在隔5毫秒给handler发送消息  
             if(lastScrollY != scrollY){  
                 lastScrollY = scrollY;  
-                handler.sendMessageDelayed(handler.obtainMessage(), 5);    
+                handler.sendMessageDelayed(handler.obtainMessage(), 10);
             }  
             if(onScrollListener != null){  
                 onScrollListener.onScroll(scrollY);  
@@ -108,9 +106,10 @@ public class PullLayout extends ScrollView{
         iv_image.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                iv_image.buildDrawingCache();
+                iv_image.buildDrawingCache(false);
                 Bitmap bmp = iv_image.getDrawingCache();
                 BitmapUtil.blur(getContext(),bmp,iv_image_blur);
+                iv_image.buildDrawingCache(true);
                 return true;
             }
         });

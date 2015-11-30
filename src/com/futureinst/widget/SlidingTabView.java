@@ -58,8 +58,8 @@ public class SlidingTabView extends LinearLayout {
         }else{
             iconView.setTextSize(smallIconTextSize);
             textView.setTextSize(smallTextSize);
-            iconView.setTextColor(getResources().getColor(R.color.sliding_table_0));
-            textView.setTextColor(getResources().getColor(R.color.sliding_table_0));
+            iconView.setTextColor(getResources().getColor(R.color.text_color_4));
+            textView.setTextColor(getResources().getColor(R.color.text_color_4));
             int height = Utils.getViewMeasuredHeight(iconView);
             layoutParams = new LayoutParams(height,height);
             iconView.setLayoutParams(layoutParams);
@@ -88,13 +88,13 @@ public class SlidingTabView extends LinearLayout {
         iconView = new IconSlidingTabView(mContext);
         iconView.setTextSize(smallIconTextSize);
         iconView.setText(iconFontText);
-        iconView.setTextColor(getResources().getColor(R.color.sliding_table_0));
+        iconView.setTextColor(getResources().getColor(R.color.text_color_4));
         iconView.setGravity(Gravity.CENTER);
         textView = new TextView(mContext);
         textView.setTextSize(smallTextSize);
         textView.setGravity(Gravity.CENTER);
         textView.setText(bottomText);
-        textView.setTextColor(getResources().getColor(R.color.sliding_table_0));
+        textView.setTextColor(getResources().getColor(R.color.text_color_4));
         this.setOrientation(LinearLayout.VERTICAL);
         setGravity(Gravity.CENTER);
         setMinimumWidth(Utils.dip2px(getContext(),80));
@@ -104,12 +104,12 @@ public class SlidingTabView extends LinearLayout {
     private void init(){
         iconView = new IconSlidingTabView(mContext);
         iconView.setTextSize(smallIconTextSize);
-        iconView.setTextColor(getResources().getColor(R.color.sliding_table_0));
+        iconView.setTextColor(getResources().getColor(R.color.text_color_4));
         iconView.setGravity(Gravity.CENTER);
         textView = new TextView(mContext);
         textView.setTextSize(smallTextSize);
         textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(getResources().getColor(R.color.sliding_table_0));
+        textView.setTextColor(getResources().getColor(R.color.text_color_4));
         this.setOrientation(LinearLayout.VERTICAL);
         setGravity(Gravity.CENTER);
         this.addView(iconView);

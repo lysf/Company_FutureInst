@@ -142,7 +142,7 @@ public class ArticleCommentAdapter extends BaseAdapter {
 		imageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (preferenceUtil.getID() == item.getUser().getId()) {
+				if ((preferenceUtil.getID()+"").equals(item.getUser().getId()+"")) {
 					return;
 				}
 				Intent intent = new Intent(context, PersonalShowActivity.class);
@@ -153,9 +153,9 @@ public class ArticleCommentAdapter extends BaseAdapter {
 		tv_name.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(preferenceUtil.getID() == item.getUser().getId()){
-					return;
-				}
+                if ((preferenceUtil.getID()+"").equals(item.getUser().getId()+"")) {
+                    return;
+                }
 				Intent intent = new Intent(context, PersonalShowActivity.class);
 				intent.putExtra("id", item.getUser().getId() + "");
 				context.startActivity(intent);
@@ -173,7 +173,7 @@ public class ArticleCommentAdapter extends BaseAdapter {
 		tv_comment.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(item.getUser().getId() == preferenceUtil.getID()){
+                if ((preferenceUtil.getID()+"").equals(item.getUser().getId()+"")){
 					//删除提示
 					if(deleteCommentListener != null){
 						deleteCommentListener.onClickListener(item);

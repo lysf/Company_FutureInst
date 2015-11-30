@@ -255,7 +255,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
             public void onClick(View v) {
                 if (judgeIsLogin()) {
                     comment = item;
-                    if (item.getUser().getId() != preferenceUtil.getID()) {//回复
+                    if (!(preferenceUtil.getID()+"").equals(item.getUser().getId()+"")) {//回复
                         comment.setParentId(item.getId());
                         comment.setId(0l);
                         view_float_comment_edit.setVisibility(View.VISIBLE);
@@ -293,7 +293,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (preferenceUtil.getID() == item.getUser().getId()) {
+                if ((preferenceUtil.getID()+"").equals(item.getUser().getId()+"")) {
                     return;
                 }
                 Intent intent = new Intent(CommentDetailSecondActivity.this, PersonalShowActivity.class);
@@ -304,7 +304,7 @@ public class CommentDetailSecondActivity extends BaseActivity implements PullLis
         tv_name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (preferenceUtil.getID() == item.getUser().getId()) {
+                if ((preferenceUtil.getID()+"").equals(item.getUser().getId()+"")) {
                     return;
                 }
                 Intent intent = new Intent(CommentDetailSecondActivity.this, PersonalShowActivity.class);

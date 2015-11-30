@@ -134,7 +134,7 @@ public class CommentDetailSecondAdapter extends BaseAdapter {
 		imageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (preferenceUtil.getID() == item.getUser().getId()) {
+                if ((preferenceUtil.getID()+"").equals(item.getUser().getId()+"")) {
 					return;
 				}
 				Intent intent = new Intent(context, PersonalShowActivity.class);
@@ -145,7 +145,7 @@ public class CommentDetailSecondAdapter extends BaseAdapter {
 		tv_name.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(preferenceUtil.getID() == item.getUser().getId()){
+                if ((preferenceUtil.getID()+"").equals(item.getUser().getId()+"")){
 					return;
 				}
 				Intent intent = new Intent(context, PersonalShowActivity.class);
@@ -165,7 +165,7 @@ public class CommentDetailSecondAdapter extends BaseAdapter {
 		tv_comment.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(item.getUser().getId() == preferenceUtil.getID()){
+                if ((preferenceUtil.getID()+"").equals(item.getUser().getId()+"")){
 					//删除提示
 					if(deleteCommentListener != null){
 						deleteCommentListener.onClickListener(item);

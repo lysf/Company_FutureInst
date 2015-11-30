@@ -141,10 +141,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private View view_comment_float;
     private View view_comment, view_point_layout, view_reference_layout, view_lazyBag_layout;
     //头部
-    private Button btn_invivate;
+    private ImageView btn_invivate;
 
     private ImageView iv_image;
-    private ImageView iv_image_blur;
+    private ImageView iv_refresh;
     private TextView tv_time, tv_event_title;
 
     private CustomDraw customDraw;//自定义价格动画
@@ -218,12 +218,12 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         super.onResume();
         getEvetnRealted();
         getCommentAndArticle();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                getPrice();
-            }
-        }, 2000);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                getPrice();
+//            }
+//        }, 2000);
 
         if (!isPriceRefresh) {
             isPriceRefresh = true;
@@ -241,6 +241,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            getPrice();
                             query_single_event_clear();
                         }
                     }, 1000);
@@ -285,11 +286,12 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         tv_sells_3 = new TextView[3];
 
         customDraw = (CustomDraw) findViewById(R.id.wav);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.getScreenWidth(this) * 3 / 5);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.getScreenWidth(this) * 3 / 5);
         customDraw.setLayoutParams(layoutParams);
         tv_time = (TextView) findViewById(R.id.tv_time);
         iv_image = (ImageView) findViewById(R.id.iv_image);
-        iv_image_blur = (ImageView) findViewById(R.id.iv_image_blur);
+        iv_refresh = (ImageView) findViewById(R.id.iv_refresh);
+        iv_refresh.setOnClickListener(clickListener);
 
         view_single_event = findViewById(R.id.view_singlev_event);
         view_single_event.setVisibility(View.GONE);
@@ -297,7 +299,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         tv_sell_2 = (TextView) findViewById(R.id.tv_event_sell_2);
         ll_event_buy = (LinearLayout) findViewById(R.id.ll_event_buy);
         ll_event_sell = (LinearLayout) findViewById(R.id.ll_event_sell);
-        btn_invivate = (Button) findViewById(R.id.btn_invivate_float);
+        btn_invivate = (ImageView) findViewById(R.id.btn_invivate_float);
         btn_invivate.setOnClickListener(clickListener);
         tv_eventdetail_gain_good = (TextView) findViewById(R.id.tv_eventdetail_gain_good);
         tv_eventdetail_gain_bad = (TextView) findViewById(R.id.tv_eventdetail_gain_bad);
@@ -327,6 +329,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         btn_easy_look_bad.setOnClickListener(clickListener);
         btn_advance_look_good.setOnClickListener(clickListener);
         btn_advance_look_bad.setOnClickListener(clickListener);
+        btn_easy_look_good.setSelected(true);
+        btn_easy_look_bad.setSelected(true);
+        btn_advance_look_good.setSelected(true);
+        btn_advance_look_bad.setSelected(true);
     }
 
     //评论
@@ -461,7 +467,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         headImage.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (article.getUser().getId() == preferenceUtil.getID()) {//是自己
+                if ((preferenceUtil.getID()+"").equals(article.getUser().getId()+"")) {//是自己
                     return;
                 }
                 Intent intent = new Intent(EventDetailActivity.this, PersonalShowActivity.class);
@@ -530,31 +536,31 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     //单个事件的账单
     private void initSingleEvent(SingleEventInfoDAO singleEventInfo) {
         if (attitude != 0) {//有下单
-            if (preferenceUtil.getEasyModel()) {//简易模式
-                if (attitude == 1) {//看好
-                    btn_easy_look_good.setSelected(true);
-                    btn_easy_look_bad.setSelected(false);
-                    btn_advance_look_good.setSelected(false);
-                    btn_advance_look_bad.setSelected(false);
-                } else if (attitude == 3) {//不看好
-                    btn_easy_look_good.setSelected(false);
-                    btn_easy_look_bad.setSelected(true);
-                    btn_advance_look_good.setSelected(false);
-                    btn_advance_look_bad.setSelected(false);
-                }
-            } else {//专家模式
-                if (attitude == 1) {//看好
-                    btn_easy_look_good.setSelected(false);
-                    btn_easy_look_bad.setSelected(false);
-                    btn_advance_look_good.setSelected(true);
-                    btn_advance_look_bad.setSelected(false);
-                } else if (attitude == 3) {//不看好
-                    btn_easy_look_good.setSelected(false);
-                    btn_easy_look_bad.setSelected(false);
-                    btn_advance_look_good.setSelected(false);
-                    btn_advance_look_bad.setSelected(true);
-                }
-            }
+//            if (preferenceUtil.getEasyModel()) {//简易模式
+//                if (attitude == 1) {//看好
+//                    btn_easy_look_good.setSelected(true);
+//                    btn_easy_look_bad.setSelected(false);
+//                    btn_advance_look_good.setSelected(false);
+//                    btn_advance_look_bad.setSelected(false);
+//                } else if (attitude == 3) {//不看好
+//                    btn_easy_look_good.setSelected(false);
+//                    btn_easy_look_bad.setSelected(true);
+//                    btn_advance_look_good.setSelected(false);
+//                    btn_advance_look_bad.setSelected(false);
+//                }
+//            } else {//专家模式
+//                if (attitude == 1) {//看好
+//                    btn_easy_look_good.setSelected(false);
+//                    btn_easy_look_bad.setSelected(false);
+//                    btn_advance_look_good.setSelected(true);
+//                    btn_advance_look_bad.setSelected(false);
+//                } else if (attitude == 3) {//不看好
+//                    btn_easy_look_good.setSelected(false);
+//                    btn_easy_look_bad.setSelected(false);
+//                    btn_advance_look_good.setSelected(false);
+//                    btn_advance_look_bad.setSelected(true);
+//                }
+//            }
 
             orderTip(singleEventInfo.getUser().getComment(),share_award);
 
@@ -679,6 +685,13 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.iv_refresh:
+                    progressDialog.progressDialog();
+                    getPrice();
+                    if(preferenceUtil.getID()>0){
+                        query_single_event_clear();
+                    }
+                    break;
                 case R.id.ll_empty_point:
                 case R.id.iv_editPoint://添加观点
                     if (judgeIsLogin()) {
@@ -881,7 +894,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             Long time = event.getTradeTime() - SystemTimeUtile.getInstance(0L).getSystemTime();
             tv_time.setText(LongTimeUtil.longTimeUtil(time));
 
-            if (!timeIsStart && !isDestroy) {
+            if (!timeIsStart && !isDestroy ) {
                 timeIsStart = true;
                 timeRunThread.start();
             }
@@ -1170,22 +1183,22 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         } else {
             view_comment_float.setVisibility(View.GONE);
         }
-        if (location_lazyBag[1] < location) {
-            setTitle("事件始末");
-            return;
-        } else if (location_refrence[1] < location) {
-            setTitle("相关新闻");
-            return;
-        } else if (location_point[1] < location) {
-            setTitle("精选观点");
-            return;
-        } else if (location_comment[1] < location) {
-            setTitle("评论");
-            return;
-        } else {
-            setTitle("事件详情");
-            return;
-        }
+//        if (location_lazyBag[1] < location) {
+//            setTitle("事件始末");
+//            return;
+//        } else if (location_refrence[1] < location) {
+//            setTitle("相关新闻");
+//            return;
+//        } else if (location_point[1] < location) {
+//            setTitle("精选观点");
+//            return;
+//        } else if (location_comment[1] < location) {
+//            setTitle("评论");
+//            return;
+//        } else {
+//            setTitle("事件详情");
+//            return;
+//        }
 
 
     }
@@ -1267,17 +1280,17 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         String price = event.getCurrPrice() + "";
         switch (model) {
             case 1://看好
-                for (EventBuyDAO buyDAO : priceDAOInfo.getBuys()) {
-                    if (buyDAO.getNum() >= 10) {
-                        price = buyDAO.getPrice() + "";
+                for (EventSellDAO sellDAO : priceDAOInfo.getSells()) {
+                    if (sellDAO.getNum() >= 10) {
+                        price = sellDAO.getPrice() + "";
                         break;
                     }
                 }
                 break;
             case 3://不看好
-                for (EventSellDAO sellDAO : priceDAOInfo.getSells()) {
-                    if (sellDAO.getNum() >= 10) {
-                        price = sellDAO.getPrice() + "";
+                for (EventBuyDAO buyDAO : priceDAOInfo.getBuys()) {
+                    if (buyDAO.getNum() >= 10) {
+                        price = buyDAO.getPrice() + "";
                         break;
                     }
                 }

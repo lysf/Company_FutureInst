@@ -120,7 +120,7 @@ public class CustomDraw extends View {
         } else {
             mPaint.setColor(color_blue[2]);
         }
-        sweepAngle_1 += sweepAngle * delay_time / total_time;//没隔delay_time所增加的角度
+        sweepAngle_1 += sweepAngle * delay_time / total_time;//每隔delay_time所增加的角度
         if (sweepAngle_1 >= sweepAngle) {
             sweepAngle_1 = sweepAngle;
             sweepOK = true;
@@ -231,12 +231,14 @@ public class CustomDraw extends View {
 
     public void start() {
         isStart = true;//开始动画
+
         invalidate();
     }
 
     public void setPrice(float price) {
         this.price = price;
         this.sweepAngle = (float) (price * 3.6);//价格为0-100，所旋转角度从0-360
+        reset();
         invalidate();
     }
 
@@ -244,5 +246,15 @@ public class CustomDraw extends View {
         this.update_price = updatePrice;
         invalidate();
     }
-
+    private void reset(){
+        sweepAngle_1 = 0;
+        price_1 = 0;
+        X1 = x1;
+        X2 = x2;
+        sweepOK = false;
+        priceOK = false;
+        isStart = false;
+        X1OK = false;
+        X2Ok = false;
+    }
 }

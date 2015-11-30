@@ -74,7 +74,7 @@ public class PointAdapter extends BaseAdapter {
         }
         tv_type.setText(item.getEvent().getTagstr());
         tv_name.setText(item.getUser().getName());
-        tv_read.setText(item.getReadNum()+"人已阅读");
+        tv_read.setText("阅读"+item.getReadNum()+"次");
         tv_praise.setText(" "+item.getLoveNum());
         tv_comment_num.setText(" "+item.getCommentNum());
         tv_title.setText(item.getTitle());
