@@ -687,6 +687,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             switch (v.getId()) {
                 case R.id.iv_refresh:
                     progressDialog.progressDialog();
+//                    attitude = 0;
                     getPrice();
                     if(preferenceUtil.getID()>0){
                         query_single_event_clear();
