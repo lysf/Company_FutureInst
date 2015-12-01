@@ -584,7 +584,7 @@
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="text_size_large">19sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
     <dimen name="text_size_large_17">17sp</dimen>
     <dimen name="text_size_large_20">20sp</dimen>
     <dimen name="text_size_large_22">22sp</dimen>

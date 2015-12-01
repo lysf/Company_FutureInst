@@ -8,7 +8,7 @@ import com.futureinst.model.dailytask.DailyTaskInfoDAO;
  */
 public class TaskTipUtil {
     public static boolean isShowTip(DailyTaskInfoDAO dailyTaskInfo){
-        if(dailyTaskInfo == null ){
+        if(dailyTaskInfo.getDaily_task() == null ){
             return false;
         }else{
             //有完成的任务，还未领取奖励
