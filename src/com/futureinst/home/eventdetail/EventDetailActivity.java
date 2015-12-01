@@ -612,6 +612,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             orignalRates.add(0.3);
             orignalRates.add(0.2);
             orignalRates.add(0.5);
+            Log.i(TAG,"===========111");
             switch (LotteryUtil.lottery(orignalRates)) {
                 case 0://分享
                     showShareCommentDialog(attitude);
@@ -624,6 +625,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             }
         }else if(commentNum == 0
                 && share_award > 0){//未评论，有过分享
+            Log.i(TAG,"===========2222");
             orignalRates.add(0.5);
             orignalRates.add(0.5);
             if(LotteryUtil.lottery(orignalRates) == 0){//评论
@@ -631,13 +633,13 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             }
         }else if(commentNum > 0
                 && share_award == 0){//有过评论，没有分享
+            Log.i(TAG,"===========333");
             orignalRates.add(0.5);
             orignalRates.add(0.5);
             if(LotteryUtil.lottery(orignalRates) == 0){//分享
                 showShareCommentDialog(attitude);
             }
         }
-        attitude = 0;
     }
 
     //初始化懒人包和相关新闻

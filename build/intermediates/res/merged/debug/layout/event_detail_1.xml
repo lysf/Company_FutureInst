@@ -80,14 +80,11 @@
         android:paddingTop="@dimen/activity_login_margin_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <Button
+        <ImageView
             android:id="@+id/btn_invivate_float"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:text="清算依据"
-            android:textColor="@color/text_color_4"
-            android:textSize="@dimen/text_size_normal"
-            android:background="#F8E71C"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/qingsuan_cut"
             />
     </LinearLayout>
 </LinearLayout>
