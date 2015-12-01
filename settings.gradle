@@ -1,2 +1,3 @@
 
 include ':BDIntegrationSDK_Lib'
+include ':BaiduWalletRefactor_Lib'

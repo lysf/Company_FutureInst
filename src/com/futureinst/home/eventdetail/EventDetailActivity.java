@@ -640,6 +640,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 showShareCommentDialog(attitude);
             }
         }
+        attitude = 0;
     }
 
     //初始化懒人包和相关新闻

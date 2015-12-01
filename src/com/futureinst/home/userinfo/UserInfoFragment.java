@@ -8,6 +8,7 @@ import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.charge.ChargeActivity;
 import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.HomeActivity;
@@ -241,6 +242,7 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     private void setClickListener() {
+        tv_userName.setOnClickListener(clickListener);
         iv_message.setOnClickListener(clickListener);
         iv_set.setOnClickListener(clickListener);
         tv_attend.setOnClickListener(clickListener);
@@ -271,6 +273,7 @@ public class UserInfoFragment extends BaseFragment {
 //				Intent intentName = new Intent(getActivity(), PersonalNameSetActivity.class);
 //				intentName.putExtra("nickName", userInformationDAO.getUser().getName());
 //				startActivity(intentName);
+                    startActivity(new Intent(getContext(), ChargeActivity.class));
                     break;
                 case R.id.tv_description:// 先知描述
 //				showEditDescription();
@@ -293,7 +296,6 @@ public class UserInfoFragment extends BaseFragment {
                     break;
                 case R.id.tableRow0://预测中事件
                     Intent intent0 = new Intent(getActivity(), HoldingActivity.class);
-//				intent0.putExtra("id", preferenceUtil.getID()+"");
                     startActivity(intent0);
                     break;
                 case R.id.tableRow1://战绩

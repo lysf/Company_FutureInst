@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/BDIntegrationSDK_Lib" />
+            <option value="$PROJECT_DIR$/BaiduWalletRefactor_Lib" />
           </set>
         </option>
       </GradleProjectSettings>

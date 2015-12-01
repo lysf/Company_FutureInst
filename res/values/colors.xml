@@ -23,6 +23,9 @@
 
 
     <color name="rippelColor">#86BFFA</color>
+    <color name="editText">#AAAAAA</color>
+    <color name="blue">#008dff</color>
+    <color name="gray">#bbbbbb</color>
 
     <color name="crop__button_bar">#f3f3f3</color>
     <color name="crop__button_text">#666666</color>
