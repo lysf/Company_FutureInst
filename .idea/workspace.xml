@@ -83,38 +83,31 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="daff0e59-b119-416a-9cd5-90a655b735f4" name="Default" comment="">
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\.idea\libraries\effects_android_23.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\.idea\libraries\maps_android_23.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\.idea\libraries\usb_android_23.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\manifest\tmp\manifestMerger1121767450178539413.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\buildConfig\release\com\futureinst\BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\r\release\android\support\design\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\r\release\android\support\v7\appcompat\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\r\release\android\support\v7\cardview\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\r\release\android\support\v7\gridlayout\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\r\release\android\support\v7\recyclerview\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\r\release\com\baidu\integrationsdk\lib\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\r\release\com\futureinst\Manifest.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\generated\source\r\release\com\futureinst\R.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
+    <list default="true" id="daff0e59-b119-416a-9cd5-90a655b735f4" name="Default" comment="2015年12月1日13:03:17（Android2.1）">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/new_cut.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/qingsuan_cut.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/buildConfig/debug/com/futureinst/BuildConfig.java" afterPath="$PROJECT_DIR$/build/generated/source/buildConfig/debug/com/futureinst/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FutureInst.iml" afterPath="$PROJECT_DIR$/FutureInst.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_event_detail_about.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_event_detail_about.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/r/androidTest/debug/com/baidu/integrationsdk/lib/R.java" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/generated/source/r/androidTest/debug/com/baidu/integrationsdk/lib/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/futureinst/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/futureinst/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_event_detail_about.xml" afterPath="$PROJECT_DIR$/res/layout/activity_event_detail_about.xml" />
+      <change type="MODIFICATION" beforePath="F:\CompanyWork\FutureInst\build\intermediates\dex-cache\cache.xml" afterPath="F:\CompanyWork\FutureInst\build\intermediates\dex-cache\cache.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/event_detail_1.xml" afterPath="$PROJECT_DIR$/res/layout/event_detail_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/eventbus.xml" afterPath="$PROJECT_DIR$/.idea/libraries/eventbus.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_keyword.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_keyword.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item_keyword.xml" afterPath="$PROJECT_DIR$/res/layout/item_keyword.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeResourcesandroidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeResourcesandroidTest/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesdebug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesrelease/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesrelease/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values-v19/values-v19.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values-v19/values-v19.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FutureInst.iws" />
@@ -150,14 +143,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EventDetailActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EventDetailActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6032316">
-              <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1037" column="35" selection-start-line="1037" selection-start-column="35" selection-end-line="1037" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#13874#14157#0" expanded="true" />
+                <element signature="e#14156#14157#0" expanded="true" />
+                <element signature="e#15397#15689#0" expanded="true" />
+                <element signature="e#15688#15689#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpPath.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.07540395">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1399,7 +1406,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="F:\CompanyWork\FutureInst" value="4345500361810" />
+        <entry key="F:\CompanyWork\FutureInst" value="4345558366684" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2112,7 +2119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/futureinst/utils/MyToast.java" />
         <option value="$PROJECT_DIR$/src/com/futureinst/net/HttpResponseUtils.java" />
         <option value="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastFragment.java" />
         <option value="$PROJECT_DIR$/src/com/futureinst/service/UpdateDialogShow.java" />
@@ -2163,6 +2169,7 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserCheckTradeFragment.java" />
         <option value="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
+        <option value="$PROJECT_DIR$/res/layout/activity_event_detail_about.xml" />
       </list>
     </option>
   </component>
@@ -2208,18 +2215,9 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="FutureInst" />
@@ -2228,7 +2226,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2263,6 +2260,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -2283,7 +2281,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2622,27 +2619,27 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6040956" sideWeight="0.4666161" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28895614" sideWeight="0.49109414" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.49394855" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.62286687" sideWeight="0.5333839" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27836612" sideWeight="0.4675768" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19515885" sideWeight="0.4675768" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30257186" sideWeight="0.5089058" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25113463" sideWeight="0.5324232" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.83959043" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.83959043" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28895614" sideWeight="0.49109414" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7713311" sideWeight="0.49394855" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2659,6 +2656,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="2015年10月10日17:42:49" />
     <MESSAGE value="2015年11月4日11:37:51" />
     <MESSAGE value="2015年11月5日19:59:15" />
@@ -2672,7 +2670,8 @@
     <MESSAGE value="2015年11月26日18:53:21" />
     <MESSAGE value="2015年11月28日11:20:55" />
     <MESSAGE value="2015年12月1日10:48:56（2.1）" />
-    <option name="LAST_COMMIT_MESSAGE" value="2015年12月1日10:48:56（2.1）" />
+    <MESSAGE value="2015年12月1日13:03:17（Android2.1）" />
+    <option name="LAST_COMMIT_MESSAGE" value="2015年12月1日13:03:17（Android2.1）" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2831,13 +2830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable/icon_caijing.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1508079">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/view_event_order_config.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2874,13 +2866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29443446">
           <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56552964">
-          <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -3124,13 +3109,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_event_detail_about.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3323442">
+          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6032316">
-          <caret line="320" column="0" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1037" column="35" selection-start-line="1037" selection-start-column="35" selection-end-line="1037" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#13874#14157#0" expanded="true" />
+            <element signature="e#14156#14157#0" expanded="true" />
+            <element signature="e#15397#15689#0" expanded="true" />
+            <element signature="e#15688#15689#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07540395">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
