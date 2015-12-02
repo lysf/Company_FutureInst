@@ -273,7 +273,7 @@ public class UserInfoFragment extends BaseFragment {
 //				Intent intentName = new Intent(getActivity(), PersonalNameSetActivity.class);
 //				intentName.putExtra("nickName", userInformationDAO.getUser().getName());
 //				startActivity(intentName);
-                    startActivity(new Intent(getContext(), ChargeActivity.class));
+//                    startActivity(new Intent(getContext(), ChargeActivity.class));
                     break;
                 case R.id.tv_description:// 先知描述
 //				showEditDescription();
