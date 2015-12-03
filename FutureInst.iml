@@ -109,6 +109,7 @@
     <orderEntry type="library" exported="" name="GetuiSdk2.5.0.0" level="project" />
     <orderEntry type="library" exported="" name="okhttp-2.0.0-RC1" level="project" />
     <orderEntry type="module" module-name="BDIntegrationSDK_Lib" exported="" />
+    <orderEntry type="module" module-name="BaiduWalletRefactorLib" exported="" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-23" level="project" />
   </component>
 </module>
