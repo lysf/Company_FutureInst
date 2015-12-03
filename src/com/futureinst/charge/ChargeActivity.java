@@ -60,6 +60,10 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
      * 京东支付渠道
      */
     private static final String CHANNEL_JDPAY_WAP = "jdpay_wap";
+    /**
+     * 易付宝支付渠道
+     */
+    private static final String CHANNEL_YEEPAY_WAP = "yeepay_wap";
     private String currentAmount = "";
 
     private EditText amountEditText;
@@ -68,21 +72,26 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
     private Button upmpButton;
     private Button bfbButton;
     private Button jdpayButton;
+    private Button yfbpayButton;
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_charge);
+        setTitle("支付");
+        getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
         amountEditText = (EditText) findViewById(R.id.amountEditText);
         wechatButton = (Button) findViewById(R.id.wechatButton);
         alipayButton = (Button) findViewById(R.id.alipayButton);
         upmpButton = (Button) findViewById(R.id.upmpButton);
         bfbButton = (Button) findViewById(R.id.bfbButton);
         jdpayButton =(Button) findViewById(R.id.jdpayButton);
+        yfbpayButton =(Button) findViewById(R.id.yfbpayButton);
 
         wechatButton.setOnClickListener(ChargeActivity.this);
         alipayButton.setOnClickListener(ChargeActivity.this);
         upmpButton.setOnClickListener(ChargeActivity.this);
         bfbButton.setOnClickListener(ChargeActivity.this);
         jdpayButton.setOnClickListener(ChargeActivity.this);
+        yfbpayButton.setOnClickListener(ChargeActivity.this);
         PingppLog.DEBUG = true;
 
         amountEditText.addTextChangedListener(new TextWatcher() {
@@ -135,6 +144,8 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
             new PaymentTask().execute(new PaymentRequest(CHANNEL_BFB, amount));
         } else if(view.getId() == R.id.jdpayButton){
             new PaymentTask().execute(new PaymentRequest(CHANNEL_JDPAY_WAP, amount));
+        } else if(view.getId() == R.id.yfbpayButton){
+            new PaymentTask().execute(new PaymentRequest(CHANNEL_YEEPAY_WAP, amount));
         }
     }
 
@@ -148,6 +159,7 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
             alipayButton.setOnClickListener(null);
             upmpButton.setOnClickListener(null);
             bfbButton.setOnClickListener(null);
+            yfbpayButton.setOnClickListener(null);
         }
 
         @Override
@@ -195,6 +207,7 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
         alipayButton.setOnClickListener(ChargeActivity.this);
         upmpButton.setOnClickListener(ChargeActivity.this);
         bfbButton.setOnClickListener(ChargeActivity.this);
+        yfbpayButton.setOnClickListener(ChargeActivity.this);
 
         //支付页面返回处理
         if (requestCode == REQUEST_CODE_PAYMENT) {
@@ -224,7 +237,7 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
         AlertDialog.Builder builder = new Builder(ChargeActivity.this);
         builder.setMessage(str);
         builder.setTitle("提示");
-        builder.setPositiveButton("OK", null);
+        builder.setPositiveButton("确定", null);
         builder.create().show();
     }
 

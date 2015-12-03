@@ -119,8 +119,6 @@ public class HttpResponseUtils {
 							e.printStackTrace();
 						}
 						if(!Utils.checkNetkworkState(activity)){
-//							MyToast.showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
-//							NetstateToast.getInstance(activity, activity.getResources().getString(R.string.connection_interrupt)).showToast();
 							MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
 							return;
 						}
@@ -142,7 +140,7 @@ public class HttpResponseUtils {
 			}
 		};
 		postRequest.setRetryPolicy(new DefaultRetryPolicy(
-						6*1000, DefaultRetryPolicy.DEFAULT_TIMEOUT_MS,
+						6*1000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
 						DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 		mQueue.add(postRequest);
 		
@@ -212,7 +210,7 @@ public class HttpResponseUtils {
 			
 		};
 		postRequest.setRetryPolicy(new DefaultRetryPolicy(
-				6*1000, DefaultRetryPolicy.DEFAULT_TIMEOUT_MS,
+				6*1000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
 				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 		mQueue.add(postRequest);
 		

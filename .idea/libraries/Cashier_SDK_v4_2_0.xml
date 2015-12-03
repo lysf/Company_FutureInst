@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Cashier_SDK-v4.2.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/BaiduWalletRefactor_Lib/libs/Cashier_SDK-v4.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BaiduWalletRefactorLib/libs/Cashier_SDK-v4.2.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
