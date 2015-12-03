@@ -17,7 +17,7 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.1.1'
     compile 'com.android.support:gridlayout-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-    compile project(':BaiduWalletRefactor_Lib')
+    compile project(':BaiduWalletRefactorLib')
 }
 
 android {

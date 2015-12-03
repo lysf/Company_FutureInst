@@ -103,7 +103,7 @@
     <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <bool name="bd_wallet_switch_global_debug">false</bool>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
@@ -151,7 +151,7 @@
     <eat-comment/>
     <color name="background_tab_pressed">#6633B5E5</color>
     <color name="base_bg">#f4f6f6</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <color name="bd_wallet_black">#000</color>
     <color name="bd_wallet_black3">#222222</color>
@@ -250,7 +250,7 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <color name="ebpay_black">#ff000000</color>
     <color name="ebpay_black_transparent">#80000000</color>
@@ -425,7 +425,7 @@
     <color name="type_7">#E1DBCE</color>
     <color name="type_8">#FFBDAD</color>
     <color name="type_9">#FCFB68</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <color name="wallet_base_6c">#ccc</color>
     <color name="wallet_base_blue">#3DA1F6</color>
@@ -569,7 +569,7 @@
     <dimen name="activity_login_padding">30dip</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <dimen name="bd_wallet_contact_name_width">90dp</dimen>
     <dimen name="bd_wallet_dialog_bottombutton_height">50dp</dimen>
@@ -661,7 +661,7 @@
     <eat-comment/>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <dimen name="ebpay_bt_height">45dip</dimen>
     <dimen name="ebpay_dialog_img_height">150dp</dimen>
@@ -707,7 +707,7 @@
     <dimen name="margin_15">15dip</dimen>
     <dimen name="margin_20">20dip</dimen>
     <dimen name="margin_5">5dip</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <dimen name="notification_bar_height">25dp</dimen>
     <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
@@ -815,7 +815,7 @@
     <string name="auth_cancel">授权操作已取消</string>
     <string name="auth_complete">授权成功，正在跳转登录操作…</string>
     <string name="auth_error">授权操作遇到错误</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="bd_wallet_back">返回</string>
     <string name="bd_wallet_balance_setting_rightnow">立即设置</string>
@@ -943,7 +943,7 @@
     <eat-comment/>
     <string name="easy_model">简易模式</string>
     <string name="easy_model_tip">点击看好/不看好，即以市价买进/卖空10件该事件。</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="ebpay_abandon_balance_charge">放弃充值</string>
     <string name="ebpay_abandon_pay">放弃付款</string>
@@ -1175,7 +1175,7 @@
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="foursquare">FourSquare</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="fp_get_data_fail">系统开小差，等一会儿再试吧</string>
     <string name="fp_img">Image</string>
@@ -1503,7 +1503,7 @@
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="vkontakte">VK</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="wallet_base_bind_success">绑卡成功</string>
     <string name="wallet_base_charge">话费充值</string>
@@ -1539,6 +1539,7 @@
     <string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送5000未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
     <string name="wrong_phone">请输入合法手机号</string>
     <string name="year">年</string>
+    <string name="yfbpay">易付宝支付</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="yixin">易信</string>
@@ -2598,7 +2599,7 @@
         <item name="android:dividerPadding">12dp</item>
         <item name="android:background">@color/crop__button_bar</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <style name="EbpayActivityAnim">
         <item name="@android:activityOpenEnterAnimation">@anim/wallet_base_slide_from_right</item>
@@ -3141,7 +3142,7 @@
         <item name="android:textSize">12sp</item>
         <item name="android:maxLines">1</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactor_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <style name="bd_wallet_custom_dialog_theme" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
