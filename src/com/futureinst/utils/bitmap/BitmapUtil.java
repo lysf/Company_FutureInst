@@ -19,7 +19,7 @@ import android.widget.ImageView;
 public class BitmapUtil {
 
     public static void blur(Context context, Bitmap bkg, ImageView view) {
-        float radius = 20;
+        float radius = 2;
         float scaleFactor = 8;
         Bitmap overlay = Bitmap.createBitmap((int) (view.getMeasuredWidth() / scaleFactor), (int) (view.getMeasuredHeight() / scaleFactor), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(overlay);
