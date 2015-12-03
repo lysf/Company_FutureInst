@@ -91,128 +91,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daff0e59-b119-416a-9cd5-90a655b735f4" name="Default" comment="2015年12月3日10:28:45">
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build.gradle" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\generated\source\buildConfig\androidTest\debug\com\baidu\integrationsdk\lib\test\BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\generated\source\buildConfig\debug\com\baidu\integrationsdk\lib\BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\generated\source\buildConfig\release\com\baidu\integrationsdk\lib\BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\generated\source\r\androidTest\debug\com\baidu\integrationsdk\lib\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\generated\source\r\androidTest\debug\com\baidu\integrationsdk\lib\test\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\generated\source\r\debug\com\baidu\integrationsdk\lib\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\generated\source\r\release\com\baidu\integrationsdk\lib\R.java" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\R.txt" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\aapt\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\jni\armeabi\libMD5_v1.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\jni\armeabi\libbase64encoder_v1_4.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\jni\x86\libMD5_v1.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\jni\x86\libbase64encoder_v1_4.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\libs\BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\libs\android_api_3.6.9.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\libs\patchupdate.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\res\drawable-mdpi-v4\bdp_update_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\res\drawable\bdp_update_bg_dialog_btn.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\res\drawable\bdp_update_bg_dialog_content.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\res\drawable\bdp_update_bg_dialog_title.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\res\drawable\bdp_update_progress_download.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\res\layout\bdp_update_activity_confirm_dialog.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\debug\res\values\values.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\R.txt" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\aapt\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\classes.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\jni\armeabi\libMD5_v1.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\jni\armeabi\libbase64encoder_v1_4.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\jni\x86\libMD5_v1.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\jni\x86\libbase64encoder_v1_4.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\libs\BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\libs\android_api_3.6.9.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\libs\patchupdate.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\res\drawable-mdpi-v4\bdp_update_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\res\drawable\bdp_update_bg_dialog_btn.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\res\drawable\bdp_update_bg_dialog_content.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\res\drawable\bdp_update_bg_dialog_title.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\res\drawable\bdp_update_progress_download.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\res\layout\bdp_update_activity_confirm_dialog.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\bundles\release\res\values\values.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\debug\com\baidu\integrationsdk\lib\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\debug\com\baidu\integrationsdk\lib\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\debug\com\baidu\integrationsdk\lib\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\debug\com\baidu\integrationsdk\lib\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\debug\com\baidu\integrationsdk\lib\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\debug\com\baidu\integrationsdk\lib\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\debug\com\baidu\integrationsdk\lib\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\debug\com\baidu\integrationsdk\lib\R.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\release\com\baidu\integrationsdk\lib\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\release\com\baidu\integrationsdk\lib\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\release\com\baidu\integrationsdk\lib\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\release\com\baidu\integrationsdk\lib\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\release\com\baidu\integrationsdk\lib\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\release\com\baidu\integrationsdk\lib\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\release\com\baidu\integrationsdk\lib\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\classes\release\com\baidu\integrationsdk\lib\R.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\aidl\androidTest\debug\dependency.store" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\aidl\debug\dependency.store" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\aidl\release\dependency.store" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\mergeAssets\androidTest\debug\merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\mergeAssets\debug\merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\mergeAssets\release\merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\mergeResourcesandroidTest\debug\merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\packageResourcesdebug\merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\incremental\packageResourcesrelease\merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\manifest\androidTest\debug\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\res\merged\androidTest\debug\drawable-mdpi-v4\bdp_update_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\res\merged\androidTest\debug\drawable\bdp_update_bg_dialog_btn.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\res\merged\androidTest\debug\drawable\bdp_update_bg_dialog_content.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\res\merged\androidTest\debug\drawable\bdp_update_bg_dialog_title.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\res\merged\androidTest\debug\drawable\bdp_update_progress_download.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\res\merged\androidTest\debug\layout\bdp_update_activity_confirm_dialog.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\res\merged\androidTest\debug\values\values.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\res\resources-debug-androidTest.ap_" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\intermediates\symbols\androidTest\debug\R.txt" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\outputs\aar\BDIntegrationSDK_Lib-debug.aar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\outputs\aar\BDIntegrationSDK_Lib-release.aar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\tmp\packageDebugJar\MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\build\tmp\packageReleaseJar\MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\libs\BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\libs\android_api_3.6.9.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\libs\patchupdate.jar" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\jniLibs\armeabi\libMD5_v1.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\jniLibs\armeabi\libbase64encoder_v1_4.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\jniLibs\x86\libMD5_v1.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\jniLibs\x86\libbase64encoder_v1_4.so" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\drawable-mdpi\bdp_update_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\drawable\bdp_update_bg_dialog_btn.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\drawable\bdp_update_bg_dialog_content.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\drawable\bdp_update_bg_dialog_title.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\drawable\bdp_update_progress_download.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\layout\bdp_update_activity_confirm_dialog.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\values-v21\bdp_update_styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\values\bdp_update_strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\values\bdp_update_styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\BDIntegrationSDK_Lib\src\main\res\values\colors.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\intermediates\exploded-aar\FutureInst\BDIntegrationSDK_Lib\unspecified\res\drawable-mdpi-v4\bdp_update_logo.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\build\intermediates\res\merged\debug\drawable-mdpi-v4\bdp_update_logo.png" afterPath="" />
+      <change type="DELETED" beforePath="F:\CompanyWork\FutureInst\.idea\libraries\need_lib.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaiduWalletRefactorLib/BaiduWalletRefactorLib.iml" afterPath="$PROJECT_DIR$/BaiduWalletRefactorLib/BaiduWalletRefactorLib.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/baidu/integrationsdk/lib/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/baidu/integrationsdk/lib/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/debug/com/futureinst/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/futureinst/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/build/intermediates/symbols/debug/R.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FutureInst.iml" afterPath="$PROJECT_DIR$/FutureInst.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build.gradle" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FutureInst.iws" />
@@ -247,7 +140,28 @@
     <favorites_list name="FutureInst" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="HttpPath.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BDIntegrationSDK_Lib/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7360862">
+              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -2031,7 +1945,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="F:\CompanyWork\FutureInst" value="5796469336583" />
+        <entry key="F:\CompanyWork\FutureInst" value="5796483567719" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -2082,7 +1996,6 @@
                             <option value="$MODULE_DIR$/BaiduWalletRefactorLib/libs/Cashier_SDK-v4.2.0.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/android_api_3.6.9.3.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/need_lib.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/patchupdate.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0.jar" />
@@ -2207,7 +2120,6 @@
                             <option value="$MODULE_DIR$/BaiduWalletRefactorLib/libs/Cashier_SDK-v4.2.0.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/android_api_3.6.9.3.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/need_lib.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/patchupdate.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0.jar" />
@@ -2287,7 +2199,6 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
                             <option value="$MODULE_DIR$/libs/android_api_3.6.9.3.jar" />
                             <option value="$MODULE_DIR$/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-                            <option value="$MODULE_DIR$/libs/need_lib.jar" />
                             <option value="$MODULE_DIR$/libs/patchupdate.jar" />
                           </list>
                         </option>
@@ -2336,7 +2247,6 @@
                             <option value="$MODULE_DIR$/BaiduWalletRefactorLib/libs/Cashier_SDK-v4.2.0.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/android_api_3.6.9.3.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-                            <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/need_lib.jar" />
                             <option value="$MODULE_DIR$/BDIntegrationSDK_Lib/libs/patchupdate.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.3.0/gradle-1.3.0.jar" />
@@ -3230,6 +3140,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -3250,6 +3161,27 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BDIntegrationSDK_Lib" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -3270,35 +3202,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/V2.1" />
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/libs" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.10.101:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="7&amp;141ef444&amp;0&amp;0001" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_4_API_23" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -3655,28 +3565,28 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6040956" sideWeight="0.4666161" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10750853" sideWeight="0.49394855" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47276855" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.62286687" sideWeight="0.5333839" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.295764" sideWeight="0.4675768" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29522184" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30257186" sideWeight="0.5089058" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25113463" sideWeight="0.5324232" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.83959043" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.83959043" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24281392" sideWeight="0.49109414" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7713311" sideWeight="0.49394855" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32764506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3956,13 +3866,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserInfoFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4086,7 +3989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4098,18 +4000,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BDIntegrationSDK_Lib/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11909263">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4593573">
           <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BDIntegrationSDK_Lib/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7360862">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding />
         </state>
       </provider>

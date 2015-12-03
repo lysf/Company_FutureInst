@@ -80,7 +80,6 @@
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="patchupdate" level="project" />
-    <orderEntry type="library" exported="" name="need_lib" level="project" />
     <orderEntry type="library" exported="" name="BDAutoUpdate_APPX_SDK_20150826" level="project" />
     <orderEntry type="library" exported="" name="android_api_3.6.9.3" level="project" />
   </component>
