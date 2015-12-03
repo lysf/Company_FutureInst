@@ -557,10 +557,10 @@
             android:value="huawei" />
         <meta-data
             android:name="BDAPPID"
-            android:value="6455116" />
+            android:value="" />
         <meta-data
             android:name="BDAPPKEY"
-            android:value="WeKrdAKQWpkR85xm1TEn9Gev" />
+            android:value="" />
  <!-- ↓↓↓ 百度移动统计SDK ↓↓↓ -->
         <!-- 是否开启错误日志统计，默认为false -->
         <meta-data

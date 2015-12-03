@@ -7,10 +7,6 @@
 package com.baidu.integrationsdk.lib;
 
 public final class R {
-	public static final class color {
-		public static final int legacyPrimary = 0x7f0e00a3;
-		public static final int legacy_primary = 0x7f0e00a4;
-	}
 	public static final class drawable {
 		public static final int bdp_update_bg_dialog_btn = 0x7f02005b;
 		public static final int bdp_update_bg_dialog_content = 0x7f02005c;
@@ -52,7 +48,7 @@ public final class R {
 		public static final int bdp_update_title_install = 0x7f070076;
 	}
 	public static final class style {
-		public static final int bdp_update_dialog_style = 0x7f0a007c;
+		public static final int bdp_update_dialog_style = 0x7f0a016d;
 		public static final int bdp_update_dialog_style_fullscreen = 0x7f0a016e;
 		public static final int bdp_update_progress_download = 0x7f0a016f;
 	}

@@ -322,12 +322,6 @@
     <color name="holo_red_light">#ffff4444</color>
     <color name="home_table_0">#6D6D6D</color>
     <color name="home_table_1">#51C3D1</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml -->
-    <eat-comment/>
-    <color name="legacyPrimary">#e6e6e6</color>
-    <color name="legacy_primary">#e6e6e6</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
-    <eat-comment/>
     <color name="login_btn_login">#BAD311</color>
     <color name="login_title_layout_back">#081448</color>
     <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
