@@ -27,6 +27,7 @@ import com.futureinst.utils.Utils;
 public class RegistActiivty_1 extends BaseActivity {
 	private EditText et_phoneNumber,et_authCode,et_password,et_submit_password;
 	private Button btn_authCode;
+    private Button btn_next;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_regist_1);
@@ -44,7 +45,8 @@ public class RegistActiivty_1 extends BaseActivity {
 		et_submit_password = (EditText) findViewById(R.id.et_submit_password);
 		btn_authCode = (Button) findViewById(R.id.btn_auth);
 		btn_authCode.setOnClickListener(clickListener);
-        findViewById(R.id.btn_next).setOnClickListener(clickListener);
+        btn_next = (Button) findViewById(R.id.btn_next);
+        btn_next.setOnClickListener(clickListener);
 	}
 	OnClickListener clickListener = new OnClickListener() {
 		@Override
@@ -93,10 +95,12 @@ public class RegistActiivty_1 extends BaseActivity {
 	//注册
 	private void regist(String mobile, String authCode, String pwd){
 		if(!checkData(mobile, authCode, pwd)){
+
 			return;
 		}
 		Content.isPull = true;
-		progressDialog.progressDialog();
+        btn_next.setOnClickListener(null);
+        progressDialog.progressDialog();
 		httpResponseUtils.postJson(httpPostParams.getPostParams(
 				PostMethod.add_user_by_phone.name(), PostType.user.name(), httpPostParams.regist(mobile, authCode, pwd)), 
 				UserInfo.class, 
@@ -105,6 +109,7 @@ public class RegistActiivty_1 extends BaseActivity {
 					public void requestCompleted(Object response) throws JSONException {
 						progressDialog.cancleProgress();
 						Content.isPull = false;
+                        btn_next.setOnClickListener(clickListener);
 						if(response == null) return;
 						UserInfo userInfo = (UserInfo) response;
 						SaveUserInfo.saveUserInfo(getApplicationContext(), userInfo.getUser());
