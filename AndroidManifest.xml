@@ -555,7 +555,7 @@
         <!-- 同时修改HttpPostParams中的regist（） ctype -->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="huawei"/>
+            android:value="android"/>
     </application>
 
 </manifest>

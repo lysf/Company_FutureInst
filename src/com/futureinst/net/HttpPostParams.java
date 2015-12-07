@@ -10,7 +10,7 @@ import android.text.TextUtils;
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
     //ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi、huawei
-    private String ctype = "huawei";
+    private String ctype = "android";
 
     public static HttpPostParams getInstace(){
 		if(httpPostParams == null)
@@ -938,6 +938,14 @@ public class HttpPostParams {
         map.put("user_id", user_id);
         map.put("uuid", uuid);
         map.put("task_name", task_name);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+    public String get_test_charge(String user_id, String uuid,String channel){
+        Map<String, String> map = new HashMap<String, String>();
+//        map.put("user_id", user_id);
+//        map.put("uuid", uuid);
+        map.put("channel", channel);
         JSONObject jsonObject = new JSONObject(map);
         return jsonObject.toString();
     }

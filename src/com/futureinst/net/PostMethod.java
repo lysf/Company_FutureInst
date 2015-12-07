@@ -54,4 +54,5 @@ public enum PostMethod {
 	query_user_news,//动态
     query_user_daily_task,//查询当日任务
     get_daily_task_award,//领取当日任务奖励
+    get_test_charge,//支付
 }

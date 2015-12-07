@@ -215,6 +215,75 @@ public class HttpResponseUtils {
 		mQueue.add(postRequest);
 		
 	}
+	public synchronized <T> void postJson(final Map<String, String> params,
+			final PostCommentResponseListener commentResponseListener) {
+		StringRequest postRequest = new StringRequest(Request.Method.POST, HttpPath.URL,
+				new Response.Listener<String>() {
+			@Override
+			public void onResponse(String response) {
+				if (!TextUtils.isEmpty(response)) {
+					Log.i("charge", "----------charge-->>" + response);
+					BaseModel baseModel = GsonUtils.json2Bean(response,
+							BaseModel.class);
+					int status = baseModel.getStatus();
+					final String message = baseModel.getErrinfo();
+					if(status!=0){
+						try {
+							commentResponseListener
+							.requestCompleted(null);
+						} catch (JSONException e1) {
+							e1.printStackTrace();
+						}
+						if(status == -3) return;
+						MyToast.getInstance().showToast(activity, message, 0);
+						return;
+					}
+					try {
+						commentResponseListener
+						.requestCompleted(response);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}, new Response.ErrorListener() {
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				Log.i("-----VolleyError---", "-----client error--->>"
+						+ error.toString());
+				try {
+					commentResponseListener.requestCompleted(null);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				if(!Utils.checkNetkworkState(activity)) {
+					MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.connection_interrupt), 0);
+					return;
+				}
+				MyToast.getInstance().showToast(activity, activity.getResources().getString(R.string.client_no_response), 0);
+				return;
+			}
+		}) {
+			@Override
+			protected Map<String, String> getParams(){
+				return params;
+			}
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError {
+				Map<String,String> header = new HashMap<String, String>();
+				header.put("uuid", preferenceUtil.getUUid());
+				header.put("user_id", preferenceUtil.getID()+"");
+				header.put("deviceID", Utils.getUniquePsuedoID());
+				return header;
+			}
+
+		};
+		postRequest.setRetryPolicy(new DefaultRetryPolicy(
+				6*1000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+		mQueue.add(postRequest);
+
+	}
 
 	public <T> void postCookieJson(String url, final String cookie,
 			final Map<String, String> params, 

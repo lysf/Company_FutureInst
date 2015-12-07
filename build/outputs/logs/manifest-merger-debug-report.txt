@@ -964,9 +964,9 @@ ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:519:9-526:57
 	android:name
 		ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:520:13-70
 meta-data#UMENG_CHANNEL
-ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:556:9-558:37
+ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:556:9-558:38
 	android:value
-		ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:558:13-35
+		ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:558:13-36
 	android:name
 		ADDED from F:\CompanyWork\FutureInst\AndroidManifest.xml:557:13-41
 uses-permission#android.permission.ACCESS_FINE_LOCATION
