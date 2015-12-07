@@ -3,4 +3,4 @@
     <item android:state_selected="false" android:drawable="@drawable/tab_forecast_0"/>
     <item android:state_selected="true" android:drawable="@drawable/tab_forecast_1"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/tab_forecast.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/tab_forecast.xml -->

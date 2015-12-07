@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/arrays.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/arrays.xml -->
     <eat-comment/>
     <string-array name="home_icon_title">
         <item>推荐-</item>
@@ -72,28 +72,28 @@
         <item>城市</item>
         <item>新奇</item>
     </string-array>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__attrs.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__attrs.xml -->
     <eat-comment/>
     <attr format="boolean" name="centered"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/attrs.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/attrs.xml -->
     <eat-comment/>
     <attr format="reference" name="cropImageStyle"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__attrs.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__attrs.xml -->
     <eat-comment/>
     <attr format="color" name="selectedColor"/>
     <attr format="dimension" name="strokeWidth"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <attr format="string" name="title"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__attrs.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__attrs.xml -->
     <eat-comment/>
     <attr format="color" name="unselectedColor"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
@@ -103,31 +103,31 @@
     <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <bool name="bd_wallet_switch_global_debug">false</bool>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__defaults.xml -->
     <eat-comment/>
     <bool name="default_circle_indicator_centered">true</bool>
     <bool name="default_circle_indicator_snap">false</bool>
     <bool name="default_line_indicator_centered">true</bool>
     <bool name="default_title_indicator_selected_bold">true</bool>
     <bool name="default_underline_indicator_fades">true</bool>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="aboutUs_Check">#D9DEF4</color>
     <color name="aboutUs_UnCheck">#F1F4FB</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__colors.xml -->
     <eat-comment/>
     <color name="auto__background_holo_dark">#ff000000</color>
     <color name="auto__background_holo_light">#fff3f3f3</color>
@@ -137,21 +137,21 @@
     <color name="auto__bright_foreground_holo_light">#fff3f3f3</color>
     <color name="auto__bright_foreground_inverse_holo_dark">#ff4c4c4c</color>
     <color name="auto__bright_foreground_inverse_holo_light">#ffb2b2b2</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="background">#1E266E</color>
     <color name="background5">#6069B7</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="background_tab_pressed">#6633B5E5</color>
     <color name="base_bg">#f4f6f6</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <color name="bd_wallet_black">#000</color>
     <color name="bd_wallet_black3">#222222</color>
@@ -184,11 +184,11 @@
     <color name="bd_wallet_text_gray2">#aaaaaa</color>
     <color name="bd_wallet_text_press_bg_color">#f1f1f1</color>
     <color name="bd_wallet_white">#fff</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="bg">#F1F1F1</color>
     <color name="blue">#008dff</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
@@ -196,21 +196,21 @@
     <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
     <color name="bright_foreground_material_dark">@android:color/white</color>
     <color name="bright_foreground_material_light">@android:color/black</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="btn_invivate_0">#5ac8fa</color>
     <color name="btn_invivate_1">#225ac8fa</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="cardview_dark_background">#FF202020</color>
     <color name="cardview_light_background">#FFFAFAFA</color>
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="color_55ed">#55EDB9BB</color>
     <color name="color_B1">#B1DBC5</color>
@@ -222,7 +222,7 @@
     <color name="crop__button_text">#666666</color>
     <color name="crop__selector_focused">#77000000</color>
     <color name="crop__selector_pressed">#1a000000</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__defaults.xml -->
     <eat-comment/>
     <color name="default_circle_indicator_fill_color">#FFFFFFFF</color>
     <color name="default_circle_indicator_page_color">#00000000</color>
@@ -233,7 +233,7 @@
     <color name="default_title_indicator_selected_color">#FFFFFFFF</color>
     <color name="default_title_indicator_text_color">#BBFFFFFF</color>
     <color name="default_underline_indicator_selected_color">#FF33B5E5</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
@@ -244,13 +244,13 @@
     <color name="design_fab_stroke_top_outer_color">#2EFFFFFF</color>
     <color name="design_snackbar_background_color">#323232</color>
     <color name="design_textinput_error_color">#FFDD2C00</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <color name="ebpay_black">#ff000000</color>
     <color name="ebpay_black_transparent">#80000000</color>
@@ -282,29 +282,29 @@
     <color name="ebpay_translucence_color">#77000000</color>
     <color name="ebpay_transparent">#00000000</color>
     <color name="ebpay_white">#ffffff</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="editText">#AAAAAA</color>
     <color name="forecast_bottom_line_select">#F8E71C</color>
     <color name="forecast_deal">#ffcc00</color>
     <color name="forecast_deal_line">#Ff9500</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="gain_blue">#B9D310</color>
     <color name="gain_red">#ff6565</color>
     <color name="gray">#bbbbbb</color>
     <color name="greenLight">#ff99cc00</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_foreground_material_dark">@color/bright_foreground_disabled_material_dark</color>
     <color name="hint_foreground_material_light">@color/bright_foreground_disabled_material_light</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="hold_back">#283887</color>
     <color name="hold_item_top">#3853ad</color>
@@ -324,7 +324,7 @@
     <color name="home_table_1">#51C3D1</color>
     <color name="login_btn_login">#BAD311</color>
     <color name="login_title_layout_back">#081448</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
@@ -338,11 +338,11 @@
     <color name="material_grey_800">#ff424242</color>
     <color name="material_grey_850">#ff303030</color>
     <color name="material_grey_900">#ff212121</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="model_check">#E5E5E5</color>
     <color name="model_uncheck">#F2F2F2</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">@android:color/black</color>
     <color name="primary_dark_material_light">@color/material_grey_600</color>
@@ -352,7 +352,7 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="publish_comment">#3991EB</color>
     <color name="redLight">#ffff4444</color>
@@ -368,7 +368,7 @@
     <color name="regist_keyword_9">#E6E6E6</color>
     <color name="right_btn">#1B6EDC</color>
     <color name="rippelColor">#86BFFA</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
@@ -376,18 +376,18 @@
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="sliding_table_0">#C5C5C5</color>
     <color name="sliding_table_1">#51C1CF</color>
     <color name="status_bar">#f1f1f1</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/colors.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/colors.xml -->
     <eat-comment/>
     <color name="tab_text_selected">#86BFFA</color>
     <color name="tab_text_unselected">#ffffff</color>
@@ -419,7 +419,7 @@
     <color name="type_7">#E1DBCE</color>
     <color name="type_8">#FFBDAD</color>
     <color name="type_9">#FCFB68</color>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <color name="wallet_base_6c">#ccc</color>
     <color name="wallet_base_blue">#3DA1F6</color>
@@ -487,7 +487,7 @@
     <declare-styleable name="ViewPagerIndicator"><attr format="reference" name="vpiCirclePageIndicatorStyle"/><attr format="reference" name="vpiIconPageIndicatorStyle"/><attr format="reference" name="vpiLinePageIndicatorStyle"/><attr format="reference" name="vpiTitlePageIndicatorStyle"/><attr format="reference" name="vpiTabPageIndicatorStyle"/><attr format="reference" name="vpiUnderlinePageIndicatorStyle"/></declare-styleable>
     <declare-styleable name="ViewStubCompat"><attr name="android:layout"/><attr name="android:inflatedId"/><attr name="android:id"/></declare-styleable>
     <declare-styleable name="swipelistviewstyle"><attr format="dimension" name="right_width"/></declare-styleable>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>
     <dimen name="abc_action_bar_default_height_material">56dp</dimen>
@@ -556,14 +556,14 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_login_margin_10">10dip</dimen>
     <dimen name="activity_login_padding">30dip</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <dimen name="bd_wallet_contact_name_width">90dp</dimen>
     <dimen name="bd_wallet_dialog_bottombutton_height">50dp</dimen>
@@ -586,22 +586,22 @@
     <dimen name="bd_wallet_text_size_xxxlarge">36sp</dimen>
     <dimen name="bd_wallet_transfer_item_height">50dp</dimen>
     <dimen name="bd_wallet_transfer_item_margin_horizontal">10dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="crop__bar_height">48dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__defaults.xml -->
     <eat-comment/>
     <dimen name="default_circle_indicator_radius">3dp</dimen>
     <dimen name="default_circle_indicator_stroke_width">1dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/gridlayout-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="default_gap">8dip</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__defaults.xml -->
     <eat-comment/>
     <dimen name="default_line_indicator_gap_width">4dp</dimen>
     <dimen name="default_line_indicator_line_width">12dp</dimen>
@@ -614,7 +614,7 @@
     <dimen name="default_title_indicator_text_size">15dp</dimen>
     <dimen name="default_title_indicator_title_padding">5dp</dimen>
     <dimen name="default_title_indicator_top_padding">7dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="design_appbar_elevation">4dp</dimen>
     <dimen name="design_fab_border_width">0.5dp</dimen>
@@ -644,18 +644,18 @@
     <dimen name="design_tab_scrollable_min_width">72dp</dimen>
     <dimen name="design_tab_text_size">14sp</dimen>
     <dimen name="design_tab_text_size_2line">12sp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="dime_top_userHeadImage">17dp</dimen>
     <dimen name="dimen_3">3dip</dimen>
     <dimen name="dimen_ranking_image">50dp</dimen>
     <dimen name="dimen_ranking_image_margin">12dp</dimen>
     <dimen name="dimen_user_headImage_name">22dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <dimen name="ebpay_bt_height">45dip</dimen>
     <dimen name="ebpay_dialog_img_height">150dp</dimen>
@@ -684,32 +684,32 @@
     <dimen name="ebpay_text_spacing_7sp">7sp</dimen>
     <dimen name="ebpay_title_heigth">46dp</dimen>
     <dimen name="ebpay_white_line_height">46dip</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="fab_margin">16dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_dark" type="dimen">0.20</item>
     <item format="float" name="highlight_alpha_material_light" type="dimen">0.12</item>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="line_height">1px</dimen>
     <dimen name="margin_15">15dip</dimen>
     <dimen name="margin_20">20dip</dimen>
     <dimen name="margin_5">5dip</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <dimen name="notification_bar_height">25dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="text_margin">16dp</dimen>
     <dimen name="text_size_large">18sp</dimen>
@@ -726,7 +726,7 @@
     <dimen name="widget_height_45">45dip</dimen>
     <dimen name="widget_height_50">50dip</dimen>
     <dimen name="widget_height_55">55dip</dimen>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
@@ -734,41 +734,41 @@
     <item name="action_menu_divider" type="id"/>
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
     <item name="up" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <item name="view_offset_helper" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
     <integer name="cancel_button_image_alpha">127</integer>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__defaults.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__defaults.xml -->
     <eat-comment/>
     <integer name="default_circle_indicator_orientation">0</integer>
     <integer name="default_title_indicator_footer_indicator_style">2</integer>
     <integer name="default_title_indicator_line_position">0</integer>
     <integer name="default_underline_indicator_fade_delay">300</integer>
     <integer name="default_underline_indicator_fade_length">400</integer>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <integer name="design_snackbar_text_max_lines">2</integer>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <integer name="status_bar_notification_info_maxnum">999</integer>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="FAQ">常见问题</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -789,7 +789,7 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="about_us">关于我们</string>
     <string name="action_settings">Settings</string>
@@ -798,10 +798,10 @@
     <string name="amount">支付金额</string>
     <string name="app_name">未来研究所</string>
     <string name="app_regist_tip">抱歉，未来研究所目前仅开放邀请注册。请关注微信公众号“鸭先知”，了解更多邀请码获取方式。</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="asset">我的资产</string>
     <string name="attendMe">关注我的人</string>
@@ -809,7 +809,7 @@
     <string name="auth_cancel">授权操作已取消</string>
     <string name="auth_complete">授权成功，正在跳转登录操作…</string>
     <string name="auth_error">授权操作遇到错误</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="bd_wallet_back">返回</string>
     <string name="bd_wallet_balance_setting_rightnow">立即设置</string>
@@ -876,7 +876,7 @@
     <string name="bd_wallet_update_btn">立即升级</string>
     <string name="bd_wallet_update_ret_home_index_btn">返回首页</string>
     <string name="bd_wallet_yuan">%1$s元</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="bdp_update_action_download">立即升级</string>
     <string name="bdp_update_action_install">立即安装</string>
@@ -897,7 +897,7 @@
     <string name="bdp_update_title_as">提示</string>
     <string name="bdp_update_title_download">发现新版本</string>
     <string name="bdp_update_title_install">发现新版本安装包</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="bfb">百度钱包</string>
     <string name="bill">对账单</string>
@@ -908,10 +908,10 @@
     <string name="buy_tip_buy">● 越低价成交赚越多  但不一定能成交</string>
     <string name="buy_tip_sell">● 越高价成交赚越多  但不一定能成交</string>
     <string name="cancel">取消</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="client_no_response">系统无响应，请稍后再试！</string>
     <string name="company_name">未来研究所</string>
@@ -929,15 +929,15 @@
     <string name="depositCash">保证金</string>
     <string name="description_hint">一句话表达"先知态度"</string>
     <string name="donateFailMessage">\u3000\u3000感谢你的爱心，\n但是系统出现了一些错误</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="douban">豆瓣</string>
     <string name="dropbox">Dropbox</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="easy_model">简易模式</string>
     <string name="easy_model_tip">点击看好/不看好，即以市价买进/卖空10件该事件。</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="ebpay_abandon_balance_charge">放弃充值</string>
     <string name="ebpay_abandon_pay">放弃付款</string>
@@ -1130,10 +1130,10 @@
     <string name="ebpay_year_month">月/年（如08/16输入0816）</string>
     <string name="ebpay_yuan">%1$s元</string>
     <string name="ebpay_zhuanzhuang">确认转账</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="email">邮件</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="empty_authCode">请输入验证码</string>
     <string name="empty_hold">这里空空如也，鸭先知都能在这儿筑巢啦</string>
@@ -1149,37 +1149,37 @@
     <string name="event_detail_guide">新手说明</string>
     <string name="event_detail_share">分享有奖</string>
     <string name="event_detail_unfocus">取消关注该事件</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="evernote">印象笔记</string>
     <string name="facebook">Facebook</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="feedback">意见反馈</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/oks_strings.xml -->
     <eat-comment/>
     <string name="finish">完成</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="flickr">Flickr</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="forecast">我要预测</string>
     <string name="forecasting">预测中事件</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="foursquare">FourSquare</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="fp_get_data_fail">系统开小差，等一会儿再试吧</string>
     <string name="fp_img">Image</string>
     <string name="fp_not_login">您的登录状态异常，请重新登录</string>
     <string name="fp_pay_cancel">支付取消</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="google_plus_client_inavailable">Google+ 版本过低或者没有安装，需要升级或安装Google+才能使用！</string>
     <string name="googleplus">Google+</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="guidang">归档事件</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -1196,21 +1196,21 @@
     <string name="home_tab2"></string>
     <string name="home_tab3"></string>
     <string name="home_tab4"></string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="instagram">Instagram</string>
     <string name="instagram_client_inavailable">Instagram版本过低或者没有安装，需要升级或安装Instagram才能使用！</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="jdpay">京东支付</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="kaixin">开心网</string>
     <string name="kakaostory">KakaoStory</string>
     <string name="kakaostory_client_inavailable">目前您的KakaoStory版本过低或未安装，需要安装KakaoStory才能使用</string>
     <string name="kakaotalk">KakaoTalk</string>
     <string name="kakaotalk_client_inavailable">目前您的KakaoTalk版本过低或未安装，需要安装KakaoTalk才能使用</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="keyword">请选择先知关键词\n（至少选一个）</string>
     <string name="lanren">懒人包〉</string>
@@ -1305,15 +1305,15 @@
     </string>
     <string name="lazy_bag">懒人包</string>
     <string name="limit_price">出价</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="line">Line</string>
     <string name="line_client_inavailable">目前您的Line版本过低或未安装，需要安装Line才能使用</string>
     <string name="linkedin">领英</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/oks_strings.xml -->
     <eat-comment/>
     <string name="list_friends">%s的朋友</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="login_cancel">取消</string>
     <string name="login_forget_password">忘记密码?</string>
@@ -1326,25 +1326,25 @@
     <string name="logining">使用%s帐号登录中…</string>
     <string name="market_price">市价</string>
     <string name="media_report">媒体报道</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="mingdao">明道</string>
     <string name="mingdao_share_content">网页分享</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="missingImage">图片加载失败</string>
     <string name="month">月</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/oks_strings.xml -->
     <eat-comment/>
     <string name="multi_share">图文分享</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="myAttention">我的关注</string>
     <string name="myattention">我关注的人</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="neteasemicroblog">网易微博</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="new_password">新密码</string>
     <string name="next">下一步</string>
@@ -1352,26 +1352,26 @@
     <string name="ok">确定</string>
     <string name="order_look_bad">此次预测，如果事件不发生，则你获利 P*Q=$，若事件发生，则你亏损（100-P）*Q=￥</string>
     <string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="pinterest">Pinterest</string>
     <string name="pinterest_client_inavailable">Pinterest版本过低或者没有安装，需要升级或安装Pinterest才能使用！</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="point">● </string>
     <string name="privacy">服务条款</string>
     <string name="pushMessage">通知中心</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="qq">QQ</string>
     <string name="qq_client_inavailable">QQ 版本过低或者没有安装，需要升级或安装QQ才能使用！</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="question">常见问题</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="qzone">QQ空间</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="ranking">排名</string>
     <string name="ranking_fragment_title">排行榜</string>
@@ -1382,17 +1382,17 @@
     <string name="regist_sucess_tip">欢迎进入未来研究所，5000点未币已送达你的账户，现在就去预测世界大展身手吧！</string>
     <string name="regist_userName">用户名</string>
     <string name="regist_userName_tip">（ 不多于14个英文字母或者7个汉字 ）</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="renren">人人网</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="reset_pwd">找回密码</string>
     <string name="secret">隐私</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/oks_strings.xml -->
     <eat-comment/>
     <string name="select_one_plat_at_least">请选择一个目标平台</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="sell">不看好，卖空</string>
     <string name="sex">性别</string>
@@ -1400,31 +1400,31 @@
     <string name="sex_guess">你猜</string>
     <string name="sex_hint">性别</string>
     <string name="sex_male">男</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/oks_strings.xml -->
     <eat-comment/>
     <string name="share">分享</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="shareTips">目前大家认为有X%的可能性会发生【Y】，你信吗？</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/oks_strings.xml -->
     <eat-comment/>
     <string name="share_canceled">分享已取消</string>
     <string name="share_completed">分享成功</string>
     <string name="share_failed">分享失败</string>
     <string name="share_to">分享到</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="share_to_mingdao">分享到明道</string>
     <string name="share_to_qq">分享到QQ</string>
     <string name="share_to_qzone">分享到QQ空间</string>
     <string name="share_to_qzone_default">来自%s的分享</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/oks_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/oks_strings.xml -->
     <eat-comment/>
     <string name="sharing">分享操作正在后台进行…</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="shortmessage">信息</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="show_assure">总资产(未币)</string>
     <string name="show_attend">关注他的人</string>
@@ -1433,18 +1433,18 @@
     <string name="show_forecast">预测中事件</string>
     <string name="show_homepage">Ta的主页</string>
     <string name="show_ranking">他的战绩</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="sinaweibo">新浪微博</string>
     <string name="sohumicroblog">搜狐微博</string>
     <string name="sohusuishenkan">搜狐随身看</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="space">    </string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <string name="status_bar_notification_info_overflow">999+</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="steep3_price_tip">● 此次预测将用</string>
     <string name="store">未来福利社</string>
@@ -1457,10 +1457,10 @@
     <string name="tab_ranking">成就</string>
     <string name="tab_revoke">订单</string>
     <string name="tab_shoop">福利</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="tencentweibo">腾讯微博</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="tip_rule">这个事件是YES/NO型，最后清算价格只可能是100或0，代表着事件【发生】或是【未发生】两种结果，不会存在中间状态哦
 清算依据呢，就是$
@@ -1470,11 +1470,11 @@
     <string name="title_activity_article_detail">ArticleDetailActivity</string>
     <string name="title_activity_home3">Home3Activity</string>
     <string name="title_activity_today_task">TodayTaskActivity</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="tumblr">Tumblr</string>
     <string name="twitter">Twitter</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="unLogin">未登录</string>
     <string name="unhold_1">你看好     </string>
@@ -1484,20 +1484,20 @@
     <string name="unhold_delete">确定清空所有已失效的预测记录？</string>
     <string name="unhold_revoke">确定撤销该预测订单？</string>
     <string name="upmp">银联</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="use_login_button">请改用“登录”按钮</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="useableIcon">可消费未币</string>
     <string name="useableMoney">总未币</string>
     <string name="userNmae_hint">用户名</string>
     <string name="userid_found">用户信息已存在，正在跳转登录操作…</string>
     <string name="validationErrors">错误</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="vkontakte">VK</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <string name="wallet_base_bind_success">绑卡成功</string>
     <string name="wallet_base_charge">话费充值</string>
@@ -1519,7 +1519,7 @@
     <string name="wallet_plugin_updateing_tips">升级中，请稍等！</string>
     <string name="wallet_recommend_services">为你推荐</string>
     <string name="wallet_score_dian">%1$s点</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="website">http://www.shareSDK.cn</string>
     <string name="wechat">微信好友</string>
@@ -1528,28 +1528,28 @@
     <string name="wechatmoments">微信朋友圈</string>
     <string name="weibo_oauth_regiseter">应用授权</string>
     <string name="weibo_upload_content">分享图片</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送5000未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
     <string name="wrong_phone">请输入合法手机号</string>
     <string name="year">年</string>
     <string name="yfbpay">易付宝支付</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
     <string name="yixin">易信</string>
     <string name="yixin_client_inavailable">目前您的易信版本过低或未安装，需要安装易信才能使用</string>
     <string name="yixinmoments">易信朋友圈</string>
     <string name="youdao">有道云笔记</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/strings.xml -->
     <eat-comment/>
     <string name="yuan">元</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
@@ -1561,7 +1561,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
@@ -2498,7 +2498,7 @@
         <item name="android:minWidth">56dp</item>
         <item name="android:scaleType">center</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Base.Widget.Design.TabLayout" parent="android:Widget">
         <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
@@ -2510,7 +2510,7 @@
         <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
         <item name="tabSelectedTextColor">?android:textColorPrimary</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/styles.xml -->
     <eat-comment/>
     <style name="BaseButtonType">
         <item name="android:textColor">@color/text_color_white</item>
@@ -2541,7 +2541,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:padding">8dp</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="CardView">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
@@ -2557,7 +2557,7 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/styles.xml -->
     <eat-comment/>
     <style name="Crop"/>
     <style name="Crop.ActionButton">
@@ -2593,7 +2593,7 @@
         <item name="android:dividerPadding">12dp</item>
         <item name="android:background">@color/crop__button_bar</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <style name="EbpayActivityAnim">
         <item name="@android:activityOpenEnterAnimation">@anim/wallet_base_slide_from_right</item>
@@ -2652,7 +2652,7 @@
         <item name="android:background">@null</item>
         <item name="android:textColorHint">@color/wallet_base_6c</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/styles.xml -->
     <eat-comment/>
     <style name="FullBleedTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:dropDownListViewStyle">@style/mySpinnerStyle</item>
@@ -2667,7 +2667,7 @@
     <style name="GrayBoaderButton" parent="BoaderButton">
         <item name="android:background">@drawable/gray_btn</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
@@ -2767,13 +2767,13 @@
         <item name="android:dropDownItemStyle">@style/Widget.AppCompat.DropDownItem.Spinner</item>
     </style>
     <style name="Platform.Widget.AppCompat.Spinner" parent="android:Widget.Spinner"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/styles.xml -->
     <eat-comment/>
     <style name="PopToast">
         <item name="@android:windowEnterAnimation">@anim/anim_toast_enter</item>
         <item name="@android:windowExitAnimation">@anim/anim_toast_exit</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="RtlOverlay.DialogWindowTitle.AppCompat" parent="Base.DialogWindowTitle.AppCompat">
     </style>
@@ -2877,7 +2877,7 @@
     </style>
     <style name="TextAppearance.AppCompat.Widget.Switch" parent="Base.TextAppearance.AppCompat.Widget.Switch"/>
     <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="TextAppearance.Design.CollapsingToolbar.Expanded" parent="TextAppearance.AppCompat.Display1">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
@@ -2901,20 +2901,20 @@
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="textAllCaps">true</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="TextAppearance.StatusBar.EventContent" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Info" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Line2" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Time" parent=""/>
     <style name="TextAppearance.StatusBar.EventContent.Title" parent=""/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__styles.xml -->
     <eat-comment/>
     <style name="TextAppearance.TabPageIndicator" parent="Widget">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/vpi__dark_theme</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="TextAppearance.Widget.AppCompat.ExpandedMenu.Item" parent="Base.TextAppearance.Widget.AppCompat.ExpandedMenu.Item">
     </style>
@@ -2922,7 +2922,7 @@
     </style>
     <style name="TextAppearance.Widget.AppCompat.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/styles.xml -->
     <eat-comment/>
     <style name="TextField" parent="@android:style/Widget.EditText">
         <item name="android:layout_height">wrap_content</item>
@@ -2932,7 +2932,7 @@
     <style name="Theme" parent="@android:style/Theme.Black.NoTitleBar">
         <item name="android:windowBackground">@android:color/white</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Theme.AppCompat" parent="Base.Theme.AppCompat"/>
     <style name="Theme.AppCompat.CompactMenu" parent="Base.Theme.AppCompat.CompactMenu"/>
@@ -2956,24 +2956,24 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__styles.xml -->
     <eat-comment/>
     <style name="Theme.PageIndicatorDefaults" parent="android:Theme">
         <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
         <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
     <style name="ThemeOverlay.AppCompat.Dark.ActionBar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Light" parent="Base.ThemeOverlay.AppCompat.Light"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__styles.xml -->
     <eat-comment/>
     <style name="Widget">
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
     </style>
@@ -3068,7 +3068,7 @@
     <style name="Widget.AppCompat.TextView.SpinnerItem" parent="Base.Widget.AppCompat.TextView.SpinnerItem"/>
     <style name="Widget.AppCompat.Toolbar" parent="Base.Widget.AppCompat.Toolbar"/>
     <style name="Widget.AppCompat.Toolbar.Button.Navigation" parent="Base.Widget.AppCompat.Toolbar.Button.Navigation"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/com.android.support/design/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <style name="Widget.Design.AppBarLayout" parent="android:Widget">
         <item name="elevation">@dimen/design_appbar_elevation</item>
@@ -3119,7 +3119,7 @@
         <item name="counterTextAppearance">@style/TextAppearance.Design.Counter</item>
         <item name="counterOverflowTextAppearance">@style/TextAppearance.Design.Counter.Overflow</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/vpi__styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/vpi__styles.xml -->
     <eat-comment/>
     <style name="Widget.IconPageIndicator" parent="Widget">
         <item name="android:layout_marginLeft">6dp</item>
@@ -3136,7 +3136,7 @@
         <item name="android:textSize">12sp</item>
         <item name="android:maxLines">1</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BaiduWalletRefactorLib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <style name="bd_wallet_custom_dialog_theme" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -3156,7 +3156,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:textColor">#333333</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml -->
     <eat-comment/>
     <style name="bdp_update_dialog_style" parent="android:Theme.Dialog">
         <item name="android:windowFrame">@null</item>
@@ -3177,7 +3177,7 @@
         <item name="android:minHeight">8dip</item>
         <item name="android:maxHeight">8dip</item>
     </style>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/styles.xml -->
     <eat-comment/>
     <style name="choose_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowIsFloating">true</item>

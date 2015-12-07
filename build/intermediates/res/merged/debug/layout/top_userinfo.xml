@@ -87,4 +87,4 @@
             android:src="@drawable/right_arrow"/>
         </LinearLayout>
     <include layout="@layout/middle_userinfo"/>
-	</LinearLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/top_userinfo.xml -->
+	</LinearLayout><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/top_userinfo.xml -->

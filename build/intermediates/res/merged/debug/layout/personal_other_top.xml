@@ -90,4 +90,4 @@
     </LinearLayout>
     <include layout="@layout/view_line"/>
     <include layout="@layout/personal_other_middle"/>
-</LinearLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/personal_other_top.xml -->
+</LinearLayout><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/personal_other_top.xml -->

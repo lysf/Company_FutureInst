@@ -5,4 +5,4 @@
     <item android:state_selected="true" android:drawable="@drawable/sub_0"/>
     <item android:state_selected="false" android:drawable="@drawable/sub_1"/>
     <item android:drawable="@drawable/sub_1"/>
-</selector><!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/sub.xml -->
+</selector><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/sub.xml -->

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/F:/CompanyWork/FutureInst/BDIntegrationSDK_Lib/src/main/res/values/bdp_update_strings.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/BDIntegrationSDK_Lib/src/main/res/values/bdp_update_strings.xml -->
     <eat-comment/>
     <string name="bdp_update_action_download">立即升级</string>
     <string name="bdp_update_action_install">立即安装</string>
@@ -21,7 +21,7 @@
     <string name="bdp_update_title_as">提示</string>
     <string name="bdp_update_title_download">发现新版本</string>
     <string name="bdp_update_title_install">发现新版本安装包</string>
-    <!-- From: file:/F:/CompanyWork/FutureInst/BDIntegrationSDK_Lib/src/main/res/values/bdp_update_styles.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/BDIntegrationSDK_Lib/src/main/res/values/bdp_update_styles.xml -->
     <eat-comment/>
     <style name="bdp_update_dialog_style" parent="android:Theme.Dialog">
         <item name="android:windowFrame">@null</item>

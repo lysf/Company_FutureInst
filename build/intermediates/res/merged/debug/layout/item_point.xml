@@ -107,4 +107,4 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin_5"
         android:background="@color/text_color_e" />
-</LinearLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/item_point.xml -->
+</LinearLayout><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/item_point.xml -->

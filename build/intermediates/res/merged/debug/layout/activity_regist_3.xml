@@ -41,4 +41,4 @@
         android:background="@drawable/login_btn_login"
         android:text="@string/complete" />
 </LinearLayout>
-</ScrollView><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/activity_regist_3.xml -->
+</ScrollView><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/activity_regist_3.xml -->

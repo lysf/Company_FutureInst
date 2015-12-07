@@ -32,4 +32,4 @@
         android:text=" 0"
         android:textColor="@color/text_color_4"
         android:textSize="@dimen/text_size_large"/>
-</RelativeLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/view_comment_float.xml -->
+</RelativeLayout><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/view_comment_float.xml -->

@@ -16,4 +16,4 @@
     <include android:id="@+id/view_easy"
          layout="@layout/view_mode_easy"/>
 </FrameLayout>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/event_detail_3.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/event_detail_3.xml -->

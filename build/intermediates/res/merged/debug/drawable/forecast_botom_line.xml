@@ -4,4 +4,4 @@
     <item android:state_selected="true" android:drawable="@color/forecast_bottom_line_select"/>
 
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/forecast_botom_line.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/forecast_botom_line.xml -->

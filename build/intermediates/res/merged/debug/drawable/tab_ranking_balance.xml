@@ -3,4 +3,4 @@
     <item android:state_selected="false" android:drawable="@drawable/tab_rank_balance_0"/>
     <item android:state_selected="true" android:drawable="@drawable/tab_rank_balance_1"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/tab_ranking_balance.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/tab_ranking_balance.xml -->

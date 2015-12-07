@@ -5,4 +5,4 @@
     <item android:state_pressed="true" android:drawable="@drawable/btn_invivate_shap_1"/>
 	<item android:drawable="@drawable/btn_invivate_shap_0"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/btn_invivate.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/btn_invivate.xml -->

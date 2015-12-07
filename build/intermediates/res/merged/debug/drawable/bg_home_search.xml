@@ -3,4 +3,4 @@
     <item android:state_selected="false" android:drawable="@drawable/home_white_search_2"/>
     <item android:state_selected="true" android:drawable="@drawable/home_white_search_1"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/bg_home_search.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/bg_home_search.xml -->

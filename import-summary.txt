@@ -1,7 +1,9 @@
 ECLIPSE ANDROID PROJECT IMPORT SUMMARY
 ======================================
 
- * Project BaiduWalletRefactorLib:F:\CompanyWork\bdwallet_pay_sdk\.classpath:
+ * Project
+   BaiduWalletRefactorLib:/Users/yanhuihao/Downloads/pingpp-android-master/lib/b
+   wallet_pay_sdk/.classpath:
    Could not resolve source path src in project BaiduWalletRefactorLib: ignored.
    The project may not compile if the given source path provided source code.
 
@@ -20,10 +22,10 @@ Moved Files:
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => BaiduWalletRefactorLib\src\main\AndroidManifest.xml
-* libs\armeabi\libbd_wsp_v1_0.so => BaiduWalletRefactorLib\src\main\jniLibs\armeabi\libbd_wsp_v1_0.so
-* libs\Cashier_SDK-v4.2.0.jar => BaiduWalletRefactorLib\libs\Cashier_SDK-v4.2.0.jar
-* res\ => BaiduWalletRefactorLib\src\main\res\
+* AndroidManifest.xml => BaiduWalletRefactorLib/src/main/AndroidManifest.xml
+* libs/Cashier_SDK-v4.2.0.jar => BaiduWalletRefactorLib/libs/Cashier_SDK-v4.2.0.jar
+* libs/armeabi/libbd_wsp_v1_0.so => BaiduWalletRefactorLib/src/main/jniLibs/armeabi/libbd_wsp_v1_0.so
+* res/ => BaiduWalletRefactorLib/src/main/res/
 
 Next Steps:
 -----------

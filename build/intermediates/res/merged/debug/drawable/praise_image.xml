@@ -3,4 +3,4 @@
     <item android:state_selected="false" android:drawable="@drawable/praise_empty"/>
     <item android:state_selected="true" android:drawable="@drawable/praise_full"/>
 
-</selector><!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/praise_image.xml -->
+</selector><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/praise_image.xml -->

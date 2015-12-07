@@ -4,4 +4,4 @@
     <item android:state_selected="true" android:drawable="@color/base_bg"/>
     <item android:drawable="@color/text_color_white"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/linearlayout_select.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/linearlayout_select.xml -->

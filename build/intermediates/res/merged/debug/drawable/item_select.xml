@@ -4,4 +4,4 @@
     <item android:state_selected="true" android:drawable="@color/bg"/>
     <item android:drawable="@color/text_color_white"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/item_select.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/item_select.xml -->

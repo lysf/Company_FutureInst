@@ -3,4 +3,4 @@
     <item android:state_selected="false" android:drawable="@drawable/ranking_down_2"/>
     <item android:state_selected="true" android:drawable="@drawable/ranking_down_1"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/ranking_down.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/ranking_down.xml -->

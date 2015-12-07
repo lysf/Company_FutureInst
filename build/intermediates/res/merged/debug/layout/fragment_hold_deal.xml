@@ -22,4 +22,4 @@
 	    android:lineSpacingExtra="@dimen/dimen_3"
 	    android:text="@string/empty_hold"/>
 </LinearLayout>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/fragment_hold_deal.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/fragment_hold_deal.xml -->

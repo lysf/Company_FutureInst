@@ -21,4 +21,4 @@
         android:textSize="@dimen/text_size_large"
         android:textColor="@color/text_color_3"
         android:background="@drawable/item_select"/>
-</LinearLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/view_comment_del_dialog.xml -->
+</LinearLayout><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/view_comment_del_dialog.xml -->

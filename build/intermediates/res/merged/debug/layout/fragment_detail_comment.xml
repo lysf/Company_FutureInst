@@ -35,4 +35,4 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_alignParentBottom="true"
         layout="@layout/view_comment_edit"/>
 </RelativeLayout>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/layout/fragment_detail_comment.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/fragment_detail_comment.xml -->

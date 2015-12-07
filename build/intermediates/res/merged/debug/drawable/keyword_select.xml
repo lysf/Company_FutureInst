@@ -3,4 +3,4 @@
     <item android:state_selected="true" android:color="@color/login_btn_login"/>
     <item android:state_selected="false" android:color="@color/text_color_white"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/keyword_select.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/keyword_select.xml -->

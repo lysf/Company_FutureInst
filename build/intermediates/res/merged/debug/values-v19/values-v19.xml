@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values-v19/ids_sticky_nav_layout.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values-v19/ids_sticky_nav_layout.xml -->
     <eat-comment/>
     <item name="id_stickynavlayout_indicator" type="id"/>
     <item name="id_stickynavlayout_innerscrollview" type="id"/>
     <item name="id_stickynavlayout_topview" type="id"/>
     <item name="id_stickynavlayout_viewpager" type="id"/>
-    <!-- From: file:/F:/CompanyWork/FutureInst/res/values-v19/style.xml -->
+    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values-v19/style.xml -->
     <eat-comment/>
     <style name="FullBleedTheme" parent="Theme.AppCompat.Light.NoActionBar">
       <item name="android:windowTranslucentStatus">true</item>

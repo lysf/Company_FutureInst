@@ -4,4 +4,4 @@
     <item android:state_pressed="true" android:color="@color/gain_red"/>
 	<item android:color="@color/color_ed"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/login_out.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/login_out.xml -->

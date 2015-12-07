@@ -20,4 +20,4 @@
         android:background="@drawable/texture"
         android:layout_above="@id/done_cancel_bar" />
   
-</RelativeLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/crop__activity_crop.xml -->
+</RelativeLayout><!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/layout/crop__activity_crop.xml -->

@@ -3,4 +3,4 @@
     <item android:drawable="@drawable/money_50_normal" android:state_selected="false"/>
     <item android:drawable="@drawable/money_50_selected" android:state_selected="true"/>
 </selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/money_50.xml -->
+<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/money_50.xml -->
