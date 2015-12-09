@@ -16,4 +16,5 @@ public enum PostType {
 	article ,//评论
 	news ,//动态
     daily_task ,//当日任务
+    pay  ,//支付
 }
