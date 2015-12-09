@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:background="@color/status_bar"
     android:paddingLeft="@dimen/activity_login_margin_10"
-    android:paddingRight="@dimen/activity_login_margin_10"
     android:paddingTop="@dimen/activity_login_margin_10"
     android:paddingBottom="@dimen/activity_login_margin_10"
     android:gravity="center_vertical"
@@ -25,8 +24,8 @@
 <Button
     android:id="@+id/btn_send"
     android:text="发送"
-    android:paddingLeft="@dimen/activity_login_margin_10"
-    android:paddingRight="@dimen/activity_login_margin_10"
+    android:paddingLeft="@dimen/margin_5"
+    android:paddingRight="@dimen/margin_5"
     android:background="@null"
     android:textSize="@dimen/text_size_large"
     android:textColor="@drawable/send_text_color"

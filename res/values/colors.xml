@@ -62,7 +62,8 @@
     	<color name="text_color_b0">#B0BDB4</color>
     	<color name="text_color_0">#000000</color>
     	<color name="text_color_3">#333333</color>
-    	<color name="text_color_4">#4B494B</color>
+    	<color name="text_color_4">#4a4a4a</color>
+    	<color name="text_color_4c">#4c4a4b</color>
     	<color name="text_color_6">#666666</color>
     	<color name="text_color_9">#9b9b9b</color>
     	<color name="text_color_top_ranking">#747493</color>
