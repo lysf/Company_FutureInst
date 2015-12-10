@@ -91,364 +91,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daff0e59-b119-416a-9cd5-90a655b735f4" name="Default" comment="2015年12月3日10:28:45">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/build/intermediates/res/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/aapt/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/aapt/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaiduWalletRefactorLib/BaiduWalletRefactorLib.iml" afterPath="$PROJECT_DIR$/BaiduWalletRefactorLib/BaiduWalletRefactorLib.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FutureInst.iml" afterPath="$PROJECT_DIR$/FutureInst.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/tmp/packageDebugJar/MANIFEST.MF" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/tmp/packageDebugJar/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/tmp/packageReleaseJar/MANIFEST.MF" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/tmp/packageReleaseJar/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/actiivty_forgetpassword.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/actiivty_forgetpassword.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/actiivty_set.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/actiivty_set.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_about_us.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_about_us.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_add_comment.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_add_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_add_point.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_add_point.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_aritlce.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_aritlce.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_article_detail.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_article_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_attention.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_attention.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_comment_apply.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_comment_apply.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_comment_detail_second.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_comment_detail_second.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_event_detail_about.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_event_detail_about.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_faq_detail.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_faq_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_feedback.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_feedback.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_group_event.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_group_event.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_home2.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_home2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_login.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_modify_personal_info.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_modify_personal_info.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_my_aseet.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_my_aseet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_my_hode.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_my_hode.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/activity_open_enter.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/activity_open_enter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/activity_open_exit.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/activity_open_exit.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_personal_record.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_personal_record.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_personal_show.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_personal_show.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_primary_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_primary_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_privacy.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_privacy.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_push_message.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_push_message.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_regist_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_regist_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_regist_2.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_regist_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_regist_3.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_regist_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_second_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_second_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_secrt.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_secrt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_user_check.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/activity_user_check.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/add.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/add.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/anim_toast_enter.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/anim_toast_enter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/anim_toast_exit.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/anim_toast_exit.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/article_praise_statu.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/article_praise_statu.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/article_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/article_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/attention.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/attention.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/award_text_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/award_text_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/background_tab.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/background_tab.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/layout/bdp_update_activity_confirm_dialog.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/layout/bdp_update_activity_confirm_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/layout/bdp_update_activity_confirm_dialog.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/layout/bdp_update_activity_confirm_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/layout/bdp_update_activity_confirm_dialog.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/layout/bdp_update_activity_confirm_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/layout/bdp_update_activity_confirm_dialog.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/layout/bdp_update_activity_confirm_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/bdp_update_activity_confirm_dialog.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/bdp_update_activity_confirm_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/drawable/bdp_update_bg_dialog_btn.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/drawable/bdp_update_bg_dialog_btn.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/drawable/bdp_update_bg_dialog_btn.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/drawable/bdp_update_bg_dialog_btn.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/drawable/bdp_update_bg_dialog_btn.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/drawable/bdp_update_bg_dialog_btn.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/drawable/bdp_update_bg_dialog_btn.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/drawable/bdp_update_bg_dialog_btn.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bdp_update_bg_dialog_btn.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bdp_update_bg_dialog_btn.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/drawable/bdp_update_bg_dialog_content.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/drawable/bdp_update_bg_dialog_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/drawable/bdp_update_bg_dialog_content.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/drawable/bdp_update_bg_dialog_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/drawable/bdp_update_bg_dialog_content.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/drawable/bdp_update_bg_dialog_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/drawable/bdp_update_bg_dialog_content.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/drawable/bdp_update_bg_dialog_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bdp_update_bg_dialog_content.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bdp_update_bg_dialog_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/drawable/bdp_update_bg_dialog_title.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/drawable/bdp_update_bg_dialog_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/drawable/bdp_update_bg_dialog_title.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/drawable/bdp_update_bg_dialog_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/drawable/bdp_update_bg_dialog_title.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/drawable/bdp_update_bg_dialog_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/drawable/bdp_update_bg_dialog_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/drawable/bdp_update_bg_dialog_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bdp_update_bg_dialog_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bdp_update_bg_dialog_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/drawable/bdp_update_progress_download.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/drawable/bdp_update_progress_download.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/drawable/bdp_update_progress_download.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/drawable/bdp_update_progress_download.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/drawable/bdp_update_progress_download.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/drawable/bdp_update_progress_download.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/drawable/bdp_update_progress_download.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/drawable/bdp_update_progress_download.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bdp_update_progress_download.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bdp_update_progress_download.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_bar.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_home_cc.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_home_cc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_home_personal.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_home_personal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_home_search.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_home_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_home_type.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bg_home_type.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bottom_cornor_bg.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bottom_cornor_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bottom_line.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/bottom_line.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/bottom_userinfo.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/bottom_userinfo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_aboutus_back.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_aboutus_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_blue_bg.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_blue_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_buy_back.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_buy_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_buy_in.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_buy_in.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_buy_or_sell_text_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_buy_or_sell_text_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_coment_select.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_coment_select.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_detail_buy_back.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_detail_buy_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_detail_sell_back.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_detail_sell_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_gray.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_gray.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_hold.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_hold.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_hold_select.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_hold_select.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_invivate.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_invivate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_invivate_shap_0.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_invivate_shap_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_invivate_shap_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_invivate_shap_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_look_bad.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_look_bad.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_look_good.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_look_good.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_publish.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_publish.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_sell_all.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_sell_all.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_sell_back.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/btn_sell_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/button_shap_normal.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/button_shap_normal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/button_shap_press.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/button_shap_press.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/cardview_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/choose_dialog_2.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/choose_dialog_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/circle_button.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/circle_button.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/comment_prise.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/comment_prise.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/comment_prise.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/comment_prise.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/comment_text.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/comment_text.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/crop__activity_crop.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/crop__activity_crop.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/crop__layout_done_cancel.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/crop__layout_done_cancel.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/crop__selectable_background.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/crop__selectable_background.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/custom_progress_draw.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/custom_progress_draw.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/dialog_open.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/dialog_open.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/edit_back.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/edit_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/edit_back_squre.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/edit_back_squre.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/edit_gray_back.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/edit_gray_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_buy.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_buy.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_3.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_4.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_5.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_5.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_6.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_7.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/event_detail_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/event_detail_btn_text_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/event_detail_btn_text_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/event_detail_model_back.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/event_detail_model_back.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/eventdetail_guide.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/eventdetail_guide.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/eventdetail_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/eventdetail_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/forecast_botom_line.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/forecast_botom_line.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/forecast_bottom.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/forecast_bottom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_banner.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_banner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_comment.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_detail_comment.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_detail_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_fond.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_fond.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_fond_attitude.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_fond_attitude.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_fond_indicent.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_fond_indicent.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_forecast.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_forecast.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_hold_deal.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_hold_deal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_home_holding.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_home_holding.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_home_ranking.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_home_ranking.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_home_search.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_home_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_record.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_record.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_record_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_record_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_refrence.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_refrence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_revoke.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_revoke.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_template.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_user_check.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_user_check.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_userinfo.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/fragment_userinfo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/gridlayout_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/gridlayout_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/home_bottom_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/home_bottom_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/home_bottom_2.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/home_bottom_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/home_bottom_3.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/home_bottom_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/home_tab_bottom.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/home_tab_bottom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/xml/home_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/xml/home_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/import-summary.txt" afterPath="$PROJECT_DIR$/import-summary.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/index.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/index.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/index_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/index_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_article.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_article.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_attention.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_attention.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_check.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_check.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_comment.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_comment_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_comment_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_faq.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_faq.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_forecast.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_forecast.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_forecast_type.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_forecast_type.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_hold.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_hold.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_holder_order.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_holder_order.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_home_pager.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_home_pager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_home_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_home_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_indicent.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_indicent.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_keyword.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_keyword.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_lazy_bag.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_lazy_bag.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_personal_attention.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_personal_attention.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_personal_forecast.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_personal_forecast.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_point.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_point.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_push_message.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_push_message.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_ranking.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_ranking.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_ranking_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_ranking_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_ranking_type.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_ranking_type.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_record.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_record.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/item_refrence.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/item_refrence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_refrence.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_refrence.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_revoke.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_revoke.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_search_gridview.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_search_gridview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_second_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_second_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/item_select.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/item_select.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_title_type.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_title_type.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_unhold.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_unhold.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_unhold_order.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_unhold_order.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_whole_incident.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/item_whole_incident.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/keyword_select.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/keyword_select.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_activity_base.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_activity_base.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_comment_title.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_comment_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_guide.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_guide.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_person_show.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/layout_person_show.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/linearlayout_select.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/linearlayout_select.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/list_anim_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/list_anim_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/listview_footer.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/listview_footer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/listview_header.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/listview_header.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/menu/login.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/menu/login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/login_btn_login.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/login_btn_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/login_out.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/login_out.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/look_bad.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/look_bad.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/look_good.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/look_good.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/build/outputs/logs/manifest-merger-debug-report.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/release/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeAssets/release/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeResourcesandroidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/mergeResourcesandroidTest/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesdebug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesrelease/merger.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/incremental/packageResourcesrelease/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeResourcesdebug/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/middle_userinfo.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/middle_userinfo.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/money_10.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/money_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/money_100.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/money_100.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/money_50.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/money_50.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/notification_inc.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/notification_inc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/org_apache_http_legacy_android_23.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_apache_http_legacy_android_23.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/personal_other_middle.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/personal_other_middle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/personal_other_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/personal_other_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/praise_image.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/praise_image.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/progress_bar_states.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/progress_bar_states.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/progress_rotate.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/progress_rotate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proguard-project.txt" afterPath="$PROJECT_DIR$/proguard-project.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/pull_listview.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/pull_listview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/pull_listview_2.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/pull_listview_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/push_in.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/push_in.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/push_out.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/anim/push_out.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/ranking_balance.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/ranking_balance.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/ranking_down.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/ranking_down.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/ranking_up.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/ranking_up.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/right_button_text_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/right_button_text_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/rotatelayout.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/rotatelayout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/send_text_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/send_text_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/shap_back_bad.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/shap_back_bad.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/shap_back_good.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/shap_back_good.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/shap_trasp_black_bg.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/shap_trasp_black_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/shap_trasp_white_bg.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/shap_trasp_white_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/share_tip.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/share_tip.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_editpage.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_editpage.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_editpage_at_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_editpage_at_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_editpage_inc_image_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_editpage_inc_image_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_share_actionbar.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_share_actionbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_share_platform_list.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_share_platform_list.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_share_platform_list_item.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/skyblue_share_platform_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/sub.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/sub.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_forecast.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_forecast.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_personal.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_personal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_ranking_balance.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_ranking_balance.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_ranking_down.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_ranking_down.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_ranking_up.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_ranking_up.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_revokke.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_revokke.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_text_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/tab_text_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/text_color_fond.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/text_color_fond.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/text_color_white.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/text_color_white.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/text_color_white_black.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/text_color_white_black.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/texture.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/texture.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/thumb_bar.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/thumb_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/timepicker.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/timepicker.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/toast_custom_prompt.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/toast_custom_prompt.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/top_cornor_bg.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/top_cornor_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/top_line.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/top_line.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/top_userinfo.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/top_userinfo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/type_line_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/type_line_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/type_text_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/type_text_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/unhold_order_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/unhold_order_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/update_now.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/update_now.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/user_serect_set.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/user_serect_set.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values-v19/values-v19.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values-v19/values-v19.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/values/values.xml" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/merged/androidTest/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/res/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/version_update.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/version_update.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_article_comment.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_article_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_article_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_article_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_auto_scroll_viewpager.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_auto_scroll_viewpager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_award_dialog.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_award_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_black.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_black.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_check_top.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_check_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_choose_sex.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_choose_sex.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_del_dialog.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_del_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_edit.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_edit.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_float.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_float.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_main.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_type_popwindow.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_comment_type_popwindow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_diaolog_welcom.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_diaolog_welcom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_edit_user_name.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_edit_user_name.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_edit_userinfo_description.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_edit_userinfo_description.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_empty_search.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_empty_search.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_et_price.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_et_price.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_event_detail_11.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_event_detail_11.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_event_operate.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_event_operate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_event_order_config.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_event_order_config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_event_rule.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_event_rule.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_head_article_detail.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_head_article_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_hold_delete.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_hold_delete.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_hold_delete_tip.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_hold_delete_tip.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_item_forecast_comment.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_item_forecast_comment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_item_forecast_middle.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_item_forecast_middle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_left_select.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_left_select.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_left_select_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_left_select_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_left_select_2.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_left_select_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_line.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_line.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_mode_advance.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_mode_advance.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_mode_easy.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_mode_easy.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_over_listview.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_over_listview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_pathview.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_pathview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_pic_dialog.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_pic_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_priceview.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_priceview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_pull_list_atten.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_pull_list_atten.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_pulllist_personal.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_pulllist_personal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_ranking_botom.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_ranking_botom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_right_select.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_right_select.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_right_select_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_right_select_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_right_select_2.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_right_select_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_selection_point.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_selection_point.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_shap.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/view_shap.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_share_gridview.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_share_gridview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_timepicker.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_timepicker.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_webview.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/view_webview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/color/vpi__dark_theme.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/color/vpi__dark_theme.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/color/vpi__light_theme.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/color/vpi__light_theme.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/vpi__tab_holo.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/vpi__tab_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/vpi__tab_indicator.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/vpi__tab_indicator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/vpi__tab_unselected_holo.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/vpi__tab_unselected_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/webview.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/webview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/wheel_bg.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/wheel_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/wheel_bg_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/wheel_bg_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/wheel_val.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/wheel_val.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/wheel_val_1.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/wheel_val_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/window_layout.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout/window_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FutureInst.iws" />
@@ -494,7 +138,28 @@
     <favorites_list name="FutureInst" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="FondPointFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/FondPointFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PointAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/PointAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.65968585">
+              <caret line="85" column="51" selection-start-line="85" selection-start-column="51" selection-end-line="85" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -3448,7 +3113,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="722" />
+    <option name="height" value="717" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -3473,7 +3138,106 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="futureinst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="futureinst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane />
       </pane>
@@ -3497,16 +3261,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -3516,7 +3271,7 @@
     <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/libs" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.101:5555" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_23" />
-    <property name="settings.editor.selected.configurable" value="com.genymobile.genymotion.ide.idea.GdmSettings" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="ExportApk.ApkPath" value="C:\Users\hao\Desktop\V2.1" />
@@ -3858,7 +3613,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="722" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="717" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3868,7 +3623,6 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6039604" sideWeight="0.4666161" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.83959043" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25113463" sideWeight="0.5324232" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.52723145" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3882,14 +3636,15 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875606" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2956381" sideWeight="0.4675768" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327787" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.327787" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24281392" sideWeight="0.49109414" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29522184" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mirror" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.83959043" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7713311" sideWeight="0.49394855" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3899,15 +3654,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6040956" sideWeight="0.4666161" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.5438729" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.49394855" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26096824" sideWeight="0.5255973" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.62286687" sideWeight="0.5333839" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26096824" sideWeight="0.5255973" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.49394855" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19515885" sideWeight="0.4675768" order="0" side_tool="false" content_ui="combo" x="533" y="167" width="300" height="393" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.47125566" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3924,8 +3679,8 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32423207" sideWeight="0.45612708" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7713311" sideWeight="0.49394855" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4778157" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -3996,7 +3751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -4248,20 +4002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/FondPointFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="18" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/PointAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="75" selection-start-line="59" selection-start-column="75" selection-end-line="59" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/item_point.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -4348,6 +4088,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4152249">
           <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/FondPointFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/find/PointAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65968585">
+          <caret line="85" column="51" selection-start-line="85" selection-start-column="51" selection-end-line="85" selection-end-column="51" />
           <folding />
         </state>
       </provider>
