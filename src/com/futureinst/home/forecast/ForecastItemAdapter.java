@@ -90,7 +90,11 @@ public class ForecastItemAdapter extends BaseAdapter {
 		TextView tv_prise_1 = ViewHolder.get(convertView,R.id.tv_prise_1);
 		TextView tv_prise_2 = ViewHolder.get(convertView,R.id.tv_prise_2);
 		View view_transp = ViewHolder.get(convertView,R.id.view_transp);
+        LinearLayout ll_forecast_middle = ViewHolder.get(convertView,R.id.ll_forecast_middle);
+        TextView tv_end_status = ViewHolder.get(convertView,R.id.tv_end_status);
 
+        ll_forecast_middle.setVisibility(View.VISIBLE);
+        tv_end_status.setVisibility(View.INVISIBLE);
 
 
 		ImageView iv_image = ViewHolder.get(convertView, R.id.iv_image);
@@ -221,6 +225,16 @@ public class ForecastItemAdapter extends BaseAdapter {
 				}else{
                     String str = item.getStatusStr();
                     tv_status.setText(str);
+                    ll_forecast_middle.setVisibility(View.INVISIBLE);
+                    tv_end_status.setVisibility(View.VISIBLE);
+                    if (String.format("%.1f", item.getCurrPrice()).equals("100.0")){
+                        tv_end_status.setText("该事件已发生");
+                        tv_end_status.setTextColor(context.getResources().getColor(R.color.gain_red));
+                    }else{
+                        tv_end_status.setText("该事件未发生");
+                        tv_end_status.setTextColor(context.getResources().getColor(R.color.gain_blue));
+                    }
+
                     if(str.length() == 3){
                         tv_status.setBackground(context.getResources().getDrawable(R.drawable.hui_3_icon));
                     }else if(str.length() == 4){

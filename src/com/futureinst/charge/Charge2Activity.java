@@ -38,7 +38,7 @@ import java.util.Locale;
 /**
  * Created by hao on 2015/12/1.
  */
-public class ChargeActivity extends BaseActivity implements View.OnClickListener {
+public class Charge2Activity extends BaseActivity implements View.OnClickListener {
     public static final String URL = HttpPath.CHARGEURL;
 //    public static final String URL = "http://218.244.151.190/demo/charge";
 
@@ -91,12 +91,12 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
         jdpayButton = (Button) findViewById(R.id.jdpayButton);
         yfbpayButton = (Button) findViewById(R.id.yfbpayButton);
 
-        wechatButton.setOnClickListener(ChargeActivity.this);
-        alipayButton.setOnClickListener(ChargeActivity.this);
-        upmpButton.setOnClickListener(ChargeActivity.this);
-        bfbButton.setOnClickListener(ChargeActivity.this);
-        jdpayButton.setOnClickListener(ChargeActivity.this);
-        yfbpayButton.setOnClickListener(ChargeActivity.this);
+        wechatButton.setOnClickListener(Charge2Activity.this);
+        alipayButton.setOnClickListener(Charge2Activity.this);
+        upmpButton.setOnClickListener(Charge2Activity.this);
+        bfbButton.setOnClickListener(Charge2Activity.this);
+        jdpayButton.setOnClickListener(Charge2Activity.this);
+        yfbpayButton.setOnClickListener(Charge2Activity.this);
         PingppLog.DEBUG = true;
 
         amountEditText.addTextChangedListener(new TextWatcher() {
@@ -140,21 +140,75 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
 
         // 支付宝，微信支付，银联，百度钱包 按键的点击响应处理
         if (view.getId() == R.id.upmpButton) {
+//            new PaymentTask().execute(new PaymentRequest(CHANNEL_UPACP, amount));
             postJson(CHANNEL_UPACP);
 
         } else if (view.getId() == R.id.alipayButton) {
+//            new PaymentTask().execute(new PaymentRequest(CHANNEL_ALIPAY, amount));
             postJson(CHANNEL_ALIPAY);
         } else if (view.getId() == R.id.wechatButton) {
+//            new PaymentTask().execute(new PaymentRequest(CHANNEL_WECHAT, amount));
             postJson(CHANNEL_WECHAT);
         } else if (view.getId() == R.id.bfbButton) {
+//            new PaymentTask().execute(new PaymentRequest(CHANNEL_BFB, amount));
             postJson(CHANNEL_BFB);
         } else if (view.getId() == R.id.jdpayButton) {
+//            new PaymentTask().execute(new PaymentRequest(CHANNEL_JDPAY_WAP, amount));
             postJson(CHANNEL_JDPAY_WAP);
         } else if (view.getId() == R.id.yfbpayButton) {
+//            new PaymentTask().execute(new PaymentRequest(CHANNEL_YEEPAY_WAP, amount));
             postJson(CHANNEL_YEEPAY_WAP);
         }
     }
 
+//    class PaymentTask extends AsyncTask<PaymentRequest, Void, String> {
+//
+//        @Override
+//        protected void onPreExecute() {
+//
+//            //按键点击之后的禁用，防止重复点击
+//            wechatButton.setOnClickListener(null);
+//            alipayButton.setOnClickListener(null);
+//            upmpButton.setOnClickListener(null);
+//            bfbButton.setOnClickListener(null);
+//            yfbpayButton.setOnClickListener(null);
+//        }
+//
+//        @Override
+//        protected String doInBackground(PaymentRequest... pr) {
+//
+//            PaymentRequest paymentRequest = pr[0];
+//            String data = null;
+//            String json = new Gson().toJson(paymentRequest);
+//
+//            try {
+//                //向Your Ping++ Server SDK请求数据
+//                data = postJson(URL, new JSONObject(httpPostParams.getPostParams(PostMethod.get_test_charge.name(), PostType.pay.name(),json)).toString());
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            return data;
+//        }
+//
+//        /**
+//         * 获得服务端的charge，调用ping++ sdk。
+//         */
+//        @Override
+//        protected void onPostExecute(String data) {
+//            if(null==data){
+//                showMsg("请求出错", "请检查URL", "URL无法获取charge");
+//                return;
+//            }
+//            Log.d("-------charge---", data);
+//            Intent intent = new Intent();
+//            String packageName = getPackageName();
+//            ComponentName componentName = new ComponentName(packageName, packageName + ".wxapi.WXPayEntryActivity");
+//            intent.setComponent(componentName);
+//            intent.putExtra(PaymentActivity.EXTRA_CHARGE, data);
+//            startActivityForResult(intent, REQUEST_CODE_PAYMENT);
+//        }
+//
+//    }
 
     /**
      * onActivityResult 获得支付结果，如果支付成功，服务器会收到ping++ 服务器发送的异步通知。
@@ -162,12 +216,12 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
      */
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        wechatButton.setOnClickListener(ChargeActivity.this);
-        alipayButton.setOnClickListener(ChargeActivity.this);
-        upmpButton.setOnClickListener(ChargeActivity.this);
-        bfbButton.setOnClickListener(ChargeActivity.this);
-        jdpayButton.setOnClickListener(ChargeActivity.this);
-        yfbpayButton.setOnClickListener(ChargeActivity.this);
+        wechatButton.setOnClickListener(Charge2Activity.this);
+        alipayButton.setOnClickListener(Charge2Activity.this);
+        upmpButton.setOnClickListener(Charge2Activity.this);
+        bfbButton.setOnClickListener(Charge2Activity.this);
+        jdpayButton.setOnClickListener(Charge2Activity.this);
+        yfbpayButton.setOnClickListener(Charge2Activity.this);
 
         //支付页面返回处理
         if (requestCode == REQUEST_CODE_PAYMENT) {
@@ -194,11 +248,23 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
         if (null != msg2 && msg2.length() != 0) {
             str += "\n" + msg2;
         }
-        Builder builder = new Builder(ChargeActivity.this);
+        Builder builder = new Builder(Charge2Activity.this);
         builder.setMessage(str);
         builder.setTitle("提示");
         builder.setPositiveButton("确定", null);
         builder.create().show();
+    }
+
+    private static String postJson(String url, String json) throws IOException {
+        MediaType type = MediaType.parse("application/json; charset=utf-8");
+        RequestBody body = RequestBody.create(type, json);
+
+        Request request = new Request.Builder().url(url).post(body).build();
+
+        OkHttpClient client = new OkHttpClient();
+        Response response = client.newCall(request).execute();
+
+        return response.body().string();
     }
 
 
@@ -220,12 +286,12 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
                         //登录成功
                         progressDialog.cancleProgress();
                         if (response == null) {
-                            wechatButton.setOnClickListener(ChargeActivity.this);
-                            alipayButton.setOnClickListener(ChargeActivity.this);
-                            upmpButton.setOnClickListener(ChargeActivity.this);
-                            bfbButton.setOnClickListener(ChargeActivity.this);
-                            jdpayButton.setOnClickListener(ChargeActivity.this);
-                            yfbpayButton.setOnClickListener(ChargeActivity.this);
+                            wechatButton.setOnClickListener(Charge2Activity.this);
+                            alipayButton.setOnClickListener(Charge2Activity.this);
+                            upmpButton.setOnClickListener(Charge2Activity.this);
+                            bfbButton.setOnClickListener(Charge2Activity.this);
+                            jdpayButton.setOnClickListener(Charge2Activity.this);
+                            yfbpayButton.setOnClickListener(Charge2Activity.this);
                             return;
                         }
                         JSONObject jsonObject = new JSONObject((String)response);
@@ -255,5 +321,20 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
             }
         }
     };
+
+    class PaymentRequest {
+        String channel;
+//        int amount;
+
+        public PaymentRequest(String channel, int amount) {
+            this.channel = channel;
+//            this.amount = amount;
+        }
+
+        public PaymentRequest(String channel) {
+            this.channel = channel;
+//            this.amount = amount;
+        }
+    }
 
 }

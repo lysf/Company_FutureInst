@@ -46,6 +46,7 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
     private CommentDeleteDialogUtil commentDeleteDialogUtil;
     private int total_comments,good_comments;
     private BroadcastReceiver receiver;
+    private Button btn_comment_float;
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setTitle("评论");
@@ -89,6 +90,22 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
         View emptyView = findViewById(R.id.view_empty);
         lv_comment.setEmptyView(emptyView);
         lv_comment.setonRefreshListener(this);
+
+        btn_comment_float = (Button) findViewById(R.id.btn_comment_float);
+        findViewById(R.id.btn_comment_total_float).setVisibility(View.INVISIBLE);
+        btn_comment_float.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (judgeIsLogin()) {
+                    Intent intent = new Intent(CommentActivity.this, AddCommentActivity.class);
+                    intent.putExtra("eventId", event_id);
+                    startActivity(intent);
+                }
+            }
+        });
+
+
+
         //点赞
         adapter.setOperateListener(new CommentDetailAdapter.PraiseOperateListener() {
             @Override

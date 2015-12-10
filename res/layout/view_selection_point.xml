@@ -116,7 +116,7 @@
         android:layout_marginRight="@dimen/activity_login_margin_10"
         android:id="@+id/tv_select_point_title"
         android:textSize="@dimen/text_size_large"
-        android:textColor="@color/text_color_4"
+        android:textColor="@color/text_color_4c"
         android:lineSpacingExtra="@dimen/dimen_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -125,8 +125,8 @@
             android:paddingBottom="@dimen/margin_20"
             android:layout_marginLeft="@dimen/activity_login_margin_10"
             android:layout_marginRight="@dimen/activity_login_margin_10"
-            android:textColor="@color/text_color_4"
-            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_9"
+            android:textSize="@dimen/text_size_small"
             android:lineSpacingExtra="@dimen/dimen_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

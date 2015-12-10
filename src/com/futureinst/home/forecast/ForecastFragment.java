@@ -58,7 +58,7 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         autoScrollViewPager = (AutoScrollViewPager)findViewById(R.id.auto_viewpager);
         circlePageIndicator = (CirclePageIndicator)findViewById(R.id.top_pager_indicator);
         autoScrollViewPager.setScrollDurationFactor(5);
-        autoScrollViewPager.setInterval(2000);
+        autoScrollViewPager.setInterval(4000);
         autoScrollViewPager.setStopScrollWhenTouch(true);
         autoScrollViewPager.setCycle(true);
 
@@ -66,12 +66,25 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.getScreenWidth(getContext())*346/750);
         view_auto_viewpager.setLayoutParams(layoutParams);
 
+        bannerAdapter = new BannerAdapter(getChildFragmentManager());
+        autoScrollViewPager.setAdapter(bannerAdapter);
+
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(bannerAdapter!=null){
+            autoScrollViewPager.stopAutoScroll();
+        }
+    }
 
     @Override
     public void onResume() {
         super.onResume();
+        if(bannerAdapter!=null){
+            autoScrollViewPager.startAutoScroll();
+        }
         adapter.getItem(viewPager.getCurrentItem()).setUserVisibleHint(true);
         if(System.currentTimeMillis() - recordTime > 60*60*1000){
             recordTime = System.currentTimeMillis();
@@ -101,8 +114,7 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
                         if(response == null) return;
                         QueryEventInfoDAO eventInfoDAO = (QueryEventInfoDAO)response;
                         if(eventInfoDAO.getEvents() != null && eventInfoDAO.getEvents().size() > 0){
-                            bannerAdapter = new BannerAdapter(getChildFragmentManager(),eventInfoDAO.getEvents());
-                            autoScrollViewPager.setAdapter(bannerAdapter);
+                            bannerAdapter.setList(eventInfoDAO.getEvents());
                             circlePageIndicator.setViewPager(autoScrollViewPager);
                             autoScrollViewPager.startAutoScroll(4000);
                         }
