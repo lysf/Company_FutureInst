@@ -3383,12 +3383,13 @@ containing a value of this type.
         public static final int text_size_large_28=0x7f0900c4;
         public static final int text_size_normal=0x7f090027;
         public static final int text_size_small=0x7f090028;
-        public static final int widget_height_30=0x7f0900c5;
-        public static final int widget_height_35=0x7f0900c6;
-        public static final int widget_height_40=0x7f0900c7;
-        public static final int widget_height_45=0x7f0900c8;
-        public static final int widget_height_50=0x7f0900c9;
-        public static final int widget_height_55=0x7f0900ca;
+        public static final int text_size_small_12=0x7f0900c5;
+        public static final int widget_height_30=0x7f0900c6;
+        public static final int widget_height_35=0x7f0900c7;
+        public static final int widget_height_40=0x7f0900c8;
+        public static final int widget_height_45=0x7f0900c9;
+        public static final int widget_height_50=0x7f0900ca;
+        public static final int widget_height_55=0x7f0900cb;
     }
     public static final class drawable {
         public static final int abc_ab_share_pack_mtrl_alpha=0x7f020000;
@@ -4264,7 +4265,7 @@ containing a value of this type.
         public static final int headImage=0x7f0c025b;
         public static final int headImage_1=0x7f0c0257;
         public static final int headImage_2=0x7f0c0346;
-        public static final int headImage_select=0x7f0c0286;
+        public static final int headImage_select=0x7f0c0285;
         public static final int head_arrowImageView=0x7f0c02ba;
         public static final int head_contentLayout=0x7f0c02b9;
         public static final int head_lastUpdatedTextView=0x7f0c02bd;
@@ -4654,7 +4655,7 @@ containing a value of this type.
         public static final int triangle=0x7f0c0046;
         public static final int true_name_area=0x7f0c016b;
         public static final int tvTitleToast=0x7f0c0309;
-        public static final int tv_abs=0x7f0c0285;
+        public static final int tv_abs=0x7f0c0286;
         public static final int tv_addComment=0x7f0c0201;
         public static final int tv_am=0x7f0c00f1;
         public static final int tv_am_icon=0x7f0c00f2;

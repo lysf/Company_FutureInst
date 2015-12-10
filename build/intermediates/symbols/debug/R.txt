@@ -901,12 +901,13 @@ int dimen text_size_large_26 0x7f0900c3
 int dimen text_size_large_28 0x7f0900c4
 int dimen text_size_normal 0x7f090027
 int dimen text_size_small 0x7f090028
-int dimen widget_height_30 0x7f0900c5
-int dimen widget_height_35 0x7f0900c6
-int dimen widget_height_40 0x7f0900c7
-int dimen widget_height_45 0x7f0900c8
-int dimen widget_height_50 0x7f0900c9
-int dimen widget_height_55 0x7f0900ca
+int dimen text_size_small_12 0x7f0900c5
+int dimen widget_height_30 0x7f0900c6
+int dimen widget_height_35 0x7f0900c7
+int dimen widget_height_40 0x7f0900c8
+int dimen widget_height_45 0x7f0900c9
+int dimen widget_height_50 0x7f0900ca
+int dimen widget_height_55 0x7f0900cb
 int drawable abc_ab_share_pack_mtrl_alpha 0x7f020000
 int drawable abc_action_bar_item_background_material 0x7f020001
 int drawable abc_btn_borderless_material 0x7f020002
@@ -1778,7 +1779,7 @@ int id hScrollView 0x7f0c02f7
 int id headImage 0x7f0c025b
 int id headImage_1 0x7f0c0257
 int id headImage_2 0x7f0c0346
-int id headImage_select 0x7f0c0286
+int id headImage_select 0x7f0c0285
 int id head_arrowImageView 0x7f0c02ba
 int id head_contentLayout 0x7f0c02b9
 int id head_lastUpdatedTextView 0x7f0c02bd
@@ -2168,7 +2169,7 @@ int id top_pager_indicator 0x7f0c0313
 int id triangle 0x7f0c0046
 int id true_name_area 0x7f0c016b
 int id tvTitleToast 0x7f0c0309
-int id tv_abs 0x7f0c0285
+int id tv_abs 0x7f0c0286
 int id tv_addComment 0x7f0c0201
 int id tv_am 0x7f0c00f1
 int id tv_am_icon 0x7f0c00f2
