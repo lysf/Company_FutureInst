@@ -1,0 +1,125 @@
+<com.futureinst.widget.scrollview.MyScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/text_color_e"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/text_color_white"
+        android:orientation="vertical"
+        >
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_top_default"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/activity_login_margin_10"
+            android:paddingBottom="@dimen/activity_login_margin_10"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20">
+
+            <TextView
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:text="账户余额（未币）"
+                android:textColor="@color/text_color_9"
+                android:textSize="@dimen/text_size_small"/>
+
+            <TextView
+                android:id="@+id/tv_asset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/activity_login_margin_10"
+                android:text="0.00"
+                android:textColor="#F8E71C"
+                android:textSize="40sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_login_margin_10"
+                android:layout_marginTop="@dimen/margin_5"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/iv_csCenter"
+                    android:background="@drawable/ripple_shap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cs_center"/>
+
+                <ImageView
+                    android:id="@+id/iv_chargeRecord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:background="@drawable/ripple_shap"
+                    android:src="@drawable/charge_record"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_login_margin_10"
+                android:gravity="center">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/line_height"
+                    android:layout_weight="1"
+                    android:background="@color/text_color_9"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_5"
+                    android:layout_marginRight="@dimen/margin_5"
+                    android:text="金额（可交易未币）"
+                    android:textColor="@color/text_color_9"
+                    android:textSize="@dimen/text_size_normal"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/line_height"
+                    android:layout_weight="1"
+                    android:background="@color/text_color_9"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <com.futureinst.widget.list.MyListView
+            android:id="@+id/lv_goods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <include layout="@layout/view_line"/>
+        <LinearLayout
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tv_question"
+                android:padding="@dimen/margin_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="常见问题"
+                android:background="@drawable/ripple_shap"
+                android:textColor="#4A90E2"
+                android:textSize="@dimen/text_size_normal"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</com.futureinst.widget.scrollview.MyScrollView>

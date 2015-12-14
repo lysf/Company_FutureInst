@@ -3,6 +3,7 @@
 
     <!--<string name="wechat">微信</string>-->
     <string name="alipay">支付宝</string>
+    <string name="wechatpay">微信</string>
     <string name="upmp">银联</string>
     <string name="bfb">百度钱包</string>
     <string name="jdpay">京东支付</string>
@@ -284,4 +285,6 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_charge_list">ChargeListActivity</string>
+    <string name="title_activity_charge_record">ChargeRecordActivity</string>
 </resources>

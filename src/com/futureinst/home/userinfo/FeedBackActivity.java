@@ -62,7 +62,7 @@ public class FeedBackActivity extends BaseActivity {
 						progressDialog.cancleProgress();
 						if(response == null) return;
 						finish();
-						MyToast.getInstance().showToast(FeedBackActivity.this, "您的意见反馈成功", 1);
+						MyToast.getInstance().showToast(FeedBackActivity.this, "您的意见反馈提交成功", 1);
 					}
 				});
 	

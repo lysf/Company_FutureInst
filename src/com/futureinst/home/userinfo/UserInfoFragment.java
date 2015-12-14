@@ -9,6 +9,7 @@ import org.json.JSONException;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.charge.ChargeActivity;
+import com.futureinst.charge.ChargeGoodsListActivity;
 import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.HomeActivity;
@@ -86,6 +87,7 @@ public class UserInfoFragment extends BaseFragment {
     private ImageView iv_ranking;
     private ImageView iv_set;
     private ImageView iv_todayTask;
+
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -242,7 +244,7 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     private void setClickListener() {
-        tv_userName.setOnClickListener(clickListener);
+        findViewById(R.id.ll_charge).setOnClickListener(clickListener);
         iv_message.setOnClickListener(clickListener);
         iv_set.setOnClickListener(clickListener);
         tv_attend.setOnClickListener(clickListener);
@@ -268,14 +270,8 @@ public class UserInfoFragment extends BaseFragment {
                     intentName.putExtra("user", userInformationDAO.getUser());
                     startActivity(intentName);
                     break;
-                case R.id.tv_userName:// 用户名
-//				showEditName();
-//				Intent intentName = new Intent(getActivity(), PersonalNameSetActivity.class);
-//				intentName.putExtra("nickName", userInformationDAO.getUser().getName());
-//				startActivity(intentName);
-                    startActivity(new Intent(getContext(), ChargeActivity.class));
-                    break;
-                case R.id.tv_description:// 先知描述
+                case R.id.ll_charge:// 充值
+                    startActivity(new Intent(getContext(), ChargeGoodsListActivity.class));
                     break;
                 case R.id.iv_message:// 消息
                     startActivity(new Intent(getActivity(), PushMessageActivity.class));

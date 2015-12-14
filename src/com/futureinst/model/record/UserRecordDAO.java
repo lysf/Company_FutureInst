@@ -15,9 +15,9 @@ public class UserRecordDAO implements Serializable {
     private float foreIndexNew;
 	private int rank;
 	private int lastRank;
-	private float asset;
-	private float assure;
-	private float exchange;
+	private float asset;//余额资产
+	private float assure;//指保证金
+	private float exchange;//可消费未币
 	private int status;
 	private int articleNum;
 	private int articleLoveNum;

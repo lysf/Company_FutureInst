@@ -428,9 +428,9 @@ public class CropImageActivity extends MonitoredActivity {
         canvas.drawARGB( 0, 0, 0, 0);  
         paint.setColor( color);  
         //在画布上绘制一个圆  
-        canvas.drawCircle( bitmap.getWidth() / 2, bitmap.getHeight() / 2, bitmap.getWidth() / 2, paint);  
+        canvas.drawCircle( bitmap.getWidth() / 2, bitmap.getHeight() / 2, bitmap.getWidth() / 2, paint);
         paint.setXfermode( new PorterDuffXfermode( Mode.SRC_IN));  
-        canvas.drawBitmap( bitmap, rect, rect, paint);  
+        canvas.drawBitmap( bitmap, rect, rect, paint);
         return output;  
     }  
     private void saveOutput(Bitmap croppedImage) {

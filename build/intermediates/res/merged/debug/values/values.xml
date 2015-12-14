@@ -1470,6 +1470,8 @@
 事件清算若出现了任何争议，本先知会送往仲裁委员会裁决，一定会给大家个公正的结果哒！</string>
     <string name="title_activity_aritlce">AritlceActivity</string>
     <string name="title_activity_article_detail">ArticleDetailActivity</string>
+    <string name="title_activity_charge_list">ChargeListActivity</string>
+    <string name="title_activity_charge_record">ChargeRecordActivity</string>
     <string name="title_activity_home3">Home3Activity</string>
     <string name="title_activity_today_task">TodayTaskActivity</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
@@ -1528,6 +1530,11 @@
     <string name="wechat_client_inavailable">目前您的微信版本过低或未安装微信，需要安装微信才能使用</string>
     <string name="wechatfavorite">微信收藏</string>
     <string name="wechatmoments">微信朋友圈</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="wechatpay">微信</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
     <string name="weibo_oauth_regiseter">应用授权</string>
     <string name="weibo_upload_content">分享图片</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->

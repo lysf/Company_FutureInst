@@ -129,7 +129,6 @@
     <style name="FullBleedTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
 
-
     <style name="Theme" parent="@android:style/Theme.Black.NoTitleBar">
         <item name="android:windowBackground">@android:color/white</item>
     </style>

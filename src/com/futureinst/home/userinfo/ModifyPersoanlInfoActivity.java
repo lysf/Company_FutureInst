@@ -18,6 +18,7 @@ import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.utils.DialogShow;
+import com.futureinst.utils.ImageCompressUtil;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.MyToast;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -127,8 +128,9 @@ public class ModifyPersoanlInfoActivity extends BaseActivity {
 					Uri uri = intent.getParcelableExtra(MediaStore.EXTRA_OUTPUT);
 					String path = uri.getPath();
 					List<String> files = new ArrayList<String>();
-					files.add(path);
-					uploadPic(files);
+                    Log.i(TAG, "------------------>>" + path);
+                    files.add(ImageCompressUtil.compressImage(BitmapFactory.decodeFile(path)));
+                    uploadPic(files);
 				}
 			}
 		};

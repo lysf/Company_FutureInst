@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.model.charge.PayOrderDAO;
 import com.futureinst.net.HttpPath;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
@@ -39,10 +40,11 @@ import java.util.Locale;
  * Created by hao on 2015/12/1.
  */
 public class ChargeActivity extends BaseActivity implements View.OnClickListener {
+    //    public static final String URL = "http://218.244.151.190/demo/charge";
     public static final String URL = HttpPath.CHARGEURL;
-//    public static final String URL = "http://218.244.151.190/demo/charge";
 
     private static final int REQUEST_CODE_PAYMENT = 1;
+    private PayOrderDAO order;
 
     /**
      * 银联支付渠道
@@ -70,7 +72,6 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
     private static final String CHANNEL_YEEPAY_WAP = "yeepay_wap";
     private String currentAmount = "";
 
-    private EditText amountEditText;
     private Button wechatButton;
     private Button alipayButton;
     private Button upmpButton;
@@ -81,9 +82,10 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_charge);
-        setTitle("支付");
-        getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
-        amountEditText = (EditText) findViewById(R.id.amountEditText);
+//        setTitle("支付");
+//        getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
+
+        order = (PayOrderDAO) getIntent().getSerializableExtra("order");
         wechatButton = (Button) findViewById(R.id.wechatButton);
         alipayButton = (Button) findViewById(R.id.alipayButton);
         upmpButton = (Button) findViewById(R.id.upmpButton);
@@ -97,46 +99,16 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
         bfbButton.setOnClickListener(ChargeActivity.this);
         jdpayButton.setOnClickListener(ChargeActivity.this);
         yfbpayButton.setOnClickListener(ChargeActivity.this);
+        findViewById(R.id.cancelButton).setOnClickListener(ChargeActivity.this);
         PingppLog.DEBUG = true;
 
-        amountEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (!s.toString().equals(currentAmount)) {
-                    amountEditText.removeTextChangedListener(this);
-                    String replaceable = String.format("[%s, \\s.]", NumberFormat.getCurrencyInstance(Locale.CHINA).getCurrency().getSymbol(Locale.CHINA));
-                    String cleanString = s.toString().replaceAll(replaceable, "");
-
-                    if (cleanString.equals("") || new BigDecimal(cleanString).toString().equals("0")) {
-                        amountEditText.setText(null);
-                    } else {
-                        double parsed = Double.parseDouble(cleanString);
-                        String formatted = NumberFormat.getCurrencyInstance(Locale.CHINA).format((parsed / 100));
-                        currentAmount = formatted;
-                        amountEditText.setText(formatted);
-                        amountEditText.setSelection(formatted.length());
-                    }
-                    amountEditText.addTextChangedListener(this);
-                }
-            }
-        });
     }
 
     public void onClick(View view) {
-        String amountText = amountEditText.getText().toString();
-        if (amountText.equals("")) return;
 
-        String replaceable = String.format("[%s, \\s.]", NumberFormat.getCurrencyInstance(Locale.CHINA).getCurrency().getSymbol(Locale.CHINA));
-        String cleanString = amountText.toString().replaceAll(replaceable, "");
-        int amount = Integer.valueOf(new BigDecimal(cleanString).toString());
+//        String replaceable = String.format("[%s, \\s.]", NumberFormat.getCurrencyInstance(Locale.CHINA).getCurrency().getSymbol(Locale.CHINA));
+//        String cleanString = amountText.toString().replaceAll(replaceable, "");
+//        int amount = Integer.valueOf(new BigDecimal(cleanString).toString());
 
         // 支付宝，微信支付，银联，百度钱包 按键的点击响应处理
         if (view.getId() == R.id.upmpButton) {
@@ -152,6 +124,8 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
             postJson(CHANNEL_JDPAY_WAP);
         } else if (view.getId() == R.id.yfbpayButton) {
             postJson(CHANNEL_YEEPAY_WAP);
+        }else if(view.getId() == R.id.cancelButton){
+            finish();
         }
     }
 
