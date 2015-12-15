@@ -112,7 +112,8 @@ public class UserInfoFragment extends BaseFragment {
 
     @Override
     public void onResume() {
-        if (((HomeActivity) getActivity()).getCurrentTab() == 3 && getUserVisibleHint()) {
+        if (((HomeActivity) getActivity()).getCurrentTab() == 3
+                && isStart) {
             query_user_record();
             query_user_daily_task();
             getMessageCount();

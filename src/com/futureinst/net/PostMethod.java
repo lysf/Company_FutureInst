@@ -59,4 +59,6 @@ public enum PostMethod {
     add_pay_order ,//添加支付订单
     get_charge_for_pay_order ,//为支付订单获取支付凭据
     get_pay_orders_for_user ,//获得用户的所有支付订单
+    p2p_give_exchange ,//赠送可消费未币
+    find_user ,//查找用户
 }

@@ -23,6 +23,7 @@
             <include layout="@layout/personal_other_top" />
 
             <include layout="@layout/layout_person_show" />
+
         </LinearLayout>
     
 	</com.futureinst.widget.scrollview.OverScrollView>

@@ -262,6 +262,18 @@
             
             
         </TableLayout>
-
+    <Button
+        android:id="@+id/btn_transfer_accounts"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_20"
+        android:layout_marginTop="@dimen/widget_height_45"
+        android:text="转账"
+        android:background="@drawable/btn_transfer_accounts_bg"
+        android:textSize="@dimen/text_size_large"
+        android:textColor="@color/text_color_white"
+        android:layout_width="match_parent"
+        android:minHeight="@dimen/widget_height_40"
+        android:layout_height="wrap_content"/>
 	
 </LinearLayout>
