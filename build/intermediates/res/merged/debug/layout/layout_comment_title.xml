@@ -33,7 +33,7 @@
 
      <ImageView 
         android:id="@+id/iv_left"
-         android:visibility="visible"
+         android:visibility="invisible"
         android:layout_width="48dp"
         android:background="@drawable/ripple_shap"
         android:scaleType="centerInside"
@@ -98,7 +98,7 @@
         android:layout_marginBottom="3dp"
         android:textColor="@drawable/right_button_text_color"
         android:layout_gravity="right|center_vertical"
-        android:visibility="visible"/>
+        android:visibility="invisible"/>
     <ImageView
         android:id="@+id/iv_right"
         android:background="@drawable/ripple_shap"

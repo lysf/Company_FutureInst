@@ -14,7 +14,10 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.utils.DialogShow;
+import com.futureinst.utils.MyToast;
+import com.futureinst.utils.TimeLimitUtil;
 
 public class ContactFragment extends BaseFragment {
     private ImageView iv_tell;
@@ -36,7 +39,12 @@ public class ContactFragment extends BaseFragment {
         public void onClick(View v) {
             switch (v.getId()){
                 case R.id.iv_tell://打电话
-                    phoneTip();
+                    long currTime = SystemTimeUtile.getInstance(System.currentTimeMillis()).getSystemTime();
+                    if(TimeLimitUtil.judgeIsWorkDay(currTime)){
+                        phoneTip();
+                    }else{
+                        MyToast.getInstance().showToast(getActivity(),"请于工作日时间来电，或采用以下方式提交您的问题，谢谢！",0);
+                    }
                     break;
                 case R.id.ll_feed://意见反馈
                     startActivity(new Intent(getContext(),FeedBackActivity.class));

@@ -21,6 +21,8 @@
     <!-- A really bright Holo shade of blue -->
     <color name="holo_blue_bright">#ff00ddff</color>
 
+    <color name="pop_selected">#52C3D1</color>
+
 
     <color name="rippelColor">#86BFFA</color>
     <color name="editText">#AAAAAA</color>

@@ -23,10 +23,17 @@
     </string-array>
     <string-array name="home_seond_title_order">
         <item>new</item>
-        <item>dead</item>
-        <item>trade</item>
-        <item>price</item>
+        <item>newpass</item>
         <item>involve</item>
+        <item>dead</item>
+        <item>price</item>
+    </string-array>
+    <string-array name="home_seond_title_order_string">
+        <item>默认</item>
+        <item>最新</item>
+        <item>最热</item>
+        <item>最快到期</item>
+        <item>最可能</item>
     </string-array>
     <string-array name="home_title">
         <item>推荐</item>
@@ -342,6 +349,7 @@
     <eat-comment/>
     <color name="model_check">#E5E5E5</color>
     <color name="model_uncheck">#F2F2F2</color>
+    <color name="pop_selected">#52C3D1</color>
     <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">@android:color/black</color>
@@ -926,6 +934,8 @@
     <string name="crop__pick_error">No image sources available</string>
     <string name="crop__saving">Saving picture…</string>
     <string name="crop__wait">Please wait…</string>
+    <string name="daily_tip_message">亲爱的先知，未来研究所任务系统上线啦！每天必领的福利，没有之一~快到「个人中心」的「今日任务」看看吧！</string>
+    <string name="daily_tip_title">天上掉馅饼啦！</string>
     <string name="data_over">没有更多数据</string>
     <string name="day">日</string>
     <string name="depositCash">保证金</string>

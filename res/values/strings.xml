@@ -119,6 +119,8 @@
     <string name="submit_sell">确认卖空</string>
     <string name="lazy_bag">懒人包</string>
     <!-- UserInfoFragment -->
+    <string name="daily_tip_title">天上掉馅饼啦！</string>
+    <string name="daily_tip_message">亲爱的先知，未来研究所任务系统上线啦！每天必领的福利，没有之一~快到「个人中心」的「今日任务」看看吧！</string>
     <string name="userNmae_hint">用户名</string>
     <string name="description_hint">一句话表达"先知态度"</string>
     <string name="asset">我的资产</string>

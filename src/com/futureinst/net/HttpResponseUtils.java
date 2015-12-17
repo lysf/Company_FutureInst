@@ -65,7 +65,7 @@ public class HttpResponseUtils {
 	public synchronized <T> void postJson(final Map<String, String> params, final Class<T> clz,
 			final PostCommentResponseListener commentResponseListener) {
 		final String path = HttpPath.URL + params.toString();
-		final String result = cacheUtil.getCache(path);
+        final String result = cacheUtil.getCache(path);
 		if(!Content.isPull){
 			try {
 				commentResponseListener.requestCompleted(GsonUtils.json2Bean(

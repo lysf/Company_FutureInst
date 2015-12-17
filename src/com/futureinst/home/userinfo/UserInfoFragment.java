@@ -60,8 +60,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -87,6 +89,9 @@ public class UserInfoFragment extends BaseFragment {
     private ImageView iv_ranking;
     private ImageView iv_set;
     private ImageView iv_todayTask;
+    private ImageView iv_daily;
+
+    private Switch btn_switch;
 
 
     @Override
@@ -134,6 +139,8 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     private void initView() {
+
+
         messageCacheUtil = PushMessageCacheUtil.getInstance(getContext());
         progressDialog = MyProgressDialog.getInstance(getContext());
         preferenceUtil = SharePreferenceUtil.getInstance(getContext());
@@ -153,6 +160,13 @@ public class UserInfoFragment extends BaseFragment {
         iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
         iv_set = (ImageView) findViewById(R.id.iv_set);
         iv_todayTask = (ImageView) findViewById(R.id.iv_today_task_message);
+        iv_daily = (ImageView) findViewById(R.id.iv_daily);
+        if(preferenceUtil.getDailyTaskClick()){
+            iv_daily.setVisibility(View.INVISIBLE);
+        }else{
+            iv_daily.setVisibility(View.VISIBLE);
+        }
+
 
         tableRows = new TableRow[5];
         ll_modify = (LinearLayout) findViewById(R.id.ll_modify);
@@ -187,6 +201,20 @@ public class UserInfoFragment extends BaseFragment {
         filter.addAction("modifyDescription");
         filter.addAction("newPushMessage");
         getContext().registerReceiver(receiver, filter);
+
+        btn_switch = (Switch) findViewById(R.id.btn_switch);
+        btn_switch.setChecked(preferenceUtil.getServerOnline());
+        btn_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    preferenceUtil.setServer(true);
+                }else{
+                    preferenceUtil.setServer(false);
+                }
+            }
+        });
+
     }
 
     // 初始化视图
@@ -284,8 +312,9 @@ public class UserInfoFragment extends BaseFragment {
                     startActivity(setIntent);
                     break;
                 case R.id.tableRow_todayTask://今日任务
+                    preferenceUtil.setDailyTaskClick();
+                    iv_daily.setVisibility(View.INVISIBLE);
                     startActivity(new Intent(getActivity(), TodayTaskActivity.class));
-
                     break;
                 case R.id.tableRow0://预测中事件
                     Intent intent0 = new Intent(getActivity(), HoldingActivity.class);

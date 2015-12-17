@@ -13,6 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/tv_title"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textSize="@dimen/text_size_large"
+            android:textColor="@color/text_color_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_message"
             android:paddingTop="@dimen/margin_15"
             android:paddingBottom="@dimen/margin_15"
             android:paddingLeft="@dimen/activity_login_margin_10"

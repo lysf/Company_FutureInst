@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#55000000"
+    >
+
     <LinearLayout
-        android:layout_alignParentRight="true"
-        android:background="#33000000"
-        android:padding="@dimen/margin_5"
-        android:layout_marginTop="@dimen/margin_5"
-        android:layout_marginRight="@dimen/margin_5"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_5"
+        android:layout_marginTop="@dimen/margin_5"
+        android:background="#33000000"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_5">
+
         <Button
             android:id="@+id/btn_all"
             android:layout_width="match_parent"
-            android:minWidth="100dp"
             android:layout_height="wrap_content"
             android:background="@drawable/item_select"
-            android:text="全部评论"/>
+            android:minWidth="100dp"
+            android:text="全部评论"
+            android:textColor="@drawable/popselected"/>
+
         <Button
             android:id="@+id/btn_good"
-            android:layout_marginTop="@dimen/line_height"
             android:layout_width="match_parent"
-            android:minWidth="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/line_height"
             android:background="@drawable/item_select"
-            android:text="看好评论"/>
+            android:minWidth="100dp"
+            android:text="看好评论"
+            android:textColor="@drawable/popselected"/>
+
         <Button
             android:id="@+id/btn_bad"
-            android:layout_marginTop="@dimen/line_height"
             android:layout_width="wrap_content"
-            android:minWidth="100dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/line_height"
             android:background="@drawable/item_select"
-            android:text="不看好评论"/>
+            android:minWidth="100dp"
+            android:text="不看好评论"
+            android:textColor="@drawable/popselected"/>
     </LinearLayout>
 </RelativeLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/view_comment_type_popwindow.xml -->

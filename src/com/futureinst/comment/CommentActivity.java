@@ -209,6 +209,7 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
     OnClickListener clickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
+            btns[attitude].setSelected(false);
             switch (v.getId()) {
                 case R.id.btn_all://全部评论
                     attitude = 0;
@@ -220,6 +221,7 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
                     attitude = 2;
                     break;
             }
+            btns[attitude].setSelected(true);
             popupWindow.dismiss();
             progressDialog.progressDialog();
             getComment(event_id, attitude);
@@ -230,12 +232,13 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
     /**
      * 创建PopupWindow
      */
+    Button[] btns;
     protected void initPopuptWindow() {
         // TODO Auto-generated method stub
         // 获取自定义布局文件activity_popupwindow_left.xml的视图
         View popupWindow_view = getLayoutInflater().inflate(R.layout.view_comment_type_popwindow, null,
                 false);
-        popupWindow = new PopupWindow(popupWindow_view, RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT, true);
+        popupWindow = new PopupWindow(popupWindow_view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT, true);
         // 点击其他地方消失
         popupWindow_view.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -248,10 +251,11 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
                 return true;
             }
         });
-        Button[] btns = new Button[3];
+        btns = new Button[3];
         btns[0] = (Button) popupWindow_view.findViewById(R.id.btn_all);
         btns[1] = (Button) popupWindow_view.findViewById(R.id.btn_good);
         btns[2] = (Button) popupWindow_view.findViewById(R.id.btn_bad);
+        btns[attitude].setSelected(true);
         btns[0].setOnClickListener(clickListener);
         btns[1].setOnClickListener(clickListener);
         btns[2].setOnClickListener(clickListener);

@@ -1034,11 +1034,11 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     //分享界面
     private void showShareDialog(final QueryEventDAO event, int type) {
 
-        String title = event.getLead() + " 你敢赌吗？";
+        String title = event.getLead() + " 你敢猜吗？";
         if (type == 1) {//看好
-            title = event.getLead() + " 我赌会发生！";
+            title = event.getLead() + " 我猜会发生！";
         } else if (type == 3) {//不看好
-            title = event.getLead() + " 我赌不发生！";
+            title = event.getLead() + " 我猜不发生！";
         }
         final String shareTitle = title;
         final String content = "来自未来研究所";
@@ -1375,7 +1375,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
         Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
         TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
-        String configMsg = "找朋友对赌，首次分享领50！";
+        String configMsg = "找朋友对猜，首次分享领50！";
 
         tv_configMsg.setText(configMsg);
         Button btn_config = (Button) view.findViewById(R.id.btn_submit);
