@@ -31,8 +31,7 @@
     <!-- 自定义权限 -->
     <permission
         android:name="getui.permission.GetuiService.com.futureinst"
-        android:protectionLevel="normal" >
-    </permission>
+        android:protectionLevel="normal" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -197,6 +196,9 @@
             android:name="com.futureinst.charge.ChargeActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.futureinst.index.PrimaryActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name="com.futureinst.service.UpdateService" />
 
@@ -239,8 +241,7 @@
             android:name="com.igexin.sdk.PushService"
             android:exported="true"
             android:label="NotificationCenter"
-            android:process=":pushservice" >
-        </service>
+            android:process=":pushservice" />
 
         <receiver android:name="com.igexin.sdk.PushReceiver" >
             <intent-filter>
@@ -268,8 +269,7 @@
             android:exported="false"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- 配置弹框activity -->
         <activity
             android:name="com.igexin.getuiext.activity.GetuiExtActivity"
@@ -367,8 +367,7 @@
         <activity
             android:name="com.futureinst.todaytask.TodayTaskActivity"
             android:label="@string/title_activity_today_task"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.futureinst.home.userinfo.HomeSetActivity"
             android:screenOrientation="portrait" />
@@ -554,7 +553,7 @@
         <!-- 同时修改HttpPostParams中的regist（） ctype -->
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="huawei" />
+            android:value="android" />
         <meta-data
             android:name="BDAPPID"
             android:value="" />

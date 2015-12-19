@@ -24,7 +24,7 @@ public final class R {
 		public static final int txt_title = 0x7f0c011d;
 	}
 	public static final class layout {
-		public static final int bdp_update_activity_confirm_dialog = 0x7f03003e;
+		public static final int bdp_update_activity_confirm_dialog = 0x7f03003f;
 	}
 	public static final class string {
 		public static final int bdp_update_action_download = 0x7f070064;

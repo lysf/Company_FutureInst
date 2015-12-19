@@ -1471,6 +1471,7 @@
     <string name="title_activity_aritlce">AritlceActivity</string>
     <string name="title_activity_article_detail">ArticleDetailActivity</string>
     <string name="title_activity_home3">Home3Activity</string>
+    <string name="title_activity_primary">PrimaryActivity</string>
     <string name="title_activity_today_task">TodayTaskActivity</string>
     <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>

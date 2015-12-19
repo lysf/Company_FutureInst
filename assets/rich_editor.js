@@ -42,6 +42,10 @@ RE.getHtml = function() {
 RE.getText = function() {
     return RE.editor.innerText;
 }
+RE.getHeight = function(){
+    return RE.editor.clientHeight;
+}
+
 
 RE.setBaseTextColor = function(color) {
     RE.editor.style.color  = color;
@@ -161,7 +165,7 @@ RE.setBlockquote = function() {
 }
 
 RE.insertImage = function(url, alt) {
-    var html = '<img src="' + url + '" alt="' + alt + '" />';
+    var html = '<img src="' + url + '" alt="' + alt + '" /><br>';
     RE.insertHTML(html);
 }
 

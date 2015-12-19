@@ -124,10 +124,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="FullBleedTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="FullBleedTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="FullBleedTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
-
+    <style name="FullBleedTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
     <style name="Theme" parent="@android:style/Theme.Black.NoTitleBar">
