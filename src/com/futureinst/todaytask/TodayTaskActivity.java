@@ -86,6 +86,11 @@ public class TodayTaskActivity extends BaseActivity {
         tv_task_progress[2] = (TextView)findViewById(R.id.tv_normal_3_progress);
     }
     private void initData(DailyTaskInfoDAO dailyTaskInfo){
+        if(dailyTaskInfo.getDaily_task()==null){
+            MyToast.getInstance().showToast(this,"暂无任务",0);
+            finish();
+            return;
+        }
         if(dailyTaskInfo.getDaily_task().getFinishedTasks()!=null
                 && dailyTaskInfo.getDaily_task().getFinishedTasks().size()>0){//已领取
 

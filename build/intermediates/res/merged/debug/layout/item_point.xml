@@ -3,48 +3,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/item_select"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/item_select"
+
         android:orientation="vertical"
         android:paddingBottom="7dp"
         android:paddingLeft="@dimen/activity_login_margin_10"
         android:paddingRight="@dimen/activity_login_margin_10"
         android:paddingTop="7dp">
-
-        <TextView
-            android:id="@+id/tv_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shap_trasp_black_bg"
-            android:text="财经"
-            android:textColor="@color/text_color_4"
-            android:textSize="@dimen/text_size_small" />
-
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_5"
-            android:text="这里是文章标题"
-            android:textColor="@color/text_color_4"
-            android:textSize="@dimen/text_size_large" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:gravity="center_vertical"
             android:paddingBottom="@dimen/margin_5"
             android:paddingTop="@dimen/margin_5">
 
             <com.futureinst.roundimageutils.RoundedImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/headImage_select"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
+                android:layout_width="@dimen/widget_height_30"
+                android:layout_height="@dimen/widget_height_30"
                 android:layout_marginRight="3dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/logo"
@@ -59,7 +41,7 @@
                 android:layout_toRightOf="@+id/headImage_select"
                 android:text="nickname"
                 android:textColor="@color/text_color_4"
-                android:textSize="@dimen/text_size_normal" />
+                android:textSize="@dimen/text_size_small" />
 
 
             <TextView
@@ -71,7 +53,7 @@
                 android:layout_toRightOf="@+id/headImage_select"
                 android:text="59人阅读"
                 android:textColor="@color/text_color_9"
-                android:textSize="@dimen/text_size_small" />
+                android:textSize="@dimen/text_size_small_12" />
 
             <TextView
                 android:id="@+id/tv_comment_num"
@@ -84,7 +66,7 @@
                 android:gravity="center_vertical"
                 android:text=" 23"
                 android:textColor="@color/text_color_9"
-                android:textSize="@dimen/text_size_small" />
+                android:textSize="@dimen/text_size_small_12" />
 
             <TextView
                 android:id="@+id/tv_praise"
@@ -99,8 +81,53 @@
                 android:gravity="center_vertical"
                 android:text=" 30"
                 android:textColor="@color/text_color_9"
-                android:textSize="@dimen/text_size_small" />
+                android:textSize="@dimen/text_size_small_12" />
         </RelativeLayout>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5"
+            android:text="这里是文章标题"
+            android:textColor="@color/text_color_4c"
+            android:textSize="@dimen/text_size_large" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/margin_5"
+            android:paddingBottom="@dimen/margin_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shap_trasp_black_bg"
+                android:text="财经"
+                android:textColor="@color/text_color_4"
+                android:textSize="@dimen/text_size_small_12" />
+            <TextView
+                android:id="@+id/tv_event_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_login_margin_10"
+                android:textSize="@dimen/text_size_small_12"
+                android:text="这是事件标题"
+                android:textColor="@color/text_color_4"
+                android:singleLine="true"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_abs"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color_9"
+            android:lineSpacingExtra="@dimen/dimen_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
 
     </LinearLayout>
     <View

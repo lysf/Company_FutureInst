@@ -941,6 +941,14 @@ public class HttpPostParams {
         JSONObject jsonObject = new JSONObject(map);
         return jsonObject.toString();
     }
+
+    /**
+     * 获取测试用的支付凭据
+     * @param user_id
+     * @param uuid
+     * @param channel
+     * @return
+     */
     public String get_test_charge(String user_id, String uuid,String channel){
         Map<String, String> map = new HashMap<String, String>();
 //        map.put("user_id", user_id);
@@ -949,5 +957,66 @@ public class HttpPostParams {
         JSONObject jsonObject = new JSONObject(map);
         return jsonObject.toString();
     }
+
+    /**
+     * 获取可购买的商品清单
+     * @return
+     */
+    public String get_all_charge_goods(){
+        Map<String, String> map = new HashMap<String, String>();
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 添加支付订单
+     * @param user_id
+     * @param uuid
+     * @param goods_id 商品id
+     * @return
+     */
+    public String add_pay_order(String user_id, String uuid,String goods_id){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("goods_id", goods_id);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     *为支付订单获取支付凭据
+     * @param user_id
+     * @param uuid
+     * @param channel 支付渠道
+     * @param order_no 支付订单唯一标识符，长字符串
+     * @param order_id 支付订单编号
+     * @return
+     */
+    public String get_charge_for_pay_order(String user_id, String uuid,String channel,String order_no,String order_id){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("channel", channel);
+        map.put("order_no", order_no);
+        map.put("order_id", order_id);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 获得用户的所有支付订单
+     * @param user_id
+     * @param uuid
+     * @return
+     */
+    public String get_pay_orders_for_user(String user_id, String uuid){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
 
 }

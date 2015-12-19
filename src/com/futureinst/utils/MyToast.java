@@ -65,7 +65,7 @@ public class MyToast {
 		if(toast != null){
 			toast.removeView();
 			toast = null;
-            return;
+//            return;
 		}
 		toast = new ToastHelper(activity);
 //	    float hOffset = activity.getResources().getDimension(R.dimen.widget_height_35);
