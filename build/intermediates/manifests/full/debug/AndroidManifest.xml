@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.futureinst"
-    android:versionCode="17"
-    android:versionName="2.1" >
+    android:versionCode="18"
+    android:versionName="2.1.1" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -205,6 +205,10 @@
         <activity
             android:name="com.futureinst.charge.ChargeRecordActivity"
             android:label="@string/title_activity_charge_record"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.index.PrimaryActivity"
+            android:label="@string/title_activity_primary"
             android:screenOrientation="portrait" />
 
         <service android:name="com.futureinst.service.UpdateService" />

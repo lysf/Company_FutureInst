@@ -262,13 +262,6 @@ public class HomeActivity extends BaseActivity {
                         }else{
                             iv_message_tip.setVisibility(View.INVISIBLE);
                         }
-//                        if(dailyTaskInfo.getDaily_task()!=null &&
-//                                dailyTaskInfo.getDaily_task().getAwardedTasks() != null
-//                                && dailyTaskInfo.getDaily_task().getAwardedTasks().size() == 5){
-//                            iv_message_tip.setVisibility(View.INVISIBLE);
-//                        }else{
-//                            iv_message_tip.setVisibility(View.VISIBLE);
-//                        }
                         handler.sendEmptyMessage(-1);
 					}
 				});

@@ -37,12 +37,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <include
-            android:id="@+id/view_point"
-            android:visibility="visible"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/view_comment_main"/>
+
         <LinearLayout
             android:id="@+id/ll_empty_point"
             android:visibility="gone"
@@ -63,6 +58,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+        <com.futureinst.widget.list.MyListView
+            android:id="@+id/lv_article"
+            android:background="@color/text_color_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
     <View
         android:background="@color/text_color_e"

@@ -112,7 +112,8 @@ public class AddPointActivity extends BaseActivity {
                     return;
                 }
                 et_point_content.insertImage(((UpFileDAO) response).getSrc(),
-                        "dachshund");
+                        "Img");
+
             }
         });
     }

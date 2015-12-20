@@ -42,24 +42,24 @@ public class BaseApplication extends Application {
     }
 
     private void initPath() {
-        SharePreferenceUtil preferenceUtil = SharePreferenceUtil.getInstance(this);
-        if (preferenceUtil.getServerOnline()) {//线下
-            HttpPath.URL = "http://www.futureinst.com/api";
-            HttpPath.SHARE_URL = "http://www.futureinst.com/mweb/event/";
-            HttpPath.SHARE_URL_ARTICLE = "http://www.futureinst.com/mweb/article/";
-            HttpPath.Cookie = "; Domain=futureinst.com; Path=/";
-            HttpPath.SHOP = "http://www.futureinst.com/mweb/gift/list";
-            HttpPath.PICPATH = "http://www.futureinst.com/api/uploadImage";
-            HttpPath.CHARGEURL = "http://www.futureinst.com/api";
-        } else {
-            HttpPath.URL = "http://182.92.183.219/api";
-            HttpPath.SHARE_URL = "http://182.92.183.219/mweb/event/";
-            HttpPath.SHARE_URL_ARTICLE = "http://182.92.183.219/mweb/article/";
-            HttpPath.Cookie = "; Domain=182.92.183.219; Path=/";
-            HttpPath.SHOP = "http://182.92.183.219/mweb/gift/list";
-            HttpPath.PICPATH = "http://182.92.183.219/api/uploadImage";
-            HttpPath.CHARGEURL = "http://182.92.183.219/api";
-        }
+//        SharePreferenceUtil preferenceUtil = SharePreferenceUtil.getInstance(this);
+//        if (preferenceUtil.getServerOnline()) {//线下
+//            HttpPath.URL = "http://www.futureinst.com/api";
+//            HttpPath.SHARE_URL = "http://www.futureinst.com/mweb/event/";
+//            HttpPath.SHARE_URL_ARTICLE = "http://www.futureinst.com/mweb/article/";
+//            HttpPath.Cookie = "; Domain=futureinst.com; Path=/";
+//            HttpPath.SHOP = "http://www.futureinst.com/mweb/gift/list";
+//            HttpPath.PICPATH = "http://www.futureinst.com/api/uploadImage";
+//            HttpPath.CHARGEURL = "http://www.futureinst.com/api";
+//        } else {
+//            HttpPath.URL = "http://182.92.183.219/api";
+//            HttpPath.SHARE_URL = "http://182.92.183.219/mweb/event/";
+//            HttpPath.SHARE_URL_ARTICLE = "http://182.92.183.219/mweb/article/";
+//            HttpPath.Cookie = "; Domain=182.92.183.219; Path=/";
+//            HttpPath.SHOP = "http://182.92.183.219/mweb/gift/list";
+//            HttpPath.PICPATH = "http://182.92.183.219/api/uploadImage";
+//            HttpPath.CHARGEURL = "http://182.92.183.219/api";
+//        }
     }
 
     /**
