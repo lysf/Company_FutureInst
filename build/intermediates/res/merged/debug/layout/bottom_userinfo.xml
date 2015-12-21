@@ -22,21 +22,31 @@
             android:layout_height="wrap_content"
             android:src="@drawable/today_task"
             />
-
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:gravity="center_vertical"
             android:layout_marginLeft="8dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginRight="@dimen/activity_login_margin_10"
             android:gravity="center_vertical"
             android:text="今日任务"
             android:textColor="@color/text_color_3"
             android:textSize="@dimen/text_size_normal" />
-
+            <ImageView
+                android:id="@+id/iv_daily"
+                android:visibility="invisible"
+                android:src="@drawable/new_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right"
+            android:gravity="right|center_vertical"
             >
 
             <ImageView
@@ -45,6 +55,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/message_point" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/more" />
         </LinearLayout>
     </TableRow>
             <TableRow
@@ -277,6 +291,7 @@
         </LinearLayout>
 
     </LinearLayout>
-	
+
+
 </LinearLayout>
 <!-- From: file:/F:/CompanyWork/FutureInst/res/layout/bottom_userinfo.xml -->

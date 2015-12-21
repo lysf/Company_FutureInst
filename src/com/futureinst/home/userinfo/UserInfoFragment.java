@@ -9,6 +9,7 @@ import org.json.JSONException;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.charge.ChargeActivity;
+import com.futureinst.charge.ChargeGoodsListActivity;
 import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.HomeActivity;
@@ -59,8 +60,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -86,6 +89,10 @@ public class UserInfoFragment extends BaseFragment {
     private ImageView iv_ranking;
     private ImageView iv_set;
     private ImageView iv_todayTask;
+    private ImageView iv_daily;
+
+    private Switch btn_switch;
+
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -110,7 +117,8 @@ public class UserInfoFragment extends BaseFragment {
 
     @Override
     public void onResume() {
-        if (((HomeActivity) getActivity()).getCurrentTab() == 3 && getUserVisibleHint()) {
+        if (((HomeActivity) getActivity()).getCurrentTab() == 3
+                && isStart) {
             query_user_record();
             query_user_daily_task();
             getMessageCount();
@@ -131,6 +139,8 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     private void initView() {
+
+
         messageCacheUtil = PushMessageCacheUtil.getInstance(getContext());
         progressDialog = MyProgressDialog.getInstance(getContext());
         preferenceUtil = SharePreferenceUtil.getInstance(getContext());
@@ -150,6 +160,13 @@ public class UserInfoFragment extends BaseFragment {
         iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
         iv_set = (ImageView) findViewById(R.id.iv_set);
         iv_todayTask = (ImageView) findViewById(R.id.iv_today_task_message);
+        iv_daily = (ImageView) findViewById(R.id.iv_daily);
+        if(preferenceUtil.getDailyTaskClick()){
+            iv_daily.setVisibility(View.INVISIBLE);
+        }else{
+            iv_daily.setVisibility(View.VISIBLE);
+        }
+
 
         tableRows = new TableRow[5];
         ll_modify = (LinearLayout) findViewById(R.id.ll_modify);
@@ -184,6 +201,20 @@ public class UserInfoFragment extends BaseFragment {
         filter.addAction("modifyDescription");
         filter.addAction("newPushMessage");
         getContext().registerReceiver(receiver, filter);
+
+        btn_switch = (Switch) findViewById(R.id.btn_switch);
+        btn_switch.setChecked(preferenceUtil.getServerOnline());
+        btn_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    preferenceUtil.setServer(true);
+                }else{
+                    preferenceUtil.setServer(false);
+                }
+            }
+        });
+
     }
 
     // 初始化视图
@@ -242,7 +273,7 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     private void setClickListener() {
-        tv_userName.setOnClickListener(clickListener);
+        findViewById(R.id.ll_charge).setOnClickListener(clickListener);
         iv_message.setOnClickListener(clickListener);
         iv_set.setOnClickListener(clickListener);
         tv_attend.setOnClickListener(clickListener);
@@ -268,14 +299,8 @@ public class UserInfoFragment extends BaseFragment {
                     intentName.putExtra("user", userInformationDAO.getUser());
                     startActivity(intentName);
                     break;
-                case R.id.tv_userName:// 用户名
-//				showEditName();
-//				Intent intentName = new Intent(getActivity(), PersonalNameSetActivity.class);
-//				intentName.putExtra("nickName", userInformationDAO.getUser().getName());
-//				startActivity(intentName);
-                    startActivity(new Intent(getContext(), ChargeActivity.class));
-                    break;
-                case R.id.tv_description:// 先知描述
+                case R.id.ll_charge:// 充值
+                    startActivity(new Intent(getContext(), ChargeGoodsListActivity.class));
                     break;
                 case R.id.iv_message:// 消息
                     startActivity(new Intent(getActivity(), PushMessageActivity.class));
@@ -287,8 +312,9 @@ public class UserInfoFragment extends BaseFragment {
                     startActivity(setIntent);
                     break;
                 case R.id.tableRow_todayTask://今日任务
+                    preferenceUtil.setDailyTaskClick();
+                    iv_daily.setVisibility(View.INVISIBLE);
                     startActivity(new Intent(getActivity(), TodayTaskActivity.class));
-
                     break;
                 case R.id.tableRow0://预测中事件
                     Intent intent0 = new Intent(getActivity(), HoldingActivity.class);

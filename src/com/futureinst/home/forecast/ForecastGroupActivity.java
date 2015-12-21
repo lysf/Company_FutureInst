@@ -51,6 +51,7 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 		if(!TextUtils.isEmpty(title)){
 			setTitle(title);
 		}
+//        getRightImageView().setImageDrawable(getResources().getDrawable(R.drawable.sort));
 		pullListView = (PullListView) findViewById(R.id.id_stickynavlayout_innerscrollview);
 		adapter = new ForecastItemAdapter(this);
 		pullListView.setAdapter(adapter);
@@ -79,7 +80,14 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 			}
 		});
 	}
-	@Override
+
+    @Override
+    protected void onRightImageViewClick(View view) {
+        super.onRightImageViewClick(view);
+
+    }
+
+    @Override
 	public void onRefresh(boolean isTop) {
 		if(isTop){
 			page = 1;
@@ -125,7 +133,8 @@ public class ForecastGroupActivity extends BaseActivity implements OnRefreshList
 	//获取事件数据
 		 private void getData(final int page,String last_id,String group_id){
 			 HttpResponseUtils.getInstace(this).postJson(
-					 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(page,last_id,group_id)), 
+					 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(),
+                             HttpPostParams.getInstace().query_event(page,last_id,group_id)),
 					 QueryEventInfoDAO.class, 
 					 new PostCommentResponseListener() {
 							@Override

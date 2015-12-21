@@ -1018,5 +1018,35 @@ public class HttpPostParams {
         return jsonObject.toString();
     }
 
+    /**
+     * 赠送可消费未币
+     * @param user_id
+     * @param uuid
+     * @param to_user_id
+     * @param exchange 未币
+     * @return
+     */
+    public String p2p_give_exchange(String user_id, String uuid,String to_user_id,String exchange){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("to_user_id", to_user_id);
+        map.put("exchange", exchange);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 查找用户
+     * @param key
+     * @return
+     */
+    public String find_user(String key){
+        Map<String, String> map = new HashMap<>();
+        map.put("key", key);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
 
 }

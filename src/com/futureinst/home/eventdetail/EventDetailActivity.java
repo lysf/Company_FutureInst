@@ -39,6 +39,11 @@ import com.futureinst.comment.CommentDeleteDialogUtil;
 import com.futureinst.comment.CommentDetailAdapter;
 import com.futureinst.global.Content;
 import com.futureinst.home.SystemTimeUtile;
+import com.futureinst.home.eventdetail.eventdetailabout.EditCommentDialog;
+import com.futureinst.home.eventdetail.eventdetailabout.EventPointAdapter;
+import com.futureinst.home.eventdetail.eventdetailabout.EventRuleDialog;
+import com.futureinst.home.eventdetail.eventdetailabout.OrderTip;
+import com.futureinst.home.eventdetail.eventdetailabout.ShareCommentDialog;
 import com.futureinst.home.find.ArticleDetailActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
@@ -68,6 +73,7 @@ import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.share.OneKeyShareUtil;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageLoadOptions;
+import com.futureinst.utils.LoginUtil;
 import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
@@ -127,14 +133,12 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private CommentDeleteDialogUtil commentDeleteDialogUtil;
 
     //精选观点
-    private View view_point;
-    private RoundedImageView headImage;
-    private LinearLayout ll_article_content;
-    private TextView tv_name, tv_article_time, tv_prise_num, tv_article_title, tv_article_content;
-    private TextView tv_article_readNum, tv_article_comment_num;
+    private MyListView lv_point;
+    private EventPointAdapter eventPointAdapter;
+
+
     private ImageView iv_editPoint;
     private LinearLayout ll_empty_point;
-//    private ImageView iv_empty_point;
 
     //浮动
     private Button btn_comment_float, btn_comment_total_float;
@@ -155,11 +159,12 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private View view_single_event;
     private TextView tv_buy_2;
     private TextView tv_sell_2;
+    private ImageView iv_share_order;
     private LinearLayout ll_event_buy, ll_event_sell;
     private TextView tv_eventdetail_gain_good, tv_eventdetail_gain_bad;
 
     private LinearLayout ll_detail_buy, ll_detail_sell;
-    private int attitude = 0;//下单后提示评论(1:看好3：不看好)
+    private int attitude = 0;//下单后提示评论(1:看好 3：不看好)
 
     private boolean timeIsStart, isDestroy;
 
@@ -300,6 +305,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         ll_event_buy = (LinearLayout) findViewById(R.id.ll_event_buy);
         ll_event_sell = (LinearLayout) findViewById(R.id.ll_event_sell);
         btn_invivate = (ImageView) findViewById(R.id.btn_invivate_float);
+        iv_share_order = (ImageView) findViewById(R.id.iv_share_order);
         btn_invivate.setOnClickListener(clickListener);
         tv_eventdetail_gain_good = (TextView) findViewById(R.id.tv_eventdetail_gain_good);
         tv_eventdetail_gain_bad = (TextView) findViewById(R.id.tv_eventdetail_gain_bad);
@@ -353,7 +359,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         commentAdapter.setOperateListener(new CommentDetailAdapter.PraiseOperateListener() {
             @Override
             public void onClickListener(String com_id, String operate) {
-                if (judgeIsLogin()) {//点赞
+                if (LoginUtil.judgeIsLogin(EventDetailActivity.this)) {//点赞
                     operate_comment(com_id, operate);
                 }
             }
@@ -362,15 +368,13 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         commentAdapter.setApplyCommentListener(new CommentDetailAdapter.ApplyCommentListener() {
             @Override
             public void onClickListener(CommentDAO coment) {
-                if (judgeIsLogin()) {
+                if (LoginUtil.judgeIsLogin(EventDetailActivity.this)) {
                     comment = coment;
                     view_float_comment_edit.setVisibility(View.VISIBLE);
                     et_comment_apply.setFocusable(true);
                     et_comment_apply.setFocusableInTouchMode(true);
                     et_comment_apply.requestFocus();
                     showSoftInputView(et_comment_apply);
-//                    InputMethodManager inputManager =(InputMethodManager) et_comment_apply.getContext().getSystemService(INPUT_METHOD_SERVICE);
-//                    inputManager.showSoftInput(et_comment_apply, 0);
                     et_comment_apply.setHint("回复 " + coment.getUser().getName());
                 }
             }
@@ -389,7 +393,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 });
             }
         });
-
 
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -426,56 +429,19 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     //精选观点
     private void initPoint() {
-        headImage = (RoundedImageView) findViewById(R.id.headImage);
-        tv_name = (TextView) findViewById(R.id.tv_name);
-        tv_article_time = (TextView) findViewById(R.id.tv_article_time);
-        tv_prise_num = (TextView) findViewById(R.id.tv_prise_num);
-        tv_article_title = (TextView) findViewById(R.id.tv_article_title);
-        tv_article_content = (TextView) findViewById(R.id.tv_article_content);
-        tv_article_readNum = (TextView) findViewById(R.id.tv_article_readNum);
-        tv_article_comment_num = (TextView) findViewById(R.id.tv_article_comment_num);
-        ll_article_content = (LinearLayout) findViewById(R.id.ll_article_content);
 
-
-        view_point = findViewById(R.id.view_point);
+        lv_point = (MyListView) findViewById(R.id.lv_article);
         iv_editPoint = (ImageView) findViewById(R.id.iv_editPoint);
         iv_editPoint.setOnClickListener(clickListener);
         ll_empty_point = (LinearLayout) findViewById(R.id.ll_empty_point);
         ll_empty_point.setOnClickListener(clickListener);
+        eventPointAdapter = new EventPointAdapter(this);
+        lv_point.setAdapter(eventPointAdapter);
+        lv_point.setEmptyView(ll_empty_point);
+
     }
 
-    private void initPointDate(final ArticleDAO article) {
 
-        if (headImage.getTag() == null || !headImage.getTag().equals(article.getUser().getHeadImage())) {
-            ImageLoader.getInstance().displayImage(article.getUser().getHeadImage(), headImage, ImageLoadOptions.getOptions(R.drawable.logo));
-            headImage.setTag(article.getUser().getHeadImage());
-        }
-        tv_name.setText(article.getUser().getName());
-        tv_article_time.setText(TimeUtil.getDescriptionTimeFromTimestamp(article.getMtime()));
-        tv_article_title.setText(article.getTitle());
-        tv_article_content.setText(article.getAbstr());
-        tv_article_readNum.setText(article.getReadNum() + "人已阅读");
-        ll_article_content.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {//进入观点详情页
-                Intent intent = new Intent(EventDetailActivity.this, ArticleDetailActivity.class);
-                intent.putExtra("article_id", article.getId() + "");
-                intent.putExtra("from", true);
-                startActivity(intent);
-            }
-        });
-        headImage.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if ((preferenceUtil.getID()+"").equals(article.getUser().getId()+"")) {//是自己
-                    return;
-                }
-                Intent intent = new Intent(EventDetailActivity.this, PersonalShowActivity.class);
-                intent.putExtra("id", article.getUser().getId() + "");
-                startActivity(intent);
-            }
-        });
-    }
 
     //init float
     private void initFloatView() {
@@ -535,37 +501,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
     //单个事件的账单
     private void initSingleEvent(SingleEventInfoDAO singleEventInfo) {
-        if (attitude != 0) {//有下单
-//            if (preferenceUtil.getEasyModel()) {//简易模式
-//                if (attitude == 1) {//看好
-//                    btn_easy_look_good.setSelected(true);
-//                    btn_easy_look_bad.setSelected(false);
-//                    btn_advance_look_good.setSelected(false);
-//                    btn_advance_look_bad.setSelected(false);
-//                } else if (attitude == 3) {//不看好
-//                    btn_easy_look_good.setSelected(false);
-//                    btn_easy_look_bad.setSelected(true);
-//                    btn_advance_look_good.setSelected(false);
-//                    btn_advance_look_bad.setSelected(false);
-//                }
-//            } else {//专家模式
-//                if (attitude == 1) {//看好
-//                    btn_easy_look_good.setSelected(false);
-//                    btn_easy_look_bad.setSelected(false);
-//                    btn_advance_look_good.setSelected(true);
-//                    btn_advance_look_bad.setSelected(false);
-//                } else if (attitude == 3) {//不看好
-//                    btn_easy_look_good.setSelected(false);
-//                    btn_easy_look_bad.setSelected(false);
-//                    btn_advance_look_good.setSelected(false);
-//                    btn_advance_look_bad.setSelected(true);
-//                }
-//            }
-
-            orderTip(singleEventInfo.getUser().getComment(),share_award);
-
+        if (attitude != 0) {//有下单，看是否提示
+            OrderTip.orderTip(EventDetailActivity.this,event,singleEventInfo.getUser().getComment(), share_award,attitude);
         }
-        SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
+       final SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
         singleEventClearDAO = item;
         if (item.getBuyNum() == 0 && item.getSellNum() == 0) {
             view_single_event.setVisibility(View.GONE);
@@ -602,46 +541,21 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         } else {
             ll_event_sell.setVisibility(View.GONE);
         }
+        iv_share_order.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(item.getSellNum() > 0 && item.getBuyNum() > 0){//提示选择
+                    ShareCommentDialog.showShareCheckDialog(EventDetailActivity.this, event, share_award);
+                }else if(item.getSellNum() > 0){//不看好
+                    ShareCommentDialog.showShareCommentDialog(EventDetailActivity.this,3,event,share_award);
+                }else if(item.getBuyNum() > 0){//看好
+                    ShareCommentDialog.showShareCommentDialog(EventDetailActivity.this,1,event,share_award);
+                }
+            }
+        });
     }
-    //下单提示（分享、评论）
-    private void orderTip(int commentNum,int share_award){
-        Log.i(TAG,"========commentNum="+commentNum+"===share_award="+share_award);
-        List<Double> orignalRates = new ArrayList<>();
-        if (commentNum == 0
-                && share_award == 0) {//该事件还未评论过，也没有分享过，提示评论或分享
-            orignalRates.add(0.3);
-            orignalRates.add(0.2);
-            orignalRates.add(0.5);
-            Log.i(TAG,"===========111");
-            switch (LotteryUtil.lottery(orignalRates)) {
-                case 0://分享
-                    showShareCommentDialog(attitude);
-                    break;
-                case 1://评论
-                    showEditCommentDialog(attitude);
-                    break;
-                case 2://什么都不做
-                    break;
-            }
-        }else if(commentNum == 0
-                && share_award > 0){//未评论，有过分享
-            Log.i(TAG,"===========2222");
-            orignalRates.add(0.5);
-            orignalRates.add(0.5);
-            if(LotteryUtil.lottery(orignalRates) == 0){//评论
-                showEditCommentDialog(attitude);
-            }
-        }else if(commentNum > 0
-                && share_award == 0){//有过评论，没有分享
-            Log.i(TAG,"===========333");
-            orignalRates.add(0.5);
-            orignalRates.add(0.5);
-            if(LotteryUtil.lottery(orignalRates) == 0){//分享
-                showShareCommentDialog(attitude);
-            }
-        }
-        attitude = 0;
-    }
+
+
 
     //初始化懒人包和相关新闻
     private void initLazyBagAndReference() {
@@ -668,7 +582,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         view_comment_total.setText(event.getAllComNum() + "");
         if (came || event.getStatusStr().equals("已清算")) {
             tv_description.setText(event.getAccord());
-//            tv_description.setTextColor(getResources().getColor(R.color.forecast_bottom_line_select));
         }
         if (iv_image.getTag() == null || !iv_image.getTag().equals(event.getImgsrc())) {
             iv_image.setTag(event.getImgsrc());
@@ -688,15 +601,15 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             switch (v.getId()) {
                 case R.id.iv_refresh:
                     progressDialog.progressDialog();
-//                    attitude = 0;
+                    attitude = 0;
                     getPrice();
-                    if(preferenceUtil.getID()>0){
+                    if (preferenceUtil.getID() > 0) {
                         query_single_event_clear();
                     }
                     break;
                 case R.id.ll_empty_point:
                 case R.id.iv_editPoint://添加观点
-                    if (judgeIsLogin()) {
+                    if (LoginUtil.judgeIsLogin(EventDetailActivity.this)) {
                         Intent intent = new Intent(EventDetailActivity.this, AddPointActivity.class);
                         intent.putExtra("event_id", event_id);
                         startActivity(intent);
@@ -708,7 +621,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     startActivity(commentDetailIntent);
                     break;
                 case R.id.btn_comment_float://添加评论
-                    if (judgeIsLogin()) {
+                    if (LoginUtil.judgeIsLogin(EventDetailActivity.this)) {
                         Intent intent = new Intent(EventDetailActivity.this, AddCommentActivity.class);
                         intent.putExtra("eventId", event_id);
                         startActivity(intent);
@@ -735,23 +648,23 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     break;
                 case R.id.btn_invivate_float://清算依据
                     if (event == null) return;
-                    showDialog(event.getRule());
+                    EventRuleDialog.showDialog(EventDetailActivity.this, event.getRule());
                     break;
                 case R.id.btn_easy_look_good://简易模式看好
-                    if (!judgeIsLogin() || event == null ||
+                    if (!LoginUtil.judgeIsLogin(EventDetailActivity.this) || event == null ||
                             priceDAOInfo.getSells() == null || priceDAOInfo.getSells().size() == 0)
                         return;
 
                     showBuyConfig(1, getPrice(1, priceDAOInfo));
                     break;
                 case R.id.btn_easy_look_bad://简易模式不看好
-                    if (!judgeIsLogin() || event == null ||
+                    if (!LoginUtil.judgeIsLogin(EventDetailActivity.this) || event == null ||
                             priceDAOInfo.getBuys() == null || priceDAOInfo.getBuys().size() == 0)
                         return;
                     showBuyConfig(3, getPrice(3, priceDAOInfo));
                     break;
                 case R.id.btn_advance_look_good://专家模式看好
-                    if (!judgeIsLogin() || event == null) return;
+                    if (!LoginUtil.judgeIsLogin(EventDetailActivity.this) || event == null) return;
                     Intent intent1 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
                     intent1.putExtra("buyOrSell", true);
                     intent1.putExtra("assure", singleEventClearDAO);
@@ -760,7 +673,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     startActivity(intent1);
                     break;
                 case R.id.btn_advance_look_bad://专家模式不看好
-                    if (!judgeIsLogin() || event == null) return;
+                    if (!LoginUtil.judgeIsLogin(EventDetailActivity.this) || event == null) return;
                     Intent intent2 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
                     intent2.putExtra("buyOrSell", false);
                     intent2.putExtra("assure", singleEventClearDAO);
@@ -769,7 +682,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     startActivity(intent2);
                     break;
                 case R.id.ll_detail_buy://三档看好--不看好
-                    if (!judgeIsLogin() || event == null ||
+                    if (!LoginUtil.judgeIsLogin(EventDetailActivity.this) || event == null ||
                             priceDAOInfo.getBuys() == null || priceDAOInfo.getBuys().size() == 0)
                         return;
                     Intent intent3 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
@@ -783,7 +696,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     startActivity(intent3);
                     break;
                 case R.id.ll_detail_sell://三档不看好--看好
-                    if (!judgeIsLogin() || event == null ||
+                    if (!LoginUtil.judgeIsLogin(EventDetailActivity.this) || event == null ||
                             priceDAOInfo.getSells() == null || priceDAOInfo.getSells().size() == 0)
                         return;
                     Intent intent4 = new Intent(EventDetailActivity.this, EventBuyActivity.class);
@@ -861,34 +774,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 });
     }
 
-
-    //事件规则
-    private void showDialog(final String rule) {
-        View view = LayoutInflater.from(this).inflate(R.layout.view_event_rule, null, false);
-        Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
-        TextView tv_rule = (TextView) view.findViewById(R.id.tv_rule);
-        tv_rule.setText(rule);
-        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.CENTER);
-        btn_submit.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-        dialog.show();
-    }
-
-    //判断是否已登录
-    private boolean judgeIsLogin() {
-        if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
-            Intent intent = new Intent(EventDetailActivity.this, LoginActivity.class);
-            intent.putExtra("login", true);
-            startActivity(intent);
-            return false;
-        }
-        return true;
-    }
-
     //倒计时
     private void showTimeStatus() {
         if (event.getStatusStr().equals("交易中")) {
@@ -896,7 +781,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             Long time = event.getTradeTime() - SystemTimeUtile.getInstance(0L).getSystemTime();
             tv_time.setText(LongTimeUtil.longTimeUtil(time));
 
-            if (!timeIsStart && !isDestroy ) {
+            if (!timeIsStart && !isDestroy) {
                 timeIsStart = true;
                 timeRunThread.start();
             }
@@ -1031,56 +916,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 });
     }
 
-    //分享界面
-    private void showShareDialog(final QueryEventDAO event, int type) {
-
-        String title = event.getLead() + " 你敢赌吗？";
-        if (type == 1) {//看好
-            title = event.getLead() + " 我赌会发生！";
-        } else if (type == 3) {//不看好
-            title = event.getLead() + " 我赌不发生！";
-        }
-        final String shareTitle = title;
-        final String content = "来自未来研究所";
-        View view = LayoutInflater.from(this).inflate(R.layout.view_share_gridview, null);
-        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.BOTTOM);
-        TextView tv_sina = (TextView) view.findViewById(R.id.tv_sina);
-        TextView tv_wechat = (TextView) view.findViewById(R.id.tv_wechat);
-        TextView tv_wechatmonets = (TextView) view.findViewById(R.id.tv_wechatmoments);
-        TextView tv_cancel = (TextView) view.findViewById(R.id.tv_cancel);
-        tv_sina.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OneKeyShareUtil.showShare(EventDetailActivity.this, event_id, share_award, shareTitle,
-                        HttpPath.SHARE_URL + event_id + "?user_id=" + preferenceUtil.getID(),
-                        shareTitle + HttpPath.SHARE_URL + event_id + "?user_id=" + preferenceUtil.getID(), null, event.getImgsrc(), true, SinaWeibo.NAME);
-                dialog.dismiss();
-            }
-        });
-        tv_wechat.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OneKeyShareUtil.showShare(EventDetailActivity.this, event_id, share_award, shareTitle, HttpPath.SHARE_URL + event_id + "?user_id=" + preferenceUtil.getID(),
-                        content, null, event.getImgsrc(), true, Wechat.NAME);
-                dialog.dismiss();
-            }
-        });
-        tv_wechatmonets.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                OneKeyShareUtil.showShare(EventDetailActivity.this, event_id, share_award, shareTitle, HttpPath.SHARE_URL + event_id + "?user_id=" + preferenceUtil.getID(),
-                        content, null, event.getImgsrc(), true, WechatMoments.NAME);
-                dialog.dismiss();
-            }
-        });
-        tv_cancel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
-    }
 
     //其他操作
     private void showOperateDialog(final QueryEventDAO event) {
@@ -1102,14 +937,14 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             @Override
             public void onClick(View v) {//分享
                 if (event == null) return;
-                showShareDialog(event, 0);
+                ShareCommentDialog.showShareDialog(EventDetailActivity.this, event, 0, share_award);
                 dialog.dismiss();
             }
         });
         btn_edit_point.setOnClickListener(new OnClickListener() {//写观点赚未币
             @Override
             public void onClick(View v) {
-                if (judgeIsLogin()) {
+                if (LoginUtil.judgeIsLogin(EventDetailActivity.this)) {
                     Intent intent = new Intent(EventDetailActivity.this, AddPointActivity.class);
                     intent.putExtra("event_id", event_id);
                     startActivity(intent);
@@ -1120,7 +955,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         btn_attention.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {//关注
-                if (judgeIsLogin()) {
+                if (LoginUtil.judgeIsLogin(EventDetailActivity.this)) {
                     String attention = null;
                     if (isAttention) {
                         attention = "unfollow";
@@ -1185,23 +1020,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         } else {
             view_comment_float.setVisibility(View.GONE);
         }
-//        if (location_lazyBag[1] < location) {
-//            setTitle("事件始末");
-//            return;
-//        } else if (location_refrence[1] < location) {
-//            setTitle("相关新闻");
-//            return;
-//        } else if (location_point[1] < location) {
-//            setTitle("精选观点");
-//            return;
-//        } else if (location_comment[1] < location) {
-//            setTitle("评论");
-//            return;
-//        } else {
-//            setTitle("事件详情");
-//            return;
-//        }
-
 
     }
 
@@ -1218,14 +1036,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                             return;
                         CommentAndArticleInfoDAO eventRelatedInfo = (CommentAndArticleInfoDAO) response;
                         commentAdapter.setList(eventRelatedInfo.getComment().getComments(), eventRelatedInfo.getComment().getLastChildCommentMap(), eventRelatedInfo.getComment().getLoves());
-                        if (eventRelatedInfo.getArticle().getSize() == 0) {
-                            ll_empty_point.setVisibility(View.VISIBLE);
-                            view_point.setVisibility(View.GONE);
-                        } else {
-                            ll_empty_point.setVisibility(View.GONE);
-                            view_point.setVisibility(View.VISIBLE);
-                            initPointDate(eventRelatedInfo.getArticle().getArticles().get(0));
-                        }
+                        eventPointAdapter.setList(eventRelatedInfo.getArticle().getArticles());
                     }
                 });
     }
@@ -1334,69 +1145,5 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         dialog.show();
     }
 
-    //评论提示
-    private void showEditCommentDialog(final int type) {
-        View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
-        Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
-        TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
-        String configMsg = "";
-        switch (type) {//type 1-看好,3-不看好
-            case 1:
-                configMsg = "你已经看好咯，马上去支持两句！";
-                break;
-            case 3:
-                configMsg = "你不看好哦，马上去吐个槽！";
-                break;
-        }
-        tv_configMsg.setText(configMsg);
-        Button btn_config = (Button) view.findViewById(R.id.btn_submit);
-        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.CENTER);
-        btn_cancel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-        btn_config.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EventDetailActivity.this, AddCommentActivity.class);
-                intent.putExtra("eventId", event_id);
-                intent.putExtra("attitude", type);
-                startActivity(intent);
-                dialog.cancel();
-            }
-        });
-        dialog.show();
-    }
 
-    //下单分享提示
-    private void showShareCommentDialog(final int type) {
-        View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
-        Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
-        TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
-        String configMsg = "找朋友对赌，首次分享领50！";
-
-        tv_configMsg.setText(configMsg);
-        Button btn_config = (Button) view.findViewById(R.id.btn_submit);
-        btn_cancel.setText("暂不分享");
-        btn_config.setText("立即分享");
-        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.CENTER);
-        btn_cancel.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.cancel();
-            }
-        });
-        btn_config.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {//分享下单
-                if (event == null)
-                    return;
-                showShareDialog(event, type);
-                dialog.cancel();
-            }
-        });
-        dialog.show();
-    }
 }

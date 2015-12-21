@@ -53,8 +53,8 @@
         <com.futureinst.roundimageutils.RoundedImageView
             android:id="@+id/headImage_select"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/widget_height_40"
+            android:layout_height="@dimen/widget_height_40"
             android:layout_marginRight="3dp"
             android:scaleType="centerCrop"
             android:src="@drawable/logo"
@@ -77,7 +77,6 @@
             android:layout_below="@+id/tv_name"
             android:layout_toRightOf="@+id/headImage_select"
             android:layout_toEndOf="@+id/headImage_select"
-
             android:textSize="@dimen/text_size_small" />
 
         <TextView

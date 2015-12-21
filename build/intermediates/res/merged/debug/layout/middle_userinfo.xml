@@ -83,11 +83,12 @@
     </LinearLayout>
     <include layout="@layout/view_line"/>
     <LinearLayout
-        android:paddingBottom="@dimen/margin_5"
-        android:paddingTop="@dimen/activity_login_margin_10"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:paddingBottom="@dimen/margin_5"
+            android:paddingTop="@dimen/activity_login_margin_10"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:gravity="center"
@@ -115,7 +116,41 @@
             android:background="@color/text_color_e"
             android:layout_width="@dimen/line_height"
             android:layout_height="match_parent"/>
+
         <LinearLayout
+            android:paddingBottom="@dimen/margin_5"
+            android:paddingTop="@dimen/activity_login_margin_10"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_depositCash"
+                android:text="0"
+                android:textSize="@dimen/text_size_large"
+                android:singleLine="true"
+                android:textColor="@color/text_color_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="@dimen/text_size_small"
+                android:textColor="@color/text_color_4"
+                android:drawableLeft="@drawable/user_3"
+                android:text=" 保证金"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View
+            android:layout_marginLeft="@dimen/activity_login_margin_10"
+            android:layout_marginRight="@dimen/activity_login_margin_10"
+            android:background="@color/text_color_e"
+            android:layout_width="@dimen/line_height"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:paddingBottom="@dimen/margin_5"
+            android:paddingTop="@dimen/activity_login_margin_10"
             android:layout_width="0dip"
             android:layout_weight="1"
             android:gravity="center"
@@ -137,33 +172,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/view_line"/>
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <View
-            android:layout_marginLeft="@dimen/activity_login_margin_10"
-            android:layout_marginRight="@dimen/activity_login_margin_10"
             android:background="@color/text_color_e"
             android:layout_width="@dimen/line_height"
             android:layout_height="match_parent"/>
         <LinearLayout
+
+            android:id="@+id/ll_charge"
+            android:paddingBottom="@dimen/margin_5"
+            android:paddingTop="@dimen/activity_login_margin_10"
             android:layout_width="0dip"
+            android:background="@drawable/item_select"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <TextView
-                android:id="@+id/tv_depositCash"
-                android:text="0"
+                android:text="充值"
                 android:textSize="@dimen/text_size_large"
-                android:singleLine="true"
                 android:textColor="@color/text_color_4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textSize="@dimen/text_size_small"
-                android:textColor="@color/text_color_4"
-                android:drawableLeft="@drawable/user_3"
-                android:text=" 保证金"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout><!-- From: file:/F:/CompanyWork/FutureInst/res/layout/middle_userinfo.xml -->

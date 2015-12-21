@@ -37,6 +37,7 @@ import java.util.List;
 import com.futureinst.R;
 import com.futureinst.activitytransition.ActivityTransition;
 import com.futureinst.activitytransition.ExitActivityTransition;
+import com.futureinst.net.HttpPath;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.sharepreference.SharePreferenceUtil;
@@ -355,6 +356,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
     	return mRightImage;
     }
     public ImageView getLeftImageView(){
+        mLeftImage.setVisibility(View.VISIBLE);
     	return mLeftImage;
     }
     /**

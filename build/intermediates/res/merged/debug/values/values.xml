@@ -23,10 +23,17 @@
     </string-array>
     <string-array name="home_seond_title_order">
         <item>new</item>
-        <item>dead</item>
-        <item>trade</item>
-        <item>price</item>
+        <item>newpass</item>
         <item>involve</item>
+        <item>dead</item>
+        <item>price</item>
+    </string-array>
+    <string-array name="home_seond_title_order_string">
+        <item>默认</item>
+        <item>最新</item>
+        <item>最热</item>
+        <item>最快到期</item>
+        <item>最可能</item>
     </string-array>
     <string-array name="home_title">
         <item>推荐</item>
@@ -342,6 +349,7 @@
     <eat-comment/>
     <color name="model_check">#E5E5E5</color>
     <color name="model_uncheck">#F2F2F2</color>
+    <color name="pop_selected">#52C3D1</color>
     <!-- From: file:/F:/CompanyWork/FutureInst/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/res/values/values.xml -->
     <eat-comment/>
     <color name="primary_dark_material_dark">@android:color/black</color>
@@ -713,7 +721,7 @@
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_large">19sp</dimen>
     <dimen name="text_size_large_17">17sp</dimen>
     <dimen name="text_size_large_20">20sp</dimen>
     <dimen name="text_size_large_22">22sp</dimen>
@@ -721,6 +729,7 @@
     <dimen name="text_size_large_28">28sp</dimen>
     <dimen name="text_size_normal">16sp</dimen>
     <dimen name="text_size_small">13sp</dimen>
+    <dimen name="text_size_small_12">12sp</dimen>
     <dimen name="widget_height_30">30dip</dimen>
     <dimen name="widget_height_35">35dip</dimen>
     <dimen name="widget_height_40">40dip</dimen>
@@ -925,6 +934,8 @@
     <string name="crop__pick_error">No image sources available</string>
     <string name="crop__saving">Saving picture…</string>
     <string name="crop__wait">Please wait…</string>
+    <string name="daily_tip_message">亲爱的先知，未来研究所任务系统上线啦！每天必领的福利，没有之一~快到「个人中心」的「今日任务」看看吧！</string>
+    <string name="daily_tip_title">天上掉馅饼啦！</string>
     <string name="data_over">没有更多数据</string>
     <string name="day">日</string>
     <string name="depositCash">保证金</string>
@@ -1469,7 +1480,10 @@
 事件清算若出现了任何争议，本先知会送往仲裁委员会裁决，一定会给大家个公正的结果哒！</string>
     <string name="title_activity_aritlce">AritlceActivity</string>
     <string name="title_activity_article_detail">ArticleDetailActivity</string>
+    <string name="title_activity_charge_list">ChargeListActivity</string>
+    <string name="title_activity_charge_record">ChargeRecordActivity</string>
     <string name="title_activity_home3">Home3Activity</string>
+    <string name="title_activity_primary">PrimaryActivity</string>
     <string name="title_activity_today_task">TodayTaskActivity</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
     <eat-comment/>
@@ -1527,11 +1541,16 @@
     <string name="wechat_client_inavailable">目前您的微信版本过低或未安装微信，需要安装微信才能使用</string>
     <string name="wechatfavorite">微信收藏</string>
     <string name="wechatmoments">微信朋友圈</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="wechatpay">微信</string>
+    <!-- From: file:/F:/CompanyWork/FutureInst/res/values/ssdk_strings.xml -->
+    <eat-comment/>
     <string name="weibo_oauth_regiseter">应用授权</string>
     <string name="weibo_upload_content">分享图片</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
     <eat-comment/>
-    <string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送5000未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
+    <string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送大量未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
     <string name="wrong_phone">请输入合法手机号</string>
     <string name="year">年</string>
     <string name="yfbpay">易付宝支付</string>
