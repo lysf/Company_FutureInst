@@ -5249,7 +5249,8 @@ containing a value of this type.
         public static final int index_3=0x7f06000f;
         public static final int index_4=0x7f060010;
         public static final int index_5=0x7f060011;
-        public static final int up=0x7f060012;
+        public static final int primary=0x7f060012;
+        public static final int up=0x7f060013;
     }
     public static final class string {
         public static final int FAQ=0x7f070014;

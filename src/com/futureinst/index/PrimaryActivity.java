@@ -21,7 +21,7 @@ public class PrimaryActivity extends BaseActivity {
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_primary);
         image  = (ImageView) findViewById(R.id.image);
-        image.setImageBitmap(Utils.readBitMap(this,R.raw.index_5));
+        image.setImageBitmap(Utils.readBitMap(this,R.raw.primary));
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {

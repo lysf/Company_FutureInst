@@ -2755,7 +2755,8 @@ int raw index_2 0x7f06000e
 int raw index_3 0x7f06000f
 int raw index_4 0x7f060010
 int raw index_5 0x7f060011
-int raw up 0x7f060012
+int raw primary 0x7f060012
+int raw up 0x7f060013
 int string FAQ 0x7f070014
 int string abc_action_bar_home_description 0x7f070000
 int string abc_action_bar_home_description_format 0x7f070001
