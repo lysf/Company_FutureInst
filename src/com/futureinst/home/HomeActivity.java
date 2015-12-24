@@ -40,10 +40,12 @@ import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.forecast.ForecastFragment;
 import com.futureinst.home.find.FondFragment;
+import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.home.userinfo.UserInfoFragment;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.dailytask.DailyTaskInfoDAO;
+import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.model.version.VersionDAO;
 import com.futureinst.net.PostCommentResponseListener;
@@ -55,6 +57,7 @@ import com.futureinst.service.UpdateDialogShow;
 import com.futureinst.service.UpdateService;
 import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.BadgeUtil;
+import com.futureinst.utils.LoginUtil;
 import com.futureinst.utils.TaskTipUtil;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
@@ -116,6 +119,21 @@ public class HomeActivity extends BaseActivity {
 			add_download();
 		}
 		get_android_version();
+
+        if(getIntent().getBooleanExtra("push",false)
+                && (TextUtils.isEmpty(preferenceUtil.getUUid()))){
+            activityAdapter.setFragmentShow(3);
+            final Intent intent = new Intent(this, PushMessageActivity.class);
+            intent.putExtra("push",true);
+            PushMessageDAO pushMessageDAO = (PushMessageDAO) getIntent().getSerializableExtra("pushMessage");
+            intent.putExtra("pushMessage", pushMessageDAO);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(intent);
+                }
+            },800);
+        }
 		
 	}
 	 //显示新手引导
@@ -422,6 +440,9 @@ public class HomeActivity extends BaseActivity {
 			isCloseTab = false;
 		}
 		query_user_daily_task();
+
+
+
 	}
 
 	@Override

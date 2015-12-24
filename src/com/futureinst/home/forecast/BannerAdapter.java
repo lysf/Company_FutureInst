@@ -17,7 +17,9 @@ public class BannerAdapter extends FragmentPagerAdapter{
     public BannerAdapter(FragmentManager fm) {
         super(fm);
         events = new ArrayList<>();
-//        this.events = events;
+    }
+    public int getListSize(){
+        return events == null ? 0 : events.size();
     }
     public void setList(List<QueryEventDAO> events){
         this.events = events;
@@ -26,14 +28,14 @@ public class BannerAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int i) {
-//        return events.size() == 0 ? null :BannerFragment.newInstance(events.get(i%events.size()));
-        return BannerFragment.newInstance(events.get(i));
+        return (events == null || events.size() == 0) ? null :BannerFragment.newInstance(events.get(i%events.size()));
+//        return BannerFragment.newInstance(events.get(i));
     }
 
 
     @Override
     public int getCount() {
-//        return events.size() == 0 ? 0 :Integer.MAX_VALUE;
-        return events.size();
+        return (events == null || events.size() == 0) ? 0 :Integer.MAX_VALUE;
+//        return events.size();
     }
 }

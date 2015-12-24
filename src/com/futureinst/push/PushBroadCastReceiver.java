@@ -72,10 +72,11 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 						&& pushMessageDAO.getNo_notice().equals("1"))
 						|| !Utils.isBackground(context)){
 					//不发通知
+
 				}else{
-					setNotify(context,pushMessageDAO);
-				}
-				
+                    setNotify(context,pushMessageDAO);
+                }
+
 				messageCacheUtil.addPushMessage(pushMessageDAO);
 				Intent intent2 = new Intent("newPushMessage");
 				context.sendBroadcast(intent2);
@@ -113,9 +114,9 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 
 	@SuppressWarnings("deprecation")
 	private void setNotify(Context context,PushMessageDAO pushMessageDAO){
-		ActivityManagerUtil.finishActivity();
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-		Intent notifyIntent = new Intent(context, PushMessageActivity.class);
+		Intent notifyIntent = new Intent(context, HomeActivity.class);
+        notifyIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		notifyIntent.putExtra("push", true);
 		notifyIntent.putExtra("pushMessage", pushMessageDAO);
 		PendingIntent appIntent = PendingIntent.getActivity(context, 0,

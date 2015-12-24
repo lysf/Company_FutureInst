@@ -2,6 +2,7 @@ package com.futureinst.home.forecast;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.homeeventmodel.QueryEventInfoDAO;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
@@ -31,6 +32,8 @@ import android.widget.RelativeLayout;
 
 import org.json.JSONException;
 
+import java.util.List;
+
 public class ForecastFragment extends BaseFragment implements OnPageChangeListener{
     private CustomViewPager viewPager;
     private Long recordTime;
@@ -48,6 +51,7 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
     private AutoScrollViewPager autoScrollViewPager;
     private CirclePageIndicator circlePageIndicator;
     private ImageView iv_sort;
+    private LinearLayout ll_indictor;
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -69,10 +73,13 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
 
         autoScrollViewPager = (AutoScrollViewPager)findViewById(R.id.auto_viewpager);
         circlePageIndicator = (CirclePageIndicator)findViewById(R.id.top_pager_indicator);
+        ll_indictor = (LinearLayout)findViewById(R.id.ll_indictor);
+
         autoScrollViewPager.setScrollDurationFactor(5);
         autoScrollViewPager.setInterval(4000);
         autoScrollViewPager.setStopScrollWhenTouch(true);
         autoScrollViewPager.setCycle(true);
+        autoScrollViewPager.addOnPageChangeListener(this);
 
         view_auto_viewpager = findViewById(R.id.view_auto_viewpager);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.getScreenWidth(getContext())*346/750);
@@ -161,26 +168,32 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
     }
     @Override
     public void onPageScrolled(int arg0, float arg1, int arg2) {
-        ((ForecastContainerTypeFragment)adapter.getItem(arg0)).setIsHaveTop(false);
+//        ((ForecastContainerTypeFragment)adapter.getItem(arg0)).setIsHaveTop(false);
     }
     @Override
     public void onPageSelected(int arg0) {
-        adapter.getItem(arg0).setUserVisibleHint(true);
-        ((ForecastContainerTypeFragment)adapter.getItem(arg0)).setIsHaveTop(true);
+        for(int i = 0; i<bannerAdapter.getListSize();i++){
+            (ll_indictor.getChildAt(i)).setSelected(false);
+        }
+        if(bannerAdapter.getListSize() > 0)
+        (ll_indictor.getChildAt( arg0 % bannerAdapter.getListSize())).setSelected(true);
+//        adapter.getItem(arg0).setUserVisibleHint(true);
+//        ((ForecastContainerTypeFragment)adapter.getItem(arg0)).setIsHaveTop(true);
     }
 
     public void getBanner(){
         HttpResponseUtils.getInstace(getActivity()).postJson(HttpPostParams.getInstace().getPostParams(
-                        PostMethod.query_top_banner.name(), PostType.event.name(),"{}"),
+                        PostMethod.query_top_banner.name(), PostType.event.name(), "{}"),
                 QueryEventInfoDAO.class,
                 new PostCommentResponseListener() {
                     @Override
                     public void requestCompleted(Object response) throws JSONException {
-                        if(response == null) return;
-                        QueryEventInfoDAO eventInfoDAO = (QueryEventInfoDAO)response;
-                        if(eventInfoDAO.getEvents() != null && eventInfoDAO.getEvents().size() > 0){
+                        if (response == null) return;
+                        QueryEventInfoDAO eventInfoDAO = (QueryEventInfoDAO) response;
+                        if (eventInfoDAO.getEvents() != null && eventInfoDAO.getEvents().size() > 0) {
                             bannerAdapter.setList(eventInfoDAO.getEvents());
                             circlePageIndicator.setViewPager(autoScrollViewPager);
+                            initIndictor(eventInfoDAO.getEvents());
                             autoScrollViewPager.startAutoScroll(4000);
                         }
                     }
@@ -188,6 +201,22 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         );
     }
 
+    private void initIndictor(List<QueryEventDAO> list){
+        if(null == list) return;
+        for(int i = 0; i< list.size() ;i++){
+            PagerIndictorView view = new PagerIndictorView(getContext());
+            if(i == 0) {
+                view.setSelected(true);
+            }else{
+                view.setSelected(false);
+            }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(15,15);
+            layoutParams.setMargins(2,2,2,2);
+            view.setLayoutParams(layoutParams);
+            view.setTag(i);
+            ll_indictor.addView(view,i);
+        }
+    }
 
 
 
