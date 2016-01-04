@@ -1,11 +1,14 @@
 package com.futureinst.todaytask;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,18 +24,26 @@ import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TimeLimitUtil;
+import com.futureinst.utils.animal.TranslateAnimationUtil;
 
 import org.json.JSONException;
 
 import java.util.List;
 
 public class TodayTaskActivity extends BaseActivity {
+    private final int TRADEAM = -1;
+    private final int TRADEPM = -2;
+    private final int LOGIN = -3;
+    private final int TRADE2 = -4;
+    private final int COM2 = -5;
+    private LinearLayout ll_top,ll_bottom;
     private LinearLayout[] ll_tasks;
     private ImageView[] iv_checks;
     private TextView[] tv_contents;
     private TextView[] tv_icons;
     private TextView[] tv_status;
     private TextView[] tv_task_progress;
+    private View view_novice_task,view_routine_task;
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -45,6 +56,13 @@ public class TodayTaskActivity extends BaseActivity {
     }
 
     private void initView() {
+        ll_top = (LinearLayout) findViewById(R.id.ll_top);
+        ll_bottom = (LinearLayout) findViewById(R.id.ll_bottom);
+        view_novice_task = LayoutInflater.from(this).inflate(R.layout.view_novice_task,null);
+        view_routine_task = LayoutInflater.from(this).inflate(R.layout.view_routine_task,null);
+        ll_top.addView(view_novice_task);
+        ll_bottom.addView(view_routine_task);
+
         ll_tasks = new LinearLayout[5];
         ll_tasks[0] = (LinearLayout)findViewById(R.id.ll_task_1);
         ll_tasks[1] = (LinearLayout)findViewById(R.id.ll_task_2);
@@ -318,7 +336,7 @@ public class TodayTaskActivity extends BaseActivity {
                 });
     }
     //领取今日任务奖励
-    private void get_daily_task_award (String task_name) {
+    private void get_daily_task_award (final String task_name) {
         progressDialog.progressDialog();
         httpResponseUtils.postJson_1(
                 httpPostParams.getPostParams(
@@ -337,7 +355,60 @@ public class TodayTaskActivity extends BaseActivity {
                         DailyTaskInfoDAO dailyTaskInfo = (DailyTaskInfoDAO) response;
                         MyToast.getInstance().showToast(TodayTaskActivity.this, "您获取" + dailyTaskInfo.getAward() + "未币", 1);
                         initData(dailyTaskInfo);
+                        Message message = Message.obtain();
+                        message.obj = task_name;
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("awardedTasks",dailyTaskInfo);
+                        message.setData(bundle);
+                        handler.sendMessage(message);
                     }
                 });
+    }
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            DailyTaskInfoDAO dailyTaskInfo = (DailyTaskInfoDAO) msg.getData().get("awardedTasks");
+            switch ((String)msg.obj){
+                case TaskType.TRADEAM:
+                    if(dailyTaskInfo.getDaily_task().getAwardedTasks().contains(TaskType.TRADEAM)
+                            && dailyTaskInfo.getDaily_task().getAwardedTasks().contains(TaskType.TRADEPM)){
+                        transferAnimal(ll_top,ll_bottom);
+                        return ;
+                    }
+                    transferAnimal(ll_tasks[0],ll_tasks[1]);
+                    break;
+                case TaskType.TRADEPM:
+                    if(dailyTaskInfo.getDaily_task().getAwardedTasks().contains(TaskType.TRADEAM)
+                            && dailyTaskInfo.getDaily_task().getAwardedTasks().contains(TaskType.TRADEPM)){
+                        transferAnimal(ll_top,ll_bottom);
+                        return ;
+                    }
+                    transferAnimal(ll_tasks[1],ll_tasks[0]);
+                    break;
+                case TaskType.LOGIN:
+
+                    break;
+                case TaskType.TRADE2:
+                    transferAnimal(ll_top,ll_bottom);
+                    break;
+
+                case TaskType.COM2:
+                    transferAnimal(ll_top,ll_bottom);
+                    break;
+            }
+
+        }
+    };
+    private void transferAnimal(View viewFrom,View viewTo){
+            int[] location_start = new int[2];
+            int[] location_stop = new int[2];
+        viewFrom.getLocationInWindow(location_start);
+        viewTo.getLocationInWindow(location_stop);
+        TranslateAnimationUtil.slideView(viewFrom, 0f, 0f, 0f, (float) (location_stop[1] - location_start[1] - viewFrom.getHeight() + viewTo.getHeight()),
+                800, 20,null);
+        TranslateAnimationUtil.slideView(viewTo,0f,0f,0f,(float)(location_start[1]-location_stop[1]),
+                800,20,null);
     }
 }

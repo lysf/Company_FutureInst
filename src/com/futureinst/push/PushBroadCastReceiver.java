@@ -68,12 +68,11 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 				}else{
 					pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
 				}
-				if((!TextUtils.isEmpty(pushMessageDAO.getNo_notice())
-						&& pushMessageDAO.getNo_notice().equals("1"))
-						|| !Utils.isBackground(context)){
-					//不发通知
-
-				}else{
+				if((TextUtils.isEmpty(pushMessageDAO.getNo_notice())
+						|| pushMessageDAO.getNo_notice().equals("1"))
+						|| !Utils.isBackground(context.getApplicationContext())){
+                    //不发通知提示
+                }else{
                     setNotify(context,pushMessageDAO);
                 }
 

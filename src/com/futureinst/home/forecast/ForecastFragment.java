@@ -14,7 +14,6 @@ import com.futureinst.viewpagerindicator.CirclePageIndicator;
 import com.futureinst.widget.CustomViewPager;
 import com.futureinst.widget.PagerSlidingTabStrip;
 import com.futureinst.widget.autoviewpager.AutoScrollViewPager;
-import com.futureinst.widget.scrollview.HomeLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -203,6 +202,7 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
 
     private void initIndictor(List<QueryEventDAO> list){
         if(null == list) return;
+        ll_indictor.removeAllViews();
         for(int i = 0; i< list.size() ;i++){
             PagerIndictorView view = new PagerIndictorView(getContext());
             if(i == 0) {

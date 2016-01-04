@@ -8,6 +8,7 @@ import org.json.JSONException;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.global.Content;
+import com.futureinst.home.eventdetail.chargetip.ChargeTipUtil;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.homeeventmodel.EventBuyDAO;
 import com.futureinst.model.homeeventmodel.EventPriceDAOInfo;
@@ -232,7 +233,8 @@ public class EventBuyActivity extends BaseActivity {
 							singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
 					Log.i(TAG, "--------------------assure="+assure+"-----asset="+asset);
 					if(assure > asset){
-						MyToast.getInstance().showToast(EventBuyActivity.this, "保证金不足，无法下单", 0);
+//						MyToast.getInstance().showToast(EventBuyActivity.this, "保证金不足，无法下单", 0);
+                        ChargeTipUtil.showChargeTip(EventBuyActivity.this,ChargeTipUtil.CHARGE_TIP2);
 						return;
 					}
 					if(isBuy){
@@ -246,7 +248,7 @@ public class EventBuyActivity extends BaseActivity {
 				hideSoftInputView();
 				break;
 			case R.id.price_sub://价格 -
-				price = et_price.getText().toString();
+                price = et_price.getText().toString();
 				if(TextUtils.isEmpty(price)) return;
 				float priceSub = Float.valueOf(price);
 				if(priceSub - 0.1 > 0){

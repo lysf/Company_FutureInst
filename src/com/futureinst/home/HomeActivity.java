@@ -94,7 +94,7 @@ public class HomeActivity extends BaseActivity {
 	private Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 1:
+			case -11:
 				UserInformationInfo userInformationInfo = (UserInformationInfo) msg.obj;
 				if(userInformationInfo.getUser_record() != null){
 					preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
@@ -121,7 +121,7 @@ public class HomeActivity extends BaseActivity {
 		get_android_version();
 
         if(getIntent().getBooleanExtra("push",false)
-                && (TextUtils.isEmpty(preferenceUtil.getUUid()))){
+                && (!TextUtils.isEmpty(preferenceUtil.getUUid()))){
             activityAdapter.setFragmentShow(3);
             final Intent intent = new Intent(this, PushMessageActivity.class);
             intent.putExtra("push",true);
@@ -132,7 +132,7 @@ public class HomeActivity extends BaseActivity {
                 public void run() {
                     startActivity(intent);
                 }
-            },800);
+            },300);
         }
 		
 	}
@@ -229,7 +229,9 @@ public class HomeActivity extends BaseActivity {
 				//初始化推送
 				query_user_record();
                 query_user_daily_task();
-				PushManager.getInstance().initialize(this.getApplicationContext());
+                    PushManager.getInstance().initialize(this.getApplicationContext());
+                isUpdate = true;
+
 			}
 		}
 	}
@@ -251,7 +253,7 @@ public class HomeActivity extends BaseActivity {
 						UserInformationInfo userInformationInfo = (UserInformationInfo) response;
 						
 						Message message =Message.obtain();
-						message.what = 1;
+						message.what = -11;
 						message.obj = userInformationInfo;
 						handler.sendMessage(message);
 					}
@@ -410,27 +412,27 @@ public class HomeActivity extends BaseActivity {
 	}
 	
 	
-	@Override
-	public boolean dispatchTouchEvent(MotionEvent event) {
-		float x = event.getX();
-		float y = event.getY();
-		switch (event.getAction()) {
-		case MotionEvent.ACTION_DOWN:
-			lastY = y;  
-			lastX = x;  
-			break;
-		case MotionEvent.ACTION_MOVE:
-			if(!isCloseTab) break;
-			float dy = Math.abs(y - lastY);
-			float dx = Math.abs(x - lastX);
-			Log.i(TAG, "---------dx="+dx+",dy="+dy);
-			boolean down = y > lastY ? true : false;
-			lastY = y;
-			lastX = x;
-			break;
-		}
-		return super.dispatchTouchEvent(event);
-	}
+//	@Override
+//	public boolean dispatchTouchEvent(MotionEvent event) {
+//		float x = event.getX();
+//		float y = event.getY();
+//		switch (event.getAction()) {
+//		case MotionEvent.ACTION_DOWN:
+//			lastY = y;
+//			lastX = x;
+//			break;
+//		case MotionEvent.ACTION_MOVE:
+//			if(!isCloseTab) break;
+//			float dy = Math.abs(y - lastY);
+//			float dx = Math.abs(x - lastX);
+//			Log.i(TAG, "---------dx="+dx+",dy="+dy);
+//			boolean down = y > lastY ? true : false;
+//			lastY = y;
+//			lastX = x;
+//			break;
+//		}
+//		return super.dispatchTouchEvent(event);
+//	}
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -448,16 +450,22 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		isUpdate = false;
+
 		PushManager.getInstance().stopService(this.getApplicationContext());
 		SystemTimeUtile.getInstance(0L).setFlag(false);
 		if (receiver != null)
 			unregisterReceiver(receiver);
         ActivityManagerUtil.finishActivity();
 	}
-	
-	
-	class FragmentActivityTabAdapter implements OnClickListener {
+
+
+    @Override
+    public void finish() {
+        isUpdate = false;
+        super.finish();
+    }
+
+    class FragmentActivityTabAdapter implements OnClickListener {
 		private List<Fragment> fragments; // 一个tab页面对应一个Fragment
 		private View[] btns; // 用于切换tab
 		private FragmentActivity activity; // Fragment

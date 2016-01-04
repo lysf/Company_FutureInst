@@ -21,6 +21,7 @@ public class UserCheckActivity extends BaseActivity {
     private View[] views;
     private List<Fragment> fragments;
     private ViewPager container;
+    private boolean transfer;
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class UserCheckActivity extends BaseActivity {
 
     private void initView() {
 
-
+        transfer = getIntent().getBooleanExtra("transfer",false);
         buttons = new Button[2];
         views = new View[2];
         fragments = new ArrayList<>();
@@ -43,8 +44,7 @@ public class UserCheckActivity extends BaseActivity {
         views[1] = findViewById(R.id.view2);
         fragments.add(new UserCheckTradeFragment());
         fragments.add(new UserCheckConsumeFragment());
-        buttons[0].setSelected(true);
-        views[0].setSelected(true);
+
         buttons[0].setOnClickListener(clickListener);
         buttons[1].setOnClickListener(clickListener);
         container = (ViewPager) findViewById(R.id.container);
@@ -52,6 +52,15 @@ public class UserCheckActivity extends BaseActivity {
                 getSupportFragmentManager(), fragments);
         container.setAdapter(adapter);
         container.setOnPageChangeListener(adapter);
+
+        if(transfer){
+            buttons[1].setSelected(true);
+            views[1].setSelected(true);
+            container.setCurrentItem(1);
+        }else{
+            buttons[0].setSelected(true);
+            views[0].setSelected(true);
+        }
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {

@@ -18,6 +18,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -207,12 +208,13 @@
             android:name="com.futureinst.index.PrimaryActivity"
             android:label="@string/title_activity_primary"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.futureinst.personalinfo.other.TransferAccountActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name="com.futureinst.service.UpdateService" />
 
-        <receiver
-            android:name="com.futureinst.push.PushBroadCastReceiver"
-            android:exported="false" >
+        <receiver android:name="com.futureinst.push.PushBroadCastReceiver" >
             <intent-filter>
 
                 <!-- 个推的appId -->

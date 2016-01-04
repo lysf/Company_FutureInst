@@ -97,16 +97,17 @@ public class UserInfoFragment extends BaseFragment {
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_userinfo);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
         initView();
         setClickListener();
         query_user_record();
         getMessageCount();
         isStart = true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
     }
 
     @Override
@@ -139,7 +140,6 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     private void initView() {
-
 
         messageCacheUtil = PushMessageCacheUtil.getInstance(getContext());
         progressDialog = MyProgressDialog.getInstance(getContext());
