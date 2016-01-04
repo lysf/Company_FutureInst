@@ -4,6 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="right"
         >
         <com.futureinst.widget.autoviewpager.AutoScrollViewPager
             android:id="@+id/auto_viewpager"
@@ -14,16 +15,26 @@
 
         <com.futureinst.viewpagerindicator.CirclePageIndicator
             android:id="@+id/top_pager_indicator"
-            android:visibility="visible"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:padding="@dimen/activity_login_margin_10"
-            android:layout_marginRight="@dimen/margin_20"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             app:fillColor="#ffd311"
             app:pageColor="#ffffff"
             app:strokeWidth="0.0dip"
             />
+    <LinearLayout
+        android:id="@+id/ll_indictor"
+        android:orientation="horizontal"
+        android:gravity="right"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/activity_login_margin_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
     </RelativeLayout>

@@ -39,6 +39,7 @@ import com.futureinst.comment.CommentDeleteDialogUtil;
 import com.futureinst.comment.CommentDetailAdapter;
 import com.futureinst.global.Content;
 import com.futureinst.home.SystemTimeUtile;
+import com.futureinst.home.eventdetail.chargetip.ChargeTipUtil;
 import com.futureinst.home.eventdetail.eventdetailabout.EditCommentDialog;
 import com.futureinst.home.eventdetail.eventdetailabout.EventPointAdapter;
 import com.futureinst.home.eventdetail.eventdetailabout.EventRuleDialog;
@@ -58,6 +59,7 @@ import com.futureinst.model.homeeventmodel.EventSellDAO;
 import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.order.SingleEventClearDAO;
 import com.futureinst.model.order.SingleEventInfoDAO;
+import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.net.CommentOperate;
 import com.futureinst.net.HttpPath;
 import com.futureinst.net.PostCommentResponseListener;
@@ -246,6 +248,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            query_user_record();
                             getPrice();
                             query_single_event_clear();
                         }
@@ -502,7 +505,11 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     //单个事件的账单
     private void initSingleEvent(SingleEventInfoDAO singleEventInfo) {
         if (attitude != 0) {//有下单，看是否提示
-            OrderTip.orderTip(EventDetailActivity.this,event,singleEventInfo.getUser().getComment(), share_award,attitude);
+            if(preferenceUtil.getAsset() < 200){//未币小于200，提示充值
+                ChargeTipUtil.showChargeTip(EventDetailActivity.this,ChargeTipUtil.CHARGE_TIP1);
+            }else{
+                OrderTip.orderTip(EventDetailActivity.this,event,singleEventInfo.getUser().getComment(), share_award,attitude);
+            }
         }
        final SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
         singleEventClearDAO = item;
@@ -602,6 +609,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 case R.id.iv_refresh:
                     progressDialog.progressDialog();
                     attitude = 0;
+                    ChargeTipUtil.showChargeTip(EventDetailActivity.this,ChargeTipUtil.CHARGE_TIP1);
                     getPrice();
                     if (preferenceUtil.getID() > 0) {
                         query_single_event_clear();
@@ -655,13 +663,13 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                             priceDAOInfo.getSells() == null || priceDAOInfo.getSells().size() == 0)
                         return;
 
-                    showBuyConfig(1, getPrice(1, priceDAOInfo));
+                    showBuyConfig(1, getOrderPrice(1, priceDAOInfo));
                     break;
                 case R.id.btn_easy_look_bad://简易模式不看好
                     if (!LoginUtil.judgeIsLogin(EventDetailActivity.this) || event == null ||
                             priceDAOInfo.getBuys() == null || priceDAOInfo.getBuys().size() == 0)
                         return;
-                    showBuyConfig(3, getPrice(3, priceDAOInfo));
+                    showBuyConfig(3, getOrderPrice(3, priceDAOInfo));
                     break;
                 case R.id.btn_advance_look_good://专家模式看好
                     if (!LoginUtil.judgeIsLogin(EventDetailActivity.this) || event == null) return;
@@ -768,6 +776,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                                 && event.getStatusStr() != null &&
                                 !event.getStatusStr().equals("清算中")
                                 && !priceClear) {
+                            query_user_record();
                             query_single_event_clear();
                         }
                     }
@@ -1008,7 +1017,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         int[] location_lazyBag = new int[2];
         int screenHeight = Utils.getScreenHeight(EventDetailActivity.this);
         int statutsHeight = Utils.getStatusHeight(this);
-        int location = statutsHeight + Utils.dip2px(this, 48);
+        int location =  + Utils.dip2px(this, 48);
 
         view_comment.getLocationOnScreen(location_comment);
         view_point_layout.getLocationOnScreen(location_point);
@@ -1088,23 +1097,33 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 });
     }
 
-    //简易模式价格
-    private String getPrice(int model, EventPriceDAOInfo priceDAOInfo) {
+    //简易模式下单价格
+    private String getOrderPrice(int model, EventPriceDAOInfo priceDAOInfo) {
         String price = event.getCurrPrice() + "";
+        int number = 0;
+        float assert_price = 0;
         switch (model) {
             case 1://看好
                 for (EventSellDAO sellDAO : priceDAOInfo.getSells()) {
-                    if (sellDAO.getNum() >= 10) {
-                        price = sellDAO.getPrice() + "";
-                        break;
+                    number += sellDAO.getNum();
+                    if (number < 10) {
+                        assert_price += sellDAO.getPrice()*sellDAO.getNum();
+                    }else{
+                        assert_price += sellDAO.getPrice()*(10 - (number - sellDAO.getNum()));
+                        price = String.valueOf(assert_price/10);
+                        return price;
                     }
                 }
                 break;
             case 3://不看好
                 for (EventBuyDAO buyDAO : priceDAOInfo.getBuys()) {
-                    if (buyDAO.getNum() >= 10) {
-                        price = buyDAO.getPrice() + "";
-                        break;
+                    number += buyDAO.getNum();
+                    if (number < 10) {
+                        assert_price += buyDAO.getPrice()*buyDAO.getNum();
+                    }else{
+                        assert_price += buyDAO.getPrice()*(10 - (number - buyDAO.getNum()));
+                        price = String.valueOf(assert_price/10);
+                        return price;
                     }
                 }
                 break;
@@ -1118,6 +1137,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
         TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
         String configMsg = "";
+       final  boolean attitude = type == 1 ? true : false;
         switch (type) {//type 1-限价买进 2-市价买进 3-限价卖空 4-市价卖空
             case 1:
                 configMsg = "确定看好";
@@ -1138,12 +1158,40 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         btn_config.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                addOrder(type, price, 10);
+                float assure = CalculateAssureUtil.calculateNeedAssure(attitude, 10, Float.valueOf(price), singleEventClearDAO.getBuyNum(), singleEventClearDAO.getBuyPrice(),
+                        singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
+                if(assure > preferenceUtil.getAsset()){
+                    ChargeTipUtil.showChargeTip(EventDetailActivity.this,ChargeTipUtil.CHARGE_TIP2);
+                }else{
+                    addOrder(type, price, 10);
+                }
                 dialog.cancel();
             }
         });
         dialog.show();
     }
 
+
+    // 获取个人信息
+    private void query_user_record() {
+        httpResponseUtils.postJson(
+                httpPostParams.getPostParams(
+                        PostMethod.query_user_record.name(),
+                        PostType.user_info.name(),
+                        httpPostParams.query_user_record(preferenceUtil.getID()
+                                + "", preferenceUtil.getUUid())),
+                UserInformationInfo.class, new PostCommentResponseListener() {
+                    @Override
+                    public void requestCompleted(Object response)
+                            throws JSONException {
+                        if (response == null)
+                            return;
+                        UserInformationInfo userInformationInfo = (UserInformationInfo) response;
+
+                        preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
+                        preferenceUtil.setAsset(userInformationInfo.getUser_record().getAsset());
+                    }
+                });
+    }
 
 }

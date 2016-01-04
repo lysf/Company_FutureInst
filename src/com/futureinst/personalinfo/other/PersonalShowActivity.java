@@ -197,7 +197,9 @@ public class PersonalShowActivity extends BaseActivity {
                     startActivity(intentArticle);
                     break;
                 case R.id.btn_transfer_accounts://转帐
-
+                    Intent intent = new Intent(PersonalShowActivity.this,TransferAccountActivity.class);
+                    intent.putExtra("userInfo",userInfo);
+                    startActivity(intent);
                     break;
             }
 
@@ -278,22 +280,6 @@ public class PersonalShowActivity extends BaseActivity {
                 });
     }
 
-    //赠送未币
-    private void p2p_give_exchange (String to_user_id,final String exchange) {
-        progressDialog.progressDialog();
-        httpResponseUtils.postJson_1(httpPostParams.getPostParams(PostMethod.p2p_give_exchange.name(), PostType.user_info.name(),
-                        httpPostParams.p2p_give_exchange(preferenceUtil.getID() + "", preferenceUtil.getUUid(), to_user_id,exchange)),
-                BaseModel.class,
-                new PostCommentResponseListener() {
-                    @Override
-                    public void requestCompleted(Object response) throws JSONException {
-                        progressDialog.cancleProgress();
-                        if (response == null)
-                            return;
-                        MyToast.getInstance().showToast(PersonalShowActivity.this,exchange+"未币赠送成功！",1);
-                    }
-                });
-    }
 
 
 }

@@ -85,25 +85,6 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	}
 
     @Override
-    public void onStart() {
-        super.onStart();
-        receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if(intent.getAction().equals("order")){
-                    Content.order = intent.getIntExtra("order",0);
-                    onRefresh(true);
-                }
-            }
-        };
-        IntentFilter filter = new IntentFilter();
-        filter.addAction("order");
-        getContext().registerReceiver(receiver, filter);
-    }
-
-
-
-    @Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.pull_listview_2);
 		initView();
@@ -122,6 +103,19 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		}
 		stayTime = System.currentTimeMillis();
 		isStart = true;
+
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if(intent.getAction().equals("order")){
+                    Content.order = intent.getIntExtra("order",0);
+                    onRefresh(true);
+                }
+            }
+        };
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("order");
+        getContext().registerReceiver(receiver, filter);
 	}
 	private void initView(){
 		ll_unlogin = (LinearLayout) findViewById(R.id.ll_unLogin);
@@ -417,7 +411,6 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void onPause() {
 		super.onPause();
-	
 		flag = false;
 		handler.removeCallbacks(delayLoad);
 		
@@ -426,9 +419,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if(receiver != null){
-            getContext().unregisterReceiver(receiver);
-        }
+
     }
 
     @Override
@@ -436,7 +427,9 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		super.onDestroy();
 		flag = false;
 		handler.removeCallbacks(delayLoad);
-
+        if(receiver != null){
+            getContext().unregisterReceiver(receiver);
+        }
 	}
 
 

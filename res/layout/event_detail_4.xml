@@ -22,6 +22,7 @@
             android:textSize="@dimen/text_size_large"/>
         <com.futureinst.widget.CustomView_Image_Text
             android:id="@+id/view_comment_total"
+            android:visibility="invisible"
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

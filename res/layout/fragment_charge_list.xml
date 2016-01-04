@@ -14,9 +14,9 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:src="@drawable/image_top_default"/>
+            android:src="@drawable/chongzih_banner"/>
 
         <LinearLayout
             android:layout_width="match_parent"

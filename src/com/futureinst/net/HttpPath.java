@@ -10,11 +10,11 @@ public class HttpPath {
 //    public static  String PICPATH = "http://182.92.183.219/api/uploadImage";
 //    public static  String CHARGEURL = "http://182.92.183.219/api";
     //online
-	 public static  final String URL = "http://www.futureinst.com/api";
-	 public static  final String SHARE_URL = "http://www.futureinst.com/mweb/event/";
-	 public static  final String SHARE_URL_ARTICLE = "http://www.futureinst.com/mweb/article/";
-	 public static final String Cookie = "; Domain=futureinst.com; Path=/";
-	 public static final String SHOP = "http://www.futureinst.com/mweb/gift/list";
-	 public static final String PICPATH = "http://www.futureinst.com/api/uploadImage";
-    public static final String CHARGEURL = "http://www.futureinst.com/api";
+	 public static   String URL = "http://www.futureinst.com/api";
+	 public static   String SHARE_URL = "http://www.futureinst.com/mweb/event/";
+	 public static   String SHARE_URL_ARTICLE = "http://www.futureinst.com/mweb/article/";
+	 public static  String Cookie = "; Domain=futureinst.com; Path=/";
+	 public static  String SHOP = "http://www.futureinst.com/mweb/gift/list";
+	 public static  String PICPATH = "http://www.futureinst.com/api/uploadImage";
+    public static  String CHARGEURL = "http://www.futureinst.com/api";
 }

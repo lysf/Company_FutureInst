@@ -46,7 +46,7 @@ public class IndexActivity extends BaseActivity{
         Content.DEVICE_ID = Utils.getUniquePsuedoID();
         sharedPreferences = SharePreferenceUtil.getInstance(this);
 		if(!sharedPreferences.isFirstLogin()){
-			Intent intent = new Intent(IndexActivity.this, PrimaryActivity.class);
+			Intent intent = new Intent(IndexActivity.this, HomeActivity.class);
 			startActivity(intent);
 			finish();
 			return;

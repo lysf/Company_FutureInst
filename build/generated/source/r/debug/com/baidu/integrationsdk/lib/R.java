@@ -8,23 +8,23 @@ package com.baidu.integrationsdk.lib;
 
 public final class R {
 	public static final class drawable {
-		public static final int bdp_update_bg_dialog_btn = 0x7f02005b;
-		public static final int bdp_update_bg_dialog_content = 0x7f02005c;
-		public static final int bdp_update_bg_dialog_title = 0x7f02005d;
-		public static final int bdp_update_logo = 0x7f02005e;
-		public static final int bdp_update_progress_download = 0x7f02005f;
+		public static final int bdp_update_bg_dialog_btn = 0x7f02005c;
+		public static final int bdp_update_bg_dialog_content = 0x7f02005d;
+		public static final int bdp_update_bg_dialog_title = 0x7f02005e;
+		public static final int bdp_update_logo = 0x7f02005f;
+		public static final int bdp_update_progress_download = 0x7f020060;
 	}
 	public static final class id {
-		public static final int btn_action_1 = 0x7f0c011f;
-		public static final int lin_other_btns = 0x7f0c0120;
-		public static final int txt_action_2 = 0x7f0c0121;
-		public static final int txt_action_3 = 0x7f0c0122;
-		public static final int txt_main_tip = 0x7f0c011d;
-		public static final int txt_minor_tip = 0x7f0c011e;
-		public static final int txt_title = 0x7f0c011c;
+		public static final int btn_action_1 = 0x7f0c010a;
+		public static final int lin_other_btns = 0x7f0c010b;
+		public static final int txt_action_2 = 0x7f0c010c;
+		public static final int txt_action_3 = 0x7f0c010d;
+		public static final int txt_main_tip = 0x7f0c0108;
+		public static final int txt_minor_tip = 0x7f0c0109;
+		public static final int txt_title = 0x7f0c0107;
 	}
 	public static final class layout {
-		public static final int bdp_update_activity_confirm_dialog = 0x7f030041;
+		public static final int bdp_update_activity_confirm_dialog = 0x7f030042;
 	}
 	public static final class string {
 		public static final int bdp_update_action_download = 0x7f070064;

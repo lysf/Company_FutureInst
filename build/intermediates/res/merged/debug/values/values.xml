@@ -723,6 +723,7 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="text_size_large">19sp</dimen>
     <dimen name="text_size_large_17">17sp</dimen>
+    <dimen name="text_size_large_18">18sp</dimen>
     <dimen name="text_size_large_20">20sp</dimen>
     <dimen name="text_size_large_22">22sp</dimen>
     <dimen name="text_size_large_26">26sp</dimen>
@@ -1550,7 +1551,8 @@
     <string name="weibo_upload_content">分享图片</string>
     <!-- From: file:/F:/CompanyWork/FutureInst/res/values/strings.xml -->
     <eat-comment/>
-    <string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送大量未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
+    <string name="welcom_dialog">欢迎来到未来研究所！\n猜中未来事件会不会发生，就能赚未币、换好礼~\n
+快去注册，领取新手大礼包吧！</string>
     <string name="wrong_phone">请输入合法手机号</string>
     <string name="year">年</string>
     <string name="yfbpay">易付宝支付</string>
