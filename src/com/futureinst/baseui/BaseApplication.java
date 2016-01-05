@@ -11,7 +11,9 @@ import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.futureinst.R;
 import com.futureinst.net.HttpPath;
+import com.futureinst.net.HttpPostParams;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -38,6 +40,7 @@ public class BaseApplication extends Application {
         queue = Volley.newRequestQueue(this);
         initImageLoader(getApplicationContext());
         initBaseFile();
+        HttpPostParams.getInstace().setCtype(getResources().getString(R.string.type));
         initPath();
     }
 

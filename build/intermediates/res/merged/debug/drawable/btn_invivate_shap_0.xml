@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" >
-     <corners android:radius="8dip"/>
-	<solid android:color="@color/btn_invivate_0"/>
-</shape>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/btn_invivate_shap_0.xml -->

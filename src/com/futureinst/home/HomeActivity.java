@@ -58,6 +58,7 @@ import com.futureinst.service.UpdateService;
 import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.BadgeUtil;
 import com.futureinst.utils.LoginUtil;
+import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TaskTipUtil;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
@@ -111,6 +112,7 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
+        MyToast.getInstance().showToast(this, httpPostParams.getCtype(), 1);
 		Content.statusHeight = Utils.getStatusHeight(this);
         ActivityManagerUtil.addActivity(this);
 		initVeiw();
@@ -134,6 +136,7 @@ public class HomeActivity extends BaseActivity {
                 }
             },300);
         }
+
 		
 	}
 	 //显示新手引导

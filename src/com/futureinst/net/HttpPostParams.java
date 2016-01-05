@@ -6,6 +6,8 @@ import java.util.Map;
 import org.json.JSONObject;
 
 import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
@@ -17,7 +19,16 @@ public class HttpPostParams {
 			httpPostParams = new HttpPostParams();
 		return httpPostParams;
 	}
-	//数据交互
+
+    public String getCtype() {
+        return ctype;
+    }
+
+    public void setCtype(String ctype) {
+        this.ctype = ctype;
+    }
+
+    //数据交互
 	public Map<String, String> getPostParams(String method,String type,String json){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("method", method);
@@ -29,6 +40,7 @@ public class HttpPostParams {
 	public String add_download(){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("ctype", ctype);
+        Log.i("type", "------ctype----->><<<<<" + ctype);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}

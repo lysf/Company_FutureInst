@@ -3,6 +3,8 @@ package com.futureinst.utils;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -420,5 +422,16 @@ public class Utils {
             }
         }
         return statusHeight;
+    }
+
+    /**
+     * 复制文本
+     * @param activity
+     * @param text
+     */
+    public static void copyText(Activity activity,String text){
+        ClipboardManager clipboardManager = (ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clipData = ClipData.newPlainText("simple text",text);
+        clipboardManager.setPrimaryClip(clipData);
     }
 }

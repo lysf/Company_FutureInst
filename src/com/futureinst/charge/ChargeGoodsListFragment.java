@@ -121,12 +121,12 @@ public class ChargeGoodsListFragment extends BaseFragment {
                     break;
                 case R.id.iv_chargeRecord://充值记录
                     Intent intentRecord = new Intent(getContext(), ChargeRecordActivity.class);
-//                   intentRecord.putExtra("position",2);
                     startActivity(intentRecord);
                     break;
             }
         }
     };
+
     private void initData(UserRecordDAO dao){
         tv_asset.setText(String.format("%.2f",dao.getAsset()));
     }
@@ -211,6 +211,7 @@ public class ChargeGoodsListFragment extends BaseFragment {
                 String errorMsg = data.getExtras().getString("error_msg"); // 错误信息
                 String extraMsg = data.getExtras().getString("extra_msg"); // 错误信息
                 showMsg(result, errorMsg, extraMsg);
+                query_user_record();
             }
         }
     }

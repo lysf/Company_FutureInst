@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="type">android</string>
     <!--<string name="wechat">微信</string>-->
     <string name="alipay">支付宝</string>
     <string name="wechatpay">微信</string>
@@ -24,7 +24,7 @@
     <string name="crop__done">确定</string>
     <string name="crop__cancel">取消</string>
 
-    <string name="welcom_dialog">欢迎来到未来研究所！\n猜中未来事件会不会发生，就能赚未币、换好礼~\n
+    <string name="welcom_dialog">欢迎来到未来研究所！\n猜中未来事件会不会发生\n就能赚未币、换好礼~\n
 快去注册，领取新手大礼包吧！</string>
     <!-- hometable -->
     <!-- iconFont -->
