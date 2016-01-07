@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/text_color_white"
+    android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/dimen_3"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_shoop"
+            android:text="兑换"
+            android:minWidth="80dp"
+            android:minHeight="@dimen/widget_height_45"
+            android:textSize="@dimen/text_size_large"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@drawable/btn_yellow_selected_bg"
+            android:textColor="@drawable/text_color_fond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn_charge"
+            android:text="充值"
+            android:minWidth="80dp"
+            android:minHeight="@dimen/widget_height_45"
+            android:textSize="@dimen/text_size_large"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@drawable/btn_yellow_selected_bg"
+            android:textColor="@drawable/text_color_fond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/text_color_e"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:background="@color/text_color_white"
+        android:clipChildren="false" >
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

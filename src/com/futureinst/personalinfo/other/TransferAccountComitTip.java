@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.futureinst.R;
-import com.futureinst.home.userinfo.UserCheckActivity;
+import com.futureinst.home.userinfo.checkorder.UserCheckActivity;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.usermodel.UserDAO;
 import com.futureinst.net.HttpPostParams;

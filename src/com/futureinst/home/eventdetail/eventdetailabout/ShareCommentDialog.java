@@ -29,7 +29,7 @@ public class ShareCommentDialog {
         View view = LayoutInflater.from(activity).inflate(R.layout.view_event_order_config, null, false);
         Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
         TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
-        String configMsg = "找朋友对猜，首次分享领50！";
+        String configMsg = "快找朋友一起来预测吧！";
 
         tv_configMsg.setText(configMsg);
         Button btn_config = (Button) view.findViewById(R.id.btn_submit);

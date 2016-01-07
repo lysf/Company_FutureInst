@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/line_height"
+        android:background="@drawable/item_select"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/activity_login_margin_10"
+        android:paddingLeft="@dimen/margin_20"
+        android:paddingRight="@dimen/margin_20"
+        android:paddingTop="@dimen/activity_login_margin_10">
+
+        <ImageView
+            android:id="@+id/iv_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_20"
+            android:src="@drawable/today_task_check_clickable"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/iv_check_box"
+                android:layout_toRightOf="@+id/iv_check_box"
+                android:text="写两条评论"
+                android:textColor="@drawable/today_task_text"
+                android:textSize="@dimen/text_size_normal"
+                />
+
+            <TextView
+                android:id="@+id/tv_normal_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginTop="@dimen/margin_5"
+                android:layout_toEndOf="@+id/iv_check_box"
+                android:layout_toRightOf="@+id/iv_check_box"
+                android:text="+50未币"
+                android:textColor="@drawable/today_task_text"
+                android:textSize="@dimen/text_size_small"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom|right"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_normal_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_3"
+                android:text="0/2"
+                android:textColor="@drawable/today_task_text"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_normal_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:text="点击领取"
+                android:textColor="@drawable/today_task_text"
+                android:textSize="@dimen/text_size_small"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

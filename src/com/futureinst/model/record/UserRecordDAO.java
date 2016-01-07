@@ -24,6 +24,7 @@ public class UserRecordDAO implements Serializable {
 	private int articleAward;
 	private int articleAwardNum;
 	private int articleReadNum;
+    private float allCharge;
 	
 	private UserDAO user;
 
@@ -153,12 +154,38 @@ public class UserRecordDAO implements Serializable {
 	public void setUser(UserDAO user) {
 		this.user = user;
 	}
-	@Override
-	public String toString() {
-		return "UserInformationDAO [userId=" + userId + ", allGain=" + allGain
-				+ ", avgGain=" + avgGain + ", allEvent=" + allEvent
-				+ ", gainEvent=" + gainEvent + ", foreIndex=" + foreIndex
-				+ ", rank=" + rank + ", asset=" + asset + ", assure=" + assure
-				+ ", status=" + status + ", user=" + user + "]";
-	}
+
+    public float getAllCharge() {
+        return allCharge;
+    }
+
+    public void setAllCharge(float allCharge) {
+        this.allCharge = allCharge;
+    }
+
+    @Override
+    public String toString() {
+        return "UserRecordDAO{" +
+                "userId=" + userId +
+                ", allGain=" + allGain +
+                ", avgGain=" + avgGain +
+                ", allEvent=" + allEvent +
+                ", gainEvent=" + gainEvent +
+                ", foreIndex=" + foreIndex +
+                ", foreIndexNew=" + foreIndexNew +
+                ", rank=" + rank +
+                ", lastRank=" + lastRank +
+                ", asset=" + asset +
+                ", assure=" + assure +
+                ", exchange=" + exchange +
+                ", status=" + status +
+                ", articleNum=" + articleNum +
+                ", articleLoveNum=" + articleLoveNum +
+                ", articleAward=" + articleAward +
+                ", articleAwardNum=" + articleAwardNum +
+                ", articleReadNum=" + articleReadNum +
+                ", allCharge=" + allCharge +
+                ", user=" + user +
+                '}';
+    }
 }

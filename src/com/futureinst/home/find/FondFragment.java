@@ -18,9 +18,9 @@ import android.widget.Button;
 
 public class FondFragment extends BaseFragment {
     private Button[] buttons;
-    private View[] views;
     private List<Fragment> fragments;
     private ViewPager container;
+    private View[] views;
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {

@@ -93,7 +93,7 @@
             android:name=".home.userinfo.FAQDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".home.userinfo.UserCheckActivity"
+            android:name=".home.userinfo.checkorder.UserCheckActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.userinfo.AboutUsActivity"

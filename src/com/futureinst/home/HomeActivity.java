@@ -112,7 +112,6 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_home2);
-        MyToast.getInstance().showToast(this, httpPostParams.getCtype(), 1);
 		Content.statusHeight = Utils.getStatusHeight(this);
         ActivityManagerUtil.addActivity(this);
 		initVeiw();
@@ -204,7 +203,7 @@ public class HomeActivity extends BaseActivity {
 	private void initFragment(){
 		fragments.add(new ForecastFragment());
 		fragments.add(new FondFragment());
-		fragments.add(new ShoopFragment());
+		fragments.add(new WelfareFragment());
 		fragments.add(new UserInfoFragment());
 		activityAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, views);
 	}

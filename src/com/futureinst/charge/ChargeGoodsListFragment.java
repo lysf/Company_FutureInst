@@ -15,11 +15,13 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.home.userinfo.AboutUsActivity;
 import com.futureinst.home.userinfo.FAQActivity;
+import com.futureinst.home.userinfo.checkorder.UserCheckActivity;
 import com.futureinst.model.charge.GoodsDAO;
 import com.futureinst.model.charge.GoodsInfoDAO;
 import com.futureinst.model.charge.PayOrderDAO;
 import com.futureinst.model.charge.PayOrderInfo;
 import com.futureinst.model.record.UserRecordDAO;
+import com.futureinst.model.record.UserRecordInfoDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
@@ -120,7 +122,8 @@ public class ChargeGoodsListFragment extends BaseFragment {
                     startActivity(intentCS);
                     break;
                 case R.id.iv_chargeRecord://充值记录
-                    Intent intentRecord = new Intent(getContext(), ChargeRecordActivity.class);
+                    Intent intentRecord = new Intent(getContext(), UserCheckActivity.class);
+                    intentRecord.putExtra("charge",true);
                     startActivity(intentRecord);
                     break;
             }
@@ -138,18 +141,20 @@ public class ChargeGoodsListFragment extends BaseFragment {
                         PostType.user_info.name(),
                         httpPostParams.query_user_record(preferenceUtil.getID()
                                 + "", preferenceUtil.getUUid())),
-                UserInformationInfo.class, new PostCommentResponseListener() {
+                UserRecordInfoDAO.class, new PostCommentResponseListener() {
                     @Override
                     public void requestCompleted(Object response)
                             throws JSONException {
                         if (response == null)
                             return;
-                        UserInformationInfo userInformationInfo = (UserInformationInfo) response;
-                        initData(userInformationInfo.getUser_record());
+                        UserRecordInfoDAO userRecordInfoDAO = (UserRecordInfoDAO) response;
+                        initData(userRecordInfoDAO.getUser_record());
 
                     }
                 });
     }
+
+
     //获取可购买的商品清单
     private void get_all_charge_goods(){
         progressDialog.progressDialog();
