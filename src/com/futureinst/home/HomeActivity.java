@@ -58,6 +58,7 @@ import com.futureinst.service.UpdateService;
 import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.BadgeUtil;
 import com.futureinst.utils.LoginUtil;
+import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TaskTipUtil;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
@@ -134,6 +135,7 @@ public class HomeActivity extends BaseActivity {
                 }
             },300);
         }
+
 		
 	}
 	 //显示新手引导
@@ -201,7 +203,7 @@ public class HomeActivity extends BaseActivity {
 	private void initFragment(){
 		fragments.add(new ForecastFragment());
 		fragments.add(new FondFragment());
-		fragments.add(new ShoopFragment());
+		fragments.add(new WelfareFragment());
 		fragments.add(new UserInfoFragment());
 		activityAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, views);
 	}

@@ -30,10 +30,11 @@
             <Button
                 android:id="@+id/btn_trade"
                 android:layout_width="match_parent"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_weight="1"
                 android:text="可交易未币"
                 android:layout_height="@dimen/widget_height_45"
-                android:textSize="@dimen/text_size_large"
+                android:textSize="@dimen/text_size_large_18"
                 android:textColor="@drawable/text_color_fond"
                 android:background="@color/text_color_white"/>
             <View
@@ -54,9 +55,10 @@
                 android:id="@+id/btn_consume"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:text="可消费未币"
                 android:layout_height="@dimen/widget_height_45"
-                android:textSize="@dimen/text_size_large"
+                android:textSize="@dimen/text_size_large_18"
                 android:textColor="@drawable/text_color_fond"
                 android:background="@color/text_color_white"/>
             <View

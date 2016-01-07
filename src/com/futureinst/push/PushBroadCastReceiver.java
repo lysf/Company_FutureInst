@@ -55,7 +55,6 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			System.out.println("第三方回执接口调用" + (result ? "成功" : "失败"));
 
 			if (payload != null) {
-//				PushMessageUtils pushMessageUtils = new PushMessageUtils(context);
 				PushMessageCacheUtil messageCacheUtil = PushMessageCacheUtil.getInstance(context);
 				PushMessageDAO pushMessageDAO = null;
 				String data = new String(payload);
@@ -68,8 +67,8 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 				}else{
 					pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
 				}
-				if((TextUtils.isEmpty(pushMessageDAO.getNo_notice())
-						|| pushMessageDAO.getNo_notice().equals("1"))
+				if(TextUtils.isEmpty(pushMessageDAO.getNo_notice())
+						|| pushMessageDAO.getNo_notice().equals("1")
 						|| !Utils.isBackground(context.getApplicationContext())){
                     //不发通知提示
                 }else{
@@ -86,7 +85,6 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			// 获取ClientID(CID)
 			// 第三方应用需要将CID上传到第三方服务器，并且将当前用户帐号和CID进行关联，以便日后通过用户帐号查找CID进行消息推送
 			String cid = bundle.getString("clientid");
-			Log.i("GetuiSdkDemo", "===========Got ClientID:" + cid);
 			HomeActivity.isUpdate = true;
 			update_user_cid(cid, context);
 			

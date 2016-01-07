@@ -99,7 +99,7 @@ public class ShoopFragment extends BaseFragment {
 	        @Override
 	        public void onReceivedTitle(WebView view, String title) {
 	        super.onReceivedTitle(view, title);
-	        setTitle(title);
+//	        setTitle(title);
 	        }
 	    }
 	 

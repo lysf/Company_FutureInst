@@ -61,4 +61,5 @@ public enum PostMethod {
     get_pay_orders_for_user ,//获得用户的所有支付订单
     p2p_give_exchange ,//赠送可消费未币
     find_user ,//查找用户
+    get_award_for_new_task  ,//领取新手任务奖励
 }

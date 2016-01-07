@@ -21,7 +21,7 @@
             android:textSize="@dimen/text_size_small"/>
 
         <TextView
-            android:id="@+id/tv_asset"
+            android:id="@+id/tv_total_charge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

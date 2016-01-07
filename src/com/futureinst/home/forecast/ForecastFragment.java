@@ -28,6 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import org.json.JSONException;
 
@@ -49,7 +50,7 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
     private View view_auto_viewpager;
     private AutoScrollViewPager autoScrollViewPager;
     private CirclePageIndicator circlePageIndicator;
-    private ImageView iv_sort;
+    private TextView tv_sort;
     private LinearLayout ll_indictor;
 
     @Override
@@ -86,8 +87,8 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
 
         bannerAdapter = new BannerAdapter(getChildFragmentManager());
         autoScrollViewPager.setAdapter(bannerAdapter);
-        iv_sort = (ImageView) findViewById(R.id.iv_sort);
-        iv_sort.setOnClickListener(new View.OnClickListener() {
+        tv_sort = (TextView) findViewById(R.id.tv_sort);
+        tv_sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (popupWindow != null && popupWindow.isShowing()) {

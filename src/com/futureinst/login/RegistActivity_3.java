@@ -115,7 +115,10 @@ public class RegistActivity_3 extends BaseActivity {
 	private void showDialog(Context context,final String message){
 		View view = LayoutInflater.from(context).inflate(R.layout.share_tip, null,false);
 		Button btn_submit = (Button) view.findViewById(R.id.btn_submit);
-		TextView tv_message = (TextView) view.findViewById(R.id.tv_message); 
+		TextView tv_message = (TextView) view.findViewById(R.id.tv_message);
+        TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
+        tv_title.setVisibility(View.VISIBLE);
+        tv_title.setText("新手礼包");
 		tv_message.setText(message);
 		final Dialog dialog = DialogShow.showDialog((Activity) context, view,Gravity.CENTER);
 		dialog.setCanceledOnTouchOutside(false);

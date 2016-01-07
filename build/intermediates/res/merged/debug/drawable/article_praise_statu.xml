@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_selected="true" android:drawable="@drawable/article_praise_full"/>
-    <item android:state_selected="false" android:drawable="@drawable/article_praise"/>
-</selector><!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/article_praise_statu.xml -->

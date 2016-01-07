@@ -18,8 +18,10 @@ import com.futureinst.utils.DialogShow;
 public class WelcomeDialog {
     public static void showWelcom(Activity activity){
        final SharePreferenceUtil preferenceUtil = SharePreferenceUtil.getInstance(activity);
-        View view = LayoutInflater.from(activity).inflate(R.layout.view_diaolog_welcom,null,false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.view_diaolog_welcom, null, false);
         Button btn_ok = (Button) view.findViewById(R.id.btn_ok);
+        TextView tv_message = (TextView) view.findViewById(R.id.tv_message);
+        tv_message.setGravity(Gravity.CENTER_HORIZONTAL);
         final Dialog dialog = DialogShow.showDialog(activity,view, Gravity.CENTER);
         dialog.show();
         btn_ok.setOnClickListener(new View.OnClickListener() {

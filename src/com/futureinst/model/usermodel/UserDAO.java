@@ -1,6 +1,7 @@
 package com.futureinst.model.usermodel;
 
 import java.io.Serializable;
+import java.util.List;
 
 @SuppressWarnings("serial")
 public class UserDAO implements Serializable{
@@ -17,7 +18,8 @@ public class UserDAO implements Serializable{
 	private int peertoNum;
 	private int topeerNum;
 	private int commentNum;
-	private PermitDAO permitMap;
+	private PermitDAO permitMap;//权限
+    private List<String> onOffSet;
 	private String status;
 	private String lastOrderTime;
 	public String getLastOrderTime() {
@@ -116,12 +118,35 @@ public class UserDAO implements Serializable{
 	public void setCommentNum(int commentNum) {
 		this.commentNum = commentNum;
 	}
-	@Override
-	public String toString() {
-		return "UserDAO [id=" + id + ", uuid=" + uuid + ", name=" + name + ", gender=" + gender + ", headImage="
-				+ headImage + ", description=" + description + ", cid=" + cid + ", ctype=" + ctype + ", interest="
-				+ interest + ", birthday=" + birthday + ", peertoNum=" + peertoNum + ", topeerNum=" + topeerNum
-				+ ", commentNum=" + commentNum + ", status=" + status + "]";
-	}
-	
+
+    public List<String> getOnOffSet() {
+        return onOffSet;
+    }
+
+    public void setOnOffSet(List<String> onOffSet) {
+        this.onOffSet = onOffSet;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDAO{" +
+                "id=" + id +
+                ", uuid='" + uuid + '\'' +
+                ", name='" + name + '\'' +
+                ", gender=" + gender +
+                ", headImage='" + headImage + '\'' +
+                ", description='" + description + '\'' +
+                ", cid='" + cid + '\'' +
+                ", ctype='" + ctype + '\'' +
+                ", interest='" + interest + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", peertoNum=" + peertoNum +
+                ", topeerNum=" + topeerNum +
+                ", commentNum=" + commentNum +
+                ", permitMap=" + permitMap +
+                ", onOffSet=" + onOffSet +
+                ", status='" + status + '\'' +
+                ", lastOrderTime='" + lastOrderTime + '\'' +
+                '}';
+    }
 }

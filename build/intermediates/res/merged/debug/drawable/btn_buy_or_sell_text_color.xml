@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:state_selected="false" android:color="#77FFFFFF"/>
-    <item android:state_selected="true" android:color="#FFFFFF"/>
-
-</selector>
-<!-- From: file:/F:/CompanyWork/FutureInst/res/drawable/btn_buy_or_sell_text_color.xml -->

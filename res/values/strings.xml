@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="type">android</string>
     <!--<string name="wechat">微信</string>-->
     <string name="alipay">支付宝</string>
     <string name="wechatpay">微信</string>
@@ -24,7 +24,7 @@
     <string name="crop__done">确定</string>
     <string name="crop__cancel">取消</string>
 
-    <string name="welcom_dialog">欢迎来到未来研究所！\n猜中未来事件会不会发生，就能赚未币、换好礼~\n
+    <string name="welcom_dialog">欢迎来到未来研究所！\n猜中未来事件会不会发生\n就能赚未币、换好礼~\n
 快去注册，领取新手大礼包吧！</string>
     <!-- hometable -->
     <!-- iconFont -->
@@ -147,7 +147,7 @@
     <string name="guidang">归档事件</string>
     <string name="pushMessage">通知中心</string>
 
-    <string name="regist_sucess_tip">欢迎进入未来研究所，5000点未币已送达你的账户，现在就去预测世界大展身手吧！</string>
+    <string name="regist_sucess_tip">欢迎加入未来研究所，现在去「个人」页面完成新手任务，领取大礼包吧！</string>
 
     <string name="hold_delete">确定清空所有已清算的预测记录？</string>
     <string name="unhold_delete">确定清空所有已失效的预测记录？</string>
@@ -170,7 +170,7 @@
     <string name="event_detail_depend">清算依据</string>
     <string name="event_detail_focus">关注该事件</string>
     <string name="event_detail_unfocus">取消关注该事件</string>
-    <string name="event_detail_share">分享有奖</string>
+    <string name="event_detail_share">分享</string>
     <string name="event_detail_guide">新手说明</string>
 
     <string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>

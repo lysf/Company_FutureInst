@@ -6,6 +6,8 @@ import java.util.Map;
 import org.json.JSONObject;
 
 import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
@@ -17,7 +19,16 @@ public class HttpPostParams {
 			httpPostParams = new HttpPostParams();
 		return httpPostParams;
 	}
-	//数据交互
+
+    public String getCtype() {
+        return ctype;
+    }
+
+    public void setCtype(String ctype) {
+        this.ctype = ctype;
+    }
+
+    //数据交互
 	public Map<String, String> getPostParams(String method,String type,String json){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("method", method);
@@ -29,6 +40,7 @@ public class HttpPostParams {
 	public String add_download(){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("ctype", ctype);
+        Log.i("type", "------ctype----->><<<<<" + ctype);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
@@ -308,11 +320,12 @@ public class HttpPostParams {
 		return jsonObject.toString();
 	}
 	//对账单
-	public String query_user_check(String user_id,String uuid,int page,String last_id,String scope){
+	public String query_user_check(String user_id,String uuid,int page,String last_id,String scope,String channel){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("uuid", uuid);
 		map.put("user_id", user_id);
 		map.put("scope", scope);//trade --consume
+		map.put("channel", channel);//筛选条件
 		map.put("page", page+"");
 		map.put("last_id", last_id);
 		JSONObject jsonObject = new JSONObject(map);
@@ -1044,6 +1057,22 @@ public class HttpPostParams {
     public String find_user(String key){
         Map<String, String> map = new HashMap<>();
         map.put("key", key);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 领取新手任务奖励
+     * @param user_id
+     * @param uuid
+     * @param task_name 任务名称
+     * @return
+     */
+    public String get_award_for_new_task(String user_id, String uuid,String task_name){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("task_name", task_name);
         JSONObject jsonObject = new JSONObject(map);
         return jsonObject.toString();
     }
