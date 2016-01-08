@@ -176,8 +176,9 @@ public class HttpPostParams {
 		return jsonObject.toString();
 	}
 	//根据事件组ID查询事件
-	public String query_event(int page,String last_id,String group_id){
+	public String query_event(String order,int page,String last_id,String group_id){
 		Map<String, String> map = new HashMap<String, String>();
+		map.put("order", order);
 		map.put("group_id", group_id);
 		map.put("page", page+"");
 		map.put("last_id", last_id);

@@ -1,5 +1,6 @@
 package com.futureinst.personalinfo.other;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Message;
 import android.text.TextUtils;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
+import com.futureinst.global.Content;
 import com.futureinst.model.usermodel.UserDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.net.PostCommentResponseListener;
@@ -26,12 +28,15 @@ import org.json.JSONException;
  * Created by hao on 2015/12/29.
  */
 public class TransferAccountActivity extends BaseActivity{
+
     private UserInformationInfo userInfo;
     private UserInformationInfo myInfo;
     private RoundedImageView iv_me,iv_other;
     private TextView tv_me_assure,tv_other_name;
     private EditText et_transfer_account;
     private Button btn_transfer_accounts;
+    private TextView tv_min_transfer;
+    private int min_p2p_give_exchange;
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_transfer_account);
@@ -43,14 +48,18 @@ public class TransferAccountActivity extends BaseActivity{
     }
 
     private void initView() {
+        min_p2p_give_exchange = Content.min_p2p_give_exchange;
         userInfo = (UserInformationInfo) getIntent().getSerializableExtra("userInfo");
         iv_me = (RoundedImageView) findViewById(R.id.iv_me);
         iv_other = (RoundedImageView) findViewById(R.id.iv_other);
         tv_me_assure = (TextView) findViewById(R.id.tv_me);
+        tv_min_transfer = (TextView) findViewById(R.id.tv_min_transfer);
         tv_other_name = (TextView) findViewById(R.id.tv_other_name);
         et_transfer_account = (EditText) findViewById(R.id.et_transfer_account);
         btn_transfer_accounts = (Button) findViewById(R.id.btn_transfer_accounts);
         btn_transfer_accounts.setOnClickListener(clickListener);
+        //最低转账金额需为X未币，转账后将收取转账金额的10%作为手续费
+        tv_min_transfer.setText("最低转账金额需为"+min_p2p_give_exchange+"未币，转账后将收取转账金额的10%作为手续费");
     }
 
     private void initOther(UserDAO user){
@@ -89,8 +98,8 @@ public class TransferAccountActivity extends BaseActivity{
             MyToast.getInstance().showToast(this,"您的可消费未币不足",0);
             return  false;
         }
-        if(Double.parseDouble(account) < 2000){
-            MyToast.getInstance().showToast(this,"最低转账金额需为2000未币",0);
+        if(Double.parseDouble(account) < min_p2p_give_exchange){
+            MyToast.getInstance().showToast(this,"最低转账金额需为"+min_p2p_give_exchange+"未币",0);
             return  false;
         }
         return true;

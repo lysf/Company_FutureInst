@@ -12,11 +12,20 @@ public class VersionDAO implements Serializable {
 	private String method;
 	private String type;
 	private Long curr_time;
+    private int min_p2p_give_exchange;
 	private String download_url;
 	private String load_ad_image;
 	private String load_ad_url;
-	
-	public String getLoad_ad_image() {
+
+    public int getMin_p2p_give_exchange() {
+        return min_p2p_give_exchange;
+    }
+
+    public void setMin_p2p_give_exchange(int min_p2p_give_exchange) {
+        this.min_p2p_give_exchange = min_p2p_give_exchange;
+    }
+
+    public String getLoad_ad_image() {
 		return load_ad_image;
 	}
 	public void setLoad_ad_image(String load_ad_image) {

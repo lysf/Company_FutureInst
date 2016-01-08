@@ -223,17 +223,26 @@ public class ChargeGoodsListFragment extends BaseFragment {
 
     public void showMsg(String title, String msg1, String msg2) {
         String str = title;
-        if (null != msg1 && msg1.length() != 0) {
-            str += "\n" + msg1;
+        int type = 0;
+        if(title.equals("success")){
+            str = "充值成功";
+            type = 1;
+        }else if(title.equals("cancel")){
+            str = "充值取消";
+        }else{
+            if (null != msg1 && msg1.length() != 0) {
+                str += "\n" + msg1;
+            }
+            if (null != msg2 && msg2.length() != 0) {
+                str += "\n" + msg2;
+            }
         }
-        if (null != msg2 && msg2.length() != 0) {
-            str += "\n" + msg2;
-        }
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(str);
-        builder.setTitle("提示");
-        builder.setPositiveButton("确定", null);
-        builder.create().show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//        builder.setMessage(str);
+//        builder.setTitle("提示");
+//        builder.setPositiveButton("确定", null);
+//        builder.create().show();
+        MyToast.getInstance().showToast(getActivity(),str,type);
     }
 
     @Override

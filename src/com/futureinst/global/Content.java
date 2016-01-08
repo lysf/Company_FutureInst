@@ -18,6 +18,7 @@ public class Content {
 	public static int main_list_fresh_interval = 30;
 	public static int statusHeight = 20;
     public static int order = 0;
+    public static int min_p2p_give_exchange = 100;
 
     public static String DEVICE_ID ="";
 

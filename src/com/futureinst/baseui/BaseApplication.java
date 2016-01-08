@@ -41,7 +41,8 @@ public class BaseApplication extends Application {
         initImageLoader(getApplicationContext());
         initBaseFile();
         HttpPostParams.getInstace().setCtype(getResources().getString(R.string.type));
-        initPath();
+
+//        initPath();
     }
 
     private void initPath() {
