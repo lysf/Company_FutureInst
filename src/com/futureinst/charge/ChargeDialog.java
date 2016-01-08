@@ -31,9 +31,7 @@ import org.json.JSONObject;
  * Created by hao on 2015/12/11.
  */
 public class ChargeDialog {
-    public static final String URL = HttpPath.CHARGEURL;
-
-    private static final int REQUEST_CODE_PAYMENT = 1;
+    private static final int REQUEST_CODE_PAYMENT = 110;
     private PayOrderDAO order;
 
     /**

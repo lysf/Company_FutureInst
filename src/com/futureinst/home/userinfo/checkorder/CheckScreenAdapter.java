@@ -23,7 +23,7 @@ public class CheckScreenAdapter extends BaseAdapter{
     public CheckScreenAdapter(Context context,int flag){
         this.context = context;
         this.flag = flag;
-        data_trade = new String[]{"全部","交易","任务","充值","转账","打赏","兑换"};
+        data_trade = new String[]{"全部","交易","任务","充值","转账","打赏","兑换","奖励"};
         data_consume = new String[]{"全部","交易","转账","打赏","兑换"};
 
         data_consume_key = new String[]{"0","1","4","5","6"};

@@ -68,7 +68,7 @@ android {
             yingyongbao {
                 manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyongbao"]
             }
-            _360 {
+            "_360" {
                 manifestPlaceholders = [UMENG_CHANNEL_VALUE: "360"]
             }
             xiaomi {

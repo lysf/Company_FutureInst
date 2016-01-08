@@ -353,7 +353,8 @@ public class HomeActivity extends BaseActivity {
 						Content.isPull = false;
 						if(response == null) return;
 						VersionDAO versionDAO = (VersionDAO) response;
-						showAD(versionDAO);
+                        Content.min_p2p_give_exchange = versionDAO.getMin_p2p_give_exchange();
+                        showAD(versionDAO);
                         Content.disable_app_sign_in = versionDAO.getDisable_app_sign_in() != 1;
 						if(versionDAO.getAoto_refresh_event_price() == 1){
 							Content.is_aoto_refresh_event_price = true;

@@ -162,16 +162,22 @@ public class ChargeActivity extends BaseActivity implements View.OnClickListener
 
     public void showMsg(String title, String msg1, String msg2) {
         String str = title;
-        if (null != msg1 && msg1.length() != 0) {
-            str += "\n" + msg1;
-        }
-        if (null != msg2 && msg2.length() != 0) {
-            str += "\n" + msg2;
+        if(str.equals("success")){
+            str = "充值成功";
+        }else if(str.equals("cancel")){
+            str = "取消充值";
+        }else{
+            if (null != msg1 && msg1.length() != 0) {
+                str += "\n" + msg1;
+            }
+            if (null != msg2 && msg2.length() != 0) {
+                str += "\n" + msg2;
+            }
         }
         Builder builder = new Builder(ChargeActivity.this);
         builder.setMessage(str);
         builder.setTitle("提示");
-        builder.setPositiveButton("确定", null);
+        builder.setNeutralButton("确定", null);
         builder.create().show();
     }
 

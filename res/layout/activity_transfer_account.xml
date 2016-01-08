@@ -137,9 +137,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tv_min_transfer"
             android:textSize="@dimen/text_size_small"
             android:textColor="@color/text_color_9"
-            android:text="最低转账金额需为2000未币，转账后将收取转账金额的10%作为手续费"
+            android:text=""
             android:lineSpacingExtra="@dimen/dimen_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -153,7 +154,7 @@
         android:layout_marginRight="@dimen/margin_20"
         android:layout_marginBottom="@dimen/margin_20"
         android:layout_marginTop="@dimen/widget_height_45"
-        android:text="转账"
+        android:text="未币转账"
         android:background="@drawable/btn_transfer_accounts_bg"
         android:textSize="@dimen/text_size_large"
         android:textColor="@color/text_color_white"

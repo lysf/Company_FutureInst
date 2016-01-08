@@ -29,7 +29,7 @@ public class PrimaryActivity extends BaseActivity {
                 startActivity(intent);
                 finish();
             }
-        },2000);
+        },1500);
     }
 
     @Override
