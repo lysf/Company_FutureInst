@@ -276,42 +276,6 @@ public class TodayTaskActivity extends BaseActivity {
     }
 
 
-    Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            DailyTaskInfoDAO dailyTaskInfo = (DailyTaskInfoDAO) msg.getData().get("awardedTasks");
-            switch ((String)msg.obj){
-                case TaskType.TRADEAM:
-                    if(dailyTaskInfo.getDaily_task().getAwardedTasks().contains(TaskType.TRADEAM)
-                            && dailyTaskInfo.getDaily_task().getAwardedTasks().contains(TaskType.TRADEPM)){
-                        transferAnimal(ll_top,ll_bottom);
-                        return ;
-                    }
-//                    transferAnimal(ll_tasks[0],ll_tasks[1]);
-                    break;
-                case TaskType.TRADEPM:
-                    if(dailyTaskInfo.getDaily_task().getAwardedTasks().contains(TaskType.TRADEAM)
-                            && dailyTaskInfo.getDaily_task().getAwardedTasks().contains(TaskType.TRADEPM)){
-                        transferAnimal(ll_top,ll_bottom);
-                        return ;
-                    }
-//                    transferAnimal(ll_tasks[1],ll_tasks[0]);
-                    break;
-                case TaskType.LOGIN:
-
-                    break;
-                case TaskType.TRADE2:
-                    transferAnimal(ll_top,ll_bottom);
-                    break;
-
-                case TaskType.COM2:
-                    transferAnimal(ll_top,ll_bottom);
-                    break;
-            }
-
-        }
-    };
 
     private boolean judgeIsAwardNoviceTasks(List<TaskDAO> tasks){
         for(TaskDAO task : tasks){
@@ -320,13 +284,18 @@ public class TodayTaskActivity extends BaseActivity {
         }
         return true;
     }
-    private void transferAnimal(View viewFrom,View viewTo){
+    private void transferAnimal(final View viewFrom,View viewTo){
             int[] location_start = new int[2];
             int[] location_stop = new int[2];
         viewFrom.getLocationInWindow(location_start);
         viewTo.getLocationInWindow(location_stop);
         TranslateAnimationUtil.slideView(viewFrom, 0f, 0f, 0f, (float) (location_stop[1] - location_start[1] - viewFrom.getHeight() + viewTo.getHeight()),
-                800, 20,null);
+                800, 20, new TranslateAnimationUtil.OnAnimationFinished() {
+                    @Override
+                    public void onAnimationFinished() {
+                        viewFrom.setVisibility(View.GONE);
+                    }
+                });
         TranslateAnimationUtil.slideView(viewTo,0f,0f,0f,(float)(location_start[1]-location_stop[1]),
                 800,20,null);
     }

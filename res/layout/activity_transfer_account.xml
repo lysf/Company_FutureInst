@@ -153,7 +153,7 @@
         android:layout_marginRight="@dimen/margin_20"
         android:layout_marginBottom="@dimen/margin_20"
         android:layout_marginTop="@dimen/widget_height_45"
-        android:text="转账"
+        android:text="未币转账"
         android:background="@drawable/btn_transfer_accounts_bg"
         android:textSize="@dimen/text_size_large"
         android:textColor="@color/text_color_white"
