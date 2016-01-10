@@ -1,6 +1,0 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:shape="rectangle">
-    <solid android:color="#FFC000"/>
-    <corners android:radius="10dp"/>
-</shape>
-<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/button_shap_normal.xml -->

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:state_selected="false" android:drawable="@drawable/ranking_up_2"/>
-    <item android:state_selected="true" android:drawable="@drawable/ranking_up_1"/>
-</selector>
-<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/ranking_up.xml -->

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android" >
-    <corners android:topLeftRadius="8dip"
-        android:bottomLeftRadius="8dip"/>
-	<solid android:color="@color/text_color_white"/>
-	<stroke android:width="@dimen/line_height" android:color="@color/text_color_white"/>
-</shape>
-<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/view_left_select_1.xml -->
