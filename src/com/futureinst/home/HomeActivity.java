@@ -196,7 +196,6 @@ public class HomeActivity extends BaseActivity {
 	}
 	private boolean isLogin(){
 		if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
-			Log.i(TAG, "============error login==");
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivity(intent);
 			return false;
@@ -214,26 +213,8 @@ public class HomeActivity extends BaseActivity {
                 query_user_daily_task();
 				PushManager.getInstance().initialize(this.getApplicationContext());
 			}
-
-		} 
+		}
 	}
-	
-	
-	//设置用户的排名
-//	private void setRanking(UserInformationDAO userInformationDAO){
-//		tv_ranking.setText(userInformationDAO.getRank()+"");
-//		
-//		if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
-//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_up));
-//		}else if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
-//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_down));
-//		}else{
-//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_balance));
-//		}
-//		tv_ranking.postInvalidate();
-//		iv_ranking.postInvalidate();
-//		Log.i(TAG, "=============================>?"+userInformationDAO.getRank());
-//	}
 
 	// 获取个人信息
 	private void query_user_record() {
@@ -446,7 +427,6 @@ public class HomeActivity extends BaseActivity {
 		activityAdapter.getCurrentFragment().onResume();
 		if(activityAdapter.getCurrentTab() != 0){
 			isCloseTab = false;
-//			ll_home_tab.setVisibility(View.VISIBLE);
 		}
 		query_user_daily_task();
 	}
@@ -509,13 +489,6 @@ public class HomeActivity extends BaseActivity {
 		private FragmentTransaction obtainFragmentTransaction(int index) {
 			FragmentTransaction ft = activity.getSupportFragmentManager()
 					.beginTransaction();
-			// 设置切换动画
-			// if(index > currentTab){
-			// ft.setCustomAnimations(R.anim.slide_left_in, R.anim.slide_left_out);
-			// }else{
-			// ft.setCustomAnimations(R.anim.slide_right_in,
-			// R.anim.slide_right_out);
-			// }
 			return ft;
 		}
 
@@ -530,23 +503,14 @@ public class HomeActivity extends BaseActivity {
 			if(i!=0 && !isLogin()){
 				return;
 			}
-			if(i == 2){
-//				iv_ranking.setSelected(true);
-//				tv_ranking.setSelected(true);
-			}else{
-//				iv_ranking.setSelected(false);
-//				tv_ranking.setSelected(false);
-			}
-			
+
 			btns[currentTab].setSelected(false);
 			//把当前tab设为选中状态
 			btns[i].setSelected(true);
 			currentTab = i;
 			Fragment fragment = fragments.get(i);
 			FragmentTransaction ft = obtainFragmentTransaction(i);
-			if(i == 1){
-				
-			}
+
 			if (fragment.isAdded()) {
 				fragment.onResume(); // 启动目标tab的onResume()
 			} else {
@@ -564,14 +528,14 @@ public class HomeActivity extends BaseActivity {
 						return;
 					}
                     isCloseTab = i == 0;
-					if(i == 2){
-//						iv_ranking.setSelected(true);
-//						tv_ranking.setSelected(true);
-					}else{
-//						iv_ranking.setSelected(false);
-//						tv_ranking.setSelected(false);
-					}
-					
+                    if(i == 3){//个人
+                        if(!preferenceUtil.getDailyTaskTip()){
+                            //今日任务功能提示
+                            WelcomeDialog.showTip(HomeActivity.this,
+                                    getResources().getString(R.string.daily_tip_title),getResources().getString(R.string.daily_tip_message));
+                            preferenceUtil.setDailyTaskTip();
+                        }
+                    }
 					btns[currentTab].setSelected(false);
 					//把当前tab设为选中状态
 					btns[i].setSelected(true);

@@ -158,6 +158,7 @@ public class LoginActivity extends BaseActivity implements Callback, PlatformAct
                             query_user_record();
                         } else {
                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();
                         }

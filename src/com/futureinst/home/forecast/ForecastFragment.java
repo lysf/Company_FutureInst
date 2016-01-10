@@ -15,11 +15,18 @@ import com.futureinst.widget.PagerSlidingTabStrip;
 import com.futureinst.widget.autoviewpager.AutoScrollViewPager;
 import com.futureinst.widget.scrollview.HomeLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import org.json.JSONException;
@@ -32,11 +39,15 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
     private ForecastViewPagerAdapter adapter;
 
     private  BannerAdapter bannerAdapter;
+    private String[] orders;
+    private int order = 0;
+    private PopupWindow popupWindow;
 
     //autoviewpager
     private View view_auto_viewpager;
     private AutoScrollViewPager autoScrollViewPager;
     private CirclePageIndicator circlePageIndicator;
+    private ImageView iv_sort;
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -46,6 +57,7 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         recordTime = System.currentTimeMillis();
     }
     private void initView() {
+        orders = getActivity().getResources().getStringArray(R.array.home_seond_title_order);
         slidingTab = (PagerSlidingTabStrip) findViewById(R.id.id_stickynavlayout_indicator);
         viewPager = (CustomViewPager) findViewById(R.id.id_stickynavlayout_viewpager);
         titles = getResources().getStringArray(R.array.home_icon_title);
@@ -68,7 +80,60 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
 
         bannerAdapter = new BannerAdapter(getChildFragmentManager());
         autoScrollViewPager.setAdapter(bannerAdapter);
+        iv_sort = (ImageView) findViewById(R.id.iv_sort);
+        iv_sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (popupWindow != null && popupWindow.isShowing()) {
+                    popupWindow.dismiss();
+                    popupWindow = null;
+                } else {
+                    getPopupWindow();
+                    popupWindow.showAsDropDown(v);
+                }
+            }
+        });
 
+    }
+    private void initPopuptWindow(){
+        View pop_view = LayoutInflater.from(getContext()).inflate(R.layout.view_home_order_popwindow,null,false);
+        popupWindow = new PopupWindow(pop_view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT,true);
+        pop_view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (popupWindow != null && popupWindow.isShowing()) {
+                    popupWindow.dismiss();
+                    popupWindow = null;
+                }
+                return true;
+            }
+        });
+        ListView lv_order = (ListView) pop_view.findViewById(R.id.lv_order);
+        final OrderAdapter adapter = new OrderAdapter(getContext(),order);
+        lv_order.setAdapter(adapter);
+        lv_order.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                order = position;
+                adapter.setOrder(order);
+                Intent intent = new Intent("order");
+                intent.putExtra("order",order);
+                getActivity().sendBroadcast(intent);
+                popupWindow.dismiss();
+            }
+        });
+
+    }
+    /***
+     * 获取PopupWindow实例
+     */
+    private void getPopupWindow() {
+        if (null != popupWindow) {
+            popupWindow.dismiss();
+            return;
+        } else {
+            initPopuptWindow();
+        }
     }
 
     @Override

@@ -69,10 +69,17 @@
     </string-array>
     <string-array name="home_seond_title_order">
         <item >new</item>
-        <item >dead</item>
-        <item >trade</item>
-        <item >price</item>
+        <item >newpass</item>
         <item >involve</item>
+        <item >dead</item>
+        <item >price</item>
+    </string-array>
+    <string-array name="home_seond_title_order_string">
+        <item >默认</item>
+        <item >最新</item>
+        <item >最热</item>
+        <item >最快到期</item>
+        <item >最可能</item>
     </string-array>
 
 </resources>

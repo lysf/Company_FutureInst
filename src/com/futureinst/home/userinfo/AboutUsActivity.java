@@ -40,6 +40,7 @@ public class AboutUsActivity extends BaseActivity {
 		finish();
 	}
 	private void initView(){
+        position = getIntent().getIntExtra("position",0);
 		btns = new Button[4];
 		views = new View[4];
 		btns[0] = (Button) findViewById(R.id.btn_future);
@@ -57,19 +58,24 @@ public class AboutUsActivity extends BaseActivity {
 		btns[2].setOnClickListener(clickListener);
 		btns[3].setOnClickListener(clickListener);
 		fragments = new ArrayList<Fragment>();
-		for(int i=0;i<3;i++){
+		for(int i=0;i<2;i++){
 			WebViewFragment fragment = new WebViewFragment();
 			Bundle bundle = new Bundle();
 			bundle.putInt("index", i);
 			fragment.setArguments(bundle);
 			fragments.add(fragment);
 		}
+        ContactFragment contactFragment = new ContactFragment();
+        fragments.add(contactFragment);
 		ForecastContainerTypeFragment forecastContainerTypeFragment = ForecastContainerTypeFragment.newInstance(-1);
 		fragments.add(forecastContainerTypeFragment);
 		MyFragmentAdapter adapter = new MyFragmentAdapter(
 			getSupportFragmentManager(), fragments);
 		container.setAdapter(adapter);
 		container.setOnPageChangeListener(changeListener);
+        container.setCurrentItem(position);
+        btns[position].setSelected(true);
+        views[position].setSelected(true);
 	}
 	
 	OnPageChangeListener changeListener = new OnPageChangeListener() {
@@ -79,8 +85,13 @@ public class AboutUsActivity extends BaseActivity {
 			views[1].setSelected(false);
 			views[2].setSelected(false);
 			views[3].setSelected(false);
-			views[position].setSelected(true);
-		}
+            btns[0].setSelected(false);
+            btns[1].setSelected(false);
+            btns[2].setSelected(false);
+            btns[3].setSelected(false);
+            btns[position].setSelected(true);
+            views[position].setSelected(true);
+        }
 		@Override
 		public void onPageScrolled(int arg0, float arg1, int arg2) {}
 		
@@ -117,28 +128,37 @@ public class AboutUsActivity extends BaseActivity {
 			views[1].setSelected(false);
 			views[2].setSelected(false);
 			views[3].setSelected(false);
+            btns[0].setSelected(false);
+            btns[1].setSelected(false);
+            btns[2].setSelected(false);
+            btns[3].setSelected(false);
+
 			switch (v.getId()) {
 			case R.id.btn_future://未来研究所
 				if(position == 0) return;
 				views[0].setSelected(true);
+                btns[0].setSelected(true);
 				container.setCurrentItem(0);
 				position = 0;
 				break;
 			case R.id.btn_media_report://媒体报道
 				if(position == 1) return;
 				views[1].setSelected(true);
+                btns[1].setSelected(true);
 				container.setCurrentItem(1);
 				position = 1;
 				break;
 			case R.id.btn_contact_us://联系我们
 				if(position == 2) return;
 				views[2].setSelected(true);
+                btns[2].setSelected(true);
 				container.setCurrentItem(2);
 				position = 2;
 				break;
 			case R.id.btn_guidang://归档事件
 				if(position == 3) return;
 				views[3].setSelected(true);
+                btns[3].setSelected(true);
 				container.setCurrentItem(3);
 				position = 3;
 				break;

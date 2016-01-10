@@ -35,7 +35,7 @@ public class GoodsDAO implements Serializable{
     @SerializedName("description")
     private String description;
     @SerializedName("cnyprice")
-    private int cnyprice;
+    private String cnyprice;
     @SerializedName("tradeCurrency")
     private int tradeCurrency;
     @SerializedName("orderNum")
@@ -103,7 +103,7 @@ public class GoodsDAO implements Serializable{
         this.description = description;
     }
 
-    public void setCnyprice(int cnyprice) {
+    public void setCnyprice(String cnyprice) {
         this.cnyprice = cnyprice;
     }
 
@@ -139,7 +139,7 @@ public class GoodsDAO implements Serializable{
         return description;
     }
 
-    public int getCnyprice() {
+    public String getCnyprice() {
         return cnyprice;
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--<string name="wechat">微信</string>-->
+    <string name="wechatpay">微信</string>
     <string name="alipay">支付宝</string>
     <string name="upmp">银联</string>
     <string name="bfb">百度钱包</string>

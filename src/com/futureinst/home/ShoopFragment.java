@@ -44,7 +44,6 @@ public class ShoopFragment extends BaseFragment {
         webView = (WebView) findViewById(R.id.webView);
 		cookie1 = "user_id="+preferenceUtil.getID() + HttpPath.Cookie;
 		cookie2 = "uuid="+preferenceUtil.getUUid() + HttpPath.Cookie;
-        Log.i(getTag(), "-------------cookie1--" + cookie1 + "----" + cookie2);
         synCookies(getContext(), url);
 		webSettings = webView.getSettings();
 		webSettings.setAppCacheEnabled(false);
