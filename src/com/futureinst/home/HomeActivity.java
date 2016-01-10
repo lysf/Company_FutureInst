@@ -40,10 +40,12 @@ import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.forecast.ForecastFragment;
 import com.futureinst.home.find.FondFragment;
+import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.home.userinfo.UserInfoFragment;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.dailytask.DailyTaskInfoDAO;
+import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.model.version.VersionDAO;
 import com.futureinst.net.PostCommentResponseListener;
@@ -55,6 +57,8 @@ import com.futureinst.service.UpdateDialogShow;
 import com.futureinst.service.UpdateService;
 import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.BadgeUtil;
+import com.futureinst.utils.LoginUtil;
+import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TaskTipUtil;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
@@ -91,7 +95,7 @@ public class HomeActivity extends BaseActivity {
 	private Handler handler = new Handler(){
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
-			case 1:
+			case -11:
 				UserInformationInfo userInformationInfo = (UserInformationInfo) msg.obj;
 				if(userInformationInfo.getUser_record() != null){
 					preferenceUtil.setAssure(userInformationInfo.getUser_record().getAssure());
@@ -116,6 +120,22 @@ public class HomeActivity extends BaseActivity {
 			add_download();
 		}
 		get_android_version();
+
+        if(getIntent().getBooleanExtra("push",false)
+                && (!TextUtils.isEmpty(preferenceUtil.getUUid()))){
+            activityAdapter.setFragmentShow(3);
+            final Intent intent = new Intent(this, PushMessageActivity.class);
+            intent.putExtra("push",true);
+            PushMessageDAO pushMessageDAO = (PushMessageDAO) getIntent().getSerializableExtra("pushMessage");
+            intent.putExtra("pushMessage", pushMessageDAO);
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(intent);
+                }
+            },300);
+        }
+
 		
 	}
 	 //显示新手引导
@@ -183,7 +203,7 @@ public class HomeActivity extends BaseActivity {
 	private void initFragment(){
 		fragments.add(new ForecastFragment());
 		fragments.add(new FondFragment());
-		fragments.add(new ShoopFragment());
+		fragments.add(new WelfareFragment());
 		fragments.add(new UserInfoFragment());
 		activityAdapter = new FragmentActivityTabAdapter(this, fragments, R.id.container, views);
 	}
@@ -196,7 +216,6 @@ public class HomeActivity extends BaseActivity {
 	}
 	private boolean isLogin(){
 		if (TextUtils.isEmpty(preferenceUtil.getUUid())) {
-			Log.i(TAG, "============error login==");
 			Intent intent = new Intent(this, LoginActivity.class);
 			startActivity(intent);
 			return false;
@@ -212,28 +231,12 @@ public class HomeActivity extends BaseActivity {
 				//初始化推送
 				query_user_record();
                 query_user_daily_task();
-				PushManager.getInstance().initialize(this.getApplicationContext());
-			}
+                    PushManager.getInstance().initialize(this.getApplicationContext());
+                isUpdate = true;
 
-		} 
+			}
+		}
 	}
-	
-	
-	//设置用户的排名
-//	private void setRanking(UserInformationDAO userInformationDAO){
-//		tv_ranking.setText(userInformationDAO.getRank()+"");
-//		
-//		if(userInformationDAO.getRank() < userInformationDAO.getLastRank()){
-//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_up));
-//		}else if(userInformationDAO.getRank() > userInformationDAO.getLastRank()){
-//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_down));
-//		}else{
-//			iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.tab_ranking_balance));
-//		}
-//		tv_ranking.postInvalidate();
-//		iv_ranking.postInvalidate();
-//		Log.i(TAG, "=============================>?"+userInformationDAO.getRank());
-//	}
 
 	// 获取个人信息
 	private void query_user_record() {
@@ -252,7 +255,7 @@ public class HomeActivity extends BaseActivity {
 						UserInformationInfo userInformationInfo = (UserInformationInfo) response;
 						
 						Message message =Message.obtain();
-						message.what = 1;
+						message.what = -11;
 						message.obj = userInformationInfo;
 						handler.sendMessage(message);
 					}
@@ -281,13 +284,6 @@ public class HomeActivity extends BaseActivity {
                         }else{
                             iv_message_tip.setVisibility(View.INVISIBLE);
                         }
-//                        if(dailyTaskInfo.getDaily_task()!=null &&
-//                                dailyTaskInfo.getDaily_task().getAwardedTasks() != null
-//                                && dailyTaskInfo.getDaily_task().getAwardedTasks().size() == 5){
-//                            iv_message_tip.setVisibility(View.INVISIBLE);
-//                        }else{
-//                            iv_message_tip.setVisibility(View.VISIBLE);
-//                        }
                         handler.sendEmptyMessage(-1);
 					}
 				});
@@ -357,7 +353,8 @@ public class HomeActivity extends BaseActivity {
 						Content.isPull = false;
 						if(response == null) return;
 						VersionDAO versionDAO = (VersionDAO) response;
-						showAD(versionDAO);
+                        Content.min_p2p_give_exchange = versionDAO.getMin_p2p_give_exchange();
+                        showAD(versionDAO);
                         Content.disable_app_sign_in = versionDAO.getDisable_app_sign_in() != 1;
 						if(versionDAO.getAoto_refresh_event_price() == 1){
 							Content.is_aoto_refresh_event_price = true;
@@ -418,27 +415,27 @@ public class HomeActivity extends BaseActivity {
 	}
 	
 	
-	@Override
-	public boolean dispatchTouchEvent(MotionEvent event) {
-		float x = event.getX();
-		float y = event.getY();
-		switch (event.getAction()) {
-		case MotionEvent.ACTION_DOWN:
-			lastY = y;  
-			lastX = x;  
-			break;
-		case MotionEvent.ACTION_MOVE:
-			if(!isCloseTab) break;
-			float dy = Math.abs(y - lastY);
-			float dx = Math.abs(x - lastX);
-			Log.i(TAG, "---------dx="+dx+",dy="+dy);
-			boolean down = y > lastY ? true : false;
-			lastY = y;
-			lastX = x;
-			break;
-		}
-		return super.dispatchTouchEvent(event);
-	}
+//	@Override
+//	public boolean dispatchTouchEvent(MotionEvent event) {
+//		float x = event.getX();
+//		float y = event.getY();
+//		switch (event.getAction()) {
+//		case MotionEvent.ACTION_DOWN:
+//			lastY = y;
+//			lastX = x;
+//			break;
+//		case MotionEvent.ACTION_MOVE:
+//			if(!isCloseTab) break;
+//			float dy = Math.abs(y - lastY);
+//			float dx = Math.abs(x - lastX);
+//			Log.i(TAG, "---------dx="+dx+",dy="+dy);
+//			boolean down = y > lastY ? true : false;
+//			lastY = y;
+//			lastX = x;
+//			break;
+//		}
+//		return super.dispatchTouchEvent(event);
+//	}
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -446,24 +443,32 @@ public class HomeActivity extends BaseActivity {
 		activityAdapter.getCurrentFragment().onResume();
 		if(activityAdapter.getCurrentTab() != 0){
 			isCloseTab = false;
-//			ll_home_tab.setVisibility(View.VISIBLE);
 		}
 		query_user_daily_task();
+
+
+
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		isUpdate = false;
+
 		PushManager.getInstance().stopService(this.getApplicationContext());
 		SystemTimeUtile.getInstance(0L).setFlag(false);
 		if (receiver != null)
 			unregisterReceiver(receiver);
         ActivityManagerUtil.finishActivity();
 	}
-	
-	
-	class FragmentActivityTabAdapter implements OnClickListener {
+
+
+    @Override
+    public void finish() {
+        isUpdate = false;
+        super.finish();
+    }
+
+    class FragmentActivityTabAdapter implements OnClickListener {
 		private List<Fragment> fragments; // 一个tab页面对应一个Fragment
 		private View[] btns; // 用于切换tab
 		private FragmentActivity activity; // Fragment
@@ -509,13 +514,6 @@ public class HomeActivity extends BaseActivity {
 		private FragmentTransaction obtainFragmentTransaction(int index) {
 			FragmentTransaction ft = activity.getSupportFragmentManager()
 					.beginTransaction();
-			// 设置切换动画
-			// if(index > currentTab){
-			// ft.setCustomAnimations(R.anim.slide_left_in, R.anim.slide_left_out);
-			// }else{
-			// ft.setCustomAnimations(R.anim.slide_right_in,
-			// R.anim.slide_right_out);
-			// }
 			return ft;
 		}
 
@@ -530,23 +528,14 @@ public class HomeActivity extends BaseActivity {
 			if(i!=0 && !isLogin()){
 				return;
 			}
-			if(i == 2){
-//				iv_ranking.setSelected(true);
-//				tv_ranking.setSelected(true);
-			}else{
-//				iv_ranking.setSelected(false);
-//				tv_ranking.setSelected(false);
-			}
-			
+
 			btns[currentTab].setSelected(false);
 			//把当前tab设为选中状态
 			btns[i].setSelected(true);
 			currentTab = i;
 			Fragment fragment = fragments.get(i);
 			FragmentTransaction ft = obtainFragmentTransaction(i);
-			if(i == 1){
-				
-			}
+
 			if (fragment.isAdded()) {
 				fragment.onResume(); // 启动目标tab的onResume()
 			} else {
@@ -564,14 +553,14 @@ public class HomeActivity extends BaseActivity {
 						return;
 					}
                     isCloseTab = i == 0;
-					if(i == 2){
-//						iv_ranking.setSelected(true);
-//						tv_ranking.setSelected(true);
-					}else{
-//						iv_ranking.setSelected(false);
-//						tv_ranking.setSelected(false);
-					}
-					
+                    if(i == 3){//个人
+                        if(!preferenceUtil.getDailyTaskTip()){
+                            //今日任务功能提示
+                            WelcomeDialog.showTip(HomeActivity.this,
+                                    getResources().getString(R.string.daily_tip_title),getResources().getString(R.string.daily_tip_message));
+                            preferenceUtil.setDailyTaskTip();
+                        }
+                    }
 					btns[currentTab].setSelected(false);
 					//把当前tab设为选中状态
 					btns[i].setSelected(true);

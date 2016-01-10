@@ -1,0 +1,145 @@
+<com.futureinst.widget.scrollview.MyScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/text_color_white"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_login_margin_10"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20"
+            android:paddingTop="50dp">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客服电话: 010-64788187"
+                android:textColor="@color/text_color_4"
+                android:textSize="@dimen/text_size_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/text1"
+                android:layout_marginTop="@dimen/activity_login_margin_10"
+                android:layout_toLeftOf="@+id/iv_tell"
+                android:text="注: 请在工作日10:00~19:00时段内拨打"
+                android:textColor="@color/text_color_9"
+                android:textSize="@dimen/text_size_small_12"/>
+
+            <ImageView
+                android:id="@+id/iv_tell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ripple_shap"
+                android:src="@drawable/tell"/>
+        </RelativeLayout>
+
+        <include layout="@layout/view_line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_login_margin_10"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20"
+            android:paddingTop="@dimen/activity_login_margin_10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客服邮箱: service@tmrexchange.com"
+                android:textColor="@color/text_color_4"
+                android:textSize="@dimen/text_size_normal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/text1"
+                android:layout_marginTop="@dimen/activity_login_margin_10"
+                android:layout_toLeftOf="@+id/iv_tell"
+                android:text="注: 工作时间回复"
+                android:textColor="@color/text_color_9"
+                android:textSize="@dimen/text_size_small_12"/>
+        </LinearLayout>
+
+        <include layout="@layout/view_line"/>
+
+        <TextView
+            android:id="@+id/tv_contact_qq"
+            android:background="@drawable/item_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/widget_height_50"
+            android:paddingBottom="@dimen/activity_login_margin_10"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20"
+            android:paddingTop="@dimen/activity_login_margin_10"
+            android:text="QQ群: 288434615"
+            android:textColor="@color/text_color_4"
+            android:textSize="@dimen/text_size_normal"/>
+
+        <include layout="@layout/view_line"/>
+
+        <LinearLayout
+            android:id="@+id/ll_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/item_select"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/widget_height_50"
+            android:paddingBottom="@dimen/activity_login_margin_10"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20"
+            android:paddingTop="@dimen/activity_login_margin_10">
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="App内提交"
+                android:textColor="@color/text_color_4"
+                android:textSize="@dimen/text_size_normal"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/right_arrow"/>
+        </LinearLayout>
+
+        <include layout="@layout/view_line"/>
+
+        <TextView
+            android:id="@+id/tv_contact_wechat"
+            android:background="@drawable/item_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_login_margin_10"
+            android:paddingLeft="@dimen/margin_20"
+            android:paddingRight="@dimen/margin_20"
+            android:paddingTop="@dimen/activity_login_margin_10"
+            android:text="微信公共账号：未来研究所Futureinst（微信号：futureinstitute）"
+            android:textColor="@color/text_color_4"
+            android:textSize="@dimen/text_size_normal"/>
+
+
+    </LinearLayout>
+</com.futureinst.widget.scrollview.MyScrollView>

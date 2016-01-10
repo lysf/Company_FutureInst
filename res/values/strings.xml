@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="type">android</string>
     <!--<string name="wechat">微信</string>-->
     <string name="alipay">支付宝</string>
+    <string name="wechatpay">微信</string>
     <string name="upmp">银联</string>
     <string name="bfb">百度钱包</string>
     <string name="jdpay">京东支付</string>
@@ -23,7 +24,8 @@
     <string name="crop__done">确定</string>
     <string name="crop__cancel">取消</string>
 
-    <string name="welcom_dialog">欢迎来到未来研究所！\n这是一个通过买卖事件预测未来的神奇平台，注册即送5000未币，预测对了挣更多未币，还可以换好福利！快去交易未来吧~</string>
+    <string name="welcom_dialog">欢迎来到未来研究所！\n猜中未来事件会不会发生\n就能赚未币、换好礼~\n
+快去注册，领取新手大礼包吧！</string>
     <!-- hometable -->
     <!-- iconFont -->
     <string name="home_tab1">&#xe600;</string>
@@ -118,6 +120,8 @@
     <string name="submit_sell">确认卖空</string>
     <string name="lazy_bag">懒人包</string>
     <!-- UserInfoFragment -->
+    <string name="daily_tip_title">天上掉馅饼啦！</string>
+    <string name="daily_tip_message">亲爱的先知，未来研究所任务系统上线啦！每天必领的福利，没有之一~快到「个人中心」的「今日任务」看看吧！</string>
     <string name="userNmae_hint">用户名</string>
     <string name="description_hint">一句话表达"先知态度"</string>
     <string name="asset">我的资产</string>
@@ -143,7 +147,7 @@
     <string name="guidang">归档事件</string>
     <string name="pushMessage">通知中心</string>
 
-    <string name="regist_sucess_tip">欢迎进入未来研究所，5000点未币已送达你的账户，现在就去预测世界大展身手吧！</string>
+    <string name="regist_sucess_tip">欢迎加入未来研究所，现在去「个人」页面完成新手任务，领取大礼包吧！</string>
 
     <string name="hold_delete">确定清空所有已清算的预测记录？</string>
     <string name="unhold_delete">确定清空所有已失效的预测记录？</string>
@@ -166,7 +170,7 @@
     <string name="event_detail_depend">清算依据</string>
     <string name="event_detail_focus">关注该事件</string>
     <string name="event_detail_unfocus">取消关注该事件</string>
-    <string name="event_detail_share">分享有奖</string>
+    <string name="event_detail_share">分享</string>
     <string name="event_detail_guide">新手说明</string>
 
     <string name="order_look_good">此次预测，如果事件发生，则你获利（100-P）*Q=￥;若事件不发生，则你亏损 P*Q=$</string>
@@ -284,4 +288,7 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_charge_list">ChargeListActivity</string>
+    <string name="title_activity_charge_record">ChargeRecordActivity</string>
+    <string name="title_activity_primary">PrimaryActivity</string>
 </resources>

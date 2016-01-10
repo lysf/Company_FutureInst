@@ -10,7 +10,8 @@
     android:paddingBottom="@dimen/activity_login_margin_10"
     android:paddingLeft="30px"
     android:paddingRight="30px"
-    android:orientation="horizontal" xmlns:app="http://schemas.android.com/apk/res/com.futureinst">
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.futureinst.roundimageutils.RoundedImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/iv_headImg"

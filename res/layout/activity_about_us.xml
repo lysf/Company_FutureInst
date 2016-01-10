@@ -23,7 +23,7 @@
             android:textSize="@dimen/text_size_normal"
              android:text="@string/app_name"
             android:background="@null"
-            android:textColor="@color/text_color_3"
+            android:textColor="@drawable/text_color_fond"
             android:layout_height="@dimen/widget_height_40"/>
             <View 
                 android:id="@+id/view1"
@@ -44,7 +44,7 @@
             android:textSize="@dimen/text_size_normal"
              android:text="@string/media_report"
             android:background="@null"
-            android:textColor="@color/text_color_3"
+            android:textColor="@drawable/text_color_fond"
             android:layout_height="@dimen/widget_height_40"/>
             <View 
                 android:id="@+id/view2"
@@ -65,7 +65,7 @@
             android:textSize="@dimen/text_size_normal"
              android:text="@string/contact_us"
             android:background="@null"
-            android:textColor="@color/text_color_3"
+            android:textColor="@drawable/text_color_fond"
             android:layout_height="@dimen/widget_height_40"/>
             <View 
                 android:id="@+id/view3"
@@ -86,7 +86,7 @@
             android:textSize="@dimen/text_size_normal"
              android:text="@string/guidang"
             android:background="@null"
-            android:textColor="@color/text_color_3"
+            android:textColor="@drawable/text_color_fond"
             android:layout_height="@dimen/widget_height_40"/>
             <View 
                 android:id="@+id/view4"

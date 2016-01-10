@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -52,6 +53,7 @@ public class AddPointActivity extends BaseActivity {
         super.onRightClick(view);//添加观点
         String title = et_point_title.getText().toString().trim();
         String content = et_point_content.getHtml().toString().trim();
+//        Log.i(TAG,"--------content---"+content);
         if(judgeDate(title,content)){
             add_article(event_id,title,content);
         }
@@ -110,7 +112,8 @@ public class AddPointActivity extends BaseActivity {
                     return;
                 }
                 et_point_content.insertImage(((UpFileDAO) response).getSrc(),
-                        "dachshund");
+                        "Img");
+
             }
         });
     }

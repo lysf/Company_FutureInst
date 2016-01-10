@@ -1,26 +1,18 @@
 package com.futureinst.home.userinfo;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.json.JSONException;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
-import com.futureinst.charge.ChargeActivity;
+import com.futureinst.charge.ChargeGoodsListActivity;
 import com.futureinst.db.PushMessageCacheUtil;
-import com.futureinst.global.Content;
 import com.futureinst.home.HomeActivity;
 import com.futureinst.home.article.AritlceActivity;
 import com.futureinst.home.hold.HoldingActivity;
-import com.futureinst.login.LoginActivity;
-import com.futureinst.model.basemodel.UpFileDAO;
+import com.futureinst.home.userinfo.checkorder.UserCheckActivity;
 import com.futureinst.model.dailytask.DailyTaskInfoDAO;
 import com.futureinst.model.record.UserRecordDAO;
-import com.futureinst.model.usermodel.UserInfo;
-import com.futureinst.model.usermodel.UserInformationDAO;
-import com.futureinst.model.usermodel.UserInformationInfo;
+import com.futureinst.model.record.UserRecordInfoDAO;
 import com.futureinst.net.HttpPostParams;
 import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
@@ -32,40 +24,30 @@ import com.futureinst.personalinfo.other.PersonalRecordActivity;
 import com.futureinst.roundimageutils.RoundedImageView;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.todaytask.TodayTaskActivity;
-import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.TaskTipUtil;
 import com.futureinst.utils.TimeUtil;
-import com.futureinst.utils.Utils;
-import com.igexin.sdk.PushManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.soundcloud.android.crop.Crop;
 
-import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 public class UserInfoFragment extends BaseFragment {
     private UserRecordDAO userInformationDAO;
+    private UserRecordInfoDAO userRecordInfoDAO;
     private MyProgressDialog progressDialog;
     private SharePreferenceUtil preferenceUtil;
     private HttpPostParams httpPostParams;
@@ -86,20 +68,25 @@ public class UserInfoFragment extends BaseFragment {
     private ImageView iv_ranking;
     private ImageView iv_set;
     private ImageView iv_todayTask;
+    private ImageView iv_daily;
+
+    private Switch btn_switch;
+
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_userinfo);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
         initView();
         setClickListener();
         query_user_record();
         getMessageCount();
         isStart = true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
     }
 
     @Override
@@ -110,7 +97,8 @@ public class UserInfoFragment extends BaseFragment {
 
     @Override
     public void onResume() {
-        if (((HomeActivity) getActivity()).getCurrentTab() == 3 && getUserVisibleHint()) {
+        if (((HomeActivity) getActivity()).getCurrentTab() == 3
+                && isStart) {
             query_user_record();
             query_user_daily_task();
             getMessageCount();
@@ -131,6 +119,7 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     private void initView() {
+
         messageCacheUtil = PushMessageCacheUtil.getInstance(getContext());
         progressDialog = MyProgressDialog.getInstance(getContext());
         preferenceUtil = SharePreferenceUtil.getInstance(getContext());
@@ -150,6 +139,13 @@ public class UserInfoFragment extends BaseFragment {
         iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
         iv_set = (ImageView) findViewById(R.id.iv_set);
         iv_todayTask = (ImageView) findViewById(R.id.iv_today_task_message);
+        iv_daily = (ImageView) findViewById(R.id.iv_daily);
+        if(preferenceUtil.getDailyTaskClick()){
+            iv_daily.setVisibility(View.INVISIBLE);
+        }else{
+            iv_daily.setVisibility(View.VISIBLE);
+        }
+
 
         tableRows = new TableRow[5];
         ll_modify = (LinearLayout) findViewById(R.id.ll_modify);
@@ -184,6 +180,20 @@ public class UserInfoFragment extends BaseFragment {
         filter.addAction("modifyDescription");
         filter.addAction("newPushMessage");
         getContext().registerReceiver(receiver, filter);
+
+        btn_switch = (Switch) findViewById(R.id.btn_switch);
+        btn_switch.setChecked(preferenceUtil.getServerOnline());
+        btn_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    preferenceUtil.setServer(true);
+                }else{
+                    preferenceUtil.setServer(false);
+                }
+            }
+        });
+
     }
 
     // 初始化视图
@@ -242,7 +252,7 @@ public class UserInfoFragment extends BaseFragment {
     }
 
     private void setClickListener() {
-        tv_userName.setOnClickListener(clickListener);
+        findViewById(R.id.ll_charge).setOnClickListener(clickListener);
         iv_message.setOnClickListener(clickListener);
         iv_set.setOnClickListener(clickListener);
         tv_attend.setOnClickListener(clickListener);
@@ -268,14 +278,8 @@ public class UserInfoFragment extends BaseFragment {
                     intentName.putExtra("user", userInformationDAO.getUser());
                     startActivity(intentName);
                     break;
-                case R.id.tv_userName:// 用户名
-//				showEditName();
-//				Intent intentName = new Intent(getActivity(), PersonalNameSetActivity.class);
-//				intentName.putExtra("nickName", userInformationDAO.getUser().getName());
-//				startActivity(intentName);
-                    startActivity(new Intent(getContext(), ChargeActivity.class));
-                    break;
-                case R.id.tv_description:// 先知描述
+                case R.id.ll_charge:// 充值
+                    startActivity(new Intent(getContext(), ChargeGoodsListActivity.class));
                     break;
                 case R.id.iv_message:// 消息
                     startActivity(new Intent(getActivity(), PushMessageActivity.class));
@@ -287,8 +291,14 @@ public class UserInfoFragment extends BaseFragment {
                     startActivity(setIntent);
                     break;
                 case R.id.tableRow_todayTask://今日任务
-                    startActivity(new Intent(getActivity(), TodayTaskActivity.class));
-
+                    if(userRecordInfoDAO == null ){
+                        return;
+                    }
+                    preferenceUtil.setDailyTaskClick();
+                    iv_daily.setVisibility(View.INVISIBLE);
+                    Intent daily_intent = new Intent(getActivity(), TodayTaskActivity.class);
+                    daily_intent.putExtra("userRecordInfo",userRecordInfoDAO);
+                    startActivity(daily_intent);
                     break;
                 case R.id.tableRow0://预测中事件
                     Intent intent0 = new Intent(getActivity(), HoldingActivity.class);
@@ -349,14 +359,14 @@ public class UserInfoFragment extends BaseFragment {
                         httpPostParams.getPostParams(PostMethod.query_user_record.name(), PostType.user_info.name(),
                                 httpPostParams.query_user_record(preferenceUtil.getID() + "",
                                         preferenceUtil.getUUid())),
-                        UserInformationInfo.class, new PostCommentResponseListener() {
+                        UserRecordInfoDAO.class, new PostCommentResponseListener() {
                             @Override
                             public void requestCompleted(Object response) throws JSONException {
                                 progressDialog.cancleProgress();
                                 if (response == null)
                                     return;
-                                UserInformationInfo userInformationInfo = (UserInformationInfo) response;
-                                userInformationDAO = userInformationInfo.getUser_record();
+                                 userRecordInfoDAO = (UserRecordInfoDAO) response;
+                                userInformationDAO = userRecordInfoDAO.getUser_record();
                                 initData(userInformationDAO);
                             }
                         });

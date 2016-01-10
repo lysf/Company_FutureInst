@@ -8,6 +8,7 @@ import org.json.JSONException;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.global.Content;
+import com.futureinst.home.eventdetail.chargetip.ChargeTipUtil;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.homeeventmodel.EventBuyDAO;
 import com.futureinst.model.homeeventmodel.EventPriceDAOInfo;
@@ -232,7 +233,8 @@ public class EventBuyActivity extends BaseActivity {
 							singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
 					Log.i(TAG, "--------------------assure="+assure+"-----asset="+asset);
 					if(assure > asset){
-						MyToast.getInstance().showToast(EventBuyActivity.this, "保证金不足，无法下单", 0);
+//						MyToast.getInstance().showToast(EventBuyActivity.this, "保证金不足，无法下单", 0);
+                        ChargeTipUtil.showChargeTip(EventBuyActivity.this,ChargeTipUtil.CHARGE_TIP2);
 						return;
 					}
 					if(isBuy){
@@ -246,7 +248,7 @@ public class EventBuyActivity extends BaseActivity {
 				hideSoftInputView();
 				break;
 			case R.id.price_sub://价格 -
-				price = et_price.getText().toString();
+                price = et_price.getText().toString();
 				if(TextUtils.isEmpty(price)) return;
 				float priceSub = Float.valueOf(price);
 				if(priceSub - 0.1 > 0){
@@ -347,15 +349,11 @@ public class EventBuyActivity extends BaseActivity {
 				tv_buys_1[i].setText(String.format("%3d", buys.get(i).getNum())+"  份");
 				tv_buys_2[i].setVisibility(View.INVISIBLE);
 				tv_buys_3[i].setText(df.format(buys.get(i).getPrice()));
-//				if(buys.get(i).getNum() > 9999)
-//					tv_buys[i].setText("9999+  份  "+String.format("%.2f", buys.get(i).getPrice()));
 			}
 			for(int j = 0;j<sells.size();j++){
 				tv_sells_1[j].setText(df.format(sells.get(j).getPrice()));
 				tv_sells_2[j].setVisibility(View.INVISIBLE);
 				tv_sells_3[j].setText(String.format("%3d", sells.get(j).getNum())+"  份");
-//				if(sells.get(j).getNum() > 9999)
-//					tv_sells[j].setText(String.format("%.2f", sells.get(j).getPrice())+"  9999+  份  ");
 			}
 			
 		}
@@ -389,18 +387,11 @@ public class EventBuyActivity extends BaseActivity {
 			String configMsg = "";
 			switch (type) {//type 1-限价买进 2-市价买进 3-限价卖空 4-市价卖空
 			case 1:
-//				configMsg = "确定以" + price + "未币的价格看好" + num + "份事件（"+event.getTitle()+"）吗？";
 				configMsg = "确定以价格" + price + "，看好" + num + "份";
 				break;
-//			case 2:
-//				configMsg = "确定以市价" + "买进" + num + "份";
-//				break;
 			case 3:
 				configMsg = "确定以价格" + price + "，不看好" + num + "份";
 				break;
-//			case 4:
-//				configMsg = "确定以市价" + "卖空" + num + "份";
-//				break;
 			}
 			tv_configMsg.setText(configMsg);
 			Button btn_config = (Button) view.findViewById(R.id.btn_submit);

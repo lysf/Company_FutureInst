@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/text_color_white"
+        android:paddingBottom="@dimen/activity_login_margin_10"
+        android:paddingLeft="@dimen/margin_20"
+        android:paddingRight="@dimen/margin_20"
+        android:paddingTop="@dimen/activity_login_margin_10"
+        android:text="常规任务"
+        android:textColor="@color/text_color_4"
+        android:textSize="@dimen/text_size_large_17"/>
+
+    <com.futureinst.widget.list.MyListView
+        android:id="@+id/lv_routine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/text_color_e"
+        android:dividerHeight="@dimen/line_height"/>
+
+
+</LinearLayout>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:state_selected="true" android:drawable="@color/gain_red"/>
-    <item android:state_selected="false" android:drawable="@color/color_ed"/>
-
-</selector>
-<!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/res/drawable/btn_buy_in.xml -->

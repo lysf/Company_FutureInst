@@ -21,13 +21,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_centerInParent="true"
+        android:paddingTop="@dimen/margin_5"
+        android:paddingBottom="@dimen/margin_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/iv_forecast_top" />
+    <TextView
+        android:id="@+id/tv_sort"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:paddingLeft="@dimen/activity_login_margin_10"
+        android:paddingRight="@dimen/activity_login_margin_10"
+        android:layout_marginRight="@dimen/activity_login_margin_10"
+        android:text="筛选"
+        android:background="@drawable/ripple_shap"
+        android:textSize="@dimen/text_size_large_17"
+        android:textColor="@color/text_color_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
 
-            <ImageView
-                android:paddingTop="@dimen/margin_5"
-                android:paddingBottom="@dimen/margin_5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/iv_forecast_top" />
+
             <include
                 android:id="@+id/view_auto_viewpager"
                 android:layout_width="match_parent"

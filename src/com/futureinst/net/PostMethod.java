@@ -54,4 +54,12 @@ public enum PostMethod {
 	query_user_news,//动态
     query_user_daily_task,//查询当日任务
     get_daily_task_award,//领取当日任务奖励
+    get_test_charge,//支付
+    get_all_charge_goods,//获取可购买的商品清单
+    add_pay_order ,//添加支付订单
+    get_charge_for_pay_order ,//为支付订单获取支付凭据
+    get_pay_orders_for_user ,//获得用户的所有支付订单
+    p2p_give_exchange ,//赠送可消费未币
+    find_user ,//查找用户
+    get_award_for_new_task  ,//领取新手任务奖励
 }

@@ -31,7 +31,10 @@ import com.futureinst.widget.dragtop.AttachUtil;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -72,6 +75,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		f.setArguments(b);
 		return f;
 	}
+    private BroadcastReceiver receiver ;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -80,7 +84,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 		orders = getActivity().getResources().getStringArray(R.array.home_seond_title_order);
 	}
 
-	@Override
+    @Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.pull_listview_2);
 		initView();
@@ -91,29 +95,42 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 				ll_unlogin.setVisibility(View.VISIBLE);
 			}
 		}else if(position == 0){
-			getData(position+1+"", orders[0],page,last_id);
+			getData(position+1+"", orders[Content.order],page,last_id);
 		}else if(position == -1){
 			getData(page,last_id);
 		}else{
-			getData(position+"", orders[0],page,last_id);
+			getData(position+"", orders[Content.order],page,last_id);
 		}
 		stayTime = System.currentTimeMillis();
 		isStart = true;
+
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if(intent.getAction().equals("order")){
+                    Content.order = intent.getIntExtra("order",0);
+                    onRefresh(true);
+                }
+            }
+        };
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("order");
+        getContext().registerReceiver(receiver, filter);
 	}
 	private void initView(){
 		ll_unlogin = (LinearLayout) findViewById(R.id.ll_unLogin);
 		ll_empty = (LinearLayout) findViewById(R.id.ll_empty);
 		tv_empty = (TextView) findViewById(R.id.tv_empty);
 		btn_login = (Button) findViewById(R.id.btn_login);
-		ImageGetter imageGetter = new ImageGetter() { 
-	         @Override 
-	         public Drawable getDrawable(String source) { 
-	             int id = Integer.parseInt(source); 
-	             Drawable drawable = getResources().getDrawable(id); 
-	             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),drawable.getIntrinsicHeight()); 
-	             return drawable; 
-	         } 
-	     }; 
+		ImageGetter imageGetter = new ImageGetter() {
+	         @Override
+	         public Drawable getDrawable(String source) {
+	             int id = Integer.parseInt(source);
+	             Drawable drawable = getResources().getDrawable(id);
+	             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),drawable.getIntrinsicHeight());
+	             return drawable;
+	         }
+	     };
 	     tv_empty.append(Html.fromHtml(empty, imageGetter, null));
 		pullListView = (PullListView) findViewById(R.id.id_stickynavlayout_innerscrollview);
 		pullListView.setonRefreshListener(this);
@@ -206,13 +223,13 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 
 
 	}
-	
+
 	//获取我的关注
 		private void getMyAttention(final int page,String lastId){
 			HttpResponseUtils.getInstace(getActivity()).postJson(
 					HttpPostParams.getInstace().getPostParams(PostMethod.query_follow.name(), PostType.follow.name(),
-							HttpPostParams.getInstace().query_follow(SharePreferenceUtil.getInstance(getContext()).getID()+"", SharePreferenceUtil.getInstance(getContext()).getUUid(),page,lastId)), 
-					AttentionInfoDAO.class, 
+							HttpPostParams.getInstace().query_follow(SharePreferenceUtil.getInstance(getContext()).getID()+"", SharePreferenceUtil.getInstance(getContext()).getUUid(),page,lastId)),
+					AttentionInfoDAO.class,
 					new PostCommentResponseListener() {
 				@Override
 				public void requestCompleted(Object response) throws JSONException {
@@ -220,7 +237,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 					if(response == null) return;
 					AttentionInfoDAO attentionInfoDAO = (AttentionInfoDAO) response;
 					List<QueryEventDAO> list = new ArrayList<QueryEventDAO>();
-					
+
 					if(attentionInfoDAO.getFollows()!=null && attentionInfoDAO.getFollows().size()>0){
 						last_id = attentionInfoDAO.getFollows().get(attentionInfoDAO.getFollows().size()-1).getFeid();
 					}
@@ -238,7 +255,7 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 					}else{
 						ll_empty.setVisibility(View.GONE);
 					}
-					
+
 					if(adapter.getCount() > 9){
 						pullListView.setLoadMore(true);
 					}else{
@@ -255,8 +272,8 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	 //获取事件数据
 	 private void getData(String tag,String order,final int page,String last_id){
 		 HttpResponseUtils.getInstace(getActivity()).postJson(
-				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(tag, order,page,last_id)), 
-				 QueryEventInfoDAO.class, 
+				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(tag, order,page,last_id)),
+				 QueryEventInfoDAO.class,
 				 new PostCommentResponseListener() {
 					@Override
 					public void requestCompleted(Object response) throws JSONException {
@@ -264,13 +281,13 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						if(response == null) return;
 						QueryEventInfoDAO queryEventInfoDAO = (QueryEventInfoDAO) response;
 						SystemTimeUtile.getInstance(queryEventInfoDAO.getCurr_time()).setSystemTime(queryEventInfoDAO.getCurr_time());
-						
+
 						if(page ==1){
 							adapter.refresh(queryEventInfoDAO.getEvents(),queryEventInfoDAO.getCommentMap());
 						}else{
 							adapter.setList(queryEventInfoDAO.getEvents(),queryEventInfoDAO.getCommentMap());
 						}
-						
+
 						if(adapter.getCount() > 9){
 							pullListView.setLoadMore(true);
 						}else{
@@ -284,12 +301,12 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 					}
 				});
 	 }
-	
+
 	 //查询归档事件数据
 	 private void getData(final int page,String last_id){
 		 HttpResponseUtils.getInstace(getActivity()).postJson(
-				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(page,last_id)), 
-				 FilingInfoDAO.class, 
+				 HttpPostParams.getInstace().getPostParams(PostMethod.query_event_all.name(), PostType.event.name(), HttpPostParams.getInstace().query_event(page,last_id)),
+				 FilingInfoDAO.class,
 				 new PostCommentResponseListener() {
 					 @Override
 					 public void requestCompleted(Object response) throws JSONException {
@@ -297,13 +314,13 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 						 if(response == null) return;
 						 FilingInfoDAO filingInfoDAO = (FilingInfoDAO) response;
 						 SystemTimeUtile.getInstance(filingInfoDAO.getCurr_time()).setSystemTime(filingInfoDAO.getCurr_time());
-						 
+
 						 if(page ==1){
 								adapter.refresh(filingInfoDAO.getEvents(),filingInfoDAO.getCommentMap());
 							}else{
 								adapter.setList(filingInfoDAO.getEvents(),filingInfoDAO.getCommentMap());
 							}
-						
+
 						 if(adapter.getCount() > 9){
 								pullListView.setLoadMore(true);
 							}else{
@@ -340,11 +357,11 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 				ll_unlogin.setVisibility(View.VISIBLE);
 			}
 		}else if(position == 0){
-			getData(position+1+"", orders[0],page,last_id);
+			getData(position+1+"", orders[Content.order],page,last_id);
 		}else if(position == -1){
 			getData(page,last_id);
 		}else{
-			getData(position+"", orders[0],page,last_id);
+			getData(position+"", orders[Content.order],page,last_id);
 		}
 	}
 	Handler handler = new Handler(){
@@ -394,16 +411,26 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 	@Override
 	public void onPause() {
 		super.onPause();
-	
 		flag = false;
 		handler.removeCallbacks(delayLoad);
 		
 	}
-	@Override
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+    }
+
+    @Override
 	public void onDestroy() {
 		super.onDestroy();
 		flag = false;
 		handler.removeCallbacks(delayLoad);
+        if(receiver != null){
+            getContext().unregisterReceiver(receiver);
+        }
 	}
+
 
 }

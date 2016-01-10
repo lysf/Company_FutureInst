@@ -19,6 +19,7 @@
                android:id="@+id/btn_attitude"
                android:layout_width="match_parent"
                android:text="观点"
+               style="@style/Widget.AppCompat.Button.Borderless"
                android:layout_height="@dimen/widget_height_45"
                android:textSize="@dimen/text_size_large"
                android:textColor="@drawable/text_color_fond"
@@ -38,6 +39,7 @@
             android:orientation="vertical">
             <Button 
             android:id="@+id/btn_trends"
+            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:text="动态"
             android:layout_height="@dimen/widget_height_45"
@@ -61,6 +63,7 @@
                android:id="@+id/btn_ranking"
                android:layout_width="match_parent"
                android:layout_height="@dimen/widget_height_45"
+               style="@style/Widget.AppCompat.Button.Borderless"
                android:textSize="@dimen/text_size_large"
                android:textColor="@drawable/text_color_fond"
                android:background="@color/text_color_white"

@@ -45,8 +45,9 @@ public class IndexFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if(index == images.length-1){
-                    startActivity(new Intent(getContext(), HomeActivity.class));
+                    startActivity(new Intent(getContext(), PrimaryActivity.class));
                     getActivity().finish();
+                    return;
                 }
             }
         });

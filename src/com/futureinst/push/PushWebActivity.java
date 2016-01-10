@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.CookieManager;
@@ -27,7 +28,7 @@ import android.widget.ProgressBar;
 public class PushWebActivity extends BaseActivity {
 	private WebView webView;
 	private WebSettings webSettings;
-	private ProgressBar progressbar;
+    private SwipeRefreshLayout swipe_container;
 	private String cookie1,cookie2 ;
 	private String url ;
 	private String title;
@@ -53,9 +54,8 @@ public class PushWebActivity extends BaseActivity {
 		if(!TextUtils.isEmpty(title)){
 			setTitle(title);
 		}
-//		url = "http://yanhaowei.weifutx.com/xu_h5/hexun/index.html";
 		webView = (WebView) findViewById(R.id.webView);
-		progressbar = (ProgressBar) findViewById(R.id.progress);
+        swipe_container = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
 		cookie1 = "user_id="+preferenceUtil.getID() + HttpPath.Cookie;
 		cookie2 = "uuid="+preferenceUtil.getUUid() + HttpPath.Cookie;
 		webSettings = webView.getSettings();
@@ -67,9 +67,18 @@ public class PushWebActivity extends BaseActivity {
 		synCookies(this, url);
 		webView.loadUrl(url);
 		webView.addJavascriptInterface(new JavaScriptObject(this), "obj");
-		webView.setWebViewClient(new CustomWebViewClient(this));
 		webView.setWebChromeClient(new ChromeClient());
-	}
+        swipe_container.setColorSchemeColors(R.color.holo_blue_light,
+                R.color.holo_green_light, R.color.holo_orange_light,
+                R.color.holo_red_light);
+        swipe_container.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                webView.loadUrl(url);
+            }
+        });
+        webView.setWebViewClient(new CustomWebViewClient(this));
+    }
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -93,15 +102,15 @@ public class PushWebActivity extends BaseActivity {
 	 } 
 	class ChromeClient extends WebChromeClient{ 
         @Override 
-        public void onProgressChanged(WebView view, int newProgress) { 
+        public void onProgressChanged(WebView view, int newProgress) {
 
             //动态在标题栏显示进度条 
-        	if (newProgress == 100) {
-                progressbar.setVisibility(View.GONE);
+            if (newProgress == 100) {
+                //隐藏进度条
+                swipe_container.setRefreshing(false);
             } else {
-                if (progressbar.getVisibility() == View.GONE)
-                    progressbar.setVisibility(View.VISIBLE);
-                progressbar.setProgress(newProgress);
+                if (!swipe_container.isRefreshing())
+                    swipe_container.setRefreshing(true);
             }
             super.onProgressChanged(view, newProgress); 
 

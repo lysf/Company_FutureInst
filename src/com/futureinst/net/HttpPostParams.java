@@ -6,18 +6,29 @@ import java.util.Map;
 import org.json.JSONObject;
 
 import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
 public class HttpPostParams {
 	private static HttpPostParams httpPostParams;
     //ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi、huawei
-    private String ctype = "huawei";
+    private String ctype = "android";
 
     public static HttpPostParams getInstace(){
 		if(httpPostParams == null)
 			httpPostParams = new HttpPostParams();
 		return httpPostParams;
 	}
-	//数据交互
+
+    public String getCtype() {
+        return ctype;
+    }
+
+    public void setCtype(String ctype) {
+        this.ctype = ctype;
+    }
+
+    //数据交互
 	public Map<String, String> getPostParams(String method,String type,String json){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("method", method);
@@ -29,6 +40,7 @@ public class HttpPostParams {
 	public String add_download(){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("ctype", ctype);
+        Log.i("type", "------ctype----->><<<<<" + ctype);
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
@@ -164,8 +176,9 @@ public class HttpPostParams {
 		return jsonObject.toString();
 	}
 	//根据事件组ID查询事件
-	public String query_event(int page,String last_id,String group_id){
+	public String query_event(String order,int page,String last_id,String group_id){
 		Map<String, String> map = new HashMap<String, String>();
+		map.put("order", order);
 		map.put("group_id", group_id);
 		map.put("page", page+"");
 		map.put("last_id", last_id);
@@ -308,11 +321,12 @@ public class HttpPostParams {
 		return jsonObject.toString();
 	}
 	//对账单
-	public String query_user_check(String user_id,String uuid,int page,String last_id,String scope){
+	public String query_user_check(String user_id,String uuid,int page,String last_id,String scope,String channel){
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("uuid", uuid);
 		map.put("user_id", user_id);
 		map.put("scope", scope);//trade --consume
+		map.put("channel", channel);//筛选条件
 		map.put("page", page+"");
 		map.put("last_id", last_id);
 		JSONObject jsonObject = new JSONObject(map);
@@ -941,5 +955,128 @@ public class HttpPostParams {
         JSONObject jsonObject = new JSONObject(map);
         return jsonObject.toString();
     }
+
+    /**
+     * 获取测试用的支付凭据
+     * @param user_id
+     * @param uuid
+     * @param channel
+     * @return
+     */
+    public String get_test_charge(String user_id, String uuid,String channel){
+        Map<String, String> map = new HashMap<String, String>();
+//        map.put("user_id", user_id);
+//        map.put("uuid", uuid);
+        map.put("channel", channel);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 获取可购买的商品清单
+     * @return
+     */
+    public String get_all_charge_goods(){
+        Map<String, String> map = new HashMap<String, String>();
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 添加支付订单
+     * @param user_id
+     * @param uuid
+     * @param goods_id 商品id
+     * @return
+     */
+    public String add_pay_order(String user_id, String uuid,String goods_id){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("goods_id", goods_id);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     *为支付订单获取支付凭据
+     * @param user_id
+     * @param uuid
+     * @param channel 支付渠道
+     * @param order_no 支付订单唯一标识符，长字符串
+     * @param order_id 支付订单编号
+     * @return
+     */
+    public String get_charge_for_pay_order(String user_id, String uuid,String channel,String order_no,String order_id){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("channel", channel);
+        map.put("order_no", order_no);
+        map.put("order_id", order_id);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 获得用户的所有支付订单
+     * @param user_id
+     * @param uuid
+     * @return
+     */
+    public String get_pay_orders_for_user(String user_id, String uuid){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 赠送可消费未币
+     * @param user_id
+     * @param uuid
+     * @param to_user_id
+     * @param exchange 未币
+     * @return
+     */
+    public String p2p_give_exchange(String user_id, String uuid,String to_user_id,String exchange){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("to_user_id", to_user_id);
+        map.put("exchange", exchange);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 查找用户
+     * @param key
+     * @return
+     */
+    public String find_user(String key){
+        Map<String, String> map = new HashMap<>();
+        map.put("key", key);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 领取新手任务奖励
+     * @param user_id
+     * @param uuid
+     * @param task_name 任务名称
+     * @return
+     */
+    public String get_award_for_new_task(String user_id, String uuid,String task_name){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("task_name", task_name);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
 
 }

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/yanhuihao/AndroidStudioProjects/FutureInst/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/res/values/values.xml -->
-    <eat-comment/>
     <string name="bdp_update_action_download">立即升级</string>
     <string name="bdp_update_action_install">立即安装</string>
     <string name="bdp_update_as_action_cancel">取消</string>
