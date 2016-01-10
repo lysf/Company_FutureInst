@@ -91,73 +91,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daff0e59-b119-416a-9cd5-90a655b735f4" name="Default" comment="2015年12月19">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/buildConfig/androidTest/debug/com/futureinst/test/BuildConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/futureinst/Manifest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/design/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/cardview/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/gridlayout/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/android/support/v7/recyclerview/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/baidu/integrationsdk/lib/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/baidu/paysdk/lib/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/generated/source/r/debug/com/futureinst/R.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/manifest/tmp/manifestMerger829845316585053200.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BaiduWalletRefactorLib/build/intermediates/manifest/tmp/manifestMerger8308567878466480470.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/AboutUsActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/AboutUsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/baseui/BaseActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/baseui/BaseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/baseui/BaseApplication.java" afterPath="$PROJECT_DIR$/src/com/futureinst/baseui/BaseApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/charge/ChargeActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/charge/ChargeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/comment/CommentActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/comment/CommentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/global/Content.java" afterPath="$PROJECT_DIR$/src/com/futureinst/global/Content.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/soundcloud/android/crop/CropImageActivity.java" afterPath="$PROJECT_DIR$/src/com/soundcloud/android/crop/CropImageActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/FeedBackActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/FeedBackActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastContainerTypeFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastContainerTypeFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastGroupActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastGroupActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/model/charge/GoodsDAO.java" afterPath="$PROJECT_DIR$/src/com/futureinst/model/charge/GoodsDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/HomeActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java" afterPath="$PROJECT_DIR$/src/com/futureinst/net/HttpPath.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java" afterPath="$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/net/HttpResponseUtils.java" afterPath="$PROJECT_DIR$/src/com/futureinst/net/HttpResponseUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/utils/ImageCompressUtil.java" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/ImageCompressUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/login/LoginActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/login/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/ModifyPersoanlInfoActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/ModifyPersoanlInfoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/personalinfo/other/PersonalShowActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/personalinfo/other/PersonalShowActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/net/PostMethod.java" afterPath="$PROJECT_DIR$/src/com/futureinst/net/PostMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/find/RankingFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/find/RankingFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/sharepreference/SharePreferenceUtil.java" afterPath="$PROJECT_DIR$/src/com/futureinst/sharepreference/SharePreferenceUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/ShoopFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/ShoopFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/utils/TimeLimitUtil.java" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/TimeLimitUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/utils/TimeUtil.java" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/TimeUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserInfoFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/UserInfoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/model/record/UserRecordDAO.java" afterPath="$PROJECT_DIR$/src/com/futureinst/model/record/UserRecordDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/utils/ViewHolder.java" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/ViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/WelcomeDialog.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/WelcomeDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_about_us.xml" afterPath="$PROJECT_DIR$/res/layout/activity_about_us.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_charge.xml" afterPath="$PROJECT_DIR$/res/layout/activity_charge.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_personal_show.xml" afterPath="$PROJECT_DIR$/res/layout/activity_personal_show.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/arrays.xml" afterPath="$PROJECT_DIR$/res/values/arrays.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/bottom_userinfo.xml" afterPath="$PROJECT_DIR$/res/layout/bottom_userinfo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/colors.xml" afterPath="$PROJECT_DIR$/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/fragment_forecast.xml" afterPath="$PROJECT_DIR$/res/layout/fragment_forecast.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/fragment_home_ranking.xml" afterPath="$PROJECT_DIR$/res/layout/fragment_home_ranking.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/fragment_userinfo.xml" afterPath="$PROJECT_DIR$/res/layout/fragment_userinfo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_comment_title.xml" afterPath="$PROJECT_DIR$/res/layout/layout_comment_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_person_show.xml" afterPath="$PROJECT_DIR$/res/layout/layout_person_show.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/middle_userinfo.xml" afterPath="$PROJECT_DIR$/res/layout/middle_userinfo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/send_text_color.xml" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/drawable/send_text_color.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/styles.xml" afterPath="$PROJECT_DIR$/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/view_comment_type_popwindow.xml" afterPath="$PROJECT_DIR$/res/layout/view_comment_type_popwindow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/view_diaolog_welcom.xml" afterPath="$PROJECT_DIR$/res/layout/view_diaolog_welcom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FutureInst.iws" />
@@ -192,18 +125,7 @@
     <favorites_list name="FutureInst" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AddPointActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/futureinst/comment/AddPointActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35620052">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -3630,7 +3552,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452418540745</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="2015年12月19">
+      <created>1452418986379</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1452418986379</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3660,7 +3588,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3044925" sideWeight="0.49394855" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.62286687" sideWeight="0.5333839" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26096824" sideWeight="0.5255973" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32279533" sideWeight="0.45612708" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32279533" sideWeight="0.45612708" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32935154" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
