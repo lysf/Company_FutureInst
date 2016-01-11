@@ -223,7 +223,7 @@ public class TodayTaskActivity extends BaseActivity {
                         int [] location_from = new int[2];
                         child_from.getLocationInWindow(location_from);
                         TranslateAnimationUtil.slideView(child_from, 0f, 0f, 0f, (routineAdapter.getCount() - 1 - position) * item_height,
-                                1000, 200, new TranslateAnimationUtil.OnAnimationFinished() {
+                                800, 20, new TranslateAnimationUtil.OnAnimationFinished() {
                                     @Override
                                     public void onAnimationFinished() {
                                         routineAdapter.removeView(position);
@@ -259,7 +259,7 @@ public class TodayTaskActivity extends BaseActivity {
                         int [] location_from = new int[2];
                         child_from.getLocationInWindow(location_from);
                         TranslateAnimationUtil.slideView(child_from, 0f, 0f, 0f, (noviceAdapter.getCount() - 1 - position) * item_height,
-                                1000, 200, new TranslateAnimationUtil.OnAnimationFinished() {
+                                800, 20, new TranslateAnimationUtil.OnAnimationFinished() {
                                     @Override
                                     public void onAnimationFinished() {
                                         noviceAdapter.removeView(position);
