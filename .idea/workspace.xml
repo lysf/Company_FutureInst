@@ -92,23 +92,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="daff0e59-b119-416a-9cd5-90a655b735f4" name="Default" comment="2016年1月7日18:40:19">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/android_api_3.6.9.3.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/android_api_3.6.9.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/android_api_3.6.9.3.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/android_api_3.6.9.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/android_api_3.6.9.3.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/android_api_3.6.9.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/patchupdate.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/patchupdate.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/patchupdate.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FutureInst.iml" afterPath="$PROJECT_DIR$/FutureInst.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FutureInst.iws" />
@@ -147,8 +132,8 @@
       <file leaf-file-name="BaseApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/futureinst/baseui/BaseApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.11310592">
-              <caret line="91" column="53" selection-start-line="91" selection-start-column="53" selection-end-line="91" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.4901257">
+              <caret line="106" column="57" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -6387,6 +6372,27 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Production">
           <PATH>
@@ -6663,27 +6669,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -7613,8 +7598,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/baseui/BaseApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11310592">
-          <caret line="91" column="53" selection-start-line="91" selection-start-column="53" selection-end-line="91" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.4901257">
+          <caret line="106" column="57" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
           <folding />
         </state>
       </provider>
