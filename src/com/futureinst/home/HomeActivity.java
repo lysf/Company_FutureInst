@@ -231,7 +231,7 @@ public class HomeActivity extends BaseActivity {
 				//初始化推送
 				query_user_record();
                 query_user_daily_task();
-                    PushManager.getInstance().initialize(this.getApplicationContext());
+                    PushManager.getInstance().initialize(this);
                 isUpdate = true;
 
 			}
@@ -403,9 +403,9 @@ public class HomeActivity extends BaseActivity {
 		button2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Log.i(TAG, "path : ");
 				dialog.dismiss();
 				// 下载新版本
+//                showToast("新版本正在后台下载...");
 						Intent intent = new Intent(HomeActivity.this, UpdateService.class);
 						intent.putExtra("url", url);
 						startService(intent);
@@ -453,8 +453,10 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-
-		PushManager.getInstance().stopService(this.getApplicationContext());
+        if(isUpdate){
+            PushManager.getInstance().stopService(this.getApplicationContext());
+            isUpdate = false;
+        }
 		SystemTimeUtile.getInstance(0L).setFlag(false);
 		if (receiver != null)
 			unregisterReceiver(receiver);
@@ -464,10 +466,8 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void finish() {
-        isUpdate = false;
         super.finish();
     }
-
     class FragmentActivityTabAdapter implements OnClickListener {
 		private List<Fragment> fragments; // 一个tab页面对应一个Fragment
 		private View[] btns; // 用于切换tab

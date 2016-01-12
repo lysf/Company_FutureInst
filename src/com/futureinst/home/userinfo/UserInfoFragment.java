@@ -219,9 +219,11 @@ public class UserInfoFragment extends BaseFragment {
         tv_useableSaleIcon.setText(String.format("%.2f", userInfo.getExchange()));
         tv_ranking.setText(userInfo.getRank() + "");
         if (userInfo.getLastRank() > userInfo.getRank()) {
-            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_down));
+            iv_ranking.setImageResource(R.drawable.iv_down);
+//            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_down));
         } else if (userInfo.getLastRank() < userInfo.getRank()) {
-            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_up));
+            iv_ranking.setImageResource(R.drawable.iv_up);
+//            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_up));
         } else {
             iv_ranking.setVisibility(View.INVISIBLE);
         }

@@ -110,7 +110,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private LazyBagFragment lazyBagFragment;
     private RefrenceFragment refrenceFragment;
 
-    private SingleEventClearDAO singleEventClearDAO;
+    private SingleEventClearDAO singleEventClearDAO = new SingleEventClearDAO(0,0,0,0);
     private boolean isAttention;
     private EventPriceDAOInfo priceDAOInfo;
     private String event_id;
@@ -609,7 +609,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 case R.id.iv_refresh:
                     progressDialog.progressDialog();
                     attitude = 0;
-                    ChargeTipUtil.showChargeTip(EventDetailActivity.this,ChargeTipUtil.CHARGE_TIP1);
                     getPrice();
                     if (preferenceUtil.getID() > 0) {
                         query_single_event_clear();
@@ -1158,6 +1157,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         btn_config.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 float assure = CalculateAssureUtil.calculateNeedAssure(attitude, 10, Float.valueOf(price), singleEventClearDAO.getBuyNum(), singleEventClearDAO.getBuyPrice(),
                         singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
                 if(assure > preferenceUtil.getAsset()){
