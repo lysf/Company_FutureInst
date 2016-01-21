@@ -67,16 +67,13 @@
                 android:id="@+id/bottom"
                 layout="@layout/forecast_bottom"
                 android:visibility="gone"/>
-            <!--评论-->
-            <include
-                android:id="@+id/view_comment"
-                layout="@layout/event_detail_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_20"/>
+
             <!--观点-->
             <include
+                android:layout_marginTop="@dimen/margin_20"
                 android:id="@+id/view_point_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 layout="@layout/event_detail_5"/>
             <!--相关新闻-->
             <include
@@ -88,7 +85,16 @@
                 layout="@layout/event_detail_7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="70dp"/>
+                />
+            <!--评论-->
+            <include
+                android:id="@+id/view_comment"
+                android:layout_marginTop="@dimen/margin_20"
+                layout="@layout/event_detail_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="42dp"
+                />
         </LinearLayout>
     </com.futureinst.widget.PullLayout>
     <!--浮动评论-->

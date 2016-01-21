@@ -45,9 +45,10 @@ public class ContactFragment extends BaseFragment {
         ll_feed.setOnClickListener(onClickListener);
 
         tv_contact_qq.setOnClickListener(onClickListener);
-        tv_contact_wechat.setOnClickListener(onClickListener);
         tv_contact_qq.setOnLongClickListener(onLongClickListener);
-        tv_contact_wechat.setOnLongClickListener(onLongClickListener);
+
+//        tv_contact_wechat.setOnClickListener(onClickListener);
+//        tv_contact_wechat.setOnLongClickListener(onLongClickListener);
 
     }
     View.OnLongClickListener onLongClickListener = new View.OnLongClickListener() {
@@ -57,11 +58,11 @@ public class ContactFragment extends BaseFragment {
                 case R.id.tv_contact_qq:
                     Utils.copyText(getActivity(), QQ);
                     MyToast.getInstance().showToast(getActivity(), "QQ群号已复制到粘贴板", 1);
-                    break;
+                    return true;
                 case R.id.tv_contact_wechat:
                     Utils.copyText(getActivity(), WECHAT);
                     MyToast.getInstance().showToast(getActivity(), "微信号已复制到粘贴板", 1);
-                    break;
+                    return true;
             }
             return false;
         }

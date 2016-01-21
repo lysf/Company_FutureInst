@@ -21,9 +21,7 @@ import android.widget.TextView;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.home.HomeActivity;
-import com.futureinst.model.record.RecordDAO;
 import com.futureinst.model.record.UserRecordDAO;
-import com.futureinst.model.record.UserRecordInfoDAO;
 import com.futureinst.model.record.UserSearchInfo;
 import com.futureinst.model.usermodel.RankDAO;
 import com.futureinst.model.usermodel.RankInfo;
@@ -45,6 +43,7 @@ import com.futureinst.widget.IconSlidingTabView;
 import com.futureinst.widget.clearedittext.ClearEditText;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
+import com.futureinst.widget.IconMonthAndDayView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -70,6 +69,12 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
     private SearchAdapter searchAdapter;
     private ImageView iv_search;
     private ClearEditText et_user_search;
+
+    private LinearLayout ll_month_day_ranking,ll_ranking_month_day;
+    private ListView lv_month_day_ranking;
+    private RankingMonthAndDayAdapter rankingMonthAndDayAdapter;
+    private IconMonthAndDayView icon_month_day;
+    private TextView tv_month_day;
 
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
@@ -188,10 +193,40 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
                     intent.putExtra("id", item.getUserId() + "");
                     startActivity(intent);
                 }
-
             }
         });
 
+        icon_month_day = (IconMonthAndDayView) findViewById(R.id.icon_month_day);
+        tv_month_day = (TextView) findViewById(R.id.tv_month_day);
+        ll_ranking_month_day = (LinearLayout) findViewById(R.id.ll_ranking_month_day);
+        ll_month_day_ranking = (LinearLayout) findViewById(R.id.ll_month_day_ranking);
+        lv_month_day_ranking = (ListView) findViewById(R.id.lv_month_day_ranking);
+        rankingMonthAndDayAdapter = new RankingMonthAndDayAdapter(getContext());
+        lv_month_day_ranking.setAdapter(rankingMonthAndDayAdapter);
+        ll_ranking_month_day.setOnClickListener(onClickListener);
+        ll_month_day_ranking.setOnClickListener(onClickListener);
+
+        lv_month_day_ranking.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String item = (String) rankingMonthAndDayAdapter.getItem(i);
+                String[] type = item.split("-");
+                tv_month_day.setText(type[0]);
+                icon_month_day.setText(type[1]);
+                ll_month_day_ranking.setVisibility(View.GONE);
+                rankingMonthAndDayAdapter.setIndex(i);
+//                if (i == 0) {
+//                    index = i;
+//                    get_rank();
+//                    query_user_record();
+//                } else {
+//                    index = i + 1;
+//                    get_tag_rank(index);
+//                    query_user_record(index);
+//                }
+//                pullListView.setSelection(1);
+            }
+        });
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -199,6 +234,7 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.ll_ranking_type:
+                    ll_month_day_ranking.setVisibility(View.GONE);
                     if (ll_type.getVisibility() == View.VISIBLE) {
                         ll_type.setVisibility(View.GONE);
                     } else {
@@ -207,6 +243,17 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
                     break;
                 case R.id.ll_type:
                     ll_type.setVisibility(View.GONE);
+                    break;
+                case R.id.ll_ranking_month_day:
+                    ll_type.setVisibility(View.GONE);
+                    if (ll_month_day_ranking.getVisibility() == View.VISIBLE) {
+                        ll_month_day_ranking.setVisibility(View.GONE);
+                    } else {
+                        ll_month_day_ranking.setVisibility(View.VISIBLE);
+                    }
+                    break;
+                case R.id.ll_month_day_ranking:
+                    ll_month_day_ranking.setVisibility(View.GONE);
                     break;
                 case R.id.iv_search://查找用户
                     String key = et_user_search.getText().toString().trim();

@@ -4,9 +4,12 @@ package com.futureinst.home.userinfo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.widget.TableRow;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,7 @@ import com.futureinst.comment.CommentActivity;
 import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.home.find.NewsUtil;
 import com.futureinst.home.forecast.ForecastGroupActivity;
 import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.homeeventmodel.SingleEventInfoDAO;
@@ -32,12 +36,13 @@ import com.futureinst.push.PushWebActivity;
 import com.futureinst.widget.list.PullListView;
 
 public class PushMessageActivity extends BaseActivity {
-	private PullListView pullListView;
+	private ListView lv_pushmessage;
 	private PushMessageAdapter adapter;
 	private List<PushMessageDAO> list;
 	private PushMessageCacheUtil messageCacheUtil;
 	private boolean push;
 	private PushMessageDAO pushMessageDAO;
+    private TableRow[] tableRows;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_push_message);
@@ -52,63 +57,88 @@ public class PushMessageActivity extends BaseActivity {
 		finish();
 	}
 	private void initView() {
+        View view_top_message = LayoutInflater.from(this).inflate(R.layout.view_top_pushmessage, null);
 		push = getIntent().getBooleanExtra("push", false);
 		pushMessageDAO = (PushMessageDAO) getIntent().getSerializableExtra("pushMessage");
 		messageCacheUtil = PushMessageCacheUtil.getInstance(this);
-		list = new ArrayList<PushMessageDAO>();
+		list = new ArrayList<>();
 		list = messageCacheUtil.getPushMessage();
 //			Log.i(TAG, "-----------pushMessageInfo-->>"+list);
-		pullListView = (PullListView) findViewById(R.id.pull_listView);
-		pullListView.setRefresh(false);
-		pullListView.setLoadMore(false);
-		adapter = new PushMessageAdapter(this);
-		pullListView.setAdapter(adapter);
-			adapter.setList(list);
-		pullListView.setOnItemClickListener(new OnItemClickListener() {
+		lv_pushmessage = (ListView) findViewById(R.id.lv_pushmessage);
+        lv_pushmessage.addHeaderView(view_top_message);
+        adapter = new PushMessageAdapter(this);
+        lv_pushmessage.setAdapter(adapter);
+        adapter.setList(list);
+		lv_pushmessage.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				PushMessageDAO item = (PushMessageDAO) adapter.getItem(position-1);
-				list.get(position-1).setRead(true);
-				itemClick(item);
+                if(position > 0){
+                    PushMessageDAO item = (PushMessageDAO) adapter.getItem(position-1);
+                    list.get(position-1).setRead(true);
+                    itemClick(item);
+                }
 			}
 		});
 		if(push){
 			itemClick(pushMessageDAO);
 		}
+
+        tableRows = new TableRow[3];
+        tableRows[0] = (TableRow) findViewById(R.id.tableRow_acount);
+        tableRows[1] = (TableRow) findViewById(R.id.tableRow_fans);
+        tableRows[2] = (TableRow) findViewById(R.id.tableRow_comment);
+        tableRows[0].setOnClickListener(onClickListener);
+        tableRows[1].setOnClickListener(onClickListener);
+        tableRows[2].setOnClickListener(onClickListener);
 	}
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.tableRow_acount://账户
+
+                    break;
+                case R.id.tableRow_fans://粉丝
+
+                    break;
+                case R.id.tableRow_comment://赞与评论
+
+                    break;
+            }
+        }
+    };
+
 	//点击事件
 	public void itemClick(PushMessageDAO item){
 		if(item.getType() == null){//专题或广告
 			if(item.getEvent_id()!=null){
 				query_single_event(item.getEvent_id());
-				adapter.notifyDataSetChanged();
 			}
 		}
 		else{
 			if(item.getType().equals("event")
                     || item.getType().equals("deal") ){//事件详情
 				Intent intent = new Intent(PushMessageActivity.this, EventDetailActivity.class);
-				intent.putExtra("eventId",item.getEvent_id()+"");
+				intent.putExtra("eventId", item.getEvent_id() + "");
 				startActivity(intent);
-				adapter.notifyDataSetChanged();
 			}else if(item.getType().equals("comment")){//评论
 				Intent intent = new Intent(PushMessageActivity.this, CommentActivity.class);
-				intent.putExtra("eventId",item.getEvent_id()+"");
+				intent.putExtra("eventId", item.getEvent_id() + "");
 				startActivity(intent);
-				adapter.notifyDataSetChanged();
 			}
 			else if(item.getType().equals("rank")){//排名
 				Intent intent = new Intent("rank");
 				sendBroadcast(intent);
 				finish();
-				adapter.notifyDataSetChanged();
 			}
 			else if(item.getType().equals("url")){//打开指定网页
-				Intent intent = new Intent(PushMessageActivity.this, PushWebActivity.class);
-				intent.putExtra("url", item.getHref());
-				intent.putExtra("title", "");
-				startActivity(intent);
-				adapter.notifyDataSetChanged();
+                NewsUtil newsUtil = new NewsUtil();
+                if(!newsUtil.clickListener(this,item.getHref())){
+                    Intent intent = new Intent(PushMessageActivity.this, PushWebActivity.class);
+                    intent.putExtra("url", item.getHref());
+                    intent.putExtra("title", "");
+                    startActivity(intent);
+                }
 			}
 			else if(item.getType().equals("follow_me")){//关注通知
 				Intent intent = new Intent(PushMessageActivity.this,PersonalShowActivity.class);
@@ -117,12 +147,12 @@ public class PushMessageActivity extends BaseActivity {
 			}else {
                 if(item.getEvent_id()!=null){//事件详情页
                     Intent intent = new Intent(PushMessageActivity.this, EventDetailActivity.class);
-                    intent.putExtra("eventId",item.getEvent_id()+"");
+                    intent.putExtra("eventId", item.getEvent_id() + "");
                     startActivity(intent);
-                    adapter.notifyDataSetChanged();
                 }
             }
 		}
+        adapter.notifyDataSetChanged();
 	}
 	
 	private void query_single_event(String event_id){
@@ -153,11 +183,13 @@ public class PushMessageActivity extends BaseActivity {
 			intent.putExtra("title", item.getTitle());
 			startActivity(intent);
 		}else if(item.getType() == 2){//广告
-			Intent intent = new Intent(this, PushWebActivity.class);
-			Log.i("", "=======================广告=>>");
-			intent.putExtra("url", item.getLead());
-			intent.putExtra("title", item.getTitle());
-			startActivity(intent);
+            NewsUtil newsUtil = new NewsUtil();
+            if(!newsUtil.clickListener(this,item.getLead())){
+                Intent intent = new Intent(this, PushWebActivity.class);
+                intent.putExtra("url", item.getLead());
+                intent.putExtra("title", item.getTitle());
+                startActivity(intent);
+            }
 		}else{
 			//预测
 			Intent intent = new Intent(this, EventDetailActivity.class);

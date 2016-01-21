@@ -22,6 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -110,7 +111,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private LazyBagFragment lazyBagFragment;
     private RefrenceFragment refrenceFragment;
 
-    private SingleEventClearDAO singleEventClearDAO = new SingleEventClearDAO(0,0,0,0);
+    private SingleEventClearDAO singleEventClearDAO = new SingleEventClearDAO(0, 0, 0, 0);
     private boolean isAttention;
     private EventPriceDAOInfo priceDAOInfo;
     private String event_id;
@@ -359,6 +360,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         commentAdapter = new CommentDetailAdapter(this);
         lv_comment.setAdapter(commentAdapter);
         lv_comment.setEmptyView(view_empty);
+
         commentAdapter.setOperateListener(new CommentDetailAdapter.PraiseOperateListener() {
             @Override
             public void onClickListener(String com_id, String operate) {
@@ -445,7 +447,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     }
 
 
-
     //init float
     private void initFloatView() {
         view_comment = findViewById(R.id.view_comment);
@@ -505,13 +506,13 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     //单个事件的账单
     private void initSingleEvent(SingleEventInfoDAO singleEventInfo) {
         if (attitude != 0) {//有下单，看是否提示
-            if(preferenceUtil.getAsset() < 200){//未币小于200，提示充值
-                ChargeTipUtil.showChargeTip(EventDetailActivity.this,ChargeTipUtil.CHARGE_TIP1);
-            }else{
-                OrderTip.orderTip(EventDetailActivity.this,event,singleEventInfo.getUser().getComment(), share_award,attitude);
+            if (preferenceUtil.getAsset() < 200) {//未币小于200，提示充值
+                ChargeTipUtil.showChargeTip(EventDetailActivity.this, ChargeTipUtil.CHARGE_TIP1);
+            } else {
+                OrderTip.orderTip(EventDetailActivity.this, event, singleEventInfo.getUser().getComment(), share_award, attitude);
             }
         }
-       final SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
+        final SingleEventClearDAO item = singleEventInfo.getUser().getEvent_clear();
         singleEventClearDAO = item;
         if (item.getBuyNum() == 0 && item.getSellNum() == 0) {
             view_single_event.setVisibility(View.GONE);
@@ -551,17 +552,16 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         iv_share_order.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(item.getSellNum() > 0 && item.getBuyNum() > 0){//提示选择
+                if (item.getSellNum() > 0 && item.getBuyNum() > 0) {//提示选择
                     ShareCommentDialog.showShareCheckDialog(EventDetailActivity.this, event, share_award);
-                }else if(item.getSellNum() > 0){//不看好
-                    ShareCommentDialog.showShareCommentDialog(EventDetailActivity.this,3,event,share_award);
-                }else if(item.getBuyNum() > 0){//看好
-                    ShareCommentDialog.showShareCommentDialog(EventDetailActivity.this,1,event,share_award);
+                } else if (item.getSellNum() > 0) {//不看好
+                    ShareCommentDialog.showShareCommentDialog(EventDetailActivity.this, 3, event, share_award);
+                } else if (item.getBuyNum() > 0) {//看好
+                    ShareCommentDialog.showShareCommentDialog(EventDetailActivity.this, 1, event, share_award);
                 }
             }
         });
     }
-
 
 
     //初始化懒人包和相关新闻
@@ -1016,17 +1016,24 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         int[] location_lazyBag = new int[2];
         int screenHeight = Utils.getScreenHeight(EventDetailActivity.this);
         int statutsHeight = Utils.getStatusHeight(this);
-        int location =  + Utils.dip2px(this, 48);
+        int location = +Utils.dip2px(this, 48);
 
         view_comment.getLocationOnScreen(location_comment);
         view_point_layout.getLocationOnScreen(location_point);
         view_reference_layout.getLocationOnScreen(location_refrence);
         view_lazyBag_layout.getLocationOnScreen(location_lazyBag);
 
-        if (location_comment[1] < screenHeight) {
+        if (location_point[1] < screenHeight) {
             view_comment_float.setVisibility(View.VISIBLE);
         } else {
             view_comment_float.setVisibility(View.GONE);
+        }
+
+        int scrollY = scroll.getScrollY();
+        int height = scroll.getHeight();
+        int scrollViewMeasuredHeight = scroll.getChildAt(0).getMeasuredHeight();
+        if ((scrollY + height) == scrollViewMeasuredHeight) {
+//            showToast("加载更多评论...");
         }
 
     }
@@ -1106,10 +1113,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 for (EventSellDAO sellDAO : priceDAOInfo.getSells()) {
                     number += sellDAO.getNum();
                     if (number < 10) {
-                        assert_price += sellDAO.getPrice()*sellDAO.getNum();
-                    }else{
-                        assert_price += sellDAO.getPrice()*(10 - (number - sellDAO.getNum()));
-                        price = String.valueOf(assert_price/10);
+                        assert_price += sellDAO.getPrice() * sellDAO.getNum();
+                    } else {
+                        assert_price += sellDAO.getPrice() * (10 - (number - sellDAO.getNum()));
+                        price = String.valueOf(assert_price / 10);
                         return price;
                     }
                 }
@@ -1118,10 +1125,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 for (EventBuyDAO buyDAO : priceDAOInfo.getBuys()) {
                     number += buyDAO.getNum();
                     if (number < 10) {
-                        assert_price += buyDAO.getPrice()*buyDAO.getNum();
-                    }else{
-                        assert_price += buyDAO.getPrice()*(10 - (number - buyDAO.getNum()));
-                        price = String.valueOf(assert_price/10);
+                        assert_price += buyDAO.getPrice() * buyDAO.getNum();
+                    } else {
+                        assert_price += buyDAO.getPrice() * (10 - (number - buyDAO.getNum()));
+                        price = String.valueOf(assert_price / 10);
                         return price;
                     }
                 }
@@ -1136,7 +1143,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
         TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
         String configMsg = "";
-       final  boolean attitude = type == 1 ? true : false;
+        final boolean attitude = type == 1 ? true : false;
         switch (type) {//type 1-限价买进 2-市价买进 3-限价卖空 4-市价卖空
             case 1:
                 configMsg = "确定看好";
@@ -1160,9 +1167,9 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
 
                 float assure = CalculateAssureUtil.calculateNeedAssure(attitude, 10, Float.valueOf(price), singleEventClearDAO.getBuyNum(), singleEventClearDAO.getBuyPrice(),
                         singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
-                if(assure > preferenceUtil.getAsset()){
-                    ChargeTipUtil.showChargeTip(EventDetailActivity.this,ChargeTipUtil.CHARGE_TIP2);
-                }else{
+                if (assure > preferenceUtil.getAsset()) {
+                    ChargeTipUtil.showChargeTip(EventDetailActivity.this, ChargeTipUtil.CHARGE_TIP2);
+                } else {
                     addOrder(type, price, 10);
                 }
                 dialog.cancel();

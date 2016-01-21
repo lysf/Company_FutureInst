@@ -46,13 +46,10 @@ public class ShoopFragment extends BaseFragment {
 		cookie2 = "uuid="+preferenceUtil.getUUid() + HttpPath.Cookie;
         synCookies(getContext(), url);
 		webSettings = webView.getSettings();
-		webSettings.setAppCacheEnabled(false);
 //		webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 		webSettings.setUseWideViewPort(true);
-		webSettings.setBuiltInZoomControls(false);
 		webSettings.setJavaScriptEnabled(true);
 		webView.addJavascriptInterface(new JavaScriptObject(getContext()), "obj");
-		webSettings.setLoadWithOverviewMode(true);
 		webView.loadUrl(url);
 
 		webView.setWebChromeClient(new ChromeClient());

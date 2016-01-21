@@ -21,6 +21,7 @@
             android:textSize="@dimen/text_size_large" />
 
         <RelativeLayout
+            android:visibility="gone"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/activity_login_margin_10"
             android:layout_width="@dimen/widget_height_45"
