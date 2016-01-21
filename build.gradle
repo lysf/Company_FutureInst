@@ -65,6 +65,9 @@ android {
         // 友盟多渠道打包
         // ctype: android、yingyongbao、360、xiaomi、wandoujia、baidu、anzhi、huawei
         productFlavors {
+            server {
+                manifestPlaceholders = [UMENG_CHANNEL_VALUE: "android"]
+            }
             yingyongbao {
                 manifestPlaceholders = [UMENG_CHANNEL_VALUE: "yingyongbao"]
             }

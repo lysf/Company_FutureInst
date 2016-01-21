@@ -61,11 +61,9 @@ public class UpdateService extends Service {
 			// 创建文件
 			updateNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             builder = new Notification.Builder(this)
-                    .setSmallIcon(R.drawable.logo)
+                    .setSmallIcon(R.drawable.future_icon)
                     .setContentTitle("正在下载" + appName)
                     .setContentText("正在更新" + appName)
-                    .setDefaults(Notification.DEFAULT_ALL)
-                    .setDefaults(Notification.DEFAULT_ALL)
                     .setAutoCancel(true)
                     .setContentIntent(pendingIntent)
                     .setWhen(System.currentTimeMillis());

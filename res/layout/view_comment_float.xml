@@ -3,16 +3,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/status_bar"
-                android:paddingBottom="@dimen/margin_5"
                 android:paddingLeft="@dimen/margin_20"
                 android:paddingRight="@dimen/margin_20"
-                android:paddingTop="@dimen/margin_5">
+                android:minHeight="@dimen/widget_height_40"
+
+    >
 
     <Button
         android:id="@+id/btn_comment_float"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ripple_shap_gray_to_white"
+        android:background="@null"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:drawableLeft="@drawable/comment_edit_float"
         android:text=" 写评论"
         android:textColor="@color/text_color_4"
@@ -25,7 +27,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:background="@drawable/ripple_shap_gray_to_white"
+        android:background="@null"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:drawableLeft="@drawable/comment_float"
         android:gravity="left|center"
         android:minWidth="50dp"

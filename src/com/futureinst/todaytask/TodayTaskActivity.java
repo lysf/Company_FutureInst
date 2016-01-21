@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TodayTaskActivity extends BaseActivity {
-    private UserRecordInfoDAO userRecordInfoDAO;
+//    private UserRecordInfoDAO userRecordInfoDAO;
     private LinearLayout ll_top,ll_bottom;
 
     private View view_novice_task,view_routine_task;
@@ -54,7 +54,7 @@ public class TodayTaskActivity extends BaseActivity {
     }
 
     private void initView() {
-        userRecordInfoDAO = (UserRecordInfoDAO) getIntent().getSerializableExtra("userRecordInfo");
+//        userRecordInfoDAO = (UserRecordInfoDAO) getIntent().getSerializableExtra("userRecordInfo");
         ll_top = (LinearLayout) findViewById(R.id.ll_top);
         ll_bottom = (LinearLayout) findViewById(R.id.ll_bottom);
         view_novice_task = LayoutInflater.from(this).inflate(R.layout.view_novice_task,null);

@@ -37,7 +37,7 @@
         <item >新奇-&#xe636;</item>
     </string-array>
     <string-array name="ranking_icon_title">
-        <item >总榜-&#xe641;</item>
+        <item >综合-&#xe641;</item>
         <item >体育-&#xe62f;</item>
         <item >财经-&#xe630;</item>
         <item >娱乐-&#xe631;</item>
@@ -46,6 +46,11 @@
         <item >国际-&#xe634;</item>
         <item >城市-&#xe635;</item>
         <item >新奇-&#xe636;</item>
+    </string-array>
+    <string-array name="ranking_month_day_title">
+        <item>总榜-&#xe602;</item>
+        <item>月榜-&#xe600;</item>
+        <item>日榜-&#xe601;</item>
     </string-array>
     <string-array
         name="record_tag">

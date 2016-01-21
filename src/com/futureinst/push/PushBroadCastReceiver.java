@@ -68,7 +68,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 					pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
 				}
 				if(TextUtils.isEmpty(pushMessageDAO.getNo_notice())
-						|| pushMessageDAO.getNo_notice().equals("1")
+//						|| pushMessageDAO.getNo_notice().equals("1")
 						|| !Utils.isBackground(context.getApplicationContext())){
                     //不发通知提示
                 }else{
@@ -104,7 +104,10 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			 * Log.d("GetuiSdkDemo", "timestamp = " + timestamp);
 			 */
 			break;
-		default:
+            case PushConsts.GET_SDKSERVICEPID:
+
+                break;
+            default:
 			break;
 		}
 	}
