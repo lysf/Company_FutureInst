@@ -129,14 +129,13 @@
 
         <TextView
             android:id="@+id/tv_contact_wechat"
-            android:background="@drawable/item_select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/activity_login_margin_10"
             android:paddingLeft="@dimen/margin_20"
             android:paddingRight="@dimen/margin_20"
             android:paddingTop="@dimen/activity_login_margin_10"
-            android:text="微信公共账号：未来研究所Futureinst（微信号：futureinstitute）"
+            android:text="微信用户群：关注微信公众号“鸭先知”(微信号: futureinst)，回复“用户群”，扫码加入即可"
             android:textColor="@color/text_color_4"
             android:textSize="@dimen/text_size_normal"/>
 

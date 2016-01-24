@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.futureinst"
           xmlns:android="http://schemas.android.com/apk/res/android"
-          android:versionCode="19"
-          android:versionName="2.2">
+          android:versionCode="20"
+          android:versionName="2.2.1">
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -96,7 +96,7 @@
             android:name=".home.userinfo.AboutUsActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".home.userinfo.PushMessageActivity"
+            android:name=".home.pushmessage.PushMessageActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity
@@ -210,6 +210,10 @@
             />
         <activity
             android:name=".personalinfo.other.TransferAccountActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".home.pushmessage.PushMessageClassifyActivity"
             android:screenOrientation="portrait"
             />
 

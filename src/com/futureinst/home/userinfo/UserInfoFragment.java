@@ -54,10 +54,11 @@ public class UserInfoFragment extends BaseFragment {
     private HttpResponseUtils httpResponseUtils;
     private RoundedImageView iv_headImag;
     private TextView tv_userName, tv_description;
-    private TextView tv_message_count;
-    private ImageView iv_message;
+
+
+
     private TableRow[] tableRows;
-    private PushMessageCacheUtil messageCacheUtil;
+
     private TextView tv_useableIcon, tv_depositCash, tv_useableSaleIcon, tv_ranking, tv_attend, tv_attention;
     private boolean isStart;
     private TextView  tv_order;
@@ -79,7 +80,7 @@ public class UserInfoFragment extends BaseFragment {
         initView();
         setClickListener();
         query_user_record();
-        getMessageCount();
+
         isStart = true;
     }
 
@@ -101,26 +102,15 @@ public class UserInfoFragment extends BaseFragment {
                 && isStart) {
             query_user_record();
             query_user_daily_task();
-            getMessageCount();
         }
         super.onResume();
     }
 
-    // 获取未读消息数量
-    private void getMessageCount() {
-        int count = messageCacheUtil.getUnReadMessage();
-        if (count > 0) {
-            tv_message_count.setText(count + "");
-            tv_message_count.setVisibility(View.VISIBLE);
-        } else {
-            tv_message_count.setText("0");
-            tv_message_count.setVisibility(View.INVISIBLE);
-        }
-    }
+
 
     private void initView() {
 
-        messageCacheUtil = PushMessageCacheUtil.getInstance(getContext());
+
         progressDialog = MyProgressDialog.getInstance(getContext());
         preferenceUtil = SharePreferenceUtil.getInstance(getContext());
         httpResponseUtils = HttpResponseUtils.getInstace(getActivity());
@@ -128,12 +118,12 @@ public class UserInfoFragment extends BaseFragment {
         userInformationDAO = new UserRecordDAO();
         tv_userName = (TextView) findViewById(R.id.tv_userName);
         tv_description = (TextView) findViewById(R.id.tv_description);
-        tv_message_count = (TextView) findViewById(R.id.tv_message_count);
+
         tv_useableSaleIcon = (TextView) findViewById(R.id.tv_useableSaleIcon);
         tv_attention = (TextView) findViewById(R.id.tv_attention);
         tv_attend = (TextView) findViewById(R.id.tv_attend);
         tv_order = (TextView) findViewById(R.id.tv_order);
-        iv_message = (ImageView) findViewById(R.id.iv_message);
+
         iv_headImag = (RoundedImageView) findViewById(R.id.iv_headImg);
         tv_follow_add = (TextView) findViewById(R.id.tv_follow_add);
         iv_ranking = (ImageView) findViewById(R.id.iv_ranking);
@@ -170,15 +160,12 @@ public class UserInfoFragment extends BaseFragment {
                 } else if (action.equals("modifyDescription")) {
                     String value = intent.getStringExtra("value");
                     tv_description.setText(value);
-                } else if (action.equals("newPushMessage")) {
-                    getMessageCount();
                 }
             }
         };
         IntentFilter filter = new IntentFilter();
         filter.addAction("modifyName");
         filter.addAction("modifyDescription");
-        filter.addAction("newPushMessage");
         getContext().registerReceiver(receiver, filter);
 
         btn_switch = (Switch) findViewById(R.id.btn_switch);
@@ -219,9 +206,11 @@ public class UserInfoFragment extends BaseFragment {
         tv_useableSaleIcon.setText(String.format("%.2f", userInfo.getExchange()));
         tv_ranking.setText(userInfo.getRank() + "");
         if (userInfo.getLastRank() > userInfo.getRank()) {
-            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_down));
+            iv_ranking.setImageResource(R.drawable.iv_down);
+//            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_down));
         } else if (userInfo.getLastRank() < userInfo.getRank()) {
-            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_up));
+            iv_ranking.setImageResource(R.drawable.iv_up);
+//            iv_ranking.setImageDrawable(getResources().getDrawable(R.drawable.iv_up));
         } else {
             iv_ranking.setVisibility(View.INVISIBLE);
         }
@@ -253,7 +242,7 @@ public class UserInfoFragment extends BaseFragment {
 
     private void setClickListener() {
         findViewById(R.id.ll_charge).setOnClickListener(clickListener);
-        iv_message.setOnClickListener(clickListener);
+
         iv_set.setOnClickListener(clickListener);
         tv_attend.setOnClickListener(clickListener);
         tv_attention.setOnClickListener(clickListener);
@@ -281,10 +270,10 @@ public class UserInfoFragment extends BaseFragment {
                 case R.id.ll_charge:// 充值
                     startActivity(new Intent(getContext(), ChargeGoodsListActivity.class));
                     break;
-                case R.id.iv_message:// 消息
-                    startActivity(new Intent(getActivity(), PushMessageActivity.class));
-                    tv_message_count.setVisibility(View.INVISIBLE);
-                    break;
+//                case R.id.iv_message:// 消息
+//                    startActivity(new Intent(getActivity(), PushMessageActivity.class));
+//                    tv_message_count.setVisibility(View.INVISIBLE);
+//                    break;
                 case R.id.iv_set://设置
                     Intent setIntent = new Intent(getActivity(),HomeSetActivity.class);
                     setIntent.putExtra("userInfo",userInformationDAO);

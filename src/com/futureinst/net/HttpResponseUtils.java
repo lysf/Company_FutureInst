@@ -222,7 +222,6 @@ public class HttpResponseUtils {
 			@Override
 			public void onResponse(String response) {
 				if (!TextUtils.isEmpty(response)) {
-					Log.i("charge", "----------charge-->>" + response);
 					BaseModel baseModel = GsonUtils.json2Bean(response,
 							BaseModel.class);
 					int status = baseModel.getStatus();

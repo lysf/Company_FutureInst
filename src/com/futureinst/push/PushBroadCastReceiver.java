@@ -15,7 +15,6 @@ import org.json.JSONException;
 import com.futureinst.R;
 import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.home.HomeActivity;
-import com.futureinst.home.userinfo.PushMessageActivity;
 import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.model.usermodel.UserInfo;
 import com.futureinst.net.GsonUtils;
@@ -25,7 +24,6 @@ import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.sharepreference.SharePreferenceUtil;
-import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.Utils;
 import com.igexin.sdk.PushConsts;
 import com.igexin.sdk.PushManager;
@@ -68,7 +66,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 					pushMessageDAO = new PushMessageDAO(taskid, data, false,System.currentTimeMillis());
 				}
 				if(TextUtils.isEmpty(pushMessageDAO.getNo_notice())
-						|| pushMessageDAO.getNo_notice().equals("1")
+//						|| pushMessageDAO.getNo_notice().equals("1")
 						|| !Utils.isBackground(context.getApplicationContext())){
                     //不发通知提示
                 }else{
@@ -104,7 +102,10 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 			 * Log.d("GetuiSdkDemo", "timestamp = " + timestamp);
 			 */
 			break;
-		default:
+            case PushConsts.GET_SDKSERVICEPID:
+
+                break;
+            default:
 			break;
 		}
 	}
@@ -113,7 +114,7 @@ public class PushBroadCastReceiver extends BroadcastReceiver {
 	private void setNotify(Context context,PushMessageDAO pushMessageDAO){
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		Intent notifyIntent = new Intent(context, HomeActivity.class);
-        notifyIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		notifyIntent.putExtra("push", true);
 		notifyIntent.putExtra("pushMessage", pushMessageDAO);
 		PendingIntent appIntent = PendingIntent.getActivity(context, 0,

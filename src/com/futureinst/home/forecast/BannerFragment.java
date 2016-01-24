@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.futureinst.R;
+import com.futureinst.home.find.NewsUtil;
 import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.push.PushWebActivity;
 import com.futureinst.utils.ImageLoadOptions;
@@ -70,10 +71,13 @@ public class BannerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(TextUtils.isEmpty(queryEvent.getLead())) return;
-                Intent intent = new Intent(getActivity(), PushWebActivity.class);
-                intent.putExtra("url", queryEvent.getLead());
-                intent.putExtra("title", queryEvent.getTitle());
-                startActivity(intent);
+                NewsUtil newsUtil = new NewsUtil();
+                if(!newsUtil.clickListener(getContext(),queryEvent.getLead())){
+                    Intent intent = new Intent(getActivity(), PushWebActivity.class);
+                    intent.putExtra("url", queryEvent.getLead());
+                    intent.putExtra("title", queryEvent.getTitle());
+                    startActivity(intent);
+                }
             }
         });
         return root;

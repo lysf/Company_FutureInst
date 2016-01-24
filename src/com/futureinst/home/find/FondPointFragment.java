@@ -115,7 +115,6 @@ public class FondPointFragment extends BaseFragment implements PullListView.OnRe
     }
     private void initTop(){
 
-
         iv_event = (ImageView)view_top.findViewById(R.id.iv_event);
         iv_article_top = (ImageView)view_top.findViewById(R.id.iv_article_top);
         tv_event_type = (TextView)view_top.findViewById(R.id.tv_event_type);

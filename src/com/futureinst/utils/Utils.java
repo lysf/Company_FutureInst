@@ -386,7 +386,7 @@ public class Utils {
                 return appProcess.importance == RunningAppProcessInfo.IMPORTANCE_BACKGROUND;
             }
         }
-        return true;
+        return false;
     }
 
     /**
