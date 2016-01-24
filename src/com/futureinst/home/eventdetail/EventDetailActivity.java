@@ -1158,8 +1158,12 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         btn_config.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                float assure = CalculateAssureUtil.calculateNeedAssure(attitude, 10, Float.valueOf(price), singleEventClearDAO.getBuyNum(), singleEventClearDAO.getBuyPrice(),
-                        singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
+                if(singleEventClearDAO == null){
+                    singleEventClearDAO = new SingleEventClearDAO(0,0,0,0);
+                }
+                    float assure  = CalculateAssureUtil.calculateNeedAssure(attitude, 10, Float.valueOf(price), singleEventClearDAO.getBuyNum(), singleEventClearDAO.getBuyPrice(),
+                            singleEventClearDAO.getSellNum(), singleEventClearDAO.getSellPrice());
+
                 if(assure > preferenceUtil.getAsset()){
                     ChargeTipUtil.showChargeTip(EventDetailActivity.this,ChargeTipUtil.CHARGE_TIP2);
                 }else{
