@@ -13,7 +13,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -25,7 +24,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -40,7 +38,7 @@ import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.global.Content;
 import com.futureinst.home.forecast.ForecastFragment;
 import com.futureinst.home.find.FondFragment;
-import com.futureinst.home.userinfo.PushMessageActivity;
+import com.futureinst.home.pushmessage.PushMessageActivity;
 import com.futureinst.home.userinfo.UserInfoFragment;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
@@ -51,14 +49,10 @@ import com.futureinst.model.version.VersionDAO;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
-import com.futureinst.newbieguide.GuideClickInterface;
-import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.service.UpdateDialogShow;
 import com.futureinst.service.UpdateService;
 import com.futureinst.utils.ActivityManagerUtil;
 import com.futureinst.utils.BadgeUtil;
-import com.futureinst.utils.LoginUtil;
-import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TaskTipUtil;
 import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
@@ -123,7 +117,7 @@ public class HomeActivity extends BaseActivity {
 
         if(getIntent().getBooleanExtra("push",false)
                 && (!TextUtils.isEmpty(preferenceUtil.getUUid()))){
-            activityAdapter.setFragmentShow(3);
+//            activityAdapter.setFragmentShow(3);
             final Intent intent = new Intent(this, PushMessageActivity.class);
             intent.putExtra("push",true);
             PushMessageDAO pushMessageDAO = (PushMessageDAO) getIntent().getSerializableExtra("pushMessage");
@@ -245,7 +239,7 @@ public class HomeActivity extends BaseActivity {
 						PostMethod.query_user_record.name(),
 						PostType.user_info.name(),
 						httpPostParams.query_user_record(preferenceUtil.getID()
-								+ "", preferenceUtil.getUUid())),
+                                + "", preferenceUtil.getUUid())),
 				UserInformationInfo.class, new PostCommentResponseListener() {
 					@Override
 					public void requestCompleted(Object response)
@@ -319,24 +313,27 @@ public class HomeActivity extends BaseActivity {
 		versionInfo = versionDAO;
 		preferenceUtil.setADTime(current);
 		ImageLoader.getInstance().displayImage(versionDAO.getLoad_ad_image(), iv_ad,
-				new ImageLoadingListener() {
-					@Override
-					public void onLoadingStarted(String imageUri, View view) {
-					}
-					@Override
-					public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+                new ImageLoadingListener() {
+                    @Override
+                    public void onLoadingStarted(String imageUri, View view) {
+                    }
+
+                    @Override
+                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
 //						rl_ad.setVisibility(View.GONE);
-					}
-					@Override
-					public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-						rl_ad.setVisibility(View.VISIBLE);
-					}
-					@Override
-					public void onLoadingCancelled(String imageUri, View view) {
-						rl_ad.setVisibility(View.GONE);
-						
-					}
-				});
+                    }
+
+                    @Override
+                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                        rl_ad.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onLoadingCancelled(String imageUri, View view) {
+                        rl_ad.setVisibility(View.GONE);
+
+                    }
+                });
 	}
 	//获取版本信息
 	private void get_android_version(){
@@ -581,4 +578,5 @@ public class HomeActivity extends BaseActivity {
 		}
 
 	}
+
 }
