@@ -153,8 +153,10 @@ public class EventBuyActivity extends BaseActivity {
 		tableRow4 = (TableRow) findViewById(R.id.tableRow4);
 		tableRow4.setVisibility(View.GONE);
 		et_price.setText(String.format("%.2f", event.getCurrPrice()));
-		et_num.setText(number+"");
-		if(isBuy){
+        et_price.setSelection(et_price.getText().toString().trim().length());
+		et_num.setText(number + "");
+        et_num.setSelection(et_num.getText().toString().trim().length());
+        if(isBuy){
 			submit.setText("确认看多");
 			submit.setBackground(getResources().getDrawable(R.drawable.btn_detail_buy_back));
 			tv_tip.setText(getResources().getString(R.string.buy_tip_buy));
@@ -171,12 +173,14 @@ public class EventBuyActivity extends BaseActivity {
 				if(!TextUtils.isEmpty(s)){
 					if(!Utils.checkIsNumber(s.subSequence(0, 1).toString())){
 						et_price.setText(String.format("%.1f", event.getCurrPrice()));
+                        et_price.setSelection(et_price.getText().toString().trim().length());
 						return;
 					}
 					float price = Float.valueOf(s.toString());
-					if(price > 99.9){
+					if(price >= 100){
 						MyToast.getInstance().showToast(EventBuyActivity.this, "价格超限", 0);
 						et_price.setText(String.format("%.1f", event.getCurrPrice()));
+                        et_price.setSelection(et_price.getText().toString().trim().length());
 						return;
 					}
 				}
@@ -195,12 +199,14 @@ public class EventBuyActivity extends BaseActivity {
 					if(!Utils.checkIsNumber(s.subSequence(0, 1).toString()) || s.subSequence(0, 1).toString().equals("0")){
 						MyToast.getInstance().showToast(EventBuyActivity.this, "件数不能为0", 0);
 						et_num.setText("1");
-						return;
+                        et_num.setSelection(et_num.getText().toString().trim().length());
+                        return;
 					}
 					int number = Integer.valueOf(s.toString());
 					if(number > 100){
 						MyToast.getInstance().getInstance().showToast(EventBuyActivity.this, "件数超限", 0);
 						et_num.setText("10");
+                        et_num.setSelection(et_num.getText().toString().trim().length());
 						return;
 					}
 				}

@@ -4,7 +4,7 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.db.PushMessageCacheUtil;
 import com.futureinst.home.HomeActivity;
-import com.futureinst.home.userinfo.PushMessageActivity;
+import com.futureinst.home.pushmessage.PushMessageActivity;
 import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.homeeventmodel.QueryEventInfoDAO;
 import com.futureinst.net.HttpPostParams;
@@ -12,6 +12,7 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.utils.LoginUtil;
 import com.futureinst.utils.Utils;
 import com.futureinst.viewpagerindicator.CirclePageIndicator;
 import com.futureinst.widget.CustomViewPager;
@@ -146,8 +147,10 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
                     }
                     break;
                 case R.id.iv_message:
-                    startActivity(new Intent(getActivity(), PushMessageActivity.class));
-                    tv_message_count.setVisibility(View.INVISIBLE);
+                    if(LoginUtil.judgeIsLogin(getActivity())){
+                        startActivity(new Intent(getActivity(), PushMessageActivity.class));
+                        tv_message_count.setVisibility(View.INVISIBLE);
+                    }
                     break;
             }
         }
@@ -205,7 +208,9 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
     public void onResume() {
         if (((HomeActivity) getActivity()).getCurrentTab() == 0
                 && isStart) {
+
             getMessageCount();
+
             if(bannerAdapter!=null){
                 autoScrollViewPager.startAutoScroll();
             }
