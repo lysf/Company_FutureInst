@@ -165,7 +165,7 @@ public class HomeActivity extends BaseActivity {
 		
 		
 		views = new View[4];
-		fragments = new ArrayList<Fragment>(); 
+		fragments = new ArrayList<>();
 //		ll_home_tab = (LinearLayout) findViewById(R.id.ll_home_table);
 //		tv_messageCount = (TextView) findViewById(R.id.tv_message_count);
         iv_message_tip = (ImageView)findViewById(R.id.iv_message_tip);

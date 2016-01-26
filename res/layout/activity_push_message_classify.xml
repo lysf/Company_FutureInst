@@ -10,5 +10,14 @@
         android:dividerHeight="0dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/view_empty"
+        android:visibility="gone"
+        android:textSize="@dimen/text_size_normal"
+        android:gravity="center"
+        android:textColor="@color/text_color_6"
+        android:text="暂无消息"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

@@ -62,4 +62,5 @@ public enum PostMethod {
     p2p_give_exchange ,//赠送可消费未币
     find_user ,//查找用户
     get_award_for_new_task  ,//领取新手任务奖励
+    get_period_rank,//月日排行
 }

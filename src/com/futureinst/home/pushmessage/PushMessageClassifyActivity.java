@@ -2,6 +2,7 @@ package com.futureinst.home.pushmessage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -38,6 +39,7 @@ public class PushMessageClassifyActivity extends BaseActivity {
     private PushMessageClassifyAdapter adapter;
     private List<PushMessageDAO> list;
     private PushMessageCacheUtil messageCacheUtil;
+
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_push_message_classify);
@@ -47,41 +49,55 @@ public class PushMessageClassifyActivity extends BaseActivity {
 
     private void initView() {
         type = getIntent().getIntExtra("type",0);
-        switch (type){
-            case 0:
-                setTitle("账户通知");
-                break;
-            case 1:
-                setTitle("粉丝通知");
-                break;
-            case 2:
-                setTitle("赞与评论通知");
-                break;
-        }
-
         lv_push_message_classify = (ListView) findViewById(R.id.lv_push_message_classify);
         list = new ArrayList<>();
         adapter = new PushMessageClassifyAdapter(this);
         lv_push_message_classify.setAdapter(adapter);
         messageCacheUtil = PushMessageCacheUtil.getInstance(this);
-        list = messageCacheUtil.getPushMessage();
+        switch (type){
+            case 0:
+                setTitle("账户通知");
+                list = messageCacheUtil.getPushMessage(Category.account.name());
+                messageCacheUtil.updateMesaage(Category.account.name());
+                break;
+            case 1:
+                setTitle("粉丝通知");
+                list = messageCacheUtil.getPushMessage(Category.fans.name());
+                messageCacheUtil.updateMesaage(Category.fans.name());
+                break;
+            case 2:
+                setTitle("赞与评论通知");
+                list = messageCacheUtil.getPushMessage(Category.interact.name());
+                messageCacheUtil.updateMesaage(Category.interact.name());
+                break;
+        }
+        Log.i(TAG, "-----------pushMessageInfo-->>" + list);
         adapter.setList(list);
         lv_push_message_classify.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position > 0) {
-                    PushMessageDAO item = (PushMessageDAO) adapter.getItem(position - 1);
-                    list.get(position - 1).setRead(true);
-                    itemClick(item);
-                }
+                PushMessageDAO item = (PushMessageDAO) adapter.getItem(position);
+                list.get(position).setRead(true);
+                itemClick(item);
             }
         });
+        View view_empty = findViewById(R.id.view_empty);
+        lv_push_message_classify.setEmptyView(view_empty);
         
     }
 
     //点击事件
     public void itemClick(PushMessageDAO item){
-        if(item.getType() == null){//专题或广告
+        if(item.getTarget_url() != null && !item.getTarget_url().equals("")){
+            NewsUtil newsUtil = new NewsUtil();
+            if(!newsUtil.clickListener(this,item.getTarget_url())){
+                Intent intent = new Intent(PushMessageClassifyActivity.this, PushWebActivity.class);
+                intent.putExtra("url", item.getTarget_url());
+                intent.putExtra("title", "");
+                startActivity(intent);
+            }
+        }
+        else if(item.getType() == null){//专题或广告
             if(item.getEvent_id()!=null){
                 query_single_event(item.getEvent_id());
             }
