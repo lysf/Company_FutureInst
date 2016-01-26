@@ -72,28 +72,28 @@ public class RankingAdapter extends BaseAdapter {
 			RoundedImageView iv_headImg = ViewHolder.get(convertView, R.id.iv_headImg);
 
 
-			if(follows !=null && follows.contains(item.getUser_id()+"")){
+			if(follows !=null && follows.contains(item.getUserId()+"")){
 				iv_relation.setImageDrawable(context.getResources().getDrawable(R.drawable.relat_2));
-			}else if(friends != null && friends.contains(item.getUser_id()+"")){
+			}else if(friends != null && friends.contains(item.getUserId()+"")){
 				iv_relation.setImageDrawable(context.getResources().getDrawable(R.drawable.relat_3));
 			}else{
 				iv_relation.setImageDrawable(context.getResources().getDrawable(R.drawable.relat_1));
 			}
 
-			if(iv_headImg.getTag() == null || !iv_headImg.getTag().equals(item.getUser_head_image())){
-				ImageLoader.getInstance().displayImage(item.getUser_head_image(), iv_headImg, ImageLoadOptions.getOptions(R.drawable.logo));
-				iv_headImg.setTag(item.getUser_head_image());
+			if(iv_headImg.getTag() == null || !iv_headImg.getTag().equals(item.getUser().getHeadImage())){
+				ImageLoader.getInstance().displayImage(item.getUser().getHeadImage(), iv_headImg, ImageLoadOptions.getOptions(R.drawable.logo));
+				iv_headImg.setTag(item.getUser().getHeadImage());
 			}
-			if(TextUtils.isEmpty(item.getName())){
+			if(TextUtils.isEmpty(item.getUser().getName())){
 				tv_userName.setText("佚名");
 			}else{
-				tv_userName.setText(item.getName());
+				tv_userName.setText(item.getUser().getName());
 			}
 			tv_prophet.setText(String.format("%.3f",item.getForeIndexNew()));
-			tv_ranking.setText(item.getCurrRank()+"  ");
-			if(item.getCurrRank() < item.getLastRank()){
+			tv_ranking.setText(item.getRank()+"  ");
+			if(item.getRank() < item.getLastRank()){
 				iv_ranking.setImageDrawable(context.getResources().getDrawable(R.drawable.iv_up));
-			}else if(item.getCurrRank() > item.getLastRank()){
+			}else if(item.getRank() > item.getLastRank()){
 				iv_ranking.setImageDrawable(context.getResources().getDrawable(R.drawable.iv_down));
 			}else{
 				iv_ranking.setImageDrawable(context.getResources().getDrawable(R.drawable.ranking_balance_2));

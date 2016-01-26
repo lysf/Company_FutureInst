@@ -31,6 +31,7 @@ import com.futureinst.R;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.comment.CommentDeleteDialogUtil;
 import com.futureinst.home.eventdetail.EventDetailActivity;
+import com.futureinst.home.eventdetail.statistics.Stats;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.comment.CommentDAO;
@@ -55,6 +56,7 @@ import com.futureinst.utils.Utils;
 import com.futureinst.widget.list.MyListView;
 import com.futureinst.widget.scrollview.OverScrollView;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.umeng.analytics.MobclickAgent;
 
 import org.json.JSONException;
 
@@ -362,6 +364,7 @@ public class ArticleDetailActivity extends BaseActivity implements OverScrollVie
                     break;
                 case R.id.btn_event_detail_in://进入事件详情页
                     if(articleDetail == null) return;
+                    MobclickAgent.onEvent(ArticleDetailActivity.this, Stats.check_event.name());
                     Intent intent = new Intent(ArticleDetailActivity.this, EventDetailActivity.class);
                     intent.putExtra("eventId",articleDetail.getArticle().getEvent().getId()+"");
                     startActivity(intent);

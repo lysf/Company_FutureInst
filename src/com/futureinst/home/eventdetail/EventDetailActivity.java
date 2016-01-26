@@ -46,11 +46,13 @@ import com.futureinst.home.eventdetail.eventdetailabout.EventPointAdapter;
 import com.futureinst.home.eventdetail.eventdetailabout.EventRuleDialog;
 import com.futureinst.home.eventdetail.eventdetailabout.OrderTip;
 import com.futureinst.home.eventdetail.eventdetailabout.ShareCommentDialog;
+import com.futureinst.home.eventdetail.statistics.Stats;
 import com.futureinst.home.find.ArticleDetailActivity;
 import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
 import com.futureinst.model.comment.ArticleDAO;
 import com.futureinst.model.comment.CommentDAO;
+import com.futureinst.model.comment.CommentInfoDAO;
 import com.futureinst.model.homeeventmodel.CommentAndArticleInfoDAO;
 import com.futureinst.model.homeeventmodel.EventBuyDAO;
 import com.futureinst.model.homeeventmodel.EventPriceDAOInfo;
@@ -86,10 +88,12 @@ import com.futureinst.utils.lottery.LotteryUtil;
 import com.futureinst.widget.CustomView_Image_Text;
 import com.futureinst.widget.PullLayout;
 import com.futureinst.widget.list.MyListView;
+import com.futureinst.widget.list.MyLoadingListView;
 import com.futureinst.widget.scrollview.MyScrollView;
 import com.futureinst.widget.scrollview.PullScrollView;
 import com.futureinst.widget.waterwave.CustomDraw;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.umeng.analytics.MobclickAgent;
 
 import org.json.JSONException;
 
@@ -126,7 +130,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     //评论
     private CommentDAO comment;
     private CustomView_Image_Text view_comment_total;
-    private MyListView lv_comment;
+    private MyLoadingListView lv_comment;
     private TextView view_empty;
     private CommentDetailAdapter commentAdapter;
 
@@ -170,6 +174,8 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private int attitude = 0;//下单后提示评论(1:看好 3：不看好)
 
     private boolean timeIsStart, isDestroy;
+    //是否查看评论或下单统计
+    private boolean checkComment, checkOrder;
 
 
     private Handler handler = new Handler() {
@@ -190,6 +196,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     break;
                 case 3:
                     getCommentAndArticle();
+                    getComment(event_id);
                     break;
             }
         }
@@ -226,6 +233,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         super.onResume();
         getEvetnRealted();
         getCommentAndArticle();
+        getComment(event_id);
 //        handler.postDelayed(new Runnable() {
 //            @Override
 //            public void run() {
@@ -243,7 +251,8 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                if (intent.getAction().equals("priceClear")) {
+                if (intent.getAction().equals("priceClear")) {//交易成功
+                    checkOrder = true;
                     attitude = intent.getIntExtra("attitude", 0);
                     progressDialog.progressDialog();
                     handler.postDelayed(new Runnable() {
@@ -256,6 +265,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     }, 1000);
                 } else if (intent.getAction().equals("praise")) {
                     getCommentAndArticle();
+                    getComment(event_id);
                 }
             }
         };
@@ -353,13 +363,14 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         btn_send = (Button) findViewById(R.id.btn_send);
         commentDeleteDialogUtil = CommentDeleteDialogUtil.newInstance();
 
-        lv_comment = (MyListView) findViewById(R.id.lv_comment);
+        lv_comment = (MyLoadingListView) findViewById(R.id.lv_comment);
         view_empty = (TextView) findViewById(R.id.view_empty);
         view_comment_total = (CustomView_Image_Text) findViewById(R.id.view_comment_total);
         view_comment_total.setOnClickListener(clickListener);
         commentAdapter = new CommentDetailAdapter(this);
         lv_comment.setAdapter(commentAdapter);
         lv_comment.setEmptyView(view_empty);
+        view_empty.setOnClickListener(clickListener);
 
         commentAdapter.setOperateListener(new CommentDetailAdapter.PraiseOperateListener() {
             @Override
@@ -627,6 +638,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     commentDetailIntent.putExtra("eventId", event_id);
                     startActivity(commentDetailIntent);
                     break;
+                case R.id.view_empty:
                 case R.id.btn_comment_float://添加评论
                     if (LoginUtil.judgeIsLogin(EventDetailActivity.this)) {
                         Intent intent = new Intent(EventDetailActivity.this, AddCommentActivity.class);
@@ -997,16 +1009,6 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         isPriceRefresh = false;
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        unregisterReceiver(receiver);
-        progressDialog.cancleProgress();
-        timeIsStart = false;
-        isPriceRefresh = false;
-        isDestroy = true;
-        System.gc();
-    }
 
     @Override
     public void onScrollChanged(int x, int y, int oldx, int oldy) {
@@ -1014,6 +1016,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         int[] location_point = new int[2];
         int[] location_refrence = new int[2];
         int[] location_lazyBag = new int[2];
+        int[] location_comment_listview = new int[2];
         int screenHeight = Utils.getScreenHeight(EventDetailActivity.this);
         int statutsHeight = Utils.getStatusHeight(this);
         int location = +Utils.dip2px(this, 48);
@@ -1022,6 +1025,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         view_point_layout.getLocationOnScreen(location_point);
         view_reference_layout.getLocationOnScreen(location_refrence);
         view_lazyBag_layout.getLocationOnScreen(location_lazyBag);
+        lv_comment.getLocationOnScreen(location_comment_listview);
 
         if (location_point[1] < screenHeight) {
             view_comment_float.setVisibility(View.VISIBLE);
@@ -1032,8 +1036,25 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         int scrollY = scroll.getScrollY();
         int height = scroll.getHeight();
         int scrollViewMeasuredHeight = scroll.getChildAt(0).getMeasuredHeight();
-        if ((scrollY + height) == scrollViewMeasuredHeight) {
-//            showToast("加载更多评论...");
+//        if ((scrollY + height) == scrollViewMeasuredHeight
+
+        if (location_comment_listview[1] + lv_comment.getHeight() <= screenHeight) {//滑到底部
+            checkComment = true;
+            if (!isLoading
+                    && (commentInfoDAO.getComments() != null
+                    && commentAdapter.getCount() < commentInfoDAO.getComments().size())) {
+                //加载更多评论
+                isLoading = true;
+                commentIndex++;
+                lv_comment.loading();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        commentAdapter.setList(getCommentList(commentInfoDAO.getComments()), commentInfoDAO.getLastChildCommentMap(), commentInfoDAO.getLoves());
+                    }
+                }, 2000);
+
+            }
         }
 
     }
@@ -1050,7 +1071,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                         if (response == null)
                             return;
                         CommentAndArticleInfoDAO eventRelatedInfo = (CommentAndArticleInfoDAO) response;
-                        commentAdapter.setList(eventRelatedInfo.getComment().getComments(), eventRelatedInfo.getComment().getLastChildCommentMap(), eventRelatedInfo.getComment().getLoves());
+
                         eventPointAdapter.setList(eventRelatedInfo.getArticle().getArticles());
                     }
                 });
@@ -1087,7 +1108,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         Content.isPull = true;
         httpResponseUtils.postJson(httpPostParams.getPostParams(
                         PostMethod.add_order.name(), PostType.order.name(),
-                        httpPostParams.add_order(preferenceUtil.getID() + "", preferenceUtil.getUUid(), type + "", price, num + "", event.getId() + "", "easy")),
+                        httpPostParams.add_order(preferenceUtil.getID() + "", preferenceUtil.getUUid(), type + "", price, num + "", event.getId() + "", "simple")),
                 BaseModel.class,
                 new PostCommentResponseListener() {
                     @Override
@@ -1201,4 +1222,80 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 });
     }
 
+    /**
+     * 获取评论
+     *
+     * @throws
+     * @Title: getComment
+     * @Description: TODO
+     * @author: huihaoyan
+     * @param: @param event_id
+     * @param: @param attitude 1 表示支持， 2 表示反对
+     * @return: void
+     */
+    private CommentInfoDAO commentInfoDAO;
+    private int commentIndex = 0;
+
+    private void getComment(String event_id) {
+        httpResponseUtils.postJson(httpPostParams.getPostParams(PostMethod.query_event_for_comment.name(), PostType.comment.name(),
+                        httpPostParams.query_event_for_comment(preferenceUtil.getID() + "", preferenceUtil.getUUid(), event_id, 0, null)),
+                CommentInfoDAO.class,
+                new PostCommentResponseListener() {
+                    @Override
+                    public void requestCompleted(Object response) throws JSONException {
+                        progressDialog.cancleProgress();
+                        if (response == null) return;
+                        commentInfoDAO = (CommentInfoDAO) response;
+                        commentAdapter.setList(getCommentList(commentInfoDAO.getComments()), commentInfoDAO.getLastChildCommentMap(), commentInfoDAO.getLoves());
+                    }
+                });
+    }
+
+    boolean isLoading = false;//是否在加载
+
+    private List<CommentDAO> getCommentList(List<CommentDAO> comments) {
+        List<CommentDAO> resultComments;
+        if (commentIndex == 0) {
+            if (comments == null || comments.size() <= 3) {
+                lv_comment.loadComplete();
+                isLoading = false;
+                return comments;
+            }
+            lv_comment.loadStart();
+            resultComments = comments.subList(0, 3);
+        } else {
+            if (commentIndex * 10 < comments.size()) {
+                resultComments = comments.subList(0, commentIndex * 10);
+                lv_comment.loadStart();
+                isLoading = false;
+            } else {
+                resultComments = comments.subList(0, comments.size());
+                lv_comment.loadComplete();
+
+                isLoading = false;
+            }
+        }
+        isLoading = false;
+        return resultComments;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (checkOrder) {//有下单
+            MobclickAgent.onEvent(this, Stats.orderY.name());
+        } else {
+            if (checkComment) {//无下单有看评论
+                MobclickAgent.onEvent(this, Stats.orderN_commentY.name());
+            } else {//无下单未看评论
+                MobclickAgent.onEvent(this, Stats.orderN_commentN.name());
+            }
+        }
+        unregisterReceiver(receiver);
+        progressDialog.cancleProgress();
+        timeIsStart = false;
+        isPriceRefresh = false;
+        isDestroy = true;
+        System.gc();
+    }
 }
