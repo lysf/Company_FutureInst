@@ -3,6 +3,7 @@ package com.futureinst.db;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.futureinst.home.pushmessage.Category;
 import com.futureinst.model.push.PushMessageDAO;
 import com.futureinst.sharepreference.SharePreferenceUtil;
 
@@ -26,12 +27,14 @@ public class PushMessageCacheUtil {
 	}
 
 	//获取数据
-		public List<PushMessageDAO> getPushMessage(){
+		public List<PushMessageDAO> getPushMessage(String category){
 			String userId = preferenceUtil.getID()+"";
-			List<PushMessageDAO> list = new ArrayList<PushMessageDAO>();
+			List<PushMessageDAO> list = new ArrayList<>();
 			
-			Cursor cursor = dbManager.querry("pushmessage", null, "userid = ?",
-					new String[] { userId }, null, null, null, null);
+//			Cursor cursor = dbManager.querry("pushmessage", null, "userid = ?",
+//					new String[] { userId }, null, null, null, null);
+			Cursor cursor = dbManager.querry("pushmessage", null, "userid = ? and category = ?",
+					new String[] { userId,category }, null, null, null, null);
 			while(cursor.moveToNext()){
 				PushMessageDAO dao = new PushMessageDAO();
 				dao.setId(cursor.getString(cursor.getColumnIndex("id")));
@@ -42,6 +45,8 @@ public class PushMessageCacheUtil {
 				dao.setHref(cursor.getString(cursor.getColumnIndex("href")));
 				dao.setType(cursor.getString(cursor.getColumnIndex("type")));
 				dao.setPeer_id(cursor.getString(cursor.getColumnIndex("peer_id")));
+                dao.setTarget_url(cursor.getString(cursor.getColumnIndex("target_url")));
+                dao.setCategory(cursor.getString(cursor.getColumnIndex("category")));
 				if(cursor.getInt(cursor.getColumnIndex("isread")) == 1){
 					dao.setRead(true);
 				}else{
@@ -65,6 +70,8 @@ public class PushMessageCacheUtil {
 			values.put("href", dao.getHref());
 			values.put("type", dao.getType());
 			values.put("peer_id", dao.getPeer_id());
+			values.put("target_url", dao.getTarget_url());
+			values.put("category", dao.getCategory());
 			if(dao.isRead()){
 				values.put("isread", 1);
 			}else{
@@ -72,19 +79,19 @@ public class PushMessageCacheUtil {
 			}
 			
 			dbManager.insertSQLite("pushmessage", null,
-					values);
+                    values);
 		}
 		//设置状态（是否已读）
-		public void updateMesaage(String id){
+		public void updateMesaage(String category){
 			String userid = preferenceUtil.getID()+"";
 			String[] whereArgs = null;
 			String whereClause = null;
-			if(id == null){
-				whereClause = "userid = ? and isread = ?";
-				whereArgs = new String[]{userid,"0"};
+			if(category == null){
+				whereClause = "userid = ? and isread = ? and category = ?";
+				whereArgs = new String[]{userid,"0", Category.sys.name()};
 			}else{
-				whereClause = "userid = ? and isread = ? and id = ?";
-				whereArgs = new String[]{userid,"0",id};
+				whereClause = "userid = ? and isread = ? and category = ?";
+				whereArgs = new String[]{userid,"0",category};
 			}
 			ContentValues values = new ContentValues();
 			values.put("isread", 1);
@@ -97,4 +104,12 @@ public class PushMessageCacheUtil {
 					new String[] { userId,"0" }, null, null, null, null);
 			return cursor.getCount();
 		}
+		//获取未读消息数量(分类)(account,表示账户类； fans 粉丝类；interact，点赞评论类；sys 系统类； )
+		public int getUnReadMessage_category(String category){
+			String userId = preferenceUtil.getID()+"";
+			Cursor cursor = dbManager.querry("pushmessage", null, "userid = ? and isread = ? and category = ?",
+					new String[] { userId,"0",category}, null, null, null, null);
+			return cursor.getCount();
+		}
+
 }

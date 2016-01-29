@@ -3,10 +3,12 @@ package com.futureinst.home.pushmessage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TableRow;
 
@@ -41,13 +43,14 @@ public class PushMessageActivity extends BaseActivity {
 	private boolean push;
 	private PushMessageDAO pushMessageDAO;
     private TableRow[] tableRows;
+    private ImageView iv_message_account,iv_message_fans,iv_message_interact;
 	@Override
 	protected void localOnCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_push_message);
 		setTitle(R.string.pushMessage);
 		getLeftImageView().setImageDrawable(getResources().getDrawable(R.drawable.back));
 		initView();
-		messageCacheUtil.updateMesaage(null);
+		messageCacheUtil.updateMesaage(Category.sys.name());
 	}
 	@Override
 	protected void onLeftImageViewClick(View view) {
@@ -60,8 +63,12 @@ public class PushMessageActivity extends BaseActivity {
 		pushMessageDAO = (PushMessageDAO) getIntent().getSerializableExtra("pushMessage");
 		messageCacheUtil = PushMessageCacheUtil.getInstance(this);
 		list = new ArrayList<>();
-		list = messageCacheUtil.getPushMessage();
-//			Log.i(TAG, "-----------pushMessageInfo-->>"+list);
+		list = messageCacheUtil.getPushMessage(Category.sys.name());
+        messageCacheUtil.updateMesaage(Category.sys.name());
+        iv_message_account = (ImageView) view_top_message.findViewById(R.id.iv_message_account);
+        iv_message_fans = (ImageView) view_top_message.findViewById(R.id.iv_message_fans);
+        iv_message_interact = (ImageView) view_top_message.findViewById(R.id.iv_message_interact);
+//			Log.i(TAG, "-----------pushMessageInfo-->>" + list);
 		lv_pushmessage = (ListView) findViewById(R.id.lv_pushmessage);
         lv_pushmessage.addHeaderView(view_top_message);
         adapter = new PushMessageAdapter(this);
@@ -89,6 +96,28 @@ public class PushMessageActivity extends BaseActivity {
         tableRows[1].setOnClickListener(onClickListener);
         tableRows[2].setOnClickListener(onClickListener);
 	}
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(messageCacheUtil.getUnReadMessage_category(Category.account.name())>0){
+            iv_message_account.setVisibility(View.VISIBLE);
+        }else{
+            iv_message_account.setVisibility(View.INVISIBLE);
+        }
+        if(messageCacheUtil.getUnReadMessage_category(Category.fans.name())>0){
+            iv_message_fans.setVisibility(View.VISIBLE);
+        }else{
+            iv_message_fans.setVisibility(View.INVISIBLE);
+        }
+        if(messageCacheUtil.getUnReadMessage_category(Category.interact.name())>0){
+            iv_message_interact.setVisibility(View.VISIBLE);
+        }else{
+            iv_message_interact.setVisibility(View.INVISIBLE);
+        }
+
+    }
+
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -110,7 +139,16 @@ public class PushMessageActivity extends BaseActivity {
 
 	//点击事件
 	public void itemClick(PushMessageDAO item){
-		if(item.getType() == null){//专题或广告
+        if(item.getTarget_url() != null && !item.getTarget_url().equals("")){
+            NewsUtil newsUtil = new NewsUtil();
+            if(!newsUtil.clickListener(this,item.getTarget_url())){
+                Intent intent = new Intent(PushMessageActivity.this, PushWebActivity.class);
+                intent.putExtra("url", item.getTarget_url());
+                intent.putExtra("title", "");
+                startActivity(intent);
+            }
+        }
+		else if(item.getType() == null){//专题或广告
 			if(item.getEvent_id()!=null){
 				query_single_event(item.getEvent_id());
 			}
@@ -200,5 +238,6 @@ public class PushMessageActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+
 	}
 }

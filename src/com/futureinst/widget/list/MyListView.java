@@ -19,7 +19,7 @@ public class MyListView extends ListView {
 		super(context, attrs);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int expandSpaec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2, MeasureSpec.AT_MOST);

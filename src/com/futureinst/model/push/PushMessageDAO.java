@@ -17,7 +17,9 @@ public class PushMessageDAO implements Serializable{
 	private String peer_id;//关注者id
 	private boolean isRead;
 	private QueryEventDAO event;
-	public PushMessageDAO() {
+    private String target_url; //表明该通知点击后应该跳转的地方;如果没有该字段，或者该字段为null或"",则支持按event_id跳到事件详情页
+    private String category ;//account,表示账户类； fans 粉丝类；interact，点赞评论类；sys 系统类；
+    public PushMessageDAO() {
 		super();
 	}
 	public PushMessageDAO(String id, String text, boolean isRead,Long time) {
@@ -27,8 +29,24 @@ public class PushMessageDAO implements Serializable{
 		this.isRead = isRead;
 		this.time = time;
 	}
-	
-	public String getPeer_id() {
+
+    public String getTarget_url() {
+        return target_url;
+    }
+
+    public void setTarget_url(String target_url) {
+        this.target_url = target_url;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getPeer_id() {
 		return peer_id;
 	}
 	public void setPeer_id(String peer_id) {
@@ -98,10 +116,23 @@ public class PushMessageDAO implements Serializable{
 	public void setRead(boolean isRead) {
 		this.isRead = isRead;
 	}
-	@Override
-	public String toString() {
-		return "PushMessageDAO [id=" + id + ", event_id=" + event_id + ", time=" + time + ", text=" + text + ", title="
-				+ title + ", href=" + href + ", type=" + type + ", isRead=" + isRead + ", event=" + event + "]";
-	}
-	
+
+    @Override
+    public String toString() {
+        return "PushMessageDAO{" +
+                "id='" + id + '\'' +
+                ", event_id='" + event_id + '\'' +
+                ", no_notice='" + no_notice + '\'' +
+                ", time=" + time +
+                ", text='" + text + '\'' +
+                ", title='" + title + '\'' +
+                ", href='" + href + '\'' +
+                ", type='" + type + '\'' +
+                ", peer_id='" + peer_id + '\'' +
+                ", isRead=" + isRead +
+                ", event=" + event +
+                ", target_url='" + target_url + '\'' +
+                ", category='" + category + '\'' +
+                '}';
+    }
 }

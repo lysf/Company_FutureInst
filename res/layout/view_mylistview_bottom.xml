@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/text_color_e"
+    android:paddingBottom="@dimen/activity_login_margin_10"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_clickLoad"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="点击加载更多数据"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="@color/text_color_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:id="@+id/ll_loading"
+        android:visibility="visible"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ProgressBar
+            android:paddingRight="@dimen/activity_login_margin_10"
+            style="@android:style/Widget.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="正在加载更多数据..."
+            android:textSize="@dimen/text_size_small"
+            android:textColor="@color/text_color_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_loadComplete"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="数据全部加载完毕"
+        android:textSize="@dimen/text_size_small"
+        android:textColor="@color/text_color_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

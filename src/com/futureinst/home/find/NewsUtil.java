@@ -38,8 +38,8 @@ public class NewsUtil {
         else if(news.contains("./event/")){//事件
             if(news.contains("/comments#")){//事件评论
                 if(news.contains("?parent_id=")){//评论详情
-                    setComment_parent_id(news.substring(news.indexOf("?parent_id=")+"?parent_id=".length()));
-                    setComment_id(news.substring(news.indexOf("/comments#") + "/comments#".length(), news.indexOf("?parent_id=")));
+                    setComment_id(news.substring(news.indexOf("?parent_id=") + "?parent_id=".length()));
+                    setComment_parent_id(news.substring(news.indexOf("/comments#") + "/comments#".length(), news.indexOf("?parent_id=")));
                     setEvent_id(news.substring(news.indexOf("./event/") + "./event/".length(), news.indexOf("/comments#")));
                     setType(4);
                     return;
@@ -56,8 +56,8 @@ public class NewsUtil {
         else if(news.contains("./article/")){//观点文章
             if(news.contains("/comments#")){//观点文章评论
                 if(news.contains("?parent_id=")){//观点文章评论详情
-                    setComment_parent_id(news.substring(news.indexOf("?parent_id=")+"?parent_id=".length()));
-                    setComment_id(news.substring(news.indexOf("/comments#") + "/comments#".length(), news.indexOf("?parent_id=")));
+                    setComment_id(news.substring(news.indexOf("?parent_id=")+"?parent_id=".length()));
+                    setComment_parent_id(news.substring(news.indexOf("/comments#") + "/comments#".length(), news.indexOf("?parent_id=")));
                     setArticle_id(news.substring(news.indexOf("./article/") + "./article/".length(), news.indexOf("/comments#")));
                     setType(7);
                     return;

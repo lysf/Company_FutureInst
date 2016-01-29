@@ -35,15 +35,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="right"
+                android:gravity="right|center"
                 >
-                <TextView
+                <ImageView
+                    android:id="@+id/iv_message_account"
+                    android:layout_marginRight="@dimen/activity_login_margin_10"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="@dimen/text_size_normal"
-                    android:textColor="@color/text_color_3"
-                    />
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/message_point" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -77,15 +76,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="right"
+                android:gravity="right|center"
                 >
-                <TextView
+                <ImageView
+                    android:id="@+id/iv_message_fans"
+                    android:layout_marginRight="@dimen/activity_login_margin_10"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="@dimen/text_size_normal"
-                    android:textColor="@color/text_color_3"
-                    />
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/message_point" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,15 +118,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="right"
+                android:gravity="right|center"
                 >
-                <TextView
+                <ImageView
+                    android:id="@+id/iv_message_interact"
+                    android:layout_marginRight="@dimen/activity_login_margin_10"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:textSize="@dimen/text_size_normal"
-                    android:textColor="@color/text_color_3"
-                    />
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/message_point" />
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
