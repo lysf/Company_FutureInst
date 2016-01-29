@@ -116,58 +116,60 @@ public class IncidentAdapter extends BaseAdapter {
                 context.startActivity(intent);
             }
         });
+
         //动态点击事件
-        newsUtil.analysisNews(item.getTargetUrl());
+//        newsUtil.analysisNews(item.getTargetUrl());
         tv_indicent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ////1:用户；2：事件；3：事件评论；4：事件评论详情；5：观点；6：观点评论；7：观点评论详情
-                switch (newsUtil.getType()){
-                    case 1:
-                        if(newsUtil.getUser_id().equals(preferenceUtil.getID()+"")){
-                            ((HomeActivity)context).setTab(3);
-                            return;
-                        }else{
-                            Intent intent = new Intent(context, PersonalShowActivity.class);
-                            intent.putExtra("id", newsUtil.getUser_id());
-                            context.startActivity(intent);
-                        }
-                        break;
-                    case 2:
-                        Intent eventIntent = new Intent(context, EventDetailActivity.class);
-                        eventIntent.putExtra("eventId",newsUtil.getEvent_id());
-                        context.startActivity(eventIntent);
-                        break;
-                    case 3:
-                        Intent eventCommentIntent = new Intent(context, CommentActivity.class);
-                        eventCommentIntent.putExtra("eventId",newsUtil.getEvent_id());
-                        context.startActivity(eventCommentIntent);
-                        break;
-                    case 4:
-                        Intent eventCommentDetailIntent = new Intent(context, CommentDetailSecondActivity.class);
-                        eventCommentDetailIntent.putExtra("event_id",newsUtil.getEvent_id());
-                        eventCommentDetailIntent.putExtra("from",true);
-                        eventCommentDetailIntent.putExtra("comment_id",newsUtil.getComment_id());
-                        eventCommentDetailIntent.putExtra("parent_id",newsUtil.getComment_parent_id());
-                        context.startActivity(eventCommentDetailIntent);
-                        break;
-                    case 5:
-                    case 6:
-                        Intent articleIntent = new Intent(context, ArticleDetailActivity.class);
-                        articleIntent.putExtra("article_id", newsUtil.getArticle_id());
-                        context.startActivity(articleIntent);
-                        break;
-                    case 7:
-                        Intent articleCommentDetailIntent = new Intent(context, CommentDetailSecondActivity.class);
-                        articleCommentDetailIntent.putExtra("article_id",newsUtil.getArticle_id());
-                        articleCommentDetailIntent.putExtra("from",false);
-                        articleCommentDetailIntent.putExtra("comment_id",newsUtil.getComment_id());
-                        articleCommentDetailIntent.putExtra("parent_id",newsUtil.getComment_parent_id());
-                        context.startActivity(articleCommentDetailIntent);
-                        break;
-
-
-                }
+                newsUtil.clickListener(context,item.getTargetUrl());
+//                switch (newsUtil.getType()){
+//                    case 1:
+//                        if(newsUtil.getUser_id().equals(preferenceUtil.getID()+"")){
+//                            ((HomeActivity)context).setTab(3);
+//                            return;
+//                        }else{
+//                            Intent intent = new Intent(context, PersonalShowActivity.class);
+//                            intent.putExtra("id", newsUtil.getUser_id());
+//                            context.startActivity(intent);
+//                        }
+//                        break;
+//                    case 2:
+//                        Intent eventIntent = new Intent(context, EventDetailActivity.class);
+//                        eventIntent.putExtra("eventId",newsUtil.getEvent_id());
+//                        context.startActivity(eventIntent);
+//                        break;
+//                    case 3:
+//                        Intent eventCommentIntent = new Intent(context, CommentActivity.class);
+//                        eventCommentIntent.putExtra("eventId",newsUtil.getEvent_id());
+//                        context.startActivity(eventCommentIntent);
+//                        break;
+//                    case 4:
+//                        Intent eventCommentDetailIntent = new Intent(context, CommentDetailSecondActivity.class);
+//                        eventCommentDetailIntent.putExtra("event_id",newsUtil.getEvent_id());
+//                        eventCommentDetailIntent.putExtra("from",true);
+//                        eventCommentDetailIntent.putExtra("comment_id",newsUtil.getComment_id());
+//                        eventCommentDetailIntent.putExtra("parent_id",newsUtil.getComment_parent_id());
+//                        context.startActivity(eventCommentDetailIntent);
+//                        break;
+//                    case 5:
+//                    case 6:
+//                        Intent articleIntent = new Intent(context, ArticleDetailActivity.class);
+//                        articleIntent.putExtra("article_id", newsUtil.getArticle_id());
+//                        context.startActivity(articleIntent);
+//                        break;
+//                    case 7:
+//                        Intent articleCommentDetailIntent = new Intent(context, CommentDetailSecondActivity.class);
+//                        articleCommentDetailIntent.putExtra("article_id",newsUtil.getArticle_id());
+//                        articleCommentDetailIntent.putExtra("from",false);
+//                        articleCommentDetailIntent.putExtra("comment_id",newsUtil.getComment_id());
+//                        articleCommentDetailIntent.putExtra("parent_id",newsUtil.getComment_parent_id());
+//                        context.startActivity(articleCommentDetailIntent);
+//                        break;
+//
+//
+//                }
             }
         });
         return convertView;

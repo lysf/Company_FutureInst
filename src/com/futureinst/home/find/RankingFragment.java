@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -21,9 +22,8 @@ import android.widget.TextView;
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
 import com.futureinst.home.HomeActivity;
-import com.futureinst.model.record.RecordDAO;
+import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.model.record.UserRecordDAO;
-import com.futureinst.model.record.UserRecordInfoDAO;
 import com.futureinst.model.record.UserSearchInfo;
 import com.futureinst.model.usermodel.RankDAO;
 import com.futureinst.model.usermodel.RankInfo;
@@ -41,10 +41,12 @@ import com.futureinst.sharepreference.SharePreferenceUtil;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
+import com.futureinst.utils.TimeUtil;
 import com.futureinst.widget.IconSlidingTabView;
 import com.futureinst.widget.clearedittext.ClearEditText;
 import com.futureinst.widget.list.PullListView;
 import com.futureinst.widget.list.PullListView.OnRefreshListener;
+import com.futureinst.widget.IconMonthAndDayView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;
@@ -71,12 +73,19 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
     private ImageView iv_search;
     private ClearEditText et_user_search;
 
+    private LinearLayout ll_month_day_ranking,ll_ranking_month_day;
+    private ListView lv_month_day_ranking;
+    private RankingMonthAndDayAdapter rankingMonthAndDayAdapter;
+    private IconMonthAndDayView icon_month_day;
+    private TextView tv_month_day;
+    private String[] periodScope = {"total","month","day"};
+    private int month_day = 0 ;
+
     @Override
     protected void localOnCreate(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_home_ranking);
         initView();
-        get_rank();
-        query_user_record();
+        onRefresh(true);
     }
 
     private void initView() {
@@ -118,13 +127,14 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
                 rankingTypeAdapter.setIndex(i);
                 if (i == 0) {
                     index = i;
-                    get_rank();
-                    query_user_record();
+//                    get_rank();
+//                    query_user_record();
                 } else {
                     index = i + 1;
-                    get_tag_rank(index);
-                    query_user_record(index);
+//                    get_tag_rank(index);
+//                    query_user_record(index);
                 }
+                onRefresh(true);
                 pullListView.setSelection(1);
             }
         });
@@ -143,11 +153,11 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position < 1) return;
                 RankDAO item = (RankDAO) adapter.getItem(position - 1);
-                if (item.getUser_id() == preferenceUtil.getID()) {//本人
+                if (item.getUserId() == preferenceUtil.getID()) {//本人
                     ((HomeActivity) getContext()).setTab(3);
                 } else {
                     Intent intent = new Intent(getActivity(), PersonalShowActivity.class);
-                    intent.putExtra("id", item.getUser_id() + "");
+                    intent.putExtra("id", item.getUserId() + "");
                     startActivity(intent);
                 }
 
@@ -188,10 +198,33 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
                     intent.putExtra("id", item.getUserId() + "");
                     startActivity(intent);
                 }
-
             }
         });
 
+        icon_month_day = (IconMonthAndDayView) findViewById(R.id.icon_month_day);
+        tv_month_day = (TextView) findViewById(R.id.tv_month_day);
+        ll_ranking_month_day = (LinearLayout) findViewById(R.id.ll_ranking_month_day);
+        ll_month_day_ranking = (LinearLayout) findViewById(R.id.ll_month_day_ranking);
+        lv_month_day_ranking = (ListView) findViewById(R.id.lv_month_day_ranking);
+        rankingMonthAndDayAdapter = new RankingMonthAndDayAdapter(getContext());
+        lv_month_day_ranking.setAdapter(rankingMonthAndDayAdapter);
+        ll_ranking_month_day.setOnClickListener(onClickListener);
+        ll_month_day_ranking.setOnClickListener(onClickListener);
+
+        lv_month_day_ranking.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String item = (String) rankingMonthAndDayAdapter.getItem(i);
+                String[] type = item.split("-");
+                tv_month_day.setText(type[0]);
+                icon_month_day.setText(type[1]);
+                ll_month_day_ranking.setVisibility(View.GONE);
+                rankingMonthAndDayAdapter.setIndex(i);
+                month_day = i;
+                onRefresh(true);
+                pullListView.setSelection(1);
+            }
+        });
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -199,6 +232,7 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
         public void onClick(View view) {
             switch (view.getId()) {
                 case R.id.ll_ranking_type:
+                    ll_month_day_ranking.setVisibility(View.GONE);
                     if (ll_type.getVisibility() == View.VISIBLE) {
                         ll_type.setVisibility(View.GONE);
                     } else {
@@ -207,6 +241,17 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
                     break;
                 case R.id.ll_type:
                     ll_type.setVisibility(View.GONE);
+                    break;
+                case R.id.ll_ranking_month_day:
+                    ll_type.setVisibility(View.GONE);
+                    if (ll_month_day_ranking.getVisibility() == View.VISIBLE) {
+                        ll_month_day_ranking.setVisibility(View.GONE);
+                    } else {
+                        ll_month_day_ranking.setVisibility(View.VISIBLE);
+                    }
+                    break;
+                case R.id.ll_month_day_ranking:
+                    ll_month_day_ranking.setVisibility(View.GONE);
                     break;
                 case R.id.iv_search://查找用户
                     String key = et_user_search.getText().toString().trim();
@@ -295,6 +340,28 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
                     }
                 });
     }
+    //月日分类排名
+    private void get_period_rank (int tag,String scope) {
+        String period = TimeUtil.longToString(System.currentTimeMillis(),TimeUtil.FORMAT_DATE);
+        if(scope.equals("month")){
+            period = period.replace(period.substring(period.lastIndexOf("-")+1),"01");
+        }else if(scope.equals("total")){
+            period = null;
+        }
+        httpResponseUtils.postJson(httpPostParams.getPostParams(
+                        PostMethod.get_period_rank .name(), PostType.common.name(),
+                        httpPostParams.get_period_rank(preferenceUtil.getID() + "", preferenceUtil.getUUid(), tag,scope,period)),
+                RankInfo.class,
+                new PostCommentResponseListener() {
+                    @Override
+                    public void requestCompleted(Object response) throws JSONException {
+                        pullListView.onRefreshComplete();
+                        if (response == null) return;
+                        RankInfo rankInfo = (RankInfo) response;
+                        adapter.setList(rankInfo.getRanks(), rankInfo.getFollows(), rankInfo.getFriends());
+                    }
+                });
+    }
 
     //查找用户
     private void find_user(String key) {
@@ -368,13 +435,12 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
     public void onRefresh(boolean isTop) {
         // TODO Auto-generated method stub
         if (isTop) {
-            if (index == 0) {
-                query_user_record();
-                get_rank();
-            } else {
-                query_user_record(index);
-                get_tag_rank(index);
-            }
+                if (index == 0) {
+                    query_user_record();
+                } else {
+                    query_user_record(index);
+                }
+                get_period_rank(index,periodScope[month_day]);
         }
     }
 }

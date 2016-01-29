@@ -2,6 +2,9 @@ package com.futureinst.home.forecast;
 
 import com.futureinst.R;
 import com.futureinst.baseui.BaseFragment;
+import com.futureinst.db.PushMessageCacheUtil;
+import com.futureinst.home.HomeActivity;
+import com.futureinst.home.pushmessage.PushMessageActivity;
 import com.futureinst.model.homeeventmodel.QueryEventDAO;
 import com.futureinst.model.homeeventmodel.QueryEventInfoDAO;
 import com.futureinst.net.HttpPostParams;
@@ -9,13 +12,17 @@ import com.futureinst.net.HttpResponseUtils;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
+import com.futureinst.utils.LoginUtil;
 import com.futureinst.utils.Utils;
 import com.futureinst.viewpagerindicator.CirclePageIndicator;
 import com.futureinst.widget.CustomViewPager;
 import com.futureinst.widget.PagerSlidingTabStrip;
 import com.futureinst.widget.autoviewpager.AutoScrollViewPager;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
@@ -40,11 +47,18 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
     private String[] titles;
     private PagerSlidingTabStrip slidingTab;
     private ForecastViewPagerAdapter adapter;
+    private boolean isStart;
 
     private  BannerAdapter bannerAdapter;
     private String[] orders;
     private int order = 0;
     private PopupWindow popupWindow;
+
+    //message
+    private TextView tv_message_count;
+    private ImageView iv_message;
+    private PushMessageCacheUtil messageCacheUtil;
+    private BroadcastReceiver receiver ;
 
     //autoviewpager
     private View view_auto_viewpager;
@@ -59,8 +73,11 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         initView();
         getBanner();
         recordTime = System.currentTimeMillis();
+        getMessageCount();
+        isStart = true;
     }
     private void initView() {
+        messageCacheUtil = PushMessageCacheUtil.getInstance(getContext());
         orders = getActivity().getResources().getStringArray(R.array.home_seond_title_order);
         slidingTab = (PagerSlidingTabStrip) findViewById(R.id.id_stickynavlayout_indicator);
         viewPager = (CustomViewPager) findViewById(R.id.id_stickynavlayout_viewpager);
@@ -88,20 +105,56 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         bannerAdapter = new BannerAdapter(getChildFragmentManager());
         autoScrollViewPager.setAdapter(bannerAdapter);
         tv_sort = (TextView) findViewById(R.id.tv_sort);
-        tv_sort.setOnClickListener(new View.OnClickListener() {
+        tv_sort.setOnClickListener(clickListener);
+
+        tv_message_count = (TextView) findViewById(R.id.tv_message_count);
+        iv_message = (ImageView) findViewById(R.id.iv_message);
+        iv_message.setOnClickListener(clickListener);
+        receiver = new BroadcastReceiver() {
             @Override
-            public void onClick(View v) {
-                if (popupWindow != null && popupWindow.isShowing()) {
-                    popupWindow.dismiss();
-                    popupWindow = null;
-                } else {
-                    getPopupWindow();
-                    popupWindow.showAsDropDown(v);
+            public void onReceive(Context context, Intent intent) {
+                 if (intent.getAction().equals("newPushMessage")) {
+                    getMessageCount();
                 }
             }
-        });
-
+        };
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("newPushMessage");
+        getContext().registerReceiver(receiver, filter);
     }
+    // 获取未读消息数量
+    private void getMessageCount() {
+        int count = messageCacheUtil.getUnReadMessage();
+        if (count > 0) {
+            tv_message_count.setText(count + "");
+            tv_message_count.setVisibility(View.VISIBLE);
+        } else {
+            tv_message_count.setText("0");
+            tv_message_count.setVisibility(View.INVISIBLE);
+        }
+    }
+    View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.tv_sort://筛选
+                    if (popupWindow != null && popupWindow.isShowing()) {
+                        popupWindow.dismiss();
+                        popupWindow = null;
+                    } else {
+                        getPopupWindow();
+                        popupWindow.showAsDropDown(v);
+                    }
+                    break;
+                case R.id.iv_message:
+                    if(LoginUtil.judgeIsLogin(getActivity())){
+                        startActivity(new Intent(getActivity(), PushMessageActivity.class));
+                        tv_message_count.setVisibility(View.INVISIBLE);
+                    }
+                    break;
+            }
+        }
+    };
     private void initPopuptWindow(){
         View pop_view = LayoutInflater.from(getContext()).inflate(R.layout.view_home_order_popwindow,null,false);
         popupWindow = new PopupWindow(pop_view, RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT,true);
@@ -153,15 +206,21 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
 
     @Override
     public void onResume() {
+        if (((HomeActivity) getActivity()).getCurrentTab() == 0
+                && isStart) {
+
+            getMessageCount();
+
+            if(bannerAdapter!=null){
+                autoScrollViewPager.startAutoScroll();
+            }
+            adapter.getItem(viewPager.getCurrentItem()).setUserVisibleHint(true);
+            if(System.currentTimeMillis() - recordTime > 60*60*1000){
+                recordTime = System.currentTimeMillis();
+                getBanner();
+            }
+        }
         super.onResume();
-        if(bannerAdapter!=null){
-            autoScrollViewPager.startAutoScroll();
-        }
-        adapter.getItem(viewPager.getCurrentItem()).setUserVisibleHint(true);
-        if(System.currentTimeMillis() - recordTime > 60*60*1000){
-            recordTime = System.currentTimeMillis();
-            getBanner();
-        }
     }
     @Override
     public void onPageScrollStateChanged(int arg0) {
@@ -218,7 +277,13 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
             ll_indictor.addView(view,i);
         }
     }
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (receiver != null) {
+            getContext().unregisterReceiver(receiver);
+        }
+    }
 
 
 }

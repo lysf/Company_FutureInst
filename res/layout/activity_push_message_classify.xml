@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/text_color_white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/lv_push_message_classify"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/view_empty"
+        android:visibility="gone"
+        android:textSize="@dimen/text_size_normal"
+        android:gravity="center"
+        android:textColor="@color/text_color_6"
+        android:text="暂无消息"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -73,7 +73,6 @@ public class DBManager {
 		int count = 0;
 		SQLiteDatabase db = dbHelper.getWritableDatabase();
 		count = db.update(table, values, whereClause, whereArgs);
-		Log.i("updata", "------------------sql-->>"+count);
 		return count;
 	}
 }

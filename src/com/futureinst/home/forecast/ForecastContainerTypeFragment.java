@@ -240,10 +240,10 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
 
 					if(attentionInfoDAO.getFollows()!=null && attentionInfoDAO.getFollows().size()>0){
 						last_id = attentionInfoDAO.getFollows().get(attentionInfoDAO.getFollows().size()-1).getFeid();
-					}
-					for(AttentionDAO dao : attentionInfoDAO.getFollows()){
-						list.add(dao.getEvent());
-					}
+                        for(AttentionDAO dao : attentionInfoDAO.getFollows()){
+                            list.add(dao.getEvent());
+                        }
+                    }
 					if(page ==1){
 						adapter.refresh(list,attentionInfoDAO.getCommentMap());
 					}else{

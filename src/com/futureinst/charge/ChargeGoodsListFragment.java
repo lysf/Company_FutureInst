@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -40,6 +41,7 @@ import org.json.JSONException;
  */
 public class ChargeGoodsListFragment extends BaseFragment {
     private final int MSG_ADD_CHARGE_ORDER = -5;
+    private final int MSG_CHARGE_COMPLETE = -4;
     private MyProgressDialog progressDialog ;
     private HttpPostParams httpPostParams;
     private HttpResponseUtils httpResponseUtils;
@@ -47,6 +49,7 @@ public class ChargeGoodsListFragment extends BaseFragment {
     private MyListView lv_goods;
     private GoodsAdapter adapter;
     private ChargeDialog chargeDialog;
+    private SwipeRefreshLayout swipe_container;
 
     private TextView tv_asset;//余额
     private ImageView iv_csCenter,iv_chargeRecord;
@@ -65,6 +68,10 @@ public class ChargeGoodsListFragment extends BaseFragment {
 //                    startActivity(intent);
                     chargeDialog.setPayOrder(payOrderDAO);
                     chargeDialog.chargeDialog();
+                    break;
+                case MSG_CHARGE_COMPLETE:
+                    progressDialog.progressDialog();
+                    query_user_record();
                     break;
             }
         }
@@ -108,6 +115,18 @@ public class ChargeGoodsListFragment extends BaseFragment {
         iv_chargeRecord.setOnClickListener(onClickListener);
         tv_question.setOnClickListener(onClickListener);
 
+        swipe_container = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        swipe_container.setColorSchemeColors(R.color.holo_blue_light,
+                R.color.holo_green_light, R.color.holo_orange_light,
+                R.color.holo_red_light);
+        swipe_container.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                query_user_record();
+//                get_all_charge_goods();
+            }
+        });
+
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
@@ -145,6 +164,7 @@ public class ChargeGoodsListFragment extends BaseFragment {
                     @Override
                     public void requestCompleted(Object response)
                             throws JSONException {
+                        swipe_container.setRefreshing(false);
                         if (response == null)
                             return;
                         UserRecordInfoDAO userRecordInfoDAO = (UserRecordInfoDAO) response;
@@ -216,7 +236,7 @@ public class ChargeGoodsListFragment extends BaseFragment {
                 String errorMsg = data.getExtras().getString("error_msg"); // 错误信息
                 String extraMsg = data.getExtras().getString("extra_msg"); // 错误信息
                 showMsg(result, errorMsg, extraMsg);
-                query_user_record();
+                handler.sendEmptyMessage(MSG_CHARGE_COMPLETE);
             }
         }
     }

@@ -241,7 +241,7 @@ public class HttpPostParams {
 	/**添加订单
 	 * type 1-限价买进 2-市价买进 3-限价卖空 4-市价卖空；price,num,event_id,uuid,user_id 
 	 *	当type 为2或4时，不需要price属性
-	 *mode:为pro表示是专家模式，否则即为简单模式
+	 *mode:为pro表示是专家模式，simple即为简单模式
 	 */
 	public String add_order (String user_id,String uuid,String type,String price,String num,String event_id,String mode){
 		Map<String, String> map = new HashMap<String, String>();
@@ -1074,6 +1074,28 @@ public class HttpPostParams {
         map.put("user_id", user_id);
         map.put("uuid", uuid);
         map.put("task_name", task_name);
+        JSONObject jsonObject = new JSONObject(map);
+        return jsonObject.toString();
+    }
+
+    /**
+     * 月-日排行
+     * @param user_id
+     * @param uuid
+     * @param tag
+     * @param scope
+     * @param period
+     * @return
+     */
+    public String get_period_rank(String user_id, String uuid,int tag,String scope,String period){
+        Map<String, String> map = new HashMap<>();
+        map.put("user_id", user_id);
+        map.put("uuid", uuid);
+        map.put("tag", tag+"");
+        map.put("scope", scope);
+        if(period!=null){
+            map.put("period", period);
+        }
         JSONObject jsonObject = new JSONObject(map);
         return jsonObject.toString();
     }

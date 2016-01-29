@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/text_color_white"
+    android:background="@color/text_color_f3"
     android:orientation="vertical" >
-    <View 
+    <ListView
+        android:id="@+id/lv_pushmessage"
+        android:divider="@color/text_color_f3"
+        android:dividerHeight="@dimen/activity_login_margin_10"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/line_height"
-        android:background="@color/text_color_e"/>
-    <include 
-        layout="@layout/pull_listview"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

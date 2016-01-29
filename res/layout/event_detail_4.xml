@@ -41,7 +41,8 @@
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/view_empty"
-            android:visibility="gone"
+            android:visibility="visible"
+            android:background="@drawable/item_select"
             android:layout_marginLeft="@dimen/margin_5"
             android:layout_marginTop="@dimen/margin_5"
             android:layout_marginRight="@dimen/margin_5"
@@ -53,7 +54,7 @@
             android:textColor="@color/text_color_9"
             android:text="不表态就会死星人，写下你的评论吧！"
             />
-        <com.futureinst.widget.list.MyListView
+        <com.futureinst.widget.list.MyLoadingListView
             android:id="@+id/lv_comment"
             android:background="@color/text_color_white"
             android:layout_width="match_parent"
