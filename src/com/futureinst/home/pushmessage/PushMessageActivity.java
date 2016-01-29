@@ -3,6 +3,7 @@ package com.futureinst.home.pushmessage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -63,10 +64,11 @@ public class PushMessageActivity extends BaseActivity {
 		messageCacheUtil = PushMessageCacheUtil.getInstance(this);
 		list = new ArrayList<>();
 		list = messageCacheUtil.getPushMessage(Category.sys.name());
+        messageCacheUtil.updateMesaage(Category.sys.name());
         iv_message_account = (ImageView) view_top_message.findViewById(R.id.iv_message_account);
         iv_message_fans = (ImageView) view_top_message.findViewById(R.id.iv_message_fans);
         iv_message_interact = (ImageView) view_top_message.findViewById(R.id.iv_message_interact);
-//			Log.i(TAG, "-----------pushMessageInfo-->>"+list);
+//			Log.i(TAG, "-----------pushMessageInfo-->>" + list);
 		lv_pushmessage = (ListView) findViewById(R.id.lv_pushmessage);
         lv_pushmessage.addHeaderView(view_top_message);
         adapter = new PushMessageAdapter(this);
@@ -236,5 +238,6 @@ public class PushMessageActivity extends BaseActivity {
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+
 	}
 }

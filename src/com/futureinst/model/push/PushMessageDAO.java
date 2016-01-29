@@ -18,7 +18,7 @@ public class PushMessageDAO implements Serializable{
 	private boolean isRead;
 	private QueryEventDAO event;
     private String target_url; //表明该通知点击后应该跳转的地方;如果没有该字段，或者该字段为null或"",则支持按event_id跳到事件详情页
-    private String category;//account,表示账户类； fans 粉丝类；interact，点赞评论类；sys 系统类；
+    private String category ;//account,表示账户类； fans 粉丝类；interact，点赞评论类；sys 系统类；
     public PushMessageDAO() {
 		super();
 	}
