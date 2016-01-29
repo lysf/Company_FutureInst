@@ -31,6 +31,8 @@ public class PushMessageCacheUtil {
 			String userId = preferenceUtil.getID()+"";
 			List<PushMessageDAO> list = new ArrayList<>();
 			
+//			Cursor cursor = dbManager.querry("pushmessage", null, "userid = ?",
+//					new String[] { userId }, null, null, null, null);
 			Cursor cursor = dbManager.querry("pushmessage", null, "userid = ? and category = ?",
 					new String[] { userId,category }, null, null, null, null);
 			while(cursor.moveToNext()){

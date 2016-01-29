@@ -221,11 +221,11 @@ public class HomeActivity extends BaseActivity {
 		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
             Log.i(TAG,"=========id="+preferenceUtil.getID()+"==uuid="+preferenceUtil.getUUid());
             getMessageCount();
+            PushManager.getInstance().initialize(this.getApplicationContext());
 			if(!isUpdate){
 				//初始化推送
 				query_user_record();
                 query_user_daily_task();
-                    PushManager.getInstance().initialize(this);
                 isUpdate = true;
 
 			}
@@ -293,11 +293,9 @@ public class HomeActivity extends BaseActivity {
 				BadgeUtil.setBadgeCount(getApplicationContext(), count);
 //				tv_messageCount.setText(count+"");
                 iv_message_tip.setVisibility(View.VISIBLE);
+			} else{
+				BadgeUtil.resetBadgeCount(getApplicationContext());
 			}
-//            else{
-//				BadgeUtil.resetBadgeCount(getApplicationContext());
-//                iv_message_tip.setVisibility(View.INVISIBLE);
-//			}
 		}
 		
 	//显示广告
