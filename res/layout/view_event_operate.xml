@@ -23,6 +23,7 @@
         android:text="写观点赚未币"/>
     <Button
         android:id="@+id/btn_guide"
+        android:visibility="gone"
         android:layout_marginTop="1px"
         android:layout_width="match_parent"
         android:layout_height="@dimen/widget_height_45"

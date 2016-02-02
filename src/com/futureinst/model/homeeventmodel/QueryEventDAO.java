@@ -30,6 +30,43 @@ public class QueryEventDAO implements Serializable{
 	private int buyComNum;
 	private int articleNum;
 
+	private int pk0Involve; //pk模式看好人数
+	private float pk0Volume; //pk模式看好总未币量
+	private int pk1Involve; //pk模式不看好总人数
+	private float pk1Volume; //pk模式不看好总未币量
+
+	public int getPk0Involve() {
+		return pk0Involve;
+	}
+
+	public void setPk0Involve(int pk0Involve) {
+		this.pk0Involve = pk0Involve;
+	}
+
+	public float getPk0Volume() {
+		return pk0Volume;
+	}
+
+	public void setPk0Volume(float pk0Volume) {
+		this.pk0Volume = pk0Volume;
+	}
+
+	public int getPk1Involve() {
+		return pk1Involve;
+	}
+
+	public void setPk1Involve(int pk1Involve) {
+		this.pk1Involve = pk1Involve;
+	}
+
+	public float getPk1Volume() {
+		return pk1Volume;
+	}
+
+	public void setPk1Volume(float pk1Volume) {
+		this.pk1Volume = pk1Volume;
+	}
+
 	public int getAllComNum() {
 		return allComNum;
 	}

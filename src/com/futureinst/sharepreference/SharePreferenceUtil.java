@@ -27,7 +27,7 @@ public class SharePreferenceUtil {
     }
 
     private String SERVER = "SERVER";//服务器类型
-    private String EASYMODEL = "EASYMODEL";//是否为简易模式
+    private String EASYMODEL = "ISEASYMODEL";//是否为简易模式
     private String FOLLOW = "FOLLOW";//关注我的人数
     private String AD = "AD";//记录广告显示的时间
     private String INSTALLTAG = "INSTALLTAG";//安装标记
@@ -157,6 +157,15 @@ public class SharePreferenceUtil {
         editor.putFloat(ASSET, asset);
         editor.commit();
     }
+    //可消费未币
+    public float getExchange(){
+        return mSharedPreferences.getFloat(EXCHANGE,0f);
+    }
+    public void setExchange(float exchange){
+        editor.putFloat(EXCHANGE,exchange);
+        editor.commit();
+    }
+
 
     //保证金
     public float getAssure() {

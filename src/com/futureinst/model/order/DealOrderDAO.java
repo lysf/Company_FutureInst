@@ -16,6 +16,25 @@ public class DealOrderDAO implements Serializable{
 	private float gain;
 	private Long ctime;
 	private int status;
+	private float pk0Volume; //pk模式看好总未币量
+	private float pk1Volume; //pk模式不看好总未币量
+
+	public float getPk0Volume() {
+		return pk0Volume;
+	}
+
+	public void setPk0Volume(float pk0Volume) {
+		this.pk0Volume = pk0Volume;
+	}
+
+	public float getPk1Volume() {
+		return pk1Volume;
+	}
+
+	public void setPk1Volume(float pk1Volume) {
+		this.pk1Volume = pk1Volume;
+	}
+
 	public String getUeid() {
 		return ueid;
 	}

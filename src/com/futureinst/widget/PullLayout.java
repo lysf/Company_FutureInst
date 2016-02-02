@@ -106,10 +106,10 @@ public class PullLayout extends ScrollView{
         iv_image.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
-                iv_image.buildDrawingCache(false);
-                Bitmap bmp = iv_image.getDrawingCache();
-                BitmapUtil.blur(getContext(),bmp,iv_image_blur);
-                iv_image.buildDrawingCache(true);
+//                iv_image.buildDrawingCache(false);
+//                Bitmap bmp = iv_image.getDrawingCache();
+//                BitmapUtil.blur(getContext(),bmp,iv_image_blur);
+//                iv_image.buildDrawingCache(true);
                 return true;
             }
         });
@@ -125,10 +125,10 @@ public class PullLayout extends ScrollView{
             @SuppressWarnings("deprecation")
             @Override
             public void onGlobalLayout() {
-                rl_top.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                range = rl_top.getHeight();
-//                scrollTo(0, range);
-                rl_top.getLayoutParams().height = range;
+//                rl_top.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+//                range = rl_top.getHeight();
+////                scrollTo(0, range);
+//                rl_top.getLayoutParams().height = range;
             }
         });
 //		bottom_scroll.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
@@ -189,7 +189,7 @@ public class PullLayout extends ScrollView{
                 } else {
                     detalY = ev.getY() - lastY;
                     if (detalY > 0) {
-                        setT((int) -detalY / 5);
+//                        setT((int) -detalY / 5);
                         return true;
                     }
                 }
@@ -219,10 +219,12 @@ public class PullLayout extends ScrollView{
         }
         if (t > range) {
             return;
-        } else if (!isTouchOrRunning && t != range) {
+        }
+        else if (!isTouchOrRunning && t != range) {
             scrollTo(0, range);
-        } else {
-            animateScroll(t);
+        }
+        else {
+//            animateScroll(t);
         }
 
     }

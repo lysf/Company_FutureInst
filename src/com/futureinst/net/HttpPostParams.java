@@ -255,6 +255,23 @@ public class HttpPostParams {
 		JSONObject jsonObject = new JSONObject(map);
 		return jsonObject.toString();
 	}
+
+	/**添加订单-一键PK
+	 * type为5 表示PK模式看好，6表示PK模式不看好，此时不需要price和num参数，但需要pk_volume参数
+	 * event_id,uuid,user_id
+	 *mode:为pro表示是专家模式，simple即为简单模式
+	 */
+	public String add_order_pk (String user_id,String uuid,String type,String event_id,String pk_volume){
+		Map<String, String> map = new HashMap<>();
+		map.put("user_id", user_id);
+		map.put("uuid", uuid);
+		map.put("type", type);
+		map.put("pk_volume", pk_volume);
+		map.put("mode", "simple");
+		map.put("event_id", event_id);
+		JSONObject jsonObject = new JSONObject(map);
+		return jsonObject.toString();
+	}
 	//查询单个事件
 	public String query_single_event (String event_id,String scope){
 		Map<String, Object> map = new HashMap<String, Object>();

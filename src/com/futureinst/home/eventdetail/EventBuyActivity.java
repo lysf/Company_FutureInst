@@ -88,16 +88,18 @@ public class EventBuyActivity extends BaseActivity {
 		
 		if(isBuy){
 			order_tips_1 = "提示：\n1.成交价越低自然赚得越多，不过若定价太低当心会没人和你交易哦\n"
-					+ "2.若事件发生（价格涨至100.00），则你获利：";
+					+"2.获利后将扣除10%作为手续费\n"
+					+ "3.若事件发生（价格涨至100.00），则你获利：";
 			order_tips_2 = "  （100 - "+String.format("%.2f", price)+
-					"）*"+num+" = "+String.format("%.2f", (100-price)*num);
-			order_tips_3 = "3.若事件不发生（价格跌至0.00），则你亏损 :";
+					"）* "+num+" * ( 1 - 10% ) = "+String.format("%.2f", (100-price)*num*0.9);
+			order_tips_3 = "4.若事件不发生（价格跌至0.00），则你亏损 :";
 			order_tips_4 = " 	"+String.format("%.2f", price)+" * "+num+" = "+String.format("%.2f", price*num);
 		}else{
 			order_tips_1 = "提示：\n1.成交价越高自然赚得越多，不过若定价太高当心会没人和你交易哦\n"
-					+ "2.若事件不发生（价格跌至0.00），则你获利：";
-			order_tips_2 = " 	" + String.format("%.2f", price)+" * "+num+" = "+String.format("%.2f", price*num);
-			order_tips_3 = "3.若事件发生（价格涨至100.00），则你亏损：";
+					+"2.获利后将扣除10%作为手续费\n"
+					+ "3.若事件不发生（价格跌至0.00），则你获利：";
+			order_tips_2 = " 	" + String.format("%.2f", price)+" * "+num+" * ( 1 - 10% ) = "+String.format("%.2f", price*num*0.9);
+			order_tips_3 = "4.若事件发生（价格涨至100.00），则你亏损：";
 			order_tips_4 = "  （100-"+String.format("%.2f", price)+"） * "+num+" = "+String.format("%.2f", (100-price)*num);
 		}
 		tv_total_1.setText(order_tips_1);
