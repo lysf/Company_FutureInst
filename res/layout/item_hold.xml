@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/item_select"
+	android:paddingBottom="@dimen/activity_login_margin_10"
     android:orientation="vertical" >
+	<View
+		android:id="@+id/div"
+		android:background="@color/text_color_f3"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/activity_login_margin_10"/>
     <TextView 
         android:id="@+id/tv_attitude"
         android:layout_width="match_parent"
@@ -15,97 +22,155 @@
         android:text="此预测于2015-6-29 18:16:16清算盈亏"
         android:textSize="@dimen/text_size_small"
         android:textColor="@color/text_color_9"/>
-	<LinearLayout 
+	<TextView
+		android:id="@+id/tv_title"
+		android:paddingLeft="@dimen/activity_login_margin_10"
+		android:paddingRight="@dimen/activity_login_margin_10"
+		android:paddingTop="@dimen/margin_5"
+		android:paddingBottom="@dimen/margin_5"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textSize="@dimen/text_size_large_17"
+		android:textColor="@color/text_color_4"
+		android:lineSpacingExtra="@dimen/dimen_3"
+		android:text="NBA总冠军休斯顿火箭"
+		android:maxLines="2"/>
+
+
+	<LinearLayout
+		android:id="@+id/ll_simple"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:layout_gravity="center_vertical"
+		android:background="@color/text_color_f3"
+		android:layout_marginLeft="@dimen/activity_login_margin_10"
+		android:layout_marginRight="@dimen/activity_login_margin_10"
+		android:paddingTop="@dimen/activity_login_margin_10"
+		android:paddingBottom="@dimen/activity_login_margin_10"
+		android:paddingLeft="@dimen/margin_5"
+		android:paddingRight="@dimen/margin_5"
+		android:layout_marginBottom="0.3dip">
+
+			<TextView
+				android:text="  一键PK"
+				android:drawableLeft="@drawable/pk_cut"
+				android:textSize="@dimen/text_size_small"
+				android:textColor="@color/text_color_9"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView
+				android:id="@+id/tv_simple_hold_buy"
+				android:layout_marginLeft="@dimen/margin_15"
+				android:layout_marginTop="@dimen/margin_5"
+				android:layout_marginBottom="@dimen/margin_5"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_normal"
+				android:textColor="@color/text_color_4"
+				android:text="你投入100未币看好"
+				/>
+			<TextView
+				android:id="@+id/tv_simple_hold_sell"
+				android:layout_marginLeft="@dimen/margin_15"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_normal"
+				android:textColor="@color/text_color_4"
+				android:text="又投入100未币不看好"
+				/>
+
+	</LinearLayout>
+
+
+	<LinearLayout
+		android:id="@+id/ll_pref"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:orientation="horizontal"
 	    android:layout_gravity="center_vertical"
-	    android:paddingLeft="@dimen/activity_login_margin_10"
-	    android:paddingRight="@dimen/activity_login_margin_10"
-	    android:paddingTop="@dimen/margin_5"
-	    android:paddingBottom="@dimen/margin_5"
+		android:background="@color/text_color_f3"
+		android:layout_marginTop="@dimen/margin_5"
+		android:layout_marginLeft="@dimen/activity_login_margin_10"
+		android:layout_marginRight="@dimen/activity_login_margin_10"
+		android:paddingTop="@dimen/margin_5"
+		android:paddingBottom="@dimen/margin_5"
 	    android:layout_marginBottom="0.3dip">
-	    <LinearLayout 
-	        android:layout_width="wrap_content"
-	        android:gravity="center"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical">
-	       		<TextView 
-	       		    android:id="@+id/tv_deal"
-	       		    android:visibility="gone"
-	       		    android:layout_width="match_parent" 
-	       		    android:layout_height="wrap_content"
-	       		    android:textColor="@color/text_color_9"
-	       		    android:textSize="@dimen/text_size_normal"
-	       		    android:layout_marginBottom="@dimen/margin_5"
-	       		    android:text="清算价"/>
-	            <TextView 
-	                android:id="@+id/tv_price"
-	                android:layout_width="match_parent"
-	                android:layout_height="wrap_content"
-	                android:textColor="@color/text_color_3"
-	                android:textSize="30sp"
-	                android:minEms="3"
-	                android:text="670.50"/>
-	           
-	        <TextView 
-	            android:id="@+id/tv_gain"
-	            android:layout_marginTop="@dimen/margin_5"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:text="最新成交价"
-	            android:textColor="@color/text_color_3"
-	            android:textSize="@dimen/text_size_normal"/>
-	    </LinearLayout>
+
+		<LinearLayout
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:padding="@dimen/margin_5"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<TextView
+				android:text="  专家交易"
+				android:drawableLeft="@drawable/zhuanjia_cut"
+				android:textSize="@dimen/text_size_small"
+				android:textColor="@color/text_color_9"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView
+				android:id="@+id/tv_hold_buy"
+				android:layout_marginLeft="@dimen/margin_15"
+				android:layout_marginTop="@dimen/margin_5"
+				android:layout_marginBottom="@dimen/margin_5"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_normal"
+				android:textColor="@color/text_color_4"
+				android:text="你看好100份      以60.5  "
+				/>
+			<TextView
+				android:id="@+id/tv_hold_sell"
+				android:layout_marginLeft="@dimen/margin_15"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/text_size_normal"
+				android:textColor="@color/text_color_4"
+				android:text="又不看好      30份      以45.5  "
+				/>
+		</LinearLayout>
+
 	    <View 
 	        android:layout_width="@dimen/line_height"
 	        android:layout_height="match_parent"
-	        android:background="@color/text_color_e"
+	        android:background="@color/text_color_d"
 	        android:layout_marginRight="@dimen/margin_5"/>
-	    <LinearLayout 
-	        android:layout_width="0dip"
-	        android:layout_weight="1"
-	        android:layout_height="wrap_content"
-	        android:orientation="vertical">
-	        <TextView 
-	            android:id="@+id/tv_title"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:textSize="@dimen/text_size_normal"
-	            android:textColor="@color/text_color_0"
-	            android:text="NBA总冠军休斯顿火箭"
-	            android:maxLines="2"/>
-	        <TextView 
-	            android:id="@+id/tv_hold_buy"
-	            android:layout_marginTop="@dimen/margin_5"
-	            android:layout_marginBottom="@dimen/margin_5"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:textSize="@dimen/text_size_normal"
-	            android:textColor="@color/gain_red"
-	            android:text="你看好        100份      以60.5  "
-	            />
-	        <TextView 
-	            android:id="@+id/tv_hold_sell"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:textSize="@dimen/text_size_normal"
-	            android:textColor="@color/gain_blue"
-	            android:text="又不看好      30份      以45.5  "
-	            />
-	    </LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:gravity="center"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+			<TextView
+				android:id="@+id/tv_deal"
+				android:visibility="gone"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="@color/text_color_9"
+				android:textSize="@dimen/text_size_small"
+				android:layout_marginBottom="@dimen/margin_5"
+				android:text="清算价"/>
+			<TextView
+				android:id="@+id/tv_gain"
+				android:layout_marginTop="@dimen/margin_5"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="最新成交价"
+				android:textColor="@color/text_color_9"
+				android:textSize="@dimen/text_size_small"/>
+			<TextView
+				android:id="@+id/tv_price"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textColor="@color/text_color_4"
+				android:textSize="30sp"
+				android:minEms="3"
+				android:text="670.50"/>
+
+
+		</LinearLayout>
 	</LinearLayout>
-	<TextView 
-	    android:id="@+id/tv_think"
-	    android:visibility="gone"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:gravity="right"
-	    android:background="@color/hold_back"
-	    android:paddingTop="@dimen/margin_5"
-	    android:paddingBottom="@dimen/margin_5"
-	    android:paddingRight="@dimen/activity_login_margin_10"
-	    android:textSize="@dimen/text_size_small"
-	    android:textColor="@color/hold_status"
-	    android:text="下次想好再出价哦"/>
+
 </LinearLayout>

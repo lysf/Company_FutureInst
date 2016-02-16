@@ -103,8 +103,8 @@ public class HomeSetActivity extends BaseActivity{
         btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivity.isUpdate = true;
-                PushManager.getInstance().turnOffPush(HomeSetActivity.this.getApplicationContext());
+                HomeActivity.isUpdate = false;
+                PushManager.getInstance().stopService(HomeSetActivity.this.getApplicationContext());
                 Intent intent = new Intent(HomeSetActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 preferenceUtil.setUUid(null);

@@ -71,7 +71,7 @@ public class PushMessageCacheUtil {
 			values.put("type", dao.getType());
 			values.put("peer_id", dao.getPeer_id());
 			values.put("target_url", dao.getTarget_url());
-			values.put("category", dao.getCategory());
+			values.put("category", dao.getCategory()==null||dao.getCategory().equals("")?"sys":dao.getCategory());
 			if(dao.isRead()){
 				values.put("isread", 1);
 			}else{
