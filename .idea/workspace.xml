@@ -22,39 +22,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d26be27-5a0f-4743-b03c-187d2dd99b7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/outputs/aar/BDIntegrationSDK_Lib-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/android_api_3.6.9.3.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/android_api_3.6.9.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/android_api_3.6.9.3.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/android_api_3.6.9.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/android_api_3.6.9.3.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/android_api_3.6.9.3.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/patchupdate.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/patchupdate.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/patchupdate.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/model/order/DealOrderDAO.java" afterPath="$PROJECT_DIR$/src/com/futureinst/model/order/DealOrderDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventBuyActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventBuyActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/hold/HoldDealAdapter.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/hold/HoldDealAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/hold/HoldUnDealAdapter.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/hold/HoldUnDealAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/HomeActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/HomeSetActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/userinfo/HomeSetActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java" afterPath="$PROJECT_DIR$/src/com/futureinst/net/HttpPostParams.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/newbieguide/NewbieGuide2.java" afterPath="$PROJECT_DIR$/src/com/futureinst/newbieguide/NewbieGuide2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/push/PushBroadCastReceiver.java" afterPath="$PROJECT_DIR$/src/com/futureinst/push/PushBroadCastReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/model/homeeventmodel/QueryEventDAO.java" afterPath="$PROJECT_DIR$/src/com/futureinst/model/homeeventmodel/QueryEventDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/baidu/paysdk/lib/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/baidu/paysdk/lib/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/futureinst/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/futureinst/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/sharepreference/SharePreferenceUtil.java" afterPath="$PROJECT_DIR$/src/com/futureinst/sharepreference/SharePreferenceUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/simple/SimpleRateView.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/simple/SimpleRateView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/model/order/SingleEventClearDAO.java" afterPath="$PROJECT_DIR$/src/com/futureinst/model/order/SingleEventClearDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/model/order/SingleEventUser.java" afterPath="$PROJECT_DIR$/src/com/futureinst/model/order/SingleEventUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/view_event_operate.xml" afterPath="$PROJECT_DIR$/res/layout/view_event_operate.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FutureInst.iws" />
@@ -99,8 +66,8 @@
       <file leaf-file-name="EventDetailActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7785467">
-              <caret line="262" column="30" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.28546712">
+              <caret line="243" column="19" selection-start-line="243" selection-start-column="19" selection-end-line="243" selection-end-column="19" />
               <folding>
                 <element signature="e#36013#36850#0" expanded="true" />
                 <element signature="e#36849#36850#0" expanded="true" />
@@ -6394,7 +6361,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454578180417</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2016年02月16日19:06:17">
+      <created>1455620805385</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1455620805386</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -6432,7 +6405,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21728595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21728595" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -6488,7 +6461,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2016年02月02日18:41:01" />
     <MESSAGE value="2016年02月04日17:29:17" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年02月04日17:29:17" />
+    <MESSAGE value="2016年02月16日19:06:17" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年02月16日19:06:17" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -6997,8 +6971,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7785467">
-          <caret line="262" column="30" selection-start-line="262" selection-start-column="30" selection-end-line="262" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.28546712">
+          <caret line="243" column="19" selection-start-line="243" selection-start-column="19" selection-end-line="243" selection-end-column="19" />
           <folding>
             <element signature="e#36013#36850#0" expanded="true" />
             <element signature="e#36849#36850#0" expanded="true" />
