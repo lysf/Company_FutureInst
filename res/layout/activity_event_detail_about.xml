@@ -13,7 +13,6 @@
         android:layout_below="@+id/rl_top"
         android:fillViewport="true"
         android:scrollbars="none"
-
         >
 
         <LinearLayout
@@ -25,7 +24,9 @@
             android:orientation="vertical"
 
             >
+            <include
 
+                layout="@layout/view_event_detail_swith"/>
             <include
                 android:id="@+id/view_top"
                 layout="@layout/event_detail_1"/>
@@ -37,6 +38,7 @@
                 android:background="@color/text_color_white"
                 android:gravity="center"
                 >
+
                 <ImageView
                     android:id="@+id/iv_refresh"
                     android:layout_marginTop="@dimen/margin_20"
@@ -47,26 +49,23 @@
                     />
                 <com.futureinst.widget.waterwave.CustomDraw
                     android:id="@+id/wav"
+                    android:visibility="gone"
                     android:layout_margin="@dimen/margin_20"
                     android:layout_width="match_parent"
                     android:layout_height="240dp"
                     android:gravity="center_vertical"
-
                     />
+                <com.futureinst.home.eventdetail.simple.SimpleRateView
+                    android:id="@+id/view_simple_order"
+                    android:layout_margin="@dimen/ebpay_dimen_20dp"
+                    android:layout_below="@+id/iv_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp" />
             </RelativeLayout>
 
             <include
                 layout="@layout/event_detail_3"/>
 
-            <include
-                android:id="@+id/view_singlev_event"
-
-                layout="@layout/view_event_detail_11"/>
-
-            <include
-                android:id="@+id/bottom"
-                layout="@layout/forecast_bottom"
-                android:visibility="gone"/>
 
             <!--观点-->
             <include

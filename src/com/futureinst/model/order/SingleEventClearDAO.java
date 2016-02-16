@@ -17,6 +17,8 @@ public class SingleEventClearDAO implements Serializable {
 	private Long ctime;
 	private Long mtime;
 	private int status;
+	private float pk0Volume = 0; //pk模式看好总未币量
+	private float pk1Volume = 0; //pk模式不看好总未币量
 	public SingleEventClearDAO(){
 		super();
 	}
@@ -25,6 +27,22 @@ public class SingleEventClearDAO implements Serializable {
 		this.buyNum = buyNum;
 		this.sellPrice = sellPrice;
 		this.sellNum = sellNum;
+	}
+
+	public float getPk1Volume() {
+		return pk1Volume;
+	}
+
+	public void setPk1Volume(float pk1Volume) {
+		this.pk1Volume = pk1Volume;
+	}
+
+	public float getPk0Volume() {
+		return pk0Volume;
+	}
+
+	public void setPk0Volume(float pk0Volume) {
+		this.pk0Volume = pk0Volume;
 	}
 
 	public String getUeid() {

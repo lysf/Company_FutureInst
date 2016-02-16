@@ -39,7 +39,7 @@ public class HoldingActivity extends BaseActivity {
 	private void initView() {
 		btns = new Button[2];
 		views = new View[2];
-		fragments = new ArrayList<Fragment>();
+		fragments = new ArrayList<>();
 		fragments.add(new HoldDealFragment());
 		fragments.add(new HoldUnDealFragment());
 		btns[0] = (Button) findViewById(R.id.btn_deal);

@@ -219,11 +219,12 @@ public class HomeActivity extends BaseActivity {
 	// 判断是否登录
 	private void judgeIsLogin() {
 		if (!TextUtils.isEmpty(preferenceUtil.getUUid())) {
-            Log.i(TAG,"=========id="+preferenceUtil.getID()+"==uuid="+preferenceUtil.getUUid());
+            Log.i(TAG, "=========id=" + preferenceUtil.getID() + "==uuid=" + preferenceUtil.getUUid());
+
             getMessageCount();
-            PushManager.getInstance().initialize(this.getApplicationContext());
 			if(!isUpdate){
 				//初始化推送
+				PushManager.getInstance().initialize(this.getApplicationContext());
 				query_user_record();
                 query_user_daily_task();
                 isUpdate = true;
@@ -440,7 +441,6 @@ public class HomeActivity extends BaseActivity {
 			isCloseTab = false;
 		}
 		query_user_daily_task();
-
 
 
 	}
