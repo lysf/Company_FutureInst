@@ -109,6 +109,11 @@
     <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="728850639@qq.com" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -6299,6 +6304,13 @@
       <option name="number" value="Default" />
       <updated>1455622414189</updated>
     </task>
+    <task id="LOCAL-00001" summary="v2.3">
+      <created>1455721674665</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1455721674665</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -6347,6 +6359,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="v2.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
