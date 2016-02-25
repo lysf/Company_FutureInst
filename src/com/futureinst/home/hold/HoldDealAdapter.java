@@ -104,6 +104,8 @@ public class HoldDealAdapter extends BaseAdapter {
 				SpannableStringBuilder stringBuilderSell = new SpannableStringBuilder(sellPK);
 				ForegroundColorSpan spanSell = new ForegroundColorSpan(gainBlueColor);
 				stringBuilderSell.setSpan(spanSell,sellPK.length()-3,sellPK.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+				tv_simple_hold_sell.setText(stringBuilderSell);
 				tv_simple_hold_sell.setVisibility(View.VISIBLE);
 			}else{
 				ll_simple.setVisibility(View.GONE);
@@ -172,7 +174,7 @@ public class HoldDealAdapter extends BaseAdapter {
 
 	private SpannableStringBuilder getSpannbleString(String text,String result,int color){
 		SpannableStringBuilder stringBuilder = new SpannableStringBuilder(text);
-		stringBuilder.setSpan(new ForegroundColorSpan(color),text.indexOf(result),text.indexOf(result)+result.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
+		stringBuilder.setSpan(new ForegroundColorSpan(color),text.indexOf(result),text.indexOf(result)+result.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 		return stringBuilder;
 	}
 }
