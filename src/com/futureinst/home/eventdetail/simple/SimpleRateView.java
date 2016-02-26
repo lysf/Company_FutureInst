@@ -33,7 +33,7 @@ public class SimpleRateView extends View {
     public static int COMPARING = 0;
     private int attitude = 0;
 
-    private String tip = "预测准确阵营将赢得对手阵营未币";
+    private String tip = "预测准确者将按投入比例赢得对手阵营未币";
 
     private float angle = 30;//倾斜角度(垂直方向)
     private int distance;//偏移的距离

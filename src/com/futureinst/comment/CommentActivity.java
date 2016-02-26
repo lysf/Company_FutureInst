@@ -92,7 +92,7 @@ public class CommentActivity extends BaseActivity implements PullListView.OnRefr
         lv_comment.setonRefreshListener(this);
 
         btn_comment_float = (Button) findViewById(R.id.btn_comment_float);
-        findViewById(R.id.btn_comment_total_float).setVisibility(View.INVISIBLE);
+        findViewById(R.id.btn_comment_total_float).setVisibility(View.GONE);
         btn_comment_float.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

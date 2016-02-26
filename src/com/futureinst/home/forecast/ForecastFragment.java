@@ -44,7 +44,8 @@ import java.util.List;
 public class ForecastFragment extends BaseFragment implements OnPageChangeListener{
     private CustomViewPager viewPager;
     private Long recordTime;
-    private String[] titles;
+    private String[] titles1,titles2;
+    private int[] tabTag;
     private PagerSlidingTabStrip slidingTab;
     private ForecastViewPagerAdapter adapter;
     private boolean isStart;
@@ -81,12 +82,49 @@ public class ForecastFragment extends BaseFragment implements OnPageChangeListen
         orders = getActivity().getResources().getStringArray(R.array.home_seond_title_order);
         slidingTab = (PagerSlidingTabStrip) findViewById(R.id.id_stickynavlayout_indicator);
         viewPager = (CustomViewPager) findViewById(R.id.id_stickynavlayout_viewpager);
-        titles = getResources().getStringArray(R.array.home_icon_title);
-        adapter = new ForecastViewPagerAdapter(getChildFragmentManager(), titles);
+        titles1 = getResources().getStringArray(R.array.home_icon_title_1);
+        titles2 = getResources().getStringArray(R.array.home_icon_title_2);
+        tabTag = new int[]{0,1,4,2,3,7,6,5,8};
+        adapter = new ForecastViewPagerAdapter(getChildFragmentManager(), titles1);
         viewPager.setAdapter(adapter);
         slidingTab.setViewPager(viewPager);
         slidingTab.setIndicatorColor(getResources().getColor(R.color.tab_text_selected));
+        slidingTab.setOnTableClickListener(new PagerSlidingTabStrip.OnTableClickListener() {
+            @Override
+            public void onTableClickListener(int position, View tab) {
+                if(position >= 5){
+                    if(position == 5){
+                        if(adapter.getCount() > 6){
+                            adapter.setTitles(titles1);
+                            slidingTab.notifyDataSetChanged();
+                            viewPager.setCurrentItem(0);
+                        }else{
+                            adapter.setTitles(titles2);
+                            slidingTab.notifyDataSetChanged();
+                            viewPager.setCurrentItem(5);
+                        }
+                    }else{
+                        if(viewPager.getCurrentItem() == position-1){
+                            Intent intent = new Intent("top");
+                            intent.putExtra("position",tabTag[position - 1]);
+                            getActivity().sendBroadcast(intent);
+                        }else{
+                            viewPager.setCurrentItem(position - 1);
+                        }
+                    }
 
+                }else {
+                    if(viewPager.getCurrentItem() == position){
+                        Intent intent = new Intent("top");
+                        intent.putExtra("position",tabTag[position]);
+                        getActivity().sendBroadcast(intent);
+                    }else{
+                        viewPager.setCurrentItem(position);
+                    }
+                }
+
+            }
+        });
 
         autoScrollViewPager = (AutoScrollViewPager)findViewById(R.id.auto_viewpager);
         circlePageIndicator = (CirclePageIndicator)findViewById(R.id.top_pager_indicator);

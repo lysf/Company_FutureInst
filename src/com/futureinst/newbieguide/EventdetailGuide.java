@@ -24,7 +24,7 @@ public class EventdetailGuide {
 
     public EventdetailGuide(Activity activity) {
         guids = new int[]{R.raw.detail_guide_1, R.raw.detail_guide_2,
-                R.raw.detail_guide_3, R.raw.detail_guide_4, R.raw.detail_guide_5
+                R.raw.detail_guide_3, R.raw.detail_guide_4, R.raw.detail_guide_5,R.raw.detail_guide_6,R.raw.detail_guide_7
         };
         index = 0;
         this.activity = activity;
@@ -39,7 +39,7 @@ public class EventdetailGuide {
                     dialog.dismiss();
                     break;
                 case R.id.guide1:
-                    if (index == 4) {
+                    if (index == 6) {
                         dialog.dismiss();
                         return;
                     }

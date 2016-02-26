@@ -65,6 +65,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private final PageListener pageListener = new PageListener();
     public OnPageChangeListener delegatePageListener;
 
+    private OnTableClickListener onTableClickListener;
+
     private LinearLayout tabsContainer;
     private ViewPager pager;
 
@@ -84,7 +86,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private boolean shouldExpand = false;
     private boolean textAllCaps = true;
     private int screenWidth;
-    private int recordPosition;
     private int scrollOffset = 50;
     private int indicatorHeight = 30;
     private int underlineHeight = 5;
@@ -184,7 +185,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             throw new IllegalStateException("ViewPager does not have adapter instance.");
         }
 
-        pager.setOnPageChangeListener(pageListener);
+        pager.addOnPageChangeListener(pageListener);
 
         notifyDataSetChanged();
     }
@@ -197,16 +198,26 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         tabsContainer.removeAllViews();
 
-        tabCount = pager.getAdapter().getCount();
+        tabCount = pager.getAdapter().getCount() + 1;
 
         for (int i = 0; i < tabCount; i++) {
 
             if (pager.getAdapter() instanceof IconTabProvider) {
                 addIconTab(i, ((IconTabProvider) pager.getAdapter()).getPageIconResId(i));
             } else {
-                addTextTab(i, pager.getAdapter().getPageTitle(i).toString());
-            }
+                if(i < 5){
+                    addTextTab(i, pager.getAdapter().getPageTitle(i).toString());
+                }else if(i == 5){
+                    if(tabCount>6) {
+                        addTextTab(i, getResources().getString(R.string.tab_less));
+                    } else {
+                            addTextTab(i, getResources().getString(R.string.tab_more));
+                        }
+                }else{
+                    addTextTab(i, pager.getAdapter().getPageTitle(i-1).toString());
+                }
 
+            }
         }
 
         updateTabStyles();
@@ -225,6 +236,9 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 }
 
                 currentPosition = pager.getCurrentItem();
+                if(currentPosition>=5){
+                    currentPosition++;
+                }
                 scrollToChild(currentPosition, 0);
             }
         });
@@ -262,17 +276,27 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     }
 
-    private void addTab(final int position, View tab) {
+    private void addTab(final int position,final View tab) {
         tab.setFocusable(true);
         tab.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                pager.setCurrentItem(position);
+                if(onTableClickListener !=null){
+                    onTableClickListener.onTableClickListener(position,tab);
+                }
+
             }
         });
 
         tab.setPadding(tabPadding, tabTopPadding, tabPadding, tabBottomPadding);
         tabsContainer.addView(tab, position, shouldExpand ? expandedTabLayoutParams : defaultTabLayoutParams);
+    }
+    //Tab点击事件响应
+    public interface OnTableClickListener{
+        void onTableClickListener(int position,View tab);
+    }
+    public void setOnTableClickListener(OnTableClickListener onTableClickListener){
+        this.onTableClickListener = onTableClickListener;
     }
 
     private void updateTabStyles() {
@@ -381,29 +405,26 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            currentPosition = position;
+            if(position >= 5 ){
+                currentPosition = position + 1;
+            }else{
+                currentPosition = position;
+            }
             currentPositionOffset = positionOffset;
-//			Log.i(VIEW_LOG_TAG, "===========positionOffset=======>>"+positionOffset+"====positionOffsetPixels=="+positionOffsetPixels);
-//				if(recordPosition < tabsContainer.getChildAt(position).getLeft()+positionOffset * tabsContainer.getChildAt(position).getWidth()){
-            scrollOffset = (screenWidth - tabsContainer.getChildAt(position).getWidth()) / 2;
-//				}else{
-//					scrollOffset = tabsContainer.getChildAt(position).getWidth();
-//				}
-            scrollToChild(position, (int) (positionOffset * tabsContainer.getChildAt(position).getWidth()));
-
+            scrollOffset = (screenWidth - tabsContainer.getChildAt(currentPosition).getWidth()) / 2;
+            scrollToChild(currentPosition, (int) (positionOffset * tabsContainer.getChildAt(currentPosition).getWidth()));
             invalidate();
 
             if (delegatePageListener != null) {
-                delegatePageListener.onPageScrolled(position, positionOffset, positionOffsetPixels);
+                delegatePageListener.onPageScrolled(currentPosition, positionOffset, positionOffsetPixels);
             }
         }
 
         @Override
         public void onPageScrollStateChanged(int state) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
-                scrollToChild(pager.getCurrentItem(), 0);
-                recordPosition = tabsContainer.getChildAt(pager.getCurrentItem()).getLeft();
+//                scrollToChild(currentPosition, 0);
+
             }
 
 
@@ -417,7 +438,13 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             for (int i = 0; i < tabCount; i++) {
                 View v = tabsContainer.getChildAt(i);
                 v.setSelected(false);
-                if (i == position) v.setSelected(true);
+                if(position >= 5){
+                    if(i == position+1){
+                        v.setSelected(true);
+                    }
+                }else{
+                    if (i == position) v.setSelected(true);
+                }
             }
             if (delegatePageListener != null) {
                 delegatePageListener.onPageSelected(position);
