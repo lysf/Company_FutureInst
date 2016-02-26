@@ -29,8 +29,6 @@ public class PullLayout extends ScrollView{
     private int range;
     private boolean isTouchOrRunning;
     private boolean isActionCancel;
-    private ImageView iv_image;
-    private ImageView iv_image_blur;
     private LinearLayout ll_time;
 
 //    private int tvHeight;
@@ -101,18 +99,7 @@ public class PullLayout extends ScrollView{
 //		bottom_scroll = (PullLayout) findViewById(R.id.bottom_scroll);
 //		rl_deal = findViewById(R.id.rl_deal);
 //		 tv_time = (TextView) findViewById(R.id.tv_time);
-		iv_image = (ImageView) findViewById(R.id.iv_image);
-        iv_image_blur = (ImageView) findViewById(R.id.iv_image_blur);
-        iv_image.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            @Override
-            public boolean onPreDraw() {
-//                iv_image.buildDrawingCache(false);
-//                Bitmap bmp = iv_image.getDrawingCache();
-//                BitmapUtil.blur(getContext(),bmp,iv_image_blur);
-//                iv_image.buildDrawingCache(true);
-                return true;
-            }
-        });
+
 
 
 
@@ -243,15 +230,15 @@ public class PullLayout extends ScrollView{
 //        ViewHelper.setTranslationY(iv_share, -t);
 //        ViewHelper.setTranslationY(tv_event_title, -t);
 
-        ViewHelper.setTranslationY(iv_image, -t / 2);
-        ViewHelper.setTranslationY(iv_image_blur, -t / 2);
+//        ViewHelper.setTranslationY(iv_image, -t / 2);
+//        ViewHelper.setTranslationY(iv_image_blur, -t / 2);
         float alpha = 1 - percent;
         if (alpha > 1.0) {
             alpha = 1.0f;
         } else if (alpha < 0.0) {
             alpha = 0.0f;
         }
-        iv_image_blur.setAlpha(2*percent);
+//        iv_image_blur.setAlpha(2*percent);
         if(alpha <=0.6){
             ll_time.setAlpha(alpha);
 //        	tv_time.setAlpha(alpha);
@@ -271,10 +258,10 @@ public class PullLayout extends ScrollView{
         if(t<0){
             rl_top.getLayoutParams().height = range - t;
             rl_top.requestLayout();
-            iv_image.requestLayout();
-            iv_image_blur.requestLayout();
+//            iv_image.requestLayout();
+//            iv_image_blur.requestLayout();
         }
-        iv_image_blur.setAlpha(2*percent);
+//        iv_image_blur.setAlpha(2*percent);
 //        tv_time.setAlpha(1-percent);
 //        iv_operate.setAlpha(1-percent);
 //        iv_share.setAlpha(1-percent);

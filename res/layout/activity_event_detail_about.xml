@@ -41,6 +41,7 @@
 
                 <ImageView
                     android:id="@+id/iv_refresh"
+                    android:visibility="gone"
                     android:layout_marginTop="@dimen/margin_20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -78,17 +79,12 @@
             <include
                 android:id="@+id/view_reference_layout"
                 layout="@layout/event_detail_6"/>
-            <!--事件始末-->
-            <include
-                android:id="@+id/view_lazyBag_layout"
-                layout="@layout/event_detail_7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+
+
+
             <!--评论-->
             <include
                 android:id="@+id/view_comment"
-                android:layout_marginTop="@dimen/margin_20"
                 layout="@layout/event_detail_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -111,4 +107,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/new_refresh" />
 </RelativeLayout>

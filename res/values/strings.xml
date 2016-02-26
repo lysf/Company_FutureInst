@@ -28,6 +28,9 @@
 快去注册，领取新手大礼包吧！</string>
     <!-- hometable -->
     <!-- iconFont -->
+    <string name="tab_more">更多-&#xe649;</string>
+    <string name="tab_less">收起-&#xe649;</string>
+
     <string name="home_tab1">&#xe600;</string>
     <string name="home_tab2">&#xe601;</string>
     <string name="home_tab3">&#xe602;</string>

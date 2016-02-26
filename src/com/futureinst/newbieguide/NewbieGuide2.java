@@ -17,9 +17,15 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 public class NewbieGuide2 {
-    private int[] eventDetail_guid_1 = new int[]{R.raw.guide_2, R.raw.guide_3, R.raw.guide_4, R.raw.guide_5};
-    private int[] eventDetail_guid_2 = new int[]{R.raw.guide_2,R.raw.guide_6};
-    private int[] eventTrade_guid_2 = new int[]{R.raw.guide_7, R.raw.guide_8};
+    private int[] eventDetail_guid_1 = new int[]{
+//			R.raw.guide_2, R.raw.guide_3, R.raw.guide_4, R.raw.guide_5
+	};
+    private int[] eventDetail_guid_2 = new int[]{
+//			R.raw.guide_2,R.raw.guide_6
+	};
+    private int[] eventTrade_guid_2 = new int[]{
+//			R.raw.guide_7, R.raw.guide_8
+	};
     private int[] imagesId;
 	private int index = 0;
     private ImageView guide;

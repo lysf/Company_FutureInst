@@ -11,7 +11,6 @@ public class QueryEventDAO implements Serializable{
 	private String description;
 	private String rule;
 	private String imgsrc;
-	private String videosrc;
 	private int tag;
 	private String tagstr;
 	private Long tradeTime;
@@ -34,6 +33,16 @@ public class QueryEventDAO implements Serializable{
 	private float pk0Volume; //pk模式看好总未币量
 	private int pk1Involve; //pk模式不看好总人数
 	private float pk1Volume; //pk模式不看好总未币量
+	private String absImgsrc;//摘要图片
+	private String videosrc;//事件影片
+
+	public String getAbsImgsrc() {
+		return absImgsrc;
+	}
+
+	public void setAbsImgsrc(String absImgsrc) {
+		this.absImgsrc = absImgsrc;
+	}
 
 	public int getPk0Involve() {
 		return pk0Involve;

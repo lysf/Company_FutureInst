@@ -72,7 +72,7 @@ public class EventBuyActivity extends BaseActivity {
 		initPriceView();
 		initPrice(priceDAOInfo);
 		getTotal();
-		showGuide();
+//		showGuide();
 	}
 	private void getTotal(){
 		if(!judgeIsUse()){

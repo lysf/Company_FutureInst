@@ -4,14 +4,14 @@
      xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/text_color_white" >
-    <View 
+    >
+    <View
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="@dimen/line_height"
         android:background="@color/text_color_e"/>
     <com.futureinst.widget.list.MyListView
-     android:background="@color/text_color_white"
-     android:focusable="true"  
+     android:focusable="true"
      android:focusableInTouchMode="true"
      android:scrollbars="none"
      android:id="@+id/myList"

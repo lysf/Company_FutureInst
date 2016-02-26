@@ -110,11 +110,14 @@ public class ForecastContainerTypeFragment extends BaseFragment implements OnRef
                 if(intent.getAction().equals("order")){
                     Content.order = intent.getIntExtra("order",0);
                     onRefresh(true);
-                }
+                }else if(intent.getAction().equals("top") && intent.getIntExtra("position",-10) == position){
+					pullListView.setSelection(0);
+				}
             }
         };
         IntentFilter filter = new IntentFilter();
         filter.addAction("order");
+        filter.addAction("top");
         getContext().registerReceiver(receiver, filter);
 	}
 	private void initView(){

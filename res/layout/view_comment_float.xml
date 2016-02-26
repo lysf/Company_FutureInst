@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/status_bar"
                 android:paddingLeft="@dimen/margin_20"
-                android:paddingRight="@dimen/margin_20"
+    android:gravity="center"
+                android:paddingRight="@dimen/activity_login_margin_10"
                 android:minHeight="@dimen/widget_height_40"
-
     >
 
     <Button
         android:id="@+id/btn_comment_float"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:layout_height="38dp"
+        android:layout_marginTop="@dimen/dimen_3"
+        android:layout_marginBottom="@dimen/dimen_3"
+        android:layout_marginRight="@dimen/activity_login_margin_10"
+        android:background="@drawable/btn_white_bg"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:drawableLeft="@drawable/comment_edit_float"
-        android:text=" 写评论"
-        android:textColor="@color/text_color_4"
-        android:textSize="@dimen/text_size_large"
+        android:text=" 写评论..."
+        android:textColor="@color/text_color_d"
+        android:textSize="@dimen/text_size_normal"
 
         />
 
@@ -35,4 +40,4 @@
         android:text=" 0"
         android:textColor="@color/text_color_4"
         android:textSize="@dimen/text_size_large"/>
-</RelativeLayout>
+</LinearLayout>

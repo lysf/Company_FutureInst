@@ -15,15 +15,12 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -32,7 +29,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.futureinst.R;
-import com.futureinst.activitytransition.ActivityTransition;
 import com.futureinst.baseui.BaseActivity;
 import com.futureinst.comment.AddCommentActivity;
 import com.futureinst.comment.AddPointActivity;
@@ -42,7 +38,6 @@ import com.futureinst.comment.CommentDetailAdapter;
 import com.futureinst.global.Content;
 import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.home.eventdetail.chargetip.ChargeTipUtil;
-import com.futureinst.home.eventdetail.eventdetailabout.EditCommentDialog;
 import com.futureinst.home.eventdetail.eventdetailabout.EventPointAdapter;
 import com.futureinst.home.eventdetail.eventdetailabout.EventRuleDialog;
 import com.futureinst.home.eventdetail.eventdetailabout.OrderTip;
@@ -50,11 +45,8 @@ import com.futureinst.home.eventdetail.eventdetailabout.ShareCommentDialog;
 import com.futureinst.home.eventdetail.simple.SimpleOrderDialog;
 import com.futureinst.home.eventdetail.simple.SimpleRateView;
 import com.futureinst.home.eventdetail.statistics.Stats;
-import com.futureinst.home.find.ArticleDetailActivity;
 import com.futureinst.home.forecast.PagerIndictorView;
-import com.futureinst.login.LoginActivity;
 import com.futureinst.model.basemodel.BaseModel;
-import com.futureinst.model.comment.ArticleDAO;
 import com.futureinst.model.comment.CommentDAO;
 import com.futureinst.model.comment.CommentInfoDAO;
 import com.futureinst.model.homeeventmodel.CommentAndArticleInfoDAO;
@@ -68,33 +60,22 @@ import com.futureinst.model.order.SingleEventClearDAO;
 import com.futureinst.model.order.SingleEventInfoDAO;
 import com.futureinst.model.usermodel.UserInformationInfo;
 import com.futureinst.net.CommentOperate;
-import com.futureinst.net.HttpPath;
 import com.futureinst.net.PostCommentResponseListener;
 import com.futureinst.net.PostMethod;
 import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
 import com.futureinst.newbieguide.EventdetailGuide;
-import com.futureinst.newbieguide.GuideClickInterface;
-import com.futureinst.newbieguide.NewbieGuide;
 import com.futureinst.newbieguide.NewbieGuide2;
-import com.futureinst.personalinfo.other.PersonalShowActivity;
-import com.futureinst.roundimageutils.RoundedImageView;
-import com.futureinst.share.OneKeyShareUtil;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LoginUtil;
 import com.futureinst.utils.LongTimeUtil;
-import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
-import com.futureinst.utils.TimeUtil;
 import com.futureinst.utils.Utils;
-import com.futureinst.utils.lottery.LotteryUtil;
 import com.futureinst.widget.CustomView_Image_Text;
 import com.futureinst.widget.PullLayout;
 import com.futureinst.widget.list.MyListView;
 import com.futureinst.widget.list.MyLoadingListView;
-import com.futureinst.widget.scrollview.MyScrollView;
-import com.futureinst.widget.scrollview.PullScrollView;
 import com.futureinst.widget.waterwave.CustomDraw;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
@@ -102,12 +83,8 @@ import com.umeng.analytics.MobclickAgent;
 import org.json.JSONException;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 
-import cn.sharesdk.sina.weibo.SinaWeibo;
-import cn.sharesdk.wechat.friends.Wechat;
-import cn.sharesdk.wechat.moments.WechatMoments;
 
 
 @SuppressLint({"HandlerLeak", "DefaultLocale"})
@@ -163,7 +140,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     //头部
     private ImageView btn_invivate;
 
-    private ImageView iv_image;
+    private ImageView iv_image;//事件背景图片
     private ImageView iv_refresh;
     private TextView tv_time, tv_event_title;
 
@@ -195,6 +172,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private boolean timeIsStart, isDestroy;
     //是否查看评论或下单统计
     private boolean checkComment, checkOrder;
+
+    private ImageView fab;
+    private Button btn_event_bg;
+    private boolean isShowEventBg;
 
 
     private Handler handler = new Handler() {
@@ -312,6 +293,11 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                 return false;
             }
         });
+        fab = (ImageView) findViewById(R.id.fab);
+        fab.setOnClickListener(clickListener);
+        btn_event_bg = (Button) findViewById(R.id.btn_event_bg);
+        btn_event_bg.setOnClickListener(clickListener);
+
         ll_detail_buy = (LinearLayout) findViewById(R.id.ll_detail_buy);
         ll_detail_sell = (LinearLayout) findViewById(R.id.ll_detail_sell);
         ll_detail_buy.setOnClickListener(clickListener);
@@ -347,6 +333,8 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         tv_time = (TextView) findViewById(R.id.tv_time);
         iv_image = (ImageView) findViewById(R.id.iv_image);
         iv_refresh = (ImageView) findViewById(R.id.iv_refresh);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Utils.getScreenWidth(this)-Utils.dip2px(this, 30),(Utils.getScreenWidth(this)-Utils.dip2px(this,30))*3/5);
+        iv_image.setLayoutParams(params);
         iv_refresh.setOnClickListener(clickListener);
 
         view_single_event = findViewById(R.id.view_singlev_event);
@@ -376,7 +364,11 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         tv_event_buy_simple = (TextView) findViewById(R.id.tv_event_buy_simple);
         tv_event_sell_simple = (TextView) findViewById(R.id.tv_event_sell_simple);
         tv_gain_tip_simple = (TextView) findViewById(R.id.tv_gain_tip_simple);
-
+        if(isShowEventBg){
+            view_lazyBag_layout.setVisibility(View.VISIBLE);
+        }else{
+            view_lazyBag_layout.setVisibility(View.GONE);
+        }
 
 
         initPriceView();
@@ -407,10 +399,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     indictor_2.setSelected(false);
                     break;
                 case R.id.rl_pref:
-                    if (!preferenceUtil.getGuide3()) {
-                        new NewbieGuide2(EventDetailActivity.this, isHavaPrice, 2);
-                        preferenceUtil.setGuide3();
-                    }
+//                    if (!preferenceUtil.getGuide3()) {
+//                        new NewbieGuide2(EventDetailActivity.this, isHavaPrice, 2);
+//                        preferenceUtil.setGuide3();
+//                    }
                     preferenceUtil.setEasyModel(false);
                     rl_pref.setSelected(true);
                     tv_pref.setSelected(true);
@@ -739,10 +731,16 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             tv_description.setText(event.getAccord());
             tv_description.setTextColor(Color.parseColor("#4A90E2"));
         }
-        if (iv_image.getTag() == null || !iv_image.getTag().equals(event.getImgsrc())) {
-            iv_image.setTag(event.getImgsrc());
-            ImageLoader.getInstance().displayImage(event.getImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+        if(TextUtils.isEmpty(event.getAbsImgsrc())){
+            iv_image.setVisibility(View.GONE);
+        }else{
+            iv_image.setVisibility(View.VISIBLE);
+            if (iv_image.getTag() == null || !iv_image.getTag().equals(event.getAbsImgsrc())) {
+                iv_image.setTag(event.getAbsImgsrc());
+                ImageLoader.getInstance().displayImage(event.getAbsImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+            }
         }
+
         customDraw.setPrice(event.getCurrPrice());
         customDraw.setUpdate_price(event.getPriceChange());
         customDraw.start();
@@ -765,7 +763,15 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.iv_refresh:
+                case R.id.btn_event_bg://事件背景
+                    if(isShowEventBg){
+                        view_lazyBag_layout.setVisibility(View.GONE);
+                    }else{
+                        view_lazyBag_layout.setVisibility(View.VISIBLE);
+                    }
+                    isShowEventBg = !isShowEventBg;
+                    break;
+                case R.id.fab:
                     progressDialog.progressDialog();
                     attitude = 0;
                     getPrice();
@@ -1270,6 +1276,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                             Intent lazybagIntent = new Intent("lazybag");
                             lazybagIntent.putExtra("data", eventRelatedInfo.getLazybag());
                             sendBroadcast(lazybagIntent);
+                        }
+                        if(eventRelatedInfo.getLazybag().getBags() == null
+                                || eventRelatedInfo.getLazybag().getBags().size() == 0){
+                            btn_event_bg.setVisibility(View.GONE);
                         }
                         if (eventRelatedInfo.getRefer() != null) {
                             Intent referIntent = new Intent("refer");

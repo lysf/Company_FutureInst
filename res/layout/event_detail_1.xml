@@ -10,12 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="125dip">
 
-        <ImageView
-            android:id="@+id/iv_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            />
+
         <ImageView
             android:id="@+id/iv_image_blur"
             android:layout_width="match_parent"
@@ -37,7 +32,7 @@
             android:paddingBottom="@dimen/ebpay_line_margin_15"
             android:paddingLeft="@dimen/dimen_3"
             android:paddingRight="@dimen/dimen_3"
-            android:textSize="@dimen/text_size_large_22"
+            android:textSize="@dimen/text_size_large"
             android:textColor="@color/text_color_4"
             android:lineSpacingExtra="@dimen/dimen_3"
             android:layout_width="match_parent"
@@ -51,6 +46,38 @@
             android:textSize="@dimen/text_size_normal"
             android:textColor="@color/text_color_4"
             android:lineSpacingExtra="3dip"
+            />
+        <ImageView
+            android:id="@+id/iv_image"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/margin_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/text_color_d"/>
+        <Button
+            android:id="@+id/btn_event_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:paddingRight="@dimen/margin_5"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            android:gravity="right|center_vertical"
+            android:text="事件背景 "
+            android:minHeight="35dp"
+            android:textSize="@dimen/text_size_normal"
+            android:textColor="@color/text_color_4"
+            android:drawableRight="@drawable/down_cut"
+            />
+        <!--事件始末-->
+        <include
+            android:id="@+id/view_lazyBag_layout"
+            layout="@layout/event_detail_7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             />
     </LinearLayout>
 
