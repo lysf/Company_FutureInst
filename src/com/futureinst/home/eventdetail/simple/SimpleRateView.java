@@ -147,7 +147,7 @@ public class SimpleRateView extends View {
         mPaint.setStrokeWidth(5);
         mPaint.setTypeface(Typeface.DEFAULT_BOLD);
         canvas.drawText("PK",width/2,height + startY + margin,mPaint);
-        mPaint.setTextSize(30);
+        mPaint.setTextSize(26);
         mPaint.setColor(textColor);
         mPaint.setTextAlign(Paint.Align.LEFT);
         canvas.drawText(buyNum + "人投入" + buyCoins + "未币", 0, height + startY + margin - 5, mPaint);
@@ -155,7 +155,7 @@ public class SimpleRateView extends View {
         canvas.drawText(sellNum + "人投入" + sellCoins + "未币", width, height + startY + margin - 5, mPaint);
         mPaint.setTextAlign(Paint.Align.CENTER);
         mPaint.setColor(getResources().getColor(R.color.text_color_4));
-        mPaint.setTextSize(40);
+        mPaint.setTextSize(26);
         canvas.drawText(tip, width / 2, height + startY + margin * 2.5f, mPaint);
     }
     //画图（赢）

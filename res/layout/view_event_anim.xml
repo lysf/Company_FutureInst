@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_width="wrap_content"
+        android:background="@drawable/view_shap"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:minHeight="140dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/iv_anim"
+                android:scaleType="centerInside"
+                android:src="@drawable/lost1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:paddingTop="@dimen/activity_login_margin_10"
+            android:paddingBottom="@dimen/margin_20"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:background="@drawable/bottom_yellow_corner"
+            android:orientation="vertical"
+            android:layout_height="0dp">
+            <TextView
+                android:text="一键PK"
+                android:textColor="@color/text_color_4"
+                android:textSize="@dimen/text_size_large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_message"
+                android:layout_marginLeft="@dimen/ebpay_dimen_30dp"
+                android:layout_marginRight="@dimen/ebpay_dimen_30dp"
+                android:layout_marginTop="@dimen/activity_login_margin_10"
+                android:textSize="15sp"
+                android:textColor="@color/text_color_4"
+                android:text="预测神准，赢得100未币！"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_marginTop="@dimen/margin_20"
+                android:layout_marginLeft="@dimen/margin_20"
+                android:layout_marginRight="@dimen/margin_20"
+                android:background="@drawable/btn_charge_trans"
+                android:layout_width="match_parent"
+                android:text="确认"
+                android:textColor="@drawable/text_color_4_9"
+                android:textSize="@dimen/text_size_normal"
+                android:layout_height="35dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -54,9 +54,8 @@
                 android:gravity="center_vertical"
                 android:paddingBottom="@dimen/activity_login_margin_10"
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content">
-                <com.futureinst.widget.IconSlidingTabView
+                <com.futureinst.widget.IconSlidingRankingTabView
                     android:id="@+id/icon_type"
                     android:text="&#xe641;"
                     android:textColor="@color/text_color_4"

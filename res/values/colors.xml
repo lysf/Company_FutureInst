@@ -24,6 +24,19 @@
     <color name="pop_selected">#52C3D1</color>
 
 
+	<color name="black">#000001</color>
+	<color name="white">#ffffff</color>
+
+
+	<color name="grey50transparent">#dcfafafa</color>
+	<color name="grey400transparent">#80bdbdbd</color>
+	<color name="grey900transparent">#80212121</color>
+	<color name="orange500transparent">#FF6347</color>
+
+	<color name="blacktransparent">#b4000000</color>
+	<color name="whitetransparent">#dcffffff</color>
+
+
     <color name="rippelColor">#86BFFA</color>
     <color name="editText">#AAAAAA</color>
     <color name="blue">#008dff</color>

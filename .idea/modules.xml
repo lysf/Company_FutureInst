@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" filepath="$PROJECT_DIR$/BDIntegrationSDK_Lib/BDIntegrationSDK_Lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/BaiduWalletRefactorLib/BaiduWalletRefactorLib.iml" filepath="$PROJECT_DIR$/BaiduWalletRefactorLib/BaiduWalletRefactorLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/FutureInst.iml" filepath="$PROJECT_DIR$/FutureInst.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vitamio_Lib/vitamio_Lib.iml" filepath="$PROJECT_DIR$/vitamio_Lib/vitamio_Lib.iml" />
     </modules>
   </component>
 </project>
