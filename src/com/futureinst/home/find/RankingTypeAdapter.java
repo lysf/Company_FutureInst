@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.futureinst.R;
 import com.futureinst.utils.ViewHolder;
-import com.futureinst.widget.IconSlidingTabView;
+import com.futureinst.widget.IconSlidingRankingTabView;
 
 /**
  * Created by hao on 2015/10/22.
@@ -47,7 +47,7 @@ public class RankingTypeAdapter extends BaseAdapter {
         if(view == null)
             view = LayoutInflater.from(context).inflate(R.layout.item_ranking_type,null,false);
         String[] item = types[i].split("-");
-        IconSlidingTabView iconView = ViewHolder.get(view, R.id.icon);
+        IconSlidingRankingTabView iconView = ViewHolder.get(view, R.id.icon);
         TextView tv_type = ViewHolder.get(view,R.id.tv_type);
         iconView.setText(item[1]);
         tv_type.setText(item[0]);

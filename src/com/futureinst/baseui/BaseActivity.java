@@ -454,10 +454,7 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 	@Override
 	public void onBackPressed() {
 		super.onBackPressed();
-//        if(progressDialog!=null && progressDialog.getIsShow()){
-//            progressDialog.cancleProgress();
-//            return;
-//        }
+
 		finish();
 	}
 	  
@@ -507,6 +504,9 @@ public abstract class BaseActivity extends BaseFragmentActivity {
 	   @Override
 	public void finish() {
 //		   MobclickAgent.onKillProcess( this );
+           if(progressDialog!=null && progressDialog.getIsShow()){
+               progressDialog.cancleProgress();
+           }
            super.finish();
 	}
 	   private boolean isAppOnForeground(Context context) {   

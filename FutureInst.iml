@@ -144,6 +144,7 @@
     <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="module" module-name="BDIntegrationSDK_Lib" exported="" />
     <orderEntry type="module" module-name="BaiduWalletRefactorLib" exported="" />
+    <orderEntry type="module" module-name="vitamio_Lib" exported="" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-23" level="project" />
   </component>
 </module>

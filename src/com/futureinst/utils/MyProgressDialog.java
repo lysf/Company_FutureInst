@@ -29,7 +29,12 @@ public class MyProgressDialog {
 			}
 		});
 		mProgressDialog.setCancelable(false);
-		mProgressDialog.show();
+		try {
+			mProgressDialog.show();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+
 	}
 	public  void cancleProgress(){
 		if (mProgressDialog!=null&&mProgressDialog.isShowing()) {  

@@ -42,6 +42,7 @@ import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.MyProgressDialog;
 import com.futureinst.utils.MyToast;
 import com.futureinst.utils.TimeUtil;
+import com.futureinst.widget.IconSlidingRankingTabView;
 import com.futureinst.widget.IconSlidingTabView;
 import com.futureinst.widget.clearedittext.ClearEditText;
 import com.futureinst.widget.list.PullListView;
@@ -49,7 +50,12 @@ import com.futureinst.widget.list.PullListView.OnRefreshListener;
 import com.futureinst.widget.IconMonthAndDayView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 public class RankingFragment extends BaseFragment implements OnRefreshListener {
     private SharePreferenceUtil preferenceUtil;
@@ -63,7 +69,7 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
     private RoundedImageView iv_headImg;
     private LinearLayout ll_type, ll_ranking_type;
     private ListView lv_type;
-    private IconSlidingTabView icon_type;
+    private IconSlidingRankingTabView icon_type;
     private RankingTypeAdapter rankingTypeAdapter;
     private TextView tv_type;
     private int index = 0;
@@ -107,7 +113,7 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
         progressDialog = MyProgressDialog.getInstance(getContext());
 
         ll_ranking_type = (LinearLayout) findViewById(R.id.ll_ranking_type);
-        icon_type = (IconSlidingTabView) findViewById(R.id.icon_type);
+        icon_type = (IconSlidingRankingTabView) findViewById(R.id.icon_type);
         tv_type = (TextView) findViewById(R.id.tv_type);
         ll_type = (LinearLayout) findViewById(R.id.ll_type);
         lv_type = (ListView) findViewById(R.id.lv_type);
@@ -342,9 +348,19 @@ public class RankingFragment extends BaseFragment implements OnRefreshListener {
     }
     //月日分类排名
     private void get_period_rank (int tag,String scope) {
-        String period = TimeUtil.longToString(System.currentTimeMillis(),TimeUtil.FORMAT_DATE);
-        if(scope.equals("month")){
-            period = period.replace(period.substring(period.lastIndexOf("-")+1),"01");
+        String period = null;
+        if(scope.equals("day")){
+            period = TimeUtil.longToString(SystemTimeUtile.getInstance(System.currentTimeMillis()).getSystemTime()- 24*60*60*1000,TimeUtil.FORMAT_DATE);
+        }else if(scope.equals("month")){
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(SystemTimeUtile.getInstance(System.currentTimeMillis()).getSystemTime());
+            int month = calendar.get(Calendar.MONTH) ;
+            int year = calendar.get(Calendar.YEAR);
+            if(month == 0){
+                month = 12;
+                year -= 1;
+            }
+            period = year+"-"+new DecimalFormat("00").format(month)+"-01";
         }else if(scope.equals("total")){
             period = null;
         }

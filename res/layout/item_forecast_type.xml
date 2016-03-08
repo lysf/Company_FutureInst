@@ -31,6 +31,7 @@
             android:scaleType="centerCrop"
             />
 
+
         <View
             android:id="@+id/view_transp"
             android:background="#000000"
@@ -116,20 +117,26 @@
         android:background="@color/text_color_e"/>
     <include
         android:id="@+id/view_bottom"
+        android:visibility="gone"
         layout="@layout/view_item_forecast_comment"/>
 
 </LinearLayout>
-
     <TextView
         android:id="@+id/tv_attitude"
         android:layout_alignParentRight="true"
         android:gravity="center_vertical"
         android:paddingLeft="8dip"
         android:layout_marginTop="130dip"
-        android:layout_marginRight="8dip"
+        android:layout_marginRight="7dip"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
+        android:textSize="13sp"
         android:background="@drawable/huang_3_icon"
         android:text="去预测"
         />
+    <com.futureinst.widget.commentlabview.CustomCommentLabView
+        android:layout_margin="@dimen/activity_login_margin_10"
+        android:id="@+id/lab_comment_view"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"/>
 </RelativeLayout>

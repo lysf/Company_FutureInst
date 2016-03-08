@@ -56,7 +56,9 @@
         <item >科技-&#xe633;</item>
         <item >国际-&#xe634;</item>
         <item >城市-&#xe635;</item>
+        <!--
         <item >新奇-&#xe636;</item>
+        -->
     </string-array>
     <string-array name="ranking_month_day_title">
         <item>总榜-&#xe602;</item>

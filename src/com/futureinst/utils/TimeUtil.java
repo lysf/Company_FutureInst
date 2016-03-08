@@ -48,9 +48,10 @@ public class TimeUtil {
 //		} else if (timeGap > MONTH) {
 //			timeStr = timeGap / MONTH + "个月前";
 //		} 
-		if(timeGap > 7*DAY){
-			timeStr = longToString(timestamp,FORMAT_DATE);
-		}else if (timeGap > DAY && timeGap < 7*DAY) {// 1天以上
+		if(timeGap > 30*DAY){
+//			timeStr = longToString(timestamp,FORMAT_DATE);
+			timeStr = "30天前";
+		}else if (timeGap > DAY && timeGap < 30*DAY) {// 1天以上
 			timeStr = timeGap / DAY + "天前";
 		} else if (timeGap > HOUR) {// 1小时-24小时
 			timeStr = timeGap / HOUR + "小时前";

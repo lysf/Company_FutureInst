@@ -14,6 +14,7 @@ import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LongTimeUtil;
 import com.futureinst.utils.Utils;
 import com.futureinst.utils.ViewHolder;
+import com.futureinst.widget.commentlabview.CustomCommentLabView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
@@ -77,6 +78,8 @@ public class ForecastItemAdapter extends BaseAdapter {
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_forecast_type, null);
 		QueryEventDAO item = list.get(position);
 		//评论
+		CustomCommentLabView lab_comment_view = ViewHolder.get(convertView,R.id.lab_comment_view);
+
 		RoundedImageView headImage_1 = ViewHolder.get(convertView,R.id.headImage_1);
 		RoundedImageView headImage_2 = ViewHolder.get(convertView,R.id.headImage_2);
 		TextView tv_name_1 = ViewHolder.get(convertView,R.id.tv_name_1);
@@ -107,19 +110,35 @@ public class ForecastItemAdapter extends BaseAdapter {
         ImageView iv_attitude = ViewHolder.get(convertView,R.id.iv_attitude);
         View view_middle = ViewHolder.get(convertView,R.id.view_middle);
         View view_bottom = ViewHolder.get(convertView,R.id.view_bottom);
+		view_bottom.setVisibility(View.GONE);
+
 		TextView tv_commentNum = ViewHolder.get(convertView,R.id.tv_commentNum);//评论数
 		TextView tv_orderNum = ViewHolder.get(convertView,R.id.tv_orderNum);//下单数
 		TextView tv_group = ViewHolder.get(convertView,R.id.tv_group);
 
 		tv_commentNum.setText(item.getAllComNum()+"");
 		tv_orderNum.setText(item.getInvolve() + "");
-		float iv_h = (Utils.getScreenWidth(context)-Utils.dip2px(context,20))*266/702;
+		float iv_h = 0f ;
+		if(item.getType() == 1 || item.getType() == 2){//专题或广告
+			iv_h = (Utils.getScreenWidth(context)-Utils.dip2px(context,20))*266/702;
+		}else{
+			iv_h = (Utils.getScreenWidth(context)-Utils.dip2px(context,20))*548/702;
+		}
+
 		android.widget.RelativeLayout.LayoutParams iv_layoutParams = new android.widget.RelativeLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, (int)iv_h);
+				Utils.getScreenWidth(context)-Utils.dip2px(context,20), (int)iv_h);
 		iv_image.setLayoutParams(iv_layoutParams);
 		view_transp.setLayoutParams(iv_layoutParams);
-		RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-		layoutParams.setMargins(0,(int)iv_h*3/4,Utils.dip2px(context,8),0);
+
+		android.widget.RelativeLayout.LayoutParams lab_layoutParams = new android.widget.RelativeLayout.LayoutParams(
+				Utils.getScreenWidth(context)-Utils.dip2px(context,20), (int)iv_h);
+		lab_layoutParams.setMargins(Utils.dip2px(context,10),Utils.dip2px(context,10),Utils.dip2px(context,10),Utils.dip2px(context,10));
+		lab_comment_view.setLayoutParams(lab_layoutParams);
+		lab_comment_view.setDatas(getComment(item.getId()));//设置评论数据
+
+
+		RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, Utils.dip2px(context,25));
+		layoutParams.setMargins(0, (int) iv_h - Utils.dip2px(context,45), Utils.dip2px(context, 7), 0);
 		layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 		tv_status.setLayoutParams(layoutParams);
 
@@ -150,56 +169,44 @@ public class ForecastItemAdapter extends BaseAdapter {
 		}else{
 			List<CommentDAO> comments = getComment(item.getId());
             view_middle.setVisibility(View.VISIBLE);
-			if(comments!=null){
-				//有评论
-				view_bottom.setVisibility(View.VISIBLE);
-				if(headImage_1.getTag() == null || !headImage_1.getTag().equals(comments.get(0).getUser().getHeadImage())){
-					ImageLoader.getInstance().displayImage(comments.get(0).getUser().getHeadImage(),headImage_1,ImageLoadOptions.getOptions(R.drawable.logo));
-					headImage_1.setTag(comments.get(0).getUser().getHeadImage());
-				}
-				if(headImage_2.getTag() == null || !headImage_2.getTag().equals(comments.get(1).getUser().getHeadImage())){
-					ImageLoader.getInstance().displayImage(comments.get(1).getUser().getHeadImage(),headImage_2,ImageLoadOptions.getOptions(R.drawable.logo));
-					headImage_2.setTag(comments.get(1).getUser().getHeadImage());
-				}
-				tv_name_1.setText(comments.get(0).getUser().getName());
-				tv_name_2.setText(comments.get(1).getUser().getName());
-				if(comments.get(0).getAttitude() == 1){//赞同
-					tv_status_1.setText("看好");
-					tv_status_1.setTextColor(context.getResources().getColor(R.color.gain_red));
-				}else{
-					tv_status_1.setText("不看好");
-					tv_status_1.setTextColor(context.getResources().getColor(R.color.gain_blue));
-				}
-				if(comments.get(1).getAttitude() == 1){//赞同
-					tv_status_2.setText("看好");
-					tv_status_2.setTextColor(context.getResources().getColor(R.color.gain_red));
-				}else{
-					tv_status_2.setText("不看好");
-					tv_status_2.setTextColor(context.getResources().getColor(R.color.gain_blue));
-				}
-				tv_comment_1.setText(comments.get(0).getContent());
-				tv_comment_2.setText(comments.get(1).getContent());
-
-//				int w = View.MeasureSpec.makeMeasureSpec(0,
-//						View.MeasureSpec.UNSPECIFIED);
-//				int h = View.MeasureSpec.makeMeasureSpec(0,
-//						View.MeasureSpec.UNSPECIFIED);
-//				tv_comment_1.measure(w, h);
-//				tv_comment_2.measure(w, h);
-//				int height1 = tv_comment_1.getMeasuredHeight();
-//				int height2 = tv_comment_2.getMeasuredHeight();
-//				int height = height1>height2?height1:height2;
-//				RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height);
-//				tv_comment_1.setLayoutParams(params);
-//				tv_comment_2.setLayoutParams(params);
-
-				tv_time_1.setText(comments.get(0).getCtimeStr());
-				tv_time_2.setText(comments.get(1).getCtimeStr());
-				tv_prise_1.setText(comments.get(0).getLikeNum()+"");
-				tv_prise_2.setText(comments.get(1).getLikeNum()+"");
-			}else{
-				view_bottom.setVisibility(View.GONE);
-			}
+//			if(comments!=null){
+//				//有评论
+//				view_bottom.setVisibility(View.VISIBLE);
+//				if(headImage_1.getTag() == null || !headImage_1.getTag().equals(comments.get(0).getUser().getHeadImage())){
+//					ImageLoader.getInstance().displayImage(comments.get(0).getUser().getHeadImage(),headImage_1,ImageLoadOptions.getOptions(R.drawable.logo));
+//					headImage_1.setTag(comments.get(0).getUser().getHeadImage());
+//				}
+//				if(headImage_2.getTag() == null || !headImage_2.getTag().equals(comments.get(1).getUser().getHeadImage())){
+//					ImageLoader.getInstance().displayImage(comments.get(1).getUser().getHeadImage(),headImage_2,ImageLoadOptions.getOptions(R.drawable.logo));
+//					headImage_2.setTag(comments.get(1).getUser().getHeadImage());
+//				}
+//				tv_name_1.setText(comments.get(0).getUser().getName());
+//				tv_name_2.setText(comments.get(1).getUser().getName());
+//				if(comments.get(0).getAttitude() == 1){//赞同
+//					tv_status_1.setText("看好");
+//					tv_status_1.setTextColor(context.getResources().getColor(R.color.gain_red));
+//				}else{
+//					tv_status_1.setText("不看好");
+//					tv_status_1.setTextColor(context.getResources().getColor(R.color.gain_blue));
+//				}
+//				if(comments.get(1).getAttitude() == 1){//赞同
+//					tv_status_2.setText("看好");
+//					tv_status_2.setTextColor(context.getResources().getColor(R.color.gain_red));
+//				}else{
+//					tv_status_2.setText("不看好");
+//					tv_status_2.setTextColor(context.getResources().getColor(R.color.gain_blue));
+//				}
+//				tv_comment_1.setText(comments.get(0).getContent());
+//				tv_comment_2.setText(comments.get(1).getContent());
+//
+//
+//				tv_time_1.setText(comments.get(0).getCtimeStr());
+//				tv_time_2.setText(comments.get(1).getCtimeStr());
+//				tv_prise_1.setText(comments.get(0).getLikeNum()+"");
+//				tv_prise_2.setText(comments.get(1).getLikeNum()+"");
+//			}else{
+//				view_bottom.setVisibility(View.GONE);
+//			}
 			tv_title.setVisibility(View.VISIBLE);
             tv_status.setVisibility(View.VISIBLE);
             tv_type.setText(item.getTagstr());
@@ -257,26 +264,27 @@ public class ForecastItemAdapter extends BaseAdapter {
 		List<CommentDAO> list = new ArrayList<CommentDAO>();
 		if(commentMap.containsKey(id+"")){
 			list = commentMap.get(id+"");
+//			list.addAll(list);
 		}
-		if(list.size() < 2){
-			list = null;
-        } else {
-            List<CommentDAO> comments = new ArrayList<>();
-            for (CommentDAO dao : list) {
-                if (dao.getAttitude() == 1) {//看好
-                    comments.add(dao);
-                    break;
-                }
-            }
-            for (CommentDAO dao : list) {
-                if (dao.getAttitude() == 2) {//不看好
-                    comments.add(dao);
-                    break;
-                }
-            }
-            if (comments.size() == 2) return comments;
-        }
-        return null;
+//		if(list.size() < 2){
+//			list = null;
+//        } else {
+//            List<CommentDAO> comments = new ArrayList<>();
+//            for (CommentDAO dao : list) {
+//                if (dao.getAttitude() == 1) {//看好
+//                    comments.add(dao);
+//                    break;
+//                }
+//            }
+//            for (CommentDAO dao : list) {
+//                if (dao.getAttitude() == 2) {//不看好
+//                    comments.add(dao);
+//                    break;
+//                }
+//            }
+//            if (comments.size() == 2) return comments;
+//        }
+        return list;
     }
 
 }

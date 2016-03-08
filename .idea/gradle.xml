@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/BDIntegrationSDK_Lib" />
             <option value="$PROJECT_DIR$/BaiduWalletRefactorLib" />
+            <option value="$PROJECT_DIR$/vitamio_Lib" />
           </set>
         </option>
       </GradleProjectSettings>

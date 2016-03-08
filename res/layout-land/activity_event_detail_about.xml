@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_EventDetail"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/view_play"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/view_player"/>
+    <com.futureinst.widget.PullLayout
+        android:visibility="gone"
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/text_color_e"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+
+            >
+            <include
+
+                layout="@layout/view_event_detail_swith"/>
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/text_color_white"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/rl_top"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="125dip">
+
+
+                    <ImageView
+                        android:id="@+id/iv_image_blur"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:alpha="0"
+                        />
+
+
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_margin="@dimen/margin_15"
+                    android:background="@color/text_color_f3"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_event_title"
+                        android:paddingBottom="@dimen/ebpay_line_margin_15"
+                        android:paddingLeft="@dimen/dimen_3"
+                        android:paddingRight="@dimen/dimen_3"
+                        android:textSize="@dimen/text_size_large"
+                        android:textColor="@color/text_color_4"
+                        android:lineSpacingExtra="@dimen/dimen_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/tv_description"
+                        android:paddingLeft="@dimen/dimen_3"
+                        android:paddingRight="@dimen/dimen_3"
+                        android:layout_marginBottom="@dimen/margin_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="@color/text_color_4"
+                        android:lineSpacingExtra="3dip"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/line_height"
+                        android:background="@color/text_color_d"/>
+                    <Button
+                        android:id="@+id/btn_event_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/margin_5"
+                        style="@style/Base.Widget.AppCompat.Button.Borderless"
+                        android:gravity="right|center_vertical"
+                        android:text="事件背景 "
+                        android:minHeight="35dp"
+                        android:textSize="@dimen/text_size_normal"
+                        android:textColor="@color/text_color_4"
+                        android:drawableRight="@drawable/down_cut"
+                        />
+                    <!--事件始末-->
+                    <include
+                        android:id="@+id/view_lazyBag_layout"
+                        layout="@layout/event_detail_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center_vertical|right"
+                    android:background="@color/text_color_white"
+                    android:paddingTop="@dimen/activity_login_margin_10"
+                    android:paddingLeft="@dimen/ebpay_dimen_20dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/ll_time"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:background="@color/text_color_white"
+                        android:padding="@dimen/margin_5">
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:drawableLeft="@drawable/iv_time"
+                            android:text="  9天5时候关闭交易"
+                            android:textColor="@color/text_color_6"
+                            android:textSize="@dimen/text_size_small"
+                            />
+
+                        <View
+                            android:layout_width="2dip"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/dimen_3"
+                            android:layout_marginLeft="@dimen/margin_5"
+                            android:layout_marginRight="@dimen/margin_5"
+                            android:layout_marginTop="@dimen/dimen_3"
+                            android:background="@color/text_color_0"/>
+                    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/btn_invivate_float"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/qingsuan_cut"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/text_color_white"
+                android:gravity="center"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_refresh"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/margin_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/new_cut"
+                    />
+                <com.futureinst.widget.waterwave.CustomDraw
+                    android:id="@+id/wav"
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/margin_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:gravity="center_vertical"
+                    />
+                <com.futureinst.home.eventdetail.simple.SimpleRateView
+                    android:id="@+id/view_simple_order"
+                    android:layout_margin="@dimen/ebpay_dimen_20dp"
+                    android:layout_below="@+id/iv_refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp" />
+            </RelativeLayout>
+
+            <include
+                layout="@layout/event_detail_3"/>
+
+
+            <!--观点-->
+            <include
+                android:layout_marginTop="@dimen/margin_20"
+                android:id="@+id/view_point_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/event_detail_5"/>
+            <!--相关新闻-->
+            <include
+                android:id="@+id/view_reference_layout"
+                layout="@layout/event_detail_6"/>
+
+
+
+            <!--评论-->
+            <include
+                android:id="@+id/view_comment"
+                layout="@layout/event_detail_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="42dp"
+                />
+        </LinearLayout>
+    </com.futureinst.widget.PullLayout>
+    <!--浮动评论-->
+    <include
+        android:visibility="gone"
+        android:id="@+id/view_comment_float"
+        layout="@layout/view_comment_float"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+    <include
+        android:id="@+id/view_float_comment_edit"
+        layout="@layout/view_comment_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
+    <ImageView
+        android:id="@+id/fab"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/new_refresh" />
+</RelativeLayout>

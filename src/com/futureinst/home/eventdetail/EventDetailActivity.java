@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -38,6 +39,7 @@ import com.futureinst.comment.CommentDetailAdapter;
 import com.futureinst.global.Content;
 import com.futureinst.home.SystemTimeUtile;
 import com.futureinst.home.eventdetail.chargetip.ChargeTipUtil;
+import com.futureinst.home.eventdetail.eventanim.EventAnimDialog;
 import com.futureinst.home.eventdetail.eventdetailabout.EventPointAdapter;
 import com.futureinst.home.eventdetail.eventdetailabout.EventRuleDialog;
 import com.futureinst.home.eventdetail.eventdetailabout.OrderTip;
@@ -66,6 +68,8 @@ import com.futureinst.net.PostType;
 import com.futureinst.net.SingleEventScope;
 import com.futureinst.newbieguide.EventdetailGuide;
 import com.futureinst.newbieguide.NewbieGuide2;
+import com.futureinst.player.VideoViewPlayerActivity;
+import com.futureinst.player.util.NetStateUtils;
 import com.futureinst.utils.DialogShow;
 import com.futureinst.utils.ImageLoadOptions;
 import com.futureinst.utils.LoginUtil;
@@ -89,6 +93,7 @@ import java.util.List;
 
 @SuppressLint({"HandlerLeak", "DefaultLocale"})
 public class EventDetailActivity extends BaseActivity implements PullLayout.ScrollViewListener {
+    private  boolean isAnim;
     private final int MAXPKORDER = 10000;
     private BroadcastReceiver receiver;
     private PullLayout scroll;
@@ -139,8 +144,15 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     private View view_comment, view_point_layout, view_reference_layout, view_lazyBag_layout;
     //头部
     private ImageView btn_invivate;
+    //图片、影片
+    LinearLayout.LayoutParams params;
+    private RelativeLayout rl_running;
+    private ImageView iv_pic;//事件背景图片
+    private ImageView iv_running;//播放按钮
 
-    private ImageView iv_image;//事件背景图片
+
+
+
     private ImageView iv_refresh;
     private TextView tv_time, tv_event_title;
 
@@ -227,7 +239,19 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         getPrice();
 //        showGuide();
     }
-
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//        if(newConfig.orientation==Configuration.ORIENTATION_LANDSCAPE){
+//            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(Utils.getScreenWidth(this), Utils.getScreenHeight(this));
+//            frameLayout.setLayoutParams(params);
+//            getTitlebarView().setVisibility(View.GONE);
+//        }else{
+//            getTitlebarView().setVisibility(View.VISIBLE);
+//            rl_running.setLayoutParams(params);
+//            frameLayout.setVisibility(View.INVISIBLE);
+//        }
+//    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -331,10 +355,16 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.getScreenWidth(this) * 3 / 5);
         customDraw.setLayoutParams(layoutParams);
         tv_time = (TextView) findViewById(R.id.tv_time);
-        iv_image = (ImageView) findViewById(R.id.iv_image);
+        //影片
+        rl_running = (RelativeLayout)findViewById(R.id.rl_running);
+        iv_pic = (ImageView) findViewById(R.id.iv_pic);
+        iv_running = (ImageView) findViewById(R.id.iv_running);
+
+        iv_running.setOnClickListener(clickListener);
         iv_refresh = (ImageView) findViewById(R.id.iv_refresh);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Utils.getScreenWidth(this)-Utils.dip2px(this, 30),(Utils.getScreenWidth(this)-Utils.dip2px(this,30))*3/5);
-        iv_image.setLayoutParams(params);
+        params = new LinearLayout.LayoutParams(Utils.getScreenWidth(this)-Utils.dip2px(this, 30),(Utils.getScreenWidth(this)-Utils.dip2px(this,30))*3/5);
+        rl_running.setLayoutParams(params);
+
         iv_refresh.setOnClickListener(clickListener);
 
         view_single_event = findViewById(R.id.view_singlev_event);
@@ -379,6 +409,9 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
         initPoint();
         initLazyBagAndReference();
     }
+
+
+
     OnClickListener switchListenter = new OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -397,6 +430,19 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     view_simple_order.setVisibility(View.VISIBLE);
                     indictor_1.setSelected(true);
                     indictor_2.setSelected(false);
+                    //清算、并下注，启动动画（只启动一次）
+                    if(!isAnim  && preferenceUtil.getID() > 0 && singleEventInfoDAO.getUser().getEvent_clear() !=null &&
+                            (singleEventInfoDAO.getUser().getEvent_clear().getPk0Volume() > 0 ||
+                             singleEventInfoDAO.getUser().getEvent_clear().getPk1Volume() > 0)){
+                        if (came || event.getStatusStr().equals("已清算")) {
+                            if(event.getPriceChange() >= 0){
+                                new EventAnimDialog().showAnimDialog(EventDetailActivity.this, singleEventInfoDAO.getUser().getIf_pk_yes());
+                            }else{
+                                new EventAnimDialog().showAnimDialog(EventDetailActivity.this,singleEventInfoDAO.getUser().getIf_pk_no());
+                            }
+                            isAnim = true;
+                        }
+                    }
                     break;
                 case R.id.rl_pref:
 //                    if (!preferenceUtil.getGuide3()) {
@@ -621,7 +667,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             String goodText = "你已投入"+(int)singleEventInfo.getUser().getEvent_clear().getPk0Volume()+"未币看好";
             SpannableStringBuilder stringBuilder = new SpannableStringBuilder(goodText);
             ForegroundColorSpan span = new ForegroundColorSpan(getResources().getColor(R.color.gain_red));
-            stringBuilder.setSpan(span,goodText.length()-2,goodText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            stringBuilder.setSpan(span, goodText.length() - 2, goodText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             tv_event_buy_simple.setText(stringBuilder);
         }else{
             ll_event_buy_simple.setVisibility(View.GONE);
@@ -632,10 +678,21 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             String badText = "你已投入"+(int)singleEventInfo.getUser().getEvent_clear().getPk1Volume()+"未币不看好";
             SpannableStringBuilder stringBuilder = new SpannableStringBuilder(badText);
             ForegroundColorSpan span = new ForegroundColorSpan(getResources().getColor(R.color.gain_blue));
-            stringBuilder.setSpan(span,badText.length()-3,badText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            stringBuilder.setSpan(span, badText.length() - 3, badText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             tv_event_sell_simple.setText(stringBuilder);
         }else{
             ll_event_sell_simple.setVisibility(View.GONE);
+        }
+
+        if(!isAnim && preferenceUtil.getEasyModel()){//启动动画
+            if (came || event.getStatusStr().equals("已清算")) {
+                if(event.getPriceChange() >= 0){
+                    new EventAnimDialog().showAnimDialog(this,singleEventInfo.getUser().getIf_pk_yes());
+                }else{
+                    new EventAnimDialog().showAnimDialog(this,singleEventInfo.getUser().getIf_pk_no());
+                }
+                isAnim = true;
+            }
         }
 
     }
@@ -732,13 +789,20 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             tv_description.setTextColor(Color.parseColor("#4A90E2"));
         }
         if(TextUtils.isEmpty(event.getAbsImgsrc())){
-            iv_image.setVisibility(View.GONE);
+            iv_pic.setVisibility(View.GONE);
+            rl_running.setVisibility(View.GONE);
         }else{
-            iv_image.setVisibility(View.VISIBLE);
-            if (iv_image.getTag() == null || !iv_image.getTag().equals(event.getAbsImgsrc())) {
-                iv_image.setTag(event.getAbsImgsrc());
-                ImageLoader.getInstance().displayImage(event.getAbsImgsrc(), iv_image, ImageLoadOptions.getOptions(R.drawable.image_top_default));
+            iv_pic.setVisibility(View.VISIBLE);
+            rl_running.setVisibility(View.VISIBLE);
+            if (iv_pic.getTag() == null || !iv_pic.getTag().equals(event.getAbsImgsrc())) {
+                iv_pic.setTag(event.getAbsImgsrc());
+                ImageLoader.getInstance().displayImage(event.getAbsImgsrc(), iv_pic, ImageLoadOptions.getOptions(R.drawable.image_top_default));
             }
+        }
+        if(TextUtils.isEmpty(event.getVideosrc())){
+            iv_running.setVisibility(View.GONE);
+        }else{
+            iv_running.setVisibility(View.VISIBLE);
         }
 
         customDraw.setPrice(event.getCurrPrice());
@@ -765,8 +829,10 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
             switch (v.getId()) {
                 case R.id.btn_event_bg://事件背景
                     if(isShowEventBg){
+                        btn_event_bg.setSelected(false);
                         view_lazyBag_layout.setVisibility(View.GONE);
                     }else{
+                        btn_event_bg.setSelected(true);
                         view_lazyBag_layout.setVisibility(View.VISIBLE);
                     }
                     isShowEventBg = !isShowEventBg;
@@ -910,9 +976,52 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
                     intent4.putExtra("price", priceDAOInfo);
                     startActivity(intent4);
                     break;
+                case R.id.iv_running://播放影片
+                    int netStatus = NetStateUtils.getConnectedType(EventDetailActivity.this);
+                    if(netStatus == ConnectivityManager.TYPE_WIFI
+                            ||(netStatus == ConnectivityManager.TYPE_MOBILE && Content.playMobile)){
+                       startPlay();
+                    }else{
+                        showPlayTip();
+                    }
+                    break;
             }
         }
     };
+    private void startPlay(){
+        Intent intent = new Intent(EventDetailActivity.this, VideoViewPlayerActivity.class);
+        intent.putExtra("url",event.getVideosrc());
+        intent.putExtra("media",5);
+        startActivity(intent);
+    }
+    //确认使用可消费未币交易PK提示
+    private void showPlayTip() {
+        View view = LayoutInflater.from(this).inflate(R.layout.view_event_order_config, null, false);
+        Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
+        TextView tv_configMsg = (TextView) view.findViewById(R.id.tv_configMsg);
+        String configMsg = "您正在使用运营商网路，继续观看可能产生大量流量费用";
+        tv_configMsg.setText(configMsg);
+        Button btn_config = (Button) view.findViewById(R.id.btn_submit);
+        btn_cancel.setText("取消观看");
+        btn_config.setText("继续观看");
+        final Dialog dialog = DialogShow.showDialog(this, view, Gravity.CENTER);
+        btn_cancel.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+            }
+        });
+        btn_config.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Content.playMobile = true;
+                startPlay();
+                dialog.cancel();
+            }
+        });
+        dialog.show();
+    }
+
 
     //初始化价格数据
     private void initPrice(EventPriceDAOInfo info) {
@@ -1482,6 +1591,7 @@ public class EventDetailActivity extends BaseActivity implements PullLayout.Scro
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         if (checkOrder) {//有下单
             MobclickAgent.onEvent(this, Stats.orderY.name());
         } else {

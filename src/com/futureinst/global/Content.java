@@ -21,5 +21,6 @@ public class Content {
     public static int min_p2p_give_exchange = 100;
 
     public static String DEVICE_ID ="";
+	public static boolean playMobile;
 
 }
