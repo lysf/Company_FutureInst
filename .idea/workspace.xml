@@ -13,103 +13,11 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="154e2195-31cf-429b-91fa-9baf87f75ee9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_pause_circle_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_pause_circle_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_play_circle_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_play_circle_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_seekbar_thumb_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_seekbar_thumb_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_seekbar_thumb_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_seekbar_thumb_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_seekbar_thumb_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_seekbar_thumb_pressed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/lost1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/lost2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/lost3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/lost4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/max_btn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/min_btn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/pausesmall_btn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/play_btn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/playsmall_btn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0001.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0002.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0003.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0004.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0005.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0006.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0007.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0008.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0009.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0010.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0011.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0012.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0013.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0014.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0015.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0016.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0017.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0018.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0019.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0020.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0021.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0022.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0023.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0024.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0025.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0026.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0027.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/tie0028.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/up_cut.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0001.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0002.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0003.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0004.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0005.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0006.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0007.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0008.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0009.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0010.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0011.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/win0012.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/widget/commentlabview/CustomCommentLabView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/eventanim/EventAnimDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/widget/IconSlidingRankingTabView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/util/LanSoDemoApplication.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/MediaPlayerSurfaceActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/MediaPlayerVideo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/util/NetStateUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/util/PlayTimeUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/util/SlidingLayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/util/Strings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/widget/commentlabview/TabView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/VideoPlayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/VideoPlayerActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/VideoViewPlayerActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout-land/activity_event_detail_about.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/anim_event_lost.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/anim_event_tie.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/anim_event_win.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/bottom_yellow_corner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/corner_black_tran_bg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/event_up_down.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/iconfont_rank.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/mediaplayer_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/mediaplayer_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/player.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/player_hud.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/po_seekbar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/seekbar_thumb.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/futureinst/player/util/snoCrashHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/videoview.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/view_event_anim.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/view_player.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vitamio_Lib/vitamio_Lib.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/BDAutoUpdate_APPX_SDK_20150826.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/BDAutoUpdate_APPX_SDK_20150826.jar" />
@@ -121,44 +29,11 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/raw/index_4.png" afterPath="$PROJECT_DIR$/res/raw/index_4.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/debug/libs/patchupdate.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/bundles/release/libs/patchupdate.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/patchupdate.jar" afterPath="$PROJECT_DIR$/build/intermediates/exploded-aar/FutureInst/BDIntegrationSDK_Lib/unspecified/jars/libs/patchupdate.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/BDIntegrationSDK_Lib/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/baseui/BaseActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/baseui/BaseActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/buildConfig/_360/debug/com/futureinst/BuildConfig.java" afterPath="$PROJECT_DIR$/build/generated/source/buildConfig/_360/debug/com/futureinst/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/global/Content.java" afterPath="$PROJECT_DIR$/src/com/futureinst/global/Content.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastContainerTypeFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastContainerTypeFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastItemAdapter.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastItemAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FutureInst.iml" afterPath="$PROJECT_DIR$/FutureInst.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/utils/MyProgressDialog.java" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/MyProgressDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/_360/debug/android/support/design/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/_360/debug/android/support/design/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/_360/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/_360/debug/android/support/v7/appcompat/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/_360/debug/android/support/v7/cardview/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/_360/debug/android/support/v7/cardview/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/baidu/integrationsdk/lib/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/baidu/integrationsdk/lib/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/baidu/paysdk/lib/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/baidu/paysdk/lib/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/futureinst/R.java" afterPath="$PROJECT_DIR$/build/generated/source/r/_360/debug/com/futureinst/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/find/RankingFragment.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/find/RankingFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/find/RankingTypeAdapter.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/find/RankingTypeAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/simple/SimpleRateView.java" afterPath="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/simple/SimpleRateView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/futureinst/utils/TimeUtil.java" afterPath="$PROJECT_DIR$/src/com/futureinst/utils/TimeUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_event_detail_about.xml" afterPath="$PROJECT_DIR$/res/layout/activity_event_detail_about.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/arrays.xml" afterPath="$PROJECT_DIR$/res/values/arrays.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/attrs.xml" afterPath="$PROJECT_DIR$/res/values/attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/colors.xml" afterPath="$PROJECT_DIR$/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/event_detail_1.xml" afterPath="$PROJECT_DIR$/res/layout/event_detail_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/fragment_home_ranking.xml" afterPath="$PROJECT_DIR$/res/layout/fragment_home_ranking.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item_forecast_type.xml" afterPath="$PROJECT_DIR$/res/layout/item_forecast_type.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/item_ranking_type.xml" afterPath="$PROJECT_DIR$/res/layout/item_ranking_type.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/view_event_rule.xml" afterPath="$PROJECT_DIR$/res/layout/view_event_rule.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/view_item_forecast_middle.xml" afterPath="$PROJECT_DIR$/res/layout/view_item_forecast_middle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FutureInst.iws" />
@@ -186,18 +61,7 @@
     <favorites_list name="FutureInst" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28253424">
-              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -223,8 +87,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
     </option>
   </component>
   <component name="GradleLocalSettings">
@@ -6167,7 +6034,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="7269628415000" />
+        <entry key="$PROJECT_DIR$" value="7270450804000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -6887,7 +6754,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/res/layout/fragment_home_ranking.xml" />
         <option value="$PROJECT_DIR$/src/com/futureinst/home/find/RankingTypeAdapter.java" />
         <option value="$PROJECT_DIR$/res/layout/item_ranking_type.xml" />
         <option value="$PROJECT_DIR$/res/values/arrays.xml" />
@@ -6938,6 +6804,7 @@
         <option value="$PROJECT_DIR$/src/com/futureinst/player/VideoViewPlayerActivity.java" />
         <option value="$PROJECT_DIR$/src/com/futureinst/home/eventdetail/EventDetailActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/com/futureinst/widget/PagerSlidingTabStrip.java" />
       </list>
     </option>
   </component>
@@ -6979,26 +6846,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FutureInst" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -7069,9 +6916,61 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FutureInst" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -7079,13 +6978,13 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="android.project.structure.last.selected" value="FutureInst" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="settings.editor.selected.configurable" value="com.genymobile.genymotion.ide.idea.GdmSettings" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="ExportApk.ApkPath" value="$USER_HOME$/Desktop/futureinst/v2.5" />
     <property name="ExportApk.Flavors" value="_360&#10;anzhi&#10;baidu&#10;huawei&#10;server&#10;wandoujia&#10;xiaomi&#10;yingyongbao" />
     <property name="ExportApk.BuildType" value="release" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.104:5555" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.59.101:5555" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_23" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/res/layout" />
     <property name="OverrideImplement.combined" value="true" />
@@ -7271,7 +7170,7 @@
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -7298,7 +7197,19 @@
       <option name="project" value="LOCAL" />
       <updated>1456456636899</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="v2.5">
+      <created>1457406958289</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1457406958289</updated>
+    </task>
+    <task id="LOCAL-00005" summary="v2.5">
+      <created>1457668205384</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1457668205384</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -7310,12 +7221,13 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6769984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4248366" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32789558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3267974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263328" sideWeight="0.503231" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32300162" sideWeight="0.49676898" order="7" side_tool="false" content_ui="tabs" />
@@ -7324,15 +7236,14 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2714055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23424879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33279485" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32626426" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -7341,15 +7252,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7941653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263328" sideWeight="0.503231" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3263328" sideWeight="0.503231" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2552504" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -7364,8 +7275,8 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3241491" sideWeight="0.49676898" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -7384,7 +7295,8 @@
     <MESSAGE value="v2.3" />
     <MESSAGE value="v2.4&#10;" />
     <MESSAGE value="v2.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.4" />
+    <MESSAGE value="v2.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -7414,18 +7326,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/futureinst/baseui/BaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="275" column="24" selection-start-line="275" selection-start-column="15" selection-end-line="275" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-xhdpi/back.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/futureinst/utils/MyProgressDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17826825">
@@ -7825,8 +7725,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28253424">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/home/forecast/ForecastFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="190" column="21" selection-start-line="190" selection-start-column="21" selection-end-line="190" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/futureinst/widget/PagerSlidingTabStrip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28767124">
+          <caret line="367" column="48" selection-start-line="367" selection-start-column="48" selection-end-line="367" selection-end-column="48" />
           <folding />
         </state>
       </provider>
